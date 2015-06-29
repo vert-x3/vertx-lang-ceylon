@@ -1,3 +1,5 @@
 @comment{'remove this hack'}
 module @{fqn.replace('io.vertx', 'io.vertx.ceylon')} "1.0.0" {\n
+  native("jvm") import java.base "7";\n
+  import ceylon.json "1.1.1";\n
 }

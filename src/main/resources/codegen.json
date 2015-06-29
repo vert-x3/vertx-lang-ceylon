@@ -12,5 +12,10 @@
     "kind": "module",
     "fileName": "'ceylon/' + module.translateQualifiedName(module.packageName, 'ceylon').replace('.', '/') + '/module.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-module.templ"
-  } ]
+  }, {
+    "kind": "dataObject",
+    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "templateFileName": "vertx-ceylon/template/ceylon-dataobject.templ"
+  }
+  ]
 }
