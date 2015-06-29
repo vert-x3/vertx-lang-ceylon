@@ -1,0 +1,16 @@
+{
+  "name": "Ceylon",
+  "generators": [ {
+    "kind": "class",
+    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "templateFileName": "vertx-ceylon/template/ceylon-class.templ"
+  }, {
+    "kind": "package",
+    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '/package.ceylon'",
+    "templateFileName": "vertx-ceylon/template/ceylon-package.templ"
+  }, {
+    "kind": "module",
+    "fileName": "'ceylon/' + module.translateQualifiedName(module.packageName, 'ceylon').replace('.', '/') + '/module.ceylon'",
+    "templateFileName": "vertx-ceylon/template/ceylon-module.templ"
+  } ]
+}

@@ -1,0 +1,1 @@
+ceylon compile --source=src/main/ceylon
