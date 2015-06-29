@@ -12,5 +12,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.net.NetSocket */
-shared class NetSocket() {
+shared class NetSocket() satisfies ReadStream<Buffer> & WriteStream<Buffer> {
 }

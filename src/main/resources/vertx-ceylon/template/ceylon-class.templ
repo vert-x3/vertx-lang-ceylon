@@ -508,7 +508,35 @@
     end\n
 @end{}
 
-@declare{'genClassDecl'}
+@code{
+  def genTypeDecl(type) {
+    var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
+    if (type instanceof io.vertx.codegen.TypeInfo$Class) {
+      var kind = type.kind;
+      if (kind == CLASS_API) {
+        decl = type.simpleName;
+      } else if (kind == CLASS_BOXED_PRIMITIVE) {
+        var name = type.name;
+        if (name == 'java.lang.Long' || name == 'java.lang.Integer') {
+          decl = 'Integer';
+        }
+      }
+    } else if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
+      decl = genTypeDecl(type.raw);
+      var sep = '<';
+      for (typeArg : type.args) {
+        decl += sep + genTypeDecl(typeArg);
+        sep = ',';
+      }
+      decl += '>';
+    } else if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
+      decl = type.name;
+    }
+    return decl;
+  }
+}
+
+@declare{'genModelDecl'}
 	@{type.raw.simpleName}
 	@if{typeParams.size() > 0}
 		<@foreach{typeParam:typeParams}
@@ -517,10 +545,20 @@
 	@end{}
 @end{}
 
+@declare{'genExtendsClause'}
+	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])} @end{}
+@end{}
+
+@declare{'genSatisfiesClause'}
+	@if{abstractSuperTypes.size() > 0}satisfies @foreach{superType:abstractSuperTypes}
+	@{genTypeDecl(superType)}
+	@end{' & '} @end{}
+@end{}
+
 /* Generated from @{type.name} */\n
 @if{concrete}
-shared class @includeNamed{'genClassDecl'}() {\n
+shared class @includeNamed{'genModelDecl'}() @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'}{\n
 @else{}
-shared interface @includeNamed{'genClassDecl'} {\n
+shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'}{\n
 @end{}
 }\n

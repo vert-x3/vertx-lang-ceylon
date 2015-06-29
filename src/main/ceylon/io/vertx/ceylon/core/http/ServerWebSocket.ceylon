@@ -14,5 +14,5 @@ import io.vertx.ceylon.core.http {
   WebSocketFrame
 }
 /* Generated from io.vertx.core.http.ServerWebSocket */
-shared class ServerWebSocket() {
+shared class ServerWebSocket() satisfies WebSocketBase {
 }

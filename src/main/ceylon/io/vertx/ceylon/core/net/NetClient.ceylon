@@ -8,5 +8,5 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.net.NetClient */
-shared class NetClient() {
+shared class NetClient() satisfies Measured {
 }

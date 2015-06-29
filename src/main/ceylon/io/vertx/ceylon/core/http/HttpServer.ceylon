@@ -11,5 +11,5 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.http.HttpServer */
-shared class HttpServer() {
+shared class HttpServer() satisfies Measured {
 }

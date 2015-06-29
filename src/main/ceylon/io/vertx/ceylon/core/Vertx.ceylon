@@ -41,5 +41,5 @@ import io.vertx.ceylon.core.dns {
   DnsClient
 }
 /* Generated from io.vertx.core.Vertx */
-shared class Vertx() {
+shared class Vertx() satisfies Measured {
 }

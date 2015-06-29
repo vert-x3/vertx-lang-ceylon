@@ -18,5 +18,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.datagram.DatagramSocket */
-shared class DatagramSocket() {
+shared class DatagramSocket() satisfies ReadStream<DatagramPacket> & Measured {
 }

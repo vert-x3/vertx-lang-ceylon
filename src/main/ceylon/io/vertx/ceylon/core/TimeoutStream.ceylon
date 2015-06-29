@@ -5,5 +5,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.TimeoutStream */
-shared class TimeoutStream() {
+shared class TimeoutStream() satisfies ReadStream<Integer> {
 }

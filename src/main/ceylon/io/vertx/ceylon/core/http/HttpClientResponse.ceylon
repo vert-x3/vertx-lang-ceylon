@@ -14,5 +14,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.HttpClientResponse */
-shared class HttpClientResponse() {
+shared class HttpClientResponse() satisfies ReadStream<Buffer> {
 }

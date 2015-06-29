@@ -14,5 +14,5 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.http.HttpClient */
-shared class HttpClient() {
+shared class HttpClient() satisfies Measured {
 }

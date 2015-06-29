@@ -12,5 +12,5 @@ import io.vertx.ceylon.core.streams {
   WriteStream
 }
 /* Generated from io.vertx.core.http.HttpServerResponse */
-shared class HttpServerResponse() {
+shared class HttpServerResponse() satisfies WriteStream<Buffer> {
 }
