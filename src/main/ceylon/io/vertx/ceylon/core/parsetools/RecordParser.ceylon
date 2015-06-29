@@ -6,4 +6,12 @@ import io.vertx.ceylon.core.buffer {
 }
 /* Generated from io.vertx.core.parsetools.RecordParser */
 shared class RecordParser() {
+  shared default void setOutput() {
+  }
+  shared default void delimitedMode() {
+  }
+  shared default void fixedSizeMode() {
+  }
+  shared default void handle() {
+  }
 }

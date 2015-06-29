@@ -9,4 +9,8 @@ import io.vertx.ceylon.core.metrics {
 }
 /* Generated from io.vertx.core.net.NetClient */
 shared class NetClient() satisfies Measured {
+  shared default void connect() {
+  }
+  shared default void close() {
+  }
 }

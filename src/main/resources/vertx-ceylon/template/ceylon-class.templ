@@ -160,14 +160,7 @@
    * Generate a ruby method name for a given method.
    */
   def genMethodName(method) {
-    var name = method.getName(CASE_SNAKE);
-    if (method.returnType.name == "boolean" || method.returnType.name == "java.lang.Boolean") {
-      if (name.startsWith("is_")) {
-        name = name.substring(3);
-      }
-      name += "?";
-    }
-    return name;
+    return toCeylonIdentifier(method.name);
   }
 
   /*
@@ -508,6 +501,11 @@
     end\n
 @end{}
 
+
+
+
+
+
 @code{
   def genTypeDecl(type) {
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
@@ -533,6 +531,34 @@
       decl = type.name;
     }
     return decl;
+  }
+
+  def toCeylonIdentifier(s) {
+    if (s == 'value') {
+      return '\\ivalue';
+    } else if (s == 'exists') {
+       return '\\iexists';
+    } else {
+      return s;
+    }
+  }
+
+  def shouldDeclareMethod(methods) {
+    for (method : methods) {
+      if (method.ownerTypes.size() > 1 || method.isOwnedBy(type.raw)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  def isActualMethod(methods) {
+    for (method : methods) {
+      if (method.ownerTypes.size() > 1) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
@@ -561,4 +587,15 @@ shared class @includeNamed{'genModelDecl'}() @includeNamed{'genExtendsClause'}@i
 @else{}
 shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'}{\n
 @end{}
+
+	@foreach{methods:methodsByName.values()}
+		@code{method=methods[methods.size()-1]}
+		@code{methodName=genMethodName(methods[0])}
+		@if{!method.staticMethod && shouldDeclareMethod(methods)}
+			  shared @if{isActualMethod(methods)}actual @end{}default void @{methodName}() {\n
+			  }\n
+		@end{}
+	@end{}
+
+
 }\n

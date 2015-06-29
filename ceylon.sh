@@ -1,1 +1,1 @@
-ceylon compile --source=src/main/ceylon
+ceylon compile --suppress-warning --source=src/main/ceylon

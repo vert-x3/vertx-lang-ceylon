@@ -3,4 +3,8 @@ import java.lang {
 }
 /* Generated from io.vertx.core.dns.MxRecord */
 shared class MxRecord() {
+  shared default void priority() {
+  }
+  shared default void name() {
+  }
 }
