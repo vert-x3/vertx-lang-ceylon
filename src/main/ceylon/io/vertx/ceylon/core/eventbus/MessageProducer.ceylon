@@ -8,5 +8,5 @@ import io.vertx.ceylon.core.streams {
   WriteStream
 }
 /* Generated from io.vertx.core.eventbus.MessageProducer<T> */
-shared class MessageProducer() {
+shared class MessageProducer<T>() {
 }

@@ -3,5 +3,5 @@ import java.lang {
   Integer_=Integer
 }
 /* Generated from io.vertx.core.shareddata.AsyncMap<K,V> */
-shared class AsyncMap() {
+shared class AsyncMap<K,V>() {
 }

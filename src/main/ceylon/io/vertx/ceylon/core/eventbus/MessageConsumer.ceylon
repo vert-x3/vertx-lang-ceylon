@@ -8,5 +8,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.eventbus.MessageConsumer<T> */
-shared class MessageConsumer() {
+shared class MessageConsumer<T>() {
 }

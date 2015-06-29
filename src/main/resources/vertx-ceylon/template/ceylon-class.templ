@@ -508,10 +508,19 @@
     end\n
 @end{}
 
+@declare{'genClassDecl'}
+	@{type.raw.simpleName}
+	@if{typeParams.size() > 0}
+		<@foreach{typeParam:typeParams}
+		@{typeParam.name}
+		@end{','}>
+	@end{}
+@end{}
+
 /* Generated from @{type.name} */\n
 @if{concrete}
-shared class @{type.raw.simpleName}() {\n
+shared class @includeNamed{'genClassDecl'}() {\n
 @else{}
-shared interface @{type.raw.simpleName} {\n
+shared interface @includeNamed{'genClassDecl'} {\n
 @end{}
 }\n

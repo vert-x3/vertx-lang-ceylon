@@ -8,5 +8,5 @@ import io.vertx.ceylon.core {
   MultiMap
 }
 /* Generated from io.vertx.core.eventbus.Message<T> */
-shared class Message() {
+shared class Message<T>() {
 }
