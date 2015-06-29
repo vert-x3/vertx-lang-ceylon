@@ -509,5 +509,9 @@
 @end{}
 
 /* Generated from @{type.name} */\n
+@if{concrete}
 shared class @{type.raw.simpleName}() {\n
+@else{}
+shared interface @{type.raw.simpleName} {\n
+@end{}
 }\n

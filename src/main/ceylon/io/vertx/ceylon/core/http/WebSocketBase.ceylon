@@ -15,5 +15,5 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.WebSocketBase */
-shared class WebSocketBase() {
+shared interface WebSocketBase {
 }
