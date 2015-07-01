@@ -581,19 +581,22 @@
 	@end{' & '} @end{}
 @end{}
 
+@declare{'genMethodParams'}
+[]
+@end{}
+
 /* Generated from @{type.name} */\n
 @if{concrete}
-shared class @includeNamed{'genModelDecl'}() @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'}{\n
+shared abstract class @includeNamed{'genModelDecl'}() @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'}{\n
 @else{}
 shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'}{\n
 @end{}
 
 	@foreach{methods:methodsByName.values()}
-		@code{method=methods[methods.size()-1]}
+		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
-		@if{!method.staticMethod && shouldDeclareMethod(methods)}
-			  shared @if{isActualMethod(methods)}actual @end{}default void @{methodName}() {\n
-			  }\n
+		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
+			  shared @if{isActualMethod(methods)}actual @end{}formal Anything(*<@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}>) @{methodName};\n
 		@end{}
 	@end{}
 

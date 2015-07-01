@@ -1,25 +1,14 @@
 /* Generated from io.vertx.core.shareddata.LocalMap<K,V> */
-shared class LocalMap<K,V>() {
-  shared default void get() {
-  }
-  shared default void put() {
-  }
-  shared default void remove() {
-  }
-  shared default void clear() {
-  }
-  shared default void size() {
-  }
-  shared default void isEmpty() {
-  }
-  shared default void putIfAbsent() {
-  }
-  shared default void removeIfPresent() {
-  }
-  shared default void replaceIfPresent() {
-  }
-  shared default void replace() {
-  }
-  shared default void close() {
-  }
+shared abstract class LocalMap<K,V>() {
+  shared formal Anything(*<[]>) get;
+  shared formal Anything(*<[]>) put;
+  shared formal Anything(*<[]>) remove;
+  shared formal Anything(*<[]>) clear;
+  shared formal Anything(*<[]>) size;
+  shared formal Anything(*<[]>) isEmpty;
+  shared formal Anything(*<[]>) putIfAbsent;
+  shared formal Anything(*<[]>) removeIfPresent;
+  shared formal Anything(*<[]>) replaceIfPresent;
+  shared formal Anything(*<[]>) replace;
+  shared formal Anything(*<[]>) close;
 }

@@ -3,19 +3,12 @@ import java.lang {
   Boolean_=Boolean
 }
 /* Generated from io.vertx.core.shareddata.Counter */
-shared class Counter() {
-  shared default void get() {
-  }
-  shared default void incrementAndGet() {
-  }
-  shared default void getAndIncrement() {
-  }
-  shared default void decrementAndGet() {
-  }
-  shared default void addAndGet() {
-  }
-  shared default void getAndAdd() {
-  }
-  shared default void compareAndSet() {
-  }
+shared abstract class Counter() {
+  shared formal Anything(*<[]>) get;
+  shared formal Anything(*<[]>) incrementAndGet;
+  shared formal Anything(*<[]>) getAndIncrement;
+  shared formal Anything(*<[]>) decrementAndGet;
+  shared formal Anything(*<[]>) addAndGet;
+  shared formal Anything(*<[]>) getAndAdd;
+  shared formal Anything(*<[]>) compareAndSet;
 }

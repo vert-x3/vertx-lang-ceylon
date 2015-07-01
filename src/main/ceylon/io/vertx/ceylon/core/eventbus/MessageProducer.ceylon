@@ -8,17 +8,11 @@ import io.vertx.ceylon.core.streams {
   WriteStream
 }
 /* Generated from io.vertx.core.eventbus.MessageProducer<T> */
-shared class MessageProducer<T>() satisfies WriteStream<T> {
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void write() {
-  }
-  shared actual default void setWriteQueueMaxSize() {
-  }
-  shared actual default void drainHandler() {
-  }
-  shared default void deliveryOptions() {
-  }
-  shared default void address() {
-  }
+shared abstract class MessageProducer<T>() satisfies WriteStream<T> {
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]>) write;
+  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[]>) drainHandler;
+  shared formal Anything(*<[]>) deliveryOptions;
+  shared formal Anything(*<[]>) address;
 }

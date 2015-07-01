@@ -6,31 +6,18 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.file.AsyncFile */
-shared class AsyncFile() satisfies ReadStream<Buffer> & WriteStream<Buffer> {
-  shared actual default void handler() {
-  }
-  shared actual default void pause() {
-  }
-  shared actual default void resume() {
-  }
-  shared actual default void endHandler() {
-  }
-  shared actual default void write() {
-  }
-  shared actual default void setWriteQueueMaxSize() {
-  }
-  shared actual default void drainHandler() {
-  }
-  shared actual default void exceptionHandler() {
-  }
-  shared default void close() {
-  }
-  shared default void read() {
-  }
-  shared default void flush() {
-  }
-  shared default void setReadPos() {
-  }
-  shared default void setWritePos() {
-  }
+shared abstract class AsyncFile() satisfies ReadStream<Buffer> & WriteStream<Buffer> {
+  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[]>) pause;
+  shared actual formal Anything(*<[]>) resume;
+  shared actual formal Anything(*<[]>) endHandler;
+  shared actual formal Anything(*<[]|[]>) write;
+  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[]>) drainHandler;
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared formal Anything(*<[]|[]>) close;
+  shared formal Anything(*<[]>) read;
+  shared formal Anything(*<[]|[]>) flush;
+  shared formal Anything(*<[]>) setReadPos;
+  shared formal Anything(*<[]>) setWritePos;
 }

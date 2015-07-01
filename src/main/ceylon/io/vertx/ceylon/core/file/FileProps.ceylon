@@ -1,19 +1,11 @@
 /* Generated from io.vertx.core.file.FileProps */
-shared class FileProps() {
-  shared default void creationTime() {
-  }
-  shared default void lastAccessTime() {
-  }
-  shared default void lastModifiedTime() {
-  }
-  shared default void isDirectory() {
-  }
-  shared default void isOther() {
-  }
-  shared default void isRegularFile() {
-  }
-  shared default void isSymbolicLink() {
-  }
-  shared default void size() {
-  }
+shared abstract class FileProps() {
+  shared formal Anything(*<[]>) creationTime;
+  shared formal Anything(*<[]>) lastAccessTime;
+  shared formal Anything(*<[]>) lastModifiedTime;
+  shared formal Anything(*<[]>) isDirectory;
+  shared formal Anything(*<[]>) isOther;
+  shared formal Anything(*<[]>) isRegularFile;
+  shared formal Anything(*<[]>) isSymbolicLink;
+  shared formal Anything(*<[]>) size;
 }

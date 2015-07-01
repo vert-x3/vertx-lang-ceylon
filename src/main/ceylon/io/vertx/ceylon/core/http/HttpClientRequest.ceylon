@@ -15,41 +15,23 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.HttpClientRequest */
-shared class HttpClientRequest() satisfies WriteStream<Buffer> & ReadStream<HttpClientResponse> {
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void write() {
-  }
-  shared actual default void setWriteQueueMaxSize() {
-  }
-  shared actual default void drainHandler() {
-  }
-  shared actual default void handler() {
-  }
-  shared actual default void pause() {
-  }
-  shared actual default void resume() {
-  }
-  shared actual default void endHandler() {
-  }
-  shared default void setChunked() {
-  }
-  shared default void isChunked() {
-  }
-  shared default void method() {
-  }
-  shared default void uri() {
-  }
-  shared default void headers() {
-  }
-  shared default void putHeader() {
-  }
-  shared default void continueHandler() {
-  }
-  shared default void sendHead() {
-  }
-  shared default void end() {
-  }
-  shared default void setTimeout() {
-  }
+shared abstract class HttpClientRequest() satisfies WriteStream<Buffer> & ReadStream<HttpClientResponse> {
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]|[]|[]>) write;
+  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[]>) drainHandler;
+  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[]>) pause;
+  shared actual formal Anything(*<[]>) resume;
+  shared actual formal Anything(*<[]>) endHandler;
+  shared formal Anything(*<[]>) setChunked;
+  shared formal Anything(*<[]>) isChunked;
+  shared formal Anything(*<[]>) method;
+  shared formal Anything(*<[]>) uri;
+  shared formal Anything(*<[]>) headers;
+  shared formal Anything(*<[]>) putHeader;
+  shared formal Anything(*<[]>) continueHandler;
+  shared formal Anything(*<[]>) sendHead;
+  shared formal Anything(*<[]|[]|[]|[]>) end;
+  shared formal Anything(*<[]>) setTimeout;
 }

@@ -41,49 +41,27 @@ import io.vertx.ceylon.core.dns {
   DnsClient
 }
 /* Generated from io.vertx.core.Vertx */
-shared class Vertx() satisfies Measured {
-  shared default void getOrCreateContext() {
-  }
-  shared default void createNetServer() {
-  }
-  shared default void createNetClient() {
-  }
-  shared default void createHttpServer() {
-  }
-  shared default void createHttpClient() {
-  }
-  shared default void createDatagramSocket() {
-  }
-  shared default void fileSystem() {
-  }
-  shared default void eventBus() {
-  }
-  shared default void createDnsClient() {
-  }
-  shared default void sharedData() {
-  }
-  shared default void setTimer() {
-  }
-  shared default void timerStream() {
-  }
-  shared default void setPeriodic() {
-  }
-  shared default void periodicStream() {
-  }
-  shared default void cancelTimer() {
-  }
-  shared default void runOnContext() {
-  }
-  shared default void close() {
-  }
-  shared default void deployVerticle() {
-  }
-  shared default void undeploy() {
-  }
-  shared default void deploymentIDs() {
-  }
-  shared default void isClustered() {
-  }
-  shared default void executeBlocking() {
-  }
+shared abstract class Vertx() satisfies Measured {
+  shared formal Anything(*<[]>) getOrCreateContext;
+  shared formal Anything(*<[]|[]>) createNetServer;
+  shared formal Anything(*<[]|[]>) createNetClient;
+  shared formal Anything(*<[]|[]>) createHttpServer;
+  shared formal Anything(*<[]|[]>) createHttpClient;
+  shared formal Anything(*<[]|[]>) createDatagramSocket;
+  shared formal Anything(*<[]>) fileSystem;
+  shared formal Anything(*<[]>) eventBus;
+  shared formal Anything(*<[]>) createDnsClient;
+  shared formal Anything(*<[]>) sharedData;
+  shared formal Anything(*<[]>) setTimer;
+  shared formal Anything(*<[]>) timerStream;
+  shared formal Anything(*<[]>) setPeriodic;
+  shared formal Anything(*<[]>) periodicStream;
+  shared formal Anything(*<[]>) cancelTimer;
+  shared formal Anything(*<[]>) runOnContext;
+  shared formal Anything(*<[]|[]>) close;
+  shared formal Anything(*<[]|[]|[]|[]>) deployVerticle;
+  shared formal Anything(*<[]|[]>) undeploy;
+  shared formal Anything(*<[]>) deploymentIDs;
+  shared formal Anything(*<[]>) isClustered;
+  shared formal Anything(*<[]|[]>) executeBlocking;
 }

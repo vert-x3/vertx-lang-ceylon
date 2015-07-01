@@ -20,59 +20,32 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.HttpServerRequest */
-shared class HttpServerRequest() satisfies ReadStream<Buffer> {
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void handler() {
-  }
-  shared actual default void pause() {
-  }
-  shared actual default void resume() {
-  }
-  shared actual default void endHandler() {
-  }
-  shared default void version() {
-  }
-  shared default void method() {
-  }
-  shared default void uri() {
-  }
-  shared default void path() {
-  }
-  shared default void query() {
-  }
-  shared default void response() {
-  }
-  shared default void headers() {
-  }
-  shared default void getHeader() {
-  }
-  shared default void params() {
-  }
-  shared default void getParam() {
-  }
-  shared default void remoteAddress() {
-  }
-  shared default void localAddress() {
-  }
-  shared default void absoluteURI() {
-  }
-  shared default void bodyHandler() {
-  }
-  shared default void netSocket() {
-  }
-  shared default void setExpectMultipart() {
-  }
-  shared default void isExpectMultipart() {
-  }
-  shared default void uploadHandler() {
-  }
-  shared default void formAttributes() {
-  }
-  shared default void getFormAttribute() {
-  }
-  shared default void upgrade() {
-  }
-  shared default void isEnded() {
-  }
+shared abstract class HttpServerRequest() satisfies ReadStream<Buffer> {
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[]>) pause;
+  shared actual formal Anything(*<[]>) resume;
+  shared actual formal Anything(*<[]>) endHandler;
+  shared formal Anything(*<[]>) version;
+  shared formal Anything(*<[]>) method;
+  shared formal Anything(*<[]>) uri;
+  shared formal Anything(*<[]>) path;
+  shared formal Anything(*<[]>) query;
+  shared formal Anything(*<[]>) response;
+  shared formal Anything(*<[]>) headers;
+  shared formal Anything(*<[]>) getHeader;
+  shared formal Anything(*<[]>) params;
+  shared formal Anything(*<[]>) getParam;
+  shared formal Anything(*<[]>) remoteAddress;
+  shared formal Anything(*<[]>) localAddress;
+  shared formal Anything(*<[]>) absoluteURI;
+  shared formal Anything(*<[]>) bodyHandler;
+  shared formal Anything(*<[]>) netSocket;
+  shared formal Anything(*<[]>) setExpectMultipart;
+  shared formal Anything(*<[]>) isExpectMultipart;
+  shared formal Anything(*<[]>) uploadHandler;
+  shared formal Anything(*<[]>) formAttributes;
+  shared formal Anything(*<[]>) getFormAttribute;
+  shared formal Anything(*<[]>) upgrade;
+  shared formal Anything(*<[]>) isEnded;
 }

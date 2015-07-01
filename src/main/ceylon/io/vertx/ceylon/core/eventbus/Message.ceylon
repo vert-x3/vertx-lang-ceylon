@@ -8,17 +8,11 @@ import io.vertx.ceylon.core {
   MultiMap
 }
 /* Generated from io.vertx.core.eventbus.Message<T> */
-shared class Message<T>() {
-  shared default void address() {
-  }
-  shared default void headers() {
-  }
-  shared default void body() {
-  }
-  shared default void replyAddress() {
-  }
-  shared default void reply() {
-  }
-  shared default void fail() {
-  }
+shared abstract class Message<T>() {
+  shared formal Anything(*<[]>) address;
+  shared formal Anything(*<[]>) headers;
+  shared formal Anything(*<[]>) body;
+  shared formal Anything(*<[]>) replyAddress;
+  shared formal Anything(*<[]|[]|[]|[]>) reply;
+  shared formal Anything(*<[]>) fail;
 }

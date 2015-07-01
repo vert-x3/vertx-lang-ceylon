@@ -8,9 +8,7 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.net.NetClient */
-shared class NetClient() satisfies Measured {
-  shared default void connect() {
-  }
-  shared default void close() {
-  }
+shared abstract class NetClient() satisfies Measured {
+  shared formal Anything(*<[]>) connect;
+  shared formal Anything(*<[]>) close;
 }

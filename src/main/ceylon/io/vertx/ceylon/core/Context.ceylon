@@ -8,29 +8,17 @@ import ceylon.json {
   JsonObject=Object
 }
 /* Generated from io.vertx.core.Context */
-shared class Context() {
-  shared default void runOnContext() {
-  }
-  shared default void deploymentID() {
-  }
-  shared default void config() {
-  }
-  shared default void processArgs() {
-  }
-  shared default void isEventLoopContext() {
-  }
-  shared default void isWorkerContext() {
-  }
-  shared default void isMultiThreadedWorkerContext() {
-  }
-  shared default void get() {
-  }
-  shared default void put() {
-  }
-  shared default void remove() {
-  }
-  shared default void owner() {
-  }
-  shared default void getInstanceCount() {
-  }
+shared abstract class Context() {
+  shared formal Anything(*<[]>) runOnContext;
+  shared formal Anything(*<[]>) deploymentID;
+  shared formal Anything(*<[]>) config;
+  shared formal Anything(*<[]>) processArgs;
+  shared formal Anything(*<[]>) isEventLoopContext;
+  shared formal Anything(*<[]>) isWorkerContext;
+  shared formal Anything(*<[]>) isMultiThreadedWorkerContext;
+  shared formal Anything(*<[]>) get;
+  shared formal Anything(*<[]>) put;
+  shared formal Anything(*<[]>) remove;
+  shared formal Anything(*<[]>) owner;
+  shared formal Anything(*<[]>) getInstanceCount;
 }

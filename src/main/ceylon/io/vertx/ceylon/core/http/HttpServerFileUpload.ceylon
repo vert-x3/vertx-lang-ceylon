@@ -8,31 +8,18 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.HttpServerFileUpload */
-shared class HttpServerFileUpload() satisfies ReadStream<Buffer> {
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void handler() {
-  }
-  shared actual default void endHandler() {
-  }
-  shared actual default void pause() {
-  }
-  shared actual default void resume() {
-  }
-  shared default void streamToFileSystem() {
-  }
-  shared default void filename() {
-  }
-  shared default void name() {
-  }
-  shared default void contentType() {
-  }
-  shared default void contentTransferEncoding() {
-  }
-  shared default void charset() {
-  }
-  shared default void size() {
-  }
-  shared default void isSizeAvailable() {
-  }
+shared abstract class HttpServerFileUpload() satisfies ReadStream<Buffer> {
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[]>) endHandler;
+  shared actual formal Anything(*<[]>) pause;
+  shared actual formal Anything(*<[]>) resume;
+  shared formal Anything(*<[]>) streamToFileSystem;
+  shared formal Anything(*<[]>) filename;
+  shared formal Anything(*<[]>) name;
+  shared formal Anything(*<[]>) contentType;
+  shared formal Anything(*<[]>) contentTransferEncoding;
+  shared formal Anything(*<[]>) charset;
+  shared formal Anything(*<[]>) size;
+  shared formal Anything(*<[]>) isSizeAvailable;
 }

@@ -12,49 +12,27 @@ import io.vertx.ceylon.core.streams {
   WriteStream
 }
 /* Generated from io.vertx.core.http.HttpServerResponse */
-shared class HttpServerResponse() satisfies WriteStream<Buffer> {
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void write() {
-  }
-  shared actual default void setWriteQueueMaxSize() {
-  }
-  shared actual default void drainHandler() {
-  }
-  shared default void getStatusCode() {
-  }
-  shared default void setStatusCode() {
-  }
-  shared default void getStatusMessage() {
-  }
-  shared default void setStatusMessage() {
-  }
-  shared default void setChunked() {
-  }
-  shared default void isChunked() {
-  }
-  shared default void headers() {
-  }
-  shared default void putHeader() {
-  }
-  shared default void trailers() {
-  }
-  shared default void putTrailer() {
-  }
-  shared default void closeHandler() {
-  }
-  shared default void end() {
-  }
-  shared default void sendFile() {
-  }
-  shared default void close() {
-  }
-  shared default void ended() {
-  }
-  shared default void headWritten() {
-  }
-  shared default void headersEndHandler() {
-  }
-  shared default void bodyEndHandler() {
-  }
+shared abstract class HttpServerResponse() satisfies WriteStream<Buffer> {
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]|[]|[]>) write;
+  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[]>) drainHandler;
+  shared formal Anything(*<[]>) getStatusCode;
+  shared formal Anything(*<[]>) setStatusCode;
+  shared formal Anything(*<[]>) getStatusMessage;
+  shared formal Anything(*<[]>) setStatusMessage;
+  shared formal Anything(*<[]>) setChunked;
+  shared formal Anything(*<[]>) isChunked;
+  shared formal Anything(*<[]>) headers;
+  shared formal Anything(*<[]>) putHeader;
+  shared formal Anything(*<[]>) trailers;
+  shared formal Anything(*<[]>) putTrailer;
+  shared formal Anything(*<[]>) closeHandler;
+  shared formal Anything(*<[]|[]|[]|[]>) end;
+  shared formal Anything(*<[]|[]>) sendFile;
+  shared formal Anything(*<[]>) close;
+  shared formal Anything(*<[]>) ended;
+  shared formal Anything(*<[]>) headWritten;
+  shared formal Anything(*<[]>) headersEndHandler;
+  shared formal Anything(*<[]>) bodyEndHandler;
 }

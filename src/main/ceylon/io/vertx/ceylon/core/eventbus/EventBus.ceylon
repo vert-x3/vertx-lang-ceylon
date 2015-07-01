@@ -11,19 +11,12 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.eventbus.EventBus */
-shared class EventBus() satisfies Measured {
-  shared default void send() {
-  }
-  shared default void publish() {
-  }
-  shared default void consumer() {
-  }
-  shared default void localConsumer() {
-  }
-  shared default void sender() {
-  }
-  shared default void publisher() {
-  }
-  shared default void close() {
-  }
+shared abstract class EventBus() satisfies Measured {
+  shared formal Anything(*<[]|[]|[]|[]>) send;
+  shared formal Anything(*<[]|[]>) publish;
+  shared formal Anything(*<[]|[]>) consumer;
+  shared formal Anything(*<[]|[]>) localConsumer;
+  shared formal Anything(*<[]|[]>) sender;
+  shared formal Anything(*<[]|[]>) publisher;
+  shared formal Anything(*<[]>) close;
 }

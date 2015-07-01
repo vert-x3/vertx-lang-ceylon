@@ -14,45 +14,25 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 /* Generated from io.vertx.core.http.HttpClient */
-shared class HttpClient() satisfies Measured {
-  shared default void request() {
-  }
-  shared default void requestAbs() {
-  }
-  shared default void get() {
-  }
-  shared default void getAbs() {
-  }
-  shared default void getNow() {
-  }
-  shared default void post() {
-  }
-  shared default void postAbs() {
-  }
-  shared default void head() {
-  }
-  shared default void headAbs() {
-  }
-  shared default void headNow() {
-  }
-  shared default void options() {
-  }
-  shared default void optionsAbs() {
-  }
-  shared default void optionsNow() {
-  }
-  shared default void put() {
-  }
-  shared default void putAbs() {
-  }
-  shared default void delete() {
-  }
-  shared default void deleteAbs() {
-  }
-  shared default void websocket() {
-  }
-  shared default void websocketStream() {
-  }
-  shared default void close() {
-  }
+shared abstract class HttpClient() satisfies Measured {
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) request;
+  shared formal Anything(*<[]|[]>) requestAbs;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) get;
+  shared formal Anything(*<[]|[]>) getAbs;
+  shared formal Anything(*<[]|[]|[]>) getNow;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) post;
+  shared formal Anything(*<[]|[]>) postAbs;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) head;
+  shared formal Anything(*<[]|[]>) headAbs;
+  shared formal Anything(*<[]|[]|[]>) headNow;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) options;
+  shared formal Anything(*<[]|[]>) optionsAbs;
+  shared formal Anything(*<[]|[]|[]>) optionsNow;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) put;
+  shared formal Anything(*<[]|[]>) putAbs;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) delete;
+  shared formal Anything(*<[]|[]>) deleteAbs;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]|[]|[]|[]|[]|[]|[]>) websocket;
+  shared formal Anything(*<[]|[]|[]|[]|[]|[]|[]|[]|[]|[]|[]|[]>) websocketStream;
+  shared formal Anything(*<[]>) close;
 }

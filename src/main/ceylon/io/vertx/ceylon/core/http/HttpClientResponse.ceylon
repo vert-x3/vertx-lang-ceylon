@@ -14,33 +14,19 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.http.HttpClientResponse */
-shared class HttpClientResponse() satisfies ReadStream<Buffer> {
-  shared actual default void resume() {
-  }
-  shared actual default void exceptionHandler() {
-  }
-  shared actual default void handler() {
-  }
-  shared actual default void pause() {
-  }
-  shared actual default void endHandler() {
-  }
-  shared default void statusCode() {
-  }
-  shared default void statusMessage() {
-  }
-  shared default void headers() {
-  }
-  shared default void getHeader() {
-  }
-  shared default void getTrailer() {
-  }
-  shared default void trailers() {
-  }
-  shared default void cookies() {
-  }
-  shared default void bodyHandler() {
-  }
-  shared default void netSocket() {
-  }
+shared abstract class HttpClientResponse() satisfies ReadStream<Buffer> {
+  shared actual formal Anything(*<[]>) resume;
+  shared actual formal Anything(*<[]>) exceptionHandler;
+  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[]>) pause;
+  shared actual formal Anything(*<[]>) endHandler;
+  shared formal Anything(*<[]>) statusCode;
+  shared formal Anything(*<[]>) statusMessage;
+  shared formal Anything(*<[]>) headers;
+  shared formal Anything(*<[]>) getHeader;
+  shared formal Anything(*<[]>) getTrailer;
+  shared formal Anything(*<[]>) trailers;
+  shared formal Anything(*<[]>) cookies;
+  shared formal Anything(*<[]>) bodyHandler;
+  shared formal Anything(*<[]>) netSocket;
 }

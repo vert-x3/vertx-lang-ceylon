@@ -8,15 +8,10 @@ import java.lang {
   String_=String
 }
 /* Generated from io.vertx.core.shareddata.SharedData */
-shared class SharedData() {
-  shared default void getClusterWideMap() {
-  }
-  shared default void getLock() {
-  }
-  shared default void getLockWithTimeout() {
-  }
-  shared default void getCounter() {
-  }
-  shared default void getLocalMap() {
-  }
+shared abstract class SharedData() {
+  shared formal Anything(*<[]>) getClusterWideMap;
+  shared formal Anything(*<[]>) getLock;
+  shared formal Anything(*<[]>) getLockWithTimeout;
+  shared formal Anything(*<[]>) getCounter;
+  shared formal Anything(*<[]>) getLocalMap;
 }

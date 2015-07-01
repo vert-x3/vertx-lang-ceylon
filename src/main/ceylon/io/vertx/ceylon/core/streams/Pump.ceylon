@@ -3,13 +3,9 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.streams.Pump */
-shared class Pump() {
-  shared default void setWriteQueueMaxSize() {
-  }
-  shared default void start() {
-  }
-  shared default void stop() {
-  }
-  shared default void numberPumped() {
-  }
+shared abstract class Pump() {
+  shared formal Anything(*<[]>) setWriteQueueMaxSize;
+  shared formal Anything(*<[]>) start;
+  shared formal Anything(*<[]>) stop;
+  shared formal Anything(*<[]>) numberPumped;
 }
