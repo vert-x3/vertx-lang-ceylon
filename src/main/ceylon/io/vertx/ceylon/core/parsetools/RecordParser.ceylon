@@ -6,8 +6,8 @@ import io.vertx.ceylon.core.buffer {
 }
 /* Generated from io.vertx.core.parsetools.RecordParser */
 shared abstract class RecordParser() {
-  shared formal Anything(*<[]>) setOutput;
-  shared formal Anything(*<[]|[]>) delimitedMode;
-  shared formal Anything(*<[]>) fixedSizeMode;
-  shared formal Anything(*<[]>) handle;
+  shared formal Anything(*<[Anything(Buffer)]>) setOutput;
+  shared formal Anything(*<[String]|[Buffer]>) delimitedMode;
+  shared formal Anything(*<[Integer]>) fixedSizeMode;
+  shared formal Anything(*<[Buffer]>) handle;
 }

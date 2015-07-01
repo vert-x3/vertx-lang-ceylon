@@ -9,9 +9,9 @@ import java.lang {
 }
 /* Generated from io.vertx.core.shareddata.SharedData */
 shared abstract class SharedData() {
-  shared formal Anything(*<[]>) getClusterWideMap;
-  shared formal Anything(*<[]>) getLock;
-  shared formal Anything(*<[]>) getLockWithTimeout;
-  shared formal Anything(*<[]>) getCounter;
-  shared formal Anything(*<[]>) getLocalMap;
+  shared formal Anything(*<[String,Anything(Throwable|AsyncMap<Object,Object>)]>) getClusterWideMap;
+  shared formal Anything(*<[String,Anything(Throwable|Lock)]>) getLock;
+  shared formal Anything(*<[String,Integer,Anything(Throwable|Lock)]>) getLockWithTimeout;
+  shared formal Anything(*<[String,Anything(Throwable|Counter)]>) getCounter;
+  shared formal Anything(*<[String]>) getLocalMap;
 }

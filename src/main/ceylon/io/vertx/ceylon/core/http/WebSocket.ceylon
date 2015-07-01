@@ -12,18 +12,18 @@ import io.vertx.ceylon.core.http {
 }
 /* Generated from io.vertx.core.http.WebSocket */
 shared abstract class WebSocket() satisfies WebSocketBase {
-  shared actual formal Anything(*<[]>) exceptionHandler;
-  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal Anything(*<[Anything(Buffer)]>) handler;
   shared actual formal Anything(*<[]>) pause;
   shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[]>) endHandler;
-  shared actual formal Anything(*<[]>) write;
-  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
-  shared actual formal Anything(*<[]>) drainHandler;
-  shared actual formal Anything(*<[]>) writeFrame;
-  shared actual formal Anything(*<[]>) writeFinalTextFrame;
-  shared actual formal Anything(*<[]>) writeFinalBinaryFrame;
-  shared actual formal Anything(*<[]>) writeBinaryMessage;
-  shared actual formal Anything(*<[]>) closeHandler;
-  shared actual formal Anything(*<[]>) frameHandler;
+  shared actual formal Anything(*<[Anything()]>) endHandler;
+  shared actual formal Anything(*<[Buffer]>) write;
+  shared actual formal Anything(*<[Integer]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[Anything()]>) drainHandler;
+  shared actual formal Anything(*<[WebSocketFrame]>) writeFrame;
+  shared actual formal Anything(*<[String]>) writeFinalTextFrame;
+  shared actual formal Anything(*<[Buffer]>) writeFinalBinaryFrame;
+  shared actual formal Anything(*<[Buffer]>) writeBinaryMessage;
+  shared actual formal Anything(*<[Anything()]>) closeHandler;
+  shared actual formal Anything(*<[Anything(WebSocketFrame)]>) frameHandler;
 }

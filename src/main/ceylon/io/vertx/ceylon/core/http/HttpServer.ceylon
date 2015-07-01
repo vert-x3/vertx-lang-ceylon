@@ -13,9 +13,9 @@ import io.vertx.ceylon.core.metrics {
 /* Generated from io.vertx.core.http.HttpServer */
 shared abstract class HttpServer() satisfies Measured {
   shared formal Anything(*<[]>) requestStream;
-  shared formal Anything(*<[]>) requestHandler;
+  shared formal Anything(*<[Anything(HttpServerRequest)]>) requestHandler;
   shared formal Anything(*<[]>) websocketStream;
-  shared formal Anything(*<[]>) websocketHandler;
-  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) listen;
-  shared formal Anything(*<[]|[]>) close;
+  shared formal Anything(*<[Anything(ServerWebSocket)]>) websocketHandler;
+  shared formal Anything(*<[]|[Integer]|[Anything(Throwable|HttpServer)]|[Integer,String]|[Integer,Anything(Throwable|HttpServer)]|[Integer,String,Anything(Throwable|HttpServer)]>) listen;
+  shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
 }

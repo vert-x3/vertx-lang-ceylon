@@ -4,7 +4,7 @@ import java.lang {
 /* Generated from io.vertx.core.Future<T> */
 shared abstract class Future<T>() {
   shared formal Anything(*<[]>) isComplete;
-  shared formal Anything(*<[]>) setHandler;
-  shared formal Anything(*<[]|[]>) complete;
-  shared formal Anything(*<[]>) fail;
+  shared formal Anything(*<[Anything(Throwable|T)]>) setHandler;
+  shared formal Anything(*<[]|[T]>) complete;
+  shared formal Anything(*<[String]>) fail;
 }

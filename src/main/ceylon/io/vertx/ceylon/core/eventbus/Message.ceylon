@@ -13,6 +13,6 @@ shared abstract class Message<T>() {
   shared formal Anything(*<[]>) headers;
   shared formal Anything(*<[]>) body;
   shared formal Anything(*<[]>) replyAddress;
-  shared formal Anything(*<[]|[]|[]|[]>) reply;
-  shared formal Anything(*<[]>) fail;
+  shared formal Anything(*<[Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) reply;
+  shared formal Anything(*<[Integer,String]>) fail;
 }

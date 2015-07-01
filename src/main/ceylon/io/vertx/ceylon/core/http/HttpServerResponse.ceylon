@@ -13,26 +13,26 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.http.HttpServerResponse */
 shared abstract class HttpServerResponse() satisfies WriteStream<Buffer> {
-  shared actual formal Anything(*<[]>) exceptionHandler;
-  shared actual formal Anything(*<[]|[]|[]>) write;
-  shared actual formal Anything(*<[]>) setWriteQueueMaxSize;
-  shared actual formal Anything(*<[]>) drainHandler;
+  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal Anything(*<[Buffer]|[String]|[String,String]>) write;
+  shared actual formal Anything(*<[Integer]>) setWriteQueueMaxSize;
+  shared actual formal Anything(*<[Anything()]>) drainHandler;
   shared formal Anything(*<[]>) getStatusCode;
-  shared formal Anything(*<[]>) setStatusCode;
+  shared formal Anything(*<[Integer]>) setStatusCode;
   shared formal Anything(*<[]>) getStatusMessage;
-  shared formal Anything(*<[]>) setStatusMessage;
-  shared formal Anything(*<[]>) setChunked;
+  shared formal Anything(*<[String]>) setStatusMessage;
+  shared formal Anything(*<[Boolean]>) setChunked;
   shared formal Anything(*<[]>) isChunked;
   shared formal Anything(*<[]>) headers;
-  shared formal Anything(*<[]>) putHeader;
+  shared formal Anything(*<[String,String]>) putHeader;
   shared formal Anything(*<[]>) trailers;
-  shared formal Anything(*<[]>) putTrailer;
-  shared formal Anything(*<[]>) closeHandler;
-  shared formal Anything(*<[]|[]|[]|[]>) end;
-  shared formal Anything(*<[]|[]>) sendFile;
+  shared formal Anything(*<[String,String]>) putTrailer;
+  shared formal Anything(*<[Anything()]>) closeHandler;
+  shared formal Anything(*<[]|[String]|[Buffer]|[String,String]>) end;
+  shared formal Anything(*<[String]|[String,Anything(Throwable?)]>) sendFile;
   shared formal Anything(*<[]>) close;
   shared formal Anything(*<[]>) ended;
   shared formal Anything(*<[]>) headWritten;
-  shared formal Anything(*<[]>) headersEndHandler;
-  shared formal Anything(*<[]>) bodyEndHandler;
+  shared formal Anything(*<[Anything(Future<Null>)]>) headersEndHandler;
+  shared formal Anything(*<[Anything()]>) bodyEndHandler;
 }

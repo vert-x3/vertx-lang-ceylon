@@ -9,16 +9,16 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.eventbus.MessageConsumer<T> */
 shared abstract class MessageConsumer<T>() satisfies ReadStream<Message<T>> {
-  shared actual formal Anything(*<[]>) exceptionHandler;
-  shared actual formal Anything(*<[]>) handler;
+  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal Anything(*<[Anything(Message<T>)]>) handler;
   shared actual formal Anything(*<[]>) pause;
   shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[]>) endHandler;
+  shared actual formal Anything(*<[Anything()]>) endHandler;
   shared formal Anything(*<[]>) bodyStream;
   shared formal Anything(*<[]>) isRegistered;
   shared formal Anything(*<[]>) address;
-  shared formal Anything(*<[]>) setMaxBufferedMessages;
+  shared formal Anything(*<[Integer]>) setMaxBufferedMessages;
   shared formal Anything(*<[]>) getMaxBufferedMessages;
-  shared formal Anything(*<[]>) completionHandler;
-  shared formal Anything(*<[]|[]>) unregister;
+  shared formal Anything(*<[Anything(Throwable?)]>) completionHandler;
+  shared formal Anything(*<[]|[Anything(Throwable?)]>) unregister;
 }

@@ -11,8 +11,8 @@ import io.vertx.ceylon.core.metrics {
 /* Generated from io.vertx.core.net.NetServer */
 shared abstract class NetServer() satisfies Measured {
   shared formal Anything(*<[]>) connectStream;
-  shared formal Anything(*<[]>) connectHandler;
-  shared formal Anything(*<[]|[]|[]|[]|[]|[]>) listen;
-  shared formal Anything(*<[]|[]>) close;
+  shared formal Anything(*<[Anything(NetSocket)]>) connectHandler;
+  shared formal Anything(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen;
+  shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
   shared formal Anything(*<[]>) actualPort;
 }

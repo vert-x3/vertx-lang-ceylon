@@ -4,11 +4,11 @@ import java.lang {
 }
 /* Generated from io.vertx.core.shareddata.Counter */
 shared abstract class Counter() {
-  shared formal Anything(*<[]>) get;
-  shared formal Anything(*<[]>) incrementAndGet;
-  shared formal Anything(*<[]>) getAndIncrement;
-  shared formal Anything(*<[]>) decrementAndGet;
-  shared formal Anything(*<[]>) addAndGet;
-  shared formal Anything(*<[]>) getAndAdd;
-  shared formal Anything(*<[]>) compareAndSet;
+  shared formal Anything(*<[Anything(Throwable|Integer)]>) get;
+  shared formal Anything(*<[Anything(Throwable|Integer)]>) incrementAndGet;
+  shared formal Anything(*<[Anything(Throwable|Integer)]>) getAndIncrement;
+  shared formal Anything(*<[Anything(Throwable|Integer)]>) decrementAndGet;
+  shared formal Anything(*<[Integer,Anything(Throwable|Integer)]>) addAndGet;
+  shared formal Anything(*<[Integer,Anything(Throwable|Integer)]>) getAndAdd;
+  shared formal Anything(*<[Integer,Integer,Anything(Throwable|Boolean)]>) compareAndSet;
 }
