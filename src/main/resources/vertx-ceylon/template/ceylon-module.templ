@@ -1,5 +1,17 @@
-@comment{'remove this hack'}
-module @{fqn.replace('io.vertx', 'io.vertx.ceylon')} "1.0.0" {\n
+@code{
+  var refedMods = new java.util.HashSet();
+  for (clazz : classes) {
+    for (refed : clazz.referencedTypes) {
+      if (refed.module.packageName != module.packageName) {
+        refedMods.add(refed.module.translatePackageName('ceylon'));
+      }
+    }
+  }
+}
+module @{module.translatePackageName('ceylon')} "1.0.0" {\n
   native("jvm") import java.base "7";\n
   shared import ceylon.json "1.1.1";\n
+	@foreach{mod : refedMods}
+  shared import @{mod} "1.0.0";\n
+	@end{}
 }

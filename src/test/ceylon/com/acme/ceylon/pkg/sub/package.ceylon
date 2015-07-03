@@ -1,1 +1,1 @@
-shared package com.acme.pkg.sub;
+shared package com.acme.ceylon.pkg.sub;

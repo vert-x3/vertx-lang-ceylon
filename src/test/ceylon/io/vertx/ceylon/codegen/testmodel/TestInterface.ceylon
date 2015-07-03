@@ -20,452 +20,157 @@ import io.vertx.ceylon.codegen.testmodel {
   ConcreteHandlerUserTypeExtension,
   GenericRefedInterface,
   RefedInterface1,
-  RefedInterface2
+  SuperInterface1,
+  RefedInterface2,
+  SuperInterface2
 }
 /* Generated from io.vertx.codegen.testmodel.TestInterface */
-shared class TestInterface() extends SuperInterface1 satisfies SuperInterface2 {
-  shared default void otherSuperMethodWithBasicParams() {
-    /* [io.vertx.codegen.testmodel.SuperInterface2] */
-  }
-  shared default void methodWithBasicParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithBasicBoxedParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerBasicTypes() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultByte() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultShort() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultInteger() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultLong() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultFloat() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultDouble() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultBoolean() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultCharacter() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultString() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithUserTypes() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithObjectParam() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithDataObjectParam() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullDataObjectParam() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListAndSet() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListString() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListInteger() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetString() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetInteger() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListAbstractVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetAbstractVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListNullJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListComplexJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetNullJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetComplexJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListNullJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListComplexJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetNullJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetComplexJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerListNullDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerSetNullDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListAbstractVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetAbstractVertxGen() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListNullJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListComplexJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetNullJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetComplexJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListNullJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListComplexJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetNullJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetComplexJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultListNullDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultSetNullDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerUserTypes() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultUserTypes() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithConcreteHandlerUserTypeSubtype() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithAbstractHandlerUserTypeSubtype() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithConcreteHandlerUserTypeSubtypeExtension() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerVoid() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultVoid() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerThrowable() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerDataObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerGenericUserType() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultGenericUserType() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithByteReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithShortReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithIntReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithLongReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithFloatReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithDoubleReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithBooleanReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithCharReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithStringReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithVertxGenReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithVertxGenNullReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithAbstractVertxGenReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void overloadedMethod() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithGenericReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithGenericParam() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithGenericHandler() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithGenericHandlerAsyncResult() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void fluentMethod() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithCachedReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithCachedReturnPrimitive() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithComplexJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithComplexJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithJsonParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullJsonParams() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerJson() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerNullJson() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerComplexJson() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultNullJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultComplexJsonObject() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultNullJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithHandlerAsyncResultComplexJsonArray() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapStringReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapLongReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapIntegerReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapShortReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapByteReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapCharacterReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapBooleanReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapFloatReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapDoubleReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapComplexJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithMapComplexJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullMapReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListStringReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListLongReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListVertxGenReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListComplexJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithListComplexJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullListReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetStringReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetLongReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetVertxGenReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetComplexJsonObjectReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithSetComplexJsonArrayReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithNullSetReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithEnumParam() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithEnumReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
-  shared default void methodWithThrowableReturn() {
-    /* [io.vertx.codegen.testmodel.TestInterface] */
-  }
+shared abstract class TestInterface() extends SuperInterface1() satisfies SuperInterface2 {
+  shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) methodWithBasicParams;
+  shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character]>) methodWithBasicBoxedParams;
+  shared formal Anything(*<[Anything(Byte),Anything(Integer),Anything(Integer),Anything(Integer),Anything(Float),Anything(Float),Anything(Boolean),Anything(Character),Anything(String)]>) methodWithHandlerBasicTypes;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Byte)]>) methodWithHandlerAsyncResultByte;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Integer)]>) methodWithHandlerAsyncResultShort;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Integer)]>) methodWithHandlerAsyncResultInteger;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Integer)]>) methodWithHandlerAsyncResultLong;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Float)]>) methodWithHandlerAsyncResultFloat;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Float)]>) methodWithHandlerAsyncResultDouble;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Boolean)]>) methodWithHandlerAsyncResultBoolean;
+  shared formal Anything(*<[Boolean,Anything(Throwable|Character)]>) methodWithHandlerAsyncResultCharacter;
+  shared formal Anything(*<[Boolean,Anything(Throwable|String)]>) methodWithHandlerAsyncResultString;
+  shared formal Anything(*<[Boolean,Anything(Throwable|TestDataObject)]>) methodWithHandlerAsyncResultDataObject;
+  shared formal Anything(*<[RefedInterface1]>) methodWithUserTypes;
+  shared formal Anything(*<[String,Object]>) methodWithObjectParam;
+  shared formal Anything(*<[TestDataObject]>) methodWithDataObjectParam;
+  shared formal Anything(*<[TestDataObject]>) methodWithNullDataObjectParam;
+  shared formal Anything(*<[List<String>,List<Byte>,List<Integer>,List<Integer>,List<Integer>,List<JsonObject>,List<JsonArray>,List<RefedInterface1>,List<TestDataObject>]>) methodWithListParams;
+  shared formal Anything(*<[Set<String>,Set<Byte>,Set<Integer>,Set<Integer>,Set<Integer>,Set<JsonObject>,Set<JsonArray>,Set<RefedInterface1>,Set<TestDataObject>]>) methodWithSetParams;
+  shared formal Anything(*<[Map<String,String>,Map<String,Byte>,Map<String,Integer>,Map<String,Integer>,Map<String,Integer>,Map<String,JsonObject>,Map<String,JsonArray>,Map<String,RefedInterface1>]>) methodWithMapParams;
+  shared formal Anything(*<[Anything(List<String>),Anything(List<Integer>),Anything(Set<String>),Anything(Set<Integer>)]>) methodWithHandlerListAndSet;
+  shared formal Anything(*<[Anything(Throwable|List<String>)]>) methodWithHandlerAsyncResultListString;
+  shared formal Anything(*<[Anything(Throwable|List<Integer>)]>) methodWithHandlerAsyncResultListInteger;
+  shared formal Anything(*<[Anything(Throwable|Set<String>)]>) methodWithHandlerAsyncResultSetString;
+  shared formal Anything(*<[Anything(Throwable|Set<Integer>)]>) methodWithHandlerAsyncResultSetInteger;
+  shared formal Anything(*<[Anything(List<RefedInterface1>)]>) methodWithHandlerListVertxGen;
+  shared formal Anything(*<[Anything(Set<RefedInterface1>)]>) methodWithHandlerSetVertxGen;
+  shared formal Anything(*<[Anything(List<RefedInterface2>)]>) methodWithHandlerListAbstractVertxGen;
+  shared formal Anything(*<[Anything(Set<RefedInterface2>)]>) methodWithHandlerSetAbstractVertxGen;
+  shared formal Anything(*<[Anything(List<JsonObject>)]>) methodWithHandlerListJsonObject;
+  shared formal Anything(*<[Anything(List<JsonObject>)]>) methodWithHandlerListNullJsonObject;
+  shared formal Anything(*<[Anything(List<JsonObject>)]>) methodWithHandlerListComplexJsonObject;
+  shared formal Anything(*<[Anything(Set<JsonObject>)]>) methodWithHandlerSetJsonObject;
+  shared formal Anything(*<[Anything(Set<JsonObject>)]>) methodWithHandlerSetNullJsonObject;
+  shared formal Anything(*<[Anything(Set<JsonObject>)]>) methodWithHandlerSetComplexJsonObject;
+  shared formal Anything(*<[Anything(List<JsonArray>)]>) methodWithHandlerListJsonArray;
+  shared formal Anything(*<[Anything(List<JsonArray>)]>) methodWithHandlerListNullJsonArray;
+  shared formal Anything(*<[Anything(List<JsonArray>)]>) methodWithHandlerListComplexJsonArray;
+  shared formal Anything(*<[Anything(Set<JsonArray>)]>) methodWithHandlerSetJsonArray;
+  shared formal Anything(*<[Anything(Set<JsonArray>)]>) methodWithHandlerSetNullJsonArray;
+  shared formal Anything(*<[Anything(Set<JsonArray>)]>) methodWithHandlerSetComplexJsonArray;
+  shared formal Anything(*<[Anything(List<TestDataObject>)]>) methodWithHandlerListDataObject;
+  shared formal Anything(*<[Anything(List<TestDataObject>)]>) methodWithHandlerListNullDataObject;
+  shared formal Anything(*<[Anything(Set<TestDataObject>)]>) methodWithHandlerSetDataObject;
+  shared formal Anything(*<[Anything(Set<TestDataObject>)]>) methodWithHandlerSetNullDataObject;
+  shared formal Anything(*<[Anything(Throwable|List<RefedInterface1>)]>) methodWithHandlerAsyncResultListVertxGen;
+  shared formal Anything(*<[Anything(Throwable|Set<RefedInterface1>)]>) methodWithHandlerAsyncResultSetVertxGen;
+  shared formal Anything(*<[Anything(Throwable|List<RefedInterface2>)]>) methodWithHandlerAsyncResultListAbstractVertxGen;
+  shared formal Anything(*<[Anything(Throwable|Set<RefedInterface2>)]>) methodWithHandlerAsyncResultSetAbstractVertxGen;
+  shared formal Anything(*<[Anything(Throwable|List<JsonObject>)]>) methodWithHandlerAsyncResultListJsonObject;
+  shared formal Anything(*<[Anything(Throwable|List<JsonObject>)]>) methodWithHandlerAsyncResultListNullJsonObject;
+  shared formal Anything(*<[Anything(Throwable|List<JsonObject>)]>) methodWithHandlerAsyncResultListComplexJsonObject;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonObject>)]>) methodWithHandlerAsyncResultSetJsonObject;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonObject>)]>) methodWithHandlerAsyncResultSetNullJsonObject;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonObject>)]>) methodWithHandlerAsyncResultSetComplexJsonObject;
+  shared formal Anything(*<[Anything(Throwable|List<JsonArray>)]>) methodWithHandlerAsyncResultListJsonArray;
+  shared formal Anything(*<[Anything(Throwable|List<JsonArray>)]>) methodWithHandlerAsyncResultListNullJsonArray;
+  shared formal Anything(*<[Anything(Throwable|List<JsonArray>)]>) methodWithHandlerAsyncResultListComplexJsonArray;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonArray>)]>) methodWithHandlerAsyncResultSetJsonArray;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonArray>)]>) methodWithHandlerAsyncResultSetNullJsonArray;
+  shared formal Anything(*<[Anything(Throwable|Set<JsonArray>)]>) methodWithHandlerAsyncResultSetComplexJsonArray;
+  shared formal Anything(*<[Anything(Throwable|List<TestDataObject>)]>) methodWithHandlerAsyncResultListDataObject;
+  shared formal Anything(*<[Anything(Throwable|List<TestDataObject>)]>) methodWithHandlerAsyncResultListNullDataObject;
+  shared formal Anything(*<[Anything(Throwable|Set<TestDataObject>)]>) methodWithHandlerAsyncResultSetDataObject;
+  shared formal Anything(*<[Anything(Throwable|Set<TestDataObject>)]>) methodWithHandlerAsyncResultSetNullDataObject;
+  shared formal Anything(*<[Anything(RefedInterface1)]>) methodWithHandlerUserTypes;
+  shared formal Anything(*<[Anything(Throwable|RefedInterface1)]>) methodWithHandlerAsyncResultUserTypes;
+  shared formal Anything(*<[ConcreteHandlerUserType]>) methodWithConcreteHandlerUserTypeSubtype;
+  shared formal Anything(*<[AbstractHandlerUserType]>) methodWithAbstractHandlerUserTypeSubtype;
+  shared formal Anything(*<[ConcreteHandlerUserTypeExtension]>) methodWithConcreteHandlerUserTypeSubtypeExtension;
+  shared formal Anything(*<[Anything()]>) methodWithHandlerVoid;
+  shared formal Anything(*<[Boolean,Anything(Throwable?)]>) methodWithHandlerAsyncResultVoid;
+  shared formal Anything(*<[Anything(Throwable)]>) methodWithHandlerThrowable;
+  shared formal Anything(*<[Anything(TestDataObject)]>) methodWithHandlerDataObject;
+  shared formal Anything(*<[Object,Anything(GenericRefedInterface<Object>)]>) methodWithHandlerGenericUserType;
+  shared formal Anything(*<[Object,Anything(Throwable|GenericRefedInterface<Object>)]>) methodWithHandlerAsyncResultGenericUserType;
+  shared formal Byte(*<[]>) methodWithByteReturn;
+  shared formal Integer(*<[]>) methodWithShortReturn;
+  shared formal Integer(*<[]>) methodWithIntReturn;
+  shared formal Integer(*<[]>) methodWithLongReturn;
+  shared formal Float(*<[]>) methodWithFloatReturn;
+  shared formal Float(*<[]>) methodWithDoubleReturn;
+  shared formal Boolean(*<[]>) methodWithBooleanReturn;
+  shared formal Character(*<[]>) methodWithCharReturn;
+  shared formal String(*<[]>) methodWithStringReturn;
+  shared formal RefedInterface1(*<[]>) methodWithVertxGenReturn;
+  shared formal RefedInterface1(*<[]>) methodWithVertxGenNullReturn;
+  shared formal RefedInterface2(*<[]>) methodWithAbstractVertxGenReturn;
+  shared formal String(*<[String,Anything(String)]|[String,RefedInterface1]|[String,RefedInterface1,Anything(String)]|[String,RefedInterface1,Integer,Anything(String)]>) overloadedMethod;
+  shared formal Object(*<[String]>) methodWithGenericReturn;
+  shared formal Anything(*<[String,Object]>) methodWithGenericParam;
+  shared formal Anything(*<[String,Anything(Object)]>) methodWithGenericHandler;
+  shared formal Anything(*<[String,Anything(Throwable|Object)]>) methodWithGenericHandlerAsyncResult;
+  shared formal TestInterface(*<[String]>) fluentMethod;
+  shared formal RefedInterface1(*<[String]>) methodWithCachedReturn;
+  shared formal Integer(*<[Integer]>) methodWithCachedReturnPrimitive;
+  shared formal JsonObject(*<[]>) methodWithJsonObjectReturn;
+  shared formal JsonObject(*<[]>) methodWithNullJsonObjectReturn;
+  shared formal JsonObject(*<[]>) methodWithComplexJsonObjectReturn;
+  shared formal JsonArray(*<[]>) methodWithJsonArrayReturn;
+  shared formal JsonArray(*<[]>) methodWithNullJsonArrayReturn;
+  shared formal JsonArray(*<[]>) methodWithComplexJsonArrayReturn;
+  shared formal Anything(*<[JsonObject,JsonArray]>) methodWithJsonParams;
+  shared formal Anything(*<[JsonObject,JsonArray]>) methodWithNullJsonParams;
+  shared formal Anything(*<[Anything(JsonObject),Anything(JsonArray)]>) methodWithHandlerJson;
+  shared formal Anything(*<[Anything(JsonObject),Anything(JsonArray)]>) methodWithHandlerNullJson;
+  shared formal Anything(*<[Anything(JsonObject),Anything(JsonArray)]>) methodWithHandlerComplexJson;
+  shared formal Anything(*<[Anything(Throwable|JsonObject)]>) methodWithHandlerAsyncResultJsonObject;
+  shared formal Anything(*<[Anything(Throwable|JsonObject)]>) methodWithHandlerAsyncResultNullJsonObject;
+  shared formal Anything(*<[Anything(Throwable|JsonObject)]>) methodWithHandlerAsyncResultComplexJsonObject;
+  shared formal Anything(*<[Anything(Throwable|JsonArray)]>) methodWithHandlerAsyncResultJsonArray;
+  shared formal Anything(*<[Anything(Throwable|JsonArray)]>) methodWithHandlerAsyncResultNullJsonArray;
+  shared formal Anything(*<[Anything(Throwable|JsonArray)]>) methodWithHandlerAsyncResultComplexJsonArray;
+  shared formal Map<String,String>(*<[Anything(String)]>) methodWithMapReturn;
+  shared formal Map<String,String>(*<[Anything(String)]>) methodWithMapStringReturn;
+  shared formal Map<String,Integer>(*<[Anything(String)]>) methodWithMapLongReturn;
+  shared formal Map<String,Integer>(*<[Anything(String)]>) methodWithMapIntegerReturn;
+  shared formal Map<String,Integer>(*<[Anything(String)]>) methodWithMapShortReturn;
+  shared formal Map<String,Byte>(*<[Anything(String)]>) methodWithMapByteReturn;
+  shared formal Map<String,Character>(*<[Anything(String)]>) methodWithMapCharacterReturn;
+  shared formal Map<String,Boolean>(*<[Anything(String)]>) methodWithMapBooleanReturn;
+  shared formal Map<String,Float>(*<[Anything(String)]>) methodWithMapFloatReturn;
+  shared formal Map<String,Float>(*<[Anything(String)]>) methodWithMapDoubleReturn;
+  shared formal Map<String,JsonObject>(*<[Anything(String)]>) methodWithMapJsonObjectReturn;
+  shared formal Map<String,JsonObject>(*<[Anything(String)]>) methodWithMapComplexJsonObjectReturn;
+  shared formal Map<String,JsonArray>(*<[Anything(String)]>) methodWithMapJsonArrayReturn;
+  shared formal Map<String,JsonArray>(*<[Anything(String)]>) methodWithMapComplexJsonArrayReturn;
+  shared formal Map<String,String>(*<[]>) methodWithNullMapReturn;
+  shared formal List<String>(*<[]>) methodWithListStringReturn;
+  shared formal List<Integer>(*<[]>) methodWithListLongReturn;
+  shared formal List<RefedInterface1>(*<[]>) methodWithListVertxGenReturn;
+  shared formal List<JsonObject>(*<[]>) methodWithListJsonObjectReturn;
+  shared formal List<JsonObject>(*<[]>) methodWithListComplexJsonObjectReturn;
+  shared formal List<JsonArray>(*<[]>) methodWithListJsonArrayReturn;
+  shared formal List<JsonArray>(*<[]>) methodWithListComplexJsonArrayReturn;
+  shared formal List<String>(*<[]>) methodWithNullListReturn;
+  shared formal Set<String>(*<[]>) methodWithSetStringReturn;
+  shared formal Set<Integer>(*<[]>) methodWithSetLongReturn;
+  shared formal Set<RefedInterface1>(*<[]>) methodWithSetVertxGenReturn;
+  shared formal Set<JsonObject>(*<[]>) methodWithSetJsonObjectReturn;
+  shared formal Set<JsonObject>(*<[]>) methodWithSetComplexJsonObjectReturn;
+  shared formal Set<JsonArray>(*<[]>) methodWithSetJsonArrayReturn;
+  shared formal Set<JsonArray>(*<[]>) methodWithSetComplexJsonArrayReturn;
+  shared formal Set<String>(*<[]>) methodWithNullSetReturn;
+  shared formal String(*<[String,String]>) methodWithEnumParam;
+  shared formal String(*<[String]>) methodWithEnumReturn;
+  shared formal Throwable(*<[String]>) methodWithThrowableReturn;
 }

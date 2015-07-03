@@ -3,7 +3,5 @@ import java.lang {
 }
 /* Generated from io.vertx.codegen.testmodel.SuperInterface2 */
 shared interface SuperInterface2 {
-  shared default void otherSuperMethodWithBasicParams() {
-    /* [io.vertx.codegen.testmodel.SuperInterface2] */
-  }
+  shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) otherSuperMethodWithBasicParams;
 }

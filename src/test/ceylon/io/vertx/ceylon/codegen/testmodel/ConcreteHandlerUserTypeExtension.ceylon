@@ -1,9 +1,7 @@
 import io.vertx.ceylon.codegen.testmodel {
-  RefedInterface1
+  RefedInterface1,
+  ConcreteHandlerUserType
 }
 /* Generated from io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension */
-shared class ConcreteHandlerUserTypeExtension() extends ConcreteHandlerUserType {
-  shared default void handle() {
-    /* [io.vertx.core.Handler] */
-  }
+shared abstract class ConcreteHandlerUserTypeExtension() extends ConcreteHandlerUserType() {
 }

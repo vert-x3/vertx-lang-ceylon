@@ -3,10 +3,6 @@ import java.lang {
 }
 /* Generated from io.vertx.codegen.testmodel.RefedInterface2 */
 shared interface RefedInterface2 {
-  shared default void getString() {
-    /* [io.vertx.codegen.testmodel.RefedInterface2] */
-  }
-  shared default void setString() {
-    /* [io.vertx.codegen.testmodel.RefedInterface2] */
-  }
+  shared formal String(*<[]>) getString;
+  shared formal RefedInterface2(*<[String]>) setString;
 }

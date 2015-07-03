@@ -586,8 +586,14 @@
       decl = 'Anything';
     } else if (kind == CLASS_SET) {
       decl = 'Set<' + genTypeDecl(type.args[0]) + '>';
+    } else if (kind == CLASS_LIST) {
+      decl = 'List<' + genTypeDecl(type.args[0])) + '>';
+    } else if (kind == CLASS_MAP) {
+      decl = 'Map<' + genTypeDecl(type.args[0]) + ',' + genTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
       decl = 'JsonObject';
+    } else if (kind == CLASS_JSON_ARRAY) {
+      decl = 'JsonArray';
     } else if (kind == CLASS_OTHER) {
       if (type instanceof io.vertx.codegen.TypeInfo$Void) {
         decl = 'Anything';
@@ -635,7 +641,7 @@
 @end{}
 
 @declare{'genExtendsClause'}
-	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])} @end{}
+	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])}() @end{}
 @end{}
 
 @declare{'genSatisfiesClause'}

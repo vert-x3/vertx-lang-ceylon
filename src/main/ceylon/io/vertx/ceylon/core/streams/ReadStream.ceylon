@@ -1,3 +1,6 @@
+import io.vertx.ceylon.core.streams {
+  StreamBase
+}
 /* Generated from io.vertx.core.streams.ReadStream<T> */
 shared interface ReadStream<T> satisfies StreamBase {
   shared actual formal ReadStream<T>(*<[Anything(Throwable)]>) exceptionHandler;

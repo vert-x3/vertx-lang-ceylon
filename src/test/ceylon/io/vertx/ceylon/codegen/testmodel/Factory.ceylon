@@ -5,5 +5,5 @@ import io.vertx.ceylon.codegen.testmodel {
   ConcreteHandlerUserTypeExtension
 }
 /* Generated from io.vertx.codegen.testmodel.Factory */
-shared class Factory() {
+shared abstract class Factory() {
 }
