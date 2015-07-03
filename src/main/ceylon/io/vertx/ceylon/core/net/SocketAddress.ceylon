@@ -3,6 +3,6 @@ import java.lang {
 }
 /* Generated from io.vertx.core.net.SocketAddress */
 shared abstract class SocketAddress() {
-  shared formal Anything(*<[]>) host;
-  shared formal Anything(*<[]>) port;
+  shared formal String(*<[]>) host;
+  shared formal Integer(*<[]>) port;
 }

@@ -6,10 +6,10 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.TimeoutStream */
 shared abstract class TimeoutStream() satisfies ReadStream<Integer> {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Anything(Integer)]>) handler;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
+  shared actual formal TimeoutStream(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal TimeoutStream(*<[Anything(Integer)]>) handler;
+  shared actual formal TimeoutStream(*<[]>) pause;
+  shared actual formal TimeoutStream(*<[]>) resume;
+  shared actual formal TimeoutStream(*<[Anything()]>) endHandler;
   shared formal Anything(*<[]>) cancel;
 }

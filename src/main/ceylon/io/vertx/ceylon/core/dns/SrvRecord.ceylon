@@ -3,11 +3,11 @@ import java.lang {
 }
 /* Generated from io.vertx.core.dns.SrvRecord */
 shared abstract class SrvRecord() {
-  shared formal Anything(*<[]>) priority;
-  shared formal Anything(*<[]>) weight;
-  shared formal Anything(*<[]>) port;
-  shared formal Anything(*<[]>) name;
-  shared formal Anything(*<[]>) protocol;
-  shared formal Anything(*<[]>) service;
-  shared formal Anything(*<[]>) target;
+  shared formal Integer(*<[]>) priority;
+  shared formal Integer(*<[]>) weight;
+  shared formal Integer(*<[]>) port;
+  shared formal String(*<[]>) name;
+  shared formal String(*<[]>) protocol;
+  shared formal String(*<[]>) service;
+  shared formal String(*<[]>) target;
 }

@@ -21,31 +21,31 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.http.HttpServerRequest */
 shared abstract class HttpServerRequest() satisfies ReadStream<Buffer> {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Anything(Buffer)]>) handler;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
-  shared formal Anything(*<[]>) version;
-  shared formal Anything(*<[]>) method;
-  shared formal Anything(*<[]>) uri;
-  shared formal Anything(*<[]>) path;
-  shared formal Anything(*<[]>) query;
-  shared formal Anything(*<[]>) response;
-  shared formal Anything(*<[]>) headers;
-  shared formal Anything(*<[String]>) getHeader;
-  shared formal Anything(*<[]>) params;
-  shared formal Anything(*<[String]>) getParam;
-  shared formal Anything(*<[]>) remoteAddress;
-  shared formal Anything(*<[]>) localAddress;
-  shared formal Anything(*<[]>) absoluteURI;
-  shared formal Anything(*<[Anything(Buffer)]>) bodyHandler;
-  shared formal Anything(*<[]>) netSocket;
-  shared formal Anything(*<[Boolean]>) setExpectMultipart;
-  shared formal Anything(*<[]>) isExpectMultipart;
-  shared formal Anything(*<[Anything(HttpServerFileUpload)]>) uploadHandler;
-  shared formal Anything(*<[]>) formAttributes;
-  shared formal Anything(*<[String]>) getFormAttribute;
-  shared formal Anything(*<[]>) upgrade;
-  shared formal Anything(*<[]>) isEnded;
+  shared actual formal HttpServerRequest(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal HttpServerRequest(*<[Anything(Buffer)]>) handler;
+  shared actual formal HttpServerRequest(*<[]>) pause;
+  shared actual formal HttpServerRequest(*<[]>) resume;
+  shared actual formal HttpServerRequest(*<[Anything()]>) endHandler;
+  shared formal String(*<[]>) version;
+  shared formal String(*<[]>) method;
+  shared formal String(*<[]>) uri;
+  shared formal String(*<[]>) path;
+  shared formal String(*<[]>) query;
+  shared formal HttpServerResponse(*<[]>) response;
+  shared formal MultiMap(*<[]>) headers;
+  shared formal String(*<[String]>) getHeader;
+  shared formal MultiMap(*<[]>) params;
+  shared formal String(*<[String]>) getParam;
+  shared formal SocketAddress(*<[]>) remoteAddress;
+  shared formal SocketAddress(*<[]>) localAddress;
+  shared formal String(*<[]>) absoluteURI;
+  shared formal HttpServerRequest(*<[Anything(Buffer)]>) bodyHandler;
+  shared formal NetSocket(*<[]>) netSocket;
+  shared formal HttpServerRequest(*<[Boolean]>) setExpectMultipart;
+  shared formal Boolean(*<[]>) isExpectMultipart;
+  shared formal HttpServerRequest(*<[Anything(HttpServerFileUpload)]>) uploadHandler;
+  shared formal MultiMap(*<[]>) formAttributes;
+  shared formal String(*<[String]>) getFormAttribute;
+  shared formal ServerWebSocket(*<[]>) upgrade;
+  shared formal Boolean(*<[]>) isEnded;
 }

@@ -12,11 +12,11 @@ import io.vertx.ceylon.core.metrics {
 }
 /* Generated from io.vertx.core.eventbus.EventBus */
 shared abstract class EventBus() satisfies Measured {
-  shared formal Anything(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send;
-  shared formal Anything(*<[String,Object]|[String,Object,DeliveryOptions]>) publish;
-  shared formal Anything(*<[String]|[String,Anything(Message<Object>)]>) consumer;
-  shared formal Anything(*<[String]|[String,Anything(Message<Object>)]>) localConsumer;
-  shared formal Anything(*<[String]|[String,DeliveryOptions]>) sender;
-  shared formal Anything(*<[String]|[String,DeliveryOptions]>) publisher;
+  shared formal EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send;
+  shared formal EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish;
+  shared formal MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer;
+  shared formal MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer;
+  shared formal MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender;
+  shared formal MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher;
   shared formal Anything(*<[Anything(Throwable?)]>) close;
 }

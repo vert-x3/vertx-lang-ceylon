@@ -10,15 +10,15 @@ import ceylon.json {
 /* Generated from io.vertx.core.Context */
 shared abstract class Context() {
   shared formal Anything(*<[Anything()]>) runOnContext;
-  shared formal Anything(*<[]>) deploymentID;
-  shared formal Anything(*<[]>) config;
-  shared formal Anything(*<[]>) processArgs;
-  shared formal Anything(*<[]>) isEventLoopContext;
-  shared formal Anything(*<[]>) isWorkerContext;
-  shared formal Anything(*<[]>) isMultiThreadedWorkerContext;
-  shared formal Anything(*<[String]>) get;
+  shared formal String(*<[]>) deploymentID;
+  shared formal JsonObject(*<[]>) config;
+  shared formal List<String>(*<[]>) processArgs;
+  shared formal Boolean(*<[]>) isEventLoopContext;
+  shared formal Boolean(*<[]>) isWorkerContext;
+  shared formal Boolean(*<[]>) isMultiThreadedWorkerContext;
+  shared formal Object(*<[String]>) get;
   shared formal Anything(*<[String,Object]>) put;
-  shared formal Anything(*<[String]>) remove;
-  shared formal Anything(*<[]>) owner;
-  shared formal Anything(*<[]>) getInstanceCount;
+  shared formal Boolean(*<[String]>) remove;
+  shared formal Vertx(*<[]>) owner;
+  shared formal Integer(*<[]>) getInstanceCount;
 }

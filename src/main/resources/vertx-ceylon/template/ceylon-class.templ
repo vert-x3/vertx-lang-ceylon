@@ -584,6 +584,14 @@
       decl = 'List<' + genTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_VOID) {
       decl = 'Anything';
+    } else if (kind == CLASS_SET) {
+      decl = 'Set<' + genTypeDecl(type.args[0]) + '>';
+    } else if (kind == CLASS_JSON_OBJECT) {
+      decl = 'JsonObject';
+    } else if (kind == CLASS_OTHER) {
+      if (type instanceof io.vertx.codegen.TypeInfo$Void) {
+        decl = 'Anything';
+      }
     }
     return decl;
   }
@@ -651,7 +659,7 @@ shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause
 		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
-			  shared @if{isActualMethod(methods)}actual @end{}formal Anything(*<@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}>) @{methodName};\n
+			  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}>) @{methodName};\n
 		@end{}
 	@end{}
 

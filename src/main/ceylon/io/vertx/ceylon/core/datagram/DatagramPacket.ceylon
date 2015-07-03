@@ -6,6 +6,6 @@ import io.vertx.ceylon.core.net {
 }
 /* Generated from io.vertx.core.datagram.DatagramPacket */
 shared abstract class DatagramPacket() {
-  shared formal Anything(*<[]>) sender;
-  shared formal Anything(*<[]>) data;
+  shared formal SocketAddress(*<[]>) sender;
+  shared formal Buffer(*<[]>) data;
 }

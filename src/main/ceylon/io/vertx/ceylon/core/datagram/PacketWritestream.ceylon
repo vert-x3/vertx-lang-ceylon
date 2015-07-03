@@ -6,8 +6,8 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.datagram.PacketWritestream */
 shared abstract class PacketWritestream() satisfies WriteStream<Buffer> {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Buffer]>) write;
-  shared actual formal Anything(*<[Integer]>) setWriteQueueMaxSize;
-  shared actual formal Anything(*<[Anything()]>) drainHandler;
+  shared actual formal PacketWritestream(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal PacketWritestream(*<[Buffer]>) write;
+  shared actual formal PacketWritestream(*<[Integer]>) setWriteQueueMaxSize;
+  shared actual formal PacketWritestream(*<[Anything()]>) drainHandler;
 }

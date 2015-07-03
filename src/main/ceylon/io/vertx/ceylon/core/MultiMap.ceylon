@@ -3,16 +3,16 @@ import java.lang {
 }
 /* Generated from io.vertx.core.MultiMap */
 shared abstract class MultiMap() {
-  shared formal Anything(*<[String]>) get;
-  shared formal Anything(*<[String]>) getAll;
-  shared formal Anything(*<[String]>) contains;
-  shared formal Anything(*<[]>) isEmpty;
-  shared formal Anything(*<[]>) names;
-  shared formal Anything(*<[String,String]>) add;
-  shared formal Anything(*<[MultiMap]>) addAll;
-  shared formal Anything(*<[String,String]>) set;
-  shared formal Anything(*<[MultiMap]>) setAll;
-  shared formal Anything(*<[String]>) remove;
-  shared formal Anything(*<[]>) clear;
-  shared formal Anything(*<[]>) size;
+  shared formal String(*<[String]>) get;
+  shared formal List<String>(*<[String]>) getAll;
+  shared formal Boolean(*<[String]>) contains;
+  shared formal Boolean(*<[]>) isEmpty;
+  shared formal Set<String>(*<[]>) names;
+  shared formal MultiMap(*<[String,String]>) add;
+  shared formal MultiMap(*<[MultiMap]>) addAll;
+  shared formal MultiMap(*<[String,String]>) set;
+  shared formal MultiMap(*<[MultiMap]>) setAll;
+  shared formal MultiMap(*<[String]>) remove;
+  shared formal MultiMap(*<[]>) clear;
+  shared formal Integer(*<[]>) size;
 }

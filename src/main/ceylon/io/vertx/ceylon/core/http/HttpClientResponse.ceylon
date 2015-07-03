@@ -15,18 +15,18 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.http.HttpClientResponse */
 shared abstract class HttpClientResponse() satisfies ReadStream<Buffer> {
-  shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Anything(Buffer)]>) handler;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
-  shared formal Anything(*<[]>) statusCode;
-  shared formal Anything(*<[]>) statusMessage;
-  shared formal Anything(*<[]>) headers;
-  shared formal Anything(*<[String]>) getHeader;
-  shared formal Anything(*<[String]>) getTrailer;
-  shared formal Anything(*<[]>) trailers;
-  shared formal Anything(*<[]>) cookies;
-  shared formal Anything(*<[Anything(Buffer)]>) bodyHandler;
-  shared formal Anything(*<[]>) netSocket;
+  shared actual formal HttpClientResponse(*<[]>) resume;
+  shared actual formal HttpClientResponse(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal HttpClientResponse(*<[Anything(Buffer)]>) handler;
+  shared actual formal HttpClientResponse(*<[]>) pause;
+  shared actual formal HttpClientResponse(*<[Anything()]>) endHandler;
+  shared formal Integer(*<[]>) statusCode;
+  shared formal String(*<[]>) statusMessage;
+  shared formal MultiMap(*<[]>) headers;
+  shared formal String(*<[String]>) getHeader;
+  shared formal String(*<[String]>) getTrailer;
+  shared formal MultiMap(*<[]>) trailers;
+  shared formal List<String>(*<[]>) cookies;
+  shared formal HttpClientResponse(*<[Anything(Buffer)]>) bodyHandler;
+  shared formal NetSocket(*<[]>) netSocket;
 }

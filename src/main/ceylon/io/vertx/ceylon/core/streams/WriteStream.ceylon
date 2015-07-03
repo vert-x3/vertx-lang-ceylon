@@ -1,8 +1,8 @@
 /* Generated from io.vertx.core.streams.WriteStream<T> */
 shared interface WriteStream<T> satisfies StreamBase {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared formal Anything(*<[T]>) write;
-  shared formal Anything(*<[Integer]>) setWriteQueueMaxSize;
-  shared formal Anything(*<[]>) writeQueueFull;
-  shared formal Anything(*<[Anything()]>) drainHandler;
+  shared actual formal WriteStream<T>(*<[Anything(Throwable)]>) exceptionHandler;
+  shared formal WriteStream<T>(*<[T]>) write;
+  shared formal WriteStream<T>(*<[Integer]>) setWriteQueueMaxSize;
+  shared formal Boolean(*<[]>) writeQueueFull;
+  shared formal WriteStream<T>(*<[Anything()]>) drainHandler;
 }

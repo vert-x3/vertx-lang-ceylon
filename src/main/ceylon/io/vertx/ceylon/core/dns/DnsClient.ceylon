@@ -7,16 +7,16 @@ import io.vertx.ceylon.core.dns {
 }
 /* Generated from io.vertx.core.dns.DnsClient */
 shared abstract class DnsClient() {
-  shared formal Anything(*<[String,Anything(Throwable|String)]>) lookup;
-  shared formal Anything(*<[String,Anything(Throwable|String)]>) lookup4;
-  shared formal Anything(*<[String,Anything(Throwable|String)]>) lookup6;
-  shared formal Anything(*<[String,Anything(Throwable|List<String>)]>) resolveA;
-  shared formal Anything(*<[String,Anything(Throwable|List<String>)]>) resolveAAAA;
-  shared formal Anything(*<[String,Anything(Throwable|List<String>)]>) resolveCNAME;
-  shared formal Anything(*<[String,Anything(Throwable|List<MxRecord>)]>) resolveMX;
-  shared formal Anything(*<[String,Anything(Throwable|List<String>)]>) resolveTXT;
-  shared formal Anything(*<[String,Anything(Throwable|String)]>) resolvePTR;
-  shared formal Anything(*<[String,Anything(Throwable|List<String>)]>) resolveNS;
-  shared formal Anything(*<[String,Anything(Throwable|List<SrvRecord>)]>) resolveSRV;
-  shared formal Anything(*<[String,Anything(Throwable|String)]>) reverseLookup;
+  shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup;
+  shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup4;
+  shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup6;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<String>)]>) resolveA;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<String>)]>) resolveAAAA;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<String>)]>) resolveCNAME;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<MxRecord>)]>) resolveMX;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<String>)]>) resolveTXT;
+  shared formal DnsClient(*<[String,Anything(Throwable|String)]>) resolvePTR;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<String>)]>) resolveNS;
+  shared formal DnsClient(*<[String,Anything(Throwable|List<SrvRecord>)]>) resolveSRV;
+  shared formal DnsClient(*<[String,Anything(Throwable|String)]>) reverseLookup;
 }

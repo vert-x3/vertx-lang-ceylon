@@ -6,9 +6,9 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.http.WebSocketStream */
 shared abstract class WebSocketStream() satisfies ReadStream<WebSocket> {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Anything(WebSocket)]>) handler;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
+  shared actual formal WebSocketStream(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal WebSocketStream(*<[Anything(WebSocket)]>) handler;
+  shared actual formal WebSocketStream(*<[]>) pause;
+  shared actual formal WebSocketStream(*<[]>) resume;
+  shared actual formal WebSocketStream(*<[Anything()]>) endHandler;
 }

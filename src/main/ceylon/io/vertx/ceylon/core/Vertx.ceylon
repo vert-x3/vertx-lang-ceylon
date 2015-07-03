@@ -42,26 +42,26 @@ import io.vertx.ceylon.core.dns {
 }
 /* Generated from io.vertx.core.Vertx */
 shared abstract class Vertx() satisfies Measured {
-  shared formal Anything(*<[]>) getOrCreateContext;
-  shared formal Anything(*<[]|[NetServerOptions]>) createNetServer;
-  shared formal Anything(*<[]|[NetClientOptions]>) createNetClient;
-  shared formal Anything(*<[]|[HttpServerOptions]>) createHttpServer;
-  shared formal Anything(*<[]|[HttpClientOptions]>) createHttpClient;
-  shared formal Anything(*<[]|[DatagramSocketOptions]>) createDatagramSocket;
-  shared formal Anything(*<[]>) fileSystem;
-  shared formal Anything(*<[]>) eventBus;
-  shared formal Anything(*<[Integer,String]>) createDnsClient;
-  shared formal Anything(*<[]>) sharedData;
-  shared formal Anything(*<[Integer,Anything(Integer)]>) setTimer;
-  shared formal Anything(*<[Integer]>) timerStream;
-  shared formal Anything(*<[Integer,Anything(Integer)]>) setPeriodic;
-  shared formal Anything(*<[Integer]>) periodicStream;
-  shared formal Anything(*<[Integer]>) cancelTimer;
+  shared formal Context(*<[]>) getOrCreateContext;
+  shared formal NetServer(*<[]|[NetServerOptions]>) createNetServer;
+  shared formal NetClient(*<[]|[NetClientOptions]>) createNetClient;
+  shared formal HttpServer(*<[]|[HttpServerOptions]>) createHttpServer;
+  shared formal HttpClient(*<[]|[HttpClientOptions]>) createHttpClient;
+  shared formal DatagramSocket(*<[]|[DatagramSocketOptions]>) createDatagramSocket;
+  shared formal FileSystem(*<[]>) fileSystem;
+  shared formal EventBus(*<[]>) eventBus;
+  shared formal DnsClient(*<[Integer,String]>) createDnsClient;
+  shared formal SharedData(*<[]>) sharedData;
+  shared formal Integer(*<[Integer,Anything(Integer)]>) setTimer;
+  shared formal TimeoutStream(*<[Integer]>) timerStream;
+  shared formal Integer(*<[Integer,Anything(Integer)]>) setPeriodic;
+  shared formal TimeoutStream(*<[Integer]>) periodicStream;
+  shared formal Boolean(*<[Integer]>) cancelTimer;
   shared formal Anything(*<[Anything()]>) runOnContext;
   shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
   shared formal Anything(*<[String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)]>) deployVerticle;
   shared formal Anything(*<[String]|[String,Anything(Throwable?)]>) undeploy;
-  shared formal Anything(*<[]>) deploymentIDs;
-  shared formal Anything(*<[]>) isClustered;
+  shared formal Set<String>(*<[]>) deploymentIDs;
+  shared formal Boolean(*<[]>) isClustered;
   shared formal Anything(*<[Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)]>) executeBlocking;
 }

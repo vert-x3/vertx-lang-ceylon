@@ -19,17 +19,17 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.datagram.DatagramSocket */
 shared abstract class DatagramSocket() satisfies ReadStream<DatagramPacket> & Measured {
-  shared formal Anything(*<[Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)]>) send;
-  shared formal Anything(*<[Integer,String]>) sender;
+  shared formal DatagramSocket(*<[Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)]>) send;
+  shared formal PacketWritestream(*<[Integer,String]>) sender;
   shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
-  shared formal Anything(*<[]>) localAddress;
-  shared formal Anything(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) listenMulticastGroup;
-  shared formal Anything(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) unlistenMulticastGroup;
-  shared formal Anything(*<[String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) blockMulticastGroup;
-  shared formal Anything(*<[Integer,String,Anything(Throwable|DatagramSocket)]>) listen;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[]>) resume;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
-  shared actual formal Anything(*<[Anything(DatagramPacket)]>) handler;
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
+  shared formal SocketAddress(*<[]>) localAddress;
+  shared formal DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) listenMulticastGroup;
+  shared formal DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) unlistenMulticastGroup;
+  shared formal DatagramSocket(*<[String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) blockMulticastGroup;
+  shared formal DatagramSocket(*<[Integer,String,Anything(Throwable|DatagramSocket)]>) listen;
+  shared actual formal DatagramSocket(*<[]>) pause;
+  shared actual formal DatagramSocket(*<[]>) resume;
+  shared actual formal DatagramSocket(*<[Anything()]>) endHandler;
+  shared actual formal DatagramSocket(*<[Anything(DatagramPacket)]>) handler;
+  shared actual formal DatagramSocket(*<[Anything(Throwable)]>) exceptionHandler;
 }

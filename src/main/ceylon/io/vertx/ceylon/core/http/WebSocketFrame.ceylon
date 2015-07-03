@@ -6,10 +6,10 @@ import io.vertx.ceylon.core.buffer {
 }
 /* Generated from io.vertx.core.http.WebSocketFrame */
 shared abstract class WebSocketFrame() {
-  shared formal Anything(*<[]>) isText;
-  shared formal Anything(*<[]>) isBinary;
-  shared formal Anything(*<[]>) isContinuation;
-  shared formal Anything(*<[]>) textData;
-  shared formal Anything(*<[]>) binaryData;
-  shared formal Anything(*<[]>) isFinal;
+  shared formal Boolean(*<[]>) isText;
+  shared formal Boolean(*<[]>) isBinary;
+  shared formal Boolean(*<[]>) isContinuation;
+  shared formal String(*<[]>) textData;
+  shared formal Buffer(*<[]>) binaryData;
+  shared formal Boolean(*<[]>) isFinal;
 }

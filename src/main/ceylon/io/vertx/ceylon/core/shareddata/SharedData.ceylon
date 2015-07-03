@@ -13,5 +13,5 @@ shared abstract class SharedData() {
   shared formal Anything(*<[String,Anything(Throwable|Lock)]>) getLock;
   shared formal Anything(*<[String,Integer,Anything(Throwable|Lock)]>) getLockWithTimeout;
   shared formal Anything(*<[String,Anything(Throwable|Counter)]>) getCounter;
-  shared formal Anything(*<[String]>) getLocalMap;
+  shared formal LocalMap<Object,Object>(*<[String]>) getLocalMap;
 }

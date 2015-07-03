@@ -9,17 +9,17 @@ import io.vertx.ceylon.core.streams {
 }
 /* Generated from io.vertx.core.http.HttpServerFileUpload */
 shared abstract class HttpServerFileUpload() satisfies ReadStream<Buffer> {
-  shared actual formal Anything(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal Anything(*<[Anything(Buffer)]>) handler;
-  shared actual formal Anything(*<[Anything()]>) endHandler;
-  shared actual formal Anything(*<[]>) pause;
-  shared actual formal Anything(*<[]>) resume;
-  shared formal Anything(*<[String]>) streamToFileSystem;
-  shared formal Anything(*<[]>) filename;
-  shared formal Anything(*<[]>) name;
-  shared formal Anything(*<[]>) contentType;
-  shared formal Anything(*<[]>) contentTransferEncoding;
-  shared formal Anything(*<[]>) charset;
-  shared formal Anything(*<[]>) size;
-  shared formal Anything(*<[]>) isSizeAvailable;
+  shared actual formal HttpServerFileUpload(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal HttpServerFileUpload(*<[Anything(Buffer)]>) handler;
+  shared actual formal HttpServerFileUpload(*<[Anything()]>) endHandler;
+  shared actual formal HttpServerFileUpload(*<[]>) pause;
+  shared actual formal HttpServerFileUpload(*<[]>) resume;
+  shared formal HttpServerFileUpload(*<[String]>) streamToFileSystem;
+  shared formal String(*<[]>) filename;
+  shared formal String(*<[]>) name;
+  shared formal String(*<[]>) contentType;
+  shared formal String(*<[]>) contentTransferEncoding;
+  shared formal String(*<[]>) charset;
+  shared formal Integer(*<[]>) size;
+  shared formal Boolean(*<[]>) isSizeAvailable;
 }

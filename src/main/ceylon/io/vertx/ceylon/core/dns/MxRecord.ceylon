@@ -3,6 +3,6 @@ import java.lang {
 }
 /* Generated from io.vertx.core.dns.MxRecord */
 shared abstract class MxRecord() {
-  shared formal Anything(*<[]>) priority;
-  shared formal Anything(*<[]>) name;
+  shared formal Integer(*<[]>) priority;
+  shared formal String(*<[]>) name;
 }
