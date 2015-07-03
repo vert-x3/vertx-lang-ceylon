@@ -1,3 +1,30 @@
 /* Generated from io.vertx.core.http.HttpServerOptions */
-shared class HttpServerOptions() {
+shared class HttpServerOptions(
+  shared String sendBufferSize,
+  shared String receiveBufferSize,
+  shared String reuseAddress,
+  shared String trafficClass,
+  shared String tcpNoDelay,
+  shared String tcpKeepAlive,
+  shared String soLinger,
+  shared String usePooledBuffers,
+  shared String idleTimeout,
+  shared String ssl,
+  shared String keyStoreOptions,
+  shared String pfxKeyCertOptions,
+  shared String pemKeyCertOptions,
+  shared String trustStoreOptions,
+  shared String pemTrustOptions,
+  shared String pfxTrustOptions,
+  shared String enabledCipherSuites,
+  shared String crlPaths,
+  shared String crlValues,
+  shared String acceptBacklog,
+  shared String port,
+  shared String host,
+  shared String compressionSupported,
+  shared String maxWebsocketFrameSize,
+  shared String websocketSubProtocol,
+  shared String clientAuthRequired,
+  shared String handle100ContinueAutomatically) {
 }

@@ -1,0 +1,11 @@
+@code{
+  def toCeylonIdentifier(s) {
+    if (s == 'value') {
+      return '\\ivalue';
+    } else if (s == 'exists') {
+       return '\\iexists';
+    } else {
+      return s;
+    }
+  }
+}

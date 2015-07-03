@@ -1,3 +1,7 @@
+@includeNamed{'ceylon-common.templ'}
 /* Generated from @{type.name} */\n
-shared class @{type.raw.simpleName}() {\n
+shared class @{type.raw.simpleName}(
+	@foreach{property:properties}
+\n  shared String @{toCeylonIdentifier(property.name)}
+@end{','}) {\n
 }\n

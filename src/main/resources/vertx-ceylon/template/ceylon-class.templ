@@ -1,4 +1,5 @@
 @includeNamed{'/vertx-java/template/common-lib.templ'}
+@includeNamed{'ceylon-common.templ'}
 @code{
 
   /*
@@ -600,16 +601,6 @@
       }
     }
     return decl;
-  }
-
-  def toCeylonIdentifier(s) {
-    if (s == 'value') {
-      return '\\ivalue';
-    } else if (s == 'exists') {
-       return '\\iexists';
-    } else {
-      return s;
-    }
   }
 
   def shouldDeclareMethod(methods) {
