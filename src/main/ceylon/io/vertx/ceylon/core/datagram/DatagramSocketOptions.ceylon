@@ -3,13 +3,13 @@ import java.lang {
 }
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 shared class DatagramSocketOptions(
-  shared String sendBufferSize,
-  shared String receiveBufferSize,
-  shared String reuseAddress,
-  shared String trafficClass,
-  shared String broadcast,
-  shared String loopbackModeDisabled,
-  shared String multicastTimeToLive,
+  shared Boolean broadcast,
+  shared Boolean ipV6,
+  shared Boolean loopbackModeDisabled,
   shared String multicastNetworkInterface,
-  shared String ipV6) {
+  shared Integer multicastTimeToLive,
+  shared Integer receiveBufferSize,
+  shared Boolean reuseAddress,
+  shared Integer sendBufferSize,
+  shared Integer trafficClass) {
 }

@@ -8,7 +8,7 @@ import io.vertx.ceylon.core.buffer {
 shared class JksOptions(
   shared String password,
   shared String path,
-  shared String \ivalue) satisfies
+  shared Buffer \ivalue) satisfies
   KeyCertOptions &
   TrustOptions {
 }

@@ -7,6 +7,6 @@ import io.vertx.ceylon.core.buffer {
 /* Generated from io.vertx.core.net.PemTrustOptions */
 shared class PemTrustOptions(
   shared String certPaths,
-  shared String certValues) satisfies
+  shared Buffer certValues) satisfies
   TrustOptions {
 }

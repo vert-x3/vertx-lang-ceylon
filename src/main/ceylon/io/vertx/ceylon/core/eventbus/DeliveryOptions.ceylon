@@ -6,7 +6,7 @@ import io.vertx.ceylon.core {
 }
 /* Generated from io.vertx.core.eventbus.DeliveryOptions */
 shared class DeliveryOptions(
-  shared String sendTimeout,
   shared String codecName,
-  shared String headers) {
+  shared MultiMap headers,
+  shared Integer sendTimeout) {
 }

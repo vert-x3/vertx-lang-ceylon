@@ -6,7 +6,7 @@
 /* Generated from @{type.name} */\n
 shared @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@if{concrete}(
 	@foreach{property:properties}
-\n  @if{property.declared}shared @end{}String @{toCeylonIdentifier(property.name)}
+\n  @if{property.declared}shared @end{}@{genTypeDecl(property.type)} @{toCeylonIdentifier(property.name)}
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}
 	@foreach{property:properties}

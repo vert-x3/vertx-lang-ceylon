@@ -6,12 +6,12 @@ import ceylon.json {
 }
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
-  shared String config,
-  shared String worker,
-  shared String multiThreaded,
-  shared String isolationGroup,
-  shared String ha,
+  shared JsonObject config,
   shared String extraClasspath,
-  shared String instances,
-  shared String isolatedClasses) {
+  shared Boolean ha,
+  shared Integer instances,
+  shared String isolatedClasses,
+  shared String isolationGroup,
+  shared Boolean multiThreaded,
+  shared Boolean worker) {
 }

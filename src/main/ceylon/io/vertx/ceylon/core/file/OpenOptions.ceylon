@@ -3,14 +3,14 @@ import java.lang {
 }
 /* Generated from io.vertx.core.file.OpenOptions */
 shared class OpenOptions(
+  shared Boolean create,
+  shared Boolean createNew,
+  shared Boolean dSync,
+  shared Boolean deleteOnClose,
   shared String perms,
-  shared String read,
-  shared String write,
-  shared String create,
-  shared String createNew,
-  shared String deleteOnClose,
-  shared String truncateExisting,
-  shared String sparse,
-  shared String sync,
-  shared String dSync) {
+  shared Boolean read,
+  shared Boolean sparse,
+  shared Boolean sync,
+  shared Boolean truncateExisting,
+  shared Boolean write) {
 }
