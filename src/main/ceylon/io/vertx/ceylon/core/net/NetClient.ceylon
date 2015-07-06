@@ -16,6 +16,17 @@ import io.vertx.core.net {
 /* Generated from io.vertx.core.net.NetClient */
 shared abstract class NetClient(NetClient_ delegate) satisfies Delegating
   & Measured {
-  shared formal NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect;
-  shared formal Anything(*<[]>) close;
+
+  NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect = flatten(connect_impl);
+
+  Anything close_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[]>) close = flatten(close_impl);
+
 }

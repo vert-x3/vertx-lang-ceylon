@@ -12,8 +12,29 @@ import io.vertx.core.parsetools {
 }
 /* Generated from io.vertx.core.parsetools.RecordParser */
 shared abstract class RecordParser(RecordParser_ delegate) satisfies Delegating {
-  shared formal Anything(*<[Anything(Buffer)]>) setOutput;
-  shared formal Anything(*<[String]|[Buffer]>) delimitedMode;
-  shared formal Anything(*<[Integer]>) fixedSizeMode;
-  shared formal Anything(*<[Buffer]>) handle;
+
+  Anything setOutput_impl([Anything(Buffer)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[Anything(Buffer)]>) setOutput = flatten(setOutput_impl);
+
+  Anything delimitedMode_impl([String]|[Buffer] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[String]|[Buffer]>) delimitedMode = flatten(delimitedMode_impl);
+
+  Anything fixedSizeMode_impl([Integer] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[Integer]>) fixedSizeMode = flatten(fixedSizeMode_impl);
+
+  Anything handle_impl([Buffer] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[Buffer]>) handle = flatten(handle_impl);
+
 }

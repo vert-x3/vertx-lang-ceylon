@@ -21,20 +21,101 @@ import io.vertx.ceylon.core.streams {
 shared abstract class NetSocket(NetSocket_ delegate) satisfies Delegating
   & ReadStream<Buffer>
   & WriteStream<Buffer> {
-  shared actual formal NetSocket(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal NetSocket(*<[Anything(Buffer)]>) handler;
-  shared actual formal NetSocket(*<[]>) pause;
-  shared actual formal NetSocket(*<[]>) resume;
-  shared actual formal NetSocket(*<[Anything()]>) endHandler;
-  shared actual formal NetSocket(*<[Buffer]|[String]|[String,String]>) write;
-  shared actual formal NetSocket(*<[Integer]>) setWriteQueueMaxSize;
-  shared actual formal NetSocket(*<[Anything()]>) drainHandler;
-  shared formal String(*<[]>) writeHandlerID;
-  shared formal NetSocket(*<[String]|[String,Anything(Throwable?)]>) sendFile;
-  shared formal SocketAddress(*<[]>) remoteAddress;
-  shared formal SocketAddress(*<[]>) localAddress;
-  shared formal Anything(*<[]>) close;
-  shared formal NetSocket(*<[Anything()]>) closeHandler;
-  shared formal NetSocket(*<[Anything()]>) upgradeToSsl;
-  shared formal Boolean(*<[]>) isSsl;
+
+  NetSocket exceptionHandler_impl([Anything(Throwable)] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
+
+  NetSocket handler_impl([Anything(Buffer)] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Anything(Buffer)]>) handler = flatten(handler_impl);
+
+  NetSocket pause_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[]>) pause = flatten(pause_impl);
+
+  NetSocket resume_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[]>) resume = flatten(resume_impl);
+
+  NetSocket endHandler_impl([Anything()] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Anything()]>) endHandler = flatten(endHandler_impl);
+
+  NetSocket write_impl([Buffer]|[String]|[String,String] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Buffer]|[String]|[String,String]>) write = flatten(write_impl);
+
+  NetSocket setWriteQueueMaxSize_impl([Integer] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
+
+  NetSocket drainHandler_impl([Anything()] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual NetSocket(*<[Anything()]>) drainHandler = flatten(drainHandler_impl);
+
+  String writeHandlerID_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) writeHandlerID = flatten(writeHandlerID_impl);
+
+  NetSocket sendFile_impl([String]|[String,Anything(Throwable?)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetSocket(*<[String]|[String,Anything(Throwable?)]>) sendFile = flatten(sendFile_impl);
+
+  SocketAddress remoteAddress_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  SocketAddress(*<[]>) remoteAddress = flatten(remoteAddress_impl);
+
+  SocketAddress localAddress_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  SocketAddress(*<[]>) localAddress = flatten(localAddress_impl);
+
+  Anything close_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[]>) close = flatten(close_impl);
+
+  NetSocket closeHandler_impl([Anything()] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetSocket(*<[Anything()]>) closeHandler = flatten(closeHandler_impl);
+
+  NetSocket upgradeToSsl_impl([Anything()] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetSocket(*<[Anything()]>) upgradeToSsl = flatten(upgradeToSsl_impl);
+
+  Boolean isSsl_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Boolean(*<[]>) isSsl = flatten(isSsl_impl);
+
 }

@@ -9,11 +9,47 @@ import io.vertx.core.dns {
 }
 /* Generated from io.vertx.core.dns.SrvRecord */
 shared abstract class SrvRecord(SrvRecord_ delegate) satisfies Delegating {
-  shared formal Integer(*<[]>) priority;
-  shared formal Integer(*<[]>) weight;
-  shared formal Integer(*<[]>) port;
-  shared formal String(*<[]>) name;
-  shared formal String(*<[]>) protocol;
-  shared formal String(*<[]>) service;
-  shared formal String(*<[]>) target;
+
+  Integer priority_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) priority = flatten(priority_impl);
+
+  Integer weight_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) weight = flatten(weight_impl);
+
+  Integer port_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) port = flatten(port_impl);
+
+  String name_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) name = flatten(name_impl);
+
+  String protocol_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) protocol = flatten(protocol_impl);
+
+  String service_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) service = flatten(service_impl);
+
+  String target_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) target = flatten(target_impl);
+
 }

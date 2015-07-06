@@ -12,4 +12,5 @@ import io.vertx.ceylon.codegen.testmodel {
 }
 /* Generated from io.vertx.codegen.testmodel.Factory */
 shared abstract class Factory(Factory_ delegate) satisfies Delegating {
+
 }

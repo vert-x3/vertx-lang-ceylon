@@ -10,4 +10,5 @@ import io.vertx.ceylon.codegen.testmodel {
 }
 /* Generated from io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension */
 shared abstract class ConcreteHandlerUserTypeExtension(ConcreteHandlerUserTypeExtension_ delegate) extends ConcreteHandlerUserType(delegate) satisfies Delegating {
+
 }

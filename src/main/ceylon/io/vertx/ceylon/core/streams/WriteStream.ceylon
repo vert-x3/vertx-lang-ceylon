@@ -10,6 +10,7 @@ import io.vertx.ceylon.core.streams {
 /* Generated from io.vertx.core.streams.WriteStream<T> */
 shared interface WriteStream<T> satisfies Delegating
   & StreamBase {
+
   shared actual formal WriteStream<T>(*<[Anything(Throwable)]>) exceptionHandler;
   shared formal WriteStream<T>(*<[T]>) write;
   shared formal WriteStream<T>(*<[Integer]>) setWriteQueueMaxSize;

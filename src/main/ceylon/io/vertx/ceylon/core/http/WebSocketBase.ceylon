@@ -24,6 +24,7 @@ import io.vertx.core.http {
 shared interface WebSocketBase satisfies Delegating
   & ReadStream<Buffer>
   & WriteStream<Buffer> {
+
   shared actual formal WebSocketBase(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal WebSocketBase(*<[Anything(Buffer)]>) handler;
   shared actual formal WebSocketBase(*<[]>) pause;

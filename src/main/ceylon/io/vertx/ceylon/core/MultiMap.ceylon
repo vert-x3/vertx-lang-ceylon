@@ -9,16 +9,77 @@ import io.vertx.lang.ceylon {
 }
 /* Generated from io.vertx.core.MultiMap */
 shared abstract class MultiMap(MultiMap_ delegate) satisfies Delegating {
-  shared formal String(*<[String]>) get;
-  shared formal List<String>(*<[String]>) getAll;
-  shared formal Boolean(*<[String]>) contains;
-  shared formal Boolean(*<[]>) isEmpty;
-  shared formal Set<String>(*<[]>) names;
-  shared formal MultiMap(*<[String,String]>) add;
-  shared formal MultiMap(*<[MultiMap]>) addAll;
-  shared formal MultiMap(*<[String,String]>) set;
-  shared formal MultiMap(*<[MultiMap]>) setAll;
-  shared formal MultiMap(*<[String]>) remove;
-  shared formal MultiMap(*<[]>) clear;
-  shared formal Integer(*<[]>) size;
+
+  String get_impl([String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[String]>) get = flatten(get_impl);
+
+  List<String> getAll_impl([String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  List<String>(*<[String]>) getAll = flatten(getAll_impl);
+
+  Boolean contains_impl([String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Boolean(*<[String]>) contains = flatten(contains_impl);
+
+  Boolean isEmpty_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Boolean(*<[]>) isEmpty = flatten(isEmpty_impl);
+
+  Set<String> names_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Set<String>(*<[]>) names = flatten(names_impl);
+
+  MultiMap add_impl([String,String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[String,String]>) add = flatten(add_impl);
+
+  MultiMap addAll_impl([MultiMap] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[MultiMap]>) addAll = flatten(addAll_impl);
+
+  MultiMap set_impl([String,String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[String,String]>) set = flatten(set_impl);
+
+  MultiMap setAll_impl([MultiMap] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[MultiMap]>) setAll = flatten(setAll_impl);
+
+  MultiMap remove_impl([String] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[String]>) remove = flatten(remove_impl);
+
+  MultiMap clear_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  MultiMap(*<[]>) clear = flatten(clear_impl);
+
+  Integer size_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) size = flatten(size_impl);
+
 }

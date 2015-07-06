@@ -9,6 +9,17 @@ import io.vertx.core.dns {
 }
 /* Generated from io.vertx.core.dns.MxRecord */
 shared abstract class MxRecord(MxRecord_ delegate) satisfies Delegating {
-  shared formal Integer(*<[]>) priority;
-  shared formal String(*<[]>) name;
+
+  Integer priority_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) priority = flatten(priority_impl);
+
+  String name_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  String(*<[]>) name = flatten(name_impl);
+
 }

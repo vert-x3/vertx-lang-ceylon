@@ -17,9 +17,35 @@ import io.vertx.core.net {
 /* Generated from io.vertx.core.net.NetServer */
 shared abstract class NetServer(NetServer_ delegate) satisfies Delegating
   & Measured {
-  shared formal NetSocketStream(*<[]>) connectStream;
-  shared formal NetServer(*<[Anything(NetSocket)]>) connectHandler;
-  shared formal NetServer(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen;
-  shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
-  shared formal Integer(*<[]>) actualPort;
+
+  NetSocketStream connectStream_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetSocketStream(*<[]>) connectStream = flatten(connectStream_impl);
+
+  NetServer connectHandler_impl([Anything(NetSocket)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetServer(*<[Anything(NetSocket)]>) connectHandler = flatten(connectHandler_impl);
+
+  NetServer listen_impl([]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  NetServer(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen = flatten(listen_impl);
+
+  Anything close_impl([]|[Anything(Throwable?)] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Anything(*<[]|[Anything(Throwable?)]>) close = flatten(close_impl);
+
+  Integer actualPort_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared  Integer(*<[]>) actualPort = flatten(actualPort_impl);
+
 }

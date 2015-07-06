@@ -9,5 +9,6 @@ import io.vertx.lang.ceylon {
 }
 /* Generated from io.vertx.codegen.testmodel.SuperInterface2 */
 shared interface SuperInterface2 satisfies Delegating {
+
   shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) otherSuperMethodWithBasicParams;
 }

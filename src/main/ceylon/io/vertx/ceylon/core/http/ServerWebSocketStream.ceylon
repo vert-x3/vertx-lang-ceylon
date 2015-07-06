@@ -13,9 +13,35 @@ import io.vertx.core.http {
 /* Generated from io.vertx.core.http.ServerWebSocketStream */
 shared abstract class ServerWebSocketStream(ServerWebSocketStream_ delegate) satisfies Delegating
   & ReadStream<ServerWebSocket> {
-  shared actual formal ServerWebSocketStream(*<[Anything(Throwable)]>) exceptionHandler;
-  shared actual formal ServerWebSocketStream(*<[Anything(ServerWebSocket)]>) handler;
-  shared actual formal ServerWebSocketStream(*<[]>) pause;
-  shared actual formal ServerWebSocketStream(*<[]>) resume;
-  shared actual formal ServerWebSocketStream(*<[Anything()]>) endHandler;
+
+  ServerWebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual ServerWebSocketStream(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
+
+  ServerWebSocketStream handler_impl([Anything(ServerWebSocket)] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual ServerWebSocketStream(*<[Anything(ServerWebSocket)]>) handler = flatten(handler_impl);
+
+  ServerWebSocketStream pause_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual ServerWebSocketStream(*<[]>) pause = flatten(pause_impl);
+
+  ServerWebSocketStream resume_impl([] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual ServerWebSocketStream(*<[]>) resume = flatten(resume_impl);
+
+  ServerWebSocketStream endHandler_impl([Anything()] args) {
+    throw Exception("implement me");
+  }
+
+  shared actual ServerWebSocketStream(*<[Anything()]>) endHandler = flatten(endHandler_impl);
+
 }

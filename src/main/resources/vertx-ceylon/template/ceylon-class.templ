@@ -529,18 +529,31 @@
 [@foreach{param:method.params}@{genTypeDecl(param.type)}@end{','}]
 @end{}
 
+@declare{'genMethodArgs'}
+@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}
+@end{}
+
 /* Generated from @{type.name} */\n
 @if{concrete}
 shared abstract class @includeNamed{'genModelDecl'}(@{type.raw.simpleName}_@if{typeParams.size() > 0}<@foreach{typeParam:typeParams}Object@end{', '}>@end{} delegate) @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'} {\n
 @else{}
 shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'} {\n
 @end{}
-
+\n
 	@foreach{methods:methodsByName.values()}
 		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
-			  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}>) @{methodName};\n
+			@if{concrete}
+				  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
+				    throw Exception("implement me");\n
+				  }\n
+				\n
+				  shared @if{isActualMethod(methods)}actual@end{} @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName} = flatten(@{methodName}_impl);\n
+				\n
+			@else{}
+				  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName};\n
+			@end{}
 		@end{}
 	@end{}
 

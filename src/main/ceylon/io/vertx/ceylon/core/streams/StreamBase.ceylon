@@ -6,5 +6,6 @@ import io.vertx.lang.ceylon {
 }
 /* Generated from io.vertx.core.streams.StreamBase */
 shared interface StreamBase satisfies Delegating {
+
   shared formal StreamBase(*<[Anything(Throwable)]>) exceptionHandler;
 }
