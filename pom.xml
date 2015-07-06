@@ -209,6 +209,9 @@
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <io.vertx.ceylon.core>"io.vertx.vertx-core" "3.1.0-SNAPSHOT"</io.vertx.ceylon.core>
+                <io.vertx.ceylon.codegen.testmodel>todo</io.vertx.ceylon.codegen.testmodel>
+                <com.acme.ceylon.pkg>todo</com.acme.ceylon.pkg>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/vertx-core</sourceDirectory>
             </configuration>
