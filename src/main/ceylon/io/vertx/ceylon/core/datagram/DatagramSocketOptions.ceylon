@@ -1,3 +1,6 @@
+import java.lang {
+  String_=String
+}
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 shared class DatagramSocketOptions(
   shared String sendBufferSize,

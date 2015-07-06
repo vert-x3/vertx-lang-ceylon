@@ -1,3 +1,6 @@
+import java.lang {
+  String_=String
+}
 /* Generated from io.vertx.core.file.OpenOptions */
 shared class OpenOptions(
   shared String perms,

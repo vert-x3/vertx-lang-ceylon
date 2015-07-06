@@ -1,3 +1,9 @@
+import java.lang {
+  String_=String
+}
+import io.vertx.ceylon.core.metrics {
+  MetricsOptions
+}
 /* Generated from io.vertx.core.VertxOptions */
 shared class VertxOptions(
   shared String eventLoopPoolSize,

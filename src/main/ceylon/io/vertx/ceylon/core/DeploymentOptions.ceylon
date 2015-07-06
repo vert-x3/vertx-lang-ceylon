@@ -1,3 +1,9 @@
+import java.lang {
+  String_=String
+}
+import ceylon.json {
+  JsonObject=Object
+}
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
   shared String config,

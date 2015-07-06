@@ -1,3 +1,15 @@
+import java.lang {
+  String_=String
+}
+import io.vertx.ceylon.core.buffer {
+  Buffer
+}
+import io.vertx.ceylon.core.net {
+  JksOptions,
+  PfxOptions,
+  PemKeyCertOptions,
+  PemTrustOptions
+}
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(
   shared String sendBufferSize,

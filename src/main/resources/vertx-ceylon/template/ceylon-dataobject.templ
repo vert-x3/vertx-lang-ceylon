@@ -1,7 +1,22 @@
 @includeNamed{'ceylon-common.templ'}
+
+@comment{"Generate the imports"}
+@includeNamed{'ceylon-imports.templ'}
+
 /* Generated from @{type.name} */\n
-shared class @{type.raw.simpleName}(
+shared @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@if{concrete}(
 	@foreach{property:properties}
-\n  shared String @{toCeylonIdentifier(property.name)}
-@end{','}) {\n
+\n  @if{property.declared}shared @end{}String @{toCeylonIdentifier(property.name)}
+	@end{','})@if{superType != null} extends @{superType.simpleName}(
+	@code{var prev = '\n'}
+	@foreach{property:properties}
+	@if{!property.declared}
+	@{prev}  @{toCeylonIdentifier(property.name)}
+	@code{prev = ',\n'}
+	@end{}
+	@end{})@end{}@end{}@if{abstractSuperTypes.size() > 0} satisfies\n
+	@foreach{abstractSuperType : abstractSuperTypes}
+  @{abstractSuperType.simpleName}
+	@end{' &\n'}
+@end{} {\n
 }\n
