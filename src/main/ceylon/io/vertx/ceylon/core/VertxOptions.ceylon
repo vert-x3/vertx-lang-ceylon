@@ -1,6 +1,12 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  VertxOptions_=VertxOptions
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.metrics {
   MetricsOptions
 }

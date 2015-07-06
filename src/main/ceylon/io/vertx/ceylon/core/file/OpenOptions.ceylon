@@ -1,6 +1,12 @@
 import java.lang {
   String_=String
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.file {
+  OpenOptions_=OpenOptions
+}
 /* Generated from io.vertx.core.file.OpenOptions */
 shared class OpenOptions(
   shared Boolean create,

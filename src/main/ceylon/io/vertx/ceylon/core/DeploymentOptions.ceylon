@@ -1,6 +1,12 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  DeploymentOptions_=DeploymentOptions
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import ceylon.json {
   JsonObject=Object
 }

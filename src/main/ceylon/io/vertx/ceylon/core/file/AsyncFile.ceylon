@@ -1,12 +1,20 @@
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.file {
+  AsyncFile_=AsyncFile
+}
 import io.vertx.ceylon.core.streams {
   WriteStream,
   ReadStream
 }
 /* Generated from io.vertx.core.file.AsyncFile */
-shared abstract class AsyncFile() satisfies ReadStream<Buffer> & WriteStream<Buffer> {
+shared abstract class AsyncFile(AsyncFile_ delegate) satisfies Delegating
+  & ReadStream<Buffer>
+  & WriteStream<Buffer> {
   shared actual formal AsyncFile(*<[Anything(Buffer)]>) handler;
   shared actual formal AsyncFile(*<[]>) pause;
   shared actual formal AsyncFile(*<[]>) resume;

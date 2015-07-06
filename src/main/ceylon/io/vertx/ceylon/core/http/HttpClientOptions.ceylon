@@ -10,6 +10,12 @@ import io.vertx.ceylon.core.net {
   PemTrustOptions,
   PfxOptions
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.http {
+  HttpClientOptions_=HttpClientOptions
+}
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(
   shared Integer connectTimeout,

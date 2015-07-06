@@ -22,11 +22,17 @@ import io.vertx.ceylon.core {
 import io.vertx.ceylon.core.file {
   FileSystem
 }
+import io.vertx.core {
+  Vertx_=Vertx
+}
 import io.vertx.ceylon.core.net {
   NetClient,
   NetClientOptions,
   NetServerOptions,
   NetServer
+}
+import io.vertx.lang.ceylon {
+  Delegating
 }
 import io.vertx.ceylon.core.http {
   HttpServer,
@@ -41,7 +47,8 @@ import io.vertx.ceylon.core.dns {
   DnsClient
 }
 /* Generated from io.vertx.core.Vertx */
-shared abstract class Vertx() satisfies Measured {
+shared abstract class Vertx(Vertx_ delegate) satisfies Delegating
+  & Measured {
   shared formal Context(*<[]>) getOrCreateContext;
   shared formal NetServer(*<[]|[NetServerOptions]>) createNetServer;
   shared formal NetClient(*<[]|[NetClientOptions]>) createNetClient;

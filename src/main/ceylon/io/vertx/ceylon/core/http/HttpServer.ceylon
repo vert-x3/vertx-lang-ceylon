@@ -1,6 +1,9 @@
 import java.lang {
   String_=String
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.http {
   HttpServerRequest,
   ServerWebSocket,
@@ -10,8 +13,12 @@ import io.vertx.ceylon.core.http {
 import io.vertx.ceylon.core.metrics {
   Measured
 }
+import io.vertx.core.http {
+  HttpServer_=HttpServer
+}
 /* Generated from io.vertx.core.http.HttpServer */
-shared abstract class HttpServer() satisfies Measured {
+shared abstract class HttpServer(HttpServer_ delegate) satisfies Delegating
+  & Measured {
   shared formal HttpServerRequestStream(*<[]>) requestStream;
   shared formal HttpServer(*<[Anything(HttpServerRequest)]>) requestHandler;
   shared formal ServerWebSocketStream(*<[]>) websocketStream;

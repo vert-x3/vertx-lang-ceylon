@@ -8,8 +8,14 @@ import io.vertx.ceylon.core.datagram {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core.datagram {
+  DatagramSocket_=DatagramSocket
+}
 import io.vertx.ceylon.core.net {
   SocketAddress
+}
+import io.vertx.lang.ceylon {
+  Delegating
 }
 import io.vertx.ceylon.core.metrics {
   Measured
@@ -18,7 +24,9 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.datagram.DatagramSocket */
-shared abstract class DatagramSocket() satisfies ReadStream<DatagramPacket> & Measured {
+shared abstract class DatagramSocket(DatagramSocket_ delegate) satisfies Delegating
+  & ReadStream<DatagramPacket>
+  & Measured {
   shared formal DatagramSocket(*<[Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)]>) send;
   shared formal PacketWritestream(*<[Integer,String]>) sender;
   shared formal Anything(*<[]|[Anything(Throwable?)]>) close;

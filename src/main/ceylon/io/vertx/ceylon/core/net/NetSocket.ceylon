@@ -7,12 +7,20 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.ceylon.core.net {
   SocketAddress
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.net {
+  NetSocket_=NetSocket
+}
 import io.vertx.ceylon.core.streams {
   WriteStream,
   ReadStream
 }
 /* Generated from io.vertx.core.net.NetSocket */
-shared abstract class NetSocket() satisfies ReadStream<Buffer> & WriteStream<Buffer> {
+shared abstract class NetSocket(NetSocket_ delegate) satisfies Delegating
+  & ReadStream<Buffer>
+  & WriteStream<Buffer> {
   shared actual formal NetSocket(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal NetSocket(*<[Anything(Buffer)]>) handler;
   shared actual formal NetSocket(*<[]>) pause;

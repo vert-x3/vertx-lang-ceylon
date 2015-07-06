@@ -4,6 +4,12 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.net {
+  NetServerOptions_=NetServerOptions
+}
 /* Generated from io.vertx.core.net.NetServerOptions */
 shared class NetServerOptions(
   shared Integer acceptBacklog,

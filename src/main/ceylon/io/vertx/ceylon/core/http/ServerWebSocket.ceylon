@@ -10,12 +10,19 @@ import io.vertx.ceylon.core {
 import io.vertx.ceylon.core.net {
   SocketAddress
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.http {
   WebSocketBase,
   WebSocketFrame
 }
+import io.vertx.core.http {
+  ServerWebSocket_=ServerWebSocket
+}
 /* Generated from io.vertx.core.http.ServerWebSocket */
-shared abstract class ServerWebSocket() satisfies WebSocketBase {
+shared abstract class ServerWebSocket(ServerWebSocket_ delegate) satisfies Delegating
+  & WebSocketBase {
   shared actual formal ServerWebSocket(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal ServerWebSocket(*<[Anything(Buffer)]>) handler;
   shared actual formal ServerWebSocket(*<[]>) pause;

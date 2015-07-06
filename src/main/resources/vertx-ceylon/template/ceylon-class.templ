@@ -515,13 +515,14 @@
 @end{}
 
 @declare{'genExtendsClause'}
-	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])}() @end{}
+	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])}(delegate) @end{}
 @end{}
 
 @declare{'genSatisfiesClause'}
-	@if{abstractSuperTypes.size() > 0}satisfies @foreach{superType:abstractSuperTypes}
-	@{genTypeDecl(superType)}
-	@end{' & '} @end{}
+	satisfies Delegating
+	@foreach{superType:abstractSuperTypes}
+\n  & @{genTypeDecl(superType)}
+	@end{}
 @end{}
 
 @declare{'genMethodParams'}
@@ -530,9 +531,9 @@
 
 /* Generated from @{type.name} */\n
 @if{concrete}
-shared abstract class @includeNamed{'genModelDecl'}() @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'}{\n
+shared abstract class @includeNamed{'genModelDecl'}(@{type.raw.simpleName}_@if{typeParams.size() > 0}<@foreach{typeParam:typeParams}Object@end{', '}>@end{} delegate) @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'} {\n
 @else{}
-shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'}{\n
+shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'} {\n
 @end{}
 
 	@foreach{methods:methodsByName.values()}

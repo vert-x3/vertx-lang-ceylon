@@ -7,6 +7,9 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.ceylon.core.net {
   SocketAddress
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.http {
   WebSocketFrame
 }
@@ -14,8 +17,13 @@ import io.vertx.ceylon.core.streams {
   WriteStream,
   ReadStream
 }
+import io.vertx.core.http {
+  WebSocketBase_=WebSocketBase
+}
 /* Generated from io.vertx.core.http.WebSocketBase */
-shared interface WebSocketBase satisfies ReadStream<Buffer> & WriteStream<Buffer> {
+shared interface WebSocketBase satisfies Delegating
+  & ReadStream<Buffer>
+  & WriteStream<Buffer> {
   shared actual formal WebSocketBase(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal WebSocketBase(*<[Anything(Buffer)]>) handler;
   shared actual formal WebSocketBase(*<[]>) pause;

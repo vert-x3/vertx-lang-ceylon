@@ -4,11 +4,17 @@ import java.lang {
 import io.vertx.ceylon.core {
   Vertx
 }
+import io.vertx.core {
+  Context_=Context
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import ceylon.json {
   JsonObject=Object
 }
 /* Generated from io.vertx.core.Context */
-shared abstract class Context() {
+shared abstract class Context(Context_ delegate) satisfies Delegating {
   shared formal Anything(*<[Anything()]>) runOnContext;
   shared formal String(*<[]>) deploymentID;
   shared formal JsonObject(*<[]>) config;

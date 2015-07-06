@@ -1,5 +1,11 @@
+import io.vertx.core.shareddata {
+  LocalMap_=LocalMap
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 /* Generated from io.vertx.core.shareddata.LocalMap<K,V> */
-shared abstract class LocalMap<K,V>() {
+shared abstract class LocalMap<K,V>(LocalMap_<Object, Object> delegate) satisfies Delegating {
   shared formal V(*<[K]>) get;
   shared formal V(*<[K,V]>) put;
   shared formal V(*<[K]>) remove;

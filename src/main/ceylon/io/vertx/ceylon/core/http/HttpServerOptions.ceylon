@@ -11,6 +11,12 @@ import io.vertx.ceylon.core.net {
   PfxOptions,
   NetServerOptions
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.http {
+  HttpServerOptions_=HttpServerOptions
+}
 /* Generated from io.vertx.core.http.HttpServerOptions */
 shared class HttpServerOptions(
   Integer acceptBacklog,

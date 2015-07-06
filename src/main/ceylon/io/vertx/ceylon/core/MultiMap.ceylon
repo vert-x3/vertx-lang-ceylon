@@ -1,8 +1,14 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  MultiMap_=MultiMap
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 /* Generated from io.vertx.core.MultiMap */
-shared abstract class MultiMap() {
+shared abstract class MultiMap(MultiMap_ delegate) satisfies Delegating {
   shared formal String(*<[String]>) get;
   shared formal List<String>(*<[String]>) getAll;
   shared formal Boolean(*<[String]>) contains;

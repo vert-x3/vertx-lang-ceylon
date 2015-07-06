@@ -13,6 +13,9 @@
       packageImport.put(className, classAlias);
     }
 
+    addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
+    addClassImport("io.vertx.lang.ceylon", "Delegating", "Delegating");
+
     foreach (importedType : importedTypes) {
       var importedKind = importedType.kind;
       if (importedType != type.raw) {

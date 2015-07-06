@@ -1,8 +1,14 @@
 import java.lang {
   String_=String
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.buffer.Buffer */
-shared abstract class Buffer() {
+shared abstract class Buffer(Buffer_ delegate) satisfies Delegating {
   shared formal String(*<[String]>) toString;
   shared formal Byte(*<[Integer]>) getByte;
   shared formal Integer(*<[Integer]>) getInt;

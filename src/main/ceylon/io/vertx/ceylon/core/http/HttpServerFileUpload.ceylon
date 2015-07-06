@@ -4,11 +4,18 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.streams {
   ReadStream
 }
+import io.vertx.core.http {
+  HttpServerFileUpload_=HttpServerFileUpload
+}
 /* Generated from io.vertx.core.http.HttpServerFileUpload */
-shared abstract class HttpServerFileUpload() satisfies ReadStream<Buffer> {
+shared abstract class HttpServerFileUpload(HttpServerFileUpload_ delegate) satisfies Delegating
+  & ReadStream<Buffer> {
   shared actual formal HttpServerFileUpload(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal HttpServerFileUpload(*<[Anything(Buffer)]>) handler;
   shared actual formal HttpServerFileUpload(*<[Anything()]>) endHandler;

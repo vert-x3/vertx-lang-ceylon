@@ -4,11 +4,18 @@ import java.lang {
 import io.vertx.ceylon.core.eventbus {
   Message
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.eventbus {
+  MessageConsumer_=MessageConsumer
+}
 import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.eventbus.MessageConsumer<T> */
-shared abstract class MessageConsumer<T>() satisfies ReadStream<Message<T>> {
+shared abstract class MessageConsumer<T>(MessageConsumer_<Object> delegate) satisfies Delegating
+  & ReadStream<Message<T>> {
   shared actual formal MessageConsumer<T>(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal MessageConsumer<T>(*<[Anything(Message<T>)]>) handler;
   shared actual formal MessageConsumer<T>(*<[]>) pause;

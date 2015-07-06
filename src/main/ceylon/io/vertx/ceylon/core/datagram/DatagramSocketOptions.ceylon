@@ -1,6 +1,12 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core.datagram {
+  DatagramSocketOptions_=DatagramSocketOptions
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 shared class DatagramSocketOptions(
   shared Boolean broadcast,

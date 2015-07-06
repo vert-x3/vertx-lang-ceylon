@@ -7,11 +7,18 @@ import io.vertx.ceylon.core.eventbus {
   MessageConsumer,
   MessageProducer
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.metrics {
   Measured
 }
+import io.vertx.core.eventbus {
+  EventBus_=EventBus
+}
 /* Generated from io.vertx.core.eventbus.EventBus */
-shared abstract class EventBus() satisfies Measured {
+shared abstract class EventBus(EventBus_ delegate) satisfies Delegating
+  & Measured {
   shared formal EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send;
   shared formal EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish;
   shared formal MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer;

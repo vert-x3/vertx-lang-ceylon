@@ -1,12 +1,18 @@
 import java.lang {
   String_=String
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.dns {
+  DnsClient_=DnsClient
+}
 import io.vertx.ceylon.core.dns {
   MxRecord,
   SrvRecord
 }
 /* Generated from io.vertx.core.dns.DnsClient */
-shared abstract class DnsClient() {
+shared abstract class DnsClient(DnsClient_ delegate) satisfies Delegating {
   shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup;
   shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup4;
   shared formal DnsClient(*<[String,Anything(Throwable|String)]>) lookup6;

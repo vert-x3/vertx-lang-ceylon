@@ -1,5 +1,11 @@
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.file {
+  FileProps_=FileProps
+}
 /* Generated from io.vertx.core.file.FileProps */
-shared abstract class FileProps() {
+shared abstract class FileProps(FileProps_ delegate) satisfies Delegating {
   shared formal Integer(*<[]>) creationTime;
   shared formal Integer(*<[]>) lastAccessTime;
   shared formal Integer(*<[]>) lastModifiedTime;

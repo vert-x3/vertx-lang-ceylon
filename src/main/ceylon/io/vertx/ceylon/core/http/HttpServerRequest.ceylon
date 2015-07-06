@@ -11,6 +11,9 @@ import io.vertx.ceylon.core.net {
   SocketAddress,
   NetSocket
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.http {
   ServerWebSocket,
   HttpServerFileUpload,
@@ -19,8 +22,12 @@ import io.vertx.ceylon.core.http {
 import io.vertx.ceylon.core.streams {
   ReadStream
 }
+import io.vertx.core.http {
+  HttpServerRequest_=HttpServerRequest
+}
 /* Generated from io.vertx.core.http.HttpServerRequest */
-shared abstract class HttpServerRequest() satisfies ReadStream<Buffer> {
+shared abstract class HttpServerRequest(HttpServerRequest_ delegate) satisfies Delegating
+  & ReadStream<Buffer> {
   shared actual formal HttpServerRequest(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal HttpServerRequest(*<[Anything(Buffer)]>) handler;
   shared actual formal HttpServerRequest(*<[]>) pause;

@@ -9,6 +9,12 @@ import java.lang {
   String_=String,
   Byte_=Byte
 }
+import io.vertx.codegen.testmodel {
+  TestInterface_=TestInterface
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array
@@ -25,7 +31,8 @@ import io.vertx.ceylon.codegen.testmodel {
   SuperInterface2
 }
 /* Generated from io.vertx.codegen.testmodel.TestInterface */
-shared abstract class TestInterface() extends SuperInterface1() satisfies SuperInterface2 {
+shared abstract class TestInterface(TestInterface_ delegate) extends SuperInterface1(delegate) satisfies Delegating
+  & SuperInterface2 {
   shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) methodWithBasicParams;
   shared formal Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character]>) methodWithBasicBoxedParams;
   shared formal Anything(*<[Anything(Byte),Anything(Integer),Anything(Integer),Anything(Integer),Anything(Float),Anything(Float),Anything(Boolean),Anything(Character),Anything(String)]>) methodWithHandlerBasicTypes;

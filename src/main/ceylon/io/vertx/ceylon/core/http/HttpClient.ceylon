@@ -4,6 +4,9 @@ import java.lang {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.http {
   HttpClientRequest,
   HttpClientResponse,
@@ -13,8 +16,12 @@ import io.vertx.ceylon.core.http {
 import io.vertx.ceylon.core.metrics {
   Measured
 }
+import io.vertx.core.http {
+  HttpClient_=HttpClient
+}
 /* Generated from io.vertx.core.http.HttpClient */
-shared abstract class HttpClient() satisfies Measured {
+shared abstract class HttpClient(HttpClient_ delegate) satisfies Delegating
+  & Measured {
   shared formal HttpClientRequest(*<[String,String]|[String,String,String]|[String,String,Anything(HttpClientResponse)]|[String,Integer,String,String]|[String,String,String,Anything(HttpClientResponse)]|[String,Integer,String,String,Anything(HttpClientResponse)]>) request;
   shared formal HttpClientRequest(*<[String,String]|[String,String,Anything(HttpClientResponse)]>) requestAbs;
   shared formal HttpClientRequest(*<[String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)]>) get;

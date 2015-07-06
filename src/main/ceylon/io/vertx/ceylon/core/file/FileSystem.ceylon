@@ -11,8 +11,14 @@ import io.vertx.ceylon.core.file {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.file {
+  FileSystem_=FileSystem
+}
 /* Generated from io.vertx.core.file.FileSystem */
-shared abstract class FileSystem() {
+shared abstract class FileSystem(FileSystem_ delegate) satisfies Delegating {
   shared formal FileSystem(*<[String,String,Anything(Throwable?)]>) copy;
   shared formal FileSystem(*<[String,String]>) copyBlocking;
   shared formal FileSystem(*<[String,String,Boolean,Anything(Throwable?)]>) copyRecursive;

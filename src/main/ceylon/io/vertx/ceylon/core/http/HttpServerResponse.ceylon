@@ -8,11 +8,18 @@ import io.vertx.ceylon.core {
   MultiMap,
   Future
 }
+import io.vertx.lang.ceylon {
+  Delegating
+}
 import io.vertx.ceylon.core.streams {
   WriteStream
 }
+import io.vertx.core.http {
+  HttpServerResponse_=HttpServerResponse
+}
 /* Generated from io.vertx.core.http.HttpServerResponse */
-shared abstract class HttpServerResponse() satisfies WriteStream<Buffer> {
+shared abstract class HttpServerResponse(HttpServerResponse_ delegate) satisfies Delegating
+  & WriteStream<Buffer> {
   shared actual formal HttpServerResponse(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal HttpServerResponse(*<[Buffer]|[String]|[String,String]>) write;
   shared actual formal HttpServerResponse(*<[Integer]>) setWriteQueueMaxSize;
