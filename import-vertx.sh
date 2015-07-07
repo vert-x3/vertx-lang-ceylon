@@ -9,3 +9,5 @@ ceylon import-jar --force --descriptor=descriptors/io.netty.netty-handler.proper
 ceylon import-jar --descriptor=descriptors/io.netty.netty-codec-http.properties io.netty.netty-codec-http/4.0.28.Final ~/.m2/repository/io/netty/netty-codec-http/4.0.28.Final/netty-codec-http-4.0.28.Final.jar
 ceylon import-jar --force --descriptor=descriptors/io.vertx.vertx-codegen.properties io.vertx.vertx-codegen/3.1.0-SNAPSHOT ~/.m2/repository/io/vertx/vertx-codegen/3.1.0-SNAPSHOT/vertx-codegen-3.1.0-SNAPSHOT.jar
 ceylon import-jar --force --descriptor=descriptors/io.vertx.vertx-core.properties io.vertx.vertx-core/3.1.0-SNAPSHOT ~/.m2/repository/io/vertx/vertx-core/3.1.0-SNAPSHOT/vertx-core-3.1.0-SNAPSHOT.jar
+
+ceylon import-jar --descriptor=descriptors/io.vertx.vertx-codegen-tck.properties io.vertx.vertx-codegen-tck/3.1.0-SNAPSHOT ~/.m2/repository/io/vertx/vertx-codegen/3.1.0-SNAPSHOT/vertx-codegen-3.1.0-SNAPSHOT-tck.jar
