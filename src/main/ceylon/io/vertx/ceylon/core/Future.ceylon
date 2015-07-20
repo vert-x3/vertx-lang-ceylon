@@ -19,21 +19,30 @@ shared abstract class Future<T>(Future_<Object> delegate) satisfies Delegating {
   shared  Anything(*<[String]>) fail => flatten(fail_impl);
 
   Boolean isComplete_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything setHandler_impl([Anything(Throwable|T)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything complete_impl([]|[T] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [T] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything fail_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

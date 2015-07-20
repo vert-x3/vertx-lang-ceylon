@@ -22,21 +22,30 @@ shared abstract class RecordParser(RecordParser_ delegate) satisfies Delegating 
   shared  Anything(*<[Buffer]>) handle => flatten(handle_impl);
 
   Anything setOutput_impl([Anything(Buffer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything delimitedMode_impl([String]|[Buffer] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [Buffer] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything fixedSizeMode_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything handle_impl([Buffer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

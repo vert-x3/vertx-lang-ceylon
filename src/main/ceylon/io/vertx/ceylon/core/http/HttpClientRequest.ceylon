@@ -62,91 +62,128 @@ shared abstract class HttpClientRequest(HttpClientRequest_ delegate) satisfies D
   shared  HttpClientRequest(*<[Integer]>) setTimeout => flatten(setTimeout_impl);
 
   HttpClientRequest exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest write_impl([Buffer]|[String]|[String,String] args) {
+    if (is [Buffer] args) {
+      // Invoke method
+    }
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest drainHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest handler_impl([Anything(HttpClientResponse)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest setChunked_impl([Boolean] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isChunked_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String method_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String uri_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap headers_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest putHeader_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest continueHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest sendHead_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [Buffer] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest setTimeout_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -30,31 +30,37 @@ shared abstract class MessageProducer<T>(MessageProducer_<Object> delegate) sati
   shared  String(*<[]>) address => flatten(address_impl);
 
   MessageProducer<T> exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> write_impl([T] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> drainHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> deliveryOptions_impl([DeliveryOptions] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String address_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

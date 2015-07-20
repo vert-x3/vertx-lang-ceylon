@@ -44,66 +44,79 @@ shared abstract class HttpServerFileUpload(HttpServerFileUpload_ delegate) satis
   shared  Boolean(*<[]>) isSizeAvailable => flatten(isSizeAvailable_impl);
 
   HttpServerFileUpload exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload handler_impl([Anything(Buffer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload streamToFileSystem_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String filename_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String name_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String contentType_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String contentTransferEncoding_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String charset_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer size_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSizeAvailable_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

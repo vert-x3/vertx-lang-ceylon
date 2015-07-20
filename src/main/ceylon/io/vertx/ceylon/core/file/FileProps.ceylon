@@ -24,41 +24,49 @@ shared abstract class FileProps(FileProps_ delegate) satisfies Delegating {
   shared  Integer(*<[]>) size => flatten(size_impl);
 
   Integer creationTime_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer lastAccessTime_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer lastModifiedTime_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isDirectory_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isOther_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isRegularFile_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSymbolicLink_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer size_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

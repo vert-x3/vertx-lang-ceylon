@@ -29,26 +29,53 @@ shared abstract class NetServer(NetServer_ delegate) satisfies Delegating
   shared  Integer(*<[]>) actualPort => flatten(actualPort_impl);
 
   NetSocketStream connectStream_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer connectHandler_impl([Anything(NetSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer listen_impl([]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable|NetServer)] args) {
+      // Invoke method
+    }
+    if (is [Integer] args) {
+      // Invoke method
+    }
+    if (is [Integer,String] args) {
+      // Invoke method
+    }
+    if (is [Integer,Anything(Throwable|NetServer)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,Anything(Throwable|NetServer)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer actualPort_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

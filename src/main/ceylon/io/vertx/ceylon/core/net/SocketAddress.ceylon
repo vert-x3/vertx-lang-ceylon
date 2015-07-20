@@ -15,11 +15,13 @@ shared abstract class SocketAddress(SocketAddress_ delegate) satisfies Delegatin
   shared  Integer(*<[]>) port => flatten(port_impl);
 
   String host_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer port_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

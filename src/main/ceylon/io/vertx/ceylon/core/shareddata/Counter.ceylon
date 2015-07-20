@@ -26,36 +26,43 @@ shared abstract class Counter(Counter_ delegate) satisfies Delegating {
   shared  Anything(*<[Integer,Integer,Anything(Throwable|Boolean)]>) compareAndSet => flatten(compareAndSet_impl);
 
   Anything get_impl([Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything incrementAndGet_impl([Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getAndIncrement_impl([Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything decrementAndGet_impl([Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything addAndGet_impl([Integer,Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getAndAdd_impl([Integer,Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything compareAndSet_impl([Integer,Integer,Anything(Throwable|Boolean)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

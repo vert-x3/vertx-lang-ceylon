@@ -25,26 +25,31 @@ shared abstract class NetSocketStream(NetSocketStream_ delegate) satisfies Deleg
   shared actual NetSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   NetSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocketStream handler_impl([Anything(NetSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocketStream pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocketStream resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocketStream endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

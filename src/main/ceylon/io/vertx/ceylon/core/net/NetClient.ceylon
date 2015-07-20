@@ -22,11 +22,13 @@ shared abstract class NetClient(NetClient_ delegate) satisfies Delegating
   shared  Anything(*<[]>) close => flatten(close_impl);
 
   NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

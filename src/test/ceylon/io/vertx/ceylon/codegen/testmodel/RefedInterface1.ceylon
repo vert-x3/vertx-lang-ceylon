@@ -15,11 +15,13 @@ shared abstract class RefedInterface1(RefedInterface1_ delegate) satisfies Deleg
   shared  RefedInterface1(*<[String]>) setString => flatten(setString_impl);
 
   String getString_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   RefedInterface1 setString_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

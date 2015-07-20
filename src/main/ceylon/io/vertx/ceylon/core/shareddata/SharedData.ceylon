@@ -27,26 +27,31 @@ shared abstract class SharedData(SharedData_ delegate) satisfies Delegating {
   shared  LocalMap<Object,Object>(*<[String]>) getLocalMap => flatten(getLocalMap_impl);
 
   Anything getClusterWideMap_impl([String,Anything(Throwable|AsyncMap<Object,Object>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getLock_impl([String,Anything(Throwable|Lock)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getLockWithTimeout_impl([String,Integer,Anything(Throwable|Lock)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getCounter_impl([String,Anything(Throwable|Counter)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   LocalMap<Object,Object> getLocalMap_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

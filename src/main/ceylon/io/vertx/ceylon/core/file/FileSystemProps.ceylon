@@ -14,16 +14,19 @@ shared abstract class FileSystemProps(FileSystemProps_ delegate) satisfies Deleg
   shared  Integer(*<[]>) usableSpace => flatten(usableSpace_impl);
 
   Integer totalSpace_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer unallocatedSpace_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer usableSpace_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

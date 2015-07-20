@@ -25,26 +25,31 @@ shared abstract class HttpServerRequestStream(HttpServerRequestStream_ delegate)
   shared actual HttpServerRequestStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   HttpServerRequestStream exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequestStream handler_impl([Anything(HttpServerRequest)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequestStream pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequestStream resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequestStream endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -68,116 +68,163 @@ shared abstract class HttpServerResponse(HttpServerResponse_ delegate) satisfies
   shared  HttpServerResponse(*<[Anything()]>) bodyEndHandler => flatten(bodyEndHandler_impl);
 
   HttpServerResponse exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse write_impl([Buffer]|[String]|[String,String] args) {
+    if (is [Buffer] args) {
+      // Invoke method
+    }
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse drainHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getStatusCode_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setStatusCode_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String getStatusMessage_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setStatusMessage_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setChunked_impl([Boolean] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isChunked_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap headers_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse putHeader_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap trailers_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse putTrailer_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse closeHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse writeContinue_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [Buffer] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse sendFile_impl([String]|[String,Anything(Throwable?)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean ended_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean headWritten_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse headersEndHandler_impl([Anything(Future<Null>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse bodyEndHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

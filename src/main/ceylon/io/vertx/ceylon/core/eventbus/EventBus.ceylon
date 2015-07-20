@@ -35,36 +35,79 @@ shared abstract class EventBus(EventBus_ delegate) satisfies Delegating
   shared  Anything(*<[Anything(Throwable?)]>) close => flatten(close_impl);
 
   EventBus send_impl([String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+    if (is [String,Object] args) {
+      // Invoke method
+    }
+    if (is [String,Object,Anything(Throwable|Message<Object>)] args) {
+      // Invoke method
+    }
+    if (is [String,Object,DeliveryOptions] args) {
+      // Invoke method
+    }
+    if (is [String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   EventBus publish_impl([String,Object]|[String,Object,DeliveryOptions] args) {
+    if (is [String,Object] args) {
+      // Invoke method
+    }
+    if (is [String,Object,DeliveryOptions] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageConsumer<Object> consumer_impl([String]|[String,Anything(Message<Object>)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(Message<Object>)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageConsumer<Object> localConsumer_impl([String]|[String,Anything(Message<Object>)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(Message<Object>)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<Object> sender_impl([String]|[String,DeliveryOptions] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,DeliveryOptions] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<Object> publisher_impl([String]|[String,DeliveryOptions] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,DeliveryOptions] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

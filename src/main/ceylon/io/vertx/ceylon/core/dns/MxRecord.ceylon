@@ -15,11 +15,13 @@ shared abstract class MxRecord(MxRecord_ delegate) satisfies Delegating {
   shared  String(*<[]>) name => flatten(name_impl);
 
   Integer priority_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String name_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

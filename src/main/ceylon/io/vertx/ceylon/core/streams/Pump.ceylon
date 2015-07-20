@@ -20,21 +20,25 @@ shared abstract class Pump(Pump_ delegate) satisfies Delegating {
   shared  Integer(*<[]>) numberPumped => flatten(numberPumped_impl);
 
   Pump setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Pump start_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Pump stop_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer numberPumped_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

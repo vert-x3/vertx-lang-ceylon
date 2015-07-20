@@ -33,31 +33,59 @@ shared abstract class HttpServer(HttpServer_ delegate) satisfies Delegating
   shared  Anything(*<[]|[Anything(Throwable?)]>) close => flatten(close_impl);
 
   HttpServerRequestStream requestStream_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServer requestHandler_impl([Anything(HttpServerRequest)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream websocketStream_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServer websocketHandler_impl([Anything(ServerWebSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServer listen_impl([]|[Integer]|[Anything(Throwable|HttpServer)]|[Integer,String]|[Integer,Anything(Throwable|HttpServer)]|[Integer,String,Anything(Throwable|HttpServer)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Integer] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable|HttpServer)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String] args) {
+      // Invoke method
+    }
+    if (is [Integer,Anything(Throwable|HttpServer)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,Anything(Throwable|HttpServer)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

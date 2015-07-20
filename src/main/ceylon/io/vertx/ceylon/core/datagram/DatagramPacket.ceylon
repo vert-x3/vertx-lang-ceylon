@@ -18,11 +18,13 @@ shared abstract class DatagramPacket(DatagramPacket_ delegate) satisfies Delegat
   shared  Buffer(*<[]>) data => flatten(data_impl);
 
   SocketAddress sender_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer data_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

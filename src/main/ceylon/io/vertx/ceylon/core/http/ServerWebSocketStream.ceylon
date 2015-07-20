@@ -25,26 +25,31 @@ shared abstract class ServerWebSocketStream(ServerWebSocketStream_ delegate) sat
   shared actual ServerWebSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   ServerWebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream handler_impl([Anything(ServerWebSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

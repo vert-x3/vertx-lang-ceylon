@@ -30,46 +30,65 @@ shared abstract class AsyncMap<K,V>(AsyncMap_<Object, Object> delegate) satisfie
   shared  Anything(*<[Anything(Throwable|Integer)]>) size => flatten(size_impl);
 
   Anything get_impl([K,Anything(Throwable|V)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything put_impl([K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)] args) {
+    if (is [K,V,Anything(Throwable?)] args) {
+      // Invoke method
+    }
+    if (is [K,V,Integer,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything putIfAbsent_impl([K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)] args) {
+    if (is [K,V,Anything(Throwable|V)] args) {
+      // Invoke method
+    }
+    if (is [K,V,Integer,Anything(Throwable|V)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything remove_impl([K,Anything(Throwable|V)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything removeIfPresent_impl([K,V,Anything(Throwable|Boolean)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replace_impl([K,V,Anything(Throwable|V)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replaceIfPresent_impl([K,V,V,Anything(Throwable|Boolean)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything clear_impl([Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything size_impl([Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

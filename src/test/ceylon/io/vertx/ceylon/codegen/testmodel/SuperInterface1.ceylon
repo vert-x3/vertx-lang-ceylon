@@ -13,6 +13,7 @@ shared abstract class SuperInterface1(SuperInterface1_ delegate) satisfies Deleg
   shared  Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) superMethodWithBasicParams => flatten(superMethodWithBasicParams_impl);
 
   Anything superMethodWithBasicParams_impl([Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

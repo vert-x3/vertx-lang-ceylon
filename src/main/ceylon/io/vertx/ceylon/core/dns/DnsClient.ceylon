@@ -39,61 +39,73 @@ shared abstract class DnsClient(DnsClient_ delegate) satisfies Delegating {
   shared  DnsClient(*<[String,Anything(Throwable|String)]>) reverseLookup => flatten(reverseLookup_impl);
 
   DnsClient lookup_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient lookup4_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient lookup6_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveA_impl([String,Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveAAAA_impl([String,Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveCNAME_impl([String,Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveMX_impl([String,Anything(Throwable|List<MxRecord>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveTXT_impl([String,Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolvePTR_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveNS_impl([String,Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient resolveSRV_impl([String,Anything(Throwable|List<SrvRecord>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DnsClient reverseLookup_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -55,66 +55,107 @@ shared abstract class DatagramSocket(DatagramSocket_ delegate) satisfies Delegat
   shared actual DatagramSocket(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
 
   DatagramSocket send_impl([Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+    if (is [Buffer,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream sender_impl([Integer,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   SocketAddress localAddress_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket listenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    if (is [String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket unlistenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    if (is [String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket blockMulticastGroup_impl([String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    if (is [String,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket listen_impl([Integer,String,Anything(Throwable|DatagramSocket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket handler_impl([Anything(DatagramPacket)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

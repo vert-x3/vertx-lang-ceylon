@@ -64,101 +64,369 @@ shared abstract class HttpClient(HttpClient_ delegate) satisfies Delegating
   shared  Anything(*<[]>) close => flatten(close_impl);
 
   HttpClientRequest request_impl([String,String]|[String,String,String]|[String,String,Anything(HttpClientResponse)]|[String,Integer,String,String]|[String,String,String,Anything(HttpClientResponse)]|[String,Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [String,Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [String,Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest requestAbs_impl([String,String]|[String,String,Anything(HttpClientResponse)] args) {
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest get_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest getAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClient getNow_impl([String,Anything(HttpClientResponse)]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest post_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest postAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest head_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest headAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClient headNow_impl([String,Anything(HttpClientResponse)]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest options_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest optionsAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClient optionsNow_impl([String,Anything(HttpClientResponse)]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest put_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest putAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest delete_impl([String]|[String,String]|[String,Anything(HttpClientResponse)]|[Integer,String,String]|[String,String,Anything(HttpClientResponse)]|[Integer,String,String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest deleteAbs_impl([String]|[String,Anything(HttpClientResponse)] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,Anything(HttpClientResponse)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClient websocket_impl([String,Anything(WebSocket)]|[String,String,Anything(WebSocket)]|[String,MultiMap,Anything(WebSocket)]|[Integer,String,String,Anything(WebSocket)]|[String,String,MultiMap,Anything(WebSocket)]|[String,MultiMap,String,Anything(WebSocket)]|[Integer,String,String,MultiMap,Anything(WebSocket)]|[String,String,MultiMap,String,Anything(WebSocket)]|[String,MultiMap,String,String,Anything(WebSocket)]|[Integer,String,String,MultiMap,String,Anything(WebSocket)]|[String,String,MultiMap,String,String,Anything(WebSocket)]|[Integer,String,String,MultiMap,String,String,Anything(WebSocket)] args) {
+    if (is [String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap,String,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap,String,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap,String,String,Anything(WebSocket)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocketStream websocketStream_impl([String]|[String,String]|[String,MultiMap]|[Integer,String,String]|[String,String,MultiMap]|[String,MultiMap,String]|[Integer,String,String,MultiMap]|[String,String,MultiMap,String]|[String,MultiMap,String,String]|[Integer,String,String,MultiMap,String]|[String,String,MultiMap,String,String]|[Integer,String,String,MultiMap,String,String] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap,String] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap,String] args) {
+      // Invoke method
+    }
+    if (is [String,MultiMap,String,String] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap,String] args) {
+      // Invoke method
+    }
+    if (is [String,String,MultiMap,String,String] args) {
+      // Invoke method
+    }
+    if (is [Integer,String,String,MultiMap,String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -29,31 +29,48 @@ shared abstract class Message<T>(Message_<Object> delegate) satisfies Delegating
   shared  Anything(*<[Integer,String]>) fail => flatten(fail_impl);
 
   String address_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap headers_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   T body_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String replyAddress_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything reply_impl([Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+    if (is [Object] args) {
+      // Invoke method
+    }
+    if (is [Object,Anything(Throwable|Message<Object>)] args) {
+      // Invoke method
+    }
+    if (is [Object,DeliveryOptions] args) {
+      // Invoke method
+    }
+    if (is [Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything fail_impl([Integer,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

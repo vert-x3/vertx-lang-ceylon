@@ -13,6 +13,7 @@ shared abstract class SubInterface(SubInterface_ delegate) satisfies Delegating 
   shared  String(*<[String]>) reverse => flatten(reverse_impl);
 
   String reverse_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

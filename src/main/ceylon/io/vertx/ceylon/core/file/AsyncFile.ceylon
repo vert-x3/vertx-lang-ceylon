@@ -43,66 +43,94 @@ shared abstract class AsyncFile(AsyncFile_ delegate) satisfies Delegating
   shared  AsyncFile(*<[Integer]>) setWritePos => flatten(setWritePos_impl);
 
   AsyncFile handler_impl([Anything(Buffer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile pause_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile resume_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile endHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile write_impl([Buffer]|[Buffer,Integer,Anything(Throwable?)] args) {
+    if (is [Buffer] args) {
+      // Invoke method
+    }
+    if (is [Buffer,Integer,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile drainHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile read_impl([Buffer,Integer,Integer,Integer,Anything(Throwable|Buffer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile flush_impl([]|[Anything(Throwable?)] args) {
+    if (is [] args) {
+      // Invoke method
+    }
+    if (is [Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setReadPos_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setWritePos_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

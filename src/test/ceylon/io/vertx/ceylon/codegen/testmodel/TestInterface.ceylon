@@ -329,736 +329,894 @@ shared abstract class TestInterface(TestInterface_ delegate) extends SuperInterf
   shared  Throwable(*<[String]>) methodWithThrowableReturn => flatten(methodWithThrowableReturn_impl);
 
   Anything methodWithBasicParams_impl([Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithBasicBoxedParams_impl([Byte,Integer,Integer,Integer,Float,Float,Boolean,Character] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerBasicTypes_impl([Anything(Byte),Anything(Integer),Anything(Integer),Anything(Integer),Anything(Float),Anything(Float),Anything(Boolean),Anything(Character),Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultByte_impl([Boolean,Anything(Throwable|Byte)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultShort_impl([Boolean,Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultInteger_impl([Boolean,Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultLong_impl([Boolean,Anything(Throwable|Integer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultFloat_impl([Boolean,Anything(Throwable|Float)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultDouble_impl([Boolean,Anything(Throwable|Float)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultBoolean_impl([Boolean,Anything(Throwable|Boolean)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultCharacter_impl([Boolean,Anything(Throwable|Character)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultString_impl([Boolean,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultDataObject_impl([Boolean,Anything(Throwable|TestDataObject)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithUserTypes_impl([RefedInterface1] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithObjectParam_impl([String,Object] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithDataObjectParam_impl([TestDataObject] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithNullDataObjectParam_impl([TestDataObject] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithListParams_impl([List<String>,List<Byte>,List<Integer>,List<Integer>,List<Integer>,List<JsonObject>,List<JsonArray>,List<RefedInterface1>,List<TestDataObject>] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithSetParams_impl([Set<String>,Set<Byte>,Set<Integer>,Set<Integer>,Set<Integer>,Set<JsonObject>,Set<JsonArray>,Set<RefedInterface1>,Set<TestDataObject>] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithMapParams_impl([Map<String,String>,Map<String,Byte>,Map<String,Integer>,Map<String,Integer>,Map<String,Integer>,Map<String,JsonObject>,Map<String,JsonArray>,Map<String,RefedInterface1>] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListAndSet_impl([Anything(List<String>),Anything(List<Integer>),Anything(Set<String>),Anything(Set<Integer>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListString_impl([Anything(Throwable|List<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListInteger_impl([Anything(Throwable|List<Integer>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetString_impl([Anything(Throwable|Set<String>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetInteger_impl([Anything(Throwable|Set<Integer>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListVertxGen_impl([Anything(List<RefedInterface1>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetVertxGen_impl([Anything(Set<RefedInterface1>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListAbstractVertxGen_impl([Anything(List<RefedInterface2>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetAbstractVertxGen_impl([Anything(Set<RefedInterface2>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListJsonObject_impl([Anything(List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullJsonObject_impl([Anything(List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListComplexJsonObject_impl([Anything(List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetJsonObject_impl([Anything(Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullJsonObject_impl([Anything(Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetComplexJsonObject_impl([Anything(Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListJsonArray_impl([Anything(List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullJsonArray_impl([Anything(List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListComplexJsonArray_impl([Anything(List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetJsonArray_impl([Anything(Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullJsonArray_impl([Anything(Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetComplexJsonArray_impl([Anything(Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListDataObject_impl([Anything(List<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullDataObject_impl([Anything(List<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetDataObject_impl([Anything(Set<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullDataObject_impl([Anything(Set<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListVertxGen_impl([Anything(Throwable|List<RefedInterface1>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetVertxGen_impl([Anything(Throwable|Set<RefedInterface1>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListAbstractVertxGen_impl([Anything(Throwable|List<RefedInterface2>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetAbstractVertxGen_impl([Anything(Throwable|Set<RefedInterface2>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListComplexJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetComplexJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListComplexJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetComplexJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListDataObject_impl([Anything(Throwable|List<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullDataObject_impl([Anything(Throwable|List<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetDataObject_impl([Anything(Throwable|Set<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullDataObject_impl([Anything(Throwable|Set<TestDataObject>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerUserTypes_impl([Anything(RefedInterface1)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultUserTypes_impl([Anything(Throwable|RefedInterface1)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithConcreteHandlerUserTypeSubtype_impl([ConcreteHandlerUserType] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithAbstractHandlerUserTypeSubtype_impl([AbstractHandlerUserType] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithConcreteHandlerUserTypeSubtypeExtension_impl([ConcreteHandlerUserTypeExtension] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerVoid_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultVoid_impl([Boolean,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerThrowable_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerDataObject_impl([Anything(TestDataObject)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerGenericUserType_impl([Object,Anything(GenericRefedInterface<Object>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultGenericUserType_impl([Object,Anything(Throwable|GenericRefedInterface<Object>)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Byte methodWithByteReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer methodWithShortReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer methodWithIntReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer methodWithLongReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Float methodWithFloatReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Float methodWithDoubleReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean methodWithBooleanReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Character methodWithCharReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String methodWithStringReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   RefedInterface1 methodWithVertxGenReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   RefedInterface1 methodWithVertxGenNullReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   RefedInterface2 methodWithAbstractVertxGenReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String overloadedMethod_impl([String,Anything(String)]|[String,RefedInterface1]|[String,RefedInterface1,Anything(String)]|[String,RefedInterface1,Integer,Anything(String)] args) {
+    if (is [String,Anything(String)] args) {
+      // Invoke method
+    }
+    if (is [String,RefedInterface1] args) {
+      // Invoke method
+    }
+    if (is [String,RefedInterface1,Anything(String)] args) {
+      // Invoke method
+    }
+    if (is [String,RefedInterface1,Integer,Anything(String)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Object methodWithGenericReturn_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithGenericParam_impl([String,Object] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithGenericHandler_impl([String,Anything(Object)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithGenericHandlerAsyncResult_impl([String,Anything(Throwable|Object)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TestInterface fluentMethod_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   RefedInterface1 methodWithCachedReturn_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer methodWithCachedReturnPrimitive_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonObject methodWithJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonObject methodWithNullJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonObject methodWithComplexJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonArray methodWithJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonArray methodWithNullJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   JsonArray methodWithComplexJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithJsonParams_impl([JsonObject,JsonArray] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithNullJsonParams_impl([JsonObject,JsonArray] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerNullJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerComplexJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultJsonObject_impl([Anything(Throwable|JsonObject)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultNullJsonObject_impl([Anything(Throwable|JsonObject)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultComplexJsonObject_impl([Anything(Throwable|JsonObject)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultJsonArray_impl([Anything(Throwable|JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultNullJsonArray_impl([Anything(Throwable|JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultComplexJsonArray_impl([Anything(Throwable|JsonArray)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,String> methodWithMapReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,String> methodWithMapStringReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapLongReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapIntegerReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapShortReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Byte> methodWithMapByteReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Character> methodWithMapCharacterReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Boolean> methodWithMapBooleanReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Float> methodWithMapFloatReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Float> methodWithMapDoubleReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonObject> methodWithMapJsonObjectReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonObject> methodWithMapComplexJsonObjectReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonArray> methodWithMapJsonArrayReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonArray> methodWithMapComplexJsonArrayReturn_impl([Anything(String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,String> methodWithNullMapReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<String> methodWithListStringReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<Integer> methodWithListLongReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<RefedInterface1> methodWithListVertxGenReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<JsonObject> methodWithListJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<JsonObject> methodWithListComplexJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<JsonArray> methodWithListJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<JsonArray> methodWithListComplexJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<String> methodWithNullListReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<String> methodWithSetStringReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<Integer> methodWithSetLongReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<RefedInterface1> methodWithSetVertxGenReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<JsonObject> methodWithSetJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<JsonObject> methodWithSetComplexJsonObjectReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<JsonArray> methodWithSetJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<JsonArray> methodWithSetComplexJsonArrayReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Set<String> methodWithNullSetReturn_impl([] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String methodWithEnumParam_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String methodWithEnumReturn_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Throwable methodWithThrowableReturn_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

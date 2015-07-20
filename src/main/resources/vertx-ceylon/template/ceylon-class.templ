@@ -562,9 +562,18 @@ shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
 			@if{concrete}
 				  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
-				    Object test = this; // Just test we can access this\n
-				    throw Exception("implement me");\n
-				  }\n
+						@if{methods.size() == 1}
+					    // Invoke method\n
+						@else{}
+							@foreach{method:methods}
+					    if (is @includeNamed{'genMethodParams'} args) {\n
+					      // Invoke method\n
+					    }\n
+							@end{}
+						@end{}
+					    Object test = this; // Just test we can access this\n
+					    throw Exception("implement me");\n
+					  }\n
 				\n
 			@end{}
 		@end{}

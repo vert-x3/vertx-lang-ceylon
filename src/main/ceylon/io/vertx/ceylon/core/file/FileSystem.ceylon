@@ -117,241 +117,329 @@ shared abstract class FileSystem(FileSystem_ delegate) satisfies Delegating {
   shared  FileSystemProps(*<[String]>) fsPropsBlocking => flatten(fsPropsBlocking_impl);
 
   FileSystem copy_impl([String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem copyBlocking_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem copyRecursive_impl([String,String,Boolean,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem copyRecursiveBlocking_impl([String,String,Boolean] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem move_impl([String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem moveBlocking_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem truncate_impl([String,Integer,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem truncateBlocking_impl([String,Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chmod_impl([String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chmodBlocking_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chmodRecursive_impl([String,String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chmodRecursiveBlocking_impl([String,String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chown_impl([String,String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem chownBlocking_impl([String,String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem props_impl([String,Anything(Throwable|FileProps)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileProps propsBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem lprops_impl([String,Anything(Throwable|FileProps)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileProps lpropsBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem link_impl([String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem linkBlocking_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem symlink_impl([String,String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem symlinkBlocking_impl([String,String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem unlink_impl([String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem unlinkBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem readSymlink_impl([String,Anything(Throwable|String)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String readSymlinkBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem delete_impl([String,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem deleteBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem deleteRecursive_impl([String,Boolean,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem deleteRecursiveBlocking_impl([String,Boolean] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem mkdir_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
+    if (is [String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem mkdirBlocking_impl([String]|[String,String] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem mkdirs_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
+    if (is [String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem mkdirsBlocking_impl([String]|[String,String] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem readDir_impl([String,Anything(Throwable|List<String>)]|[String,String,Anything(Throwable|List<String>)] args) {
+    if (is [String,Anything(Throwable|List<String>)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(Throwable|List<String>)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<String> readDirBlocking_impl([String]|[String,String] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem readFile_impl([String,Anything(Throwable|Buffer)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer readFileBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem writeFile_impl([String,Buffer,Anything(Throwable?)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem writeFileBlocking_impl([String,Buffer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem open_impl([String,OpenOptions,Anything(Throwable|AsyncFile)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile openBlocking_impl([String,OpenOptions] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem createFile_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
+    if (is [String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
+    if (is [String,String,Anything(Throwable?)] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem createFileBlocking_impl([String]|[String,String] args) {
+    if (is [String] args) {
+      // Invoke method
+    }
+    if (is [String,String] args) {
+      // Invoke method
+    }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem \iexists_impl([String,Anything(Throwable|Boolean)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean existsBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystem fsProps_impl([String,Anything(Throwable|FileSystemProps)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   FileSystemProps fsPropsBlocking_impl([String] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

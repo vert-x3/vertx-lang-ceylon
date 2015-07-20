@@ -23,21 +23,25 @@ shared abstract class PacketWritestream(PacketWritestream_ delegate) satisfies D
   shared actual PacketWritestream(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
 
   PacketWritestream exceptionHandler_impl([Anything(Throwable)] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream write_impl([Buffer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream setWriteQueueMaxSize_impl([Integer] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream drainHandler_impl([Anything()] args) {
+    // Invoke method
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
