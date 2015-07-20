@@ -17,40 +17,46 @@ import io.vertx.ceylon.core.streams {
 shared abstract class MessageProducer<T>(MessageProducer_<Object> delegate) satisfies Delegating
   & WriteStream<T> {
 
+  shared actual MessageProducer<T>(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual MessageProducer<T>(*<[T]>) write => flatten(write_impl);
+
+  shared actual MessageProducer<T>(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+
+  shared actual MessageProducer<T>(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
+
+  shared  MessageProducer<T>(*<[DeliveryOptions]>) deliveryOptions => flatten(deliveryOptions_impl);
+
+  shared  String(*<[]>) address => flatten(address_impl);
+
   MessageProducer<T> exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageProducer<T>(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   MessageProducer<T> write_impl([T] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageProducer<T>(*<[T]>) write = flatten(write_impl);
 
   MessageProducer<T> setWriteQueueMaxSize_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageProducer<T>(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
 
   MessageProducer<T> drainHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageProducer<T>(*<[Anything()]>) drainHandler = flatten(drainHandler_impl);
 
   MessageProducer<T> deliveryOptions_impl([DeliveryOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageProducer<T>(*<[DeliveryOptions]>) deliveryOptions = flatten(deliveryOptions_impl);
 
   String address_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) address = flatten(address_impl);
 
 }

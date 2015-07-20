@@ -24,118 +24,137 @@ import io.vertx.core.http {
 shared abstract class ServerWebSocket(ServerWebSocket_ delegate) satisfies Delegating
   & WebSocketBase {
 
+  shared actual ServerWebSocket(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual ServerWebSocket(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
+
+  shared actual ServerWebSocket(*<[]>) pause => flatten(pause_impl);
+
+  shared actual ServerWebSocket(*<[]>) resume => flatten(resume_impl);
+
+  shared actual ServerWebSocket(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared actual ServerWebSocket(*<[Buffer]>) write => flatten(write_impl);
+
+  shared actual ServerWebSocket(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+
+  shared actual ServerWebSocket(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
+
+  shared actual ServerWebSocket(*<[WebSocketFrame]>) writeFrame => flatten(writeFrame_impl);
+
+  shared actual ServerWebSocket(*<[String]>) writeFinalTextFrame => flatten(writeFinalTextFrame_impl);
+
+  shared actual ServerWebSocket(*<[Buffer]>) writeFinalBinaryFrame => flatten(writeFinalBinaryFrame_impl);
+
+  shared actual ServerWebSocket(*<[Buffer]>) writeBinaryMessage => flatten(writeBinaryMessage_impl);
+
+  shared actual ServerWebSocket(*<[Anything()]>) closeHandler => flatten(closeHandler_impl);
+
+  shared actual ServerWebSocket(*<[Anything(WebSocketFrame)]>) frameHandler => flatten(frameHandler_impl);
+
+  shared  String(*<[]>) uri => flatten(uri_impl);
+
+  shared  String(*<[]>) path => flatten(path_impl);
+
+  shared  String(*<[]>) query => flatten(query_impl);
+
+  shared  MultiMap(*<[]>) headers => flatten(headers_impl);
+
+  shared  Anything(*<[]>) reject => flatten(reject_impl);
+
   ServerWebSocket exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   ServerWebSocket handler_impl([Anything(Buffer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything(Buffer)]>) handler = flatten(handler_impl);
 
   ServerWebSocket pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[]>) pause = flatten(pause_impl);
 
   ServerWebSocket resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[]>) resume = flatten(resume_impl);
 
   ServerWebSocket endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   ServerWebSocket write_impl([Buffer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Buffer]>) write = flatten(write_impl);
 
   ServerWebSocket setWriteQueueMaxSize_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
 
   ServerWebSocket drainHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything()]>) drainHandler = flatten(drainHandler_impl);
 
   ServerWebSocket writeFrame_impl([WebSocketFrame] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[WebSocketFrame]>) writeFrame = flatten(writeFrame_impl);
 
   ServerWebSocket writeFinalTextFrame_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[String]>) writeFinalTextFrame = flatten(writeFinalTextFrame_impl);
 
   ServerWebSocket writeFinalBinaryFrame_impl([Buffer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Buffer]>) writeFinalBinaryFrame = flatten(writeFinalBinaryFrame_impl);
 
   ServerWebSocket writeBinaryMessage_impl([Buffer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Buffer]>) writeBinaryMessage = flatten(writeBinaryMessage_impl);
 
   ServerWebSocket closeHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything()]>) closeHandler = flatten(closeHandler_impl);
 
   ServerWebSocket frameHandler_impl([Anything(WebSocketFrame)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual ServerWebSocket(*<[Anything(WebSocketFrame)]>) frameHandler = flatten(frameHandler_impl);
 
   String uri_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) uri = flatten(uri_impl);
 
   String path_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) path = flatten(path_impl);
 
   String query_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) query = flatten(query_impl);
 
   MultiMap headers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) headers = flatten(headers_impl);
 
   Anything reject_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]>) reject = flatten(reject_impl);
 
 }

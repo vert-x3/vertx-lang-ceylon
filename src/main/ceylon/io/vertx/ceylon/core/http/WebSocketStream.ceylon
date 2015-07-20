@@ -14,34 +14,39 @@ import io.vertx.core.http {
 shared abstract class WebSocketStream(WebSocketStream_ delegate) satisfies Delegating
   & ReadStream<WebSocket> {
 
+  shared actual WebSocketStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual WebSocketStream(*<[Anything(WebSocket)]>) handler => flatten(handler_impl);
+
+  shared actual WebSocketStream(*<[]>) pause => flatten(pause_impl);
+
+  shared actual WebSocketStream(*<[]>) resume => flatten(resume_impl);
+
+  shared actual WebSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
   WebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual WebSocketStream(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   WebSocketStream handler_impl([Anything(WebSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual WebSocketStream(*<[Anything(WebSocket)]>) handler = flatten(handler_impl);
 
   WebSocketStream pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual WebSocketStream(*<[]>) pause = flatten(pause_impl);
 
   WebSocketStream resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual WebSocketStream(*<[]>) resume = flatten(resume_impl);
 
   WebSocketStream endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual WebSocketStream(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
 }

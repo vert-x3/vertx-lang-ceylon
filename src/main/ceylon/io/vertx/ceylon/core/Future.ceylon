@@ -10,28 +10,32 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.core.Future<T> */
 shared abstract class Future<T>(Future_<Object> delegate) satisfies Delegating {
 
+  shared  Boolean(*<[]>) isComplete => flatten(isComplete_impl);
+
+  shared  Anything(*<[Anything(Throwable|T)]>) setHandler => flatten(setHandler_impl);
+
+  shared  Anything(*<[]|[T]>) complete => flatten(complete_impl);
+
+  shared  Anything(*<[String]>) fail => flatten(fail_impl);
+
   Boolean isComplete_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isComplete = flatten(isComplete_impl);
 
   Anything setHandler_impl([Anything(Throwable|T)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Anything(Throwable|T)]>) setHandler = flatten(setHandler_impl);
 
   Anything complete_impl([]|[T] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]|[T]>) complete = flatten(complete_impl);
 
   Anything fail_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String]>) fail = flatten(fail_impl);
 
 }

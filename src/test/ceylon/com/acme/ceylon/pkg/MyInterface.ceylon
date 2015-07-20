@@ -13,16 +13,18 @@ import io.vertx.ceylon.codegen.testmodel {
 /* Generated from com.acme.pkg.MyInterface */
 shared abstract class MyInterface(MyInterface_ delegate) satisfies Delegating {
 
+  shared  SubInterface(*<[]>) sub => flatten(sub_impl);
+
+  shared  TestInterface(*<[]>) method => flatten(method_impl);
+
   SubInterface sub_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SubInterface(*<[]>) sub = flatten(sub_impl);
 
   TestInterface method_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  TestInterface(*<[]>) method = flatten(method_impl);
 
 }

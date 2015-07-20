@@ -13,16 +13,18 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.core.datagram.DatagramPacket */
 shared abstract class DatagramPacket(DatagramPacket_ delegate) satisfies Delegating {
 
+  shared  SocketAddress(*<[]>) sender => flatten(sender_impl);
+
+  shared  Buffer(*<[]>) data => flatten(data_impl);
+
   SocketAddress sender_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SocketAddress(*<[]>) sender = flatten(sender_impl);
 
   Buffer data_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Buffer(*<[]>) data = flatten(data_impl);
 
 }

@@ -50,136 +50,158 @@ import io.vertx.ceylon.core.dns {
 shared abstract class Vertx(Vertx_ delegate) satisfies Delegating
   & Measured {
 
+  shared  Context(*<[]>) getOrCreateContext => flatten(getOrCreateContext_impl);
+
+  shared  NetServer(*<[]|[NetServerOptions]>) createNetServer => flatten(createNetServer_impl);
+
+  shared  NetClient(*<[]|[NetClientOptions]>) createNetClient => flatten(createNetClient_impl);
+
+  shared  HttpServer(*<[]|[HttpServerOptions]>) createHttpServer => flatten(createHttpServer_impl);
+
+  shared  HttpClient(*<[]|[HttpClientOptions]>) createHttpClient => flatten(createHttpClient_impl);
+
+  shared  DatagramSocket(*<[]|[DatagramSocketOptions]>) createDatagramSocket => flatten(createDatagramSocket_impl);
+
+  shared  FileSystem(*<[]>) fileSystem => flatten(fileSystem_impl);
+
+  shared  EventBus(*<[]>) eventBus => flatten(eventBus_impl);
+
+  shared  DnsClient(*<[Integer,String]>) createDnsClient => flatten(createDnsClient_impl);
+
+  shared  SharedData(*<[]>) sharedData => flatten(sharedData_impl);
+
+  shared  Integer(*<[Integer,Anything(Integer)]>) setTimer => flatten(setTimer_impl);
+
+  shared  TimeoutStream(*<[Integer]>) timerStream => flatten(timerStream_impl);
+
+  shared  Integer(*<[Integer,Anything(Integer)]>) setPeriodic => flatten(setPeriodic_impl);
+
+  shared  TimeoutStream(*<[Integer]>) periodicStream => flatten(periodicStream_impl);
+
+  shared  Boolean(*<[Integer]>) cancelTimer => flatten(cancelTimer_impl);
+
+  shared  Anything(*<[Anything()]>) runOnContext => flatten(runOnContext_impl);
+
+  shared  Anything(*<[]|[Anything(Throwable?)]>) close => flatten(close_impl);
+
+  shared  Anything(*<[String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)]>) deployVerticle => flatten(deployVerticle_impl);
+
+  shared  Anything(*<[String]|[String,Anything(Throwable?)]>) undeploy => flatten(undeploy_impl);
+
+  shared  Set<String>(*<[]>) deploymentIDs => flatten(deploymentIDs_impl);
+
+  shared  Boolean(*<[]>) isClustered => flatten(isClustered_impl);
+
+  shared  Anything(*<[Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)]>) executeBlocking => flatten(executeBlocking_impl);
+
   Context getOrCreateContext_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Context(*<[]>) getOrCreateContext = flatten(getOrCreateContext_impl);
 
   NetServer createNetServer_impl([]|[NetServerOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  NetServer(*<[]|[NetServerOptions]>) createNetServer = flatten(createNetServer_impl);
 
   NetClient createNetClient_impl([]|[NetClientOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  NetClient(*<[]|[NetClientOptions]>) createNetClient = flatten(createNetClient_impl);
 
   HttpServer createHttpServer_impl([]|[HttpServerOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpServer(*<[]|[HttpServerOptions]>) createHttpServer = flatten(createHttpServer_impl);
 
   HttpClient createHttpClient_impl([]|[HttpClientOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClient(*<[]|[HttpClientOptions]>) createHttpClient = flatten(createHttpClient_impl);
 
   DatagramSocket createDatagramSocket_impl([]|[DatagramSocketOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[]|[DatagramSocketOptions]>) createDatagramSocket = flatten(createDatagramSocket_impl);
 
   FileSystem fileSystem_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  FileSystem(*<[]>) fileSystem = flatten(fileSystem_impl);
 
   EventBus eventBus_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  EventBus(*<[]>) eventBus = flatten(eventBus_impl);
 
   DnsClient createDnsClient_impl([Integer,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DnsClient(*<[Integer,String]>) createDnsClient = flatten(createDnsClient_impl);
 
   SharedData sharedData_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SharedData(*<[]>) sharedData = flatten(sharedData_impl);
 
   Integer setTimer_impl([Integer,Anything(Integer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[Integer,Anything(Integer)]>) setTimer = flatten(setTimer_impl);
 
   TimeoutStream timerStream_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  TimeoutStream(*<[Integer]>) timerStream = flatten(timerStream_impl);
 
   Integer setPeriodic_impl([Integer,Anything(Integer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[Integer,Anything(Integer)]>) setPeriodic = flatten(setPeriodic_impl);
 
   TimeoutStream periodicStream_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  TimeoutStream(*<[Integer]>) periodicStream = flatten(periodicStream_impl);
 
   Boolean cancelTimer_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[Integer]>) cancelTimer = flatten(cancelTimer_impl);
 
   Anything runOnContext_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Anything()]>) runOnContext = flatten(runOnContext_impl);
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]|[Anything(Throwable?)]>) close = flatten(close_impl);
 
   Anything deployVerticle_impl([String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)]>) deployVerticle = flatten(deployVerticle_impl);
 
   Anything undeploy_impl([String]|[String,Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String]|[String,Anything(Throwable?)]>) undeploy = flatten(undeploy_impl);
 
   Set<String> deploymentIDs_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Set<String>(*<[]>) deploymentIDs = flatten(deploymentIDs_impl);
 
   Boolean isClustered_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isClustered = flatten(isClustered_impl);
 
   Anything executeBlocking_impl([Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)]>) executeBlocking = flatten(executeBlocking_impl);
 
 }

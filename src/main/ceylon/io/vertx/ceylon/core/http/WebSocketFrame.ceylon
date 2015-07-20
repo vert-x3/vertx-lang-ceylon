@@ -13,40 +13,46 @@ import io.vertx.core.http {
 /* Generated from io.vertx.core.http.WebSocketFrame */
 shared abstract class WebSocketFrame(WebSocketFrame_ delegate) satisfies Delegating {
 
+  shared  Boolean(*<[]>) isText => flatten(isText_impl);
+
+  shared  Boolean(*<[]>) isBinary => flatten(isBinary_impl);
+
+  shared  Boolean(*<[]>) isContinuation => flatten(isContinuation_impl);
+
+  shared  String(*<[]>) textData => flatten(textData_impl);
+
+  shared  Buffer(*<[]>) binaryData => flatten(binaryData_impl);
+
+  shared  Boolean(*<[]>) isFinal => flatten(isFinal_impl);
+
   Boolean isText_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isText = flatten(isText_impl);
 
   Boolean isBinary_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isBinary = flatten(isBinary_impl);
 
   Boolean isContinuation_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isContinuation = flatten(isContinuation_impl);
 
   String textData_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) textData = flatten(textData_impl);
 
   Buffer binaryData_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Buffer(*<[]>) binaryData = flatten(binaryData_impl);
 
   Boolean isFinal_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isFinal = flatten(isFinal_impl);
 
 }

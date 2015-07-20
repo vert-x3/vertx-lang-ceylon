@@ -14,28 +14,32 @@ import io.vertx.ceylon.core.streams {
 shared abstract class PacketWritestream(PacketWritestream_ delegate) satisfies Delegating
   & WriteStream<Buffer> {
 
+  shared actual PacketWritestream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual PacketWritestream(*<[Buffer]>) write => flatten(write_impl);
+
+  shared actual PacketWritestream(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+
+  shared actual PacketWritestream(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
+
   PacketWritestream exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual PacketWritestream(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   PacketWritestream write_impl([Buffer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual PacketWritestream(*<[Buffer]>) write = flatten(write_impl);
 
   PacketWritestream setWriteQueueMaxSize_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual PacketWritestream(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
 
   PacketWritestream drainHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual PacketWritestream(*<[Anything()]>) drainHandler = flatten(drainHandler_impl);
 
 }

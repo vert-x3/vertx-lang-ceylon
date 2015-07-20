@@ -17,16 +17,18 @@ import io.vertx.core.net {
 shared abstract class NetClient(NetClient_ delegate) satisfies Delegating
   & Measured {
 
+  shared  NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect => flatten(connect_impl);
+
+  shared  Anything(*<[]>) close => flatten(close_impl);
+
   NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect = flatten(connect_impl);
 
   Anything close_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]>) close = flatten(close_impl);
 
 }

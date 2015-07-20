@@ -7,10 +7,11 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.core.shareddata.Lock */
 shared abstract class Lock(Lock_ delegate) satisfies Delegating {
 
+  shared  Anything(*<[]>) release => flatten(release_impl);
+
   Anything release_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]>) release = flatten(release_impl);
 
 }

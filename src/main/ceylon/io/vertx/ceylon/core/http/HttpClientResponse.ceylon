@@ -23,88 +23,102 @@ import io.vertx.core.http {
 shared abstract class HttpClientResponse(HttpClientResponse_ delegate) satisfies Delegating
   & ReadStream<Buffer> {
 
+  shared actual HttpClientResponse(*<[]>) resume => flatten(resume_impl);
+
+  shared actual HttpClientResponse(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual HttpClientResponse(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
+
+  shared actual HttpClientResponse(*<[]>) pause => flatten(pause_impl);
+
+  shared actual HttpClientResponse(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared  Integer(*<[]>) statusCode => flatten(statusCode_impl);
+
+  shared  String(*<[]>) statusMessage => flatten(statusMessage_impl);
+
+  shared  MultiMap(*<[]>) headers => flatten(headers_impl);
+
+  shared  String(*<[String]>) getHeader => flatten(getHeader_impl);
+
+  shared  String(*<[String]>) getTrailer => flatten(getTrailer_impl);
+
+  shared  MultiMap(*<[]>) trailers => flatten(trailers_impl);
+
+  shared  List<String>(*<[]>) cookies => flatten(cookies_impl);
+
+  shared  HttpClientResponse(*<[Anything(Buffer)]>) bodyHandler => flatten(bodyHandler_impl);
+
+  shared  NetSocket(*<[]>) netSocket => flatten(netSocket_impl);
+
   HttpClientResponse resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientResponse(*<[]>) resume = flatten(resume_impl);
 
   HttpClientResponse exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientResponse(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   HttpClientResponse handler_impl([Anything(Buffer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientResponse(*<[Anything(Buffer)]>) handler = flatten(handler_impl);
 
   HttpClientResponse pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientResponse(*<[]>) pause = flatten(pause_impl);
 
   HttpClientResponse endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientResponse(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   Integer statusCode_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[]>) statusCode = flatten(statusCode_impl);
 
   String statusMessage_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) statusMessage = flatten(statusMessage_impl);
 
   MultiMap headers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) headers = flatten(headers_impl);
 
   String getHeader_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) getHeader = flatten(getHeader_impl);
 
   String getTrailer_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) getTrailer = flatten(getTrailer_impl);
 
   MultiMap trailers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) trailers = flatten(trailers_impl);
 
   List<String> cookies_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  List<String>(*<[]>) cookies = flatten(cookies_impl);
 
   HttpClientResponse bodyHandler_impl([Anything(Buffer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientResponse(*<[Anything(Buffer)]>) bodyHandler = flatten(bodyHandler_impl);
 
   NetSocket netSocket_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  NetSocket(*<[]>) netSocket = flatten(netSocket_impl);
 
 }

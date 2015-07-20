@@ -14,34 +14,39 @@ import io.vertx.ceylon.core.streams {
 shared abstract class NetSocketStream(NetSocketStream_ delegate) satisfies Delegating
   & ReadStream<NetSocket> {
 
+  shared actual NetSocketStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual NetSocketStream(*<[Anything(NetSocket)]>) handler => flatten(handler_impl);
+
+  shared actual NetSocketStream(*<[]>) pause => flatten(pause_impl);
+
+  shared actual NetSocketStream(*<[]>) resume => flatten(resume_impl);
+
+  shared actual NetSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
   NetSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual NetSocketStream(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   NetSocketStream handler_impl([Anything(NetSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual NetSocketStream(*<[Anything(NetSocket)]>) handler = flatten(handler_impl);
 
   NetSocketStream pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual NetSocketStream(*<[]>) pause = flatten(pause_impl);
 
   NetSocketStream resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual NetSocketStream(*<[]>) resume = flatten(resume_impl);
 
   NetSocketStream endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual NetSocketStream(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
 }

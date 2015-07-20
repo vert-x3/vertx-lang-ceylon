@@ -16,40 +16,46 @@ import io.vertx.core.eventbus {
 /* Generated from io.vertx.core.eventbus.Message<T> */
 shared abstract class Message<T>(Message_<Object> delegate) satisfies Delegating {
 
+  shared  String(*<[]>) address => flatten(address_impl);
+
+  shared  MultiMap(*<[]>) headers => flatten(headers_impl);
+
+  shared  T(*<[]>) body => flatten(body_impl);
+
+  shared  String(*<[]>) replyAddress => flatten(replyAddress_impl);
+
+  shared  Anything(*<[Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) reply => flatten(reply_impl);
+
+  shared  Anything(*<[Integer,String]>) fail => flatten(fail_impl);
+
   String address_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) address = flatten(address_impl);
 
   MultiMap headers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) headers = flatten(headers_impl);
 
   T body_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  T(*<[]>) body = flatten(body_impl);
 
   String replyAddress_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) replyAddress = flatten(replyAddress_impl);
 
   Anything reply_impl([Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) reply = flatten(reply_impl);
 
   Anything fail_impl([Integer,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Integer,String]>) fail = flatten(fail_impl);
 
 }

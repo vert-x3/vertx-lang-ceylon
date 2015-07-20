@@ -10,16 +10,18 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.codegen.testmodel.RefedInterface1 */
 shared abstract class RefedInterface1(RefedInterface1_ delegate) satisfies Delegating {
 
+  shared  String(*<[]>) getString => flatten(getString_impl);
+
+  shared  RefedInterface1(*<[String]>) setString => flatten(setString_impl);
+
   String getString_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) getString = flatten(getString_impl);
 
   RefedInterface1 setString_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  RefedInterface1(*<[String]>) setString = flatten(setString_impl);
 
 }

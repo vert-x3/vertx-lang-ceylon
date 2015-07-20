@@ -29,166 +29,193 @@ import io.vertx.core.http {
 shared abstract class HttpServerRequest(HttpServerRequest_ delegate) satisfies Delegating
   & ReadStream<Buffer> {
 
+  shared actual HttpServerRequest(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual HttpServerRequest(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
+
+  shared actual HttpServerRequest(*<[]>) pause => flatten(pause_impl);
+
+  shared actual HttpServerRequest(*<[]>) resume => flatten(resume_impl);
+
+  shared actual HttpServerRequest(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared  String(*<[]>) version => flatten(version_impl);
+
+  shared  String(*<[]>) method => flatten(method_impl);
+
+  shared  String(*<[]>) uri => flatten(uri_impl);
+
+  shared  String(*<[]>) path => flatten(path_impl);
+
+  shared  String(*<[]>) query => flatten(query_impl);
+
+  shared  HttpServerResponse(*<[]>) response => flatten(response_impl);
+
+  shared  MultiMap(*<[]>) headers => flatten(headers_impl);
+
+  shared  String(*<[String]>) getHeader => flatten(getHeader_impl);
+
+  shared  MultiMap(*<[]>) params => flatten(params_impl);
+
+  shared  String(*<[String]>) getParam => flatten(getParam_impl);
+
+  shared  SocketAddress(*<[]>) remoteAddress => flatten(remoteAddress_impl);
+
+  shared  SocketAddress(*<[]>) localAddress => flatten(localAddress_impl);
+
+  shared  String(*<[]>) absoluteURI => flatten(absoluteURI_impl);
+
+  shared  HttpServerRequest(*<[Anything(Buffer)]>) bodyHandler => flatten(bodyHandler_impl);
+
+  shared  NetSocket(*<[]>) netSocket => flatten(netSocket_impl);
+
+  shared  HttpServerRequest(*<[Boolean]>) setExpectMultipart => flatten(setExpectMultipart_impl);
+
+  shared  Boolean(*<[]>) isExpectMultipart => flatten(isExpectMultipart_impl);
+
+  shared  HttpServerRequest(*<[Anything(HttpServerFileUpload)]>) uploadHandler => flatten(uploadHandler_impl);
+
+  shared  MultiMap(*<[]>) formAttributes => flatten(formAttributes_impl);
+
+  shared  String(*<[String]>) getFormAttribute => flatten(getFormAttribute_impl);
+
+  shared  ServerWebSocket(*<[]>) upgrade => flatten(upgrade_impl);
+
+  shared  Boolean(*<[]>) isEnded => flatten(isEnded_impl);
+
   HttpServerRequest exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpServerRequest(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   HttpServerRequest handler_impl([Anything(Buffer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpServerRequest(*<[Anything(Buffer)]>) handler = flatten(handler_impl);
 
   HttpServerRequest pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpServerRequest(*<[]>) pause = flatten(pause_impl);
 
   HttpServerRequest resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpServerRequest(*<[]>) resume = flatten(resume_impl);
 
   HttpServerRequest endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpServerRequest(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   String version_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) version = flatten(version_impl);
 
   String method_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) method = flatten(method_impl);
 
   String uri_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) uri = flatten(uri_impl);
 
   String path_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) path = flatten(path_impl);
 
   String query_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) query = flatten(query_impl);
 
   HttpServerResponse response_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpServerResponse(*<[]>) response = flatten(response_impl);
 
   MultiMap headers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) headers = flatten(headers_impl);
 
   String getHeader_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) getHeader = flatten(getHeader_impl);
 
   MultiMap params_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) params = flatten(params_impl);
 
   String getParam_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) getParam = flatten(getParam_impl);
 
   SocketAddress remoteAddress_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SocketAddress(*<[]>) remoteAddress = flatten(remoteAddress_impl);
 
   SocketAddress localAddress_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SocketAddress(*<[]>) localAddress = flatten(localAddress_impl);
 
   String absoluteURI_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) absoluteURI = flatten(absoluteURI_impl);
 
   HttpServerRequest bodyHandler_impl([Anything(Buffer)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpServerRequest(*<[Anything(Buffer)]>) bodyHandler = flatten(bodyHandler_impl);
 
   NetSocket netSocket_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  NetSocket(*<[]>) netSocket = flatten(netSocket_impl);
 
   HttpServerRequest setExpectMultipart_impl([Boolean] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpServerRequest(*<[Boolean]>) setExpectMultipart = flatten(setExpectMultipart_impl);
 
   Boolean isExpectMultipart_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isExpectMultipart = flatten(isExpectMultipart_impl);
 
   HttpServerRequest uploadHandler_impl([Anything(HttpServerFileUpload)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpServerRequest(*<[Anything(HttpServerFileUpload)]>) uploadHandler = flatten(uploadHandler_impl);
 
   MultiMap formAttributes_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) formAttributes = flatten(formAttributes_impl);
 
   String getFormAttribute_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) getFormAttribute = flatten(getFormAttribute_impl);
 
   ServerWebSocket upgrade_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  ServerWebSocket(*<[]>) upgrade = flatten(upgrade_impl);
 
   Boolean isEnded_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isEnded = flatten(isEnded_impl);
 
 }

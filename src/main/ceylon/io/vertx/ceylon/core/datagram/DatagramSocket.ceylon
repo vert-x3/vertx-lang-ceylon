@@ -28,82 +28,95 @@ shared abstract class DatagramSocket(DatagramSocket_ delegate) satisfies Delegat
   & ReadStream<DatagramPacket>
   & Measured {
 
+  shared  DatagramSocket(*<[Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)]>) send => flatten(send_impl);
+
+  shared  PacketWritestream(*<[Integer,String]>) sender => flatten(sender_impl);
+
+  shared  Anything(*<[]|[Anything(Throwable?)]>) close => flatten(close_impl);
+
+  shared  SocketAddress(*<[]>) localAddress => flatten(localAddress_impl);
+
+  shared  DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) listenMulticastGroup => flatten(listenMulticastGroup_impl);
+
+  shared  DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) unlistenMulticastGroup => flatten(unlistenMulticastGroup_impl);
+
+  shared  DatagramSocket(*<[String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) blockMulticastGroup => flatten(blockMulticastGroup_impl);
+
+  shared  DatagramSocket(*<[Integer,String,Anything(Throwable|DatagramSocket)]>) listen => flatten(listen_impl);
+
+  shared actual DatagramSocket(*<[]>) pause => flatten(pause_impl);
+
+  shared actual DatagramSocket(*<[]>) resume => flatten(resume_impl);
+
+  shared actual DatagramSocket(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared actual DatagramSocket(*<[Anything(DatagramPacket)]>) handler => flatten(handler_impl);
+
+  shared actual DatagramSocket(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
   DatagramSocket send_impl([Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)]>) send = flatten(send_impl);
 
   PacketWritestream sender_impl([Integer,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  PacketWritestream(*<[Integer,String]>) sender = flatten(sender_impl);
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]|[Anything(Throwable?)]>) close = flatten(close_impl);
 
   SocketAddress localAddress_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  SocketAddress(*<[]>) localAddress = flatten(localAddress_impl);
 
   DatagramSocket listenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) listenMulticastGroup = flatten(listenMulticastGroup_impl);
 
   DatagramSocket unlistenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) unlistenMulticastGroup = flatten(unlistenMulticastGroup_impl);
 
   DatagramSocket blockMulticastGroup_impl([String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)]>) blockMulticastGroup = flatten(blockMulticastGroup_impl);
 
   DatagramSocket listen_impl([Integer,String,Anything(Throwable|DatagramSocket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  DatagramSocket(*<[Integer,String,Anything(Throwable|DatagramSocket)]>) listen = flatten(listen_impl);
 
   DatagramSocket pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual DatagramSocket(*<[]>) pause = flatten(pause_impl);
 
   DatagramSocket resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual DatagramSocket(*<[]>) resume = flatten(resume_impl);
 
   DatagramSocket endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual DatagramSocket(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   DatagramSocket handler_impl([Anything(DatagramPacket)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual DatagramSocket(*<[Anything(DatagramPacket)]>) handler = flatten(handler_impl);
 
   DatagramSocket exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual DatagramSocket(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
 }

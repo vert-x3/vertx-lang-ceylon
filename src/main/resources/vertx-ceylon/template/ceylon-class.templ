@@ -540,16 +540,14 @@ shared abstract class @includeNamed{'genModelDecl'}(@{type.raw.simpleName}_@if{t
 shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'} {\n
 @end{}
 \n
+
+	@comment{'Generate instance methods'}
 	@foreach{methods:methodsByName.values()}
 		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
 			@if{concrete}
-				  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
-				    throw Exception("implement me");\n
-				  }\n
-				\n
-				  shared @if{isActualMethod(methods)}actual@end{} @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName} = flatten(@{methodName}_impl);\n
+				  shared @if{isActualMethod(methods)}actual@end{} @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName} => flatten(@{methodName}_impl);\n
 				\n
 			@else{}
 				  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName};\n
@@ -557,5 +555,19 @@ shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause
 		@end{}
 	@end{}
 
+	@comment{'Generate instance methods implementations'}
+	@foreach{methods:methodsByName.values()}
+		@code{lastMethod=methods[methods.size()-1]}
+		@code{methodName=genMethodName(methods[0])}
+		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
+			@if{concrete}
+				  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
+				    Object test = this; // Just test we can access this\n
+				    throw Exception("implement me");\n
+				  }\n
+				\n
+			@end{}
+		@end{}
+	@end{}
 
 }\n

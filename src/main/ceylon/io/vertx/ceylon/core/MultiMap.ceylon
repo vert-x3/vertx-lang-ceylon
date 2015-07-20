@@ -10,76 +10,88 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.core.MultiMap */
 shared abstract class MultiMap(MultiMap_ delegate) satisfies Delegating {
 
+  shared  String(*<[String]>) get => flatten(get_impl);
+
+  shared  List<String>(*<[String]>) getAll => flatten(getAll_impl);
+
+  shared  Boolean(*<[String]>) contains => flatten(contains_impl);
+
+  shared  Boolean(*<[]>) isEmpty => flatten(isEmpty_impl);
+
+  shared  Set<String>(*<[]>) names => flatten(names_impl);
+
+  shared  MultiMap(*<[String,String]>) add => flatten(add_impl);
+
+  shared  MultiMap(*<[MultiMap]>) addAll => flatten(addAll_impl);
+
+  shared  MultiMap(*<[String,String]>) set => flatten(set_impl);
+
+  shared  MultiMap(*<[MultiMap]>) setAll => flatten(setAll_impl);
+
+  shared  MultiMap(*<[String]>) remove => flatten(remove_impl);
+
+  shared  MultiMap(*<[]>) clear => flatten(clear_impl);
+
+  shared  Integer(*<[]>) size => flatten(size_impl);
+
   String get_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[String]>) get = flatten(get_impl);
 
   List<String> getAll_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  List<String>(*<[String]>) getAll = flatten(getAll_impl);
 
   Boolean contains_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[String]>) contains = flatten(contains_impl);
 
   Boolean isEmpty_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isEmpty = flatten(isEmpty_impl);
 
   Set<String> names_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Set<String>(*<[]>) names = flatten(names_impl);
 
   MultiMap add_impl([String,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[String,String]>) add = flatten(add_impl);
 
   MultiMap addAll_impl([MultiMap] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[MultiMap]>) addAll = flatten(addAll_impl);
 
   MultiMap set_impl([String,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[String,String]>) set = flatten(set_impl);
 
   MultiMap setAll_impl([MultiMap] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[MultiMap]>) setAll = flatten(setAll_impl);
 
   MultiMap remove_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[String]>) remove = flatten(remove_impl);
 
   MultiMap clear_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) clear = flatten(clear_impl);
 
   Integer size_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[]>) size = flatten(size_impl);
 
 }

@@ -20,46 +20,53 @@ import io.vertx.core.eventbus {
 shared abstract class EventBus(EventBus_ delegate) satisfies Delegating
   & Measured {
 
+  shared  EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send => flatten(send_impl);
+
+  shared  EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish => flatten(publish_impl);
+
+  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer => flatten(consumer_impl);
+
+  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer => flatten(localConsumer_impl);
+
+  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender => flatten(sender_impl);
+
+  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher => flatten(publisher_impl);
+
+  shared  Anything(*<[Anything(Throwable?)]>) close => flatten(close_impl);
+
   EventBus send_impl([String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send = flatten(send_impl);
 
   EventBus publish_impl([String,Object]|[String,Object,DeliveryOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish = flatten(publish_impl);
 
   MessageConsumer<Object> consumer_impl([String]|[String,Anything(Message<Object>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer = flatten(consumer_impl);
 
   MessageConsumer<Object> localConsumer_impl([String]|[String,Anything(Message<Object>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer = flatten(localConsumer_impl);
 
   MessageProducer<Object> sender_impl([String]|[String,DeliveryOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender = flatten(sender_impl);
 
   MessageProducer<Object> publisher_impl([String]|[String,DeliveryOptions] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher = flatten(publisher_impl);
 
   Anything close_impl([Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Anything(Throwable?)]>) close = flatten(close_impl);
 
 }

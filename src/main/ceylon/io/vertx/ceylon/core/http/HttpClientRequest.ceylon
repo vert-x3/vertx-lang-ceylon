@@ -25,112 +25,130 @@ shared abstract class HttpClientRequest(HttpClientRequest_ delegate) satisfies D
   & WriteStream<Buffer>
   & ReadStream<HttpClientResponse> {
 
+  shared actual HttpClientRequest(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual HttpClientRequest(*<[Buffer]|[String]|[String,String]>) write => flatten(write_impl);
+
+  shared actual HttpClientRequest(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+
+  shared actual HttpClientRequest(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
+
+  shared actual HttpClientRequest(*<[Anything(HttpClientResponse)]>) handler => flatten(handler_impl);
+
+  shared actual HttpClientRequest(*<[]>) pause => flatten(pause_impl);
+
+  shared actual HttpClientRequest(*<[]>) resume => flatten(resume_impl);
+
+  shared actual HttpClientRequest(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared  HttpClientRequest(*<[Boolean]>) setChunked => flatten(setChunked_impl);
+
+  shared  Boolean(*<[]>) isChunked => flatten(isChunked_impl);
+
+  shared  String(*<[]>) method => flatten(method_impl);
+
+  shared  String(*<[]>) uri => flatten(uri_impl);
+
+  shared  MultiMap(*<[]>) headers => flatten(headers_impl);
+
+  shared  HttpClientRequest(*<[String,String]>) putHeader => flatten(putHeader_impl);
+
+  shared  HttpClientRequest(*<[Anything()]>) continueHandler => flatten(continueHandler_impl);
+
+  shared  HttpClientRequest(*<[]>) sendHead => flatten(sendHead_impl);
+
+  shared  Anything(*<[]|[String]|[Buffer]|[String,String]>) end => flatten(end_impl);
+
+  shared  HttpClientRequest(*<[Integer]>) setTimeout => flatten(setTimeout_impl);
+
   HttpClientRequest exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   HttpClientRequest write_impl([Buffer]|[String]|[String,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Buffer]|[String]|[String,String]>) write = flatten(write_impl);
 
   HttpClientRequest setWriteQueueMaxSize_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
 
   HttpClientRequest drainHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Anything()]>) drainHandler = flatten(drainHandler_impl);
 
   HttpClientRequest handler_impl([Anything(HttpClientResponse)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Anything(HttpClientResponse)]>) handler = flatten(handler_impl);
 
   HttpClientRequest pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[]>) pause = flatten(pause_impl);
 
   HttpClientRequest resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[]>) resume = flatten(resume_impl);
 
   HttpClientRequest endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual HttpClientRequest(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   HttpClientRequest setChunked_impl([Boolean] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientRequest(*<[Boolean]>) setChunked = flatten(setChunked_impl);
 
   Boolean isChunked_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isChunked = flatten(isChunked_impl);
 
   String method_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) method = flatten(method_impl);
 
   String uri_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) uri = flatten(uri_impl);
 
   MultiMap headers_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MultiMap(*<[]>) headers = flatten(headers_impl);
 
   HttpClientRequest putHeader_impl([String,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientRequest(*<[String,String]>) putHeader = flatten(putHeader_impl);
 
   HttpClientRequest continueHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientRequest(*<[Anything()]>) continueHandler = flatten(continueHandler_impl);
 
   HttpClientRequest sendHead_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientRequest(*<[]>) sendHead = flatten(sendHead_impl);
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]|[String]|[Buffer]|[String,String]>) end = flatten(end_impl);
 
   HttpClientRequest setTimeout_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  HttpClientRequest(*<[Integer]>) setTimeout = flatten(setTimeout_impl);
 
 }

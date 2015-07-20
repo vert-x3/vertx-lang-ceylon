@@ -16,34 +16,39 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.core.shareddata.SharedData */
 shared abstract class SharedData(SharedData_ delegate) satisfies Delegating {
 
+  shared  Anything(*<[String,Anything(Throwable|AsyncMap<Object,Object>)]>) getClusterWideMap => flatten(getClusterWideMap_impl);
+
+  shared  Anything(*<[String,Anything(Throwable|Lock)]>) getLock => flatten(getLock_impl);
+
+  shared  Anything(*<[String,Integer,Anything(Throwable|Lock)]>) getLockWithTimeout => flatten(getLockWithTimeout_impl);
+
+  shared  Anything(*<[String,Anything(Throwable|Counter)]>) getCounter => flatten(getCounter_impl);
+
+  shared  LocalMap<Object,Object>(*<[String]>) getLocalMap => flatten(getLocalMap_impl);
+
   Anything getClusterWideMap_impl([String,Anything(Throwable|AsyncMap<Object,Object>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String,Anything(Throwable|AsyncMap<Object,Object>)]>) getClusterWideMap = flatten(getClusterWideMap_impl);
 
   Anything getLock_impl([String,Anything(Throwable|Lock)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String,Anything(Throwable|Lock)]>) getLock = flatten(getLock_impl);
 
   Anything getLockWithTimeout_impl([String,Integer,Anything(Throwable|Lock)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String,Integer,Anything(Throwable|Lock)]>) getLockWithTimeout = flatten(getLockWithTimeout_impl);
 
   Anything getCounter_impl([String,Anything(Throwable|Counter)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[String,Anything(Throwable|Counter)]>) getCounter = flatten(getCounter_impl);
 
   LocalMap<Object,Object> getLocalMap_impl([String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  LocalMap<Object,Object>(*<[String]>) getLocalMap = flatten(getLocalMap_impl);
 
 }

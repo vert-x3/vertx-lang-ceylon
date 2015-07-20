@@ -17,76 +17,88 @@ import io.vertx.ceylon.core.streams {
 shared abstract class MessageConsumer<T>(MessageConsumer_<Object> delegate) satisfies Delegating
   & ReadStream<Message<T>> {
 
+  shared actual MessageConsumer<T>(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
+
+  shared actual MessageConsumer<T>(*<[Anything(Message<T>)]>) handler => flatten(handler_impl);
+
+  shared actual MessageConsumer<T>(*<[]>) pause => flatten(pause_impl);
+
+  shared actual MessageConsumer<T>(*<[]>) resume => flatten(resume_impl);
+
+  shared actual MessageConsumer<T>(*<[Anything()]>) endHandler => flatten(endHandler_impl);
+
+  shared  ReadStream<T>(*<[]>) bodyStream => flatten(bodyStream_impl);
+
+  shared  Boolean(*<[]>) isRegistered => flatten(isRegistered_impl);
+
+  shared  String(*<[]>) address => flatten(address_impl);
+
+  shared  MessageConsumer<T>(*<[Integer]>) setMaxBufferedMessages => flatten(setMaxBufferedMessages_impl);
+
+  shared  Integer(*<[]>) getMaxBufferedMessages => flatten(getMaxBufferedMessages_impl);
+
+  shared  Anything(*<[Anything(Throwable?)]>) completionHandler => flatten(completionHandler_impl);
+
+  shared  Anything(*<[]|[Anything(Throwable?)]>) unregister => flatten(unregister_impl);
+
   MessageConsumer<T> exceptionHandler_impl([Anything(Throwable)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageConsumer<T>(*<[Anything(Throwable)]>) exceptionHandler = flatten(exceptionHandler_impl);
 
   MessageConsumer<T> handler_impl([Anything(Message<T>)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageConsumer<T>(*<[Anything(Message<T>)]>) handler = flatten(handler_impl);
 
   MessageConsumer<T> pause_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageConsumer<T>(*<[]>) pause = flatten(pause_impl);
 
   MessageConsumer<T> resume_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageConsumer<T>(*<[]>) resume = flatten(resume_impl);
 
   MessageConsumer<T> endHandler_impl([Anything()] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared actual MessageConsumer<T>(*<[Anything()]>) endHandler = flatten(endHandler_impl);
 
   ReadStream<T> bodyStream_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  ReadStream<T>(*<[]>) bodyStream = flatten(bodyStream_impl);
 
   Boolean isRegistered_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Boolean(*<[]>) isRegistered = flatten(isRegistered_impl);
 
   String address_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  String(*<[]>) address = flatten(address_impl);
 
   MessageConsumer<T> setMaxBufferedMessages_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  MessageConsumer<T>(*<[Integer]>) setMaxBufferedMessages = flatten(setMaxBufferedMessages_impl);
 
   Integer getMaxBufferedMessages_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[]>) getMaxBufferedMessages = flatten(getMaxBufferedMessages_impl);
 
   Anything completionHandler_impl([Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Anything(Throwable?)]>) completionHandler = flatten(completionHandler_impl);
 
   Anything unregister_impl([]|[Anything(Throwable?)] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[]|[Anything(Throwable?)]>) unregister = flatten(unregister_impl);
 
 }

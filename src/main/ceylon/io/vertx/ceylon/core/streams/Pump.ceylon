@@ -11,28 +11,32 @@ import io.vertx.ceylon.core.streams {
 /* Generated from io.vertx.core.streams.Pump */
 shared abstract class Pump(Pump_ delegate) satisfies Delegating {
 
+  shared  Pump(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+
+  shared  Pump(*<[]>) start => flatten(start_impl);
+
+  shared  Pump(*<[]>) stop => flatten(stop_impl);
+
+  shared  Integer(*<[]>) numberPumped => flatten(numberPumped_impl);
+
   Pump setWriteQueueMaxSize_impl([Integer] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Pump(*<[Integer]>) setWriteQueueMaxSize = flatten(setWriteQueueMaxSize_impl);
 
   Pump start_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Pump(*<[]>) start = flatten(start_impl);
 
   Pump stop_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Pump(*<[]>) stop = flatten(stop_impl);
 
   Integer numberPumped_impl([] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Integer(*<[]>) numberPumped = flatten(numberPumped_impl);
 
 }

@@ -10,10 +10,11 @@ import io.vertx.lang.ceylon {
 /* Generated from io.vertx.codegen.testmodel.SuperInterface1 */
 shared abstract class SuperInterface1(SuperInterface1_ delegate) satisfies Delegating {
 
+  shared  Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) superMethodWithBasicParams => flatten(superMethodWithBasicParams_impl);
+
   Anything superMethodWithBasicParams_impl([Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String] args) {
+    Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
-
-  shared  Anything(*<[Byte,Integer,Integer,Integer,Float,Float,Boolean,Character,String]>) superMethodWithBasicParams = flatten(superMethodWithBasicParams_impl);
 
 }
