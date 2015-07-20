@@ -9,6 +9,12 @@ import io.vertx.ceylon.codegen.testmodel {
   ConcreteHandlerUserType
 }
 /* Generated from io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension */
-shared abstract class ConcreteHandlerUserTypeExtension(ConcreteHandlerUserTypeExtension_ delegate) extends ConcreteHandlerUserType(delegate) satisfies Delegating {
+shared interface ConcreteHandlerUserTypeExtension  {
+
+}
+/* Generated from io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension */
+
+shared abstract class ConcreteHandlerUserTypeExtension_Impl(ConcreteHandlerUserTypeExtension delegate) satisfies ConcreteHandlerUserTypeExtension & Delegating<ConcreteHandlerUserTypeExtension> {
+
 
 }

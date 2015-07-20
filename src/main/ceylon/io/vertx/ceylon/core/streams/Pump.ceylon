@@ -9,36 +9,42 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.streams.Pump */
-shared abstract class Pump(Pump_ delegate) satisfies Delegating {
+shared interface Pump  {
 
-  shared  Pump(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+  shared formal Pump(*<[Integer]>) setWriteQueueMaxSize;
+  shared formal Pump(*<[]>) start;
+  shared formal Pump(*<[]>) stop;
+  shared formal Integer(*<[]>) numberPumped;
+}
+/* Generated from io.vertx.core.streams.Pump */
 
-  shared  Pump(*<[]>) start => flatten(start_impl);
+shared abstract class Pump_Impl(Pump delegate) satisfies Pump & Delegating<Pump> {
 
-  shared  Pump(*<[]>) stop => flatten(stop_impl);
-
-  shared  Integer(*<[]>) numberPumped => flatten(numberPumped_impl);
+  shared actual Pump(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
+  shared actual Pump(*<[]>) start => flatten(start_impl);
+  shared actual Pump(*<[]>) stop => flatten(stop_impl);
+  shared actual Integer(*<[]>) numberPumped => flatten(numberPumped_impl);
 
   Pump setWriteQueueMaxSize_impl([Integer] args) {
-    // Invoke method
+    Anything v = delegate.setWriteQueueMaxSize(args[0]);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Pump start_impl([] args) {
-    // Invoke method
+    Anything v = delegate.start();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Pump stop_impl([] args) {
-    // Invoke method
+    Anything v = delegate.stop();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer numberPumped_impl([] args) {
-    // Invoke method
+    Anything v = delegate.numberPumped();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -11,53 +11,58 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 /* Generated from io.vertx.core.TimeoutStream */
-shared abstract class TimeoutStream(TimeoutStream_ delegate) satisfies Delegating
-  & ReadStream<Integer> {
+shared interface TimeoutStream satisfies ReadStream<Integer> {
+
+  shared actual formal TimeoutStream(*<[Anything(Throwable)]>) exceptionHandler;
+  shared actual formal TimeoutStream(*<[Anything(Integer)]>) handler;
+  shared actual formal TimeoutStream(*<[]>) pause;
+  shared actual formal TimeoutStream(*<[]>) resume;
+  shared actual formal TimeoutStream(*<[Anything()]>) endHandler;
+  shared formal Anything(*<[]>) cancel;
+}
+/* Generated from io.vertx.core.TimeoutStream */
+
+shared abstract class TimeoutStream_Impl(TimeoutStream delegate) satisfies TimeoutStream & Delegating<TimeoutStream> {
 
   shared actual TimeoutStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
-
   shared actual TimeoutStream(*<[Anything(Integer)]>) handler => flatten(handler_impl);
-
   shared actual TimeoutStream(*<[]>) pause => flatten(pause_impl);
-
   shared actual TimeoutStream(*<[]>) resume => flatten(resume_impl);
-
   shared actual TimeoutStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
-
-  shared  Anything(*<[]>) cancel => flatten(cancel_impl);
+  shared actual Anything(*<[]>) cancel => flatten(cancel_impl);
 
   TimeoutStream exceptionHandler_impl([Anything(Throwable)] args) {
-    // Invoke method
+    Anything v = delegate.exceptionHandler(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream handler_impl([Anything(Integer)] args) {
-    // Invoke method
+    Anything v = delegate.handler(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream pause_impl([] args) {
-    // Invoke method
+    Anything v = delegate.pause();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream resume_impl([] args) {
-    // Invoke method
+    Anything v = delegate.resume();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream endHandler_impl([Anything()] args) {
-    // Invoke method
+    Anything v = delegate.endHandler(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything cancel_impl([] args) {
-    // Invoke method
+    Anything v = delegate.cancel();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

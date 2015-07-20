@@ -219,7 +219,7 @@
    * @param method the called method
    * @param params the parameter names to use
    */
-  def genMethodCall(method,params) {
+  def old_genMethodCall(method,params) {
     var args = "(";
     var signature = "(:" + method.getName() + ", [";
     var index = 1;
@@ -253,74 +253,45 @@
   def genConvParam(type, expr) {
     var kind = type.kind;
     if (kind.basic) {
-      if (type.name == "byte" || type.name == "java.lang.Byte") {
-        return "::Vertx::Util::Utils.to_byte(" + expr + ")";
-      } else if (type.name == "short" || type.name == "java.lang.Short") {
-        return "::Vertx::Util::Utils.to_short(" + expr + ")";
-      } else if (type.name == "integer" || type.name == "java.lang.Integer") {
-        return "::Vertx::Util::Utils.to_integer(" + expr + ")";
-      } else if (type.name == "float" || type.name == "java.lang.Float") {
-        /* not tested */
-        return "::Vertx::Util::Utils.to_float(" + expr + ")";
-      } else if (type.name == "double" || type.name == "java.lang.Double") {
-        /* not tested */
-        return "::Vertx::Util::Utils.to_double(" + expr + ")";
-      } else {
-        return expr;
-      }
+      return expr;
     } else if (kind == CLASS_HANDLER) {
       var eventType = type.args[0];
       var eventKind = eventType.kind;
       if (eventKind.basic || eventKind == CLASS_DATA_OBJECT || eventKind.collection || eventKind == CLASS_API ||
           eventKind == CLASS_THROWABLE || eventKind == CLASS_OBJECT || eventKind.json) {
-        if (expr != "yield") {
-          expr += ".call";
-        }
-        return "(Proc.new { |event| " + expr + "(" + genConvReturn(eventType, "event") + ") })";
+        return "nothing";
       } else if (eventKind == CLASS_VOID) {
-        if (expr == "yield") {
-          expr = "Proc.new { yield }";
-        }
-        return expr;
+        return "nothing";
       } else if (eventKind == CLASS_ASYNC_RESULT) {
         var resultType = eventType.args[0];
         var resultKind = resultType.kind;
         if (resultKind.basic || resultKind == CLASS_DATA_OBJECT || resultKind.collection || resultKind == CLASS_API ||
             resultKind == CLASS_OBJECT || resultKind.json) {
-          if (expr != "yield") {
-            expr += ".call";
-          }
-          return "(Proc.new { |ar| " + expr + "(ar.failed ? ar.cause : nil, ar.succeeded ? " + genConvReturn(resultType, "ar.result") + " : nil) })";
+          return "nothing";
         } else if (resultKind == CLASS_VOID) {
-          if (expr != "yield") {
-            expr += ".call";
-          }
-          return "(Proc.new { |ar| " + expr + "(ar.failed ? ar.cause : nil) })";
+           return "nothing";
         }
       }
     } else if (kind == CLASS_API) {
-      return expr + ".j_del";
+      return expr + ".delegate";
     } else if (kind == CLASS_OBJECT) {
-      return "::Vertx::Util::Utils.to_object(" + expr + ")";
+      return "nothing";
     } else if (kind == CLASS_DATA_OBJECT) {
-      return genJavaClassFqn(type) + ".new(::Vertx::Util::Utils.to_json_object(" + expr + "))";
+      return "nothing";
     } else if (kind == CLASS_JSON_OBJECT) {
-      return "::Vertx::Util::Utils.to_json_object(" + expr + ")";
+      return "nothing";
     } else if (kind == CLASS_JSON_ARRAY) {
-      return "::Vertx::Util::Utils.to_json_array(" + expr + ")";
+      return "nothing";
     } else if (kind == CLASS_ENUM) {
-      return genJavaClassFqn(type) + ".valueOf(" + expr + ")";
+      return "nothing";
     } else if (kind == CLASS_LIST) {
-      var elementType = type.args[0];
-      return expr + ".map { |element| " + genConvParam(elementType, "element") + " }";
+      return "nothing";
     } else if (kind == CLASS_SET) {
-      var elementType = type.args[0];
-      return "Java::JavaUtil::LinkedHashSet.new(" + expr + ".map { |element| " + genConvParam(elementType, "element") + " })";
+      return "nothing";
     } else if (kind == CLASS_MAP) {
-      var valueType = type.args[1];
-      return "Hash[" + expr + ".map { |k,v| [k," + genConvParam(valueType, "v") + "] }]";
+      return "nothing";
     }
-    return "nil";
+    return "nothing";
   }
 
   /*
@@ -502,11 +473,8 @@
     end\n
 @end{}
 
-
-
-
 @declare{'genModelDecl'}
-	@{type.raw.simpleName}
+	@{type.raw.simpleName}@{typeSuffix}
 	@if{typeParams.size() > 0}
 		<@foreach{typeParam:typeParams}
 		@{typeParam.name}
@@ -518,12 +486,33 @@
 	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])}(delegate) @end{}
 @end{}
 
-@declare{'genSatisfiesClause'}
-	satisfies Delegating
-	@foreach{superType:abstractSuperTypes}
-\n  & @{genTypeDecl(superType)}
-	@end{}
-@end{}
+@code{
+  def genSatisfiesClause() {
+    var s = new java.lang.StringBuilder();
+    var sep = 'satisfies ';
+    for(superType : abstractSuperTypes) {
+      s.append(sep).append(genTypeDecl(superType));
+      sep = '& ';
+    }
+    return s.toString();
+  }
+}
+
+@code{
+  def genDelegateType(type) {
+    StringBuilder s = new java.lang.StringBuilder();
+    if (type.raw.params.size() > 0) {
+      s.append('<');
+      var sep = '';
+      for (typeParam : type.raw.params) {
+        s.append(sep).append('Object');
+        sep = ',';
+      }
+      s.append('>');
+    }
+    return type.simpleName;
+  }
+}
 
 @declare{'genMethodParams'}
 [@foreach{param:method.params}@{genTypeDecl(param.type)}@end{','}]
@@ -533,12 +522,41 @@
 @foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}
 @end{}
 
+@declare{'genMethodCall'}
+	@code{idx=0;argsNames=new java.util.ArrayList()}
+	@foreach{param : method.params}
+		@if{param.type.kind == CLASS_API}
+			@{indent}assert(is Delegating<@{genDelegateType(param.type)}> arg_@{idx} = args[@{idx}]);\n
+			@code{argsNames.add('arg_' + idx++)}
+		@else{}
+			@code{argsNames.add('args[' + (idx++) + ']')}
+		@end{}
+	@end{}
+	@{indent}Anything v = delegate.@{genMethodName(method)}(@code{paramIndex=0}
+	@foreach{param:method.params}
+		@{genConvParam(param.type, argsNames[paramIndex++])}
+	@end{','});\n
+@end{}
+
+/* Generated from @{type.name} */\n
+shared interface @includeNamed{'genModelDecl';typeSuffix=''} @{genSatisfiesClause()} {\n
+\n
+
+	@comment{'Generate formal interface methods'}
+	@foreach{methods:methodsByName.values()}
+		@code{lastMethod=methods[methods.size()-1]}
+		@code{methodName=genMethodName(methods[0])}
+		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
+			  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName};\n
+		@end{}
+	@end{}
+
+}\n
+
 /* Generated from @{type.name} */\n
 @if{concrete}
-shared abstract class @includeNamed{'genModelDecl'}(@{type.raw.simpleName}_@if{typeParams.size() > 0}<@foreach{typeParam:typeParams}Object@end{', '}>@end{} delegate) @includeNamed{'genExtendsClause'}@includeNamed{'genSatisfiesClause'} {\n
-@else{}
-shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause'} {\n
-@end{}
+\n
+shared abstract class @includeNamed{'genModelDecl';typeSuffix='_Impl'}(@{genDelegateType(type)} delegate) satisfies @includeNamed{'genModelDecl';typeSuffix=''} & Delegating<@{genDelegateType(type)}> {\n
 \n
 
 	@comment{'Generate instance methods'}
@@ -546,37 +564,33 @@ shared interface @includeNamed{'genModelDecl'} @includeNamed{'genSatisfiesClause
 		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
-			@if{concrete}
-				  shared @if{isActualMethod(methods)}actual@end{} @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName} => flatten(@{methodName}_impl);\n
-				\n
-			@else{}
-				  shared @if{isActualMethod(methods)}actual @end{}formal @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName};\n
-			@end{}
+			  shared actual @{genTypeDecl(lastMethod.returnType)}(*<@includeNamed{'genMethodArgs'}>) @{methodName} => flatten(@{methodName}_impl);\n
 		@end{}
 	@end{}
 
+	\n
 	@comment{'Generate instance methods implementations'}
 	@foreach{methods:methodsByName.values()}
 		@code{lastMethod=methods[methods.size()-1]}
 		@code{methodName=genMethodName(methods[0])}
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
-			@if{concrete}
-				  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
-						@if{methods.size() == 1}
-					    // Invoke method\n
-						@else{}
-							@foreach{method:methods}
-					    if (is @includeNamed{'genMethodParams'} args) {\n
-					      // Invoke method\n
-					    }\n
-							@end{}
+			  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
+					@if{methods.size() == 1}
+						@includeNamed{'genMethodCall';method=lastMethod;indent='    '}
+					@else{}
+						@foreach{method:methods}
+				    if (is @includeNamed{'genMethodParams'} args) {\n
+				      // Invoke method\n
+				    }\n
 						@end{}
-					    Object test = this; // Just test we can access this\n
-					    throw Exception("implement me");\n
-					  }\n
-				\n
-			@end{}
+					@end{}
+				    Object test = this; // Just test we can access this\n
+				    throw Exception("implement me");\n
+				  }\n
+			\n
 		@end{}
 	@end{}
 
 }\n
+
+@end{}

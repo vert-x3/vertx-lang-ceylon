@@ -123,4 +123,30 @@
     }
     return false;
   }
+
+  def isGetterMethod(method) {
+    if (method.params.isEmpty() && method.returnType.name != 'void') {
+      var name = method.name;
+      if (name.length() > 2 && name.startsWith('is') && Character.isUpperCase(name.charAt(2))) {
+        return true;
+      }
+      if (name.length() > 3 && name.startsWith('get') && Character.isUpperCase(name.charAt(3))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  def getPropertyNameFromGetter(method) {
+    if (method.params.isEmpty() && method.returnType.name != 'void') {
+      var name = method.name;
+      if (name.length() > 2 && name.startsWith('is') && Character.isUpperCase(name.charAt(2))) {
+        return java.beans.Introspector.decapitalize(name.substring(2));
+      }
+      if (name.length() > 3 && name.startsWith('get') && Character.isUpperCase(name.charAt(3))) {
+        return java.beans.Introspector.decapitalize(name.substring(3));
+      }
+    }
+    return null;
+  }
 }

@@ -5,68 +5,74 @@ import io.vertx.core.file {
   FileProps_=FileProps
 }
 /* Generated from io.vertx.core.file.FileProps */
-shared abstract class FileProps(FileProps_ delegate) satisfies Delegating {
+shared interface FileProps  {
 
-  shared  Integer(*<[]>) creationTime => flatten(creationTime_impl);
+  shared formal Integer(*<[]>) creationTime;
+  shared formal Integer(*<[]>) lastAccessTime;
+  shared formal Integer(*<[]>) lastModifiedTime;
+  shared formal Boolean(*<[]>) isDirectory;
+  shared formal Boolean(*<[]>) isOther;
+  shared formal Boolean(*<[]>) isRegularFile;
+  shared formal Boolean(*<[]>) isSymbolicLink;
+  shared formal Integer(*<[]>) size;
+}
+/* Generated from io.vertx.core.file.FileProps */
 
-  shared  Integer(*<[]>) lastAccessTime => flatten(lastAccessTime_impl);
+shared abstract class FileProps_Impl(FileProps delegate) satisfies FileProps & Delegating<FileProps> {
 
-  shared  Integer(*<[]>) lastModifiedTime => flatten(lastModifiedTime_impl);
-
-  shared  Boolean(*<[]>) isDirectory => flatten(isDirectory_impl);
-
-  shared  Boolean(*<[]>) isOther => flatten(isOther_impl);
-
-  shared  Boolean(*<[]>) isRegularFile => flatten(isRegularFile_impl);
-
-  shared  Boolean(*<[]>) isSymbolicLink => flatten(isSymbolicLink_impl);
-
-  shared  Integer(*<[]>) size => flatten(size_impl);
+  shared actual Integer(*<[]>) creationTime => flatten(creationTime_impl);
+  shared actual Integer(*<[]>) lastAccessTime => flatten(lastAccessTime_impl);
+  shared actual Integer(*<[]>) lastModifiedTime => flatten(lastModifiedTime_impl);
+  shared actual Boolean(*<[]>) isDirectory => flatten(isDirectory_impl);
+  shared actual Boolean(*<[]>) isOther => flatten(isOther_impl);
+  shared actual Boolean(*<[]>) isRegularFile => flatten(isRegularFile_impl);
+  shared actual Boolean(*<[]>) isSymbolicLink => flatten(isSymbolicLink_impl);
+  shared actual Integer(*<[]>) size => flatten(size_impl);
 
   Integer creationTime_impl([] args) {
-    // Invoke method
+    Anything v = delegate.creationTime();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer lastAccessTime_impl([] args) {
-    // Invoke method
+    Anything v = delegate.lastAccessTime();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer lastModifiedTime_impl([] args) {
-    // Invoke method
+    Anything v = delegate.lastModifiedTime();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isDirectory_impl([] args) {
-    // Invoke method
+    Anything v = delegate.isDirectory();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isOther_impl([] args) {
-    // Invoke method
+    Anything v = delegate.isOther();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isRegularFile_impl([] args) {
-    // Invoke method
+    Anything v = delegate.isRegularFile();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSymbolicLink_impl([] args) {
-    // Invoke method
+    Anything v = delegate.isSymbolicLink();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer size_impl([] args) {
-    // Invoke method
+    Anything v = delegate.size();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

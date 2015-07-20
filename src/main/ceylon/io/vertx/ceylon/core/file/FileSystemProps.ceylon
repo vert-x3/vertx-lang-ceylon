@@ -5,28 +5,34 @@ import io.vertx.core.file {
   FileSystemProps_=FileSystemProps
 }
 /* Generated from io.vertx.core.file.FileSystemProps */
-shared abstract class FileSystemProps(FileSystemProps_ delegate) satisfies Delegating {
+shared interface FileSystemProps  {
 
-  shared  Integer(*<[]>) totalSpace => flatten(totalSpace_impl);
+  shared formal Integer(*<[]>) totalSpace;
+  shared formal Integer(*<[]>) unallocatedSpace;
+  shared formal Integer(*<[]>) usableSpace;
+}
+/* Generated from io.vertx.core.file.FileSystemProps */
 
-  shared  Integer(*<[]>) unallocatedSpace => flatten(unallocatedSpace_impl);
+shared abstract class FileSystemProps_Impl(FileSystemProps delegate) satisfies FileSystemProps & Delegating<FileSystemProps> {
 
-  shared  Integer(*<[]>) usableSpace => flatten(usableSpace_impl);
+  shared actual Integer(*<[]>) totalSpace => flatten(totalSpace_impl);
+  shared actual Integer(*<[]>) unallocatedSpace => flatten(unallocatedSpace_impl);
+  shared actual Integer(*<[]>) usableSpace => flatten(usableSpace_impl);
 
   Integer totalSpace_impl([] args) {
-    // Invoke method
+    Anything v = delegate.totalSpace();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer unallocatedSpace_impl([] args) {
-    // Invoke method
+    Anything v = delegate.unallocatedSpace();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer usableSpace_impl([] args) {
-    // Invoke method
+    Anything v = delegate.usableSpace();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

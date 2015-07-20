@@ -8,6 +8,7 @@ import io.vertx.ceylon.codegen.testmodel {
   RefedInterface1
 }
 /* Generated from io.vertx.codegen.testmodel.AbstractHandlerUserType */
-shared interface AbstractHandlerUserType satisfies Delegating {
+shared interface AbstractHandlerUserType  {
 
 }
+/* Generated from io.vertx.codegen.testmodel.AbstractHandlerUserType */

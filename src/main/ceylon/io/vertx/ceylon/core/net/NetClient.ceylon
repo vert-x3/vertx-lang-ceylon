@@ -14,21 +14,26 @@ import io.vertx.core.net {
   NetClient_=NetClient
 }
 /* Generated from io.vertx.core.net.NetClient */
-shared abstract class NetClient(NetClient_ delegate) satisfies Delegating
-  & Measured {
+shared interface NetClient satisfies Measured {
 
-  shared  NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect => flatten(connect_impl);
+  shared formal NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect;
+  shared formal Anything(*<[]>) close;
+}
+/* Generated from io.vertx.core.net.NetClient */
 
-  shared  Anything(*<[]>) close => flatten(close_impl);
+shared abstract class NetClient_Impl(NetClient delegate) satisfies NetClient & Delegating<NetClient> {
+
+  shared actual NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect => flatten(connect_impl);
+  shared actual Anything(*<[]>) close => flatten(close_impl);
 
   NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
-    // Invoke method
+    Anything v = delegate.connect(args[0],args[1],nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([] args) {
-    // Invoke method
+    Anything v = delegate.close();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

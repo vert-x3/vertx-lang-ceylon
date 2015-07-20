@@ -21,9 +21,7 @@ import io.vertx.core.http {
   WebSocketBase_=WebSocketBase
 }
 /* Generated from io.vertx.core.http.WebSocketBase */
-shared interface WebSocketBase satisfies Delegating
-  & ReadStream<Buffer>
-  & WriteStream<Buffer> {
+shared interface WebSocketBase satisfies ReadStream<Buffer>& WriteStream<Buffer> {
 
   shared actual formal WebSocketBase(*<[Anything(Throwable)]>) exceptionHandler;
   shared actual formal WebSocketBase(*<[Anything(Buffer)]>) handler;
@@ -45,3 +43,4 @@ shared interface WebSocketBase satisfies Delegating
   shared formal SocketAddress(*<[]>) remoteAddress;
   shared formal SocketAddress(*<[]>) localAddress;
 }
+/* Generated from io.vertx.core.http.WebSocketBase */

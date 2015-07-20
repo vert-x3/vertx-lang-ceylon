@@ -11,20 +11,26 @@ import io.vertx.ceylon.codegen.testmodel {
   TestInterface
 }
 /* Generated from com.acme.pkg.MyInterface */
-shared abstract class MyInterface(MyInterface_ delegate) satisfies Delegating {
+shared interface MyInterface  {
 
-  shared  SubInterface(*<[]>) sub => flatten(sub_impl);
+  shared formal SubInterface(*<[]>) sub;
+  shared formal TestInterface(*<[]>) method;
+}
+/* Generated from com.acme.pkg.MyInterface */
 
-  shared  TestInterface(*<[]>) method => flatten(method_impl);
+shared abstract class MyInterface_Impl(MyInterface delegate) satisfies MyInterface & Delegating<MyInterface> {
+
+  shared actual SubInterface(*<[]>) sub => flatten(sub_impl);
+  shared actual TestInterface(*<[]>) method => flatten(method_impl);
 
   SubInterface sub_impl([] args) {
-    // Invoke method
+    Anything v = delegate.sub();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TestInterface method_impl([] args) {
-    // Invoke method
+    Anything v = delegate.method();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

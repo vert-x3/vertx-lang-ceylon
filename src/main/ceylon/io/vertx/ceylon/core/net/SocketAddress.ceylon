@@ -8,20 +8,26 @@ import io.vertx.core.net {
   SocketAddress_=SocketAddress
 }
 /* Generated from io.vertx.core.net.SocketAddress */
-shared abstract class SocketAddress(SocketAddress_ delegate) satisfies Delegating {
+shared interface SocketAddress  {
 
-  shared  String(*<[]>) host => flatten(host_impl);
+  shared formal String(*<[]>) host;
+  shared formal Integer(*<[]>) port;
+}
+/* Generated from io.vertx.core.net.SocketAddress */
 
-  shared  Integer(*<[]>) port => flatten(port_impl);
+shared abstract class SocketAddress_Impl(SocketAddress delegate) satisfies SocketAddress & Delegating<SocketAddress> {
+
+  shared actual String(*<[]>) host => flatten(host_impl);
+  shared actual Integer(*<[]>) port => flatten(port_impl);
 
   String host_impl([] args) {
-    // Invoke method
+    Anything v = delegate.host();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer port_impl([] args) {
-    // Invoke method
+    Anything v = delegate.port();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

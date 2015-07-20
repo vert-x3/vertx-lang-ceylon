@@ -11,20 +11,26 @@ import io.vertx.lang.ceylon {
   Delegating
 }
 /* Generated from io.vertx.core.datagram.DatagramPacket */
-shared abstract class DatagramPacket(DatagramPacket_ delegate) satisfies Delegating {
+shared interface DatagramPacket  {
 
-  shared  SocketAddress(*<[]>) sender => flatten(sender_impl);
+  shared formal SocketAddress(*<[]>) sender;
+  shared formal Buffer(*<[]>) data;
+}
+/* Generated from io.vertx.core.datagram.DatagramPacket */
 
-  shared  Buffer(*<[]>) data => flatten(data_impl);
+shared abstract class DatagramPacket_Impl(DatagramPacket delegate) satisfies DatagramPacket & Delegating<DatagramPacket> {
+
+  shared actual SocketAddress(*<[]>) sender => flatten(sender_impl);
+  shared actual Buffer(*<[]>) data => flatten(data_impl);
 
   SocketAddress sender_impl([] args) {
-    // Invoke method
+    Anything v = delegate.sender();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer data_impl([] args) {
-    // Invoke method
+    Anything v = delegate.data();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

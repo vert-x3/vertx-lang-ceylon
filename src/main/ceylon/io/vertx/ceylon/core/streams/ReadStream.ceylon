@@ -8,8 +8,7 @@ import io.vertx.ceylon.core.streams {
   StreamBase
 }
 /* Generated from io.vertx.core.streams.ReadStream<T> */
-shared interface ReadStream<T> satisfies Delegating
-  & StreamBase {
+shared interface ReadStream<T> satisfies StreamBase {
 
   shared actual formal ReadStream<T>(*<[Anything(Throwable)]>) exceptionHandler;
   shared formal ReadStream<T>(*<[Anything(T)]>) handler;
@@ -17,3 +16,4 @@ shared interface ReadStream<T> satisfies Delegating
   shared formal ReadStream<T>(*<[]>) resume;
   shared formal ReadStream<T>(*<[Anything()]>) endHandler;
 }
+/* Generated from io.vertx.core.streams.ReadStream<T> */

@@ -17,22 +17,27 @@ import io.vertx.core.eventbus {
   EventBus_=EventBus
 }
 /* Generated from io.vertx.core.eventbus.EventBus */
-shared abstract class EventBus(EventBus_ delegate) satisfies Delegating
-  & Measured {
+shared interface EventBus satisfies Measured {
 
-  shared  EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send => flatten(send_impl);
+  shared formal EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send;
+  shared formal EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish;
+  shared formal MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer;
+  shared formal MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer;
+  shared formal MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender;
+  shared formal MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher;
+  shared formal Anything(*<[Anything(Throwable?)]>) close;
+}
+/* Generated from io.vertx.core.eventbus.EventBus */
 
-  shared  EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish => flatten(publish_impl);
+shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Delegating<EventBus> {
 
-  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer => flatten(consumer_impl);
-
-  shared  MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer => flatten(localConsumer_impl);
-
-  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender => flatten(sender_impl);
-
-  shared  MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher => flatten(publisher_impl);
-
-  shared  Anything(*<[Anything(Throwable?)]>) close => flatten(close_impl);
+  shared actual EventBus(*<[String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)]>) send => flatten(send_impl);
+  shared actual EventBus(*<[String,Object]|[String,Object,DeliveryOptions]>) publish => flatten(publish_impl);
+  shared actual MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) consumer => flatten(consumer_impl);
+  shared actual MessageConsumer<Object>(*<[String]|[String,Anything(Message<Object>)]>) localConsumer => flatten(localConsumer_impl);
+  shared actual MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) sender => flatten(sender_impl);
+  shared actual MessageProducer<Object>(*<[String]|[String,DeliveryOptions]>) publisher => flatten(publisher_impl);
+  shared actual Anything(*<[Anything(Throwable?)]>) close => flatten(close_impl);
 
   EventBus send_impl([String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
     if (is [String,Object] args) {
@@ -107,7 +112,7 @@ shared abstract class EventBus(EventBus_ delegate) satisfies Delegating
   }
 
   Anything close_impl([Anything(Throwable?)] args) {
-    // Invoke method
+    Anything v = delegate.close(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

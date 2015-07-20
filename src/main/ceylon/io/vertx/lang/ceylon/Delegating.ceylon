@@ -1,5 +1,5 @@
-shared interface Delegating {
+shared interface Delegating<T> {
 
-  shared formal Object delegate;
+  shared formal <T> delegate;
 
 }

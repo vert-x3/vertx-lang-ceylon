@@ -15,27 +15,32 @@ import io.vertx.core.net {
   NetServer_=NetServer
 }
 /* Generated from io.vertx.core.net.NetServer */
-shared abstract class NetServer(NetServer_ delegate) satisfies Delegating
-  & Measured {
+shared interface NetServer satisfies Measured {
 
-  shared  NetSocketStream(*<[]>) connectStream => flatten(connectStream_impl);
+  shared formal NetSocketStream(*<[]>) connectStream;
+  shared formal NetServer(*<[Anything(NetSocket)]>) connectHandler;
+  shared formal NetServer(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen;
+  shared formal Anything(*<[]|[Anything(Throwable?)]>) close;
+  shared formal Integer(*<[]>) actualPort;
+}
+/* Generated from io.vertx.core.net.NetServer */
 
-  shared  NetServer(*<[Anything(NetSocket)]>) connectHandler => flatten(connectHandler_impl);
+shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & Delegating<NetServer> {
 
-  shared  NetServer(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen => flatten(listen_impl);
-
-  shared  Anything(*<[]|[Anything(Throwable?)]>) close => flatten(close_impl);
-
-  shared  Integer(*<[]>) actualPort => flatten(actualPort_impl);
+  shared actual NetSocketStream(*<[]>) connectStream => flatten(connectStream_impl);
+  shared actual NetServer(*<[Anything(NetSocket)]>) connectHandler => flatten(connectHandler_impl);
+  shared actual NetServer(*<[]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)]>) listen => flatten(listen_impl);
+  shared actual Anything(*<[]|[Anything(Throwable?)]>) close => flatten(close_impl);
+  shared actual Integer(*<[]>) actualPort => flatten(actualPort_impl);
 
   NetSocketStream connectStream_impl([] args) {
-    // Invoke method
+    Anything v = delegate.connectStream();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer connectHandler_impl([Anything(NetSocket)] args) {
-    // Invoke method
+    Anything v = delegate.connectHandler(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -75,7 +80,7 @@ shared abstract class NetServer(NetServer_ delegate) satisfies Delegating
   }
 
   Integer actualPort_impl([] args) {
-    // Invoke method
+    Anything v = delegate.actualPort();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

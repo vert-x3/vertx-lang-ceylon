@@ -8,24 +8,30 @@ import io.vertx.lang.ceylon {
   Delegating
 }
 /* Generated from io.vertx.core.Future<T> */
-shared abstract class Future<T>(Future_<Object> delegate) satisfies Delegating {
+shared interface Future<T>  {
 
-  shared  Boolean(*<[]>) isComplete => flatten(isComplete_impl);
+  shared formal Boolean(*<[]>) isComplete;
+  shared formal Anything(*<[Anything(Throwable|T)]>) setHandler;
+  shared formal Anything(*<[]|[T]>) complete;
+  shared formal Anything(*<[String]>) fail;
+}
+/* Generated from io.vertx.core.Future<T> */
 
-  shared  Anything(*<[Anything(Throwable|T)]>) setHandler => flatten(setHandler_impl);
+shared abstract class Future_Impl<T>(Future<T> delegate) satisfies Future<T> & Delegating<Future<T>> {
 
-  shared  Anything(*<[]|[T]>) complete => flatten(complete_impl);
-
-  shared  Anything(*<[String]>) fail => flatten(fail_impl);
+  shared actual Boolean(*<[]>) isComplete => flatten(isComplete_impl);
+  shared actual Anything(*<[Anything(Throwable|T)]>) setHandler => flatten(setHandler_impl);
+  shared actual Anything(*<[]|[T]>) complete => flatten(complete_impl);
+  shared actual Anything(*<[String]>) fail => flatten(fail_impl);
 
   Boolean isComplete_impl([] args) {
-    // Invoke method
+    Anything v = delegate.isComplete();
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything setHandler_impl([Anything(Throwable|T)] args) {
-    // Invoke method
+    Anything v = delegate.setHandler(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -42,7 +48,7 @@ shared abstract class Future<T>(Future_<Object> delegate) satisfies Delegating {
   }
 
   Anything fail_impl([String] args) {
-    // Invoke method
+    Anything v = delegate.fail(args[0]);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

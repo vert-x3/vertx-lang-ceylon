@@ -8,8 +8,7 @@ import io.vertx.ceylon.core.streams {
   StreamBase
 }
 /* Generated from io.vertx.core.streams.WriteStream<T> */
-shared interface WriteStream<T> satisfies Delegating
-  & StreamBase {
+shared interface WriteStream<T> satisfies StreamBase {
 
   shared actual formal WriteStream<T>(*<[Anything(Throwable)]>) exceptionHandler;
   shared formal WriteStream<T>(*<[T]>) write;
@@ -17,3 +16,4 @@ shared interface WriteStream<T> satisfies Delegating
   shared formal Boolean(*<[]>) writeQueueFull;
   shared formal WriteStream<T>(*<[Anything()]>) drainHandler;
 }
+/* Generated from io.vertx.core.streams.WriteStream<T> */

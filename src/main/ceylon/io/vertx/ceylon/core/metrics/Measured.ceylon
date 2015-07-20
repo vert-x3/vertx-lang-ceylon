@@ -5,7 +5,8 @@ import io.vertx.core.metrics {
   Measured_=Measured
 }
 /* Generated from io.vertx.core.metrics.Measured */
-shared interface Measured satisfies Delegating {
+shared interface Measured  {
 
   shared formal Boolean(*<[]>) isMetricsEnabled;
 }
+/* Generated from io.vertx.core.metrics.Measured */

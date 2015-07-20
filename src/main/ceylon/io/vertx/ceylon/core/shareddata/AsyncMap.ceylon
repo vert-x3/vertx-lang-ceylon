@@ -9,28 +9,34 @@ import io.vertx.lang.ceylon {
   Delegating
 }
 /* Generated from io.vertx.core.shareddata.AsyncMap<K,V> */
-shared abstract class AsyncMap<K,V>(AsyncMap_<Object, Object> delegate) satisfies Delegating {
+shared interface AsyncMap<K,V>  {
 
-  shared  Anything(*<[K,Anything(Throwable|V)]>) get => flatten(get_impl);
+  shared formal Anything(*<[K,Anything(Throwable|V)]>) get;
+  shared formal Anything(*<[K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)]>) put;
+  shared formal Anything(*<[K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)]>) putIfAbsent;
+  shared formal Anything(*<[K,Anything(Throwable|V)]>) remove;
+  shared formal Anything(*<[K,V,Anything(Throwable|Boolean)]>) removeIfPresent;
+  shared formal Anything(*<[K,V,Anything(Throwable|V)]>) replace;
+  shared formal Anything(*<[K,V,V,Anything(Throwable|Boolean)]>) replaceIfPresent;
+  shared formal Anything(*<[Anything(Throwable?)]>) clear;
+  shared formal Anything(*<[Anything(Throwable|Integer)]>) size;
+}
+/* Generated from io.vertx.core.shareddata.AsyncMap<K,V> */
 
-  shared  Anything(*<[K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)]>) put => flatten(put_impl);
+shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies AsyncMap<K,V> & Delegating<AsyncMap<K,V>> {
 
-  shared  Anything(*<[K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)]>) putIfAbsent => flatten(putIfAbsent_impl);
-
-  shared  Anything(*<[K,Anything(Throwable|V)]>) remove => flatten(remove_impl);
-
-  shared  Anything(*<[K,V,Anything(Throwable|Boolean)]>) removeIfPresent => flatten(removeIfPresent_impl);
-
-  shared  Anything(*<[K,V,Anything(Throwable|V)]>) replace => flatten(replace_impl);
-
-  shared  Anything(*<[K,V,V,Anything(Throwable|Boolean)]>) replaceIfPresent => flatten(replaceIfPresent_impl);
-
-  shared  Anything(*<[Anything(Throwable?)]>) clear => flatten(clear_impl);
-
-  shared  Anything(*<[Anything(Throwable|Integer)]>) size => flatten(size_impl);
+  shared actual Anything(*<[K,Anything(Throwable|V)]>) get => flatten(get_impl);
+  shared actual Anything(*<[K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)]>) put => flatten(put_impl);
+  shared actual Anything(*<[K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)]>) putIfAbsent => flatten(putIfAbsent_impl);
+  shared actual Anything(*<[K,Anything(Throwable|V)]>) remove => flatten(remove_impl);
+  shared actual Anything(*<[K,V,Anything(Throwable|Boolean)]>) removeIfPresent => flatten(removeIfPresent_impl);
+  shared actual Anything(*<[K,V,Anything(Throwable|V)]>) replace => flatten(replace_impl);
+  shared actual Anything(*<[K,V,V,Anything(Throwable|Boolean)]>) replaceIfPresent => flatten(replaceIfPresent_impl);
+  shared actual Anything(*<[Anything(Throwable?)]>) clear => flatten(clear_impl);
+  shared actual Anything(*<[Anything(Throwable|Integer)]>) size => flatten(size_impl);
 
   Anything get_impl([K,Anything(Throwable|V)] args) {
-    // Invoke method
+    Anything v = delegate.get(nothing,nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -58,37 +64,37 @@ shared abstract class AsyncMap<K,V>(AsyncMap_<Object, Object> delegate) satisfie
   }
 
   Anything remove_impl([K,Anything(Throwable|V)] args) {
-    // Invoke method
+    Anything v = delegate.remove(nothing,nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything removeIfPresent_impl([K,V,Anything(Throwable|Boolean)] args) {
-    // Invoke method
+    Anything v = delegate.removeIfPresent(nothing,nothing,nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replace_impl([K,V,Anything(Throwable|V)] args) {
-    // Invoke method
+    Anything v = delegate.replace(nothing,nothing,nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replaceIfPresent_impl([K,V,V,Anything(Throwable|Boolean)] args) {
-    // Invoke method
+    Anything v = delegate.replaceIfPresent(nothing,nothing,nothing,nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything clear_impl([Anything(Throwable?)] args) {
-    // Invoke method
+    Anything v = delegate.clear(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything size_impl([Anything(Throwable|Integer)] args) {
-    // Invoke method
+    Anything v = delegate.size(nothing);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
