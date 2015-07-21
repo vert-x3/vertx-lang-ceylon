@@ -301,60 +301,26 @@
    */
   def genConvReturn(type, expr) {
     if (type.name.equals("void")) {
-      return expr;
     } else {
       var kind = type.kind;
       if (kind.basic || kind == CLASS_THROWABLE) {
-        return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return expr + " != nil ? JSON.parse(" + expr + ".toJson.encode) : nil";
       } else if (kind == CLASS_LIST) {
-        var elementType = type.args[0];
-        return expr + ".to_a.map { |elt| " + genConvReturn(elementType, "elt") + " }";
       } else if (kind == CLASS_SET) {
-        var elementType = type.args[0];
-        return "::Vertx::Util::Utils.to_set(" + expr + ").map! { |elt| " + genConvReturn(elementType, "elt") + " }";
       } else if (kind == CLASS_MAP) {
         var valueType = type.args[1];
         var valueKind = valueType.kind;
-        var toJava = "to_object";
         if (valueKind == CLASS_JSON_OBJECT) {
-          toJava = "to_json_object";
         } else if (valueKind == CLASS_JSON_ARRAY) {
-          toJava = "to_json_array";
         } else if (valueKind.basic) {
-          if (valueKind == CLASS_STRING) {
-            toJava = "to_string";
-          } else if (valueType.name == 'java.lang.Long') {
-            toJava = "to_long";
-          } else if (valueType.name == 'java.lang.Integer') {
-            toJava = "to_integer";
-          } else if (valueType.name == 'java.lang.Short') {
-            toJava = "to_short";
-          } else if (valueType.name == 'java.lang.Byte') {
-            toJava = "to_byte";
-          } else if (valueType.name == 'java.lang.Character') {
-            toJava = "to_character";
-          } else if (valueType.name == 'java.lang.Boolean') {
-            toJava = "to_boolean";
-          } else if (valueType.name == 'java.lang.Float') {
-            toJava = "to_float";
-          } else if (valueType.name == 'java.lang.Double') {
-            toJava = "to_double";
-          }
         }
-        return "Java::IoVertxLangRuby::Helper.adaptingMap(" + expr + ", Proc.new { |val| ::Vertx::Util::Utils.from_object(val) }, Proc.new { |val| ::Vertx::Util::Utils." + toJava + "(val) })";
       } else if (kind == CLASS_API) {
-        return "::Vertx::Util::Utils.safe_create(" + expr + "," + genRubyClassFqn(type.raw) + (type.raw.concrete ? "" : "Impl") + ")";
       } else if (kind.json) {
-        return expr + " != nil ? JSON.parse(" + expr + ".encode) : nil";
       } else if (kind == CLASS_OBJECT) {
-        return "::Vertx::Util::Utils.from_object(" + expr + ")";
       } else if (kind == CLASS_ENUM) {
-        return expr + ".name.intern";
       }
-      return "nil";
     }
+    return expr;
   }
 
   /*
@@ -522,21 +488,34 @@
 @foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}
 @end{}
 
-@declare{'genMethodCall'}
-	@code{idx=0;argsNames=new java.util.ArrayList()}
-	@foreach{param : method.params}
-		@if{param.type.kind == CLASS_API}
-			@{indent}assert(is Delegating<@{genDelegateType(param.type)}> arg_@{idx} = args[@{idx}]);\n
-			@code{argsNames.add('arg_' + idx++)}
-		@else{}
-			@code{argsNames.add('args[' + (idx++) + ']')}
-		@end{}
-	@end{}
-	@{indent}Anything v = delegate.@{genMethodName(method)}(@code{paramIndex=0}
-	@foreach{param:method.params}
-		@{genConvParam(param.type, argsNames[paramIndex++])}
-	@end{','});\n
-@end{}
+@code{
+  def genMethodCall(method, indent) {
+    var sb = new java.lang.StringBuilder();
+    var args = new java.util.ArrayList();
+    var idx = 0;
+    for (param : method.params) {
+      if (param.type.kind == CLASS_API) {
+        sb.append(indent).append('assert(is Delegating<').append(genDelegateType(param.type)).append('> arg_').append(idx).append(' = args[').append(idx).append(']);\n');
+        args.add('arg_' + idx);
+      } else {
+        args.add('args[' + idx + ']');
+      }
+      idx += 1;
+    }
+    sb.append(indent).append('Anything v = ');
+    sb.append('delegate.').append(genMethodName(method)).append('(');
+    var paramIdx = 0;
+    for (param : method.params) {
+      if (paramIdx > 0) {
+        sb.append(',');
+      }
+      sb.append(genConvParam(param.type, genConvReturn(method.returnType, args[paramIdx])));
+      paramIdx += 1;
+    }
+    sb.append(');\n');
+    return sb.toString();
+  }
+}
 
 /* Generated from @{type.name} */\n
 shared interface @includeNamed{'genModelDecl';typeSuffix=''} @{genSatisfiesClause()} {\n
@@ -576,11 +555,11 @@ shared abstract class @includeNamed{'genModelDecl';typeSuffix='_Impl'}(@{genDele
 		@if{!lastMethod.staticMethod && shouldDeclareMethod(methods)}
 			  @{genTypeDecl(lastMethod.returnType)} @{methodName}_impl(@includeNamed{'genMethodArgs'} args) {\n
 					@if{methods.size() == 1}
-						@includeNamed{'genMethodCall';method=lastMethod;indent='    '}
+						@{genMethodCall(lastMethod,'    ')}
 					@else{}
 						@foreach{method:methods}
 				    if (is @includeNamed{'genMethodParams'} args) {\n
-							@includeNamed{'genMethodCall';method=method;indent='      '}
+							@{genMethodCall(method,'      ')}
 				    }\n
 						@end{}
 					@end{}
