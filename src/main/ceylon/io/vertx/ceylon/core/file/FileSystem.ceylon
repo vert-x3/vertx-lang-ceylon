@@ -304,10 +304,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem mkdir_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.mkdir(args[0],nothing);
     }
     if (is [String,String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.mkdir(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -315,10 +315,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem mkdirBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.mkdirBlocking(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.mkdirBlocking(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -326,10 +326,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem mkdirs_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.mkdirs(args[0],nothing);
     }
     if (is [String,String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.mkdirs(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -337,10 +337,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem mkdirsBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.mkdirsBlocking(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.mkdirsBlocking(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -348,10 +348,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem readDir_impl([String,Anything(Throwable|List<String>)]|[String,String,Anything(Throwable|List<String>)] args) {
     if (is [String,Anything(Throwable|List<String>)] args) {
-      // Invoke method
+      Anything v = delegate.readDir(args[0],nothing);
     }
     if (is [String,String,Anything(Throwable|List<String>)] args) {
-      // Invoke method
+      Anything v = delegate.readDir(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -359,10 +359,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   List<String> readDirBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.readDirBlocking(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.readDirBlocking(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -408,10 +408,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem createFile_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.createFile(args[0],nothing);
     }
     if (is [String,String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.createFile(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -419,10 +419,10 @@ shared abstract class FileSystem_Impl(FileSystem delegate) satisfies FileSystem 
 
   FileSystem createFileBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.createFileBlocking(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.createFileBlocking(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

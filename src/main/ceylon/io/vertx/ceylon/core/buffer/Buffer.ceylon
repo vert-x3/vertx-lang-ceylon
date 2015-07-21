@@ -158,10 +158,10 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   String getString_impl([Integer,Integer]|[Integer,Integer,String] args) {
     if (is [Integer,Integer] args) {
-      // Invoke method
+      Anything v = delegate.getString(args[0],args[1]);
     }
     if (is [Integer,Integer,String] args) {
-      // Invoke method
+      Anything v = delegate.getString(args[0],args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -169,10 +169,12 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer appendBuffer_impl([Buffer]|[Buffer,Integer,Integer] args) {
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.appendBuffer(arg_0.delegate);
     }
     if (is [Buffer,Integer,Integer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.appendBuffer(arg_0.delegate,args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -234,10 +236,10 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer appendString_impl([String]|[String,String] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.appendString(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.appendString(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -299,10 +301,12 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer setBuffer_impl([Integer,Buffer]|[Integer,Buffer,Integer,Integer] args) {
     if (is [Integer,Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_1 = args[1]);
+      Anything v = delegate.setBuffer(args[0],arg_1.delegate);
     }
     if (is [Integer,Buffer,Integer,Integer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_1 = args[1]);
+      Anything v = delegate.setBuffer(args[0],arg_1.delegate,args[2],args[3]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -310,10 +314,10 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer setString_impl([Integer,String]|[Integer,String,String] args) {
     if (is [Integer,String] args) {
-      // Invoke method
+      Anything v = delegate.setString(args[0],args[1]);
     }
     if (is [Integer,String,String] args) {
-      // Invoke method
+      Anything v = delegate.setString(args[0],args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -333,10 +337,10 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer slice_impl([]|[Integer,Integer] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.slice();
     }
     if (is [Integer,Integer] args) {
-      // Invoke method
+      Anything v = delegate.slice(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

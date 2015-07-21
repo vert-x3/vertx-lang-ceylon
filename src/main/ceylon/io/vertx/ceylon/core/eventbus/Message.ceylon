@@ -60,16 +60,16 @@ shared abstract class Message_Impl<T>(Message<T> delegate) satisfies Message<T> 
 
   Anything reply_impl([Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
     if (is [Object] args) {
-      // Invoke method
+      Anything v = delegate.reply(nothing);
     }
     if (is [Object,Anything(Throwable|Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.reply(nothing,nothing);
     }
     if (is [Object,DeliveryOptions] args) {
-      // Invoke method
+      Anything v = delegate.reply(nothing,nothing);
     }
     if (is [Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.reply(nothing,nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

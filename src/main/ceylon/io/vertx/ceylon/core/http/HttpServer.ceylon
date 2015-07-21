@@ -63,22 +63,22 @@ shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer 
 
   HttpServer listen_impl([]|[Integer]|[Anything(Throwable|HttpServer)]|[Integer,String]|[Integer,Anything(Throwable|HttpServer)]|[Integer,String,Anything(Throwable|HttpServer)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.listen();
     }
     if (is [Integer] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0]);
     }
     if (is [Anything(Throwable|HttpServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(nothing);
     }
     if (is [Integer,String] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],args[1]);
     }
     if (is [Integer,Anything(Throwable|HttpServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],nothing);
     }
     if (is [Integer,String,Anything(Throwable|HttpServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -86,10 +86,10 @@ shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer 
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

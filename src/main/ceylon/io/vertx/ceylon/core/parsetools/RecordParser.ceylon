@@ -35,10 +35,11 @@ shared abstract class RecordParser_Impl(RecordParser delegate) satisfies RecordP
 
   Anything delimitedMode_impl([String]|[Buffer] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.delimitedMode(args[0]);
     }
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.delimitedMode(arg_0.delegate);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

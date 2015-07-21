@@ -867,16 +867,19 @@ shared abstract class TestInterface_Impl(TestInterface delegate) satisfies TestI
 
   String overloadedMethod_impl([String,Anything(String)]|[String,RefedInterface1]|[String,RefedInterface1,Anything(String)]|[String,RefedInterface1,Integer,Anything(String)] args) {
     if (is [String,Anything(String)] args) {
-      // Invoke method
+      Anything v = delegate.overloadedMethod(args[0],nothing);
     }
     if (is [String,RefedInterface1] args) {
-      // Invoke method
+      assert(is Delegating<RefedInterface1> arg_1 = args[1]);
+      Anything v = delegate.overloadedMethod(args[0],arg_1.delegate);
     }
     if (is [String,RefedInterface1,Anything(String)] args) {
-      // Invoke method
+      assert(is Delegating<RefedInterface1> arg_1 = args[1]);
+      Anything v = delegate.overloadedMethod(args[0],arg_1.delegate,nothing);
     }
     if (is [String,RefedInterface1,Integer,Anything(String)] args) {
-      // Invoke method
+      assert(is Delegating<RefedInterface1> arg_1 = args[1]);
+      Anything v = delegate.overloadedMethod(args[0],arg_1.delegate,args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

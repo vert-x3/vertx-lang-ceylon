@@ -72,10 +72,12 @@ shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & D
 
   AsyncFile write_impl([Buffer]|[Buffer,Integer,Anything(Throwable?)] args) {
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [Buffer,Integer,Anything(Throwable?)] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate,args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -101,10 +103,10 @@ shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & D
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -119,10 +121,10 @@ shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & D
 
   AsyncFile flush_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.flush();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.flush(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

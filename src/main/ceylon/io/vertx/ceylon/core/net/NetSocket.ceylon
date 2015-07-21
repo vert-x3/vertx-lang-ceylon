@@ -90,13 +90,14 @@ shared abstract class NetSocket_Impl(NetSocket delegate) satisfies NetSocket & D
 
   NetSocket write_impl([Buffer]|[String]|[String,String] args) {
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.write(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.write(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -122,10 +123,10 @@ shared abstract class NetSocket_Impl(NetSocket delegate) satisfies NetSocket & D
 
   NetSocket sendFile_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.sendFile(args[0]);
     }
     if (is [String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.sendFile(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

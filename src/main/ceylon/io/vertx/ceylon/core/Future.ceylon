@@ -38,10 +38,10 @@ shared abstract class Future_Impl<T>(Future<T> delegate) satisfies Future<T> & D
 
   Anything complete_impl([]|[T] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.complete();
     }
     if (is [T] args) {
-      // Invoke method
+      Anything v = delegate.complete(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

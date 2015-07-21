@@ -580,7 +580,7 @@ shared abstract class @includeNamed{'genModelDecl';typeSuffix='_Impl'}(@{genDele
 					@else{}
 						@foreach{method:methods}
 				    if (is @includeNamed{'genMethodParams'} args) {\n
-				      // Invoke method\n
+							@includeNamed{'genMethodCall';method=method;indent='      '}
 				    }\n
 						@end{}
 					@end{}

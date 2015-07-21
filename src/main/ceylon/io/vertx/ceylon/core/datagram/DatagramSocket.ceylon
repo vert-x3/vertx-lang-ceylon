@@ -60,13 +60,14 @@ shared abstract class DatagramSocket_Impl(DatagramSocket delegate) satisfies Dat
 
   DatagramSocket send_impl([Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [Buffer,Integer,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.send(arg_0.delegate,args[1],args[2],nothing);
     }
     if (is [String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],args[1],args[2],nothing);
     }
     if (is [String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],args[1],args[2],args[3],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -80,10 +81,10 @@ shared abstract class DatagramSocket_Impl(DatagramSocket delegate) satisfies Dat
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -97,10 +98,10 @@ shared abstract class DatagramSocket_Impl(DatagramSocket delegate) satisfies Dat
 
   DatagramSocket listenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.listenMulticastGroup(args[0],nothing);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.listenMulticastGroup(args[0],args[1],args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -108,10 +109,10 @@ shared abstract class DatagramSocket_Impl(DatagramSocket delegate) satisfies Dat
 
   DatagramSocket unlistenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.unlistenMulticastGroup(args[0],nothing);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.unlistenMulticastGroup(args[0],args[1],args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -119,10 +120,10 @@ shared abstract class DatagramSocket_Impl(DatagramSocket delegate) satisfies Dat
 
   DatagramSocket blockMulticastGroup_impl([String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.blockMulticastGroup(args[0],args[1],nothing);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
-      // Invoke method
+      Anything v = delegate.blockMulticastGroup(args[0],args[1],args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

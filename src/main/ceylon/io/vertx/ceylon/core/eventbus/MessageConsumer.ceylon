@@ -114,10 +114,10 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satis
 
   Anything unregister_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.unregister();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.unregister(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

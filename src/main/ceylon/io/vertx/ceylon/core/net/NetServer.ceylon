@@ -47,22 +47,22 @@ shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & D
 
   NetServer listen_impl([]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.listen();
     }
     if (is [Anything(Throwable|NetServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(nothing);
     }
     if (is [Integer] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0]);
     }
     if (is [Integer,String] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],args[1]);
     }
     if (is [Integer,Anything(Throwable|NetServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],nothing);
     }
     if (is [Integer,String,Anything(Throwable|NetServer)] args) {
-      // Invoke method
+      Anything v = delegate.listen(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -70,10 +70,10 @@ shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & D
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

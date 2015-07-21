@@ -43,10 +43,10 @@ shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies Async
 
   Anything put_impl([K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)] args) {
     if (is [K,V,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.put(nothing,nothing,nothing);
     }
     if (is [K,V,Integer,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.put(nothing,nothing,args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -54,10 +54,10 @@ shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies Async
 
   Anything putIfAbsent_impl([K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)] args) {
     if (is [K,V,Anything(Throwable|V)] args) {
-      // Invoke method
+      Anything v = delegate.putIfAbsent(nothing,nothing,nothing);
     }
     if (is [K,V,Integer,Anything(Throwable|V)] args) {
-      // Invoke method
+      Anything v = delegate.putIfAbsent(nothing,nothing,args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

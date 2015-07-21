@@ -41,16 +41,16 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   EventBus send_impl([String,Object]|[String,Object,Anything(Throwable|Message<Object>)]|[String,Object,DeliveryOptions]|[String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
     if (is [String,Object] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],nothing);
     }
     if (is [String,Object,Anything(Throwable|Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],nothing,nothing);
     }
     if (is [String,Object,DeliveryOptions] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],nothing,nothing);
     }
     if (is [String,Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.send(args[0],nothing,nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -58,10 +58,10 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   EventBus publish_impl([String,Object]|[String,Object,DeliveryOptions] args) {
     if (is [String,Object] args) {
-      // Invoke method
+      Anything v = delegate.publish(args[0],nothing);
     }
     if (is [String,Object,DeliveryOptions] args) {
-      // Invoke method
+      Anything v = delegate.publish(args[0],nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -69,10 +69,10 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   MessageConsumer<Object> consumer_impl([String]|[String,Anything(Message<Object>)] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.consumer(args[0]);
     }
     if (is [String,Anything(Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.consumer(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -80,10 +80,10 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   MessageConsumer<Object> localConsumer_impl([String]|[String,Anything(Message<Object>)] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.localConsumer(args[0]);
     }
     if (is [String,Anything(Message<Object>)] args) {
-      // Invoke method
+      Anything v = delegate.localConsumer(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -91,10 +91,10 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   MessageProducer<Object> sender_impl([String]|[String,DeliveryOptions] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.sender(args[0]);
     }
     if (is [String,DeliveryOptions] args) {
-      // Invoke method
+      Anything v = delegate.sender(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -102,10 +102,10 @@ shared abstract class EventBus_Impl(EventBus delegate) satisfies EventBus & Dele
 
   MessageProducer<Object> publisher_impl([String]|[String,DeliveryOptions] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.publisher(args[0]);
     }
     if (is [String,DeliveryOptions] args) {
-      // Invoke method
+      Anything v = delegate.publisher(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

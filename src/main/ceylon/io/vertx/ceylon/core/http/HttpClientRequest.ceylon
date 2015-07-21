@@ -73,13 +73,14 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest delegate) satisfi
 
   HttpClientRequest write_impl([Buffer]|[String]|[String,String] args) {
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.write(args[0]);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.write(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -171,16 +172,17 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest delegate) satisfi
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.end();
     }
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.end(args[0]);
     }
     if (is [Buffer] args) {
-      // Invoke method
+      assert(is Delegating<Buffer> arg_0 = args[0]);
+      Anything v = delegate.end(arg_0.delegate);
     }
     if (is [String,String] args) {
-      // Invoke method
+      Anything v = delegate.end(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

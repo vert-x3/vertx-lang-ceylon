@@ -107,10 +107,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   NetServer createNetServer_impl([]|[NetServerOptions] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.createNetServer();
     }
     if (is [NetServerOptions] args) {
-      // Invoke method
+      Anything v = delegate.createNetServer(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -118,10 +118,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   NetClient createNetClient_impl([]|[NetClientOptions] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.createNetClient();
     }
     if (is [NetClientOptions] args) {
-      // Invoke method
+      Anything v = delegate.createNetClient(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -129,10 +129,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   HttpServer createHttpServer_impl([]|[HttpServerOptions] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.createHttpServer();
     }
     if (is [HttpServerOptions] args) {
-      // Invoke method
+      Anything v = delegate.createHttpServer(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -140,10 +140,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   HttpClient createHttpClient_impl([]|[HttpClientOptions] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.createHttpClient();
     }
     if (is [HttpClientOptions] args) {
-      // Invoke method
+      Anything v = delegate.createHttpClient(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -151,10 +151,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   DatagramSocket createDatagramSocket_impl([]|[DatagramSocketOptions] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.createDatagramSocket();
     }
     if (is [DatagramSocketOptions] args) {
-      // Invoke method
+      Anything v = delegate.createDatagramSocket(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -222,10 +222,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      // Invoke method
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -233,16 +233,16 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything deployVerticle_impl([String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.deployVerticle(args[0]);
     }
     if (is [String,Anything(Throwable|String)] args) {
-      // Invoke method
+      Anything v = delegate.deployVerticle(args[0],nothing);
     }
     if (is [String,DeploymentOptions] args) {
-      // Invoke method
+      Anything v = delegate.deployVerticle(args[0],nothing);
     }
     if (is [String,DeploymentOptions,Anything(Throwable|String)] args) {
-      // Invoke method
+      Anything v = delegate.deployVerticle(args[0],nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -250,10 +250,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything undeploy_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
-      // Invoke method
+      Anything v = delegate.undeploy(args[0]);
     }
     if (is [String,Anything(Throwable?)] args) {
-      // Invoke method
+      Anything v = delegate.undeploy(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -273,10 +273,10 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything executeBlocking_impl([Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
     if (is [Anything(Future<Object>),Anything(Throwable|Object)] args) {
-      // Invoke method
+      Anything v = delegate.executeBlocking(nothing,nothing);
     }
     if (is [Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
-      // Invoke method
+      Anything v = delegate.executeBlocking(nothing,args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
