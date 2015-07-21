@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.http {
   WebSocketFrame_=WebSocketFrame
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.http.WebSocketFrame */
 shared interface WebSocketFrame  {
 
@@ -22,7 +25,7 @@ shared interface WebSocketFrame  {
 }
 /* Generated from io.vertx.core.http.WebSocketFrame */
 
-shared abstract class WebSocketFrame_Impl(WebSocketFrame delegate) satisfies WebSocketFrame & Delegating<WebSocketFrame> {
+shared abstract class WebSocketFrame_Impl(WebSocketFrame_ delegate) satisfies WebSocketFrame & Delegating<WebSocketFrame_> {
 
   shared actual Boolean(*<[]>) isText => flatten(isText_impl);
   shared actual Boolean(*<[]>) isBinary => flatten(isBinary_impl);
@@ -32,19 +35,19 @@ shared abstract class WebSocketFrame_Impl(WebSocketFrame delegate) satisfies Web
   shared actual Boolean(*<[]>) isFinal => flatten(isFinal_impl);
 
   Boolean isText_impl([] args) {
-    Anything v = delegate.isText();
+Anything v = delegate.text;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isBinary_impl([] args) {
-    Anything v = delegate.isBinary();
+Anything v = delegate.binary;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isContinuation_impl([] args) {
-    Anything v = delegate.isContinuation();
+Anything v = delegate.continuation;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -62,7 +65,7 @@ shared abstract class WebSocketFrame_Impl(WebSocketFrame delegate) satisfies Web
   }
 
   Boolean isFinal_impl([] args) {
-    Anything v = delegate.isFinal();
+Anything v = delegate.final;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

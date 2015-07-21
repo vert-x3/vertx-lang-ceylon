@@ -11,7 +11,7 @@ shared interface Lock  {
 }
 /* Generated from io.vertx.core.shareddata.Lock */
 
-shared abstract class Lock_Impl(Lock delegate) satisfies Lock & Delegating<Lock> {
+shared abstract class Lock_Impl(Lock_ delegate) satisfies Lock & Delegating<Lock_> {
 
   shared actual Anything(*<[]>) release => flatten(release_impl);
 

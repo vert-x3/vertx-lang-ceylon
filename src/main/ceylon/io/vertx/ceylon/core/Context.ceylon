@@ -5,7 +5,8 @@ import io.vertx.ceylon.core {
   Vertx
 }
 import io.vertx.core {
-  Context_=Context
+  Context_=Context,
+  Vertx_=Vertx
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -31,7 +32,7 @@ shared interface Context  {
 }
 /* Generated from io.vertx.core.Context */
 
-shared abstract class Context_Impl(Context delegate) satisfies Context & Delegating<Context> {
+shared abstract class Context_Impl(Context_ delegate) satisfies Context & Delegating<Context_> {
 
   shared actual Anything(*<[Anything()]>) runOnContext => flatten(runOnContext_impl);
   shared actual String(*<[]>) deploymentID => flatten(deploymentID_impl);
@@ -47,7 +48,8 @@ shared abstract class Context_Impl(Context delegate) satisfies Context & Delegat
   shared actual Integer(*<[]>) getInstanceCount => flatten(getInstanceCount_impl);
 
   Anything runOnContext_impl([Anything()] args) {
-    Anything v = delegate.runOnContext(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.runOnContext(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -71,37 +73,41 @@ shared abstract class Context_Impl(Context delegate) satisfies Context & Delegat
   }
 
   Boolean isEventLoopContext_impl([] args) {
-    Anything v = delegate.isEventLoopContext();
+Anything v = delegate.eventLoopContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isWorkerContext_impl([] args) {
-    Anything v = delegate.isWorkerContext();
+Anything v = delegate.workerContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isMultiThreadedWorkerContext_impl([] args) {
-    Anything v = delegate.isMultiThreadedWorkerContext();
+Anything v = delegate.multiThreadedWorkerContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Object get_impl([String] args) {
-    Anything v = delegate.get(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.get(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything put_impl([String,Object] args) {
-    Anything v = delegate.put(args[0],nothing);
+    String arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.put(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean remove_impl([String] args) {
-    Anything v = delegate.remove(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.remove(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -113,7 +119,7 @@ shared abstract class Context_Impl(Context delegate) satisfies Context & Delegat
   }
 
   Integer getInstanceCount_impl([] args) {
-    Anything v = delegate.getInstanceCount();
+Anything v = delegate.instanceCount;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

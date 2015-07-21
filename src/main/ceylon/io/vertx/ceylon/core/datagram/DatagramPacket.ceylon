@@ -10,6 +10,12 @@ import io.vertx.ceylon.core.net {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.net {
+  SocketAddress_=SocketAddress
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.datagram.DatagramPacket */
 shared interface DatagramPacket  {
 
@@ -18,7 +24,7 @@ shared interface DatagramPacket  {
 }
 /* Generated from io.vertx.core.datagram.DatagramPacket */
 
-shared abstract class DatagramPacket_Impl(DatagramPacket delegate) satisfies DatagramPacket & Delegating<DatagramPacket> {
+shared abstract class DatagramPacket_Impl(DatagramPacket_ delegate) satisfies DatagramPacket & Delegating<DatagramPacket_> {
 
   shared actual SocketAddress(*<[]>) sender => flatten(sender_impl);
   shared actual Buffer(*<[]>) data => flatten(data_impl);

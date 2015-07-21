@@ -8,11 +8,16 @@ import io.vertx.ceylon.core.net {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.metrics {
+  Measured_=Measured
+}
 import io.vertx.ceylon.core.metrics {
   Measured
 }
 import io.vertx.core.net {
-  NetServer_=NetServer
+  NetServer_=NetServer,
+  NetSocketStream_=NetSocketStream,
+  NetSocket_=NetSocket
 }
 /* Generated from io.vertx.core.net.NetServer */
 shared interface NetServer satisfies Measured {
@@ -25,7 +30,7 @@ shared interface NetServer satisfies Measured {
 }
 /* Generated from io.vertx.core.net.NetServer */
 
-shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & Delegating<NetServer> {
+shared abstract class NetServer_Impl(NetServer_ delegate) satisfies NetServer & Delegating<NetServer_> {
 
   shared actual NetSocketStream(*<[]>) connectStream => flatten(connectStream_impl);
   shared actual NetServer(*<[Anything(NetSocket)]>) connectHandler => flatten(connectHandler_impl);
@@ -40,29 +45,24 @@ shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & D
   }
 
   NetServer connectHandler_impl([Anything(NetSocket)] args) {
-    Anything v = delegate.connectHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.connectHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer listen_impl([]|[Anything(Throwable|NetServer)]|[Integer]|[Integer,String]|[Integer,Anything(Throwable|NetServer)]|[Integer,String,Anything(Throwable|NetServer)] args) {
     if (is [] args) {
-      Anything v = delegate.listen();
     }
     if (is [Anything(Throwable|NetServer)] args) {
-      Anything v = delegate.listen(nothing);
     }
     if (is [Integer] args) {
-      Anything v = delegate.listen(args[0]);
     }
     if (is [Integer,String] args) {
-      Anything v = delegate.listen(args[0],args[1]);
     }
     if (is [Integer,Anything(Throwable|NetServer)] args) {
-      Anything v = delegate.listen(args[0],nothing);
     }
     if (is [Integer,String,Anything(Throwable|NetServer)] args) {
-      Anything v = delegate.listen(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -70,10 +70,8 @@ shared abstract class NetServer_Impl(NetServer delegate) satisfies NetServer & D
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

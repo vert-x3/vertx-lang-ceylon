@@ -1,6 +1,10 @@
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core.streams {
+  WriteStream_=WriteStream,
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -10,6 +14,9 @@ import io.vertx.core.file {
 import io.vertx.ceylon.core.streams {
   WriteStream,
   ReadStream
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.file.AsyncFile */
 shared interface AsyncFile satisfies ReadStream<Buffer>& WriteStream<Buffer> {
@@ -30,7 +37,7 @@ shared interface AsyncFile satisfies ReadStream<Buffer>& WriteStream<Buffer> {
 }
 /* Generated from io.vertx.core.file.AsyncFile */
 
-shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & Delegating<AsyncFile> {
+shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & Delegating<AsyncFile_> {
 
   shared actual AsyncFile(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
   shared actual AsyncFile(*<[]>) pause => flatten(pause_impl);
@@ -47,7 +54,8 @@ shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & D
   shared actual AsyncFile(*<[Integer]>) setWritePos => flatten(setWritePos_impl);
 
   AsyncFile handler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -65,79 +73,81 @@ shared abstract class AsyncFile_Impl(AsyncFile delegate) satisfies AsyncFile & D
   }
 
   AsyncFile endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile write_impl([Buffer]|[Buffer,Integer,Anything(Throwable?)] args) {
     if (is [Buffer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [Buffer,Integer,Anything(Throwable?)] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.write(arg_0.delegate,args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile drainHandler_impl([Anything()] args) {
-    Anything v = delegate.drainHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile read_impl([Buffer,Integer,Integer,Integer,Anything(Throwable|Buffer)] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
-    Anything v = delegate.read(arg_0.delegate,args[1],args[2],args[3],nothing);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
+    Integer arg_1 = args[1];
+    Integer arg_2 = args[2];
+    Integer arg_3 = args[3];
+    Nothing arg_4 = nothing;
+    Anything v = delegate.read(arg_0.delegate,arg_1,arg_2,arg_3,arg_4);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile flush_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.flush();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.flush(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setReadPos_impl([Integer] args) {
-    Anything v = delegate.setReadPos(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setReadPos(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile setWritePos_impl([Integer] args) {
-    Anything v = delegate.setWritePos(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWritePos(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -14,8 +14,16 @@ import io.vertx.ceylon.core.http {
   WebSocketBase,
   WebSocketFrame
 }
+import io.vertx.core.net {
+  SocketAddress_=SocketAddress
+}
 import io.vertx.core.http {
-  WebSocket_=WebSocket
+  WebSocket_=WebSocket,
+  WebSocketBase_=WebSocketBase,
+  WebSocketFrame_=WebSocketFrame
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.WebSocket */
 shared interface WebSocket satisfies WebSocketBase {
@@ -37,7 +45,7 @@ shared interface WebSocket satisfies WebSocketBase {
 }
 /* Generated from io.vertx.core.http.WebSocket */
 
-shared abstract class WebSocket_Impl(WebSocket delegate) satisfies WebSocket & Delegating<WebSocket> {
+shared abstract class WebSocket_Impl(WebSocket_ delegate) satisfies WebSocket & Delegating<WebSocket_> {
 
   shared actual WebSocket(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual WebSocket(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
@@ -55,13 +63,15 @@ shared abstract class WebSocket_Impl(WebSocket delegate) satisfies WebSocket & D
   shared actual WebSocket(*<[Anything(WebSocketFrame)]>) frameHandler => flatten(frameHandler_impl);
 
   WebSocket exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket handler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -79,65 +89,71 @@ shared abstract class WebSocket_Impl(WebSocket delegate) satisfies WebSocket & D
   }
 
   WebSocket endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket write_impl([Buffer] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
     Anything v = delegate.write(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket drainHandler_impl([Anything()] args) {
-    Anything v = delegate.drainHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket writeFrame_impl([WebSocketFrame] args) {
-    assert(is Delegating<WebSocketFrame> arg_0 = args[0]);
+    assert(is Delegating<WebSocketFrame_> arg_0 = args[0]);
     Anything v = delegate.writeFrame(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket writeFinalTextFrame_impl([String] args) {
-    Anything v = delegate.writeFinalTextFrame(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.writeFinalTextFrame(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket writeFinalBinaryFrame_impl([Buffer] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
     Anything v = delegate.writeFinalBinaryFrame(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket writeBinaryMessage_impl([Buffer] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
     Anything v = delegate.writeBinaryMessage(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket closeHandler_impl([Anything()] args) {
-    Anything v = delegate.closeHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.closeHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocket frameHandler_impl([Anything(WebSocketFrame)] args) {
-    Anything v = delegate.frameHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.frameHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

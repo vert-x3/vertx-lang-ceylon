@@ -7,6 +7,9 @@ import io.vertx.core {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.metrics {
+  MetricsOptions_=MetricsOptions
+}
 import io.vertx.ceylon.core.metrics {
   MetricsOptions
 }

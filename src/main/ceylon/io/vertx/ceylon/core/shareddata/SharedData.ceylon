@@ -1,5 +1,9 @@
 import io.vertx.core.shareddata {
-  SharedData_=SharedData
+  SharedData_=SharedData,
+  AsyncMap_=AsyncMap,
+  Lock_=Lock,
+  LocalMap_=LocalMap,
+  Counter_=Counter
 }
 import io.vertx.ceylon.core.shareddata {
   AsyncMap,
@@ -24,7 +28,7 @@ shared interface SharedData  {
 }
 /* Generated from io.vertx.core.shareddata.SharedData */
 
-shared abstract class SharedData_Impl(SharedData delegate) satisfies SharedData & Delegating<SharedData> {
+shared abstract class SharedData_Impl(SharedData_ delegate) satisfies SharedData & Delegating<SharedData_> {
 
   shared actual Anything(*<[String,Anything(Throwable|AsyncMap<Object,Object>)]>) getClusterWideMap => flatten(getClusterWideMap_impl);
   shared actual Anything(*<[String,Anything(Throwable|Lock)]>) getLock => flatten(getLock_impl);
@@ -33,31 +37,41 @@ shared abstract class SharedData_Impl(SharedData delegate) satisfies SharedData 
   shared actual LocalMap<Object,Object>(*<[String]>) getLocalMap => flatten(getLocalMap_impl);
 
   Anything getClusterWideMap_impl([String,Anything(Throwable|AsyncMap<Object,Object>)] args) {
-    Anything v = delegate.getClusterWideMap(args[0],nothing);
+    String arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.getClusterWideMap(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getLock_impl([String,Anything(Throwable|Lock)] args) {
-    Anything v = delegate.getLock(args[0],nothing);
+    String arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.getLock(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getLockWithTimeout_impl([String,Integer,Anything(Throwable|Lock)] args) {
-    Anything v = delegate.getLockWithTimeout(args[0],args[1],nothing);
+    String arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Nothing arg_2 = nothing;
+    Anything v = delegate.getLockWithTimeout(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getCounter_impl([String,Anything(Throwable|Counter)] args) {
-    Anything v = delegate.getCounter(args[0],nothing);
+    String arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.getCounter(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   LocalMap<Object,Object> getLocalMap_impl([String] args) {
-    Anything v = delegate.getLocalMap(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getLocalMap(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

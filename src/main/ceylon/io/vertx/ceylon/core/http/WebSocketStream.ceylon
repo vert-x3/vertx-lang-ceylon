@@ -1,3 +1,6 @@
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -8,7 +11,8 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 import io.vertx.core.http {
-  WebSocketStream_=WebSocketStream
+  WebSocketStream_=WebSocketStream,
+  WebSocket_=WebSocket
 }
 /* Generated from io.vertx.core.http.WebSocketStream */
 shared interface WebSocketStream satisfies ReadStream<WebSocket> {
@@ -21,7 +25,7 @@ shared interface WebSocketStream satisfies ReadStream<WebSocket> {
 }
 /* Generated from io.vertx.core.http.WebSocketStream */
 
-shared abstract class WebSocketStream_Impl(WebSocketStream delegate) satisfies WebSocketStream & Delegating<WebSocketStream> {
+shared abstract class WebSocketStream_Impl(WebSocketStream_ delegate) satisfies WebSocketStream & Delegating<WebSocketStream_> {
 
   shared actual WebSocketStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual WebSocketStream(*<[Anything(WebSocket)]>) handler => flatten(handler_impl);
@@ -30,13 +34,15 @@ shared abstract class WebSocketStream_Impl(WebSocketStream delegate) satisfies W
   shared actual WebSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   WebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocketStream handler_impl([Anything(WebSocket)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -54,7 +60,8 @@ shared abstract class WebSocketStream_Impl(WebSocketStream delegate) satisfies W
   }
 
   WebSocketStream endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -4,6 +4,9 @@ import java.lang {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.metrics {
+  Measured_=Measured
+}
 import io.vertx.ceylon.core.http {
   HttpServerRequest,
   ServerWebSocket,
@@ -14,7 +17,11 @@ import io.vertx.ceylon.core.metrics {
   Measured
 }
 import io.vertx.core.http {
-  HttpServer_=HttpServer
+  HttpServer_=HttpServer,
+  HttpServerRequest_=HttpServerRequest,
+  ServerWebSocket_=ServerWebSocket,
+  HttpServerRequestStream_=HttpServerRequestStream,
+  ServerWebSocketStream_=ServerWebSocketStream
 }
 /* Generated from io.vertx.core.http.HttpServer */
 shared interface HttpServer satisfies Measured {
@@ -28,7 +35,7 @@ shared interface HttpServer satisfies Measured {
 }
 /* Generated from io.vertx.core.http.HttpServer */
 
-shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer & Delegating<HttpServer> {
+shared abstract class HttpServer_Impl(HttpServer_ delegate) satisfies HttpServer & Delegating<HttpServer_> {
 
   shared actual HttpServerRequestStream(*<[]>) requestStream => flatten(requestStream_impl);
   shared actual HttpServer(*<[Anything(HttpServerRequest)]>) requestHandler => flatten(requestHandler_impl);
@@ -44,7 +51,8 @@ shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer 
   }
 
   HttpServer requestHandler_impl([Anything(HttpServerRequest)] args) {
-    Anything v = delegate.requestHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.requestHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -56,29 +64,24 @@ shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer 
   }
 
   HttpServer websocketHandler_impl([Anything(ServerWebSocket)] args) {
-    Anything v = delegate.websocketHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.websocketHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServer listen_impl([]|[Integer]|[Anything(Throwable|HttpServer)]|[Integer,String]|[Integer,Anything(Throwable|HttpServer)]|[Integer,String,Anything(Throwable|HttpServer)] args) {
     if (is [] args) {
-      Anything v = delegate.listen();
     }
     if (is [Integer] args) {
-      Anything v = delegate.listen(args[0]);
     }
     if (is [Anything(Throwable|HttpServer)] args) {
-      Anything v = delegate.listen(nothing);
     }
     if (is [Integer,String] args) {
-      Anything v = delegate.listen(args[0],args[1]);
     }
     if (is [Integer,Anything(Throwable|HttpServer)] args) {
-      Anything v = delegate.listen(args[0],nothing);
     }
     if (is [Integer,String,Anything(Throwable|HttpServer)] args) {
-      Anything v = delegate.listen(args[0],args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -86,10 +89,8 @@ shared abstract class HttpServer_Impl(HttpServer delegate) satisfies HttpServer 
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

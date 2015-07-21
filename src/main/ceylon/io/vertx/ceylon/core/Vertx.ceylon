@@ -1,6 +1,45 @@
 import io.vertx.ceylon.core.shareddata {
   SharedData
 }
+import io.vertx.core.shareddata {
+  SharedData_=SharedData
+}
+import io.vertx.core {
+  Vertx_=Vertx,
+  Context_=Context,
+  TimeoutStream_=TimeoutStream,
+  VertxOptions_=VertxOptions,
+  Future_=Future,
+  DeploymentOptions_=DeploymentOptions
+}
+import io.vertx.core.datagram {
+  DatagramSocket_=DatagramSocket,
+  DatagramSocketOptions_=DatagramSocketOptions
+}
+import io.vertx.lang.ceylon {
+  Delegating
+}
+import io.vertx.core.metrics {
+  Measured_=Measured
+}
+import io.vertx.core.eventbus {
+  EventBus_=EventBus
+}
+import io.vertx.core.net {
+  NetClient_=NetClient,
+  NetClientOptions_=NetClientOptions,
+  NetServerOptions_=NetServerOptions,
+  NetServer_=NetServer
+}
+import io.vertx.core.http {
+  HttpServer_=HttpServer,
+  HttpClientOptions_=HttpClientOptions,
+  HttpServerOptions_=HttpServerOptions,
+  HttpClient_=HttpClient
+}
+import io.vertx.ceylon.core.dns {
+  DnsClient
+}
 import java.lang {
   Long_=Long,
   String_=String
@@ -22,17 +61,11 @@ import io.vertx.ceylon.core {
 import io.vertx.ceylon.core.file {
   FileSystem
 }
-import io.vertx.core {
-  Vertx_=Vertx
-}
 import io.vertx.ceylon.core.net {
   NetClient,
   NetClientOptions,
   NetServerOptions,
   NetServer
-}
-import io.vertx.lang.ceylon {
-  Delegating
 }
 import io.vertx.ceylon.core.http {
   HttpServer,
@@ -40,11 +73,14 @@ import io.vertx.ceylon.core.http {
   HttpServerOptions,
   HttpClient
 }
+import io.vertx.core.dns {
+  DnsClient_=DnsClient
+}
 import io.vertx.ceylon.core.metrics {
   Measured
 }
-import io.vertx.ceylon.core.dns {
-  DnsClient
+import io.vertx.core.file {
+  FileSystem_=FileSystem
 }
 /* Generated from io.vertx.core.Vertx */
 shared interface Vertx satisfies Measured {
@@ -74,7 +110,7 @@ shared interface Vertx satisfies Measured {
 }
 /* Generated from io.vertx.core.Vertx */
 
-shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Vertx> {
+shared abstract class Vertx_Impl(Vertx_ delegate) satisfies Vertx & Delegating<Vertx_> {
 
   shared actual Context(*<[]>) getOrCreateContext => flatten(getOrCreateContext_impl);
   shared actual NetServer(*<[]|[NetServerOptions]>) createNetServer => flatten(createNetServer_impl);
@@ -100,17 +136,15 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
   shared actual Anything(*<[Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)]>) executeBlocking => flatten(executeBlocking_impl);
 
   Context getOrCreateContext_impl([] args) {
-    Anything v = delegate.getOrCreateContext();
+Anything v = delegate.orCreateContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer createNetServer_impl([]|[NetServerOptions] args) {
     if (is [] args) {
-      Anything v = delegate.createNetServer();
     }
     if (is [NetServerOptions] args) {
-      Anything v = delegate.createNetServer(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -118,10 +152,8 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   NetClient createNetClient_impl([]|[NetClientOptions] args) {
     if (is [] args) {
-      Anything v = delegate.createNetClient();
     }
     if (is [NetClientOptions] args) {
-      Anything v = delegate.createNetClient(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -129,10 +161,8 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   HttpServer createHttpServer_impl([]|[HttpServerOptions] args) {
     if (is [] args) {
-      Anything v = delegate.createHttpServer();
     }
     if (is [HttpServerOptions] args) {
-      Anything v = delegate.createHttpServer(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -140,10 +170,8 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   HttpClient createHttpClient_impl([]|[HttpClientOptions] args) {
     if (is [] args) {
-      Anything v = delegate.createHttpClient();
     }
     if (is [HttpClientOptions] args) {
-      Anything v = delegate.createHttpClient(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -151,10 +179,8 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   DatagramSocket createDatagramSocket_impl([]|[DatagramSocketOptions] args) {
     if (is [] args) {
-      Anything v = delegate.createDatagramSocket();
     }
     if (is [DatagramSocketOptions] args) {
-      Anything v = delegate.createDatagramSocket(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -173,7 +199,9 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
   }
 
   DnsClient createDnsClient_impl([Integer,String] args) {
-    Anything v = delegate.createDnsClient(args[0],args[1]);
+    Integer arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.createDnsClient(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -185,47 +213,53 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
   }
 
   Integer setTimer_impl([Integer,Anything(Integer)] args) {
-    Anything v = delegate.setTimer(args[0],nothing);
+    Integer arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.setTimer(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream timerStream_impl([Integer] args) {
-    Anything v = delegate.timerStream(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.timerStream(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer setPeriodic_impl([Integer,Anything(Integer)] args) {
-    Anything v = delegate.setPeriodic(args[0],nothing);
+    Integer arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.setPeriodic(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream periodicStream_impl([Integer] args) {
-    Anything v = delegate.periodicStream(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.periodicStream(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean cancelTimer_impl([Integer] args) {
-    Anything v = delegate.cancelTimer(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.cancelTimer(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything runOnContext_impl([Anything()] args) {
-    Anything v = delegate.runOnContext(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.runOnContext(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.close(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -233,16 +267,12 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything deployVerticle_impl([String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)] args) {
     if (is [String] args) {
-      Anything v = delegate.deployVerticle(args[0]);
     }
     if (is [String,Anything(Throwable|String)] args) {
-      Anything v = delegate.deployVerticle(args[0],nothing);
     }
     if (is [String,DeploymentOptions] args) {
-      Anything v = delegate.deployVerticle(args[0],nothing);
     }
     if (is [String,DeploymentOptions,Anything(Throwable|String)] args) {
-      Anything v = delegate.deployVerticle(args[0],nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -250,10 +280,8 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
 
   Anything undeploy_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
-      Anything v = delegate.undeploy(args[0]);
     }
     if (is [String,Anything(Throwable?)] args) {
-      Anything v = delegate.undeploy(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -266,17 +294,15 @@ shared abstract class Vertx_Impl(Vertx delegate) satisfies Vertx & Delegating<Ve
   }
 
   Boolean isClustered_impl([] args) {
-    Anything v = delegate.isClustered();
+Anything v = delegate.clustered;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything executeBlocking_impl([Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
     if (is [Anything(Future<Object>),Anything(Throwable|Object)] args) {
-      Anything v = delegate.executeBlocking(nothing,nothing);
     }
     if (is [Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
-      Anything v = delegate.executeBlocking(nothing,args[1],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

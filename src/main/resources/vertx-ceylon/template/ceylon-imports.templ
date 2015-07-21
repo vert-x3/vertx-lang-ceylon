@@ -25,6 +25,11 @@
             importedType.simpleName,
             importedType.simpleName
           );
+          addClassImport(
+            importedType.packageName,
+            importedType.simpleName,
+            importedType.simpleName + '_'
+          );
         } else if (importedKind == CLASS_JSON_OBJECT) {
           addClassImport("ceylon.json", "Object", "JsonObject");
           /* addClassImport("io.vertx.core.json", "JsonObject", "JsonObject_"); */

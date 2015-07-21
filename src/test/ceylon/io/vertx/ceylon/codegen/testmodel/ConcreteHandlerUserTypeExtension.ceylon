@@ -1,5 +1,7 @@
 import io.vertx.codegen.testmodel {
-  ConcreteHandlerUserTypeExtension_=ConcreteHandlerUserTypeExtension
+  ConcreteHandlerUserTypeExtension_=ConcreteHandlerUserTypeExtension,
+  RefedInterface1_=RefedInterface1,
+  ConcreteHandlerUserType_=ConcreteHandlerUserType
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -14,7 +16,7 @@ shared interface ConcreteHandlerUserTypeExtension  {
 }
 /* Generated from io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension */
 
-shared abstract class ConcreteHandlerUserTypeExtension_Impl(ConcreteHandlerUserTypeExtension delegate) satisfies ConcreteHandlerUserTypeExtension & Delegating<ConcreteHandlerUserTypeExtension> {
+shared abstract class ConcreteHandlerUserTypeExtension_Impl(ConcreteHandlerUserTypeExtension_ delegate) satisfies ConcreteHandlerUserTypeExtension & Delegating<ConcreteHandlerUserTypeExtension_> {
 
 
 }

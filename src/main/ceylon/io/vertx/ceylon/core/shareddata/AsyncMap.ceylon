@@ -23,7 +23,7 @@ shared interface AsyncMap<K,V>  {
 }
 /* Generated from io.vertx.core.shareddata.AsyncMap<K,V> */
 
-shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies AsyncMap<K,V> & Delegating<AsyncMap<K,V>> {
+shared abstract class AsyncMap_Impl<K,V>(AsyncMap_<Object,Object> delegate) satisfies AsyncMap<K,V> & Delegating<AsyncMap_<Object,Object>> {
 
   shared actual Anything(*<[K,Anything(Throwable|V)]>) get => flatten(get_impl);
   shared actual Anything(*<[K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)]>) put => flatten(put_impl);
@@ -36,17 +36,17 @@ shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies Async
   shared actual Anything(*<[Anything(Throwable|Integer)]>) size => flatten(size_impl);
 
   Anything get_impl([K,Anything(Throwable|V)] args) {
-    Anything v = delegate.get(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.get(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything put_impl([K,V,Anything(Throwable?)]|[K,V,Integer,Anything(Throwable?)] args) {
     if (is [K,V,Anything(Throwable?)] args) {
-      Anything v = delegate.put(nothing,nothing,nothing);
     }
     if (is [K,V,Integer,Anything(Throwable?)] args) {
-      Anything v = delegate.put(nothing,nothing,args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -54,47 +54,59 @@ shared abstract class AsyncMap_Impl<K,V>(AsyncMap<K,V> delegate) satisfies Async
 
   Anything putIfAbsent_impl([K,V,Anything(Throwable|V)]|[K,V,Integer,Anything(Throwable|V)] args) {
     if (is [K,V,Anything(Throwable|V)] args) {
-      Anything v = delegate.putIfAbsent(nothing,nothing,nothing);
     }
     if (is [K,V,Integer,Anything(Throwable|V)] args) {
-      Anything v = delegate.putIfAbsent(nothing,nothing,args[2],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything remove_impl([K,Anything(Throwable|V)] args) {
-    Anything v = delegate.remove(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.remove(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything removeIfPresent_impl([K,V,Anything(Throwable|Boolean)] args) {
-    Anything v = delegate.removeIfPresent(nothing,nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Nothing arg_2 = nothing;
+    Anything v = delegate.removeIfPresent(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replace_impl([K,V,Anything(Throwable|V)] args) {
-    Anything v = delegate.replace(nothing,nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Nothing arg_2 = nothing;
+    Anything v = delegate.replace(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything replaceIfPresent_impl([K,V,V,Anything(Throwable|Boolean)] args) {
-    Anything v = delegate.replaceIfPresent(nothing,nothing,nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Nothing arg_2 = nothing;
+    Nothing arg_3 = nothing;
+    Anything v = delegate.replaceIfPresent(arg_0,arg_1,arg_2,arg_3);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything clear_impl([Anything(Throwable?)] args) {
-    Anything v = delegate.clear(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.clear(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything size_impl([Anything(Throwable|Integer)] args) {
-    Anything v = delegate.size(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.size(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

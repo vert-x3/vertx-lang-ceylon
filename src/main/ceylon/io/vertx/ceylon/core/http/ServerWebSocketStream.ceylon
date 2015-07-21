@@ -1,3 +1,6 @@
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -8,7 +11,8 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 import io.vertx.core.http {
-  ServerWebSocketStream_=ServerWebSocketStream
+  ServerWebSocketStream_=ServerWebSocketStream,
+  ServerWebSocket_=ServerWebSocket
 }
 /* Generated from io.vertx.core.http.ServerWebSocketStream */
 shared interface ServerWebSocketStream satisfies ReadStream<ServerWebSocket> {
@@ -21,7 +25,7 @@ shared interface ServerWebSocketStream satisfies ReadStream<ServerWebSocket> {
 }
 /* Generated from io.vertx.core.http.ServerWebSocketStream */
 
-shared abstract class ServerWebSocketStream_Impl(ServerWebSocketStream delegate) satisfies ServerWebSocketStream & Delegating<ServerWebSocketStream> {
+shared abstract class ServerWebSocketStream_Impl(ServerWebSocketStream_ delegate) satisfies ServerWebSocketStream & Delegating<ServerWebSocketStream_> {
 
   shared actual ServerWebSocketStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual ServerWebSocketStream(*<[Anything(ServerWebSocket)]>) handler => flatten(handler_impl);
@@ -30,13 +34,15 @@ shared abstract class ServerWebSocketStream_Impl(ServerWebSocketStream delegate)
   shared actual ServerWebSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   ServerWebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   ServerWebSocketStream handler_impl([Anything(ServerWebSocket)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -54,7 +60,8 @@ shared abstract class ServerWebSocketStream_Impl(ServerWebSocketStream delegate)
   }
 
   ServerWebSocketStream endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

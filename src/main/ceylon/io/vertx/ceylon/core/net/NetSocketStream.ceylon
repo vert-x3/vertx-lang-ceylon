@@ -1,3 +1,6 @@
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.ceylon.core.net {
   NetSocket
 }
@@ -5,7 +8,8 @@ import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.core.net {
-  NetSocketStream_=NetSocketStream
+  NetSocketStream_=NetSocketStream,
+  NetSocket_=NetSocket
 }
 import io.vertx.ceylon.core.streams {
   ReadStream
@@ -21,7 +25,7 @@ shared interface NetSocketStream satisfies ReadStream<NetSocket> {
 }
 /* Generated from io.vertx.core.net.NetSocketStream */
 
-shared abstract class NetSocketStream_Impl(NetSocketStream delegate) satisfies NetSocketStream & Delegating<NetSocketStream> {
+shared abstract class NetSocketStream_Impl(NetSocketStream_ delegate) satisfies NetSocketStream & Delegating<NetSocketStream_> {
 
   shared actual NetSocketStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual NetSocketStream(*<[Anything(NetSocket)]>) handler => flatten(handler_impl);
@@ -30,13 +34,15 @@ shared abstract class NetSocketStream_Impl(NetSocketStream delegate) satisfies N
   shared actual NetSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   NetSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocketStream handler_impl([Anything(NetSocket)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -54,7 +60,8 @@ shared abstract class NetSocketStream_Impl(NetSocketStream delegate) satisfies N
   }
 
   NetSocketStream endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

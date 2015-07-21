@@ -25,7 +25,7 @@ shared interface MultiMap  {
 }
 /* Generated from io.vertx.core.MultiMap */
 
-shared abstract class MultiMap_Impl(MultiMap delegate) satisfies MultiMap & Delegating<MultiMap> {
+shared abstract class MultiMap_Impl(MultiMap_ delegate) satisfies MultiMap & Delegating<MultiMap_> {
 
   shared actual String(*<[String]>) get => flatten(get_impl);
   shared actual List<String>(*<[String]>) getAll => flatten(getAll_impl);
@@ -41,25 +41,28 @@ shared abstract class MultiMap_Impl(MultiMap delegate) satisfies MultiMap & Dele
   shared actual Integer(*<[]>) size => flatten(size_impl);
 
   String get_impl([String] args) {
-    Anything v = delegate.get(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.get(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   List<String> getAll_impl([String] args) {
-    Anything v = delegate.getAll(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getAll(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean contains_impl([String] args) {
-    Anything v = delegate.contains(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.contains(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isEmpty_impl([] args) {
-    Anything v = delegate.isEmpty();
+Anything v = delegate.empty;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -71,33 +74,38 @@ shared abstract class MultiMap_Impl(MultiMap delegate) satisfies MultiMap & Dele
   }
 
   MultiMap add_impl([String,String] args) {
-    Anything v = delegate.add(args[0],args[1]);
+    String arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.add(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap addAll_impl([MultiMap] args) {
-    assert(is Delegating<MultiMap> arg_0 = args[0]);
+    assert(is Delegating<MultiMap_> arg_0 = args[0]);
     Anything v = delegate.addAll(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap set_impl([String,String] args) {
-    Anything v = delegate.set(args[0],args[1]);
+    String arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.set(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap setAll_impl([MultiMap] args) {
-    assert(is Delegating<MultiMap> arg_0 = args[0]);
+    assert(is Delegating<MultiMap_> arg_0 = args[0]);
     Anything v = delegate.setAll(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MultiMap remove_impl([String] args) {
-    Anything v = delegate.remove(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.remove(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

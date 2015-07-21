@@ -4,11 +4,17 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.core.datagram {
   PacketWritestream_=PacketWritestream
 }
+import io.vertx.core.streams {
+  WriteStream_=WriteStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.ceylon.core.streams {
   WriteStream
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.datagram.PacketWritestream */
 shared interface PacketWritestream satisfies WriteStream<Buffer> {
@@ -20,7 +26,7 @@ shared interface PacketWritestream satisfies WriteStream<Buffer> {
 }
 /* Generated from io.vertx.core.datagram.PacketWritestream */
 
-shared abstract class PacketWritestream_Impl(PacketWritestream delegate) satisfies PacketWritestream & Delegating<PacketWritestream> {
+shared abstract class PacketWritestream_Impl(PacketWritestream_ delegate) satisfies PacketWritestream & Delegating<PacketWritestream_> {
 
   shared actual PacketWritestream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual PacketWritestream(*<[Buffer]>) write => flatten(write_impl);
@@ -28,26 +34,29 @@ shared abstract class PacketWritestream_Impl(PacketWritestream delegate) satisfi
   shared actual PacketWritestream(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
 
   PacketWritestream exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream write_impl([Buffer] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
     Anything v = delegate.write(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   PacketWritestream drainHandler_impl([Anything()] args) {
-    Anything v = delegate.drainHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

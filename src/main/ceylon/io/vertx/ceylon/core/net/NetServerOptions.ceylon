@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.net.NetServerOptions */
 shared class NetServerOptions(
   shared Integer acceptBacklog,

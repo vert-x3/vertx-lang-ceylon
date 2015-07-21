@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.parsetools {
   RecordParser_=RecordParser
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.parsetools.RecordParser */
 shared interface RecordParser  {
 
@@ -20,7 +23,7 @@ shared interface RecordParser  {
 }
 /* Generated from io.vertx.core.parsetools.RecordParser */
 
-shared abstract class RecordParser_Impl(RecordParser delegate) satisfies RecordParser & Delegating<RecordParser> {
+shared abstract class RecordParser_Impl(RecordParser_ delegate) satisfies RecordParser & Delegating<RecordParser_> {
 
   shared actual Anything(*<[Anything(Buffer)]>) setOutput => flatten(setOutput_impl);
   shared actual Anything(*<[String]|[Buffer]>) delimitedMode => flatten(delimitedMode_impl);
@@ -28,31 +31,30 @@ shared abstract class RecordParser_Impl(RecordParser delegate) satisfies RecordP
   shared actual Anything(*<[Buffer]>) handle => flatten(handle_impl);
 
   Anything setOutput_impl([Anything(Buffer)] args) {
-    Anything v = delegate.setOutput(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.setOutput(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything delimitedMode_impl([String]|[Buffer] args) {
     if (is [String] args) {
-      Anything v = delegate.delimitedMode(args[0]);
     }
     if (is [Buffer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.delimitedMode(arg_0.delegate);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything fixedSizeMode_impl([Integer] args) {
-    Anything v = delegate.fixedSizeMode(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.fixedSizeMode(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything handle_impl([Buffer] args) {
-    assert(is Delegating<Buffer> arg_0 = args[0]);
+    assert(is Delegating<Buffer_> arg_0 = args[0]);
     Anything v = delegate.handle(arg_0.delegate);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

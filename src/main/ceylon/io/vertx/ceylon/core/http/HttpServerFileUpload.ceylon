@@ -4,6 +4,9 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -12,6 +15,9 @@ import io.vertx.ceylon.core.streams {
 }
 import io.vertx.core.http {
   HttpServerFileUpload_=HttpServerFileUpload
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpServerFileUpload */
 shared interface HttpServerFileUpload satisfies ReadStream<Buffer> {
@@ -32,7 +38,7 @@ shared interface HttpServerFileUpload satisfies ReadStream<Buffer> {
 }
 /* Generated from io.vertx.core.http.HttpServerFileUpload */
 
-shared abstract class HttpServerFileUpload_Impl(HttpServerFileUpload delegate) satisfies HttpServerFileUpload & Delegating<HttpServerFileUpload> {
+shared abstract class HttpServerFileUpload_Impl(HttpServerFileUpload_ delegate) satisfies HttpServerFileUpload & Delegating<HttpServerFileUpload_> {
 
   shared actual HttpServerFileUpload(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual HttpServerFileUpload(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
@@ -49,19 +55,22 @@ shared abstract class HttpServerFileUpload_Impl(HttpServerFileUpload delegate) s
   shared actual Boolean(*<[]>) isSizeAvailable => flatten(isSizeAvailable_impl);
 
   HttpServerFileUpload exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload handler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerFileUpload endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -79,7 +88,8 @@ shared abstract class HttpServerFileUpload_Impl(HttpServerFileUpload delegate) s
   }
 
   HttpServerFileUpload streamToFileSystem_impl([String] args) {
-    Anything v = delegate.streamToFileSystem(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.streamToFileSystem(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -121,7 +131,7 @@ shared abstract class HttpServerFileUpload_Impl(HttpServerFileUpload delegate) s
   }
 
   Boolean isSizeAvailable_impl([] args) {
-    Anything v = delegate.isSizeAvailable();
+Anything v = delegate.sizeAvailable;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

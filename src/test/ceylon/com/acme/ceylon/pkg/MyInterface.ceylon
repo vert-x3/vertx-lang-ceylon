@@ -1,3 +1,9 @@
+import com.acme.pkg.sub {
+  SubInterface_=SubInterface
+}
+import io.vertx.codegen.testmodel {
+  TestInterface_=TestInterface
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -18,7 +24,7 @@ shared interface MyInterface  {
 }
 /* Generated from com.acme.pkg.MyInterface */
 
-shared abstract class MyInterface_Impl(MyInterface delegate) satisfies MyInterface & Delegating<MyInterface> {
+shared abstract class MyInterface_Impl(MyInterface_ delegate) satisfies MyInterface & Delegating<MyInterface_> {
 
   shared actual SubInterface(*<[]>) sub => flatten(sub_impl);
   shared actual TestInterface(*<[]>) method => flatten(method_impl);

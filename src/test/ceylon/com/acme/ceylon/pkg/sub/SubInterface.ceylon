@@ -14,12 +14,13 @@ shared interface SubInterface  {
 }
 /* Generated from com.acme.pkg.sub.SubInterface */
 
-shared abstract class SubInterface_Impl(SubInterface delegate) satisfies SubInterface & Delegating<SubInterface> {
+shared abstract class SubInterface_Impl(SubInterface_ delegate) satisfies SubInterface & Delegating<SubInterface_> {
 
   shared actual String(*<[String]>) reverse => flatten(reverse_impl);
 
   String reverse_impl([String] args) {
-    Anything v = delegate.reverse(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.reverse(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

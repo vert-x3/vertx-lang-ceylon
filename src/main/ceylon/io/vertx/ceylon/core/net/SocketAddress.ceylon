@@ -15,7 +15,7 @@ shared interface SocketAddress  {
 }
 /* Generated from io.vertx.core.net.SocketAddress */
 
-shared abstract class SocketAddress_Impl(SocketAddress delegate) satisfies SocketAddress & Delegating<SocketAddress> {
+shared abstract class SocketAddress_Impl(SocketAddress_ delegate) satisfies SocketAddress & Delegating<SocketAddress_> {
 
   shared actual String(*<[]>) host => flatten(host_impl);
   shared actual Integer(*<[]>) port => flatten(port_impl);

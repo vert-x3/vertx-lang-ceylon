@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core.streams {
+  WriteStream_=WriteStream,
+  ReadStream_=ReadStream
+}
 import io.vertx.ceylon.core.net {
   SocketAddress
 }
@@ -17,8 +21,15 @@ import io.vertx.ceylon.core.streams {
   WriteStream,
   ReadStream
 }
+import io.vertx.core.net {
+  SocketAddress_=SocketAddress
+}
 import io.vertx.core.http {
-  WebSocketBase_=WebSocketBase
+  WebSocketBase_=WebSocketBase,
+  WebSocketFrame_=WebSocketFrame
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.WebSocketBase */
 shared interface WebSocketBase satisfies ReadStream<Buffer>& WriteStream<Buffer> {

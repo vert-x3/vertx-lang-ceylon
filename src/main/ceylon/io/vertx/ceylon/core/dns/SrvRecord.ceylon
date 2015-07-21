@@ -20,7 +20,7 @@ shared interface SrvRecord  {
 }
 /* Generated from io.vertx.core.dns.SrvRecord */
 
-shared abstract class SrvRecord_Impl(SrvRecord delegate) satisfies SrvRecord & Delegating<SrvRecord> {
+shared abstract class SrvRecord_Impl(SrvRecord_ delegate) satisfies SrvRecord & Delegating<SrvRecord_> {
 
   shared actual Integer(*<[]>) priority => flatten(priority_impl);
   shared actual Integer(*<[]>) weight => flatten(weight_impl);

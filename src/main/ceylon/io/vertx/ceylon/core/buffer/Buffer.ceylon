@@ -50,7 +50,7 @@ shared interface Buffer  {
 }
 /* Generated from io.vertx.core.buffer.Buffer */
 
-shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating<Buffer> {
+shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegating<Buffer_> {
 
   shared actual String(*<[String]>) toString => flatten(toString_impl);
   shared actual Byte(*<[Integer]>) getByte => flatten(getByte_impl);
@@ -91,77 +91,87 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
   shared actual Buffer(*<[]|[Integer,Integer]>) slice => flatten(slice_impl);
 
   String toString_impl([String] args) {
-    Anything v = delegate.toString(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.toString(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Byte getByte_impl([Integer] args) {
-    Anything v = delegate.getByte(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getByte(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getUnsignedByte_impl([Integer] args) {
-    Anything v = delegate.getUnsignedByte(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getUnsignedByte(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getInt_impl([Integer] args) {
-    Anything v = delegate.getInt(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getInt(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getUnsignedInt_impl([Integer] args) {
-    Anything v = delegate.getUnsignedInt(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getUnsignedInt(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getLong_impl([Integer] args) {
-    Anything v = delegate.getLong(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getLong(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Float getDouble_impl([Integer] args) {
-    Anything v = delegate.getDouble(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getDouble(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Float getFloat_impl([Integer] args) {
-    Anything v = delegate.getFloat(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getFloat(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getShort_impl([Integer] args) {
-    Anything v = delegate.getShort(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getShort(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getUnsignedShort_impl([Integer] args) {
-    Anything v = delegate.getUnsignedShort(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.getUnsignedShort(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer getBuffer_impl([Integer,Integer] args) {
-    Anything v = delegate.getBuffer(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.getBuffer(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String getString_impl([Integer,Integer]|[Integer,Integer,String] args) {
     if (is [Integer,Integer] args) {
-      Anything v = delegate.getString(args[0],args[1]);
     }
     if (is [Integer,Integer,String] args) {
-      Anything v = delegate.getString(args[0],args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -169,144 +179,161 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer appendBuffer_impl([Buffer]|[Buffer,Integer,Integer] args) {
     if (is [Buffer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.appendBuffer(arg_0.delegate);
     }
     if (is [Buffer,Integer,Integer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.appendBuffer(arg_0.delegate,args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendByte_impl([Byte] args) {
-    Anything v = delegate.appendByte(args[0]);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.appendByte(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendUnsignedByte_impl([Integer] args) {
-    Anything v = delegate.appendUnsignedByte(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendUnsignedByte(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendInt_impl([Integer] args) {
-    Anything v = delegate.appendInt(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendInt(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendUnsignedInt_impl([Integer] args) {
-    Anything v = delegate.appendUnsignedInt(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendUnsignedInt(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendLong_impl([Integer] args) {
-    Anything v = delegate.appendLong(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendLong(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendShort_impl([Integer] args) {
-    Anything v = delegate.appendShort(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendShort(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendUnsignedShort_impl([Integer] args) {
-    Anything v = delegate.appendUnsignedShort(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.appendUnsignedShort(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendFloat_impl([Float] args) {
-    Anything v = delegate.appendFloat(args[0]);
+    Float arg_0 = args[0];
+    Anything v = delegate.appendFloat(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendDouble_impl([Float] args) {
-    Anything v = delegate.appendDouble(args[0]);
+    Float arg_0 = args[0];
+    Anything v = delegate.appendDouble(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer appendString_impl([String]|[String,String] args) {
     if (is [String] args) {
-      Anything v = delegate.appendString(args[0]);
     }
     if (is [String,String] args) {
-      Anything v = delegate.appendString(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setByte_impl([Integer,Byte] args) {
-    Anything v = delegate.setByte(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.setByte(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setUnsignedByte_impl([Integer,Integer] args) {
-    Anything v = delegate.setUnsignedByte(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setUnsignedByte(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setInt_impl([Integer,Integer] args) {
-    Anything v = delegate.setInt(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setInt(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setUnsignedInt_impl([Integer,Integer] args) {
-    Anything v = delegate.setUnsignedInt(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setUnsignedInt(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setLong_impl([Integer,Integer] args) {
-    Anything v = delegate.setLong(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setLong(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setDouble_impl([Integer,Float] args) {
-    Anything v = delegate.setDouble(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Float arg_1 = args[1];
+    Anything v = delegate.setDouble(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setFloat_impl([Integer,Float] args) {
-    Anything v = delegate.setFloat(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Float arg_1 = args[1];
+    Anything v = delegate.setFloat(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setShort_impl([Integer,Integer] args) {
-    Anything v = delegate.setShort(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setShort(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setUnsignedShort_impl([Integer,Integer] args) {
-    Anything v = delegate.setUnsignedShort(args[0],args[1]);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Anything v = delegate.setUnsignedShort(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Buffer setBuffer_impl([Integer,Buffer]|[Integer,Buffer,Integer,Integer] args) {
     if (is [Integer,Buffer] args) {
-      assert(is Delegating<Buffer> arg_1 = args[1]);
-      Anything v = delegate.setBuffer(args[0],arg_1.delegate);
     }
     if (is [Integer,Buffer,Integer,Integer] args) {
-      assert(is Delegating<Buffer> arg_1 = args[1]);
-      Anything v = delegate.setBuffer(args[0],arg_1.delegate,args[2],args[3]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -314,10 +341,8 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer setString_impl([Integer,String]|[Integer,String,String] args) {
     if (is [Integer,String] args) {
-      Anything v = delegate.setString(args[0],args[1]);
     }
     if (is [Integer,String,String] args) {
-      Anything v = delegate.setString(args[0],args[1],args[2]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -337,10 +362,8 @@ shared abstract class Buffer_Impl(Buffer delegate) satisfies Buffer & Delegating
 
   Buffer slice_impl([]|[Integer,Integer] args) {
     if (is [] args) {
-      Anything v = delegate.slice();
     }
     if (is [Integer,Integer] args) {
-      Anything v = delegate.slice(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

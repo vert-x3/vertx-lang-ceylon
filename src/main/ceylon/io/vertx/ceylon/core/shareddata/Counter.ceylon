@@ -21,7 +21,7 @@ shared interface Counter  {
 }
 /* Generated from io.vertx.core.shareddata.Counter */
 
-shared abstract class Counter_Impl(Counter delegate) satisfies Counter & Delegating<Counter> {
+shared abstract class Counter_Impl(Counter_ delegate) satisfies Counter & Delegating<Counter_> {
 
   shared actual Anything(*<[Anything(Throwable|Integer)]>) get => flatten(get_impl);
   shared actual Anything(*<[Anything(Throwable|Integer)]>) incrementAndGet => flatten(incrementAndGet_impl);
@@ -32,43 +32,54 @@ shared abstract class Counter_Impl(Counter delegate) satisfies Counter & Delegat
   shared actual Anything(*<[Integer,Integer,Anything(Throwable|Boolean)]>) compareAndSet => flatten(compareAndSet_impl);
 
   Anything get_impl([Anything(Throwable|Integer)] args) {
-    Anything v = delegate.get(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.get(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything incrementAndGet_impl([Anything(Throwable|Integer)] args) {
-    Anything v = delegate.incrementAndGet(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.incrementAndGet(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getAndIncrement_impl([Anything(Throwable|Integer)] args) {
-    Anything v = delegate.getAndIncrement(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.getAndIncrement(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything decrementAndGet_impl([Anything(Throwable|Integer)] args) {
-    Anything v = delegate.decrementAndGet(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.decrementAndGet(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything addAndGet_impl([Integer,Anything(Throwable|Integer)] args) {
-    Anything v = delegate.addAndGet(args[0],nothing);
+    Integer arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.addAndGet(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getAndAdd_impl([Integer,Anything(Throwable|Integer)] args) {
-    Anything v = delegate.getAndAdd(args[0],nothing);
+    Integer arg_0 = args[0];
+    Nothing arg_1 = nothing;
+    Anything v = delegate.getAndAdd(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything compareAndSet_impl([Integer,Integer,Anything(Throwable|Boolean)] args) {
-    Anything v = delegate.compareAndSet(args[0],args[1],nothing);
+    Integer arg_0 = args[0];
+    Integer arg_1 = args[1];
+    Nothing arg_2 = nothing;
+    Anything v = delegate.compareAndSet(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

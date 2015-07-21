@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   JksOptions_=JksOptions
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.net.JksOptions */
 shared class JksOptions(
   shared String password,

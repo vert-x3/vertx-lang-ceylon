@@ -1,5 +1,9 @@
 import io.vertx.codegen.testmodel {
-  Factory_=Factory
+  Factory_=Factory,
+  RefedInterface1_=RefedInterface1,
+  ConcreteHandlerUserType_=ConcreteHandlerUserType,
+  AbstractHandlerUserType_=AbstractHandlerUserType,
+  ConcreteHandlerUserTypeExtension_=ConcreteHandlerUserTypeExtension
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -16,7 +20,7 @@ shared interface Factory  {
 }
 /* Generated from io.vertx.codegen.testmodel.Factory */
 
-shared abstract class Factory_Impl(Factory delegate) satisfies Factory & Delegating<Factory> {
+shared abstract class Factory_Impl(Factory_ delegate) satisfies Factory & Delegating<Factory_> {
 
 
 }

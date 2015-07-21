@@ -7,11 +7,15 @@ import io.vertx.ceylon.core.net {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.metrics {
+  Measured_=Measured
+}
 import io.vertx.ceylon.core.metrics {
   Measured
 }
 import io.vertx.core.net {
-  NetClient_=NetClient
+  NetClient_=NetClient,
+  NetSocket_=NetSocket
 }
 /* Generated from io.vertx.core.net.NetClient */
 shared interface NetClient satisfies Measured {
@@ -21,13 +25,16 @@ shared interface NetClient satisfies Measured {
 }
 /* Generated from io.vertx.core.net.NetClient */
 
-shared abstract class NetClient_Impl(NetClient delegate) satisfies NetClient & Delegating<NetClient> {
+shared abstract class NetClient_Impl(NetClient_ delegate) satisfies NetClient & Delegating<NetClient_> {
 
   shared actual NetClient(*<[Integer,String,Anything(Throwable|NetSocket)]>) connect => flatten(connect_impl);
   shared actual Anything(*<[]>) close => flatten(close_impl);
 
   NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
-    Anything v = delegate.connect(args[0],args[1],nothing);
+    Integer arg_0 = args[0];
+    String arg_1 = args[1];
+    Nothing arg_2 = nothing;
+    Anything v = delegate.connect(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

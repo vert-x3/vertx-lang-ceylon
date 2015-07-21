@@ -4,11 +4,15 @@ import java.lang {
 import io.vertx.ceylon.core.eventbus {
   Message
 }
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.core.eventbus {
-  MessageConsumer_=MessageConsumer
+  MessageConsumer_=MessageConsumer,
+  Message_=Message
 }
 import io.vertx.ceylon.core.streams {
   ReadStream
@@ -31,7 +35,7 @@ shared interface MessageConsumer<T> satisfies ReadStream<Message<T>> {
 }
 /* Generated from io.vertx.core.eventbus.MessageConsumer<T> */
 
-shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satisfies MessageConsumer<T> & Delegating<MessageConsumer<T>> {
+shared abstract class MessageConsumer_Impl<T>(MessageConsumer_<Object> delegate) satisfies MessageConsumer<T> & Delegating<MessageConsumer_<Object>> {
 
   shared actual MessageConsumer<T>(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual MessageConsumer<T>(*<[Anything(Message<T>)]>) handler => flatten(handler_impl);
@@ -47,13 +51,15 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satis
   shared actual Anything(*<[]|[Anything(Throwable?)]>) unregister => flatten(unregister_impl);
 
   MessageConsumer<T> exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageConsumer<T> handler_impl([Anything(Message<T>)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -71,7 +77,8 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satis
   }
 
   MessageConsumer<T> endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -83,7 +90,7 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satis
   }
 
   Boolean isRegistered_impl([] args) {
-    Anything v = delegate.isRegistered();
+Anything v = delegate.registered;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -95,29 +102,29 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer<T> delegate) satis
   }
 
   MessageConsumer<T> setMaxBufferedMessages_impl([Integer] args) {
-    Anything v = delegate.setMaxBufferedMessages(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setMaxBufferedMessages(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getMaxBufferedMessages_impl([] args) {
-    Anything v = delegate.getMaxBufferedMessages();
+Anything v = delegate.maxBufferedMessages;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything completionHandler_impl([Anything(Throwable?)] args) {
-    Anything v = delegate.completionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.completionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything unregister_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
-      Anything v = delegate.unregister();
     }
     if (is [Anything(Throwable?)] args) {
-      Anything v = delegate.unregister(nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

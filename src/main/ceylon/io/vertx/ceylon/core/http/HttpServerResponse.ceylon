@@ -8,6 +8,13 @@ import io.vertx.ceylon.core {
   MultiMap,
   Future
 }
+import io.vertx.core.streams {
+  WriteStream_=WriteStream
+}
+import io.vertx.core {
+  MultiMap_=MultiMap,
+  Future_=Future
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -16,6 +23,9 @@ import io.vertx.ceylon.core.streams {
 }
 import io.vertx.core.http {
   HttpServerResponse_=HttpServerResponse
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpServerResponse */
 shared interface HttpServerResponse satisfies WriteStream<Buffer> {
@@ -46,7 +56,7 @@ shared interface HttpServerResponse satisfies WriteStream<Buffer> {
 }
 /* Generated from io.vertx.core.http.HttpServerResponse */
 
-shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satisfies HttpServerResponse & Delegating<HttpServerResponse> {
+shared abstract class HttpServerResponse_Impl(HttpServerResponse_ delegate) satisfies HttpServerResponse & Delegating<HttpServerResponse_> {
 
   shared actual HttpServerResponse(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual HttpServerResponse(*<[Buffer]|[String]|[String,String]>) write => flatten(write_impl);
@@ -73,70 +83,72 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
   shared actual HttpServerResponse(*<[Anything()]>) bodyEndHandler => flatten(bodyEndHandler_impl);
 
   HttpServerResponse exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse write_impl([Buffer]|[String]|[String,String] args) {
     if (is [Buffer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [String] args) {
-      Anything v = delegate.write(args[0]);
     }
     if (is [String,String] args) {
-      Anything v = delegate.write(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse drainHandler_impl([Anything()] args) {
-    Anything v = delegate.drainHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Integer getStatusCode_impl([] args) {
-    Anything v = delegate.getStatusCode();
+Anything v = delegate.statusCode;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setStatusCode_impl([Integer] args) {
-    Anything v = delegate.setStatusCode(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setStatusCode(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String getStatusMessage_impl([] args) {
-    Anything v = delegate.getStatusMessage();
+Anything v = delegate.statusMessage;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setStatusMessage_impl([String] args) {
-    Anything v = delegate.setStatusMessage(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.setStatusMessage(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse setChunked_impl([Boolean] args) {
-    Anything v = delegate.setChunked(args[0]);
+    Boolean arg_0 = args[0];
+    Anything v = delegate.setChunked(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isChunked_impl([] args) {
-    Anything v = delegate.isChunked();
+Anything v = delegate.chunked;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -148,7 +160,9 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
   }
 
   HttpServerResponse putHeader_impl([String,String] args) {
-    Anything v = delegate.putHeader(args[0],args[1]);
+    String arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.putHeader(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -160,13 +174,16 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
   }
 
   HttpServerResponse putTrailer_impl([String,String] args) {
-    Anything v = delegate.putTrailer(args[0],args[1]);
+    String arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.putTrailer(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse closeHandler_impl([Anything()] args) {
-    Anything v = delegate.closeHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.closeHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -179,17 +196,12 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
     if (is [] args) {
-      Anything v = delegate.end();
     }
     if (is [String] args) {
-      Anything v = delegate.end(args[0]);
     }
     if (is [Buffer] args) {
-      assert(is Delegating<Buffer> arg_0 = args[0]);
-      Anything v = delegate.end(arg_0.delegate);
     }
     if (is [String,String] args) {
-      Anything v = delegate.end(args[0],args[1]);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -197,10 +209,8 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
 
   HttpServerResponse sendFile_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
-      Anything v = delegate.sendFile(args[0]);
     }
     if (is [String,Anything(Throwable?)] args) {
-      Anything v = delegate.sendFile(args[0],nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -225,13 +235,15 @@ shared abstract class HttpServerResponse_Impl(HttpServerResponse delegate) satis
   }
 
   HttpServerResponse headersEndHandler_impl([Anything(Future<Null>)] args) {
-    Anything v = delegate.headersEndHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.headersEndHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerResponse bodyEndHandler_impl([Anything()] args) {
-    Anything v = delegate.bodyEndHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.bodyEndHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

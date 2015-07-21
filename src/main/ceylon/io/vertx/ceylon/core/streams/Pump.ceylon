@@ -1,5 +1,7 @@
 import io.vertx.core.streams {
-  Pump_=Pump
+  Pump_=Pump,
+  WriteStream_=WriteStream,
+  ReadStream_=ReadStream
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -18,7 +20,7 @@ shared interface Pump  {
 }
 /* Generated from io.vertx.core.streams.Pump */
 
-shared abstract class Pump_Impl(Pump delegate) satisfies Pump & Delegating<Pump> {
+shared abstract class Pump_Impl(Pump_ delegate) satisfies Pump & Delegating<Pump_> {
 
   shared actual Pump(*<[Integer]>) setWriteQueueMaxSize => flatten(setWriteQueueMaxSize_impl);
   shared actual Pump(*<[]>) start => flatten(start_impl);
@@ -26,7 +28,8 @@ shared abstract class Pump_Impl(Pump delegate) satisfies Pump & Delegating<Pump>
   shared actual Integer(*<[]>) numberPumped => flatten(numberPumped_impl);
 
   Pump setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

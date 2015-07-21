@@ -18,7 +18,7 @@ shared interface FileProps  {
 }
 /* Generated from io.vertx.core.file.FileProps */
 
-shared abstract class FileProps_Impl(FileProps delegate) satisfies FileProps & Delegating<FileProps> {
+shared abstract class FileProps_Impl(FileProps_ delegate) satisfies FileProps & Delegating<FileProps_> {
 
   shared actual Integer(*<[]>) creationTime => flatten(creationTime_impl);
   shared actual Integer(*<[]>) lastAccessTime => flatten(lastAccessTime_impl);
@@ -48,25 +48,25 @@ shared abstract class FileProps_Impl(FileProps delegate) satisfies FileProps & D
   }
 
   Boolean isDirectory_impl([] args) {
-    Anything v = delegate.isDirectory();
+Anything v = delegate.directory;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isOther_impl([] args) {
-    Anything v = delegate.isOther();
+Anything v = delegate.other;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isRegularFile_impl([] args) {
-    Anything v = delegate.isRegularFile();
+Anything v = delegate.regularFile;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSymbolicLink_impl([] args) {
-    Anything v = delegate.isSymbolicLink();
+Anything v = delegate.symbolicLink;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

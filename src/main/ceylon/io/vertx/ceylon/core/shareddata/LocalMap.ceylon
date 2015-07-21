@@ -21,7 +21,7 @@ shared interface LocalMap<K,V>  {
 }
 /* Generated from io.vertx.core.shareddata.LocalMap<K,V> */
 
-shared abstract class LocalMap_Impl<K,V>(LocalMap<K,V> delegate) satisfies LocalMap<K,V> & Delegating<LocalMap<K,V>> {
+shared abstract class LocalMap_Impl<K,V>(LocalMap_<Object,Object> delegate) satisfies LocalMap<K,V> & Delegating<LocalMap_<Object,Object>> {
 
   shared actual V(*<[K]>) get => flatten(get_impl);
   shared actual V(*<[K,V]>) put => flatten(put_impl);
@@ -36,19 +36,23 @@ shared abstract class LocalMap_Impl<K,V>(LocalMap<K,V> delegate) satisfies Local
   shared actual Anything(*<[]>) close => flatten(close_impl);
 
   V get_impl([K] args) {
-    Anything v = delegate.get(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.get(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   V put_impl([K,V] args) {
-    Anything v = delegate.put(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.put(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   V remove_impl([K] args) {
-    Anything v = delegate.remove(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.remove(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -66,31 +70,40 @@ shared abstract class LocalMap_Impl<K,V>(LocalMap<K,V> delegate) satisfies Local
   }
 
   Boolean isEmpty_impl([] args) {
-    Anything v = delegate.isEmpty();
+Anything v = delegate.empty;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   V putIfAbsent_impl([K,V] args) {
-    Anything v = delegate.putIfAbsent(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.putIfAbsent(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean removeIfPresent_impl([K,V] args) {
-    Anything v = delegate.removeIfPresent(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.removeIfPresent(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean replaceIfPresent_impl([K,V,V] args) {
-    Anything v = delegate.replaceIfPresent(nothing,nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Nothing arg_2 = nothing;
+    Anything v = delegate.replaceIfPresent(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   V replace_impl([K,V] args) {
-    Anything v = delegate.replace(nothing,nothing);
+    Nothing arg_0 = nothing;
+    Nothing arg_1 = nothing;
+    Anything v = delegate.replace(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

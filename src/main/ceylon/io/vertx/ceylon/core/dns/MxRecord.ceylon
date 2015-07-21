@@ -15,7 +15,7 @@ shared interface MxRecord  {
 }
 /* Generated from io.vertx.core.dns.MxRecord */
 
-shared abstract class MxRecord_Impl(MxRecord delegate) satisfies MxRecord & Delegating<MxRecord> {
+shared abstract class MxRecord_Impl(MxRecord_ delegate) satisfies MxRecord & Delegating<MxRecord_> {
 
   shared actual Integer(*<[]>) priority => flatten(priority_impl);
   shared actual String(*<[]>) name => flatten(name_impl);

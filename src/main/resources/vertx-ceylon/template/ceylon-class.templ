@@ -250,48 +250,50 @@
    * @param type the Java type to convert to
    * @param expr the expression that evaluates to the Ruby object
    */
-  def genConvParam(type, expr) {
+  def genConvParam(type, lhs, rhs) {
     var kind = type.kind;
     if (kind.basic) {
-      return expr;
+      if (kind == CLASS_STRING) {
+        return 'String ' + lhs + ' = ' + rhs;
+      }
+      var name = type.simpleName;
+      if (name == 'short' || name == 'Short' || name == 'Integer' || name == 'int' || name == 'Long' || name == 'long') {
+        return 'Integer ' + lhs + ' = ' + rhs;
+      }
+      if (name == 'boolean' || name == 'Boolean') {
+        return 'Boolean ' + lhs + " = " + rhs;
+      }
+      if (name == 'float' || name == 'Float' || name == 'double' || name == 'Double') {
+        return 'Float ' + lhs + ' = ' + rhs;
+      }
+      if (name == 'char' || name == 'Character') {
+        return 'Character ' + lhs + ' = ' + rhs;
+      }
     } else if (kind == CLASS_HANDLER) {
       var eventType = type.args[0];
       var eventKind = eventType.kind;
       if (eventKind.basic || eventKind == CLASS_DATA_OBJECT || eventKind.collection || eventKind == CLASS_API ||
           eventKind == CLASS_THROWABLE || eventKind == CLASS_OBJECT || eventKind.json) {
-        return "nothing";
       } else if (eventKind == CLASS_VOID) {
-        return "nothing";
       } else if (eventKind == CLASS_ASYNC_RESULT) {
         var resultType = eventType.args[0];
         var resultKind = resultType.kind;
         if (resultKind.basic || resultKind == CLASS_DATA_OBJECT || resultKind.collection || resultKind == CLASS_API ||
             resultKind == CLASS_OBJECT || resultKind.json) {
-          return "nothing";
         } else if (resultKind == CLASS_VOID) {
-           return "nothing";
         }
       }
     } else if (kind == CLASS_API) {
-      return expr + ".delegate";
     } else if (kind == CLASS_OBJECT) {
-      return "nothing";
     } else if (kind == CLASS_DATA_OBJECT) {
-      return "nothing";
     } else if (kind == CLASS_JSON_OBJECT) {
-      return "nothing";
     } else if (kind == CLASS_JSON_ARRAY) {
-      return "nothing";
     } else if (kind == CLASS_ENUM) {
-      return "nothing";
     } else if (kind == CLASS_LIST) {
-      return "nothing";
     } else if (kind == CLASS_SET) {
-      return "nothing";
     } else if (kind == CLASS_MAP) {
-      return "nothing";
     }
-    return "nothing";
+    return 'Nothing ' + lhs + ' = nothing';
   }
 
   /*
@@ -467,6 +469,7 @@
 @code{
   def genDelegateType(type) {
     StringBuilder s = new java.lang.StringBuilder();
+    s.append(type.raw.simpleName).append('_');
     if (type.raw.params.size() > 0) {
       s.append('<');
       var sep = '';
@@ -476,7 +479,7 @@
       }
       s.append('>');
     }
-    return type.simpleName;
+    return s.toString();
   }
 }
 
@@ -490,15 +493,19 @@
 
 @code{
   def genMethodCall(method, indent) {
+    if (isGetterMethod(method)) {
+      return 'Anything v = delegate.' + getPropertyNameFromGetter(method) + ';\n';
+    }
     var sb = new java.lang.StringBuilder();
     var args = new java.util.ArrayList();
     var idx = 0;
     for (param : method.params) {
       if (param.type.kind == CLASS_API) {
         sb.append(indent).append('assert(is Delegating<').append(genDelegateType(param.type)).append('> arg_').append(idx).append(' = args[').append(idx).append(']);\n');
-        args.add('arg_' + idx);
+        args.add('arg_' + idx + '.delegate');
       } else {
-        args.add('args[' + idx + ']');
+        sb.append(indent).append(genConvParam(param.type, 'arg_' + idx, 'args[' + idx + ']')).append(';\n');
+        args.add('arg_' + idx);
       }
       idx += 1;
     }
@@ -509,7 +516,7 @@
       if (paramIdx > 0) {
         sb.append(',');
       }
-      sb.append(genConvParam(param.type, genConvReturn(method.returnType, args[paramIdx])));
+      sb.append(args[paramIdx]);
       paramIdx += 1;
     }
     sb.append(');\n');
@@ -559,7 +566,7 @@ shared abstract class @includeNamed{'genModelDecl';typeSuffix='_Impl'}(@{genDele
 					@else{}
 						@foreach{method:methods}
 				    if (is @includeNamed{'genMethodParams'} args) {\n
-							@{genMethodCall(method,'      ')}
+
 				    }\n
 						@end{}
 					@end{}

@@ -4,6 +4,9 @@ import java.lang {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.core {
+  MultiMap_=MultiMap
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

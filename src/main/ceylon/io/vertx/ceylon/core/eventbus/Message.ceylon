@@ -7,11 +7,15 @@ import io.vertx.ceylon.core.eventbus {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.core {
+  MultiMap_=MultiMap
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.core.eventbus {
-  Message_=Message
+  Message_=Message,
+  DeliveryOptions_=DeliveryOptions
 }
 /* Generated from io.vertx.core.eventbus.Message<T> */
 shared interface Message<T>  {
@@ -25,7 +29,7 @@ shared interface Message<T>  {
 }
 /* Generated from io.vertx.core.eventbus.Message<T> */
 
-shared abstract class Message_Impl<T>(Message<T> delegate) satisfies Message<T> & Delegating<Message<T>> {
+shared abstract class Message_Impl<T>(Message_<Object> delegate) satisfies Message<T> & Delegating<Message_<Object>> {
 
   shared actual String(*<[]>) address => flatten(address_impl);
   shared actual MultiMap(*<[]>) headers => flatten(headers_impl);
@@ -60,23 +64,21 @@ shared abstract class Message_Impl<T>(Message<T> delegate) satisfies Message<T> 
 
   Anything reply_impl([Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
     if (is [Object] args) {
-      Anything v = delegate.reply(nothing);
     }
     if (is [Object,Anything(Throwable|Message<Object>)] args) {
-      Anything v = delegate.reply(nothing,nothing);
     }
     if (is [Object,DeliveryOptions] args) {
-      Anything v = delegate.reply(nothing,nothing);
     }
     if (is [Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
-      Anything v = delegate.reply(nothing,nothing,nothing);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything fail_impl([Integer,String] args) {
-    Anything v = delegate.fail(args[0],args[1]);
+    Integer arg_0 = args[0];
+    String arg_1 = args[1];
+    Anything v = delegate.fail(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

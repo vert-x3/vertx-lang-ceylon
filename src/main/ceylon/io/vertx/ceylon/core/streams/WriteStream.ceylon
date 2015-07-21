@@ -1,5 +1,6 @@
 import io.vertx.core.streams {
-  WriteStream_=WriteStream
+  WriteStream_=WriteStream,
+  StreamBase_=StreamBase
 }
 import io.vertx.lang.ceylon {
   Delegating

@@ -13,7 +13,7 @@ shared interface FileSystemProps  {
 }
 /* Generated from io.vertx.core.file.FileSystemProps */
 
-shared abstract class FileSystemProps_Impl(FileSystemProps delegate) satisfies FileSystemProps & Delegating<FileSystemProps> {
+shared abstract class FileSystemProps_Impl(FileSystemProps_ delegate) satisfies FileSystemProps & Delegating<FileSystemProps_> {
 
   shared actual Integer(*<[]>) totalSpace => flatten(totalSpace_impl);
   shared actual Integer(*<[]>) unallocatedSpace => flatten(unallocatedSpace_impl);

@@ -4,11 +4,15 @@ import java.lang {
 import io.vertx.ceylon.core.eventbus {
   DeliveryOptions
 }
+import io.vertx.core.streams {
+  WriteStream_=WriteStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.core.eventbus {
-  MessageProducer_=MessageProducer
+  MessageProducer_=MessageProducer,
+  DeliveryOptions_=DeliveryOptions
 }
 import io.vertx.ceylon.core.streams {
   WriteStream
@@ -25,7 +29,7 @@ shared interface MessageProducer<T> satisfies WriteStream<T> {
 }
 /* Generated from io.vertx.core.eventbus.MessageProducer<T> */
 
-shared abstract class MessageProducer_Impl<T>(MessageProducer<T> delegate) satisfies MessageProducer<T> & Delegating<MessageProducer<T>> {
+shared abstract class MessageProducer_Impl<T>(MessageProducer_<Object> delegate) satisfies MessageProducer<T> & Delegating<MessageProducer_<Object>> {
 
   shared actual MessageProducer<T>(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual MessageProducer<T>(*<[T]>) write => flatten(write_impl);
@@ -35,31 +39,36 @@ shared abstract class MessageProducer_Impl<T>(MessageProducer<T> delegate) satis
   shared actual String(*<[]>) address => flatten(address_impl);
 
   MessageProducer<T> exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> write_impl([T] args) {
-    Anything v = delegate.write(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.write(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> setWriteQueueMaxSize_impl([Integer] args) {
-    Anything v = delegate.setWriteQueueMaxSize(args[0]);
+    Integer arg_0 = args[0];
+    Anything v = delegate.setWriteQueueMaxSize(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> drainHandler_impl([Anything()] args) {
-    Anything v = delegate.drainHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> deliveryOptions_impl([DeliveryOptions] args) {
-    Anything v = delegate.deliveryOptions(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.deliveryOptions(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

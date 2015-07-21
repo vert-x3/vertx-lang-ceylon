@@ -13,8 +13,17 @@ import io.vertx.ceylon.core.net {
 import io.vertx.lang.ceylon {
   Delegating
 }
+import io.vertx.core.net {
+  JksOptions_=JksOptions,
+  PemKeyCertOptions_=PemKeyCertOptions,
+  PemTrustOptions_=PemTrustOptions,
+  PfxOptions_=PfxOptions
+}
 import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(

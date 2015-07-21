@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   NetClientOptions_=NetClientOptions
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.net.NetClientOptions */
 shared class NetClientOptions(
   shared Integer connectTimeout,

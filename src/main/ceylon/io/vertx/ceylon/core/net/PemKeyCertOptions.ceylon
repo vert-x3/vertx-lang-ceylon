@@ -10,6 +10,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   PemKeyCertOptions_=PemKeyCertOptions
 }
+import io.vertx.core.buffer {
+  Buffer_=Buffer
+}
 /* Generated from io.vertx.core.net.PemKeyCertOptions */
 shared class PemKeyCertOptions(
   shared String certPath,

@@ -7,6 +7,12 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
+import io.vertx.core {
+  MultiMap_=MultiMap
+}
 import io.vertx.ceylon.core.net {
   NetSocket
 }
@@ -16,8 +22,14 @@ import io.vertx.lang.ceylon {
 import io.vertx.ceylon.core.streams {
   ReadStream
 }
+import io.vertx.core.net {
+  NetSocket_=NetSocket
+}
 import io.vertx.core.http {
   HttpClientResponse_=HttpClientResponse
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpClientResponse */
 shared interface HttpClientResponse satisfies ReadStream<Buffer> {
@@ -39,7 +51,7 @@ shared interface HttpClientResponse satisfies ReadStream<Buffer> {
 }
 /* Generated from io.vertx.core.http.HttpClientResponse */
 
-shared abstract class HttpClientResponse_Impl(HttpClientResponse delegate) satisfies HttpClientResponse & Delegating<HttpClientResponse> {
+shared abstract class HttpClientResponse_Impl(HttpClientResponse_ delegate) satisfies HttpClientResponse & Delegating<HttpClientResponse_> {
 
   shared actual HttpClientResponse(*<[]>) resume => flatten(resume_impl);
   shared actual HttpClientResponse(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
@@ -63,13 +75,15 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse delegate) satis
   }
 
   HttpClientResponse exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientResponse handler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -81,7 +95,8 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse delegate) satis
   }
 
   HttpClientResponse endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -105,13 +120,15 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse delegate) satis
   }
 
   String getHeader_impl([String] args) {
-    Anything v = delegate.getHeader(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getHeader(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   String getTrailer_impl([String] args) {
-    Anything v = delegate.getTrailer(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getTrailer(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -129,7 +146,8 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse delegate) satis
   }
 
   HttpClientResponse bodyHandler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.bodyHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.bodyHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -1,3 +1,6 @@
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -8,7 +11,8 @@ import io.vertx.ceylon.core.streams {
   ReadStream
 }
 import io.vertx.core.http {
-  HttpServerRequestStream_=HttpServerRequestStream
+  HttpServerRequestStream_=HttpServerRequestStream,
+  HttpServerRequest_=HttpServerRequest
 }
 /* Generated from io.vertx.core.http.HttpServerRequestStream */
 shared interface HttpServerRequestStream satisfies ReadStream<HttpServerRequest> {
@@ -21,7 +25,7 @@ shared interface HttpServerRequestStream satisfies ReadStream<HttpServerRequest>
 }
 /* Generated from io.vertx.core.http.HttpServerRequestStream */
 
-shared abstract class HttpServerRequestStream_Impl(HttpServerRequestStream delegate) satisfies HttpServerRequestStream & Delegating<HttpServerRequestStream> {
+shared abstract class HttpServerRequestStream_Impl(HttpServerRequestStream_ delegate) satisfies HttpServerRequestStream & Delegating<HttpServerRequestStream_> {
 
   shared actual HttpServerRequestStream(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual HttpServerRequestStream(*<[Anything(HttpServerRequest)]>) handler => flatten(handler_impl);
@@ -30,13 +34,15 @@ shared abstract class HttpServerRequestStream_Impl(HttpServerRequestStream deleg
   shared actual HttpServerRequestStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   HttpServerRequestStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequestStream handler_impl([Anything(HttpServerRequest)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -54,7 +60,8 @@ shared abstract class HttpServerRequestStream_Impl(HttpServerRequestStream deleg
   }
 
   HttpServerRequestStream endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

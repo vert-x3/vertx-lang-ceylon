@@ -7,6 +7,12 @@ import io.vertx.ceylon.core {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core {
+  MultiMap_=MultiMap
+}
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
 import io.vertx.ceylon.core.net {
   SocketAddress,
   NetSocket
@@ -22,8 +28,18 @@ import io.vertx.ceylon.core.http {
 import io.vertx.ceylon.core.streams {
   ReadStream
 }
+import io.vertx.core.net {
+  SocketAddress_=SocketAddress,
+  NetSocket_=NetSocket
+}
 import io.vertx.core.http {
-  HttpServerRequest_=HttpServerRequest
+  HttpServerRequest_=HttpServerRequest,
+  ServerWebSocket_=ServerWebSocket,
+  HttpServerFileUpload_=HttpServerFileUpload,
+  HttpServerResponse_=HttpServerResponse
+}
+import io.vertx.core.buffer {
+  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpServerRequest */
 shared interface HttpServerRequest satisfies ReadStream<Buffer> {
@@ -58,7 +74,7 @@ shared interface HttpServerRequest satisfies ReadStream<Buffer> {
 }
 /* Generated from io.vertx.core.http.HttpServerRequest */
 
-shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfies HttpServerRequest & Delegating<HttpServerRequest> {
+shared abstract class HttpServerRequest_Impl(HttpServerRequest_ delegate) satisfies HttpServerRequest & Delegating<HttpServerRequest_> {
 
   shared actual HttpServerRequest(*<[Anything(Throwable)]>) exceptionHandler => flatten(exceptionHandler_impl);
   shared actual HttpServerRequest(*<[Anything(Buffer)]>) handler => flatten(handler_impl);
@@ -89,13 +105,15 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   shared actual Boolean(*<[]>) isEnded => flatten(isEnded_impl);
 
   HttpServerRequest exceptionHandler_impl([Anything(Throwable)] args) {
-    Anything v = delegate.exceptionHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequest handler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.handler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -113,7 +131,8 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   HttpServerRequest endHandler_impl([Anything()] args) {
-    Anything v = delegate.endHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -161,7 +180,8 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   String getHeader_impl([String] args) {
-    Anything v = delegate.getHeader(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getHeader(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -173,7 +193,8 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   String getParam_impl([String] args) {
-    Anything v = delegate.getParam(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getParam(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -197,7 +218,8 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   HttpServerRequest bodyHandler_impl([Anything(Buffer)] args) {
-    Anything v = delegate.bodyHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.bodyHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -209,19 +231,21 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   HttpServerRequest setExpectMultipart_impl([Boolean] args) {
-    Anything v = delegate.setExpectMultipart(args[0]);
+    Boolean arg_0 = args[0];
+    Anything v = delegate.setExpectMultipart(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isExpectMultipart_impl([] args) {
-    Anything v = delegate.isExpectMultipart();
+Anything v = delegate.expectMultipart;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequest uploadHandler_impl([Anything(HttpServerFileUpload)] args) {
-    Anything v = delegate.uploadHandler(nothing);
+    Nothing arg_0 = nothing;
+    Anything v = delegate.uploadHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -233,7 +257,8 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   String getFormAttribute_impl([String] args) {
-    Anything v = delegate.getFormAttribute(args[0]);
+    String arg_0 = args[0];
+    Anything v = delegate.getFormAttribute(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -245,7 +270,7 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest delegate) satisfi
   }
 
   Boolean isEnded_impl([] args) {
-    Anything v = delegate.isEnded();
+Anything v = delegate.ended;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

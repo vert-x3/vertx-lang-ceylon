@@ -1,5 +1,6 @@
 import io.vertx.codegen.testmodel {
-  AbstractHandlerUserType_=AbstractHandlerUserType
+  AbstractHandlerUserType_=AbstractHandlerUserType,
+  RefedInterface1_=RefedInterface1
 }
 import io.vertx.lang.ceylon {
   Delegating
