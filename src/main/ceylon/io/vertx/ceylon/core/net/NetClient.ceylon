@@ -1,6 +1,10 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.ceylon.core.net {
   NetSocket
 }
@@ -33,7 +37,7 @@ shared abstract class NetClient_Impl(NetClient_ delegate) satisfies NetClient & 
   NetClient connect_impl([Integer,String,Anything(Throwable|NetSocket)] args) {
     Integer arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<NetSocket_>> arg_2 = nothing;
     Anything v = delegate.connect(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

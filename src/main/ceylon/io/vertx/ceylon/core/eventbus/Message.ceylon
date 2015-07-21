@@ -8,6 +8,8 @@ import io.vertx.ceylon.core {
   MultiMap
 }
 import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
   MultiMap_=MultiMap
 }
 import io.vertx.lang.ceylon {
@@ -64,12 +66,24 @@ shared abstract class Message_Impl<T>(Message_<Object> delegate) satisfies Messa
 
   Anything reply_impl([Object]|[Object,Anything(Throwable|Message<Object>)]|[Object,DeliveryOptions]|[Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
     if (is [Object] args) {
+      Object arg_0 = args[0];
+      Anything v = delegate.reply(arg_0);
     }
     if (is [Object,Anything(Throwable|Message<Object>)] args) {
+      Object arg_0 = args[0];
+      Handler_<AsyncResult_<Message_<Object>>> arg_1 = nothing;
+      Anything v = delegate.reply(arg_0,arg_1);
     }
     if (is [Object,DeliveryOptions] args) {
+      Object arg_0 = args[0];
+      DeliveryOptions_ arg_1 = DeliveryOptions_();
+      Anything v = delegate.reply(arg_0,arg_1);
     }
     if (is [Object,DeliveryOptions,Anything(Throwable|Message<Object>)] args) {
+      Object arg_0 = args[0];
+      DeliveryOptions_ arg_1 = DeliveryOptions_();
+      Handler_<AsyncResult_<Message_<Object>>> arg_2 = nothing;
+      Anything v = delegate.reply(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

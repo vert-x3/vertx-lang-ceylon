@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.codegen.testmodel {
   SuperInterface1_=SuperInterface1
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

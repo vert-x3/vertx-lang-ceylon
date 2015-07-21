@@ -1,11 +1,17 @@
 import java.lang {
+  Void_=Void,
   String_=String
+}
+import java.util {
+  List_=List
 }
 import io.vertx.ceylon.core {
   Vertx
 }
 import io.vertx.core {
   Context_=Context,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
   Vertx_=Vertx
 }
 import io.vertx.lang.ceylon {
@@ -13,6 +19,9 @@ import io.vertx.lang.ceylon {
 }
 import ceylon.json {
   JsonObject=Object
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.Context */
 shared interface Context  {
@@ -48,7 +57,7 @@ shared abstract class Context_Impl(Context_ delegate) satisfies Context & Delega
   shared actual Integer(*<[]>) getInstanceCount => flatten(getInstanceCount_impl);
 
   Anything runOnContext_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.runOnContext(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -73,19 +82,19 @@ shared abstract class Context_Impl(Context_ delegate) satisfies Context & Delega
   }
 
   Boolean isEventLoopContext_impl([] args) {
-Anything v = delegate.eventLoopContext;
+    Anything v = delegate.eventLoopContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isWorkerContext_impl([] args) {
-Anything v = delegate.workerContext;
+    Anything v = delegate.workerContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isMultiThreadedWorkerContext_impl([] args) {
-Anything v = delegate.multiThreadedWorkerContext;
+    Anything v = delegate.multiThreadedWorkerContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -99,7 +108,7 @@ Anything v = delegate.multiThreadedWorkerContext;
 
   Anything put_impl([String,Object] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Object arg_1 = args[1];
     Anything v = delegate.put(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -119,7 +128,7 @@ Anything v = delegate.multiThreadedWorkerContext;
   }
 
   Integer getInstanceCount_impl([] args) {
-Anything v = delegate.instanceCount;
+    Anything v = delegate.instanceCount;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

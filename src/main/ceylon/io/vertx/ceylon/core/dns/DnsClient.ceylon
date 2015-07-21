@@ -1,5 +1,12 @@
+import java.util {
+  List_=List
+}
 import java.lang {
   String_=String
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -48,7 +55,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient lookup_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.lookup(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -56,7 +63,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient lookup4_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.lookup4(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -64,7 +71,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient lookup6_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.lookup6(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -72,7 +79,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveA_impl([String,Anything(Throwable|List<String>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
     Anything v = delegate.resolveA(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -80,7 +87,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveAAAA_impl([String,Anything(Throwable|List<String>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
     Anything v = delegate.resolveAAAA(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -88,7 +95,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveCNAME_impl([String,Anything(Throwable|List<String>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
     Anything v = delegate.resolveCNAME(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -96,7 +103,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveMX_impl([String,Anything(Throwable|List<MxRecord>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<MxRecord_>>> arg_1 = nothing;
     Anything v = delegate.resolveMX(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -104,7 +111,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveTXT_impl([String,Anything(Throwable|List<String>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
     Anything v = delegate.resolveTXT(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -112,7 +119,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolvePTR_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.resolvePTR(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -120,7 +127,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveNS_impl([String,Anything(Throwable|List<String>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
     Anything v = delegate.resolveNS(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -128,7 +135,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient resolveSRV_impl([String,Anything(Throwable|List<SrvRecord>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<List_<SrvRecord_>>> arg_1 = nothing;
     Anything v = delegate.resolveSRV(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -136,7 +143,7 @@ shared abstract class DnsClient_Impl(DnsClient_ delegate) satisfies DnsClient & 
 
   DnsClient reverseLookup_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.reverseLookup(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

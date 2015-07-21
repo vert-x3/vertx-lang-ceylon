@@ -1,8 +1,13 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core.buffer {
   Buffer
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   WriteStream_=WriteStream,

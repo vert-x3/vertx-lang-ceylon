@@ -7,12 +7,18 @@ import java.lang {
   Short_=Short,
   Boolean_=Boolean,
   String_=String,
-  Byte_=Byte
+  Byte_=Byte,
+  Void_=Void
+}
+import java.util {
+  Set_=Set,
+  List_=List
 }
 import io.vertx.codegen.testmodel {
   TestInterface_=TestInterface,
   TestDataObject_=TestDataObject,
   AbstractHandlerUserType_=AbstractHandlerUserType,
+  TestEnum_=TestEnum,
   ConcreteHandlerUserType_=ConcreteHandlerUserType,
   ConcreteHandlerUserTypeExtension_=ConcreteHandlerUserTypeExtension,
   GenericRefedInterface_=GenericRefedInterface,
@@ -20,6 +26,10 @@ import io.vertx.codegen.testmodel {
   SuperInterface1_=SuperInterface1,
   RefedInterface2_=RefedInterface2,
   SuperInterface2_=SuperInterface2
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -38,6 +48,10 @@ import io.vertx.ceylon.codegen.testmodel {
   SuperInterface1,
   RefedInterface2,
   SuperInterface2
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.TestInterface */
 shared interface TestInterface satisfies SuperInterface2 {
@@ -358,29 +372,29 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
   }
 
   Anything methodWithBasicBoxedParams_impl([Byte,Integer,Integer,Integer,Float,Float,Boolean,Character] args) {
-    Nothing arg_0 = nothing;
-    Integer arg_1 = args[1];
-    Integer arg_2 = args[2];
-    Integer arg_3 = args[3];
-    Float arg_4 = args[4];
-    Float arg_5 = args[5];
-    Boolean arg_6 = args[6];
-    Character arg_7 = args[7];
+    Byte_ arg_0 = nothing;
+    Short_ arg_1 = nothing;
+    Integer_ arg_2 = nothing;
+    Long_ arg_3 = nothing;
+    Float_ arg_4 = nothing;
+    Double_ arg_5 = nothing;
+    Boolean_ arg_6 = nothing;
+    Character_ arg_7 = nothing;
     Anything v = delegate.methodWithBasicBoxedParams(arg_0,arg_1,arg_2,arg_3,arg_4,arg_5,arg_6,arg_7);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerBasicTypes_impl([Anything(Byte),Anything(Integer),Anything(Integer),Anything(Integer),Anything(Float),Anything(Float),Anything(Boolean),Anything(Character),Anything(String)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
-    Nothing arg_2 = nothing;
-    Nothing arg_3 = nothing;
-    Nothing arg_4 = nothing;
-    Nothing arg_5 = nothing;
-    Nothing arg_6 = nothing;
-    Nothing arg_7 = nothing;
-    Nothing arg_8 = nothing;
+    Handler_<Byte_> arg_0 = nothing;
+    Handler_<Short_> arg_1 = nothing;
+    Handler_<Integer_> arg_2 = nothing;
+    Handler_<Long_> arg_3 = nothing;
+    Handler_<Float_> arg_4 = nothing;
+    Handler_<Double_> arg_5 = nothing;
+    Handler_<Boolean_> arg_6 = nothing;
+    Handler_<Character_> arg_7 = nothing;
+    Handler_<String_> arg_8 = nothing;
     Anything v = delegate.methodWithHandlerBasicTypes(arg_0,arg_1,arg_2,arg_3,arg_4,arg_5,arg_6,arg_7,arg_8);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -388,7 +402,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultByte_impl([Boolean,Anything(Throwable|Byte)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Byte_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultByte(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -396,7 +410,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultShort_impl([Boolean,Anything(Throwable|Integer)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Short_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultShort(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -404,7 +418,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultInteger_impl([Boolean,Anything(Throwable|Integer)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Integer_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultInteger(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -412,7 +426,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultLong_impl([Boolean,Anything(Throwable|Integer)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultLong(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -420,7 +434,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultFloat_impl([Boolean,Anything(Throwable|Float)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Float_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultFloat(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -428,7 +442,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultDouble_impl([Boolean,Anything(Throwable|Float)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Double_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultDouble(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -436,7 +450,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultBoolean_impl([Boolean,Anything(Throwable|Boolean)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Boolean_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultBoolean(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -444,7 +458,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultCharacter_impl([Boolean,Anything(Throwable|Character)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Character_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultCharacter(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -452,7 +466,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultString_impl([Boolean,Anything(Throwable|String)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultString(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -460,7 +474,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultDataObject_impl([Boolean,Anything(Throwable|TestDataObject)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<TestDataObject_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultDataObject(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -475,21 +489,21 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithObjectParam_impl([String,Object] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Object arg_1 = args[1];
     Anything v = delegate.methodWithObjectParam(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithDataObjectParam_impl([TestDataObject] args) {
-    Nothing arg_0 = nothing;
+    TestDataObject_ arg_0 = TestDataObject_();
     Anything v = delegate.methodWithDataObjectParam(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithNullDataObjectParam_impl([TestDataObject] args) {
-    Nothing arg_0 = nothing;
+    TestDataObject_ arg_0 = TestDataObject_();
     Anything v = delegate.methodWithNullDataObjectParam(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -540,332 +554,332 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
   }
 
   Anything methodWithHandlerListAndSet_impl([Anything(List<String>),Anything(List<Integer>),Anything(Set<String>),Anything(Set<Integer>)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
-    Nothing arg_2 = nothing;
-    Nothing arg_3 = nothing;
+    Handler_<List_<String_>> arg_0 = nothing;
+    Handler_<List_<Integer_>> arg_1 = nothing;
+    Handler_<Set_<String_>> arg_2 = nothing;
+    Handler_<Set_<Integer_>> arg_3 = nothing;
     Anything v = delegate.methodWithHandlerListAndSet(arg_0,arg_1,arg_2,arg_3);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListString_impl([Anything(Throwable|List<String>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<String_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListString(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListInteger_impl([Anything(Throwable|List<Integer>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<Integer_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListInteger(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetString_impl([Anything(Throwable|Set<String>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<String_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetString(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetInteger_impl([Anything(Throwable|Set<Integer>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<Integer_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetInteger(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListVertxGen_impl([Anything(List<RefedInterface1>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<RefedInterface1_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetVertxGen_impl([Anything(Set<RefedInterface1>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<RefedInterface1_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListAbstractVertxGen_impl([Anything(List<RefedInterface2>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<RefedInterface2_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListAbstractVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetAbstractVertxGen_impl([Anything(Set<RefedInterface2>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<RefedInterface2_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetAbstractVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListJsonObject_impl([Anything(List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullJsonObject_impl([Anything(List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListNullJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListComplexJsonObject_impl([Anything(List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListComplexJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetJsonObject_impl([Anything(Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullJsonObject_impl([Anything(Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetNullJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetComplexJsonObject_impl([Anything(Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetComplexJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListJsonArray_impl([Anything(List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullJsonArray_impl([Anything(List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListNullJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListComplexJsonArray_impl([Anything(List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListComplexJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetJsonArray_impl([Anything(Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullJsonArray_impl([Anything(Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetNullJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetComplexJsonArray_impl([Anything(Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetComplexJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListDataObject_impl([Anything(List<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<TestDataObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerListNullDataObject_impl([Anything(List<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<List_<TestDataObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerListNullDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetDataObject_impl([Anything(Set<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<TestDataObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerSetNullDataObject_impl([Anything(Set<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Set_<TestDataObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerSetNullDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListVertxGen_impl([Anything(Throwable|List<RefedInterface1>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<RefedInterface1_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetVertxGen_impl([Anything(Throwable|Set<RefedInterface1>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<RefedInterface1_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListAbstractVertxGen_impl([Anything(Throwable|List<RefedInterface2>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<RefedInterface2_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListAbstractVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetAbstractVertxGen_impl([Anything(Throwable|Set<RefedInterface2>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<RefedInterface2_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetAbstractVertxGen(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListNullJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListComplexJsonObject_impl([Anything(Throwable|List<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListComplexJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetNullJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetComplexJsonObject_impl([Anything(Throwable|Set<JsonObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetComplexJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListNullJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListComplexJsonArray_impl([Anything(Throwable|List<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListComplexJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetNullJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetComplexJsonArray_impl([Anything(Throwable|Set<JsonArray>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<JsonArray_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetComplexJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListDataObject_impl([Anything(Throwable|List<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<TestDataObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultListNullDataObject_impl([Anything(Throwable|List<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<List_<TestDataObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultListNullDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetDataObject_impl([Anything(Throwable|Set<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<TestDataObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultSetNullDataObject_impl([Anything(Throwable|Set<TestDataObject>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Set_<TestDataObject_>>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultSetNullDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerUserTypes_impl([Anything(RefedInterface1)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<RefedInterface1_> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerUserTypes(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultUserTypes_impl([Anything(Throwable|RefedInterface1)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<RefedInterface1_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultUserTypes(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -893,7 +907,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
   }
 
   Anything methodWithHandlerVoid_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerVoid(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -901,37 +915,37 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithHandlerAsyncResultVoid_impl([Boolean,Anything(Throwable?)] args) {
     Boolean arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultVoid(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerThrowable_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerThrowable(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerDataObject_impl([Anything(TestDataObject)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<TestDataObject_> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerDataObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerGenericUserType_impl([Object,Anything(GenericRefedInterface<Object>)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
+    assert(is Object arg_0 = args[0]);
+    Handler_<GenericRefedInterface_<Object>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerGenericUserType(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultGenericUserType_impl([Object,Anything(Throwable|GenericRefedInterface<Object>)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
+    assert(is Object arg_0 = args[0]);
+    Handler_<AsyncResult_<GenericRefedInterface_<Object>>> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultGenericUserType(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1011,12 +1025,27 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   String overloadedMethod_impl([String,Anything(String)]|[String,RefedInterface1]|[String,RefedInterface1,Anything(String)]|[String,RefedInterface1,Integer,Anything(String)] args) {
     if (is [String,Anything(String)] args) {
+      String arg_0 = args[0];
+      Handler_<String_> arg_1 = nothing;
+      Anything v = delegate.overloadedMethod(arg_0,arg_1);
     }
     if (is [String,RefedInterface1] args) {
+      String arg_0 = args[0];
+      assert(is Delegating<RefedInterface1_> arg_1 = args[1]);
+      Anything v = delegate.overloadedMethod(arg_0,arg_1.delegate);
     }
     if (is [String,RefedInterface1,Anything(String)] args) {
+      String arg_0 = args[0];
+      assert(is Delegating<RefedInterface1_> arg_1 = args[1]);
+      Handler_<String_> arg_2 = nothing;
+      Anything v = delegate.overloadedMethod(arg_0,arg_1.delegate,arg_2);
     }
     if (is [String,RefedInterface1,Integer,Anything(String)] args) {
+      String arg_0 = args[0];
+      assert(is Delegating<RefedInterface1_> arg_1 = args[1]);
+      Integer arg_2 = args[2];
+      Handler_<String_> arg_3 = nothing;
+      Anything v = delegate.overloadedMethod(arg_0,arg_1.delegate,arg_2,arg_3);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1031,7 +1060,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithGenericParam_impl([String,Object] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    assert(is Object arg_1 = args[1]);
     Anything v = delegate.methodWithGenericParam(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1039,7 +1068,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithGenericHandler_impl([String,Anything(Object)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<Object> arg_1 = nothing;
     Anything v = delegate.methodWithGenericHandler(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1047,7 +1076,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   Anything methodWithGenericHandlerAsyncResult_impl([String,Anything(Throwable|Object)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Object>> arg_1 = nothing;
     Anything v = delegate.methodWithGenericHandlerAsyncResult(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1127,164 +1156,164 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
   }
 
   Anything methodWithHandlerJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
+    Handler_<JsonObject_> arg_0 = nothing;
+    Handler_<JsonArray_> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerJson(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerNullJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
+    Handler_<JsonObject_> arg_0 = nothing;
+    Handler_<JsonArray_> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerNullJson(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerComplexJson_impl([Anything(JsonObject),Anything(JsonArray)] args) {
-    Nothing arg_0 = nothing;
-    Nothing arg_1 = nothing;
+    Handler_<JsonObject_> arg_0 = nothing;
+    Handler_<JsonArray_> arg_1 = nothing;
     Anything v = delegate.methodWithHandlerComplexJson(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultJsonObject_impl([Anything(Throwable|JsonObject)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultNullJsonObject_impl([Anything(Throwable|JsonObject)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultNullJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultComplexJsonObject_impl([Anything(Throwable|JsonObject)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonObject_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultComplexJsonObject(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultJsonArray_impl([Anything(Throwable|JsonArray)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultNullJsonArray_impl([Anything(Throwable|JsonArray)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultNullJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything methodWithHandlerAsyncResultComplexJsonArray_impl([Anything(Throwable|JsonArray)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<JsonArray_>> arg_0 = nothing;
     Anything v = delegate.methodWithHandlerAsyncResultComplexJsonArray(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,String> methodWithMapReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,String> methodWithMapStringReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapStringReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapLongReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapLongReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapIntegerReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapIntegerReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Integer> methodWithMapShortReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapShortReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Byte> methodWithMapByteReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapByteReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Character> methodWithMapCharacterReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapCharacterReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Boolean> methodWithMapBooleanReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapBooleanReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Float> methodWithMapFloatReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapFloatReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,Float> methodWithMapDoubleReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapDoubleReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonObject> methodWithMapJsonObjectReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapJsonObjectReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonObject> methodWithMapComplexJsonObjectReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapComplexJsonObjectReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonArray> methodWithMapJsonArrayReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapJsonArrayReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Map<String,JsonArray> methodWithMapComplexJsonArrayReturn_impl([Anything(String)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<String_> arg_0 = nothing;
     Anything v = delegate.methodWithMapComplexJsonArrayReturn(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -1394,7 +1423,7 @@ shared abstract class TestInterface_Impl(TestInterface_ delegate) satisfies Test
 
   String methodWithEnumParam_impl([String,String] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    TestEnum_ arg_1 = nothing;
     Anything v = delegate.methodWithEnumParam(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

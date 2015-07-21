@@ -2,6 +2,10 @@ import io.vertx.codegen.testmodel {
   AbstractHandlerUserType_=AbstractHandlerUserType,
   RefedInterface1_=RefedInterface1
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

@@ -1,6 +1,10 @@
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -170,8 +174,15 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   String getString_impl([Integer,Integer]|[Integer,Integer,String] args) {
     if (is [Integer,Integer] args) {
+      Integer arg_0 = args[0];
+      Integer arg_1 = args[1];
+      Anything v = delegate.getString(arg_0,arg_1);
     }
     if (is [Integer,Integer,String] args) {
+      Integer arg_0 = args[0];
+      Integer arg_1 = args[1];
+      String arg_2 = args[2];
+      Anything v = delegate.getString(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -179,8 +190,14 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   Buffer appendBuffer_impl([Buffer]|[Buffer,Integer,Integer] args) {
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.appendBuffer(arg_0.delegate);
     }
     if (is [Buffer,Integer,Integer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Integer arg_1 = args[1];
+      Integer arg_2 = args[2];
+      Anything v = delegate.appendBuffer(arg_0.delegate,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -251,8 +268,13 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   Buffer appendString_impl([String]|[String,String] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.appendString(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.appendString(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -332,8 +354,16 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   Buffer setBuffer_impl([Integer,Buffer]|[Integer,Buffer,Integer,Integer] args) {
     if (is [Integer,Buffer] args) {
+      Integer arg_0 = args[0];
+      assert(is Delegating<Buffer_> arg_1 = args[1]);
+      Anything v = delegate.setBuffer(arg_0,arg_1.delegate);
     }
     if (is [Integer,Buffer,Integer,Integer] args) {
+      Integer arg_0 = args[0];
+      assert(is Delegating<Buffer_> arg_1 = args[1]);
+      Integer arg_2 = args[2];
+      Integer arg_3 = args[3];
+      Anything v = delegate.setBuffer(arg_0,arg_1.delegate,arg_2,arg_3);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -341,8 +371,15 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   Buffer setString_impl([Integer,String]|[Integer,String,String] args) {
     if (is [Integer,String] args) {
+      Integer arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.setString(arg_0,arg_1);
     }
     if (is [Integer,String,String] args) {
+      Integer arg_0 = args[0];
+      String arg_1 = args[1];
+      String arg_2 = args[2];
+      Anything v = delegate.setString(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -362,8 +399,12 @@ shared abstract class Buffer_Impl(Buffer_ delegate) satisfies Buffer & Delegatin
 
   Buffer slice_impl([]|[Integer,Integer] args) {
     if (is [] args) {
+      Anything v = delegate.slice();
     }
     if (is [Integer,Integer] args) {
+      Integer arg_0 = args[0];
+      Integer arg_1 = args[1];
+      Anything v = delegate.slice(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

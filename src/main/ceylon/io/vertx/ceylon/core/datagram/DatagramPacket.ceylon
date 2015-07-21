@@ -4,6 +4,10 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.core.datagram {
   DatagramPacket_=DatagramPacket
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.ceylon.core.net {
   SocketAddress
 }

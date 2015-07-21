@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -35,19 +39,19 @@ shared abstract class WebSocketFrame_Impl(WebSocketFrame_ delegate) satisfies We
   shared actual Boolean(*<[]>) isFinal => flatten(isFinal_impl);
 
   Boolean isText_impl([] args) {
-Anything v = delegate.text;
+    Anything v = delegate.text;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isBinary_impl([] args) {
-Anything v = delegate.binary;
+    Anything v = delegate.binary;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isContinuation_impl([] args) {
-Anything v = delegate.continuation;
+    Anything v = delegate.continuation;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -65,7 +69,7 @@ Anything v = delegate.continuation;
   }
 
   Boolean isFinal_impl([] args) {
-Anything v = delegate.final;
+    Anything v = delegate.final;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

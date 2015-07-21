@@ -4,8 +4,13 @@ import io.vertx.ceylon.core.shareddata {
 import io.vertx.core.shareddata {
   SharedData_=SharedData
 }
+import java.util {
+  Set_=Set
+}
 import io.vertx.core {
   Vertx_=Vertx,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
   Context_=Context,
   TimeoutStream_=TimeoutStream,
   VertxOptions_=VertxOptions,
@@ -42,7 +47,8 @@ import io.vertx.ceylon.core.dns {
 }
 import java.lang {
   Long_=Long,
-  String_=String
+  String_=String,
+  Void_=Void
 }
 import io.vertx.ceylon.core.eventbus {
   EventBus
@@ -136,15 +142,18 @@ shared abstract class Vertx_Impl(Vertx_ delegate) satisfies Vertx & Delegating<V
   shared actual Anything(*<[Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)]>) executeBlocking => flatten(executeBlocking_impl);
 
   Context getOrCreateContext_impl([] args) {
-Anything v = delegate.orCreateContext;
+    Anything v = delegate.orCreateContext;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetServer createNetServer_impl([]|[NetServerOptions] args) {
     if (is [] args) {
+      Anything v = delegate.createNetServer();
     }
     if (is [NetServerOptions] args) {
+      NetServerOptions_ arg_0 = NetServerOptions_();
+      Anything v = delegate.createNetServer(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -152,8 +161,11 @@ Anything v = delegate.orCreateContext;
 
   NetClient createNetClient_impl([]|[NetClientOptions] args) {
     if (is [] args) {
+      Anything v = delegate.createNetClient();
     }
     if (is [NetClientOptions] args) {
+      NetClientOptions_ arg_0 = NetClientOptions_();
+      Anything v = delegate.createNetClient(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -161,8 +173,11 @@ Anything v = delegate.orCreateContext;
 
   HttpServer createHttpServer_impl([]|[HttpServerOptions] args) {
     if (is [] args) {
+      Anything v = delegate.createHttpServer();
     }
     if (is [HttpServerOptions] args) {
+      HttpServerOptions_ arg_0 = HttpServerOptions_();
+      Anything v = delegate.createHttpServer(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -170,8 +185,11 @@ Anything v = delegate.orCreateContext;
 
   HttpClient createHttpClient_impl([]|[HttpClientOptions] args) {
     if (is [] args) {
+      Anything v = delegate.createHttpClient();
     }
     if (is [HttpClientOptions] args) {
+      HttpClientOptions_ arg_0 = HttpClientOptions_();
+      Anything v = delegate.createHttpClient(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -179,8 +197,11 @@ Anything v = delegate.orCreateContext;
 
   DatagramSocket createDatagramSocket_impl([]|[DatagramSocketOptions] args) {
     if (is [] args) {
+      Anything v = delegate.createDatagramSocket();
     }
     if (is [DatagramSocketOptions] args) {
+      DatagramSocketOptions_ arg_0 = DatagramSocketOptions_();
+      Anything v = delegate.createDatagramSocket(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -214,7 +235,7 @@ Anything v = delegate.orCreateContext;
 
   Integer setTimer_impl([Integer,Anything(Integer)] args) {
     Integer arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<Long_> arg_1 = nothing;
     Anything v = delegate.setTimer(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -229,7 +250,7 @@ Anything v = delegate.orCreateContext;
 
   Integer setPeriodic_impl([Integer,Anything(Integer)] args) {
     Integer arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<Long_> arg_1 = nothing;
     Anything v = delegate.setPeriodic(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -250,7 +271,7 @@ Anything v = delegate.orCreateContext;
   }
 
   Anything runOnContext_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.runOnContext(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -258,8 +279,11 @@ Anything v = delegate.orCreateContext;
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
+      Handler_<AsyncResult_<Void_>> arg_0 = nothing;
+      Anything v = delegate.close(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -267,12 +291,24 @@ Anything v = delegate.orCreateContext;
 
   Anything deployVerticle_impl([String]|[String,Anything(Throwable|String)]|[String,DeploymentOptions]|[String,DeploymentOptions,Anything(Throwable|String)] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.deployVerticle(arg_0);
     }
     if (is [String,Anything(Throwable|String)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<String_>> arg_1 = nothing;
+      Anything v = delegate.deployVerticle(arg_0,arg_1);
     }
     if (is [String,DeploymentOptions] args) {
+      String arg_0 = args[0];
+      DeploymentOptions_ arg_1 = DeploymentOptions_();
+      Anything v = delegate.deployVerticle(arg_0,arg_1);
     }
     if (is [String,DeploymentOptions,Anything(Throwable|String)] args) {
+      String arg_0 = args[0];
+      DeploymentOptions_ arg_1 = DeploymentOptions_();
+      Handler_<AsyncResult_<String_>> arg_2 = nothing;
+      Anything v = delegate.deployVerticle(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -280,8 +316,13 @@ Anything v = delegate.orCreateContext;
 
   Anything undeploy_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.undeploy(arg_0);
     }
     if (is [String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<Void_>> arg_1 = nothing;
+      Anything v = delegate.undeploy(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -294,15 +335,22 @@ Anything v = delegate.orCreateContext;
   }
 
   Boolean isClustered_impl([] args) {
-Anything v = delegate.clustered;
+    Anything v = delegate.clustered;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything executeBlocking_impl([Anything(Future<Object>),Anything(Throwable|Object)]|[Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
     if (is [Anything(Future<Object>),Anything(Throwable|Object)] args) {
+      Handler_<Future_<Object>> arg_0 = nothing;
+      Handler_<AsyncResult_<Object>> arg_1 = nothing;
+      Anything v = delegate.executeBlocking(arg_0,arg_1);
     }
     if (is [Anything(Future<Object>),Boolean,Anything(Throwable|Object)] args) {
+      Handler_<Future_<Object>> arg_0 = nothing;
+      Boolean arg_1 = args[1];
+      Handler_<AsyncResult_<Object>> arg_2 = nothing;
+      Anything v = delegate.executeBlocking(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

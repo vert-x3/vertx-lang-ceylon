@@ -1,8 +1,14 @@
+import java.util {
+  List_=List,
+  Set_=Set
+}
 import java.lang {
   String_=String
 }
 import io.vertx.core {
-  MultiMap_=MultiMap
+  MultiMap_=MultiMap,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -62,7 +68,7 @@ shared abstract class MultiMap_Impl(MultiMap_ delegate) satisfies MultiMap & Del
   }
 
   Boolean isEmpty_impl([] args) {
-Anything v = delegate.empty;
+    Anything v = delegate.empty;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

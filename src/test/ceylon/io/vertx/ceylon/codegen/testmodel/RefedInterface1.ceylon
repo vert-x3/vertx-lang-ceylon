@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.codegen.testmodel {
   RefedInterface1_=RefedInterface1
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -21,7 +25,7 @@ shared abstract class RefedInterface1_Impl(RefedInterface1_ delegate) satisfies 
   shared actual RefedInterface1(*<[String]>) setString => flatten(setString_impl);
 
   String getString_impl([] args) {
-Anything v = delegate.string;
+    Anything v = delegate.string;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

@@ -1,6 +1,10 @@
 import io.vertx.codegen.testmodel {
   GenericRefedInterface_=GenericRefedInterface
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -18,14 +22,14 @@ shared abstract class GenericRefedInterface_Impl<T>(GenericRefedInterface_<Objec
   shared actual T(*<[]>) getValue => flatten(getValue_impl);
 
   Anything setValue_impl([T] args) {
-    Nothing arg_0 = nothing;
+    assert(is Object arg_0 = args[0]);
     Anything v = delegate.setValue(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   T getValue_impl([] args) {
-Anything v = delegate.value;
+    Anything v = delegate.\ivalue;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

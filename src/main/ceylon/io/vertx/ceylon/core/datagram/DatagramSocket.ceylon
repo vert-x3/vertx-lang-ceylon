@@ -1,32 +1,17 @@
-import java.lang {
-  String_=String
-}
-import io.vertx.ceylon.core.datagram {
-  PacketWritestream,
-  DatagramPacket
-}
-import io.vertx.ceylon.core.buffer {
-  Buffer
-}
 import io.vertx.core.datagram {
   DatagramSocket_=DatagramSocket,
   PacketWritestream_=PacketWritestream,
   DatagramPacket_=DatagramPacket
 }
-import io.vertx.core.streams {
-  ReadStream_=ReadStream
-}
-import io.vertx.ceylon.core.net {
-  SocketAddress
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
 }
 import io.vertx.core.metrics {
   Measured_=Measured
-}
-import io.vertx.ceylon.core.metrics {
-  Measured
 }
 import io.vertx.ceylon.core.streams {
   ReadStream
@@ -36,6 +21,26 @@ import io.vertx.core.net {
 }
 import io.vertx.core.buffer {
   Buffer_=Buffer
+}
+import java.lang {
+  Void_=Void,
+  String_=String
+}
+import io.vertx.ceylon.core.datagram {
+  PacketWritestream,
+  DatagramPacket
+}
+import io.vertx.ceylon.core.buffer {
+  Buffer
+}
+import io.vertx.core.streams {
+  ReadStream_=ReadStream
+}
+import io.vertx.ceylon.core.net {
+  SocketAddress
+}
+import io.vertx.ceylon.core.metrics {
+  Measured
 }
 /* Generated from io.vertx.core.datagram.DatagramSocket */
 shared interface DatagramSocket satisfies ReadStream<DatagramPacket>& Measured {
@@ -74,10 +79,26 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
 
   DatagramSocket send_impl([Buffer,Integer,String,Anything(Throwable|DatagramSocket)]|[String,Integer,String,Anything(Throwable|DatagramSocket)]|[String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [Buffer,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Integer arg_1 = args[1];
+      String arg_2 = args[2];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_3 = nothing;
+      Anything v = delegate.send(arg_0.delegate,arg_1,arg_2,arg_3);
     }
     if (is [String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      Integer arg_1 = args[1];
+      String arg_2 = args[2];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_3 = nothing;
+      Anything v = delegate.send(arg_0,arg_1,arg_2,arg_3);
     }
     if (is [String,String,Integer,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Integer arg_2 = args[2];
+      String arg_3 = args[3];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_4 = nothing;
+      Anything v = delegate.send(arg_0,arg_1,arg_2,arg_3,arg_4);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -93,8 +114,11 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
+      Handler_<AsyncResult_<Void_>> arg_0 = nothing;
+      Anything v = delegate.close(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -108,8 +132,16 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
 
   DatagramSocket listenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_1 = nothing;
+      Anything v = delegate.listenMulticastGroup(arg_0,arg_1);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      String arg_2 = args[2];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_3 = nothing;
+      Anything v = delegate.listenMulticastGroup(arg_0,arg_1,arg_2,arg_3);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -117,8 +149,16 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
 
   DatagramSocket unlistenMulticastGroup_impl([String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_1 = nothing;
+      Anything v = delegate.unlistenMulticastGroup(arg_0,arg_1);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      String arg_2 = args[2];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_3 = nothing;
+      Anything v = delegate.unlistenMulticastGroup(arg_0,arg_1,arg_2,arg_3);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -126,8 +166,17 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
 
   DatagramSocket blockMulticastGroup_impl([String,String,Anything(Throwable|DatagramSocket)]|[String,String,String,Anything(Throwable|DatagramSocket)] args) {
     if (is [String,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_2 = nothing;
+      Anything v = delegate.blockMulticastGroup(arg_0,arg_1,arg_2);
     }
     if (is [String,String,String,Anything(Throwable|DatagramSocket)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      String arg_2 = args[2];
+      Handler_<AsyncResult_<DatagramSocket_>> arg_3 = nothing;
+      Anything v = delegate.blockMulticastGroup(arg_0,arg_1,arg_2,arg_3);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -136,7 +185,7 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
   DatagramSocket listen_impl([Integer,String,Anything(Throwable|DatagramSocket)] args) {
     Integer arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<DatagramSocket_>> arg_2 = nothing;
     Anything v = delegate.listen(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -155,21 +204,21 @@ shared abstract class DatagramSocket_Impl(DatagramSocket_ delegate) satisfies Da
   }
 
   DatagramSocket endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket handler_impl([Anything(DatagramPacket)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<DatagramPacket_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   DatagramSocket exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

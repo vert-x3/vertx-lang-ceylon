@@ -4,6 +4,10 @@ import com.acme.pkg.sub {
 import io.vertx.codegen.testmodel {
   TestInterface_=TestInterface
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

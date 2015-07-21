@@ -1,8 +1,13 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core.eventbus {
   Message
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   ReadStream_=ReadStream
@@ -51,14 +56,14 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer_<Object> delegate)
   shared actual Anything(*<[]|[Anything(Throwable?)]>) unregister => flatten(unregister_impl);
 
   MessageConsumer<T> exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageConsumer<T> handler_impl([Anything(Message<T>)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Message_<Object>> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -77,7 +82,7 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer_<Object> delegate)
   }
 
   MessageConsumer<T> endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -90,7 +95,7 @@ shared abstract class MessageConsumer_Impl<T>(MessageConsumer_<Object> delegate)
   }
 
   Boolean isRegistered_impl([] args) {
-Anything v = delegate.registered;
+    Anything v = delegate.registered;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -109,13 +114,13 @@ Anything v = delegate.registered;
   }
 
   Integer getMaxBufferedMessages_impl([] args) {
-Anything v = delegate.maxBufferedMessages;
+    Anything v = delegate.maxBufferedMessages;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything completionHandler_impl([Anything(Throwable?)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_0 = nothing;
     Anything v = delegate.completionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -123,8 +128,11 @@ Anything v = delegate.maxBufferedMessages;
 
   Anything unregister_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
+      Anything v = delegate.unregister();
     }
     if (is [Anything(Throwable?)] args) {
+      Handler_<AsyncResult_<Void_>> arg_0 = nothing;
+      Anything v = delegate.unregister(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

@@ -1,51 +1,54 @@
 @code{
-  def generateImports(importedTypes) {
 
-    /* Map<PackageName, Map<ClassName, ClassAlias>> */
-    var packageImports = new java.util.HashMap();
+  /* Map<PackageName, Map<ClassName, ClassAlias>> */
+  var packageImports = new java.util.HashMap();
 
-    def addClassImport(packageName, className, classAlias) {
-      var packageImport = packageImports.get(packageName);
-      if (packageImport == null) {
-        packageImport = new java.util.LinkedHashMap();
-        packageImports.put(packageName, packageImport);
-      }
-      packageImport.put(className, classAlias);
+  def addClassImport(packageName, className, classAlias) {
+    var packageImport = packageImports.get(packageName);
+    if (packageImport == null) {
+      packageImport = new java.util.LinkedHashMap();
+      packageImports.put(packageName, packageImport);
     }
-
-    addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
-    addClassImport("io.vertx.lang.ceylon", "Delegating", "Delegating");
-
-    foreach (importedType : importedTypes) {
-      var importedKind = importedType.kind;
-      if (importedType != type.raw) {
-        if (importedKind == CLASS_API || importedKind == CLASS_DATA_OBJECT) {
-          addClassImport(
-            importedType.module.translateQualifiedName(importedType.packageName, 'ceylon'),
-            importedType.simpleName,
-            importedType.simpleName
-          );
-          addClassImport(
-            importedType.packageName,
-            importedType.simpleName,
-            importedType.simpleName + '_'
-          );
-        } else if (importedKind == CLASS_JSON_OBJECT) {
-          addClassImport("ceylon.json", "Object", "JsonObject");
-          /* addClassImport("io.vertx.core.json", "JsonObject", "JsonObject_"); */
-        } else if (importedKind == CLASS_JSON_ARRAY) {
-          addClassImport("ceylon.json", "Array", "JsonArray");
-          /* addClassImport("io.vertx.core.json", "JsonArray", "JsonArray_"); */
-        } else if (importedKind == CLASS_BOXED_PRIMITIVE) {
-          addClassImport("java.lang", importedType.simpleName, importedType.simpleName + "_");
-        } else if (importedKind == CLASS_STRING) {
-          addClassImport("java.lang", "String", "String_");
-        }
-      }
-    }
-    return packageImports;
+    packageImport.put(className, classAlias);
   }
-  var packageImports = generateImports(importedTypes);
+
+  addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
+  addClassImport("io.vertx.lang.ceylon", "Delegating", "Delegating");
+  addClassImport("io.vertx.core", "Handler", "Handler_");
+  addClassImport("io.vertx.core", "AsyncResult", "AsyncResult_");
+
+  def importType(importedType) {
+    var importedKind = importedType.kind;
+    if (importedType != type.raw) {
+      if (importedKind == CLASS_API || importedKind == CLASS_DATA_OBJECT) {
+        var translated = importedType.module.translateQualifiedName(importedType.packageName, 'ceylon');
+        addClassImport(translated, importedType.simpleName, importedType.simpleName);
+        addClassImport(importedType.packageName, importedType.simpleName, importedType.simpleName + '_');
+      } else if (importedKind == CLASS_ENUM) {
+        addClassImport(importedType.packageName, importedType.simpleName, importedType.simpleName + '_');
+      } else if (importedKind == CLASS_JSON_OBJECT) {
+        addClassImport("ceylon.json", "Object", "JsonObject");
+        addClassImport("io.vertx.core.json", "JsonObject", "JsonObject_");
+      } else if (importedKind == CLASS_JSON_ARRAY) {
+        addClassImport("ceylon.json", "Array", "JsonArray");
+        addClassImport("io.vertx.core.json", "JsonArray", "JsonArray_");
+      } else if (importedKind == CLASS_BOXED_PRIMITIVE) {
+        addClassImport("java.lang", importedType.simpleName, importedType.simpleName + "_");
+      } else if (importedKind == CLASS_STRING) {
+        addClassImport("java.lang", "String", "String_");
+      } else if (importedKind == CLASS_VOID) {
+        addClassImport("java.lang", "Void", "Void_");
+      } else if (importedKind == CLASS_LIST) {
+        addClassImport("java.util", "List", "List_");
+      } else if (importedKind == CLASS_SET) {
+        addClassImport("java.util", "Set", "Set_");
+      }
+    }
+  }
+
+  foreach (importedType : importedTypes) {
+    importType(importedType);
+  }
 }
 @foreach{packageImport : packageImports.entrySet()}
 import @{packageImport.key} {\n

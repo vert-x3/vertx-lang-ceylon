@@ -1,5 +1,9 @@
 import java.lang {
+  Void_=Void,
   String_=String
+}
+import java.util {
+  List_=List
 }
 import io.vertx.ceylon.core.buffer {
   Buffer
@@ -7,11 +11,13 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
+  MultiMap_=MultiMap
+}
 import io.vertx.core.streams {
   ReadStream_=ReadStream
-}
-import io.vertx.core {
-  MultiMap_=MultiMap
 }
 import io.vertx.ceylon.core.net {
   NetSocket
@@ -75,14 +81,14 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse_ delegate) sati
   }
 
   HttpClientResponse exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientResponse handler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -95,7 +101,7 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse_ delegate) sati
   }
 
   HttpClientResponse endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -146,7 +152,7 @@ shared abstract class HttpClientResponse_Impl(HttpClientResponse_ delegate) sati
   }
 
   HttpClientResponse bodyHandler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.bodyHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

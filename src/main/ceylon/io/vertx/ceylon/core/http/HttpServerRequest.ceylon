@@ -1,4 +1,5 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core {
@@ -8,6 +9,8 @@ import io.vertx.ceylon.core.buffer {
   Buffer
 }
 import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
   MultiMap_=MultiMap
 }
 import io.vertx.core.streams {
@@ -36,6 +39,8 @@ import io.vertx.core.http {
   HttpServerRequest_=HttpServerRequest,
   ServerWebSocket_=ServerWebSocket,
   HttpServerFileUpload_=HttpServerFileUpload,
+  HttpVersion_=HttpVersion,
+  HttpMethod_=HttpMethod,
   HttpServerResponse_=HttpServerResponse
 }
 import io.vertx.core.buffer {
@@ -105,14 +110,14 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest_ delegate) satisf
   shared actual Boolean(*<[]>) isEnded => flatten(isEnded_impl);
 
   HttpServerRequest exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequest handler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -131,7 +136,7 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest_ delegate) satisf
   }
 
   HttpServerRequest endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -218,7 +223,7 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest_ delegate) satisf
   }
 
   HttpServerRequest bodyHandler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.bodyHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -238,13 +243,13 @@ shared abstract class HttpServerRequest_Impl(HttpServerRequest_ delegate) satisf
   }
 
   Boolean isExpectMultipart_impl([] args) {
-Anything v = delegate.expectMultipart;
+    Anything v = delegate.expectMultipart;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpServerRequest uploadHandler_impl([Anything(HttpServerFileUpload)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<HttpServerFileUpload_> arg_0 = nothing;
     Anything v = delegate.uploadHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -270,7 +275,7 @@ Anything v = delegate.expectMultipart;
   }
 
   Boolean isEnded_impl([] args) {
-Anything v = delegate.ended;
+    Anything v = delegate.ended;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

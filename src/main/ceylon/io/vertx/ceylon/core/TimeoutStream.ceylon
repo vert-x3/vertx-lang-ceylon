@@ -1,8 +1,11 @@
 import java.lang {
+  Void_=Void,
   Long_=Long
 }
 import io.vertx.core {
-  TimeoutStream_=TimeoutStream
+  TimeoutStream_=TimeoutStream,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   ReadStream_=ReadStream
@@ -35,14 +38,14 @@ shared abstract class TimeoutStream_Impl(TimeoutStream_ delegate) satisfies Time
   shared actual Anything(*<[]>) cancel => flatten(cancel_impl);
 
   TimeoutStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   TimeoutStream handler_impl([Anything(Integer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Long_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -61,7 +64,7 @@ shared abstract class TimeoutStream_Impl(TimeoutStream_ delegate) satisfies Time
   }
 
   TimeoutStream endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

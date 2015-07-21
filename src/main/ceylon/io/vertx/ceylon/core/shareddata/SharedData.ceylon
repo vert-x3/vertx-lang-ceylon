@@ -14,6 +14,10 @@ import io.vertx.ceylon.core.shareddata {
 import java.lang {
   String_=String
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -38,7 +42,7 @@ shared abstract class SharedData_Impl(SharedData_ delegate) satisfies SharedData
 
   Anything getClusterWideMap_impl([String,Anything(Throwable|AsyncMap<Object,Object>)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<AsyncMap_<Object,Object>>> arg_1 = nothing;
     Anything v = delegate.getClusterWideMap(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -46,7 +50,7 @@ shared abstract class SharedData_Impl(SharedData_ delegate) satisfies SharedData
 
   Anything getLock_impl([String,Anything(Throwable|Lock)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Lock_>> arg_1 = nothing;
     Anything v = delegate.getLock(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -55,7 +59,7 @@ shared abstract class SharedData_Impl(SharedData_ delegate) satisfies SharedData
   Anything getLockWithTimeout_impl([String,Integer,Anything(Throwable|Lock)] args) {
     String arg_0 = args[0];
     Integer arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Lock_>> arg_2 = nothing;
     Anything v = delegate.getLockWithTimeout(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -63,7 +67,7 @@ shared abstract class SharedData_Impl(SharedData_ delegate) satisfies SharedData
 
   Anything getCounter_impl([String,Anything(Throwable|Counter)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Counter_>> arg_1 = nothing;
     Anything v = delegate.getCounter(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

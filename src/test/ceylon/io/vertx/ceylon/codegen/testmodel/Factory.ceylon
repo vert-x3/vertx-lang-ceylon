@@ -5,6 +5,10 @@ import io.vertx.codegen.testmodel {
   AbstractHandlerUserType_=AbstractHandlerUserType,
   ConcreteHandlerUserTypeExtension_=ConcreteHandlerUserTypeExtension
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

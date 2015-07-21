@@ -61,8 +61,6 @@
         } else {
           decl = 'Object';
         }
-      } else if (type instanceof io.vertx.codegen.TypeInfo$Wildcard) {
-        decl = 'Null';
       } else {
         decl = 'Object';
       }
@@ -137,16 +135,30 @@
     return false;
   }
 
-  def getPropertyNameFromGetter(method) {
-    if (method.params.isEmpty() && method.returnType.name != 'void') {
-      var name = method.name;
-      if (name.length() > 2 && name.startsWith('is') && Character.isUpperCase(name.charAt(2))) {
-        return java.beans.Introspector.decapitalize(name.substring(2));
-      }
-      if (name.length() > 3 && name.startsWith('get') && Character.isUpperCase(name.charAt(3))) {
-        return java.beans.Introspector.decapitalize(name.substring(3));
+  def isSetterMethod(method) {
+    var name = method.name;
+    if (method.returnType.name == 'void' && method.params.size() == 1 && name.length() > 3 && name.startsWith('set') && Character.isUpperCase(name.charAt(3))) {
+      for (other : methods) {
+        if (isGetterMethod(other) && getPropertyNameFromGetter(other) == getPropertyNameFromSetter(method)) {
+          return true;
+        }
       }
     }
+    return false;
+  }
+
+  def getPropertyNameFromGetter(method) {
+    var name = method.name;
+    if (name.length() > 2 && name.startsWith('is')) {
+      return java.beans.Introspector.decapitalize(name.substring(2));
+    }
+    if (name.length() > 3 && name.startsWith('get')) {
+      return java.beans.Introspector.decapitalize(name.substring(3));
+    }
     return null;
+  }
+
+  def getPropertyNameFromSetter(method) {
+    return java.beans.Introspector.decapitalize(method.name.substring(3));
   }
 }

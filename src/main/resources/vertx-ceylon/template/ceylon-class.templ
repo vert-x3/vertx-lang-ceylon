@@ -253,47 +253,128 @@
   def genConvParam(type, lhs, rhs) {
     var kind = type.kind;
     if (kind.basic) {
+      var sname = type.simpleName;
       if (kind == CLASS_STRING) {
         return 'String ' + lhs + ' = ' + rhs;
       }
-      var name = type.simpleName;
-      if (name == 'short' || name == 'Short' || name == 'Integer' || name == 'int' || name == 'Long' || name == 'long') {
+      if (kind == CLASS_BOXED_PRIMITIVE) {
+        return sname + '_ ' + lhs + ' = nothing';
+      }
+      if (sname == 'short' || sname == 'int' || sname == 'long') {
         return 'Integer ' + lhs + ' = ' + rhs;
       }
-      if (name == 'boolean' || name == 'Boolean') {
+      if (sname == 'boolean') {
         return 'Boolean ' + lhs + " = " + rhs;
       }
-      if (name == 'float' || name == 'Float' || name == 'double' || name == 'Double') {
+      if (sname == 'float' || sname == 'double') {
         return 'Float ' + lhs + ' = ' + rhs;
       }
-      if (name == 'char' || name == 'Character') {
+      if (sname == 'char') {
         return 'Character ' + lhs + ' = ' + rhs;
       }
     } else if (kind == CLASS_HANDLER) {
       var eventType = type.args[0];
       var eventKind = eventType.kind;
-      if (eventKind.basic || eventKind == CLASS_DATA_OBJECT || eventKind.collection || eventKind == CLASS_API ||
-          eventKind == CLASS_THROWABLE || eventKind == CLASS_OBJECT || eventKind.json) {
-      } else if (eventKind == CLASS_VOID) {
-      } else if (eventKind == CLASS_ASYNC_RESULT) {
+      if (eventKind == CLASS_ASYNC_RESULT) {
         var resultType = eventType.args[0];
         var resultKind = resultType.kind;
-        if (resultKind.basic || resultKind == CLASS_DATA_OBJECT || resultKind.collection || resultKind == CLASS_API ||
-            resultKind == CLASS_OBJECT || resultKind.json) {
-        } else if (resultKind == CLASS_VOID) {
-        }
+        return 'Handler_<AsyncResult_<' + genConvParamType(resultType) + '>> ' + lhs + ' = nothing';
+      } else {
+        return 'Handler_<' + genConvParamType(eventType) + '> ' + lhs + ' = nothing';
       }
     } else if (kind == CLASS_API) {
     } else if (kind == CLASS_OBJECT) {
+      if (type.name == 'java.lang.Object') {
+        return 'Object ' + lhs + ' = ' + rhs;
+      } else {
+        return 'assert(is Object ' + lhs + ' = ' + rhs + ')';
+      }
     } else if (kind == CLASS_DATA_OBJECT) {
+      return type.simpleName + '_ ' + lhs + ' = ' + type.simpleName + "_()";
     } else if (kind == CLASS_JSON_OBJECT) {
     } else if (kind == CLASS_JSON_ARRAY) {
     } else if (kind == CLASS_ENUM) {
+      return type.simpleName + '_ ' + lhs + ' = nothing';
     } else if (kind == CLASS_LIST) {
     } else if (kind == CLASS_SET) {
     } else if (kind == CLASS_MAP) {
     }
     return 'Nothing ' + lhs + ' = nothing';
+  }
+
+  def genConvParamType(type) {
+    var kind = type.kind;
+    if (kind == CLASS_OBJECT) {
+      return 'Object';
+    }
+    if (kind == CLASS_VOID) {
+      return "Void_";
+    }
+    if (kind == CLASS_STRING) {
+      return "String_";
+    }
+    if (kind.basic) {
+      var name = type.simpleName;
+      if (name == 'byte' || name == 'Byte') {
+        return 'Byte_';
+      }
+      if (name == 'short' || name == 'Short') {
+        return 'Short_';
+      }
+      if (name == 'Integer' || name == 'int' ) {
+        return 'Integer_';
+      }
+      if (name == 'Long' || name == 'long') {
+        return 'Long_';
+      }
+      if (name == 'boolean' || name == 'Boolean') {
+        return 'Boolean_';
+      }
+      if (name == 'float' || name == 'Float') {
+        return 'Float_';
+      }
+      if (name == 'double' || name == 'Double') {
+        return 'Double_';
+      }
+      if (name == 'char' || name == 'Character') {
+        return 'Character_';
+      }
+    }
+    if (kind == CLASS_API) {
+      var s = type.raw.simpleName + '_';
+      if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
+        s += genConvParamTypeArgs(type.args);
+      }
+      return s;
+    }
+    if (kind == CLASS_DATA_OBJECT) {
+      return type.simpleName + "_";
+    }
+    if (kind == CLASS_JSON_OBJECT) {
+      return "JsonObject_";
+    }
+    if (kind == CLASS_JSON_ARRAY) {
+      return "JsonArray_";
+    }
+    if (kind == CLASS_LIST || kind == CLASS_SET) {
+      return type.raw.simpleName + '_' + genConvParamTypeArgs(type.args);
+    }
+    if (kind == CLASS_THROWABLE) {
+      return "Throwable";
+    }
+    return 'Nothing';
+  }
+
+  def genConvParamTypeArgs(typeArgs) {
+    StringBuilder s = new java.lang.StringBuilder();
+    s.append('<');
+    var sep = '';
+    for (typeArg : typeArgs) {
+      s.append(sep).append(genConvParamType(typeArg));
+      sep = ',';
+    }
+    s.append('>');
+    return s.toString();
   }
 
   /*
@@ -323,102 +404,6 @@
       }
     }
     return expr;
-  }
-
-  /*
-   * Append an entry to a Trie structure. The Trie structure is created from the overloaded methods parameters
-   * and is used to know if we need to name the method parameters in a generic fashion or not.
-   *
-   * for example:
-   * - Buffer buffer()
-   * - Buffer buffer(int initialSizeHint)
-   * - Buffer buffer(String string))
-   * - Buffer buffer(String string, String enc)
-   *
-   * gives {int:{},String:{String)} that generates the Ruby code
-   *
-   * def self.buffer(param_1=nil,param_2=nil)
-   *   if param_1.class == String
-   *     if param_2.class == String
-   *       return Vertx::Buffer.new(Java::IoVertxCoreBuffer::Buffer.buffer(param_1,param_2))
-   *     end
-   *     return Vertx::Buffer.new(Java::IoVertxCoreBuffer::Buffer.buffer(param_1))
-   *   end
-   *   if param_1.class == Fixnum
-   *     return Vertx::Buffer.new(Java::IoVertxCoreBuffer::Buffer.buffer(param_1))
-   *   end
-   *   return Vertx::Buffer.new(Java::IoVertxCoreBuffer::Buffer.buffer)
-   * end
-   *
-   * note: last param handlers are willingly not used in the trie as they are handled using `yield` and
-   *       not as a method param.
-   *
-   * @param trie the trie as a Map<ParamInfo, Map<ParamInfo, Map<...>>>
-   * @param entry the entry as an Iterator<ParamInfo>
-   */
-  def trieAppend(trie, params) {
-    if (params.hasNext()) {
-      var first = params.next();
-      if (first.type.kind == CLASS_HANDLER && !params.hasNext()) {
-        return true;
-      }
-      if (!trie.containsKey(first.type)) {
-        trie.put(first.type, new java.util.HashMap());
-      }
-      return trieAppend(trie.get(first.type), params);
-    } else {
-      return trie;
-    }
-  }
-  /*
-   * Returns the trie kind:
-   * 0 : empty
-   * 1 : linear
-   * 2 : multiarg
-   * @param trie the trie
-   */
-  def trieKind(trie) {
-    if (trie.isEmpty()) {
-      return 0;
-    } else if (trie.size() == 1) {
-      var kind = trieKind(trie.get(trie.keySet().iterator().next()));
-      if (kind == 2) {
-        return 2;
-      }
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-
-  /*
-   * Returns the trie height
-   * @param trie the trie
-   */
-  def trieHeight(trie) {
-    if (trie.isEmpty()) {
-      return 0;
-    } else {
-      var max = 0;
-      for (child : trie.values()) {
-        var height = trieHeight(child) + 1;
-        if (height > max) {
-          max = height;
-        }
-      }
-      return max;
-    }
-  }
-
-  /*
-   * Returns the code for indenting properly, given the actual _trie stack size.
-   */
-  def genIndent() {
-    var builder = new java.lang.StringBuilder('  ');
-    for (i:_trie.size()) {
-      builder.append('  ');
-    }
-    return builder.toString();
   }
 }
 
@@ -493,15 +478,12 @@
 
 @code{
   def genMethodCall(method, indent) {
-    if (isGetterMethod(method)) {
-      return 'Anything v = delegate.' + getPropertyNameFromGetter(method) + ';\n';
-    }
     var sb = new java.lang.StringBuilder();
     var args = new java.util.ArrayList();
     var idx = 0;
     for (param : method.params) {
       if (param.type.kind == CLASS_API) {
-        sb.append(indent).append('assert(is Delegating<').append(genDelegateType(param.type)).append('> arg_').append(idx).append(' = args[').append(idx).append(']);\n');
+        sb.append(indent).append('assert(is Delegating<').append(genConvParamType(param.type)).append('> arg_').append(idx).append(' = args[').append(idx).append(']);\n');
         args.add('arg_' + idx + '.delegate');
       } else {
         sb.append(indent).append(genConvParam(param.type, 'arg_' + idx, 'args[' + idx + ']')).append(';\n');
@@ -509,17 +491,24 @@
       }
       idx += 1;
     }
-    sb.append(indent).append('Anything v = ');
-    sb.append('delegate.').append(genMethodName(method)).append('(');
-    var paramIdx = 0;
-    for (param : method.params) {
-      if (paramIdx > 0) {
-        sb.append(',');
+    sb.append(indent);
+    if (isGetterMethod(method)) {
+      sb.append('Anything v = delegate.').append(toCeylonIdentifier(getPropertyNameFromGetter(method)));
+    } else if (isSetterMethod(method)) {
+      sb.append('delegate.').append(toCeylonIdentifier(getPropertyNameFromSetter(method))).append(' = ').append(args[0]);
+    } else {
+      sb.append('Anything v = delegate.').append(genMethodName(method)).append('(');
+      var paramIdx = 0;
+      for (param : method.params) {
+        if (paramIdx > 0) {
+          sb.append(',');
+        }
+        sb.append(args[paramIdx]);
+        paramIdx += 1;
       }
-      sb.append(args[paramIdx]);
-      paramIdx += 1;
+      sb.append(')');
     }
-    sb.append(');\n');
+    sb.append(';\n');
     return sb.toString();
   }
 }
@@ -566,7 +555,7 @@ shared abstract class @includeNamed{'genModelDecl';typeSuffix='_Impl'}(@{genDele
 					@else{}
 						@foreach{method:methods}
 				    if (is @includeNamed{'genMethodParams'} args) {\n
-
+							@{genMethodCall(method,'      ')}
 				    }\n
 						@end{}
 					@end{}

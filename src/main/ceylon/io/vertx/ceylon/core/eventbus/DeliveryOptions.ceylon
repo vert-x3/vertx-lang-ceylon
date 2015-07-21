@@ -5,6 +5,8 @@ import io.vertx.ceylon.core {
   MultiMap
 }
 import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
   MultiMap_=MultiMap
 }
 import io.vertx.lang.ceylon {

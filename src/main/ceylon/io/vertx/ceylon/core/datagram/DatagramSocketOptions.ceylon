@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.core.datagram {
   DatagramSocketOptions_=DatagramSocketOptions
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }

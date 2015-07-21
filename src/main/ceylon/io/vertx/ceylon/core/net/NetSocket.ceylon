@@ -1,8 +1,13 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core.buffer {
   Buffer
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   WriteStream_=WriteStream,
@@ -67,14 +72,14 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
   shared actual Boolean(*<[]>) isSsl => flatten(isSsl_impl);
 
   NetSocket exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocket handler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -93,7 +98,7 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
   }
 
   NetSocket endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -101,10 +106,17 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
 
   NetSocket write_impl([Buffer]|[String]|[String,String] args) {
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.write(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.write(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -118,7 +130,7 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
   }
 
   NetSocket drainHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -132,8 +144,13 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
 
   NetSocket sendFile_impl([String]|[String,Anything(Throwable?)] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.sendFile(arg_0);
     }
     if (is [String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<Void_>> arg_1 = nothing;
+      Anything v = delegate.sendFile(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -158,21 +175,21 @@ shared abstract class NetSocket_Impl(NetSocket_ delegate) satisfies NetSocket & 
   }
 
   NetSocket closeHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.closeHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   NetSocket upgradeToSsl_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.upgradeToSsl(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSsl_impl([] args) {
-Anything v = delegate.ssl;
+    Anything v = delegate.ssl;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

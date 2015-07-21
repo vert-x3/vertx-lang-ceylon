@@ -4,6 +4,10 @@ import java.lang {
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -31,7 +35,7 @@ shared abstract class RecordParser_Impl(RecordParser_ delegate) satisfies Record
   shared actual Anything(*<[Buffer]>) handle => flatten(handle_impl);
 
   Anything setOutput_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.setOutput(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -39,8 +43,12 @@ shared abstract class RecordParser_Impl(RecordParser_ delegate) satisfies Record
 
   Anything delimitedMode_impl([String]|[Buffer] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.delimitedMode(arg_0);
     }
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.delimitedMode(arg_0.delegate);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

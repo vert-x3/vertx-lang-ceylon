@@ -1,6 +1,10 @@
 import java.lang {
+  Void_=Void,
   Boolean_=Boolean,
   String_=String
+}
+import java.util {
+  List_=List
 }
 import io.vertx.ceylon.core.file {
   AsyncFile,
@@ -10,6 +14,10 @@ import io.vertx.ceylon.core.file {
 }
 import io.vertx.ceylon.core.buffer {
   Buffer
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -132,7 +140,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem copy_impl([String,String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.copy(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -150,7 +158,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
     String arg_0 = args[0];
     String arg_1 = args[1];
     Boolean arg_2 = args[2];
-    Nothing arg_3 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_3 = nothing;
     Anything v = delegate.copyRecursive(arg_0,arg_1,arg_2,arg_3);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -168,7 +176,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem move_impl([String,String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.move(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -185,7 +193,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem truncate_impl([String,Integer,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     Integer arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.truncate(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -202,7 +210,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem chmod_impl([String,String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.chmod(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -220,7 +228,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
     String arg_0 = args[0];
     String arg_1 = args[1];
     String arg_2 = args[2];
-    Nothing arg_3 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_3 = nothing;
     Anything v = delegate.chmodRecursive(arg_0,arg_1,arg_2,arg_3);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -239,7 +247,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
     String arg_0 = args[0];
     String arg_1 = args[1];
     String arg_2 = args[2];
-    Nothing arg_3 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_3 = nothing;
     Anything v = delegate.chown(arg_0,arg_1,arg_2,arg_3);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -256,7 +264,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem props_impl([String,Anything(Throwable|FileProps)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<FileProps_>> arg_1 = nothing;
     Anything v = delegate.props(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -271,7 +279,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem lprops_impl([String,Anything(Throwable|FileProps)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<FileProps_>> arg_1 = nothing;
     Anything v = delegate.lprops(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -287,7 +295,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem link_impl([String,String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.link(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -304,7 +312,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem symlink_impl([String,String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     String arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.symlink(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -320,7 +328,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem unlink_impl([String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_1 = nothing;
     Anything v = delegate.unlink(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -335,7 +343,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem readSymlink_impl([String,Anything(Throwable|String)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<String_>> arg_1 = nothing;
     Anything v = delegate.readSymlink(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -350,7 +358,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem delete_impl([String,Anything(Throwable?)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_1 = nothing;
     Anything v = delegate.delete(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -366,7 +374,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem deleteRecursive_impl([String,Boolean,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     Boolean arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.deleteRecursive(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -382,8 +390,15 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem mkdir_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<Void_>> arg_1 = nothing;
+      Anything v = delegate.mkdir(arg_0,arg_1);
     }
     if (is [String,String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Handler_<AsyncResult_<Void_>> arg_2 = nothing;
+      Anything v = delegate.mkdir(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -391,8 +406,13 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem mkdirBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.mkdirBlocking(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.mkdirBlocking(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -400,8 +420,15 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem mkdirs_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<Void_>> arg_1 = nothing;
+      Anything v = delegate.mkdirs(arg_0,arg_1);
     }
     if (is [String,String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Handler_<AsyncResult_<Void_>> arg_2 = nothing;
+      Anything v = delegate.mkdirs(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -409,8 +436,13 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem mkdirsBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.mkdirsBlocking(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.mkdirsBlocking(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -418,8 +450,15 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem readDir_impl([String,Anything(Throwable|List<String>)]|[String,String,Anything(Throwable|List<String>)] args) {
     if (is [String,Anything(Throwable|List<String>)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<List_<String_>>> arg_1 = nothing;
+      Anything v = delegate.readDir(arg_0,arg_1);
     }
     if (is [String,String,Anything(Throwable|List<String>)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Handler_<AsyncResult_<List_<String_>>> arg_2 = nothing;
+      Anything v = delegate.readDir(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -427,8 +466,13 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   List<String> readDirBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.readDirBlocking(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.readDirBlocking(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -436,7 +480,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem readFile_impl([String,Anything(Throwable|Buffer)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Buffer_>> arg_1 = nothing;
     Anything v = delegate.readFile(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -452,7 +496,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
   FileSystem writeFile_impl([String,Buffer,Anything(Throwable?)] args) {
     String arg_0 = args[0];
     assert(is Delegating<Buffer_> arg_1 = args[1]);
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Void_>> arg_2 = nothing;
     Anything v = delegate.writeFile(arg_0,arg_1.delegate,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -468,8 +512,8 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem open_impl([String,OpenOptions,Anything(Throwable|AsyncFile)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
-    Nothing arg_2 = nothing;
+    OpenOptions_ arg_1 = OpenOptions_();
+    Handler_<AsyncResult_<AsyncFile_>> arg_2 = nothing;
     Anything v = delegate.open(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -477,7 +521,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   AsyncFile openBlocking_impl([String,OpenOptions] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    OpenOptions_ arg_1 = OpenOptions_();
     Anything v = delegate.openBlocking(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -485,8 +529,15 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem createFile_impl([String,Anything(Throwable?)]|[String,String,Anything(Throwable?)] args) {
     if (is [String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      Handler_<AsyncResult_<Void_>> arg_1 = nothing;
+      Anything v = delegate.createFile(arg_0,arg_1);
     }
     if (is [String,String,Anything(Throwable?)] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Handler_<AsyncResult_<Void_>> arg_2 = nothing;
+      Anything v = delegate.createFile(arg_0,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -494,8 +545,13 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem createFileBlocking_impl([String]|[String,String] args) {
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.createFileBlocking(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.createFileBlocking(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -503,7 +559,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem \iexists_impl([String,Anything(Throwable|Boolean)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Boolean_>> arg_1 = nothing;
     Anything v = delegate.\iexists(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -518,7 +574,7 @@ shared abstract class FileSystem_Impl(FileSystem_ delegate) satisfies FileSystem
 
   FileSystem fsProps_impl([String,Anything(Throwable|FileSystemProps)] args) {
     String arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<FileSystemProps_>> arg_1 = nothing;
     Anything v = delegate.fsProps(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

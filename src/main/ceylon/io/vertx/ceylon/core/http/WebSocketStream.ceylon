@@ -1,3 +1,10 @@
+import java.lang {
+  Void_=Void
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.core.streams {
   ReadStream_=ReadStream
 }
@@ -34,14 +41,14 @@ shared abstract class WebSocketStream_Impl(WebSocketStream_ delegate) satisfies 
   shared actual WebSocketStream(*<[Anything()]>) endHandler => flatten(endHandler_impl);
 
   WebSocketStream exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   WebSocketStream handler_impl([Anything(WebSocket)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<WebSocket_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -60,7 +67,7 @@ shared abstract class WebSocketStream_Impl(WebSocketStream_ delegate) satisfies 
   }
 
   WebSocketStream endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

@@ -5,6 +5,10 @@ import java.lang {
   Long_=Long,
   Boolean_=Boolean
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -32,28 +36,28 @@ shared abstract class Counter_Impl(Counter_ delegate) satisfies Counter & Delega
   shared actual Anything(*<[Integer,Integer,Anything(Throwable|Boolean)]>) compareAndSet => flatten(compareAndSet_impl);
 
   Anything get_impl([Anything(Throwable|Integer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_0 = nothing;
     Anything v = delegate.get(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything incrementAndGet_impl([Anything(Throwable|Integer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_0 = nothing;
     Anything v = delegate.incrementAndGet(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything getAndIncrement_impl([Anything(Throwable|Integer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_0 = nothing;
     Anything v = delegate.getAndIncrement(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything decrementAndGet_impl([Anything(Throwable|Integer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_0 = nothing;
     Anything v = delegate.decrementAndGet(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -61,7 +65,7 @@ shared abstract class Counter_Impl(Counter_ delegate) satisfies Counter & Delega
 
   Anything addAndGet_impl([Integer,Anything(Throwable|Integer)] args) {
     Integer arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_1 = nothing;
     Anything v = delegate.addAndGet(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -69,7 +73,7 @@ shared abstract class Counter_Impl(Counter_ delegate) satisfies Counter & Delega
 
   Anything getAndAdd_impl([Integer,Anything(Throwable|Integer)] args) {
     Integer arg_0 = args[0];
-    Nothing arg_1 = nothing;
+    Handler_<AsyncResult_<Long_>> arg_1 = nothing;
     Anything v = delegate.getAndAdd(arg_0,arg_1);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -78,7 +82,7 @@ shared abstract class Counter_Impl(Counter_ delegate) satisfies Counter & Delega
   Anything compareAndSet_impl([Integer,Integer,Anything(Throwable|Boolean)] args) {
     Integer arg_0 = args[0];
     Integer arg_1 = args[1];
-    Nothing arg_2 = nothing;
+    Handler_<AsyncResult_<Boolean_>> arg_2 = nothing;
     Anything v = delegate.compareAndSet(arg_0,arg_1,arg_2);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

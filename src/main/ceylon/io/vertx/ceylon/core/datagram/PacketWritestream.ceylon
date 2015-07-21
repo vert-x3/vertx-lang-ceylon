@@ -1,8 +1,15 @@
+import java.lang {
+  Void_=Void
+}
 import io.vertx.ceylon.core.buffer {
   Buffer
 }
 import io.vertx.core.datagram {
   PacketWritestream_=PacketWritestream
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   WriteStream_=WriteStream
@@ -34,7 +41,7 @@ shared abstract class PacketWritestream_Impl(PacketWritestream_ delegate) satisf
   shared actual PacketWritestream(*<[Anything()]>) drainHandler => flatten(drainHandler_impl);
 
   PacketWritestream exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -55,7 +62,7 @@ shared abstract class PacketWritestream_Impl(PacketWritestream_ delegate) satisf
   }
 
   PacketWritestream drainHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");

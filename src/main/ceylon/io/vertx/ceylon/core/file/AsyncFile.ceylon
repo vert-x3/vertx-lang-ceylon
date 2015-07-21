@@ -1,5 +1,12 @@
+import java.lang {
+  Void_=Void
+}
 import io.vertx.ceylon.core.buffer {
   Buffer
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   WriteStream_=WriteStream,
@@ -54,7 +61,7 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
   shared actual AsyncFile(*<[Integer]>) setWritePos => flatten(setWritePos_impl);
 
   AsyncFile handler_impl([Anything(Buffer)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Buffer_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -73,7 +80,7 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
   }
 
   AsyncFile endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -81,8 +88,14 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
 
   AsyncFile write_impl([Buffer]|[Buffer,Integer,Anything(Throwable?)] args) {
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [Buffer,Integer,Anything(Throwable?)] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Integer arg_1 = args[1];
+      Handler_<AsyncResult_<Void_>> arg_2 = nothing;
+      Anything v = delegate.write(arg_0.delegate,arg_1,arg_2);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -96,14 +109,14 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
   }
 
   AsyncFile drainHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   AsyncFile exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -111,8 +124,11 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
 
   Anything close_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
+      Anything v = delegate.close();
     }
     if (is [Anything(Throwable?)] args) {
+      Handler_<AsyncResult_<Void_>> arg_0 = nothing;
+      Anything v = delegate.close(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -123,7 +139,7 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
     Integer arg_1 = args[1];
     Integer arg_2 = args[2];
     Integer arg_3 = args[3];
-    Nothing arg_4 = nothing;
+    Handler_<AsyncResult_<Buffer_>> arg_4 = nothing;
     Anything v = delegate.read(arg_0.delegate,arg_1,arg_2,arg_3,arg_4);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -131,8 +147,11 @@ shared abstract class AsyncFile_Impl(AsyncFile_ delegate) satisfies AsyncFile & 
 
   AsyncFile flush_impl([]|[Anything(Throwable?)] args) {
     if (is [] args) {
+      Anything v = delegate.flush();
     }
     if (is [Anything(Throwable?)] args) {
+      Handler_<AsyncResult_<Void_>> arg_0 = nothing;
+      Anything v = delegate.flush(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

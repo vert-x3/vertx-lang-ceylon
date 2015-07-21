@@ -1,4 +1,5 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core.buffer {
@@ -7,12 +8,14 @@ import io.vertx.ceylon.core.buffer {
 import io.vertx.ceylon.core {
   MultiMap
 }
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult,
+  MultiMap_=MultiMap
+}
 import io.vertx.core.streams {
   WriteStream_=WriteStream,
   ReadStream_=ReadStream
-}
-import io.vertx.core {
-  MultiMap_=MultiMap
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -26,7 +29,8 @@ import io.vertx.ceylon.core.streams {
 }
 import io.vertx.core.http {
   HttpClientRequest_=HttpClientRequest,
-  HttpClientResponse_=HttpClientResponse
+  HttpClientResponse_=HttpClientResponse,
+  HttpMethod_=HttpMethod
 }
 import io.vertx.core.buffer {
   Buffer_=Buffer
@@ -77,7 +81,7 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest_ delegate) satisf
   shared actual HttpClientRequest(*<[Integer]>) setTimeout => flatten(setTimeout_impl);
 
   HttpClientRequest exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -85,10 +89,17 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest_ delegate) satisf
 
   HttpClientRequest write_impl([Buffer]|[String]|[String,String] args) {
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.write(arg_0.delegate);
     }
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.write(arg_0);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.write(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -102,14 +113,14 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest_ delegate) satisf
   }
 
   HttpClientRequest drainHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   HttpClientRequest handler_impl([Anything(HttpClientResponse)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<HttpClientResponse_> arg_0 = nothing;
     Anything v = delegate.handler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -128,7 +139,7 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest_ delegate) satisf
   }
 
   HttpClientRequest endHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.endHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -142,7 +153,7 @@ shared abstract class HttpClientRequest_Impl(HttpClientRequest_ delegate) satisf
   }
 
   Boolean isChunked_impl([] args) {
-Anything v = delegate.chunked;
+    Anything v = delegate.chunked;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
@@ -174,7 +185,7 @@ Anything v = delegate.chunked;
   }
 
   HttpClientRequest continueHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.continueHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -188,12 +199,20 @@ Anything v = delegate.chunked;
 
   Anything end_impl([]|[String]|[Buffer]|[String,String] args) {
     if (is [] args) {
+      Anything v = delegate.end();
     }
     if (is [String] args) {
+      String arg_0 = args[0];
+      Anything v = delegate.end(arg_0);
     }
     if (is [Buffer] args) {
+      assert(is Delegating<Buffer_> arg_0 = args[0]);
+      Anything v = delegate.end(arg_0.delegate);
     }
     if (is [String,String] args) {
+      String arg_0 = args[0];
+      String arg_1 = args[1];
+      Anything v = delegate.end(arg_0,arg_1);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

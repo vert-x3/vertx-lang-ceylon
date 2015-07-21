@@ -1,3 +1,7 @@
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
+}
 import io.vertx.lang.ceylon {
   Delegating
 }
@@ -48,25 +52,25 @@ shared abstract class FileProps_Impl(FileProps_ delegate) satisfies FileProps & 
   }
 
   Boolean isDirectory_impl([] args) {
-Anything v = delegate.directory;
+    Anything v = delegate.directory;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isOther_impl([] args) {
-Anything v = delegate.other;
+    Anything v = delegate.other;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isRegularFile_impl([] args) {
-Anything v = delegate.regularFile;
+    Anything v = delegate.regularFile;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Boolean isSymbolicLink_impl([] args) {
-Anything v = delegate.symbolicLink;
+    Anything v = delegate.symbolicLink;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }

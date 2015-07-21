@@ -2,7 +2,9 @@ import java.lang {
   String_=String
 }
 import io.vertx.core {
-  VertxOptions_=VertxOptions
+  VertxOptions_=VertxOptions,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating

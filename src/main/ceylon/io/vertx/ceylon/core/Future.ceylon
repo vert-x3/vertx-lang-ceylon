@@ -2,7 +2,9 @@ import java.lang {
   String_=String
 }
 import io.vertx.core {
-  Future_=Future
+  Future_=Future,
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.lang.ceylon {
   Delegating
@@ -25,13 +27,13 @@ shared abstract class Future_Impl<T>(Future_<Object> delegate) satisfies Future<
   shared actual Anything(*<[String]>) fail => flatten(fail_impl);
 
   Boolean isComplete_impl([] args) {
-Anything v = delegate.complete;
+    Anything v = delegate.complete;
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   Anything setHandler_impl([Anything(Throwable|T)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<AsyncResult_<Object>> arg_0 = nothing;
     Anything v = delegate.setHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -39,8 +41,11 @@ Anything v = delegate.complete;
 
   Anything complete_impl([]|[T] args) {
     if (is [] args) {
+      Anything v = delegate.complete();
     }
     if (is [T] args) {
+      assert(is Object arg_0 = args[0]);
+      Anything v = delegate.complete(arg_0);
     }
     Object test = this; // Just test we can access this
     throw Exception("implement me");

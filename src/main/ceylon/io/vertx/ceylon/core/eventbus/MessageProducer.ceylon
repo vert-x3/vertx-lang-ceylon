@@ -1,8 +1,13 @@
 import java.lang {
+  Void_=Void,
   String_=String
 }
 import io.vertx.ceylon.core.eventbus {
   DeliveryOptions
+}
+import io.vertx.core {
+  Handler_=Handler,
+  AsyncResult_=AsyncResult
 }
 import io.vertx.core.streams {
   WriteStream_=WriteStream
@@ -39,14 +44,14 @@ shared abstract class MessageProducer_Impl<T>(MessageProducer_<Object> delegate)
   shared actual String(*<[]>) address => flatten(address_impl);
 
   MessageProducer<T> exceptionHandler_impl([Anything(Throwable)] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Throwable> arg_0 = nothing;
     Anything v = delegate.exceptionHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> write_impl([T] args) {
-    Nothing arg_0 = nothing;
+    assert(is Object arg_0 = args[0]);
     Anything v = delegate.write(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
@@ -60,14 +65,14 @@ shared abstract class MessageProducer_Impl<T>(MessageProducer_<Object> delegate)
   }
 
   MessageProducer<T> drainHandler_impl([Anything()] args) {
-    Nothing arg_0 = nothing;
+    Handler_<Void_> arg_0 = nothing;
     Anything v = delegate.drainHandler(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
   }
 
   MessageProducer<T> deliveryOptions_impl([DeliveryOptions] args) {
-    Nothing arg_0 = nothing;
+    DeliveryOptions_ arg_0 = DeliveryOptions_();
     Anything v = delegate.deliveryOptions(arg_0);
     Object test = this; // Just test we can access this
     throw Exception("implement me");
