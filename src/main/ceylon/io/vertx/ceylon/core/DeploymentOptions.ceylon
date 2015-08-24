@@ -17,12 +17,12 @@ import io.vertx.core.json {
 }
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
-  shared JsonObject config,
-  shared String extraClasspath,
-  shared Boolean ha,
-  shared Integer instances,
-  shared String isolatedClasses,
-  shared String isolationGroup,
-  shared Boolean multiThreaded,
-  shared Boolean worker) {
+  shared JsonObject? config = null,
+  shared String? extraClasspath = null,
+  shared Boolean? ha = null,
+  shared Integer? instances = null,
+  shared String? isolatedClasses = null,
+  shared String? isolationGroup = null,
+  shared Boolean? multiThreaded = null,
+  shared Boolean? worker = null) {
 }

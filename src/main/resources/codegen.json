@@ -2,7 +2,7 @@
   "name": "Ceylon",
   "generators": [ {
     "kind": "class",
-    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.java'",
     "templateFileName": "vertx-ceylon/template/ceylon-class.templ"
   }, {
     "kind": "package",

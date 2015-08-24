@@ -10,5 +10,5 @@ import io.vertx.core.metrics {
 }
 /* Generated from io.vertx.core.metrics.MetricsOptions */
 shared class MetricsOptions(
-  shared Boolean enabled) {
+  shared Boolean? enabled = null) {
 }

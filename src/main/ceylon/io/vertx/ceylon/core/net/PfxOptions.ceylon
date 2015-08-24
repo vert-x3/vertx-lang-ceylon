@@ -19,9 +19,9 @@ import io.vertx.core.buffer {
 }
 /* Generated from io.vertx.core.net.PfxOptions */
 shared class PfxOptions(
-  shared String password,
-  shared String path,
-  shared Buffer \ivalue) satisfies
+  shared String? password = null,
+  shared String? path = null,
+  shared Buffer? \ivalue = null) satisfies
   KeyCertOptions &
   TrustOptions {
 }

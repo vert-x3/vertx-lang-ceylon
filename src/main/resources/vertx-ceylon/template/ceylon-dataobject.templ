@@ -4,9 +4,9 @@
 @includeNamed{'ceylon-imports.templ'}
 
 /* Generated from @{type.name} */\n
-shared @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@if{concrete}(
+shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass}(
 	@foreach{property:properties}
-\n  @if{property.declared}shared @end{}@{genTypeDecl(property.type)} @{toCeylonIdentifier(property.name)}
+\n  @if{property.declared}shared @end{}@{genTypeDecl(property.type)}? @{toCeylonIdentifier(property.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}
 	@foreach{property:properties}

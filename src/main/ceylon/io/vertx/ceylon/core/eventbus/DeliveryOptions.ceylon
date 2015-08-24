@@ -17,7 +17,7 @@ import io.vertx.core.eventbus {
 }
 /* Generated from io.vertx.core.eventbus.DeliveryOptions */
 shared class DeliveryOptions(
-  shared String codecName,
-  shared MultiMap headers,
-  shared Integer sendTimeout) {
+  shared String? codecName = null,
+  shared MultiMap? headers = null,
+  shared Integer? sendTimeout = null) {
 }

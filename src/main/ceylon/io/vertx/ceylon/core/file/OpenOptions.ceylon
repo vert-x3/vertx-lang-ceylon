@@ -13,14 +13,14 @@ import io.vertx.core.file {
 }
 /* Generated from io.vertx.core.file.OpenOptions */
 shared class OpenOptions(
-  shared Boolean create,
-  shared Boolean createNew,
-  shared Boolean dSync,
-  shared Boolean deleteOnClose,
-  shared String perms,
-  shared Boolean read,
-  shared Boolean sparse,
-  shared Boolean sync,
-  shared Boolean truncateExisting,
-  shared Boolean write) {
+  shared Boolean? create = null,
+  shared Boolean? createNew = null,
+  shared Boolean? deleteOnClose = null,
+  shared Boolean? dsync = null,
+  shared String? perms = null,
+  shared Boolean? read = null,
+  shared Boolean? sparse = null,
+  shared Boolean? sync = null,
+  shared Boolean? truncateExisting = null,
+  shared Boolean? write = null) {
 }

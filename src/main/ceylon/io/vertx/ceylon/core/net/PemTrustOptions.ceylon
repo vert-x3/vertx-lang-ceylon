@@ -19,7 +19,7 @@ import io.vertx.core.buffer {
 }
 /* Generated from io.vertx.core.net.PemTrustOptions */
 shared class PemTrustOptions(
-  shared String certPaths,
-  shared Buffer certValues) satisfies
+  shared String? certPaths = null,
+  shared Buffer? certValues = null) satisfies
   TrustOptions {
 }

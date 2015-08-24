@@ -17,20 +17,20 @@ import io.vertx.ceylon.core.metrics {
 }
 /* Generated from io.vertx.core.VertxOptions */
 shared class VertxOptions(
-  shared Integer blockedThreadCheckInterval,
-  shared String clusterHost,
-  shared Integer clusterPingInterval,
-  shared Integer clusterPingReplyInterval,
-  shared Integer clusterPort,
-  shared Boolean clustered,
-  shared Integer eventLoopPoolSize,
-  shared Boolean haEnabled,
-  shared String haGroup,
-  shared Integer internalBlockingPoolSize,
-  shared Integer maxEventLoopExecuteTime,
-  shared Integer maxWorkerExecuteTime,
-  shared MetricsOptions metricsOptions,
-  shared Integer quorumSize,
-  shared Integer warningExceptionTime,
-  shared Integer workerPoolSize) {
+  shared Integer? blockedThreadCheckInterval = null,
+  shared String? clusterHost = null,
+  shared Integer? clusterPingInterval = null,
+  shared Integer? clusterPingReplyInterval = null,
+  shared Integer? clusterPort = null,
+  shared Boolean? clustered = null,
+  shared Integer? eventLoopPoolSize = null,
+  shared Boolean? haEnabled = null,
+  shared String? haGroup = null,
+  shared Integer? internalBlockingPoolSize = null,
+  shared Integer? maxEventLoopExecuteTime = null,
+  shared Integer? maxWorkerExecuteTime = null,
+  shared MetricsOptions? metricsOptions = null,
+  shared Integer? quorumSize = null,
+  shared Integer? warningExceptionTime = null,
+  shared Integer? workerPoolSize = null) {
 }

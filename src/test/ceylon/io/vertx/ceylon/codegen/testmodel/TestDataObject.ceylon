@@ -13,7 +13,7 @@ import io.vertx.lang.ceylon {
 }
 /* Generated from io.vertx.codegen.testmodel.TestDataObject */
 shared class TestDataObject(
-  shared Integer bar,
-  shared String foo,
-  shared Float wibble) {
+  shared Integer? bar = null,
+  shared String? foo = null,
+  shared Float? wibble = null) {
 }

@@ -19,9 +19,9 @@ import io.vertx.core.buffer {
 }
 /* Generated from io.vertx.core.net.PemKeyCertOptions */
 shared class PemKeyCertOptions(
-  shared String certPath,
-  shared Buffer certValue,
-  shared String keyPath,
-  shared Buffer keyValue) satisfies
+  shared String? certPath = null,
+  shared Buffer? certValue = null,
+  shared String? keyPath = null,
+  shared Buffer? keyValue = null) satisfies
   KeyCertOptions {
 }
