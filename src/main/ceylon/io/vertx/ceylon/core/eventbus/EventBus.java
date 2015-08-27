@@ -56,10 +56,10 @@ public class EventBus implements Measured {
   public EventBus send(
     final @TypeInfo("ceylon.language::String") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Object") Object message, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -71,11 +71,11 @@ public class EventBus implements Measured {
   public <T> EventBus send(
     final @TypeInfo("ceylon.language::String") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Object") Object message, 
-    final @TypeInfo("ceylon.language::Object") Object options, 
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") Callable<?> replyHandler) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return new io.vertx.ceylon.core.eventbus.Message(event); } };
     EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1, arg_2, arg_3));
     return ret;
@@ -95,10 +95,10 @@ public class EventBus implements Measured {
   public EventBus publish(
     final @TypeInfo("ceylon.language::String") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Object") Object message, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.publish(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -168,9 +168,9 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> sender(
     final @TypeInfo("ceylon.language::String") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.sender(arg_0, arg_1));
     return ret;
   }
@@ -192,9 +192,9 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> publisher(
     final @TypeInfo("ceylon.language::String") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.publisher(arg_0, arg_1));
     return ret;
   }

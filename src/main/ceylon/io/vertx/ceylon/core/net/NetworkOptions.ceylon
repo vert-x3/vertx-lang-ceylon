@@ -2,8 +2,11 @@ import io.vertx.core {
   Handler_=Handler,
   AsyncResult_=AsyncResult
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   NetworkOptions_=NetworkOptions
@@ -13,5 +16,21 @@ shared class NetworkOptions(
   shared Integer? receiveBufferSize = null,
   shared Boolean? reuseAddress = null,
   shared Integer? sendBufferSize = null,
-  shared Integer? trafficClass = null) {
+  shared Integer? trafficClass = null) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists receiveBufferSize) {
+      json.put("receiveBufferSize", receiveBufferSize);
+    }
+    if (exists reuseAddress) {
+      json.put("reuseAddress", reuseAddress);
+    }
+    if (exists sendBufferSize) {
+      json.put("sendBufferSize", sendBufferSize);
+    }
+    if (exists trafficClass) {
+      json.put("trafficClass", trafficClass);
+    }
+    return json;
+  }
 }

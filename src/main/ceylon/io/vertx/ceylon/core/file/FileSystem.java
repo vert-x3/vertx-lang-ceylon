@@ -507,10 +507,10 @@ public class FileSystem {
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem open(
     final @TypeInfo("ceylon.language::String") ceylon.language.String path, 
-    final @TypeInfo("ceylon.language::Object") Object options, 
+    final @TypeInfo("io.vertx.ceylon.core.file::OpenOptions") io.vertx.ceylon.core.file.OpenOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::AsyncFile)") Callable<?> handler) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.file.OpenOptions arg_1 = null;
+    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.AsyncFile>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.AsyncFile>(handler) { public Object toCeylon(io.vertx.core.file.AsyncFile event) { return new io.vertx.ceylon.core.file.AsyncFile(event); } };
     FileSystem ret = new io.vertx.ceylon.core.file.FileSystem(delegate.open(arg_0, arg_1, arg_2));
     return ret;
@@ -519,9 +519,9 @@ public class FileSystem {
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile openBlocking(
     final @TypeInfo("ceylon.language::String") ceylon.language.String path, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.file::OpenOptions") io.vertx.ceylon.core.file.OpenOptions options) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.file.OpenOptions arg_1 = null;
+    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     AsyncFile ret = new io.vertx.ceylon.core.file.AsyncFile(delegate.openBlocking(arg_0, arg_1));
     return ret;
   }

@@ -8,8 +8,11 @@ import io.vertx.core {
   Handler_=Handler,
   AsyncResult_=AsyncResult
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   NetClientOptions_=NetClientOptions
@@ -62,5 +65,15 @@ shared class NetClientOptions(
   trafficClass,
   trustAll,
   trustStoreOptions,
-  usePooledBuffers) {
+  usePooledBuffers) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists reconnectAttempts) {
+      json.put("reconnectAttempts", reconnectAttempts);
+    }
+    if (exists reconnectInterval) {
+      json.put("reconnectInterval", reconnectInterval);
+    }
+    return json;
+  }
 }

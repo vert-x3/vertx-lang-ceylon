@@ -15,8 +15,11 @@ import io.vertx.ceylon.core.net {
   PfxOptions,
   ClientOptionsBase
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   JksOptions_=JksOptions,
@@ -83,5 +86,35 @@ shared class HttpClientOptions(
   trafficClass,
   trustAll,
   trustStoreOptions,
-  usePooledBuffers) {
+  usePooledBuffers) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists defaultHost) {
+      json.put("defaultHost", defaultHost);
+    }
+    if (exists defaultPort) {
+      json.put("defaultPort", defaultPort);
+    }
+    if (exists keepAlive) {
+      json.put("keepAlive", keepAlive);
+    }
+    if (exists maxPoolSize) {
+      json.put("maxPoolSize", maxPoolSize);
+    }
+    if (exists maxWebsocketFrameSize) {
+      json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
+    }
+    if (exists pipelining) {
+      json.put("pipelining", pipelining);
+    }
+    if (exists protocolVersion) {
+    }
+    if (exists tryUseCompression) {
+      json.put("tryUseCompression", tryUseCompression);
+    }
+    if (exists verifyHost) {
+      json.put("verifyHost", verifyHost);
+    }
+    return json;
+  }
 }

@@ -45,17 +45,17 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.VertxOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") io.vertx.ceylon.core.VertxOptions options) {
+    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     Vertx ret = new io.vertx.ceylon.core.Vertx(io.vertx.core.Vertx.vertx(arg_0));
     return ret;
   }
 
   @TypeInfo("ceylon.language::Anything")
   public static void clusteredVertx(
-    final @TypeInfo("ceylon.language::Object") Object options, 
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") io.vertx.ceylon.core.VertxOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") Callable<?> resultHandler) {
-    io.vertx.core.VertxOptions arg_0 = null;
+    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) { public Object toCeylon(io.vertx.core.Vertx event) { return new io.vertx.ceylon.core.Vertx(event); } };
     io.vertx.core.Vertx.clusteredVertx(arg_0, arg_1);
   }
@@ -74,8 +74,8 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer createNetServer(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.net.NetServerOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.net::NetServerOptions") io.vertx.ceylon.core.net.NetServerOptions options) {
+    io.vertx.core.net.NetServerOptions arg_0 = options == null ? null : new io.vertx.core.net.NetServerOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     NetServer ret = new io.vertx.ceylon.core.net.NetServer(delegate.createNetServer(arg_0));
     return ret;
   }
@@ -88,8 +88,8 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient createNetClient(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.net.NetClientOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.net::NetClientOptions") io.vertx.ceylon.core.net.NetClientOptions options) {
+    io.vertx.core.net.NetClientOptions arg_0 = options == null ? null : new io.vertx.core.net.NetClientOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     NetClient ret = new io.vertx.ceylon.core.net.NetClient(delegate.createNetClient(arg_0));
     return ret;
   }
@@ -102,8 +102,8 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer createHttpServer(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.http.HttpServerOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpServerOptions") io.vertx.ceylon.core.http.HttpServerOptions options) {
+    io.vertx.core.http.HttpServerOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpServerOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     HttpServer ret = new io.vertx.ceylon.core.http.HttpServer(delegate.createHttpServer(arg_0));
     return ret;
   }
@@ -116,8 +116,8 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient createHttpClient(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.http.HttpClientOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") io.vertx.ceylon.core.http.HttpClientOptions options) {
+    io.vertx.core.http.HttpClientOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     HttpClient ret = new io.vertx.ceylon.core.http.HttpClient(delegate.createHttpClient(arg_0));
     return ret;
   }
@@ -130,8 +130,8 @@ public class Vertx implements Measured {
 
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket createDatagramSocket(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.datagram.DatagramSocketOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocketOptions") io.vertx.ceylon.core.datagram.DatagramSocketOptions options) {
+    io.vertx.core.datagram.DatagramSocketOptions arg_0 = options == null ? null : new io.vertx.core.datagram.DatagramSocketOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     DatagramSocket ret = new io.vertx.ceylon.core.datagram.DatagramSocket(delegate.createDatagramSocket(arg_0));
     return ret;
   }
@@ -252,19 +252,19 @@ public class Vertx implements Measured {
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") io.vertx.ceylon.core.DeploymentOptions options) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.DeploymentOptions arg_1 = null;
+    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     delegate.deployVerticle(arg_0, arg_1);
   }
 
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Object") Object options, 
+    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") io.vertx.ceylon.core.DeploymentOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") Callable<?> completionHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.DeploymentOptions arg_1 = null;
+    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return new ceylon.language.String(event); } };
     delegate.deployVerticle(arg_0, arg_1, arg_2);
   }

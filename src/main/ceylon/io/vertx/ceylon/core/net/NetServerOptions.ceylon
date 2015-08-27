@@ -8,8 +8,11 @@ import io.vertx.core {
   Handler_=Handler,
   AsyncResult_=AsyncResult
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
@@ -60,5 +63,21 @@ shared class NetServerOptions(
   tcpNoDelay,
   trafficClass,
   trustStoreOptions,
-  usePooledBuffers) {
+  usePooledBuffers) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists acceptBacklog) {
+      json.put("acceptBacklog", acceptBacklog);
+    }
+    if (exists clientAuthRequired) {
+      json.put("clientAuthRequired", clientAuthRequired);
+    }
+    if (exists host) {
+      json.put("host", host);
+    }
+    if (exists port) {
+      json.put("port", port);
+    }
+    return json;
+  }
 }

@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1
+  TestInterface, RefedInterface1, TestDataObject
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl
@@ -130,6 +130,19 @@ shared test void testObjectParam() {
   obj.methodWithObjectParam("double", 123.456);
   obj.methodWithObjectParam("JsonObject", JsonObject { "foo"->"hello", "bar"->123 });
   obj.methodWithObjectParam("JsonArray", JsonArray { "foo", "bar", "wib" });
+}
+
+shared test void testDataObjectParam() {
+  value dataObject = TestDataObject {
+    foo="hello";
+    bar=123;
+    wibble=1.23;
+  };
+  obj.methodWithDataObjectParam(dataObject);
+}
+
+shared test void testNullDataObjectParam() {
+  obj.methodWithNullDataObjectParam(null);
 }
 
 void assertFloatEquals(Float actual, Float expected) {

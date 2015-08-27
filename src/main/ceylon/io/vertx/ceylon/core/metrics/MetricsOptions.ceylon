@@ -2,13 +2,23 @@ import io.vertx.core {
   Handler_=Handler,
   AsyncResult_=AsyncResult
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.metrics {
   MetricsOptions_=MetricsOptions
 }
 /* Generated from io.vertx.core.metrics.MetricsOptions */
 shared class MetricsOptions(
-  shared Boolean? enabled = null) {
+  shared Boolean? enabled = null) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists enabled) {
+      json.put("enabled", enabled);
+    }
+    return json;
+  }
 }

@@ -3,6 +3,13 @@
 @comment{"Generate the imports"}
 @includeNamed{'ceylon-imports.templ'}
 
+@code{
+  addClassImport("ceylon.json", "Object", "JsonObject");
+  addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
+}
+
+@includeNamed{'genImports'}
+
 /* Generated from @{type.name} */\n
 shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass}(
 	@foreach{property:properties}
@@ -18,5 +25,22 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 	@foreach{abstractSuperType : abstractSuperTypes}
   @{abstractSuperType.simpleName}
 	@end{' &\n'}
-@end{} {\n
+@end{} @if{abstractSuperTypes.empty}satisfies@else{}&@end{} BaseDataObject {\n
+  shared actual default JsonObject toJson() {\n
+    value json = JsonObject();\n
+@foreach{property:properties}
+	@if{property.declared}
+		@code{propName=toCeylonIdentifier(property.name)}
+		@code{propType=property.type}
+    if (exists @{propName}) {\n
+		@if{propType.kind.basic || propType.kind.json}
+      json.put("@{propName}", @{propName});\n
+		@else{propType.kind == CLASS_DATA_OBJECT}
+      json.put("@{propName}", @{propName}.toJson());\n
+		@end{}
+    }\n
+	@end{}
+@end{}
+    return json;\n
+  }\n
 }\n

@@ -13,7 +13,6 @@
   }
 
   addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
-  addClassImport("io.vertx.lang.ceylon", "Delegating", "Delegating");
   addClassImport("io.vertx.core", "Handler", "Handler_");
   addClassImport("io.vertx.core", "AsyncResult", "AsyncResult_");
 
@@ -50,6 +49,8 @@
     importType(importedType);
   }
 }
+
+@declare{'genImports'}
 @foreach{packageImport : packageImports.entrySet()}
 import @{packageImport.key} {\n
 @foreach{classImport: packageImport.value.entrySet()}
@@ -60,4 +61,5 @@ import @{packageImport.key} {\n
 @end{}
 @end{",\n"}\n
 }\n
+@end{}
 @end{}

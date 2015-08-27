@@ -70,9 +70,9 @@ public class Message<T> {
   @TypeInfo("ceylon.language::Anything")
   public void reply(
     final @TypeInfo("ceylon.language::Object") Object message, 
-    final @TypeInfo("ceylon.language::Object") Object options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     delegate.reply(arg_0, arg_1);
   }
 
@@ -82,10 +82,10 @@ public class Message<T> {
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(
     final @TypeInfo("ceylon.language::Object") Object message, 
-    final @TypeInfo("ceylon.language::Object") Object options, 
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = null;
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return new io.vertx.ceylon.core.eventbus.Message(event); } };
     delegate.reply(arg_0, arg_1, arg_2);
   }

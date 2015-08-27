@@ -11,8 +11,11 @@ import io.vertx.core {
 import io.vertx.ceylon.core.net {
   NetworkOptions
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   NetworkOptions_=NetworkOptions
@@ -31,5 +34,24 @@ shared class DatagramSocketOptions(
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
-  trafficClass) {
+  trafficClass) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists broadcast) {
+      json.put("broadcast", broadcast);
+    }
+    if (exists ipV6) {
+      json.put("ipV6", ipV6);
+    }
+    if (exists loopbackModeDisabled) {
+      json.put("loopbackModeDisabled", loopbackModeDisabled);
+    }
+    if (exists multicastNetworkInterface) {
+      json.put("multicastNetworkInterface", multicastNetworkInterface);
+    }
+    if (exists multicastTimeToLive) {
+      json.put("multicastTimeToLive", multicastTimeToLive);
+    }
+    return json;
+  }
 }

@@ -15,8 +15,11 @@ import io.vertx.ceylon.core.net {
   PfxOptions,
   NetServerOptions
 }
+import ceylon.json {
+  JsonObject=Object
+}
 import io.vertx.lang.ceylon {
-  Delegating
+  BaseDataObject
 }
 import io.vertx.core.net {
   JksOptions_=JksOptions,
@@ -82,5 +85,21 @@ shared class HttpServerOptions(
   tcpNoDelay,
   trafficClass,
   trustStoreOptions,
-  usePooledBuffers) {
+  usePooledBuffers) satisfies BaseDataObject {
+  shared actual default JsonObject toJson() {
+    value json = JsonObject();
+    if (exists compressionSupported) {
+      json.put("compressionSupported", compressionSupported);
+    }
+    if (exists handle100ContinueAutomatically) {
+      json.put("handle100ContinueAutomatically", handle100ContinueAutomatically);
+    }
+    if (exists maxWebsocketFrameSize) {
+      json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
+    }
+    if (exists websocketSubProtocols) {
+      json.put("websocketSubProtocols", websocketSubProtocols);
+    }
+    return json;
+  }
 }

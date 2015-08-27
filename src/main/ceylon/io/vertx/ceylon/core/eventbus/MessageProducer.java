@@ -63,8 +63,8 @@ public class MessageProducer<T> implements WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> deliveryOptions(
-    final @TypeInfo("ceylon.language::Object") Object options) {
-    io.vertx.core.eventbus.DeliveryOptions arg_0 = null;
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
+    io.vertx.core.eventbus.DeliveryOptions arg_0 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
     MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.deliveryOptions(arg_0));
     return ret;
   }

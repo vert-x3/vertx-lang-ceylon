@@ -26,10 +26,14 @@ public class Helper {
     } else if (obj instanceof ceylon.language.Float) {
       return ((ceylon.language.Float)obj).doubleValue();
     } else if (obj instanceof ceylon.json.Object) {
-      return new JsonObject(obj.toString());
+      return toJsonObject((ceylon.json.Object)obj);
     } else if (obj instanceof ceylon.json.Array) {
       return new JsonArray(obj.toString());
     }
     return obj;
+  }
+
+  public static io.vertx.core.json.JsonObject toJsonObject(ceylon.json.Object obj) {
+    return new JsonObject(obj.toString());
   }
 }
