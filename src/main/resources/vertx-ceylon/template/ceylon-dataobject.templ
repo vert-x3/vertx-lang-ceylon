@@ -6,17 +6,32 @@
 @code{
   addClassImport("ceylon.json", "Object", "JsonObject");
   addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
+
+  props=new java.util.ArrayList();
+  for (prop : properties) {
+    var propType = prop.type;
+    var propKind = propType.kind;
+    if (propKind.basic || propKind.json || propKind == CLASS_DATA_OBJECT) {
+      props.add(prop);
+    }
+    if (propKind == CLASS_DATA_OBJECT) {
+      addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
+    }
+  }
+  if (superType != null) {
+    addClassImport(superType.translatePackageName('ceylon'), superType.simpleName, superType.simpleName);
+  }
 }
 
 @includeNamed{'genImports'}
 
 /* Generated from @{type.name} */\n
 shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass}(
-	@foreach{property:properties}
+	@foreach{property:props}
 \n  @if{property.declared}shared @end{}@{genTypeDecl(property.type)}? @{toCeylonIdentifier(property.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}
-	@foreach{property:properties}
+	@foreach{property:props}
 	@if{!property.declared}
 	@{prev}  @{toCeylonIdentifier(property.name)}
 	@code{prev = ',\n'}
@@ -28,7 +43,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 @end{} @if{abstractSuperTypes.empty}satisfies@else{}&@end{} BaseDataObject {\n
   shared actual default JsonObject toJson() {\n
     value json = JsonObject();\n
-@foreach{property:properties}
+@foreach{property:props}
 	@if{property.declared}
 		@code{propName=toCeylonIdentifier(property.name)}
 		@code{propType=property.type}

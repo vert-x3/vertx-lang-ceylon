@@ -1,7 +1,3 @@
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
-}
 import ceylon.json {
   JsonObject=Object
 }

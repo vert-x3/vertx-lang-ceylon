@@ -1,12 +1,9 @@
-import java.lang {
-  String_=String
-}
-import io.vertx.ceylon.core.buffer {
-  Buffer
-}
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
+import io.vertx.ceylon.core.net {
+  JksOptions,
+  PemKeyCertOptions,
+  PemTrustOptions,
+  PfxOptions,
+  TCPSSLOptions
 }
 import ceylon.json {
   JsonObject=Object
@@ -17,14 +14,10 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   ClientOptionsBase_=ClientOptionsBase
 }
-import io.vertx.core.buffer {
-  Buffer_=Buffer
-}
 /* Generated from io.vertx.core.net.ClientOptionsBase */
 shared class ClientOptionsBase(
   shared Integer? connectTimeout = null,
   String? crlPaths = null,
-  Buffer? crlValues = null,
   String? enabledCipherSuites = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
@@ -44,7 +37,6 @@ shared class ClientOptionsBase(
   JksOptions? trustStoreOptions = null,
   Boolean? usePooledBuffers = null) extends TCPSSLOptions(
   crlPaths,
-  crlValues,
   enabledCipherSuites,
   idleTimeout,
   keyStoreOptions,

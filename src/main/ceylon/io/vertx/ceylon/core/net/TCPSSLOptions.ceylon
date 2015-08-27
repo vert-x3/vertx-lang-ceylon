@@ -1,12 +1,9 @@
-import java.lang {
-  String_=String
-}
-import io.vertx.ceylon.core.buffer {
-  Buffer
-}
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
+import io.vertx.ceylon.core.net {
+  JksOptions,
+  PemKeyCertOptions,
+  PemTrustOptions,
+  PfxOptions,
+  NetworkOptions
 }
 import ceylon.json {
   JsonObject=Object
@@ -17,13 +14,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   TCPSSLOptions_=TCPSSLOptions
 }
-import io.vertx.core.buffer {
-  Buffer_=Buffer
-}
 /* Generated from io.vertx.core.net.TCPSSLOptions */
 shared class TCPSSLOptions(
   shared String? crlPaths = null,
-  shared Buffer? crlValues = null,
   shared String? enabledCipherSuites = null,
   shared Integer? idleTimeout = null,
   shared JksOptions? keyStoreOptions = null,
@@ -49,8 +42,6 @@ shared class TCPSSLOptions(
     value json = JsonObject();
     if (exists crlPaths) {
       json.put("crlPaths", crlPaths);
-    }
-    if (exists crlValues) {
     }
     if (exists enabledCipherSuites) {
       json.put("enabledCipherSuites", enabledCipherSuites);

@@ -1,19 +1,11 @@
-import java.lang {
-  String_=String
-}
 import io.vertx.core {
-  DeploymentOptions_=DeploymentOptions,
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
+  DeploymentOptions_=DeploymentOptions
 }
 import ceylon.json {
   JsonObject=Object
 }
 import io.vertx.lang.ceylon {
   BaseDataObject
-}
-import io.vertx.core.json {
-  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(

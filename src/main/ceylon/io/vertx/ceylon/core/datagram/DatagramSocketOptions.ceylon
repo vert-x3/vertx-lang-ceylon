@@ -1,12 +1,5 @@
-import java.lang {
-  String_=String
-}
 import io.vertx.core.datagram {
   DatagramSocketOptions_=DatagramSocketOptions
-}
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
 }
 import io.vertx.ceylon.core.net {
   NetworkOptions
@@ -16,9 +9,6 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject
-}
-import io.vertx.core.net {
-  NetworkOptions_=NetworkOptions
 }
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 shared class DatagramSocketOptions(

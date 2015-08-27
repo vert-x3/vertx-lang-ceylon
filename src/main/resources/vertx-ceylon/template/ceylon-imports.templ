@@ -13,8 +13,10 @@
   }
 
   addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
+  /*
   addClassImport("io.vertx.core", "Handler", "Handler_");
   addClassImport("io.vertx.core", "AsyncResult", "AsyncResult_");
+  */
 
   def importType(importedType) {
     var importedKind = importedType.kind;
@@ -44,10 +46,11 @@
       }
     }
   }
-
+  /*
   foreach (importedType : importedTypes) {
     importType(importedType);
   }
+  */
 }
 
 @declare{'genImports'}

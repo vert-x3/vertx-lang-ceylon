@@ -1,19 +1,11 @@
-import java.lang {
-  String_=String
-}
 import io.vertx.core {
-  VertxOptions_=VertxOptions,
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
+  VertxOptions_=VertxOptions
 }
 import ceylon.json {
   JsonObject=Object
 }
 import io.vertx.lang.ceylon {
   BaseDataObject
-}
-import io.vertx.core.metrics {
-  MetricsOptions_=MetricsOptions
 }
 import io.vertx.ceylon.core.metrics {
   MetricsOptions

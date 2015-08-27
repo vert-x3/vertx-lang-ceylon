@@ -1,13 +1,3 @@
-import java.lang {
-  String_=String
-}
-import io.vertx.ceylon.core.buffer {
-  Buffer
-}
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
-}
 import io.vertx.ceylon.core.net {
   JksOptions,
   PemKeyCertOptions,
@@ -21,24 +11,13 @@ import ceylon.json {
 import io.vertx.lang.ceylon {
   BaseDataObject
 }
-import io.vertx.core.net {
-  JksOptions_=JksOptions,
-  PemKeyCertOptions_=PemKeyCertOptions,
-  PemTrustOptions_=PemTrustOptions,
-  PfxOptions_=PfxOptions,
-  ClientOptionsBase_=ClientOptionsBase
-}
 import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
-}
-import io.vertx.core.buffer {
-  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(
   Integer? connectTimeout = null,
   String? crlPaths = null,
-  Buffer? crlValues = null,
   shared String? defaultHost = null,
   shared Integer? defaultPort = null,
   String? enabledCipherSuites = null,
@@ -52,7 +31,6 @@ shared class HttpClientOptions(
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
   shared Boolean? pipelining = null,
-  shared String? protocolVersion = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
@@ -68,7 +46,6 @@ shared class HttpClientOptions(
   shared Boolean? verifyHost = null) extends ClientOptionsBase(
   connectTimeout,
   crlPaths,
-  crlValues,
   enabledCipherSuites,
   idleTimeout,
   keyStoreOptions,
@@ -106,8 +83,6 @@ shared class HttpClientOptions(
     }
     if (exists pipelining) {
       json.put("pipelining", pipelining);
-    }
-    if (exists protocolVersion) {
     }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);

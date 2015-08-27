@@ -1,13 +1,3 @@
-import java.lang {
-  String_=String
-}
-import io.vertx.ceylon.core.buffer {
-  Buffer
-}
-import io.vertx.core {
-  Handler_=Handler,
-  AsyncResult_=AsyncResult
-}
 import io.vertx.ceylon.core.net {
   JksOptions,
   PemKeyCertOptions,
@@ -21,18 +11,8 @@ import ceylon.json {
 import io.vertx.lang.ceylon {
   BaseDataObject
 }
-import io.vertx.core.net {
-  JksOptions_=JksOptions,
-  PemKeyCertOptions_=PemKeyCertOptions,
-  PemTrustOptions_=PemTrustOptions,
-  PfxOptions_=PfxOptions,
-  NetServerOptions_=NetServerOptions
-}
 import io.vertx.core.http {
   HttpServerOptions_=HttpServerOptions
-}
-import io.vertx.core.buffer {
-  Buffer_=Buffer
 }
 /* Generated from io.vertx.core.http.HttpServerOptions */
 shared class HttpServerOptions(
@@ -40,7 +20,6 @@ shared class HttpServerOptions(
   Boolean? clientAuthRequired = null,
   shared Boolean? compressionSupported = null,
   String? crlPaths = null,
-  Buffer? crlValues = null,
   String? enabledCipherSuites = null,
   shared Boolean? handle100ContinueAutomatically = null,
   String? host = null,
@@ -66,7 +45,6 @@ shared class HttpServerOptions(
   acceptBacklog,
   clientAuthRequired,
   crlPaths,
-  crlValues,
   enabledCipherSuites,
   host,
   idleTimeout,
