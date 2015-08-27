@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
@@ -14,12 +15,14 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class LocalMap<K,V> {
 
+  @Ignore
   private final io.vertx.core.shareddata.LocalMap delegate;
 
   public LocalMap(io.vertx.core.shareddata.LocalMap delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }

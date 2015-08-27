@@ -757,12 +757,14 @@
 @end{}
 
 @declare{'genClassCtor'}
+@{indent}@Ignore\n
 @{indent}private final @{type.raw.name} delegate;\n
 \n
 @{indent}public @{ctor}(@{type.raw.name} delegate) {\n
 @{indent}  this.delegate = delegate;\n
 @{indent}}\n
 \n
+@{indent}@Ignore\n
 @{indent}public Object getDelegate() {\n
 @{indent}  return delegate;\n
 @{indent}}\n
@@ -776,6 +778,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;\n
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;\n
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;\n
 import com.redhat.ceylon.compiler.java.metadata.Variance;\n
+import com.redhat.ceylon.compiler.java.metadata.Ignore;\n
 import ceylon.language.Callable;\n
 import ceylon.language.DocAnnotation$annotation$;\n
 @foreach{importedType:importedTypes}
@@ -809,6 +812,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 @if{concrete}
 @includeNamed{'genClassCtor';indent='  ';ctor=type.raw.simpleName}
 @else{}
+  @Ignore\n
   Object getDelegate();\n
 @end{}
 
@@ -834,6 +838,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 
 @if{!concrete}
 \n
+  @Ignore\n
   public class Impl@includeNamed{'genTypeParams';params=typeParams} implements @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams} {\n
 
 @includeNamed{'genClassCtor';indent='    ';ctor='Impl'}

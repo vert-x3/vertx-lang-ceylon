@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import com.acme.ceylon.pkg.sub.SubInterface;
@@ -12,12 +13,14 @@ import io.vertx.ceylon.codegen.testmodel.TestInterface;
 @DocAnnotation$annotation$(description = "todo")
 public class MyInterface {
 
+  @Ignore
   private final com.acme.pkg.MyInterface delegate;
 
   public MyInterface(com.acme.pkg.MyInterface delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }

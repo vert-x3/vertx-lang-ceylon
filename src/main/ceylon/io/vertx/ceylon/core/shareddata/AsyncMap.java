@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
@@ -16,12 +17,14 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class AsyncMap<K,V> {
 
+  @Ignore
   private final io.vertx.core.shareddata.AsyncMap delegate;
 
   public AsyncMap(io.vertx.core.shareddata.AsyncMap delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }

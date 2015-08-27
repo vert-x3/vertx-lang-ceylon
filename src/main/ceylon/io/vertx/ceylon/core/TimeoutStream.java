@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.ReadStream;
@@ -12,12 +13,14 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
 
+  @Ignore
   private final io.vertx.core.TimeoutStream delegate;
 
   public TimeoutStream(io.vertx.core.TimeoutStream delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }

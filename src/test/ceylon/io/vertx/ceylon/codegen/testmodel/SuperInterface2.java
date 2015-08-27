@@ -4,12 +4,14 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
 public interface SuperInterface2 {
 
+  @Ignore
   Object getDelegate();
 
   @DocAnnotation$annotation$(description = "todo")
@@ -25,13 +27,16 @@ public interface SuperInterface2 {
     final @TypeInfo("ceylon.language::Character") @DocAnnotation$annotation$(description = "todo") int ch, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
 
+  @Ignore
   public class Impl implements SuperInterface2 {
+    @Ignore
     private final io.vertx.codegen.testmodel.SuperInterface2 delegate;
 
     public Impl(io.vertx.codegen.testmodel.SuperInterface2 delegate) {
       this.delegate = delegate;
     }
 
+    @Ignore
     public Object getDelegate() {
       return delegate;
     }

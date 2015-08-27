@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.ReadStream;
@@ -16,12 +17,14 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class MessageConsumer<T> implements ReadStream<Message<T>> {
 
+  @Ignore
   private final io.vertx.core.eventbus.MessageConsumer delegate;
 
   public MessageConsumer(io.vertx.core.eventbus.MessageConsumer delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }

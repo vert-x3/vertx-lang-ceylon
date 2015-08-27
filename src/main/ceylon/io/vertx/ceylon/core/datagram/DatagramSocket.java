@@ -4,6 +4,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -16,12 +17,14 @@ import io.vertx.ceylon.core.net.SocketAddress;
 @DocAnnotation$annotation$(description = "todo")
 public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
 
+  @Ignore
   private final io.vertx.core.datagram.DatagramSocket delegate;
 
   public DatagramSocket(io.vertx.core.datagram.DatagramSocket delegate) {
     this.delegate = delegate;
   }
 
+  @Ignore
   public Object getDelegate() {
     return delegate;
   }
