@@ -5,15 +5,18 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
+@DocAnnotation$annotation$(description = "todo")
 public interface AbstractHandlerUserType {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   void handle(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") RefedInterface1 arg0);
+    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0);
 
   public class Impl implements AbstractHandlerUserType {
     private final io.vertx.codegen.testmodel.AbstractHandlerUserType delegate;

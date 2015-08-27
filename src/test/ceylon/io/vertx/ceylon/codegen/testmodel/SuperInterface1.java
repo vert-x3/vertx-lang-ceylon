@@ -5,7 +5,9 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 
+@DocAnnotation$annotation$(description = "todo")
 public class SuperInterface1 {
 
   private final io.vertx.codegen.testmodel.SuperInterface1 delegate;
@@ -18,17 +20,18 @@ public class SuperInterface1 {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void superMethodWithBasicParams(
-    final @TypeInfo("ceylon.language::Byte") byte b, 
-    final @TypeInfo("ceylon.language::Integer") long s, 
-    final @TypeInfo("ceylon.language::Integer") long i, 
-    final @TypeInfo("ceylon.language::Integer") long l, 
-    final @TypeInfo("ceylon.language::Float") double f, 
-    final @TypeInfo("ceylon.language::Float") double d, 
-    final @TypeInfo("ceylon.language::Boolean") boolean bool, 
-    final @TypeInfo("ceylon.language::Character") int ch, 
-    final @TypeInfo("ceylon.language::String") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::Byte") @DocAnnotation$annotation$(description = "todo") byte b, 
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long s, 
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long i, 
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long l, 
+    final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double f, 
+    final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double d, 
+    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean bool, 
+    final @TypeInfo("ceylon.language::Character") @DocAnnotation$annotation$(description = "todo") int ch, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     byte arg_0 = b;
     short arg_1 = (short)s;
     int arg_2 = (int)i;

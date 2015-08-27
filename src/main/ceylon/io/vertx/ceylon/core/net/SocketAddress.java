@@ -5,7 +5,9 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 
+@DocAnnotation$annotation$(description = "todo")
 public class SocketAddress {
 
   private final io.vertx.core.net.SocketAddress delegate;
@@ -18,12 +20,14 @@ public class SocketAddress {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String host() {
     ceylon.language.String ret = new ceylon.language.String(delegate.host());
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer")
   public long port() {
     long ret = delegate.port();

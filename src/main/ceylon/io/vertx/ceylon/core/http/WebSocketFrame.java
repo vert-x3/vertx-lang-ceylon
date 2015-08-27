@@ -5,8 +5,10 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 
+@DocAnnotation$annotation$(description = "todo")
 public class WebSocketFrame {
 
   private final io.vertx.core.http.WebSocketFrame delegate;
@@ -19,66 +21,75 @@ public class WebSocketFrame {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame binaryFrame(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") Buffer data, 
-    final @TypeInfo("ceylon.language::Boolean") boolean isFinal) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data, 
+    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
     boolean arg_1 = isFinal;
     WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame textFrame(
-    final @TypeInfo("ceylon.language::String") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::Boolean") boolean isFinal) {
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     java.lang.String arg_0 = str.toString();
     boolean arg_1 = isFinal;
     WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.textFrame(arg_0, arg_1));
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame continuationFrame(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") Buffer data, 
-    final @TypeInfo("ceylon.language::Boolean") boolean isFinal) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data, 
+    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
     boolean arg_1 = isFinal;
     WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isText() {
     boolean ret = delegate.isText();
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isBinary() {
     boolean ret = delegate.isBinary();
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isContinuation() {
     boolean ret = delegate.isContinuation();
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textData() {
     ceylon.language.String ret = new ceylon.language.String(delegate.textData());
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer binaryData() {
     Buffer ret = new io.vertx.ceylon.core.buffer.Buffer(delegate.binaryData());
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isFinal() {
     boolean ret = delegate.isFinal();

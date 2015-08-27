@@ -5,15 +5,18 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
+@DocAnnotation$annotation$(description = "todo")
 public interface StreamBase {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
   StreamBase exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   public class Impl implements StreamBase {
     private final io.vertx.core.streams.StreamBase delegate;

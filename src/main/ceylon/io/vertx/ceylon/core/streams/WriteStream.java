@@ -5,33 +5,40 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
+@DocAnnotation$annotation$(description = "todo")
 public interface WriteStream<T> extends StreamBase {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> write(
-    final @TypeInfo("T") T data);
+    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T data);
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") long maxSize);
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize);
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   boolean writeQueueFull();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> drainHandler(
-    final @TypeInfo("ceylon.language::Anything()") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   public class Impl<T> implements WriteStream<T> {
     private final io.vertx.core.streams.WriteStream delegate;

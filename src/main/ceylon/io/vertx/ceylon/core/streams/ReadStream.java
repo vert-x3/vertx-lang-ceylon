@@ -5,32 +5,39 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
+@DocAnnotation$annotation$(description = "todo")
 public interface ReadStream<T> extends StreamBase {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T)") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(T)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> pause();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> resume();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> endHandler(
-    final @TypeInfo("ceylon.language::Anything()") Callable<?> endHandler);
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
 
   public class Impl<T> implements ReadStream<T> {
     private final io.vertx.core.streams.ReadStream delegate;

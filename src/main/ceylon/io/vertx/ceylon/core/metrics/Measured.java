@@ -5,11 +5,14 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 
+@DocAnnotation$annotation$(description = "todo")
 public interface Measured {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   boolean isMetricsEnabled();
 

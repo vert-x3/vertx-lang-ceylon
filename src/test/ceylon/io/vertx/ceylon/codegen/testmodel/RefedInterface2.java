@@ -5,17 +5,21 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
 
+@DocAnnotation$annotation$(description = "todo")
 public interface RefedInterface2 {
 
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   ceylon.language.String getString();
 
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface2")
   RefedInterface2 setString(
-    final @TypeInfo("ceylon.language::String") ceylon.language.String str);
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
 
   public class Impl implements RefedInterface2 {
     private final io.vertx.codegen.testmodel.RefedInterface2 delegate;
