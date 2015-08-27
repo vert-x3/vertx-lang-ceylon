@@ -19,3 +19,9 @@ shared class PemTrustOptions(
     return json;
   }
 }
+shared PemTrustOptions toPemTrustOptions(JsonObject json) {
+  String? certPaths = json.getStringOrNull("certPaths");
+  return PemTrustOptions {
+    certPaths = certPaths;
+  };
+}

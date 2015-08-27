@@ -26,3 +26,13 @@ shared class TestDataObject(
     return json;
   }
 }
+shared TestDataObject toTestDataObject(JsonObject json) {
+  Integer? bar = json.getIntegerOrNull("bar");
+  String? foo = json.getStringOrNull("foo");
+  Float? wibble = json.getFloatOrNull("wibble");
+  return TestDataObject {
+    bar = bar;
+    foo = foo;
+    wibble = wibble;
+  };
+}

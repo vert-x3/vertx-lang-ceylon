@@ -16,6 +16,7 @@
     }
     if (propKind == CLASS_DATA_OBJECT) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
+      addClassImport(propType.translatePackageName('ceylon'), "to" + propType.simpleName, "to" + propType.simpleName);
     }
   }
   if (superType != null) {
@@ -27,13 +28,13 @@
 
 /* Generated from @{type.name} */\n
 shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass}(
-	@foreach{property:props}
-\n  @if{property.declared}shared @end{}@{genTypeDecl(property.type)}? @{toCeylonIdentifier(property.name)} = null
+	@foreach{prop:props}
+\n  @if{prop.declared}shared @end{}@{genTypeDecl(prop.type)}? @{toCeylonIdentifier(prop.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}
-	@foreach{property:props}
-	@if{!property.declared}
-	@{prev}  @{toCeylonIdentifier(property.name)}
+	@foreach{prop:props}
+	@if{!prop.declared}
+	@{prev}  @{toCeylonIdentifier(prop.name)}
 	@code{prev = ',\n'}
 	@end{}
 	@end{})@end{}@end{}@if{abstractSuperTypes.size() > 0} satisfies\n
@@ -43,15 +44,15 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 @end{} @if{abstractSuperTypes.empty}satisfies@else{}&@end{} BaseDataObject {\n
   shared actual default JsonObject toJson() {\n
     value json = JsonObject();\n
-@foreach{property:props}
-	@if{property.declared}
-		@code{propName=toCeylonIdentifier(property.name)}
-		@code{propType=property.type}
+@foreach{prop:props}
+	@if{prop.declared}
+		@code{propName=toCeylonIdentifier(prop.name)}
+		@code{propType=prop.type}
     if (exists @{propName}) {\n
 		@if{propType.kind.basic || propType.kind.json}
-      json.put("@{propName}", @{propName});\n
+      json.put("@{prop.name}", @{propName});\n
 		@else{propType.kind == CLASS_DATA_OBJECT}
-      json.put("@{propName}", @{propName}.toJson());\n
+      json.put("@{prop.name}", @{propName}.toJson());\n
 		@end{}
     }\n
 	@end{}
@@ -59,3 +60,40 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
     return json;\n
   }\n
 }\n
+
+@if{isClass}
+shared @{type.raw.simpleName} to@{type.raw.simpleName}(JsonObject json) {\n
+@foreach{prop:props}
+	@code{propName=toCeylonIdentifier(prop.name)}
+	@code{propType=prop.type}
+	@if{propType.name == 'java.lang.String'}
+  String? @{propName} = json.getStringOrNull("@{prop.name}");\n
+	@else{propType.name == 'java.lang.Short' || propType.name == 'java.lang.Integer' || propType.name == 'java.lang.Long' || propType.name == 'short' || propType.name == 'int' || propType.name == 'long'}
+  Integer? @{propName} = json.getIntegerOrNull("@{prop.name}");\n
+	@else{propType.name == 'java.lang.Boolean' || propType.name == 'boolean'}
+  Boolean? @{propName} = json.getBooleanOrNull("@{prop.name}");\n
+	@else{propType.name == 'java.lang.Float' || propType.name == 'java.lang.Double' || propType.name == 'float' || propType.name == 'double'}
+  Float? @{propName} = json.getFloatOrNull("@{prop.name}");\n
+	@else{propType.name == 'io.vertx.core.json.JsonObject'}
+  JsonObject? @{propName} = json.getObjectOrNull("@{prop.name}");\n
+	@else{propType.name == 'io.vertx.core.json.JsonArray'}
+  JsonArray? @{propName} = json.getArrayOrNull("@{prop.name}");\n
+	@else{propType.kind == CLASS_DATA_OBJECT}
+  @{prop.type.simpleName}? @{propName};\n
+  if (exists tmp = json.getObjectOrNull("@{prop.name}")) {\n
+    @{propName} = to@{prop.type.simpleName}(tmp);\n
+  } else {\n
+    @{propName} = null;\n
+  }\n
+	@else{}
+  /* @{propType} not handled */\n
+	@end{}
+@end{}
+  return @{type.raw.simpleName} {\n
+@foreach{prop:props}
+	@code{propName=toCeylonIdentifier(prop.name)}
+    @{propName} = @{propName};\n
+@end{}
+  };\n
+}\n
+@end{}

@@ -24,3 +24,11 @@ shared class JksOptions(
     return json;
   }
 }
+shared JksOptions toJksOptions(JsonObject json) {
+  String? password = json.getStringOrNull("password");
+  String? path = json.getStringOrNull("path");
+  return JksOptions {
+    password = password;
+    path = path;
+  };
+}

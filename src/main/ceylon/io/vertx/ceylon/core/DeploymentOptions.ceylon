@@ -46,3 +46,23 @@ shared class DeploymentOptions(
     return json;
   }
 }
+shared DeploymentOptions toDeploymentOptions(JsonObject json) {
+  JsonObject? config = json.getObjectOrNull("config");
+  String? extraClasspath = json.getStringOrNull("extraClasspath");
+  Boolean? ha = json.getBooleanOrNull("ha");
+  Integer? instances = json.getIntegerOrNull("instances");
+  String? isolatedClasses = json.getStringOrNull("isolatedClasses");
+  String? isolationGroup = json.getStringOrNull("isolationGroup");
+  Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
+  Boolean? worker = json.getBooleanOrNull("worker");
+  return DeploymentOptions {
+    config = config;
+    extraClasspath = extraClasspath;
+    ha = ha;
+    instances = instances;
+    isolatedClasses = isolatedClasses;
+    isolationGroup = isolationGroup;
+    multiThreaded = multiThreaded;
+    worker = worker;
+  };
+}

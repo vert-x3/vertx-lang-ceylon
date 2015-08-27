@@ -18,3 +18,9 @@ shared class MetricsOptions(
     return json;
   }
 }
+shared MetricsOptions toMetricsOptions(JsonObject json) {
+  Boolean? enabled = json.getBooleanOrNull("enabled");
+  return MetricsOptions {
+    enabled = enabled;
+  };
+}

@@ -24,3 +24,11 @@ shared class PfxOptions(
     return json;
   }
 }
+shared PfxOptions toPfxOptions(JsonObject json) {
+  String? password = json.getStringOrNull("password");
+  String? path = json.getStringOrNull("path");
+  return PfxOptions {
+    password = password;
+    path = path;
+  };
+}

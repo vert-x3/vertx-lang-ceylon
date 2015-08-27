@@ -22,3 +22,11 @@ shared class DeliveryOptions(
     return json;
   }
 }
+shared DeliveryOptions toDeliveryOptions(JsonObject json) {
+  String? codecName = json.getStringOrNull("codecName");
+  Integer? sendTimeout = json.getIntegerOrNull("sendTimeout");
+  return DeliveryOptions {
+    codecName = codecName;
+    sendTimeout = sendTimeout;
+  };
+}

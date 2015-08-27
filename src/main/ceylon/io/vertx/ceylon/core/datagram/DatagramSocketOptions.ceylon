@@ -45,3 +45,25 @@ shared class DatagramSocketOptions(
     return json;
   }
 }
+shared DatagramSocketOptions toDatagramSocketOptions(JsonObject json) {
+  Boolean? broadcast = json.getBooleanOrNull("broadcast");
+  Boolean? ipV6 = json.getBooleanOrNull("ipV6");
+  Boolean? loopbackModeDisabled = json.getBooleanOrNull("loopbackModeDisabled");
+  String? multicastNetworkInterface = json.getStringOrNull("multicastNetworkInterface");
+  Integer? multicastTimeToLive = json.getIntegerOrNull("multicastTimeToLive");
+  Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+  Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+  Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+  Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+  return DatagramSocketOptions {
+    broadcast = broadcast;
+    ipV6 = ipV6;
+    loopbackModeDisabled = loopbackModeDisabled;
+    multicastNetworkInterface = multicastNetworkInterface;
+    multicastTimeToLive = multicastTimeToLive;
+    receiveBufferSize = receiveBufferSize;
+    reuseAddress = reuseAddress;
+    sendBufferSize = sendBufferSize;
+    trafficClass = trafficClass;
+  };
+}

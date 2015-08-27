@@ -407,6 +407,7 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
+        return type.translatePackageName('ceylon') + '.to' + type.simpleName + '_.to' + type.simpleName + '(io.vertx.lang.ceylon.Helper.fromJsonObject(' + expr + '.toJson()))';
       } else if (kind == CLASS_LIST) {
       } else if (kind == CLASS_SET) {
       } else if (kind == CLASS_MAP) {

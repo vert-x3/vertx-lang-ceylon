@@ -36,4 +36,8 @@ public class Helper {
   public static io.vertx.core.json.JsonObject toJsonObject(ceylon.json.Object obj) {
     return new JsonObject(obj.toString());
   }
+
+  public static ceylon.json.Object fromJsonObject(io.vertx.core.json.JsonObject obj) {
+    return (ceylon.json.Object)ceylon.json.parse_.parse(obj.toString());
+  }
 }

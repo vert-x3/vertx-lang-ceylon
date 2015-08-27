@@ -145,6 +145,31 @@ shared test void testNullDataObjectParam() {
   obj.methodWithNullDataObjectParam(null);
 }
 
+shared test void testMethodWithHandlerDataObject() {
+  variable TestDataObject? tmp = null;
+  void callback(TestDataObject obj) {
+    tmp = obj;
+  }
+  obj.methodWithHandlerDataObject(callback);
+  assert(exists o = tmp);
+  assertEquals(o.foo, "foo");
+  assertEquals(o.bar, 123);
+}
+
+shared test void testMethodWithHandlerAsyncResultDataObject() {
+  variable TestDataObject|Throwable|Null tmp = null;
+  void callback(TestDataObject|Throwable result) {
+    tmp = result;
+  }
+  obj.methodWithHandlerAsyncResultDataObject(false, callback);
+  assert(is TestDataObject o = tmp);
+  assertEquals(o.foo, "foo");
+  assertEquals(o.bar, 123);
+  obj.methodWithHandlerAsyncResultDataObject(true, callback);
+  assert(is Throwable t = tmp);
+  assertEquals(t.message, "foobar!");
+}
+
 void assertFloatEquals(Float actual, Float expected) {
   variable value diff = expected - actual;
   if (diff < 0.float) {
