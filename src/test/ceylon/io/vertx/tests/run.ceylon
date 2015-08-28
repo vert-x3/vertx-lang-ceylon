@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1, TestDataObject
+  TestInterface, RefedInterface1, RefedInterface2, TestDataObject
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl
@@ -10,8 +10,25 @@ import ceylon.test {
 import ceylon.json {
   JsonObject=Object, JsonArray=Array
 }
+import ceylon.collection {
+  HashSet, ArrayList
+}
 
 TestInterface obj = TestInterface(TestInterfaceImpl());
+
+Comparison comparingRefedInterface1(RefedInterface1 x, RefedInterface1 y) {
+  return x.getString().compare(y.getString());
+}
+
+Comparison comparingRefedInterface2(RefedInterface2 x, RefedInterface2 y) {
+  return x.getString().compare(y.getString());
+}
+
+Comparison comparingTestDataObject(TestDataObject x, TestDataObject y) {
+  assert(exists a=x.foo);
+  assert(exists b=y.foo);
+  return a.compare(b);
+}
 
 shared test void testMethodWithBasicParams() {
   obj.methodWithBasicParams(123.byte, 12345, 1234567, 1265615234, 12.345, 12.34566, true, 'X', "foobar");
@@ -170,6 +187,103 @@ shared test void testMethodWithHandlerAsyncResultDataObject() {
   assertEquals(t.message, "foobar!");
 }
 
+shared test void testMethodWithHandlerListAndSet() {
+  variable List<String>? arg0 = null;
+  variable List<Integer>? arg1 = null;
+  variable Set<String>? arg2 = null;
+  variable Set<Integer>? arg3 = null;
+  obj.methodWithHandlerListAndSet(
+    (List<String> arg) => arg0 = arg,
+    (List<Integer> arg) => arg1 = arg,
+    (Set<String> arg) => arg2 = arg,
+    (Set<Integer> arg) => arg3 = arg);
+  assertEquals(arg0, ArrayList { "foo", "bar", "wibble" });
+  assertEquals(arg1, ArrayList { 5, 12, 100 });
+  assertEquals(arg2, HashSet { "foo", "bar", "wibble" });
+  assertEquals(arg3, HashSet { 5, 12, 100 });
+}
+
+shared test void testMethodWithHandlerAsyncResultListAndSet() {
+  variable List<String>|Throwable|Null arg0 = null;
+  variable List<Integer>|Throwable|Null arg1 = null;
+  variable Set<String>|Throwable|Null arg2 = null;
+  variable Set<Integer>|Throwable|Null arg3 = null;
+  obj.methodWithHandlerAsyncResultListString((List<String>|Throwable arg) => arg0 = arg);
+  obj.methodWithHandlerAsyncResultListInteger((List<Integer>|Throwable arg) => arg1 = arg);
+  obj.methodWithHandlerAsyncResultSetString((Set<String>|Throwable arg) => arg2 = arg);
+  obj.methodWithHandlerAsyncResultSetInteger((Set<Integer>|Throwable arg) => arg3 = arg);
+  assertEquals(arg0, ArrayList { "foo", "bar", "wibble" });
+  assertEquals(arg1, ArrayList { 5, 12, 100 });
+  assertEquals(arg2, HashSet { "foo", "bar", "wibble" });
+  assertEquals(arg3, HashSet { 5, 12, 100 });
+}
+
+shared test void testMethodWithHandlerListVertxGen() {
+  variable List<RefedInterface1>|Null arg = null;
+  obj.methodWithHandlerListVertxGen((List<RefedInterface1> arg_) => arg=arg_);
+  assert(is List<RefedInterface1> val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "foo");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "bar");
+}
+
+shared test void testMethodWithHandlerListAbstractVertxGen() {
+  variable List<RefedInterface2>|Null arg = null;
+  obj.methodWithHandlerListAbstractVertxGen((List<RefedInterface2> arg_) => arg=arg_);
+  assert(is List<RefedInterface2> val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "abstractfoo");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "abstractbar");
+}
+
+shared test void testMethodWithHandlerAsyncResultListVertxGen() {
+  variable List<RefedInterface1>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListVertxGen((List<RefedInterface1>|Throwable arg_) => arg=arg_);
+  assert(is List<RefedInterface1> val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "foo");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "bar");
+}
+
+shared test void testMethodWithHandlerAsyncResultListAbstractVertxGen() {
+  variable List<RefedInterface2>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListAbstractVertxGen((List<RefedInterface2>|Throwable arg_) => arg=arg_);
+  assert(is List<RefedInterface2> val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "abstractfoo");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "abstractbar");
+}
+
+shared test void testMethodWithHandlerSetVertxGen() {
+  variable RefedInterface1[]|Null arg = null;
+  obj.methodWithHandlerSetVertxGen((Set<RefedInterface1> arg_) => arg=arg_.sort(comparingRefedInterface1));
+  assert(is RefedInterface1[] val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "bar");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "foo");
+}
+
+shared test void testMethodWithHandlerSetAbstractVertxGen() {
+  variable RefedInterface2[]|Null arg = null;
+  obj.methodWithHandlerSetAbstractVertxGen((Set<RefedInterface2> arg_) => arg=arg_.sort(comparingRefedInterface2));
+  assert(is RefedInterface2[] val=arg);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "abstractbar");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "abstractfoo");
+}
+
 shared test void testListStringReturn() {
   value list = obj.methodWithListStringReturn();
   assertEquals(list.size, 3);
@@ -292,39 +406,27 @@ shared test void testSetComplexJsonArrayReturn() {
 }
 
 shared test void testSetVertxGenReturn() {
-  value set = obj.methodWithSetVertxGenReturn();
+  value set = obj.methodWithSetVertxGenReturn().sort(comparingRefedInterface1);
   assertEquals(set.size, 2);
-  assert(is RefedInterface1 f=set.first);
-  assert(is RefedInterface1 l=set.last);
-  if (f.getString() == "foo") {
-    assertEquals(l.getString(), "bar");
-  } else {
-    assertEquals(f.getString(), "bar");
-    assertEquals(l.getString(), "foo");
-  }
+  assert(is RefedInterface1 f=set[0]);
+  assert(is RefedInterface1 l=set[1]);
+  assertEquals(f.getString(), "bar");
+  assertEquals(l.getString(), "foo");
 }
 
 shared test void testSetDataObjectReturn() {
-  value set = obj.methodWithSetDataObjectReturn();
+  value set = obj.methodWithSetDataObjectReturn().sort(comparingTestDataObject);
   assertEquals(set.size, 2);
-  assert(is TestDataObject f=set.first);
-  assert(is TestDataObject l=set.last);
+  assert(is TestDataObject f=set[0]);
+  assert(is TestDataObject l=set[1]);
   JsonObject j1 = f.toJson();
   JsonObject j2 = l.toJson();
-  if (is String val = j1["foo"], val == "String 1") {
-    assertEquals(j1["bar"], 1);
-    assertFloatEquals(j1["wibble"], 1.1);
-    assertEquals(j2["foo"], "String 2");
-    assertEquals(j2["bar"], 2);
-    assertFloatEquals(j2["wibble"], 2.2);
-  } else {
-    assertEquals(j1["foo"], "String 2");
-    assertEquals(j1["bar"], 2);
-    assertFloatEquals(j1["wibble"], 2.2);
-    assertEquals(j2["foo"], "String 1");
-    assertEquals(j2["bar"], 1);
-    assertFloatEquals(j2["wibble"], 1.1);
-  }
+  assertEquals(j1["foo"], "String 1");
+  assertEquals(j1["bar"], 1);
+  assertFloatEquals(j1["wibble"], 1.1);
+  assertEquals(j2["foo"], "String 2");
+  assertEquals(j2["bar"], 2);
+  assertFloatEquals(j2["wibble"], 2.2);
 }
 
 void assertFloatEquals(Anything actual, Float expected) {
