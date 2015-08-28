@@ -5,11 +5,23 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 public class ToCeylon {
 
   public static <J, C> ceylon.language.List<C> list(
-      TypeDescriptor elementTypeDesc,
+      TypeDescriptor eltTypeDesc,
       java.util.List<J> list,
       Converter<J, C> converter) {
-    ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(elementTypeDesc);
+    ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(eltTypeDesc);
     for (J javaElt : list) {
+      C ceylonElt = converter.convert(javaElt);
+      ret.add(ceylonElt);
+    }
+    return ret;
+  }
+
+  public static <J, C> ceylon.language.Set<C> set(
+      TypeDescriptor eltTypeDesc,
+      java.util.Set<J> set,
+      Converter<J, C> converter) {
+    ceylon.collection.HashSet<C> ret = new ceylon.collection.HashSet<C>(eltTypeDesc);
+    for (J javaElt : set) {
       C ceylonElt = converter.convert(javaElt);
       ret.add(ceylonElt);
     }

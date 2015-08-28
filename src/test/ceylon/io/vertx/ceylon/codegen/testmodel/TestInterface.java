@@ -295,15 +295,15 @@ public class TestInterface implements SuperInterface2 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetParams(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.language.String> setString, 
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Byte>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.language.Byte> setByte, 
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.language.Integer> setShort, 
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.language.Integer> setInt, 
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.language.Integer> setLong, 
-    final @TypeInfo("ceylon.language::Set<ceylon.json::Object>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.json.Object> setJsonObject, 
-    final @TypeInfo("ceylon.language::Set<ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") Set<ceylon.json.Array> setJsonArray, 
-    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") Set<RefedInterface1> setVertxGen, 
-    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> setDataObject) {
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> setString, 
+    final @TypeInfo("ceylon.language::Set<ceylon.language::Byte>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Byte> setByte, 
+    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> setShort, 
+    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> setInt, 
+    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> setLong, 
+    final @TypeInfo("ceylon.language::Set<ceylon.json::Object>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Object> setJsonObject, 
+    final @TypeInfo("ceylon.language::Set<ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Array> setJsonArray, 
+    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<RefedInterface1> setVertxGen, 
+    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> setDataObject) {
     java.util.Set<java.lang.String> arg_0 = null;
     java.util.Set<java.lang.Byte> arg_1 = null;
     java.util.Set<java.lang.Short> arg_2 = null;
@@ -347,8 +347,8 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Integer>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setIntHandler) {
     io.vertx.core.Handler<java.util.List<java.lang.String>> arg_0 = new io.vertx.core.Handler<java.util.List<java.lang.String>>() { public void handle(java.util.List<java.lang.String> event) { listStringHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String)); } };
     io.vertx.core.Handler<java.util.List<java.lang.Integer>> arg_1 = new io.vertx.core.Handler<java.util.List<java.lang.Integer>>() { public void handle(java.util.List<java.lang.Integer> event) { listIntHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer)); } };
-    io.vertx.core.Handler<java.util.Set<java.lang.String>> arg_2 = new io.vertx.core.Handler<java.util.Set<java.lang.String>>() { public void handle(java.util.Set<java.lang.String> event) { setStringHandler.$call$((Object)null); } };
-    io.vertx.core.Handler<java.util.Set<java.lang.Integer>> arg_3 = new io.vertx.core.Handler<java.util.Set<java.lang.Integer>>() { public void handle(java.util.Set<java.lang.Integer> event) { setIntHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<java.lang.String>> arg_2 = new io.vertx.core.Handler<java.util.Set<java.lang.String>>() { public void handle(java.util.Set<java.lang.String> event) { setStringHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String)); } };
+    io.vertx.core.Handler<java.util.Set<java.lang.Integer>> arg_3 = new io.vertx.core.Handler<java.util.Set<java.lang.Integer>>() { public void handle(java.util.Set<java.lang.Integer> event) { setIntHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer)); } };
     delegate.methodWithHandlerListAndSet(arg_0, arg_1, arg_2, arg_3);
   }
 
@@ -372,7 +372,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetString(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.String>>(handler) { public Object toCeylon(java.util.Set<java.lang.String> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.String>>(handler) { public Object toCeylon(java.util.Set<java.lang.String> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String); } };
     delegate.methodWithHandlerAsyncResultSetString(arg_0);
   }
 
@@ -380,7 +380,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetInteger(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Integer>>(handler) { public Object toCeylon(java.util.Set<java.lang.Integer> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Integer>>(handler) { public Object toCeylon(java.util.Set<java.lang.Integer> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer); } };
     delegate.methodWithHandlerAsyncResultSetInteger(arg_0);
   }
 
@@ -396,7 +396,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetVertxGen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON)); } };
     delegate.methodWithHandlerSetVertxGen(arg_0);
   }
 
@@ -412,7 +412,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetAbstractVertxGen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface2>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.RefedInterface2> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.RefedInterface2> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface2.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON)); } };
     delegate.methodWithHandlerSetAbstractVertxGen(arg_0);
   }
 
@@ -444,7 +444,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject)); } };
     delegate.methodWithHandlerSetJsonObject(arg_0);
   }
 
@@ -452,7 +452,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetNullJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject)); } };
     delegate.methodWithHandlerSetNullJsonObject(arg_0);
   }
 
@@ -460,7 +460,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetComplexJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() { public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject)); } };
     delegate.methodWithHandlerSetComplexJsonObject(arg_0);
   }
 
@@ -492,7 +492,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray)); } };
     delegate.methodWithHandlerSetJsonArray(arg_0);
   }
 
@@ -500,7 +500,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetNullJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray)); } };
     delegate.methodWithHandlerSetNullJsonArray(arg_0);
   }
 
@@ -508,7 +508,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetComplexJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { setHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() { public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) { setHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray)); } };
     delegate.methodWithHandlerSetComplexJsonArray(arg_0);
   }
 
@@ -532,7 +532,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { setHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { setHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_())); } };
     delegate.methodWithHandlerSetDataObject(arg_0);
   }
 
@@ -540,7 +540,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerSetNullDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { setHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { setHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_())); } };
     delegate.methodWithHandlerSetNullDataObject(arg_0);
   }
 
@@ -556,7 +556,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetVertxGen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) { return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON); } };
     delegate.methodWithHandlerAsyncResultSetVertxGen(arg_0);
   }
 
@@ -572,7 +572,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetAbstractVertxGen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface2>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface2> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface2>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface2> event) { return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface2.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON); } };
     delegate.methodWithHandlerAsyncResultSetAbstractVertxGen(arg_0);
   }
 
@@ -604,7 +604,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject); } };
     delegate.methodWithHandlerAsyncResultSetJsonObject(arg_0);
   }
 
@@ -612,7 +612,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetNullJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject); } };
     delegate.methodWithHandlerAsyncResultSetNullJsonObject(arg_0);
   }
 
@@ -620,7 +620,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetComplexJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject); } };
     delegate.methodWithHandlerAsyncResultSetComplexJsonObject(arg_0);
   }
 
@@ -652,7 +652,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray); } };
     delegate.methodWithHandlerAsyncResultSetJsonArray(arg_0);
   }
 
@@ -660,7 +660,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetNullJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray); } };
     delegate.methodWithHandlerAsyncResultSetNullJsonArray(arg_0);
   }
 
@@ -668,7 +668,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetComplexJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) { public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) { return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray); } };
     delegate.methodWithHandlerAsyncResultSetComplexJsonArray(arg_0);
   }
 
@@ -692,7 +692,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(setHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(setHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_()); } };
     delegate.methodWithHandlerAsyncResultSetDataObject(arg_0);
   }
 
@@ -700,7 +700,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultSetNullDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(setHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(setHandler) { public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) { return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_()); } };
     delegate.methodWithHandlerAsyncResultSetNullDataObject(arg_0);
   }
 
@@ -1377,64 +1377,64 @@ public class TestInterface implements SuperInterface2 {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
-  public Set<ceylon.language.String> methodWithSetStringReturn() {
-    Set<ceylon.language.String> ret = null;
+  public ceylon.language.Set<ceylon.language.String> methodWithSetStringReturn() {
+    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Integer>")
-  public Set<ceylon.language.Integer> methodWithSetLongReturn() {
-    Set<ceylon.language.Integer> ret = null;
+  public ceylon.language.Set<ceylon.language.Integer> methodWithSetLongReturn() {
+    ceylon.language.Set<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>")
-  public Set<RefedInterface1> methodWithSetVertxGenReturn() {
-    Set<RefedInterface1> ret = null;
+  public ceylon.language.Set<RefedInterface1> methodWithSetVertxGenReturn() {
+    ceylon.language.Set<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithSetVertxGenReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Object>")
-  public Set<ceylon.json.Object> methodWithSetJsonObjectReturn() {
-    Set<ceylon.json.Object> ret = null;
+  public ceylon.language.Set<ceylon.json.Object> methodWithSetJsonObjectReturn() {
+    ceylon.language.Set<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithSetJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Object>")
-  public Set<ceylon.json.Object> methodWithSetComplexJsonObjectReturn() {
-    Set<ceylon.json.Object> ret = null;
+  public ceylon.language.Set<ceylon.json.Object> methodWithSetComplexJsonObjectReturn() {
+    ceylon.language.Set<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithSetComplexJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Array>")
-  public Set<ceylon.json.Array> methodWithSetJsonArrayReturn() {
-    Set<ceylon.json.Array> ret = null;
+  public ceylon.language.Set<ceylon.json.Array> methodWithSetJsonArrayReturn() {
+    ceylon.language.Set<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithSetJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Array>")
-  public Set<ceylon.json.Array> methodWithSetComplexJsonArrayReturn() {
-    Set<ceylon.json.Array> ret = null;
+  public ceylon.language.Set<ceylon.json.Array> methodWithSetComplexJsonArrayReturn() {
+    ceylon.language.Set<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithSetComplexJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>")
-  public Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithSetDataObjectReturn() {
-    Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = null;
+  public ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithSetDataObjectReturn() {
+    ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
-  public Set<ceylon.language.String> methodWithNullSetReturn() {
-    Set<ceylon.language.String> ret = null;
+  public ceylon.language.Set<ceylon.language.String> methodWithNullSetReturn() {
+    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.methodWithNullSetReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

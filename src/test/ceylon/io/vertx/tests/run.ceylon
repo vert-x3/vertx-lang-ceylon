@@ -246,7 +246,88 @@ shared test void testListDataObjectReturn() {
   assertFloatEquals(obj2.wibble, 2.2);
 }
 
-void assertFloatEquals(Float? actual, Float expected) {
+shared test void testSetStringReturn() {
+  value set = obj.methodWithSetStringReturn();
+  assertEquals(set.size, 3);
+  assertTrue(set.contains("foo"));
+  assertTrue(set.contains("bar"));
+  assertTrue(set.contains("wibble"));
+}
+
+shared test void testSetLongReturn() {
+  value set = obj.methodWithSetLongReturn();
+  assertEquals(set.size, 2);
+  assertTrue(set.contains(123));
+  assertTrue(set.contains(456));
+}
+
+shared test void testSetJsonObjectReturn() {
+  value set = obj.methodWithSetJsonObjectReturn();
+  assertEquals(set.size, 2);
+  assertTrue(set.contains(JsonObject { "foo"->"bar" }));
+  assertTrue(set.contains(JsonObject { "blah"->"eek" }));
+}
+
+shared test void testSetComplexJsonObjectReturn() {
+  value set = obj.methodWithSetComplexJsonObjectReturn();
+  assertEquals(set.size, 1);
+  assertTrue(set.contains(JsonObject {
+    "outer"->JsonObject { "socks"->"tartan" },
+    "list"->JsonArray { "yellow", "blue" }
+    }));
+}
+
+shared test void testSetJsonArrayReturn() {
+  value set = obj.methodWithSetJsonArrayReturn();
+  assertEquals(set.size, 2);
+  assertTrue(set.contains(JsonArray { "foo" }));
+  assertTrue(set.contains(JsonArray { "blah" }));
+}
+
+shared test void testSetComplexJsonArrayReturn() {
+  value set = obj.methodWithSetComplexJsonArrayReturn();
+  assertEquals(set.size, 2);
+  assertTrue(set.contains(JsonArray { JsonObject { "foo"->"hello" }}));
+  assertTrue(set.contains(JsonArray { JsonObject { "bar"->"bye" } }));
+}
+
+shared test void testSetVertxGenReturn() {
+  value set = obj.methodWithSetVertxGenReturn();
+  assertEquals(set.size, 2);
+  assert(is RefedInterface1 f=set.first);
+  assert(is RefedInterface1 l=set.last);
+  if (f.getString() == "foo") {
+    assertEquals(l.getString(), "bar");
+  } else {
+    assertEquals(f.getString(), "bar");
+    assertEquals(l.getString(), "foo");
+  }
+}
+
+shared test void testSetDataObjectReturn() {
+  value set = obj.methodWithSetDataObjectReturn();
+  assertEquals(set.size, 2);
+  assert(is TestDataObject f=set.first);
+  assert(is TestDataObject l=set.last);
+  JsonObject j1 = f.toJson();
+  JsonObject j2 = l.toJson();
+  if (is String val = j1["foo"], val == "String 1") {
+    assertEquals(j1["bar"], 1);
+    assertFloatEquals(j1["wibble"], 1.1);
+    assertEquals(j2["foo"], "String 2");
+    assertEquals(j2["bar"], 2);
+    assertFloatEquals(j2["wibble"], 2.2);
+  } else {
+    assertEquals(j1["foo"], "String 2");
+    assertEquals(j1["bar"], 2);
+    assertFloatEquals(j1["wibble"], 2.2);
+    assertEquals(j2["foo"], "String 1");
+    assertEquals(j2["bar"], 1);
+    assertFloatEquals(j2["wibble"], 1.1);
+  }
+}
+
+void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
   if (diff < 0.float) {

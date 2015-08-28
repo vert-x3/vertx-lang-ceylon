@@ -408,16 +408,16 @@
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
         return type.translatePackageName('ceylon') + '.to' + type.simpleName + '_.get_().convert(' + expr + ')';
-      } else if (kind == CLASS_LIST) {
+      } else if (kind == CLASS_LIST || kind == CLASS_SET) {
+        var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : 'io.vertx.lang.ceylon.ToCeylon.set';
         var typeArg = type.args[0];
         if (typeArg.kind.basic || typeArg.kind.json) {
-          return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
+          return collection + '(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
         } else if (typeArg.kind == CLASS_DATA_OBJECT) {
-          return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.to' + typeArg.simpleName + '_.get_())';
+          return collection + '(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.to' + typeArg.simpleName + '_.get_())';
         } else if (typeArg.kind == CLASS_API) {
-          return 'io.vertx.lang.ceylon.ToCeylon.list(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
+          return collection + '(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
         }
-      } else if (kind == CLASS_SET) {
       } else if (kind == CLASS_MAP) {
         var valueType = type.args[1];
         var valueKind = valueType.kind;
@@ -494,12 +494,12 @@
       decl = 'Throwable';
     } else if (kind == CLASS_DATA_OBJECT) {
       decl = type.translatePackageName('ceylon') + "." + type.simpleName;
-    } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language.List<' + genJavaInterropTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_VOID) {
       decl = 'Anything';
+    } else if (kind == CLASS_LIST) {
+      decl = 'ceylon.language.List<' + genJavaInterropTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_SET) {
-      decl = 'Set<' + genJavaInterropTypeDecl(type.args[0]) + '>';
+      decl = 'ceylon.language.Set<' + genJavaInterropTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_MAP) {
       decl = 'Map<' + genJavaInterropTypeDecl(type.args[0]) + ',' + genJavaInterropTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
@@ -584,14 +584,12 @@
       decl = 'ceylon.language::Throwable';
     } else if (kind == CLASS_DATA_OBJECT) {
       decl = type.translatePackageName('ceylon') + "::" + type.simpleName;
-    } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_VOID) {
       decl = 'ceylon.language::Anything';
     } else if (kind == CLASS_SET) {
       decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0])) + '>';
+      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_MAP) {
       decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0]) + ',' + genCeylonTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {

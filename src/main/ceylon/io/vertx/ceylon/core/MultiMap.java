@@ -78,8 +78,8 @@ public class MultiMap {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
-  public Set<ceylon.language.String> names() {
-    Set<ceylon.language.String> ret = null;
+  public ceylon.language.Set<ceylon.language.String> names() {
+    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.names(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
