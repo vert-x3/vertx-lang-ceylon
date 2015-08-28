@@ -5,11 +5,20 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
 public interface RefedInterface2 {
+
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RefedInterface2.class);
+
+  io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface2, RefedInterface2> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface2, RefedInterface2>() {
+    public RefedInterface2 convert(io.vertx.codegen.testmodel.RefedInterface2 src) {
+      return new RefedInterface2.Impl(src);
+    }
+  };
 
   @Ignore
   Object getDelegate();

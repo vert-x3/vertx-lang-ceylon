@@ -5,12 +5,21 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
 @DocAnnotation$annotation$(description = "todo")
 public interface StreamBase {
+
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(StreamBase.class);
+
+  io.vertx.lang.ceylon.Converter<io.vertx.core.streams.StreamBase, StreamBase> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.StreamBase, StreamBase>() {
+    public StreamBase convert(io.vertx.core.streams.StreamBase src) {
+      return new StreamBase.Impl(src);
+    }
+  };
 
   @Ignore
   Object getDelegate();

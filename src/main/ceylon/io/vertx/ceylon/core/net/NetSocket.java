@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -15,6 +16,14 @@ import io.vertx.core.Handler;
 
 @DocAnnotation$annotation$(description = "todo")
 public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetSocket.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket>() {
+    public NetSocket convert(io.vertx.core.net.NetSocket src) {
+      return new NetSocket(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.net.NetSocket delegate;

@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.metrics.Measured;
@@ -15,6 +16,14 @@ import io.vertx.core.Handler;
 
 @DocAnnotation$annotation$(description = "todo")
 public class HttpClient implements Measured {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpClient.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpClient, HttpClient> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpClient, HttpClient>() {
+    public HttpClient convert(io.vertx.core.http.HttpClient src) {
+      return new HttpClient(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.http.HttpClient delegate;

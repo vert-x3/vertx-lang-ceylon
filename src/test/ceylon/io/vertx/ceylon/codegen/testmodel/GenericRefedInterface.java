@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
@@ -13,6 +14,14 @@ import ceylon.language.DocAnnotation$annotation$;
 })
 @DocAnnotation$annotation$(description = "todo")
 public class GenericRefedInterface<T> {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(GenericRefedInterface.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.GenericRefedInterface, GenericRefedInterface> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.GenericRefedInterface, GenericRefedInterface>() {
+    public GenericRefedInterface convert(io.vertx.codegen.testmodel.GenericRefedInterface src) {
+      return new GenericRefedInterface(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.codegen.testmodel.GenericRefedInterface delegate;

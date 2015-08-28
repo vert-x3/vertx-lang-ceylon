@@ -5,12 +5,21 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.shareddata.impl.ClusterSerializable;
 
 @DocAnnotation$annotation$(description = "todo")
 public class Buffer {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Buffer.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.buffer.Buffer, Buffer> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.buffer.Buffer, Buffer>() {
+    public Buffer convert(io.vertx.core.buffer.Buffer src) {
+      return new Buffer(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.buffer.Buffer delegate;

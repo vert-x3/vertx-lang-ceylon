@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
@@ -15,6 +16,14 @@ import io.vertx.core.Handler;
 })
 @DocAnnotation$annotation$(description = "todo")
 public class Future<T> {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Future.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future>() {
+    public Future convert(io.vertx.core.Future src) {
+      return new Future(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.Future delegate;

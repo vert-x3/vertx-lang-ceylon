@@ -220,6 +220,17 @@ shared test void testListComplexJsonArrayReturn() {
   assertEquals(list[1], JsonArray { JsonObject { "bar"->"bye" } });
 }
 
+shared test void testListVertxGenReturn() {
+  value list = obj.methodWithListVertxGenReturn();
+  assertEquals(list.size, 2);
+  value refed1 = list[0];
+  assert(is RefedInterface1 refed1);
+  assertEquals(refed1.getString(), "foo");
+  value refed2 = list[1];
+  assert(is RefedInterface1 refed2);
+  assertEquals(refed2.getString(), "bar");
+}
+
 shared test void testListDataObjectReturn() {
   value list = obj.methodWithListDataObjectReturn();
   assertEquals(list.size, 2);

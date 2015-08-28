@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
@@ -14,6 +15,14 @@ import ceylon.language.DocAnnotation$annotation$;
 })
 @DocAnnotation$annotation$(description = "todo")
 public class LocalMap<K,V> {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(LocalMap.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.LocalMap, LocalMap> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.LocalMap, LocalMap>() {
+    public LocalMap convert(io.vertx.core.shareddata.LocalMap src) {
+      return new LocalMap(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.shareddata.LocalMap delegate;

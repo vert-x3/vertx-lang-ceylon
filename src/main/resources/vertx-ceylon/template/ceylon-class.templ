@@ -414,6 +414,8 @@
           return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
         } else if (typeArg.kind == CLASS_DATA_OBJECT) {
           return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.to' + typeArg.simpleName + '_.get_())';
+        } else if (typeArg.kind == CLASS_API) {
+          return 'io.vertx.lang.ceylon.ToCeylon.list(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
         }
       } else if (kind == CLASS_SET) {
       } else if (kind == CLASS_MAP) {
@@ -783,6 +785,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;\n
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;\n
 import com.redhat.ceylon.compiler.java.metadata.Variance;\n
 import com.redhat.ceylon.compiler.java.metadata.Ignore;\n
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;\n
 import ceylon.language.Callable;\n
 import ceylon.language.DocAnnotation$annotation$;\n
 @foreach{importedType:importedTypes}
@@ -811,6 +814,16 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 	 @{genJavaInterropTypeDecl(abstractSuperType)}
 	@end{','}
 @end{} {\n
+
+\n
+  @if{concrete}public static final @end{}TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
+
+\n
+  @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}>() {\n
+    public @{type.raw.simpleName} convert(@{type.raw.name} src) {\n
+      return new @{type.raw.simpleName}@if{!concrete}.Impl@end{}(src);\n
+    }\n
+  };\n
 
 \n
 @if{concrete}

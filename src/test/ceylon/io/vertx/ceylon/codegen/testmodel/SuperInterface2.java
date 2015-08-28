@@ -5,11 +5,20 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
 public interface SuperInterface2 {
+
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SuperInterface2.class);
+
+  io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
+    public SuperInterface2 convert(io.vertx.codegen.testmodel.SuperInterface2 src) {
+      return new SuperInterface2.Impl(src);
+    }
+  };
 
   @Ignore
   Object getDelegate();

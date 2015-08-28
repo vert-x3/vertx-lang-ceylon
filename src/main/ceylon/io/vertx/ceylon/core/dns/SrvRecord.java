@@ -5,11 +5,20 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
 public class SrvRecord {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SrvRecord.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.dns.SrvRecord, SrvRecord> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.dns.SrvRecord, SrvRecord>() {
+    public SrvRecord convert(io.vertx.core.dns.SrvRecord src) {
+      return new SrvRecord(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.dns.SrvRecord delegate;

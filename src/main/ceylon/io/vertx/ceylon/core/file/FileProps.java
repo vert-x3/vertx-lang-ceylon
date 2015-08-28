@@ -5,11 +5,20 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
 public class FileProps {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FileProps.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileProps, FileProps> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileProps, FileProps>() {
+    public FileProps convert(io.vertx.core.file.FileProps src) {
+      return new FileProps(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.file.FileProps delegate;

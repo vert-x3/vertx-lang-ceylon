@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
@@ -14,6 +15,14 @@ import io.vertx.core.Handler;
 })
 @DocAnnotation$annotation$(description = "todo")
 public interface ReadStream<T> extends StreamBase {
+
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ReadStream.class);
+
+  io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream>() {
+    public ReadStream convert(io.vertx.core.streams.ReadStream src) {
+      return new ReadStream.Impl(src);
+    }
+  };
 
   @Ignore
   Object getDelegate();

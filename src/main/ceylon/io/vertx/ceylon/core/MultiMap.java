@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
@@ -13,6 +14,14 @@ import java.util.Set;
 
 @DocAnnotation$annotation$(description = "todo")
 public class MultiMap {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MultiMap.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.MultiMap, MultiMap> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.MultiMap, MultiMap>() {
+    public MultiMap convert(io.vertx.core.MultiMap src) {
+      return new MultiMap(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.MultiMap delegate;

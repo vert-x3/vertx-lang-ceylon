@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -16,6 +17,14 @@ import io.vertx.ceylon.core.Future;
 
 @DocAnnotation$annotation$(description = "todo")
 public class HttpServerResponse implements WriteStream<Buffer> {
+
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerResponse.class);
+
+  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
+    public HttpServerResponse convert(io.vertx.core.http.HttpServerResponse src) {
+      return new HttpServerResponse(src);
+    }
+  };
 
   @Ignore
   private final io.vertx.core.http.HttpServerResponse delegate;
