@@ -10,8 +10,7 @@ import io.vertx.lang.ceylon {
   Converter
 }
 import io.vertx.ceylon.core.metrics {
-  MetricsOptions,
-  toMetricsOptions
+  MetricsOptions
 }
 /* Generated from io.vertx.core.VertxOptions */
 shared class VertxOptions(

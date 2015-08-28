@@ -18,7 +18,9 @@
     }
     if (propKind == CLASS_DATA_OBJECT) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
-      addClassImport(propType.translatePackageName('ceylon'), "to" + propType.simpleName, "to" + propType.simpleName);
+      if (toJson) {
+        addClassImport(propType.translatePackageName('ceylon'), "to" + propType.simpleName, "to" + propType.simpleName);
+      }
     }
   }
   if (superType != null) {

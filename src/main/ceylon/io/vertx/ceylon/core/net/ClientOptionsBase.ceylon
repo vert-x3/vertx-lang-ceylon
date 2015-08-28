@@ -1,12 +1,8 @@
 import io.vertx.ceylon.core.net {
   JksOptions,
-  toJksOptions,
   PemKeyCertOptions,
-  toPemKeyCertOptions,
   PemTrustOptions,
-  toPemTrustOptions,
   PfxOptions,
-  toPfxOptions,
   TCPSSLOptions
 }
 import ceylon.json {
