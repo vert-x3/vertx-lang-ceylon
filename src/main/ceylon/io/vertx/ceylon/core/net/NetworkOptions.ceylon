@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.net {
   NetworkOptions_=NetworkOptions
@@ -29,16 +31,4 @@ shared class NetworkOptions(
     }
     return json;
   }
-}
-shared NetworkOptions toNetworkOptions(JsonObject json) {
-  Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
-  Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
-  Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
-  Integer? trafficClass = json.getIntegerOrNull("trafficClass");
-  return NetworkOptions {
-    receiveBufferSize = receiveBufferSize;
-    reuseAddress = reuseAddress;
-    sendBufferSize = sendBufferSize;
-    trafficClass = trafficClass;
-  };
 }

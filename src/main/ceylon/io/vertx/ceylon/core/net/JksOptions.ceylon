@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.net {
   JksOptions_=JksOptions
@@ -23,12 +25,4 @@ shared class JksOptions(
     }
     return json;
   }
-}
-shared JksOptions toJksOptions(JsonObject json) {
-  String? password = json.getStringOrNull("password");
-  String? path = json.getStringOrNull("path");
-  return JksOptions {
-    password = password;
-    path = path;
-  };
 }

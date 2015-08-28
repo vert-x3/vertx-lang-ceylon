@@ -407,11 +407,13 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName('ceylon') + '.to' + type.simpleName + '_.to' + type.simpleName + '(io.vertx.lang.ceylon.Helper.fromJsonObject(' + expr + '.toJson()))';
+        return type.translatePackageName('ceylon') + '.to' + type.simpleName + '_.get_().convert(' + expr + ')';
       } else if (kind == CLASS_LIST) {
         var typeArg = type.args[0];
         if (typeArg.kind.basic || typeArg.kind.json) {
           return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
+        } else if (typeArg.kind == CLASS_DATA_OBJECT) {
+          return 'io.vertx.lang.ceylon.ToCeylon.list(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.to' + typeArg.simpleName + '_.get_())';
         }
       } else if (kind == CLASS_SET) {
       } else if (kind == CLASS_MAP) {

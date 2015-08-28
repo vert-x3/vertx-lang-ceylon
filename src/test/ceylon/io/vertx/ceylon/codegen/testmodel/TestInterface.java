@@ -221,7 +221,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean sendFailure, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.codegen.testmodel::TestDataObject)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     boolean arg_0 = sendFailure;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestDataObject>(handler) { public Object toCeylon(io.vertx.codegen.testmodel.TestDataObject event) { return io.vertx.ceylon.codegen.testmodel.toTestDataObject_.toTestDataObject(io.vertx.lang.ceylon.Helper.fromJsonObject(event.toJson())); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestDataObject>(handler) { public Object toCeylon(io.vertx.codegen.testmodel.TestDataObject event) { return io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_().convert(event); } };
     delegate.methodWithHandlerAsyncResultDataObject(arg_0, arg_1);
   }
 
@@ -507,7 +507,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerListDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_())); } };
     delegate.methodWithHandlerListDataObject(arg_0);
   }
 
@@ -515,7 +515,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerListNullDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { listHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() { public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_())); } };
     delegate.methodWithHandlerListNullDataObject(arg_0);
   }
 
@@ -667,7 +667,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultListDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(listHandler) { public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(listHandler) { public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_()); } };
     delegate.methodWithHandlerAsyncResultListDataObject(arg_0);
   }
 
@@ -675,7 +675,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultListNullDataObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(listHandler) { public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(listHandler) { public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) { return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_()); } };
     delegate.methodWithHandlerAsyncResultListNullDataObject(arg_0);
   }
 
@@ -765,7 +765,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerDataObject(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.codegen.testmodel::TestDataObject)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject> arg_0 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject>() { public void handle(io.vertx.codegen.testmodel.TestDataObject event) { handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.toTestDataObject_.toTestDataObject(io.vertx.lang.ceylon.Helper.fromJsonObject(event.toJson()))); } };
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject> arg_0 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject>() { public void handle(io.vertx.codegen.testmodel.TestDataObject event) { handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_().convert(event)); } };
     delegate.methodWithHandlerDataObject(arg_0);
   }
 
@@ -882,14 +882,14 @@ public class TestInterface implements SuperInterface2 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestDataObject")
   public io.vertx.ceylon.codegen.testmodel.TestDataObject methodWithDataObjectReturn() {
-    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.toTestDataObject_.toTestDataObject(io.vertx.lang.ceylon.Helper.fromJsonObject(delegate.methodWithDataObjectReturn().toJson()));
+    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_().convert(delegate.methodWithDataObjectReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestDataObject")
   public io.vertx.ceylon.codegen.testmodel.TestDataObject methodWithDataObjectNullReturn() {
-    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.toTestDataObject_.toTestDataObject(io.vertx.lang.ceylon.Helper.fromJsonObject(delegate.methodWithDataObjectNullReturn().toJson()));
+    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_().convert(delegate.methodWithDataObjectNullReturn());
     return ret;
   }
 
@@ -1355,7 +1355,7 @@ public class TestInterface implements SuperInterface2 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>")
   public ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithListDataObjectReturn() {
-    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = null;
+    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toTestDataObject_.get_());
     return ret;
   }
 

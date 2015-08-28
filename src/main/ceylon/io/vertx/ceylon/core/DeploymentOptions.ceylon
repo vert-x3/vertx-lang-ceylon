@@ -2,10 +2,12 @@ import io.vertx.core {
   DeploymentOptions_=DeploymentOptions
 }
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
@@ -46,23 +48,28 @@ shared class DeploymentOptions(
     return json;
   }
 }
-shared DeploymentOptions toDeploymentOptions(JsonObject json) {
-  JsonObject? config = json.getObjectOrNull("config");
-  String? extraClasspath = json.getStringOrNull("extraClasspath");
-  Boolean? ha = json.getBooleanOrNull("ha");
-  Integer? instances = json.getIntegerOrNull("instances");
-  String? isolatedClasses = json.getStringOrNull("isolatedClasses");
-  String? isolationGroup = json.getStringOrNull("isolationGroup");
-  Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
-  Boolean? worker = json.getBooleanOrNull("worker");
-  return DeploymentOptions {
-    config = config;
-    extraClasspath = extraClasspath;
-    ha = ha;
-    instances = instances;
-    isolatedClasses = isolatedClasses;
-    isolationGroup = isolationGroup;
-    multiThreaded = multiThreaded;
-    worker = worker;
-  };
+
+shared object toDeploymentOptions satisfies Converter<DeploymentOptions_, DeploymentOptions> {
+  shared actual DeploymentOptions convert(DeploymentOptions_ src) {
+    value json = parse(src.toJson().string);
+    assert(is JsonObject json);
+    JsonObject? config = json.getObjectOrNull("config");
+    String? extraClasspath = json.getStringOrNull("extraClasspath");
+    Boolean? ha = json.getBooleanOrNull("ha");
+    Integer? instances = json.getIntegerOrNull("instances");
+    String? isolatedClasses = json.getStringOrNull("isolatedClasses");
+    String? isolationGroup = json.getStringOrNull("isolationGroup");
+    Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
+    Boolean? worker = json.getBooleanOrNull("worker");
+    return DeploymentOptions {
+      config = config;
+      extraClasspath = extraClasspath;
+      ha = ha;
+      instances = instances;
+      isolatedClasses = isolatedClasses;
+      isolationGroup = isolationGroup;
+      multiThreaded = multiThreaded;
+      worker = worker;
+    };
+  }
 }

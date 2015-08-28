@@ -2,10 +2,12 @@ import io.vertx.core {
   VertxOptions_=VertxOptions
 }
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.ceylon.core.metrics {
   MetricsOptions,
@@ -81,45 +83,4 @@ shared class VertxOptions(
     }
     return json;
   }
-}
-shared VertxOptions toVertxOptions(JsonObject json) {
-  Integer? blockedThreadCheckInterval = json.getIntegerOrNull("blockedThreadCheckInterval");
-  String? clusterHost = json.getStringOrNull("clusterHost");
-  Integer? clusterPingInterval = json.getIntegerOrNull("clusterPingInterval");
-  Integer? clusterPingReplyInterval = json.getIntegerOrNull("clusterPingReplyInterval");
-  Integer? clusterPort = json.getIntegerOrNull("clusterPort");
-  Boolean? clustered = json.getBooleanOrNull("clustered");
-  Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
-  Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
-  String? haGroup = json.getStringOrNull("haGroup");
-  Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
-  Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
-  Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
-  MetricsOptions? metricsOptions;
-  if (exists tmp = json.getObjectOrNull("metricsOptions")) {
-    metricsOptions = toMetricsOptions(tmp);
-  } else {
-    metricsOptions = null;
-  }
-  Integer? quorumSize = json.getIntegerOrNull("quorumSize");
-  Integer? warningExceptionTime = json.getIntegerOrNull("warningExceptionTime");
-  Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
-  return VertxOptions {
-    blockedThreadCheckInterval = blockedThreadCheckInterval;
-    clusterHost = clusterHost;
-    clusterPingInterval = clusterPingInterval;
-    clusterPingReplyInterval = clusterPingReplyInterval;
-    clusterPort = clusterPort;
-    clustered = clustered;
-    eventLoopPoolSize = eventLoopPoolSize;
-    haEnabled = haEnabled;
-    haGroup = haGroup;
-    internalBlockingPoolSize = internalBlockingPoolSize;
-    maxEventLoopExecuteTime = maxEventLoopExecuteTime;
-    maxWorkerExecuteTime = maxWorkerExecuteTime;
-    metricsOptions = metricsOptions;
-    quorumSize = quorumSize;
-    warningExceptionTime = warningExceptionTime;
-    workerPoolSize = workerPoolSize;
-  };
 }

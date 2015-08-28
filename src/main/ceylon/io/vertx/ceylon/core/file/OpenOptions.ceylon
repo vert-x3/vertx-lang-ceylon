@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.file {
   OpenOptions_=OpenOptions
@@ -53,28 +55,4 @@ shared class OpenOptions(
     }
     return json;
   }
-}
-shared OpenOptions toOpenOptions(JsonObject json) {
-  Boolean? create = json.getBooleanOrNull("create");
-  Boolean? createNew = json.getBooleanOrNull("createNew");
-  Boolean? deleteOnClose = json.getBooleanOrNull("deleteOnClose");
-  Boolean? dsync = json.getBooleanOrNull("dsync");
-  String? perms = json.getStringOrNull("perms");
-  Boolean? read = json.getBooleanOrNull("read");
-  Boolean? sparse = json.getBooleanOrNull("sparse");
-  Boolean? sync = json.getBooleanOrNull("sync");
-  Boolean? truncateExisting = json.getBooleanOrNull("truncateExisting");
-  Boolean? write = json.getBooleanOrNull("write");
-  return OpenOptions {
-    create = create;
-    createNew = createNew;
-    deleteOnClose = deleteOnClose;
-    dsync = dsync;
-    perms = perms;
-    read = read;
-    sparse = sparse;
-    sync = sync;
-    truncateExisting = truncateExisting;
-    write = write;
-  };
 }

@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.net {
   PemTrustOptions_=PemTrustOptions
@@ -18,10 +20,4 @@ shared class PemTrustOptions(
     }
     return json;
   }
-}
-shared PemTrustOptions toPemTrustOptions(JsonObject json) {
-  String? certPaths = json.getStringOrNull("certPaths");
-  return PemTrustOptions {
-    certPaths = certPaths;
-  };
 }

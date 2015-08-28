@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.eventbus {
   DeliveryOptions_=DeliveryOptions
@@ -21,12 +23,4 @@ shared class DeliveryOptions(
     }
     return json;
   }
-}
-shared DeliveryOptions toDeliveryOptions(JsonObject json) {
-  String? codecName = json.getStringOrNull("codecName");
-  Integer? sendTimeout = json.getIntegerOrNull("sendTimeout");
-  return DeliveryOptions {
-    codecName = codecName;
-    sendTimeout = sendTimeout;
-  };
 }

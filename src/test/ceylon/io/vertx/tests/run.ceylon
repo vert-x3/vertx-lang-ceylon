@@ -220,7 +220,23 @@ shared test void testListComplexJsonArrayReturn() {
   assertEquals(list[1], JsonArray { JsonObject { "bar"->"bye" } });
 }
 
-void assertFloatEquals(Float actual, Float expected) {
+shared test void testListDataObjectReturn() {
+  value list = obj.methodWithListDataObjectReturn();
+  assertEquals(list.size, 2);
+  value obj1 = list[0];
+  assert(is TestDataObject obj1);
+  assertEquals(obj1.foo, "String 1");
+  assertEquals(obj1.bar, 1);
+  assertFloatEquals(obj1.wibble, 1.1);
+  value obj2 = list[1];
+  assert(is TestDataObject obj2);
+  assertEquals(obj2.foo, "String 2");
+  assertEquals(obj2.bar, 2);
+  assertFloatEquals(obj2.wibble, 2.2);
+}
+
+void assertFloatEquals(Float? actual, Float expected) {
+  assert(is Float actual);
   variable value diff = expected - actual;
   if (diff < 0.float) {
     diff -= diff;

@@ -2,10 +2,12 @@ import io.vertx.codegen.testmodel {
   TestDataObject_=TestDataObject
 }
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 /* Generated from io.vertx.codegen.testmodel.TestDataObject */
 shared class TestDataObject(
@@ -26,13 +28,18 @@ shared class TestDataObject(
     return json;
   }
 }
-shared TestDataObject toTestDataObject(JsonObject json) {
-  Integer? bar = json.getIntegerOrNull("bar");
-  String? foo = json.getStringOrNull("foo");
-  Float? wibble = json.getFloatOrNull("wibble");
-  return TestDataObject {
-    bar = bar;
-    foo = foo;
-    wibble = wibble;
-  };
+
+shared object toTestDataObject satisfies Converter<TestDataObject_, TestDataObject> {
+  shared actual TestDataObject convert(TestDataObject_ src) {
+    value json = parse(src.toJson().string);
+    assert(is JsonObject json);
+    Integer? bar = json.getIntegerOrNull("bar");
+    String? foo = json.getStringOrNull("foo");
+    Float? wibble = json.getFloatOrNull("wibble");
+    return TestDataObject {
+      bar = bar;
+      foo = foo;
+      wibble = wibble;
+    };
+  }
 }

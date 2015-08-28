@@ -1,8 +1,10 @@
 import ceylon.json {
-  JsonObject=Object
+  JsonObject=Object,
+  parse
 }
 import io.vertx.lang.ceylon {
-  BaseDataObject
+  BaseDataObject,
+  Converter
 }
 import io.vertx.core.metrics {
   MetricsOptions_=MetricsOptions
@@ -18,9 +20,14 @@ shared class MetricsOptions(
     return json;
   }
 }
-shared MetricsOptions toMetricsOptions(JsonObject json) {
-  Boolean? enabled = json.getBooleanOrNull("enabled");
-  return MetricsOptions {
-    enabled = enabled;
-  };
+
+shared object toMetricsOptions satisfies Converter<MetricsOptions_, MetricsOptions> {
+  shared actual MetricsOptions convert(MetricsOptions_ src) {
+    value json = parse(src.toJson().string);
+    assert(is JsonObject json);
+    Boolean? enabled = json.getBooleanOrNull("enabled");
+    return MetricsOptions {
+      enabled = enabled;
+    };
+  }
 }

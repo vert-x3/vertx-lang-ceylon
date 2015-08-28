@@ -5,7 +5,9 @@
 
 @code{
   addClassImport("ceylon.json", "Object", "JsonObject");
+  addClassImport("ceylon.json", "parse", "parse");
   addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
+  addClassImport("io.vertx.lang.ceylon", "Converter", "Converter");
 
   props=new java.util.ArrayList();
   for (prop : properties) {
@@ -22,6 +24,7 @@
   if (superType != null) {
     addClassImport(superType.translatePackageName('ceylon'), superType.simpleName, superType.simpleName);
   }
+  addClassImport(type.packageName, type.simpleName, type.simpleName + "_");
 }
 
 @includeNamed{'genImports'}
@@ -61,39 +64,44 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
   }\n
 }\n
 
-@if{isClass}
-shared @{type.raw.simpleName} to@{type.raw.simpleName}(JsonObject json) {\n
-@foreach{prop:props}
-	@code{propName=toCeylonIdentifier(prop.name)}
-	@code{propType=prop.type}
-	@if{propType.name == 'java.lang.String'}
-  String? @{propName} = json.getStringOrNull("@{prop.name}");\n
-	@else{propType.name == 'java.lang.Short' || propType.name == 'java.lang.Integer' || propType.name == 'java.lang.Long' || propType.name == 'short' || propType.name == 'int' || propType.name == 'long'}
-  Integer? @{propName} = json.getIntegerOrNull("@{prop.name}");\n
-	@else{propType.name == 'java.lang.Boolean' || propType.name == 'boolean'}
-  Boolean? @{propName} = json.getBooleanOrNull("@{prop.name}");\n
-	@else{propType.name == 'java.lang.Float' || propType.name == 'java.lang.Double' || propType.name == 'float' || propType.name == 'double'}
-  Float? @{propName} = json.getFloatOrNull("@{prop.name}");\n
-	@else{propType.name == 'io.vertx.core.json.JsonObject'}
-  JsonObject? @{propName} = json.getObjectOrNull("@{prop.name}");\n
-	@else{propType.name == 'io.vertx.core.json.JsonArray'}
-  JsonArray? @{propName} = json.getArrayOrNull("@{prop.name}");\n
-	@else{propType.kind == CLASS_DATA_OBJECT}
-  @{prop.type.simpleName}? @{propName};\n
-  if (exists tmp = json.getObjectOrNull("@{prop.name}")) {\n
-    @{propName} = to@{prop.type.simpleName}(tmp);\n
-  } else {\n
-    @{propName} = null;\n
-  }\n
-	@else{}
-  /* @{propType} not handled */\n
+@if{isClass && toJson}
+\n
+shared object to@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}> {\n
+  shared actual @{type.raw.simpleName} convert(@{type.raw.simpleName}_ src) {\n
+    value json = parse(src.toJson().string);\n
+    assert(is JsonObject json);\n
+	@foreach{prop:props}
+		@code{propName=toCeylonIdentifier(prop.name)}
+		@code{propType=prop.type}
+		@if{propType.name == 'java.lang.String'}
+    String? @{propName} = json.getStringOrNull("@{prop.name}");\n
+		@else{propType.name == 'java.lang.Short' || propType.name == 'java.lang.Integer' || propType.name == 'java.lang.Long' || propType.name == 'short' || propType.name == 'int' || propType.name == 'long'}
+    Integer? @{propName} = json.getIntegerOrNull("@{prop.name}");\n
+		@else{propType.name == 'java.lang.Boolean' || propType.name == 'boolean'}
+    Boolean? @{propName} = json.getBooleanOrNull("@{prop.name}");\n
+		@else{propType.name == 'java.lang.Float' || propType.name == 'java.lang.Double' || propType.name == 'float' || propType.name == 'double'}
+    Float? @{propName} = json.getFloatOrNull("@{prop.name}");\n
+		@else{propType.name == 'io.vertx.core.json.JsonObject'}
+    JsonObject? @{propName} = json.getObjectOrNull("@{prop.name}");\n
+		@else{propType.name == 'io.vertx.core.json.JsonArray'}
+    JsonArray? @{propName} = json.getArrayOrNull("@{prop.name}");\n
+		@else{propType.kind == CLASS_DATA_OBJECT}
+    @{prop.type.simpleName}? @{propName};\n
+    if (exists tmp = json.getObjectOrNull("@{prop.name}")) {\n
+      @{propName} = to@{prop.type.simpleName}(tmp);\n
+    } else {\n
+      @{propName} = null;\n
+    }\n
+		@else{}
+    /* @{propType} not handled */\n
+		@end{}
 	@end{}
-@end{}
-  return @{type.raw.simpleName} {\n
-@foreach{prop:props}
-	@code{propName=toCeylonIdentifier(prop.name)}
-    @{propName} = @{propName};\n
-@end{}
-  };\n
+    return @{type.raw.simpleName} {\n
+	@foreach{prop:props}
+		@code{propName=toCeylonIdentifier(prop.name)}
+      @{propName} = @{propName};\n
+	@end{}
+    };\n
+  }\n
 }\n
 @end{}
