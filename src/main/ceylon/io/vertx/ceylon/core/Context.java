@@ -63,16 +63,16 @@ public class Context {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::JsonObject")
-  public JsonObject config() {
-    JsonObject ret = null;
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object config() {
+    ceylon.json.Object ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
-  public List<ceylon.language.String> processArgs() {
-    List<ceylon.language.String> ret = null;
+  public ceylon.language.List<ceylon.language.String> processArgs() {
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.processArgs(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

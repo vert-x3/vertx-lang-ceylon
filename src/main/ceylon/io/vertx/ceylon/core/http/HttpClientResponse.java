@@ -118,8 +118,8 @@ public class HttpClientResponse implements ReadStream<Buffer> {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
-  public List<ceylon.language.String> cookies() {
-    List<ceylon.language.String> ret = null;
+  public ceylon.language.List<ceylon.language.String> cookies() {
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.cookies(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

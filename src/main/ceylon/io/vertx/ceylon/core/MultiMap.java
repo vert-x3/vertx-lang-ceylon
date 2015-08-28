@@ -44,10 +44,10 @@ public class MultiMap {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
-  public List<ceylon.language.String> getAll(
+  public ceylon.language.List<ceylon.language.String> getAll(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = name.toString();
-    List<ceylon.language.String> ret = null;
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.getAll(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

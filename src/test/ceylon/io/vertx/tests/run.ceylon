@@ -170,6 +170,56 @@ shared test void testMethodWithHandlerAsyncResultDataObject() {
   assertEquals(t.message, "foobar!");
 }
 
+shared test void testListStringReturn() {
+  value list = obj.methodWithListStringReturn();
+  assertEquals(list.size, 3);
+  assertEquals(list[0], "foo");
+  assertEquals(list[1], "bar");
+  assertEquals(list[2], "wibble");
+}
+
+shared test void testListLongReturn() {
+  value list = obj.methodWithListLongReturn();
+  assertEquals(list.size, 2);
+  assertEquals(list[0], 123);
+  assertEquals(list[1], 456);
+}
+
+shared test void testListJsonObjectReturn() {
+  value list = obj.methodWithListJsonObjectReturn();
+  assertEquals(list.size, 2);
+  assertEquals(list[0], JsonObject { "foo"->"bar" });
+  assertEquals(list[1], JsonObject { "blah"->"eek" });
+}
+
+shared test void testListComplexJsonObjectReturn() {
+  value list = obj.methodWithListComplexJsonObjectReturn();
+  assertEquals(list.size, 1);
+  assertEquals(list[0], JsonObject {
+    "outer"->JsonObject {
+      "socks"->"tartan"
+    },
+    "list"->JsonArray {
+      "yellow",
+      "blue"
+    }
+  });
+}
+
+shared test void testListJsonArrayReturn() {
+  value list = obj.methodWithListJsonArrayReturn();
+  assertEquals(list.size, 2);
+  assertEquals(list[0], JsonArray { "foo" });
+  assertEquals(list[1], JsonArray { "blah" });
+}
+
+shared test void testListComplexJsonArrayReturn() {
+  value list = obj.methodWithListComplexJsonArrayReturn();
+  assertEquals(list.size, 2);
+  assertEquals(list[0], JsonArray { JsonObject { "foo"->"hello" } });
+  assertEquals(list[1], JsonArray { JsonObject { "bar"->"bye" } });
+}
+
 void assertFloatEquals(Float actual, Float expected) {
   variable value diff = expected - actual;
   if (diff < 0.float) {
