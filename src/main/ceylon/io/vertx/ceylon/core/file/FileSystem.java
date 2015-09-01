@@ -553,7 +553,7 @@ public class FileSystem {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.buffer.Buffer arg_1 = (io.vertx.core.buffer.Buffer)data.getDelegate();
+    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) { public Object toCeylon(java.lang.Void event) { return null; } };
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.convert(delegate.writeFile(arg_0, arg_1, arg_2));
     return ret;
@@ -565,7 +565,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.buffer.Buffer arg_1 = (io.vertx.core.buffer.Buffer)data.getDelegate();
+    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.convert(delegate.writeFileBlocking(arg_0, arg_1));
     return ret;
   }

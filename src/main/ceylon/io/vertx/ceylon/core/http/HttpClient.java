@@ -866,7 +866,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
@@ -881,7 +881,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
     return ret;
@@ -899,7 +899,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = null;
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
@@ -916,7 +916,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = null;
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
@@ -936,7 +936,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = null;
     java.lang.String arg_5 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_6 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
@@ -955,7 +955,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = null;
     java.lang.String arg_4 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
@@ -981,7 +981,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
     return ret;
@@ -995,7 +995,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String version, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = null;
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
@@ -1011,7 +1011,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = null;
     java.lang.String arg_3 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
@@ -1053,7 +1053,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
@@ -1066,7 +1066,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -1082,7 +1082,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = null;
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
@@ -1097,7 +1097,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String version) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = null;
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
@@ -1115,7 +1115,7 @@ public class HttpClient implements Measured {
     int arg_0 = (int)port;
     java.lang.String arg_1 = host.toString();
     java.lang.String arg_2 = requestURI.toString();
-    io.vertx.core.MultiMap arg_3 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = null;
     java.lang.String arg_5 = subProtocols.toString();
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
@@ -1132,7 +1132,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols) {
     java.lang.String arg_0 = host.toString();
     java.lang.String arg_1 = requestURI.toString();
-    io.vertx.core.MultiMap arg_2 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = null;
     java.lang.String arg_4 = subProtocols.toString();
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
@@ -1154,7 +1154,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1));
     return ret;
   }
@@ -1166,7 +1166,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String version) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = null;
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
@@ -1180,7 +1180,7 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String version, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols) {
     java.lang.String arg_0 = requestURI.toString();
-    io.vertx.core.MultiMap arg_1 = (io.vertx.core.MultiMap)headers.getDelegate();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = null;
     java.lang.String arg_3 = subProtocols.toString();
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));

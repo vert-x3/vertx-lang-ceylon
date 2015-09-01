@@ -285,7 +285,7 @@
         return 'new ' + type.erased.name + '() { public void handle(' + type.erased.args[0].name + ' event) { ' + expr + '.$call$((Object)' + genConvReturn(type.erased.args[0], 'event') + '); } }';
       }
     } else if (kind == CLASS_API) {
-      return '(' + type.erased.name + ')' + expr + ".getDelegate()";
+      return type.raw.translateName('ceylon') + '.TO_JAVA.convert(' + expr + ')';
     } else if (kind == CLASS_OBJECT) {
       return 'io.vertx.lang.ceylon.Helper.toJavaObject(' + expr + ')';
     } else if (kind == CLASS_DATA_OBJECT) {

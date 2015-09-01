@@ -64,7 +64,7 @@ public class RecordParser {
   public static RecordParser newDelimited(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer delim, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
-    io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)delim.getDelegate();
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(delim);
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.convert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
     return ret;
@@ -93,7 +93,7 @@ public class RecordParser {
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer delim) {
-    io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)delim.getDelegate();
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(delim);
     delegate.delimitedMode(arg_0);
   }
 
@@ -109,7 +109,7 @@ public class RecordParser {
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer buffer) {
-    io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)buffer.getDelegate();
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(buffer);
     delegate.handle(arg_0);
   }
 

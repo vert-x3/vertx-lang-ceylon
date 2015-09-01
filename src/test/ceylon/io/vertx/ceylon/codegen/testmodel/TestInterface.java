@@ -244,7 +244,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithUserTypes(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @DocAnnotation$annotation$(description = "todo") RefedInterface1 refed) {
-    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = (io.vertx.codegen.testmodel.RefedInterface1)refed.getDelegate();
+    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(refed);
     delegate.methodWithUserTypes(arg_0);
   }
 
@@ -746,7 +746,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithConcreteHandlerUserTypeSubtype(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::ConcreteHandlerUserType") @DocAnnotation$annotation$(description = "todo") ConcreteHandlerUserType handler) {
-    io.vertx.codegen.testmodel.ConcreteHandlerUserType arg_0 = (io.vertx.codegen.testmodel.ConcreteHandlerUserType)handler.getDelegate();
+    io.vertx.codegen.testmodel.ConcreteHandlerUserType arg_0 = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType.TO_JAVA.convert(handler);
     delegate.methodWithConcreteHandlerUserTypeSubtype(arg_0);
   }
 
@@ -754,7 +754,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithAbstractHandlerUserTypeSubtype(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::AbstractHandlerUserType") @DocAnnotation$annotation$(description = "todo") AbstractHandlerUserType handler) {
-    io.vertx.codegen.testmodel.AbstractHandlerUserType arg_0 = (io.vertx.codegen.testmodel.AbstractHandlerUserType)handler.getDelegate();
+    io.vertx.codegen.testmodel.AbstractHandlerUserType arg_0 = io.vertx.ceylon.codegen.testmodel.AbstractHandlerUserType.TO_JAVA.convert(handler);
     delegate.methodWithAbstractHandlerUserTypeSubtype(arg_0);
   }
 
@@ -762,7 +762,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithConcreteHandlerUserTypeSubtypeExtension(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::ConcreteHandlerUserTypeExtension") @DocAnnotation$annotation$(description = "todo") ConcreteHandlerUserTypeExtension handler) {
-    io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension arg_0 = (io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension)handler.getDelegate();
+    io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension arg_0 = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserTypeExtension.TO_JAVA.convert(handler);
     delegate.methodWithConcreteHandlerUserTypeSubtypeExtension(arg_0);
   }
 
@@ -941,7 +941,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @DocAnnotation$annotation$(description = "todo") RefedInterface1 refed) {
     java.lang.String arg_0 = str.toString();
-    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = (io.vertx.codegen.testmodel.RefedInterface1)refed.getDelegate();
+    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(refed);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.overloadedMethod(arg_0, arg_1));
     return ret;
   }
@@ -953,7 +953,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @DocAnnotation$annotation$(description = "todo") RefedInterface1 refed, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = str.toString();
-    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = (io.vertx.codegen.testmodel.RefedInterface1)refed.getDelegate();
+    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(refed);
     io.vertx.core.Handler<java.lang.String> arg_2 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.overloadedMethod(arg_0, arg_1, arg_2));
     return ret;
@@ -967,7 +967,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long period, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = str.toString();
-    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = (io.vertx.codegen.testmodel.RefedInterface1)refed.getDelegate();
+    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(refed);
     long arg_2 = period;
     io.vertx.core.Handler<java.lang.String> arg_3 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.overloadedMethod(arg_0, arg_1, arg_2, arg_3));

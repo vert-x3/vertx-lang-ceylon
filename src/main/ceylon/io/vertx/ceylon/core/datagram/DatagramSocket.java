@@ -58,7 +58,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)packet.getDelegate();
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(packet);
     int arg_1 = (int)port;
     java.lang.String arg_2 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };

@@ -51,7 +51,7 @@ public interface AbstractHandlerUserType {
 
     @Override
     public void handle(final RefedInterface1 arg0) {
-      io.vertx.codegen.testmodel.RefedInterface1 arg_0 = (io.vertx.codegen.testmodel.RefedInterface1)arg0.getDelegate();
+      io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(arg0);
       delegate.handle(arg_0);
     }
   }
