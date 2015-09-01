@@ -802,7 +802,7 @@ public class TestInterface implements SuperInterface2 {
   public <U> void methodWithHandlerGenericUserType(
     final @TypeInfo("U") @DocAnnotation$annotation$(description = "todo") U value, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.codegen.testmodel::GenericRefedInterface<U>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    java.lang.Object arg_0 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
     io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_1 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() { public void handle(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) { handler.$call$((Object)new io.vertx.ceylon.codegen.testmodel.GenericRefedInterface(event)); } };
     delegate.methodWithHandlerGenericUserType(arg_0, arg_1);
   }
@@ -815,7 +815,7 @@ public class TestInterface implements SuperInterface2 {
   public <U> void methodWithHandlerAsyncResultGenericUserType(
     final @TypeInfo("U") @DocAnnotation$annotation$(description = "todo") U value, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.codegen.testmodel::GenericRefedInterface<U>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    java.lang.Object arg_0 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>(handler) { public Object toCeylon(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) { return new io.vertx.ceylon.codegen.testmodel.GenericRefedInterface(event); } };
     delegate.methodWithHandlerAsyncResultGenericUserType(arg_0, arg_1);
   }
@@ -976,7 +976,7 @@ public class TestInterface implements SuperInterface2 {
   public <U> U methodWithGenericReturn(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String type) {
     java.lang.String arg_0 = type.toString();
-    U ret = null;
+    U ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.methodWithGenericReturn(arg_0));
     return ret;
   }
 
@@ -989,7 +989,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String type, 
     final @TypeInfo("U") @DocAnnotation$annotation$(description = "todo") U u) {
     java.lang.String arg_0 = type.toString();
-    java.lang.Object arg_1 = null;
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(u);
     delegate.methodWithGenericParam(arg_0, arg_1);
   }
 
@@ -1002,7 +1002,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String type, 
     final @TypeInfo("ceylon.language::Anything(U)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = type.toString();
-    io.vertx.core.Handler<java.lang.Object> arg_1 = new io.vertx.core.Handler<java.lang.Object>() { public void handle(java.lang.Object event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Object> arg_1 = new io.vertx.core.Handler<java.lang.Object>() { public void handle(java.lang.Object event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event)); } };
     delegate.methodWithGenericHandler(arg_0, arg_1);
   }
 
@@ -1015,7 +1015,7 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String type, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|U)") @DocAnnotation$annotation$(description = "todo") Callable<?> asyncResultHandler) {
     java.lang.String arg_0 = type.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(asyncResultHandler) { public Object toCeylon(java.lang.Object event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(asyncResultHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
     delegate.methodWithGenericHandlerAsyncResult(arg_0, arg_1);
   }
 

@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1, RefedInterface2, TestDataObject, Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension
+  TestInterface, RefedInterface1, RefedInterface2, TestDataObject, Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension, GenericRefedInterface
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl
@@ -593,6 +593,20 @@ shared test void testMethodWithHandlerThrowable() {
   obj.methodWithHandlerThrowable((Throwable arg) => err=arg);
   assert(exists val=err);
   assertEquals(val.message, "cheese!");
+}
+
+shared test void testMethodWithHandlerGenericUserType() {
+  variable GenericRefedInterface<String>? gen = null;
+  obj.methodWithHandlerGenericUserType<String>("string_value", (GenericRefedInterface<String> arg) => gen=arg);
+  assert(is GenericRefedInterface<String> val=gen);
+  assertEquals(val.\ivalue, "string_value");
+}
+
+shared test void testMethodWithHandlerAsyncResultGenericUserType() {
+  variable GenericRefedInterface<String>|Throwable|Null gen = null;
+  obj.methodWithHandlerGenericUserType<String>("string_value_2", (GenericRefedInterface<String>|Throwable arg) => gen=arg);
+  assert(is GenericRefedInterface<String> val=gen);
+  assertEquals(val.\ivalue, "string_value_2");
 }
 
 shared test void testListLongReturn() {

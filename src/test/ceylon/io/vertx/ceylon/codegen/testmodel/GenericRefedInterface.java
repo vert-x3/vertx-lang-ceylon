@@ -39,14 +39,14 @@ public class GenericRefedInterface<T> {
   @TypeInfo("ceylon.language::Anything")
   public void setValue(
     final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T value) {
-    java.lang.Object arg_0 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
     delegate.setValue(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T")
   public T getValue() {
-    T ret = null;
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getValue());
     return ret;
   }
 

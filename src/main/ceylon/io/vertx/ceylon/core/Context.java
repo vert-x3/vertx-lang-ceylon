@@ -114,7 +114,7 @@ public class Context {
   public <T> T get(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
     java.lang.String arg_0 = key.toString();
-    T ret = null;
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
 

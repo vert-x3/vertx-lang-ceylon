@@ -64,7 +64,7 @@ public class Future<T> {
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> succeededFuture(
     final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T result) {
-    java.lang.Object arg_0 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(result);
     Future<T> ret = new io.vertx.ceylon.core.Future(io.vertx.core.Future.succeededFuture(arg_0));
     return ret;
   }
@@ -92,7 +92,7 @@ public class Future<T> {
   @TypeInfo("ceylon.language::Anything")
   public void setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) { public Object toCeylon(java.lang.Object event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
     delegate.setHandler(arg_0);
   }
 
@@ -100,7 +100,7 @@ public class Future<T> {
   @TypeInfo("ceylon.language::Anything")
   public void complete(
     final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T result) {
-    java.lang.Object arg_0 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(result);
     delegate.complete(arg_0);
   }
 

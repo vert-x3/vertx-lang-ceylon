@@ -55,7 +55,7 @@ public class Message<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T")
   public T body() {
-    T ret = null;
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
     return ret;
   }
 

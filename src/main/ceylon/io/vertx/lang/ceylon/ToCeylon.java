@@ -4,6 +4,15 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 
 public class ToCeylon {
 
+  public static final <T> T object(Object o) {
+    if (o instanceof java.lang.String) {
+      o = String.convert((java.lang.String)o);
+    }
+
+
+    return (T) o;
+  }
+
   public static <J, C> ceylon.language.List<C> list(
       TypeDescriptor eltTypeDesc,
       java.util.List<J> list,

@@ -287,10 +287,7 @@
     } else if (kind == CLASS_API) {
       return '(' + type.erased.name + ')' + expr + ".getDelegate()";
     } else if (kind == CLASS_OBJECT) {
-      if (type.name == 'java.lang.Object') {
       return 'io.vertx.lang.ceylon.Helper.toJavaObject(' + expr + ')';
-      } else {
-      }
     } else if (kind == CLASS_DATA_OBJECT) {
       return expr + ' == null ? null : new ' + type.name + '(io.vertx.lang.ceylon.Helper.toJsonObject(' + expr + '.toJson()))';
     } else if (kind == CLASS_JSON_OBJECT) {
@@ -432,6 +429,7 @@
         return 'new ' + type.raw.translateName('ceylon') + (type.raw.concrete ? '' : '.Impl') + '(' + expr + ')';
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
+        return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
       }
     }

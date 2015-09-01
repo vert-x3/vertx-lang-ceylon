@@ -74,7 +74,7 @@ public interface WriteStream<T> extends StreamBase {
 
     @Override
     public WriteStream<T> write(final T data) {
-      java.lang.Object arg_0 = null;
+      java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(data);
       WriteStream<T> ret = new io.vertx.ceylon.core.streams.WriteStream.Impl(delegate.write(arg_0));
       return ret;
     }

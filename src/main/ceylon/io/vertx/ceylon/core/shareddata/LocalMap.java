@@ -40,8 +40,8 @@ public class LocalMap<K,V> {
   @TypeInfo("V")
   public V get(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key) {
-    java.lang.Object arg_0 = null;
-    V ret = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
 
@@ -50,9 +50,9 @@ public class LocalMap<K,V> {
   public V put(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
-    java.lang.Object arg_0 = null;
-    java.lang.Object arg_1 = null;
-    V ret = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.put(arg_0, arg_1));
     return ret;
   }
 
@@ -60,8 +60,8 @@ public class LocalMap<K,V> {
   @TypeInfo("V")
   public V remove(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key) {
-    java.lang.Object arg_0 = null;
-    V ret = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
     return ret;
   }
 
@@ -90,9 +90,9 @@ public class LocalMap<K,V> {
   public V putIfAbsent(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
-    java.lang.Object arg_0 = null;
-    java.lang.Object arg_1 = null;
-    V ret = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.putIfAbsent(arg_0, arg_1));
     return ret;
   }
 
@@ -101,8 +101,8 @@ public class LocalMap<K,V> {
   public boolean removeIfPresent(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
-    java.lang.Object arg_0 = null;
-    java.lang.Object arg_1 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
     boolean ret = delegate.removeIfPresent(arg_0, arg_1);
     return ret;
   }
@@ -113,9 +113,9 @@ public class LocalMap<K,V> {
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V oldValue, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V newValue) {
-    java.lang.Object arg_0 = null;
-    java.lang.Object arg_1 = null;
-    java.lang.Object arg_2 = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(oldValue);
+    java.lang.Object arg_2 = io.vertx.lang.ceylon.Helper.toJavaObject(newValue);
     boolean ret = delegate.replaceIfPresent(arg_0, arg_1, arg_2);
     return ret;
   }
@@ -125,9 +125,9 @@ public class LocalMap<K,V> {
   public V replace(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
-    java.lang.Object arg_0 = null;
-    java.lang.Object arg_1 = null;
-    V ret = null;
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(key);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.replace(arg_0, arg_1));
     return ret;
   }
 

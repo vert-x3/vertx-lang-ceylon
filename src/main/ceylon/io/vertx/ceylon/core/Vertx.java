@@ -358,7 +358,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() { public void handle(io.vertx.core.Future<java.lang.Object> event) { blockingCodeHandler.$call$((Object)new io.vertx.ceylon.core.Future(event)); } };
     boolean arg_1 = ordered;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
     delegate.executeBlocking(arg_0, arg_1, arg_2);
   }
 
@@ -371,7 +371,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() { public void handle(io.vertx.core.Future<java.lang.Object> event) { blockingCodeHandler.$call$((Object)new io.vertx.ceylon.core.Future(event)); } };
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
     delegate.executeBlocking(arg_0, arg_1);
   }
 
