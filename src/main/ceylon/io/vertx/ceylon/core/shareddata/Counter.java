@@ -22,6 +22,12 @@ public class Counter {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Counter, io.vertx.core.shareddata.Counter> TO_JAVA = new io.vertx.lang.ceylon.Converter<Counter, io.vertx.core.shareddata.Counter>() {
+    public io.vertx.core.shareddata.Counter convert(Counter src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.shareddata.Counter delegate;
 

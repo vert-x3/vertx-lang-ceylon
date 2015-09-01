@@ -23,6 +23,12 @@ public class EventBus implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<EventBus, io.vertx.core.eventbus.EventBus> TO_JAVA = new io.vertx.lang.ceylon.Converter<EventBus, io.vertx.core.eventbus.EventBus>() {
+    public io.vertx.core.eventbus.EventBus convert(EventBus src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.eventbus.EventBus delegate;
 

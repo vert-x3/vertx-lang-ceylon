@@ -25,6 +25,12 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<NetSocket, io.vertx.core.net.NetSocket> TO_JAVA = new io.vertx.lang.ceylon.Converter<NetSocket, io.vertx.core.net.NetSocket>() {
+    public io.vertx.core.net.NetSocket convert(NetSocket src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.net.NetSocket delegate;
 

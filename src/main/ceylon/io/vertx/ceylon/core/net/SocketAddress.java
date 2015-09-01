@@ -20,6 +20,12 @@ public class SocketAddress {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<SocketAddress, io.vertx.core.net.SocketAddress> TO_JAVA = new io.vertx.lang.ceylon.Converter<SocketAddress, io.vertx.core.net.SocketAddress>() {
+    public io.vertx.core.net.SocketAddress convert(SocketAddress src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.net.SocketAddress delegate;
 

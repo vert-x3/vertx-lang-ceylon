@@ -23,6 +23,12 @@ public class NetClient implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<NetClient, io.vertx.core.net.NetClient> TO_JAVA = new io.vertx.lang.ceylon.Converter<NetClient, io.vertx.core.net.NetClient>() {
+    public io.vertx.core.net.NetClient convert(NetClient src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.net.NetClient delegate;
 

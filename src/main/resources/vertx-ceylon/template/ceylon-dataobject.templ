@@ -4,10 +4,12 @@
 @includeNamed{'ceylon-imports.templ'}
 
 @code{
+  addClassImport("io.vertx.core.json", "JsonObject", "JsonObject_");
   addClassImport("ceylon.json", "Object", "JsonObject");
   addClassImport("ceylon.json", "parse", "parse");
   addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
   addClassImport("io.vertx.lang.ceylon", "Converter", "Converter");
+  addClassImport("io.vertx.lang.ceylon", "ToJava", "ToJava");
 
   props=new java.util.ArrayList();
   for (prop : properties) {
@@ -104,6 +106,18 @@ shared object to@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName
       @{propName} = @{propName};\n
 	@end{}
     };\n
+  }\n
+}\n
+@end{}
+
+@if{isClass && concrete}
+\n
+shared object toJava@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}, @{type.raw.simpleName}_> {\n
+  shared actual @{type.raw.simpleName}_ convert(@{type.raw.simpleName} src) {\n
+    // Todo : make optimized version without json\n
+    value json = JsonObject_(src.toJson().string);\n
+    value ret = @{type.raw.simpleName}_(json);\n
+    return ret;\n
   }\n
 }\n
 @end{}

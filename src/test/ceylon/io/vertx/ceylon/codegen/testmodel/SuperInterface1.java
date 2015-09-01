@@ -20,6 +20,12 @@ public class SuperInterface1 {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<SuperInterface1, io.vertx.codegen.testmodel.SuperInterface1> TO_JAVA = new io.vertx.lang.ceylon.Converter<SuperInterface1, io.vertx.codegen.testmodel.SuperInterface1>() {
+    public io.vertx.codegen.testmodel.SuperInterface1 convert(SuperInterface1 src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.codegen.testmodel.SuperInterface1 delegate;
 

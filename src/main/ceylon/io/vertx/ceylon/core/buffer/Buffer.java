@@ -21,6 +21,12 @@ public class Buffer {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Buffer, io.vertx.core.buffer.Buffer> TO_JAVA = new io.vertx.lang.ceylon.Converter<Buffer, io.vertx.core.buffer.Buffer>() {
+    public io.vertx.core.buffer.Buffer convert(Buffer src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.buffer.Buffer delegate;
 

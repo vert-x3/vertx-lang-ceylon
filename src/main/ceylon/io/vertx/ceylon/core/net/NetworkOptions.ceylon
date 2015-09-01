@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   NetworkOptions_=NetworkOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.NetworkOptions */
 shared class NetworkOptions(

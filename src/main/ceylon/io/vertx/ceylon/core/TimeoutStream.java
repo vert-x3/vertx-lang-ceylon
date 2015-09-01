@@ -22,6 +22,12 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<TimeoutStream, io.vertx.core.TimeoutStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<TimeoutStream, io.vertx.core.TimeoutStream>() {
+    public io.vertx.core.TimeoutStream convert(TimeoutStream src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.TimeoutStream delegate;
 

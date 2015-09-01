@@ -20,6 +20,12 @@ public class FileProps {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<FileProps, io.vertx.core.file.FileProps> TO_JAVA = new io.vertx.lang.ceylon.Converter<FileProps, io.vertx.core.file.FileProps>() {
+    public io.vertx.core.file.FileProps convert(FileProps src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.file.FileProps delegate;
 

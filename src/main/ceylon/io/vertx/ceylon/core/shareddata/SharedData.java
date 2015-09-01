@@ -22,6 +22,12 @@ public class SharedData {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<SharedData, io.vertx.core.shareddata.SharedData> TO_JAVA = new io.vertx.lang.ceylon.Converter<SharedData, io.vertx.core.shareddata.SharedData>() {
+    public io.vertx.core.shareddata.SharedData convert(SharedData src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.shareddata.SharedData delegate;
 

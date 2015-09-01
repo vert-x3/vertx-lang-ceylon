@@ -11,10 +11,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   ClientOptionsBase_=ClientOptionsBase
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.ClientOptionsBase */
 shared class ClientOptionsBase(

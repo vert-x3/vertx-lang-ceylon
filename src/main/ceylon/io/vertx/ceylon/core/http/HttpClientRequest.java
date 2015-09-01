@@ -26,6 +26,12 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpClientRequest, io.vertx.core.http.HttpClientRequest> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpClientRequest, io.vertx.core.http.HttpClientRequest>() {
+    public io.vertx.core.http.HttpClientRequest convert(HttpClientRequest src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpClientRequest delegate;
 

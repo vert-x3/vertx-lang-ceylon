@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.metrics {
   MetricsOptions_=MetricsOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.metrics.MetricsOptions */
 shared class MetricsOptions(
@@ -29,5 +33,14 @@ shared object toMetricsOptions satisfies Converter<MetricsOptions_, MetricsOptio
     return MetricsOptions {
       enabled = enabled;
     };
+  }
+}
+
+shared object toJavaMetricsOptions satisfies Converter<MetricsOptions, MetricsOptions_> {
+  shared actual MetricsOptions_ convert(MetricsOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = MetricsOptions_(json);
+    return ret;
   }
 }

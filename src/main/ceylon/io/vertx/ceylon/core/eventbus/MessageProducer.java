@@ -25,6 +25,12 @@ public class MessageProducer<T> implements WriteStream<T> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<MessageProducer, io.vertx.core.eventbus.MessageProducer> TO_JAVA = new io.vertx.lang.ceylon.Converter<MessageProducer, io.vertx.core.eventbus.MessageProducer>() {
+    public io.vertx.core.eventbus.MessageProducer convert(MessageProducer src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.eventbus.MessageProducer delegate;
 

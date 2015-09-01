@@ -25,6 +25,12 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<WebSocketBase, io.vertx.core.http.WebSocketBase> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocketBase, io.vertx.core.http.WebSocketBase>() {
+    public io.vertx.core.http.WebSocketBase convert(WebSocketBase src) {
+      return (io.vertx.core.http.WebSocketBase)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

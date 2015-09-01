@@ -23,6 +23,12 @@ public class DnsClient {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<DnsClient, io.vertx.core.dns.DnsClient> TO_JAVA = new io.vertx.lang.ceylon.Converter<DnsClient, io.vertx.core.dns.DnsClient>() {
+    public io.vertx.core.dns.DnsClient convert(DnsClient src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.dns.DnsClient delegate;
 

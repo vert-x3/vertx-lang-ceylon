@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   JksOptions_=JksOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.JksOptions */
 shared class JksOptions(
@@ -24,5 +28,14 @@ shared class JksOptions(
       json.put("path", path);
     }
     return json;
+  }
+}
+
+shared object toJavaJksOptions satisfies Converter<JksOptions, JksOptions_> {
+  shared actual JksOptions_ convert(JksOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = JksOptions_(json);
+    return ret;
   }
 }

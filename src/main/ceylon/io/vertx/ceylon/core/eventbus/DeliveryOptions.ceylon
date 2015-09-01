@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.eventbus {
   DeliveryOptions_=DeliveryOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.eventbus.DeliveryOptions */
 shared class DeliveryOptions(
@@ -22,5 +26,14 @@ shared class DeliveryOptions(
       json.put("sendTimeout", sendTimeout);
     }
     return json;
+  }
+}
+
+shared object toJavaDeliveryOptions satisfies Converter<DeliveryOptions, DeliveryOptions_> {
+  shared actual DeliveryOptions_ convert(DeliveryOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = DeliveryOptions_(json);
+    return ret;
   }
 }

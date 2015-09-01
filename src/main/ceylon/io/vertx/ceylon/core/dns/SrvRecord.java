@@ -20,6 +20,12 @@ public class SrvRecord {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<SrvRecord, io.vertx.core.dns.SrvRecord> TO_JAVA = new io.vertx.lang.ceylon.Converter<SrvRecord, io.vertx.core.dns.SrvRecord>() {
+    public io.vertx.core.dns.SrvRecord convert(SrvRecord src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.dns.SrvRecord delegate;
 

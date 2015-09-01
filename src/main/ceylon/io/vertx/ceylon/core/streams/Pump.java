@@ -20,6 +20,12 @@ public class Pump {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Pump, io.vertx.core.streams.Pump> TO_JAVA = new io.vertx.lang.ceylon.Converter<Pump, io.vertx.core.streams.Pump>() {
+    public io.vertx.core.streams.Pump convert(Pump src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.streams.Pump delegate;
 

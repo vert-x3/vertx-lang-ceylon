@@ -22,6 +22,12 @@ public class RecordParser {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<RecordParser, io.vertx.core.parsetools.RecordParser> TO_JAVA = new io.vertx.lang.ceylon.Converter<RecordParser, io.vertx.core.parsetools.RecordParser>() {
+    public io.vertx.core.parsetools.RecordParser convert(RecordParser src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.parsetools.RecordParser delegate;
 

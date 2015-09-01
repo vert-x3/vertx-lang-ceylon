@@ -20,6 +20,12 @@ public class FileSystemProps {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<FileSystemProps, io.vertx.core.file.FileSystemProps> TO_JAVA = new io.vertx.lang.ceylon.Converter<FileSystemProps, io.vertx.core.file.FileSystemProps>() {
+    public io.vertx.core.file.FileSystemProps convert(FileSystemProps src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.file.FileSystemProps delegate;
 

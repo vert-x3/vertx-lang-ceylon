@@ -666,6 +666,38 @@ shared test void testMethodWithGenericHandlerAsyncResult() {
   test<Float>("Float", 12.345, (expected, actual) => { assertFloatEquals(expected, actual) });
 }
 
+shared test void testMethodListParams() {
+  value refed1 = RefedInterface1(RefedInterface1Impl().setString("foo"));
+  value refed2 = RefedInterface1(RefedInterface1Impl().setString("bar"));
+  obj.methodWithListParams(
+    ArrayList { "foo", "bar" },
+    ArrayList { 2.byte, 3.byte },
+    ArrayList { 12, 13 },
+    ArrayList { 1234, 1345 },
+    ArrayList { 123, 456 },
+    ArrayList { JsonObject { "foo"->"bar" }, JsonObject { "eek"->"wibble" } },
+    ArrayList { JsonArray { "foo" }, JsonArray { "blah" } },
+    ArrayList { refed1, refed2 },
+    ArrayList { TestDataObject { foo="String 1"; bar=1; wibble=1.1; }, TestDataObject { foo="String 2"; bar=2; wibble=2.2; } }
+  );
+}
+
+shared test void testMethodSetParams() {
+  value refed1 = RefedInterface1(RefedInterface1Impl().setString("foo"));
+  value refed2 = RefedInterface1(RefedInterface1Impl().setString("bar"));
+  obj.methodWithSetParams(
+    HashSet { "foo", "bar" },
+    HashSet { 2.byte, 3.byte },
+    HashSet { 12, 13 },
+    HashSet { 1234, 1345 },
+    HashSet { 123, 456 },
+    HashSet { JsonObject { "foo"->"bar" }, JsonObject { "eek"->"wibble" } },
+    HashSet { JsonArray { "foo" }, JsonArray { "blah" } },
+    HashSet { refed1, refed2 },
+    HashSet { TestDataObject { foo="String 1"; bar=1; wibble=1.1; }, TestDataObject { foo="String 2"; bar=2; wibble=2.2; } }
+  );
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);

@@ -20,6 +20,12 @@ public interface RefedInterface2 {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<RefedInterface2, io.vertx.codegen.testmodel.RefedInterface2> TO_JAVA = new io.vertx.lang.ceylon.Converter<RefedInterface2, io.vertx.codegen.testmodel.RefedInterface2>() {
+    public io.vertx.codegen.testmodel.RefedInterface2 convert(RefedInterface2 src) {
+      return (io.vertx.codegen.testmodel.RefedInterface2)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

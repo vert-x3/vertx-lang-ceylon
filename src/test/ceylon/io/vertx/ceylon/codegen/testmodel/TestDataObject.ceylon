@@ -7,7 +7,11 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.codegen.testmodel.TestDataObject */
 shared class TestDataObject(
@@ -41,5 +45,14 @@ shared object toTestDataObject satisfies Converter<TestDataObject_, TestDataObje
       foo = foo;
       wibble = wibble;
     };
+  }
+}
+
+shared object toJavaTestDataObject satisfies Converter<TestDataObject, TestDataObject_> {
+  shared actual TestDataObject_ convert(TestDataObject src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = TestDataObject_(json);
+    return ret;
   }
 }

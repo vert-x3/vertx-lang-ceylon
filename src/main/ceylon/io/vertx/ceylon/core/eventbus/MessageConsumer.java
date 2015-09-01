@@ -26,6 +26,12 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<MessageConsumer, io.vertx.core.eventbus.MessageConsumer> TO_JAVA = new io.vertx.lang.ceylon.Converter<MessageConsumer, io.vertx.core.eventbus.MessageConsumer>() {
+    public io.vertx.core.eventbus.MessageConsumer convert(MessageConsumer src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.eventbus.MessageConsumer delegate;
 

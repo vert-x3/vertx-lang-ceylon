@@ -22,6 +22,12 @@ public class MyInterface {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<MyInterface, com.acme.pkg.MyInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<MyInterface, com.acme.pkg.MyInterface>() {
+    public com.acme.pkg.MyInterface convert(MyInterface src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final com.acme.pkg.MyInterface delegate;
 

@@ -21,6 +21,12 @@ public interface StreamBase {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<StreamBase, io.vertx.core.streams.StreamBase> TO_JAVA = new io.vertx.lang.ceylon.Converter<StreamBase, io.vertx.core.streams.StreamBase>() {
+    public io.vertx.core.streams.StreamBase convert(StreamBase src) {
+      return (io.vertx.core.streams.StreamBase)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

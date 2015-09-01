@@ -25,6 +25,12 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<AsyncFile, io.vertx.core.file.AsyncFile> TO_JAVA = new io.vertx.lang.ceylon.Converter<AsyncFile, io.vertx.core.file.AsyncFile>() {
+    public io.vertx.core.file.AsyncFile convert(AsyncFile src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.file.AsyncFile delegate;
 

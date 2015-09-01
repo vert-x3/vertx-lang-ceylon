@@ -293,7 +293,17 @@
     } else if (kind == CLASS_JSON_OBJECT) {
     } else if (kind == CLASS_JSON_ARRAY) {
     } else if (kind == CLASS_ENUM) {
-    } else if (kind == CLASS_LIST) {
+    } else if (kind == CLASS_LIST || kind == CLASS_SET) {
+      var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToJava.list' : 'io.vertx.lang.ceylon.ToJava.set';
+      var eltType = type.args[0];
+      var eltKind = eltType.kind;
+      if (eltKind.basic || eltKind.json) {
+        return collection + '(' + expr + ', ' + 'io.vertx.lang.ceylon.ToJava.' + eltType.simpleName + ')';
+      } else if (eltKind == CLASS_API) {
+        return collection + '(' + expr + ', ' + eltType.translateName('ceylon') + '.TO_JAVA)';
+      } else if (eltKind == CLASS_DATA_OBJECT) {
+        return collection + '(' + expr + ', ' + eltType.translatePackageName('ceylon') + '.toJava' + eltType.simpleName + '_.get_()' + ')';
+      }
     } else if (kind == CLASS_SET) {
     } else if (kind == CLASS_MAP) {
     }
@@ -823,6 +833,18 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
       return new @{type.raw.simpleName}@if{!concrete}.Impl@end{}(src);\n
     }\n
   };\n
+
+\n
+  @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.raw.simpleName}, @{type.raw.name}> TO_JAVA = new io.vertx.lang.ceylon.Converter<@{type.raw.simpleName}, @{type.raw.name}>() {\n
+    public @{type.raw.name} convert(@{type.raw.simpleName} src) {\n
+@if{concrete}
+      return src.delegate;\n
+@else{}
+      return (@{type.raw.name})src.getDelegate();\n
+@end{}
+    }\n
+  };\n
+
 
 \n
 @if{concrete}

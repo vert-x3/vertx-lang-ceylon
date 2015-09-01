@@ -11,10 +11,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.NetServerOptions */
 shared class NetServerOptions(
@@ -73,5 +77,14 @@ shared class NetServerOptions(
       json.put("port", port);
     }
     return json;
+  }
+}
+
+shared object toJavaNetServerOptions satisfies Converter<NetServerOptions, NetServerOptions_> {
+  shared actual NetServerOptions_ convert(NetServerOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = NetServerOptions_(json);
+    return ret;
   }
 }

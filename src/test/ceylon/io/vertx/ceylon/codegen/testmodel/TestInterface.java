@@ -28,6 +28,12 @@ public class TestInterface implements SuperInterface2 {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<TestInterface, io.vertx.codegen.testmodel.TestInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<TestInterface, io.vertx.codegen.testmodel.TestInterface>() {
+    public io.vertx.codegen.testmodel.TestInterface convert(TestInterface src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.codegen.testmodel.TestInterface delegate;
 
@@ -264,7 +270,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListOfDataObjectsParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> dataObjects) {
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = null;
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.list(dataObjects, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithListOfDataObjectsParam(arg_0);
   }
 
@@ -296,15 +302,15 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::List<ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Array> listJsonArray, 
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<RefedInterface1> listVertxGen, 
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> listDataObject) {
-    java.util.List<java.lang.String> arg_0 = null;
-    java.util.List<java.lang.Byte> arg_1 = null;
-    java.util.List<java.lang.Short> arg_2 = null;
-    java.util.List<java.lang.Integer> arg_3 = null;
-    java.util.List<java.lang.Long> arg_4 = null;
-    java.util.List<io.vertx.core.json.JsonObject> arg_5 = null;
-    java.util.List<io.vertx.core.json.JsonArray> arg_6 = null;
-    java.util.List<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = null;
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_8 = null;
+    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.list(listString, io.vertx.lang.ceylon.ToJava.String);
+    java.util.List<java.lang.Byte> arg_1 = io.vertx.lang.ceylon.ToJava.list(listByte, io.vertx.lang.ceylon.ToJava.Byte);
+    java.util.List<java.lang.Short> arg_2 = io.vertx.lang.ceylon.ToJava.list(listShort, io.vertx.lang.ceylon.ToJava.Short);
+    java.util.List<java.lang.Integer> arg_3 = io.vertx.lang.ceylon.ToJava.list(listInt, io.vertx.lang.ceylon.ToJava.Integer);
+    java.util.List<java.lang.Long> arg_4 = io.vertx.lang.ceylon.ToJava.list(listLong, io.vertx.lang.ceylon.ToJava.Long);
+    java.util.List<io.vertx.core.json.JsonObject> arg_5 = io.vertx.lang.ceylon.ToJava.list(listJsonObject, io.vertx.lang.ceylon.ToJava.JsonObject);
+    java.util.List<io.vertx.core.json.JsonArray> arg_6 = io.vertx.lang.ceylon.ToJava.list(listJsonArray, io.vertx.lang.ceylon.ToJava.JsonArray);
+    java.util.List<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = io.vertx.lang.ceylon.ToJava.list(listVertxGen, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_8 = io.vertx.lang.ceylon.ToJava.list(listDataObject, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithListParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
   }
 

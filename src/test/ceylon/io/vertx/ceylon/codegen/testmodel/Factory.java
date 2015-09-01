@@ -21,6 +21,12 @@ public class Factory {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Factory, io.vertx.codegen.testmodel.Factory> TO_JAVA = new io.vertx.lang.ceylon.Converter<Factory, io.vertx.codegen.testmodel.Factory>() {
+    public io.vertx.codegen.testmodel.Factory convert(Factory src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.codegen.testmodel.Factory delegate;
 

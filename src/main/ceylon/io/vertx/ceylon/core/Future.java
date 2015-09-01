@@ -25,6 +25,12 @@ public class Future<T> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Future, io.vertx.core.Future> TO_JAVA = new io.vertx.lang.ceylon.Converter<Future, io.vertx.core.Future>() {
+    public io.vertx.core.Future convert(Future src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.Future delegate;
 

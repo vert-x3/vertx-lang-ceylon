@@ -21,6 +21,12 @@ public class WebSocketFrame {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<WebSocketFrame, io.vertx.core.http.WebSocketFrame> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocketFrame, io.vertx.core.http.WebSocketFrame>() {
+    public io.vertx.core.http.WebSocketFrame convert(WebSocketFrame src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.WebSocketFrame delegate;
 

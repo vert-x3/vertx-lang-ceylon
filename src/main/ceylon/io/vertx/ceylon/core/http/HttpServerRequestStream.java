@@ -22,6 +22,12 @@ public class HttpServerRequestStream implements ReadStream<HttpServerRequest> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpServerRequestStream, io.vertx.core.http.HttpServerRequestStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerRequestStream, io.vertx.core.http.HttpServerRequestStream>() {
+    public io.vertx.core.http.HttpServerRequestStream convert(HttpServerRequestStream src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpServerRequestStream delegate;
 

@@ -22,6 +22,12 @@ public class WebSocketStream implements ReadStream<WebSocket> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<WebSocketStream, io.vertx.core.http.WebSocketStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocketStream, io.vertx.core.http.WebSocketStream>() {
+    public io.vertx.core.http.WebSocketStream convert(WebSocketStream src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.WebSocketStream delegate;
 

@@ -33,6 +33,12 @@ public class Vertx implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Vertx, io.vertx.core.Vertx> TO_JAVA = new io.vertx.lang.ceylon.Converter<Vertx, io.vertx.core.Vertx>() {
+    public io.vertx.core.Vertx convert(Vertx src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.Vertx delegate;
 

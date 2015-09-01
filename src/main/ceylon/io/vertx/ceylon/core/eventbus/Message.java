@@ -26,6 +26,12 @@ public class Message<T> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Message, io.vertx.core.eventbus.Message> TO_JAVA = new io.vertx.lang.ceylon.Converter<Message, io.vertx.core.eventbus.Message>() {
+    public io.vertx.core.eventbus.Message convert(Message src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.eventbus.Message delegate;
 

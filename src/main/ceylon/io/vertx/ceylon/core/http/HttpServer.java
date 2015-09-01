@@ -23,6 +23,12 @@ public class HttpServer implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpServer, io.vertx.core.http.HttpServer> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServer, io.vertx.core.http.HttpServer>() {
+    public io.vertx.core.http.HttpServer convert(HttpServer src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpServer delegate;
 

@@ -20,6 +20,12 @@ public interface Measured {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<Measured, io.vertx.core.metrics.Measured> TO_JAVA = new io.vertx.lang.ceylon.Converter<Measured, io.vertx.core.metrics.Measured>() {
+    public io.vertx.core.metrics.Measured convert(Measured src) {
+      return (io.vertx.core.metrics.Measured)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

@@ -24,6 +24,12 @@ public interface ReadStream<T> extends StreamBase {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<ReadStream, io.vertx.core.streams.ReadStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<ReadStream, io.vertx.core.streams.ReadStream>() {
+    public io.vertx.core.streams.ReadStream convert(ReadStream src) {
+      return (io.vertx.core.streams.ReadStream)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

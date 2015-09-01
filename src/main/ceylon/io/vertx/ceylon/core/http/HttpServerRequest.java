@@ -28,6 +28,12 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpServerRequest, io.vertx.core.http.HttpServerRequest> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerRequest, io.vertx.core.http.HttpServerRequest>() {
+    public io.vertx.core.http.HttpServerRequest convert(HttpServerRequest src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpServerRequest delegate;
 

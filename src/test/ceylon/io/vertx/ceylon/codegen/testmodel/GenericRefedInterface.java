@@ -23,6 +23,12 @@ public class GenericRefedInterface<T> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<GenericRefedInterface, io.vertx.codegen.testmodel.GenericRefedInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<GenericRefedInterface, io.vertx.codegen.testmodel.GenericRefedInterface>() {
+    public io.vertx.codegen.testmodel.GenericRefedInterface convert(GenericRefedInterface src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.codegen.testmodel.GenericRefedInterface delegate;
 

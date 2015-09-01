@@ -26,6 +26,12 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<DatagramSocket, io.vertx.core.datagram.DatagramSocket> TO_JAVA = new io.vertx.lang.ceylon.Converter<DatagramSocket, io.vertx.core.datagram.DatagramSocket>() {
+    public io.vertx.core.datagram.DatagramSocket convert(DatagramSocket src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.datagram.DatagramSocket delegate;
 

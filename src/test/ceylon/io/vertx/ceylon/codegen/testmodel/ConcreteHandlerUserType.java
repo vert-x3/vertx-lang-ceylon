@@ -21,6 +21,12 @@ public class ConcreteHandlerUserType {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<ConcreteHandlerUserType, io.vertx.codegen.testmodel.ConcreteHandlerUserType> TO_JAVA = new io.vertx.lang.ceylon.Converter<ConcreteHandlerUserType, io.vertx.codegen.testmodel.ConcreteHandlerUserType>() {
+    public io.vertx.codegen.testmodel.ConcreteHandlerUserType convert(ConcreteHandlerUserType src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate;
 

@@ -24,6 +24,12 @@ public class FileSystem {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<FileSystem, io.vertx.core.file.FileSystem> TO_JAVA = new io.vertx.lang.ceylon.Converter<FileSystem, io.vertx.core.file.FileSystem>() {
+    public io.vertx.core.file.FileSystem convert(FileSystem src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.file.FileSystem delegate;
 

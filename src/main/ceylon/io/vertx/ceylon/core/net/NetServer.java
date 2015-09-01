@@ -23,6 +23,12 @@ public class NetServer implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<NetServer, io.vertx.core.net.NetServer> TO_JAVA = new io.vertx.lang.ceylon.Converter<NetServer, io.vertx.core.net.NetServer>() {
+    public io.vertx.core.net.NetServer convert(NetServer src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.net.NetServer delegate;
 

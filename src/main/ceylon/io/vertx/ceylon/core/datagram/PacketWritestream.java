@@ -23,6 +23,12 @@ public class PacketWritestream implements WriteStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<PacketWritestream, io.vertx.core.datagram.PacketWritestream> TO_JAVA = new io.vertx.lang.ceylon.Converter<PacketWritestream, io.vertx.core.datagram.PacketWritestream>() {
+    public io.vertx.core.datagram.PacketWritestream convert(PacketWritestream src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.datagram.PacketWritestream delegate;
 

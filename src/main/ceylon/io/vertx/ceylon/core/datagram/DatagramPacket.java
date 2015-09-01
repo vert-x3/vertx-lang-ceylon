@@ -22,6 +22,12 @@ public class DatagramPacket {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<DatagramPacket, io.vertx.core.datagram.DatagramPacket> TO_JAVA = new io.vertx.lang.ceylon.Converter<DatagramPacket, io.vertx.core.datagram.DatagramPacket>() {
+    public io.vertx.core.datagram.DatagramPacket convert(DatagramPacket src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.datagram.DatagramPacket delegate;
 

@@ -26,6 +26,12 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpServerResponse, io.vertx.core.http.HttpServerResponse> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerResponse, io.vertx.core.http.HttpServerResponse>() {
+    public io.vertx.core.http.HttpServerResponse convert(HttpServerResponse src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpServerResponse delegate;
 

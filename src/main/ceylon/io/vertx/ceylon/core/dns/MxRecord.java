@@ -20,6 +20,12 @@ public class MxRecord {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<MxRecord, io.vertx.core.dns.MxRecord> TO_JAVA = new io.vertx.lang.ceylon.Converter<MxRecord, io.vertx.core.dns.MxRecord>() {
+    public io.vertx.core.dns.MxRecord convert(MxRecord src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.dns.MxRecord delegate;
 

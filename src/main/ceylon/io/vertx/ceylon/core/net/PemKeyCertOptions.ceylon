@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   PemKeyCertOptions_=PemKeyCertOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.PemKeyCertOptions */
 shared class PemKeyCertOptions(
@@ -23,5 +27,14 @@ shared class PemKeyCertOptions(
       json.put("keyPath", keyPath);
     }
     return json;
+  }
+}
+
+shared object toJavaPemKeyCertOptions satisfies Converter<PemKeyCertOptions, PemKeyCertOptions_> {
+  shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = PemKeyCertOptions_(json);
+    return ret;
   }
 }

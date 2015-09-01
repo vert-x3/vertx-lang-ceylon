@@ -20,6 +20,12 @@ public class SubInterface {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<SubInterface, com.acme.pkg.sub.SubInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<SubInterface, com.acme.pkg.sub.SubInterface>() {
+    public com.acme.pkg.sub.SubInterface convert(SubInterface src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final com.acme.pkg.sub.SubInterface delegate;
 

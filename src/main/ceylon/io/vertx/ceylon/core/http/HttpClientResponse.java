@@ -26,6 +26,12 @@ public class HttpClientResponse implements ReadStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpClientResponse, io.vertx.core.http.HttpClientResponse> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpClientResponse, io.vertx.core.http.HttpClientResponse>() {
+    public io.vertx.core.http.HttpClientResponse convert(HttpClientResponse src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpClientResponse delegate;
 

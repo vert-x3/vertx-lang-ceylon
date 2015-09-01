@@ -24,6 +24,12 @@ public interface WriteStream<T> extends StreamBase {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<WriteStream, io.vertx.core.streams.WriteStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<WriteStream, io.vertx.core.streams.WriteStream>() {
+    public io.vertx.core.streams.WriteStream convert(WriteStream src) {
+      return (io.vertx.core.streams.WriteStream)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

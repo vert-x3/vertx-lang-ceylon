@@ -20,6 +20,12 @@ public class Lock {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Lock, io.vertx.core.shareddata.Lock> TO_JAVA = new io.vertx.lang.ceylon.Converter<Lock, io.vertx.core.shareddata.Lock>() {
+    public io.vertx.core.shareddata.Lock convert(Lock src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.shareddata.Lock delegate;
 

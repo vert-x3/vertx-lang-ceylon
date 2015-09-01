@@ -26,6 +26,12 @@ public class AsyncMap<K,V> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<AsyncMap, io.vertx.core.shareddata.AsyncMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<AsyncMap, io.vertx.core.shareddata.AsyncMap>() {
+    public io.vertx.core.shareddata.AsyncMap convert(AsyncMap src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.shareddata.AsyncMap delegate;
 

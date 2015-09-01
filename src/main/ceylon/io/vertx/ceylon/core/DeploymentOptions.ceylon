@@ -7,7 +7,11 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
@@ -71,5 +75,14 @@ shared object toDeploymentOptions satisfies Converter<DeploymentOptions_, Deploy
       multiThreaded = multiThreaded;
       worker = worker;
     };
+  }
+}
+
+shared object toJavaDeploymentOptions satisfies Converter<DeploymentOptions, DeploymentOptions_> {
+  shared actual DeploymentOptions_ convert(DeploymentOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = DeploymentOptions_(json);
+    return ret;
   }
 }

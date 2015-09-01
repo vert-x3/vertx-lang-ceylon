@@ -11,10 +11,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.http {
   HttpServerOptions_=HttpServerOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.http.HttpServerOptions */
 shared class HttpServerOptions(
@@ -81,5 +85,14 @@ shared class HttpServerOptions(
       json.put("websocketSubProtocols", websocketSubProtocols);
     }
     return json;
+  }
+}
+
+shared object toJavaHttpServerOptions satisfies Converter<HttpServerOptions, HttpServerOptions_> {
+  shared actual HttpServerOptions_ convert(HttpServerOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = HttpServerOptions_(json);
+    return ret;
   }
 }

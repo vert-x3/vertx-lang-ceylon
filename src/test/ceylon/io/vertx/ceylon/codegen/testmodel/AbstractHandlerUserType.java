@@ -21,6 +21,12 @@ public interface AbstractHandlerUserType {
     }
   };
 
+  io.vertx.lang.ceylon.Converter<AbstractHandlerUserType, io.vertx.codegen.testmodel.AbstractHandlerUserType> TO_JAVA = new io.vertx.lang.ceylon.Converter<AbstractHandlerUserType, io.vertx.codegen.testmodel.AbstractHandlerUserType>() {
+    public io.vertx.codegen.testmodel.AbstractHandlerUserType convert(AbstractHandlerUserType src) {
+      return (io.vertx.codegen.testmodel.AbstractHandlerUserType)src.getDelegate();
+    }
+  };
+
   @Ignore
   Object getDelegate();
 

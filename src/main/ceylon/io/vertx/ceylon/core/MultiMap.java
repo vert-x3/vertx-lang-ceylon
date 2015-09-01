@@ -23,6 +23,12 @@ public class MultiMap {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<MultiMap, io.vertx.core.MultiMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<MultiMap, io.vertx.core.MultiMap>() {
+    public io.vertx.core.MultiMap convert(MultiMap src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.MultiMap delegate;
 

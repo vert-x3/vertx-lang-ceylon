@@ -11,10 +11,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.net {
   NetClientOptions_=NetClientOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.net.NetClientOptions */
 shared class NetClientOptions(
@@ -69,5 +73,14 @@ shared class NetClientOptions(
       json.put("reconnectInterval", reconnectInterval);
     }
     return json;
+  }
+}
+
+shared object toJavaNetClientOptions satisfies Converter<NetClientOptions, NetClientOptions_> {
+  shared actual NetClientOptions_ convert(NetClientOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = NetClientOptions_(json);
+    return ret;
   }
 }

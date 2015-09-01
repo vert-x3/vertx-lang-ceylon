@@ -7,10 +7,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.ceylon.core.metrics {
   MetricsOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.VertxOptions */
 shared class VertxOptions(
@@ -81,5 +85,14 @@ shared class VertxOptions(
       json.put("workerPoolSize", workerPoolSize);
     }
     return json;
+  }
+}
+
+shared object toJavaVertxOptions satisfies Converter<VertxOptions, VertxOptions_> {
+  shared actual VertxOptions_ convert(VertxOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = VertxOptions_(json);
+    return ret;
   }
 }

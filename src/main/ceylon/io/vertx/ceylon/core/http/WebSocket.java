@@ -23,6 +23,12 @@ public class WebSocket implements WebSocketBase {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<WebSocket, io.vertx.core.http.WebSocket> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocket, io.vertx.core.http.WebSocket>() {
+    public io.vertx.core.http.WebSocket convert(WebSocket src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.WebSocket delegate;
 

@@ -23,6 +23,12 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpServerFileUpload, io.vertx.core.http.HttpServerFileUpload> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerFileUpload, io.vertx.core.http.HttpServerFileUpload>() {
+    public io.vertx.core.http.HttpServerFileUpload convert(HttpServerFileUpload src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpServerFileUpload delegate;
 

@@ -4,10 +4,14 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
 }
 import io.vertx.core.file {
   OpenOptions_=OpenOptions
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.file.OpenOptions */
 shared class OpenOptions(
@@ -54,5 +58,14 @@ shared class OpenOptions(
       json.put("write", write);
     }
     return json;
+  }
+}
+
+shared object toJavaOpenOptions satisfies Converter<OpenOptions, OpenOptions_> {
+  shared actual OpenOptions_ convert(OpenOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = OpenOptions_(json);
+    return ret;
   }
 }

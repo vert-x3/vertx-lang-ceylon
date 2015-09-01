@@ -24,6 +24,12 @@ public class LocalMap<K,V> {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<LocalMap, io.vertx.core.shareddata.LocalMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<LocalMap, io.vertx.core.shareddata.LocalMap>() {
+    public io.vertx.core.shareddata.LocalMap convert(LocalMap src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.shareddata.LocalMap delegate;
 

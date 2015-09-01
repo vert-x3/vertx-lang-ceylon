@@ -23,6 +23,12 @@ public class Context {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<Context, io.vertx.core.Context> TO_JAVA = new io.vertx.lang.ceylon.Converter<Context, io.vertx.core.Context>() {
+    public io.vertx.core.Context convert(Context src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.Context delegate;
 

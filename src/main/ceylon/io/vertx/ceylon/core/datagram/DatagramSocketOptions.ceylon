@@ -10,7 +10,11 @@ import ceylon.json {
 }
 import io.vertx.lang.ceylon {
   BaseDataObject,
-  Converter
+  Converter,
+  ToJava
+}
+import io.vertx.core.json {
+  JsonObject_=JsonObject
 }
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 shared class DatagramSocketOptions(
@@ -45,5 +49,14 @@ shared class DatagramSocketOptions(
       json.put("multicastTimeToLive", multicastTimeToLive);
     }
     return json;
+  }
+}
+
+shared object toJavaDatagramSocketOptions satisfies Converter<DatagramSocketOptions, DatagramSocketOptions_> {
+  shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {
+    // Todo : make optimized version without json
+    value json = JsonObject_(src.toJson().string);
+    value ret = DatagramSocketOptions_(json);
+    return ret;
   }
 }

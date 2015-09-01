@@ -25,6 +25,12 @@ public class HttpClient implements Measured {
     }
   };
 
+  public static final io.vertx.lang.ceylon.Converter<HttpClient, io.vertx.core.http.HttpClient> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpClient, io.vertx.core.http.HttpClient>() {
+    public io.vertx.core.http.HttpClient convert(HttpClient src) {
+      return src.delegate;
+    }
+  };
+
   @Ignore
   private final io.vertx.core.http.HttpClient delegate;
 
