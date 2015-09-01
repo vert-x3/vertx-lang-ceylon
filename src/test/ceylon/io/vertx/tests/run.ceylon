@@ -285,7 +285,124 @@ shared test void testMethodWithHandlerSetAbstractVertxGen() {
 }
 
 shared test void testMethodWithHandlerAsyncResultSetVertxGen() {
+  variable Set<RefedInterface1>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetVertxGen((Set<RefedInterface1>|Throwable arg_) => arg=arg_);
+  assert(is Set<RefedInterface1> tmp = arg);
+  value val = tmp.sort(comparingRefedInterface1);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "bar");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "foo");
+}
 
+shared test void testMethodWithHandlerAsyncResultSetAbstractVertxGen() {
+  variable Set<RefedInterface2>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetAbstractVertxGen((Set<RefedInterface2>|Throwable arg_) => arg=arg_);
+  assert(is Set<RefedInterface2> tmp = arg);
+  value val = tmp.sort(comparingRefedInterface2);
+  assertEquals(val.size, 2);
+  assert(exists v0=val[0]);
+  assertEquals(v0.getString(), "abstractbar");
+  assert(exists v1=val[1]);
+  assertEquals(v1.getString(), "abstractfoo");
+}
+
+shared test void testMethodWithHandlerListJsonObject() {
+  variable List<JsonObject>|Null arg = null;
+  obj.methodWithHandlerListJsonObject((List<JsonObject> arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonObject { "cheese"->"stilton" }, JsonObject { "socks"->"tartan" } });
+}
+
+shared test void testMethodWithHandlerListNullJsonObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerListComplexJsonObject() {
+  variable List<JsonObject>|Null arg = null;
+  obj.methodWithHandlerListComplexJsonObject((List<JsonObject> arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } } });
+}
+
+shared test void testMethodWithHandlerAsyncResultListJsonObject() {
+  variable List<JsonObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListJsonObject((List<JsonObject>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonObject { "cheese"->"stilton" }, JsonObject { "socks"->"tartan" } });
+}
+
+shared test void testMethodWithHandlerAsyncResultListNullJsonObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerAsyncResultListComplexJsonObject() {
+  variable List<JsonObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerListComplexJsonObject((List<JsonObject>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } } });
+}
+
+shared test void testMethodWithHandlerSetJsonObject() {
+  variable Set<JsonObject>|Null arg = null;
+  obj.methodWithHandlerSetJsonObject((Set<JsonObject> arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonObject { "cheese"->"stilton" }, JsonObject { "socks"->"tartan" } });
+}
+
+shared test void testMethodWithHandlerSetNullJsonObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerSetComplexJsonObject() {
+  variable Set<JsonObject>|Null arg = null;
+  obj.methodWithHandlerSetComplexJsonObject((Set<JsonObject> arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } } });
+}
+
+shared test void testMethodWithHandlerAsyncResultSetJsonObject() {
+  variable Set<JsonObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetJsonObject((Set<JsonObject>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonObject { "cheese"->"stilton"}, JsonObject { "socks"->"tartan" } });
+}
+
+shared test void testMethodWithHandlerAsyncResultSetNullJsonObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerAsyncResultSetComplexJsonObject() {
+  variable Set<JsonObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetComplexJsonObject((Set<JsonObject>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } } });
+}
+
+shared test void testMethodWithHandlerListJsonArray() {
+  variable List<JsonArray>|Null arg = null;
+  obj.methodWithHandlerListJsonArray((List<JsonArray> arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonArray { "green", "blue" }, JsonArray { "yellow", "purple" } });
+}
+
+shared test void testMethodWithHandlerListNullJsonArray() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerListComplexJsonArray() {
+  variable List<JsonArray>|Null arg = null;
+  obj.methodWithHandlerListComplexJsonArray((List<JsonArray> arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
+}
+
+shared test void testMethodWithHandlerListDataObject() {
+  variable List<TestDataObject>|Null arg = null;
+  obj.methodWithHandlerListDataObject((List<TestDataObject> arg_) => arg=arg_);
+  assert(is List<TestDataObject> list=arg);
+  assertEquals(list.size, 2);
+  value obj1 = list[0];
+  assert(is TestDataObject obj1);
+  assertEquals(obj1.foo, "String 1");
+  assertEquals(obj1.bar, 1);
+  assertFloatEquals(obj1.wibble, 1.1);
+  value obj2 = list[1];
+  assert(is TestDataObject obj2);
+  assertEquals(obj2.foo, "String 2");
+  assertEquals(obj2.bar, 2);
+  assertFloatEquals(obj2.wibble, 2.2);
 }
 
 shared test void testListStringReturn() {
@@ -294,6 +411,47 @@ shared test void testListStringReturn() {
   assertEquals(list[0], "foo");
   assertEquals(list[1], "bar");
   assertEquals(list[2], "wibble");
+}
+
+shared test void testMethodWithHandlerNullListDataObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerSetDataObject() {
+  variable TestDataObject[]|Null arg = null;
+  obj.methodWithHandlerSetDataObject((Set<TestDataObject> arg_) => arg=arg_.sort(comparingTestDataObject));
+  assert(is TestDataObject[] set=arg);
+  assertEquals(set.size, 2);
+  value obj1 = set[0];
+  assert(is TestDataObject obj1);
+  assertEquals(obj1.foo, "String 1");
+  assertEquals(obj1.bar, 1);
+  assertFloatEquals(obj1.wibble, 1.1);
+  value obj2 = set[1];
+  assert(is TestDataObject obj2);
+  assertEquals(obj2.foo, "String 2");
+  assertEquals(obj2.bar, 2);
+  assertFloatEquals(obj2.wibble, 2.2);
+}
+
+shared test void testMethodWithHandlerNullSetDataObject() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerAsyncResultListJsonArray() {
+  variable List<JsonArray>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListJsonArray((List<JsonArray>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonArray { "green", "blue" }, JsonArray { "yellow", "purple" } });
+}
+
+shared test void testMethodWithHandlerAsyncResultListNullJsonArray() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerAsyncResultListComplexJsonArray() {
+  variable List<JsonArray>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListComplexJsonArray((List<JsonArray>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, ArrayList { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
 }
 
 shared test void testListLongReturn() {
