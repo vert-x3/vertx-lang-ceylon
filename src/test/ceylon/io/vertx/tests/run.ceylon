@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1, RefedInterface2, TestDataObject
+  TestInterface, RefedInterface1, RefedInterface2, TestDataObject, Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl
@@ -527,6 +527,44 @@ shared test void testMethodWithHandlerAsyncResultSetDataObject() {
 
 shared test void testMethodWithHandlerAsyncResultNullSetDataObject() {
   // Null
+}
+
+shared test void testMethodWithHandlerUserTypes() {
+  variable RefedInterface1? val = null;
+  obj.methodWithHandlerUserTypes((RefedInterface1 arg) => val=arg);
+  assert(exists u=val);
+  assertEquals(u.getString(), "echidnas");
+}
+
+shared test void testMethodWithHandlerAsyncResultUserTypes() {
+  variable RefedInterface1|Throwable|Null val = null;
+  obj.methodWithHandlerAsyncResultUserTypes((RefedInterface1|Throwable arg) => val=arg);
+  assert(is RefedInterface1 u=val);
+  assertEquals(u.getString(), "cheetahs");
+}
+
+shared test void testMethodWithConcreteHandlerUserTypesSubtype() {
+  variable RefedInterface1? val = null;
+  ConcreteHandlerUserType sub = Factory.createConcreteHandlerUserType((RefedInterface1 arg) => val=arg);
+  obj.methodWithConcreteHandlerUserTypeSubtype(sub);
+  assert(exists u=val);
+  assertEquals(u.getString(), "echidnas");
+}
+
+shared test void testMethodWithAbstractHandlerUserTypesSubtype() {
+  variable RefedInterface1? val = null;
+  AbstractHandlerUserType sub = Factory.createAbstractHandlerUserType((RefedInterface1 arg) => val=arg);
+  obj.methodWithAbstractHandlerUserTypeSubtype(sub);
+  assert(exists u=val);
+  assertEquals(u.getString(), "echidnas");
+}
+
+shared test void testMethodWithConcreteHandlerUserTypesSubtypeExtension() {
+  variable RefedInterface1? val = null;
+  ConcreteHandlerUserTypeExtension sub = Factory.createConcreteHandlerUserTypeExtension((RefedInterface1 arg) => val=arg);
+  obj.methodWithConcreteHandlerUserTypeSubtypeExtension(sub);
+  assert(exists u=val);
+  assertEquals(u.getString(), "echidnas");
 }
 
 shared test void testListLongReturn() {
