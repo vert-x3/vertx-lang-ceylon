@@ -284,6 +284,10 @@ shared test void testMethodWithHandlerSetAbstractVertxGen() {
   assertEquals(v1.getString(), "abstractfoo");
 }
 
+shared test void testMethodWithHandlerAsyncResultSetVertxGen() {
+
+}
+
 shared test void testListStringReturn() {
   value list = obj.methodWithListStringReturn();
   assertEquals(list.size, 3);

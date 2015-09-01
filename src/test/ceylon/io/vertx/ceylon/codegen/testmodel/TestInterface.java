@@ -262,6 +262,22 @@ public class TestInterface implements SuperInterface2 {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
+  public void methodWithListOfDataObjectsParam(
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> dataObjects) {
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = null;
+    delegate.methodWithListOfDataObjectsParam(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithSetOfDataObjectsParam(
+    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> dataObjects) {
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = null;
+    delegate.methodWithSetOfDataObjectsParam(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
   public void methodWithNullDataObjectParam(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestDataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.TestDataObject dataObject) {
     io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.Helper.toJsonObject(dataObject.toJson()));
