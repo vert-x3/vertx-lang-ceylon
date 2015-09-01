@@ -622,6 +622,50 @@ shared test void testMethodWithGenericParam() {
   obj.methodWithGenericParam("JsonArray", JsonArray { "foo", "bar", "wib" });
 }
 
+shared test void testMethodWithGenericHandler() {
+  void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
+    variable Object? val = null;
+    obj.methodWithGenericHandler<Object>(type, (Object result) => val = result);
+    assert(exists actual = val);
+    compare(actual, expected);
+  }
+  test("Ref", RefedInterface1Impl().setString("bar"));
+  test("String", "foo");
+  test("JsonObject", JsonObject { "foo"->"hello", "bar"->123 });
+  test("JsonObjectComplex", JsonObject { "outer" -> JsonObject { "foo"->"hello" }, "bar" -> JsonArray { "this", "that" } });
+  test("JsonArray", JsonArray { "foo","bar","wib" });
+  test("Boolean", true);
+  test("Byte", 123.byte);
+  test("Short", 12345);
+  test("Integer", 1234567);
+  test("Long", 1265615234);
+  test("Character", 'x');
+  test<Float>("Double", 12.34566, (expected, actual) => { assertFloatEquals(expected, actual) });
+  test<Float>("Float", 12.345, (expected, actual) => { assertFloatEquals(expected, actual) });
+}
+
+shared test void testMethodWithGenericHandlerAsyncResult() {
+  void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
+    variable Object|Throwable|Null val = null;
+    obj.methodWithGenericHandlerAsyncResult<Object>(type, (Object|Throwable result) => val = result);
+    assert(exists actual = val);
+    compare(actual, expected);
+  }
+  test("Ref", RefedInterface1Impl().setString("bar"));
+  test("String", "foo");
+  test("JsonObject", JsonObject { "foo"->"hello", "bar"->123 });
+  test("JsonObjectComplex", JsonObject { "outer" -> JsonObject { "foo"->"hello" }, "bar" -> JsonArray { "this", "that" } });
+  test("JsonArray", JsonArray { "foo","bar","wib" });
+  test("Boolean", true);
+  test("Byte", 123.byte);
+  test("Short", 12345);
+  test("Integer", 1234567);
+  test("Long", 1265615234);
+  test("Character", 'x');
+  test<Float>("Double", 12.34566, (expected, actual) => { assertFloatEquals(expected, actual) });
+  test<Float>("Float", 12.345, (expected, actual) => { assertFloatEquals(expected, actual) });
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);

@@ -5,11 +5,33 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 public class ToCeylon {
 
   public static final <T> T object(Object o) {
+    Converter converter = null;
     if (o instanceof java.lang.String) {
-      o = String.convert((java.lang.String)o);
+      converter = String;
+    } else if (o instanceof java.lang.Boolean) {
+      converter = Boolean;
+    } else if (o instanceof java.lang.Byte) {
+      converter = Byte;
+    } else if (o instanceof java.lang.Character) {
+      converter = Character;
+    } else if (o instanceof java.lang.Long) {
+      converter = Long;
+    } else if (o instanceof java.lang.Integer) {
+      converter = Integer;
+    } else if (o instanceof java.lang.Short) {
+      converter = Short;
+    } else if (o instanceof java.lang.Double) {
+      converter = Double;
+    } else if (o instanceof java.lang.Float) {
+      converter = Float;
+    } else if (o instanceof io.vertx.core.json.JsonObject) {
+      converter = JsonObject;
+    } else if (o instanceof io.vertx.core.json.JsonArray) {
+      converter = JsonArray;
     }
-
-
+    if (converter != null) {
+      o = converter.convert(o);
+    }
     return (T) o;
   }
 
@@ -37,9 +59,33 @@ public class ToCeylon {
     return ret;
   }
 
+  public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {
+    public ceylon.language.Boolean convert(java.lang.Boolean src) {
+      return ceylon.language.Boolean.instance(src);
+    }
+  };
+
+  public static final Converter<java.lang.Character, ceylon.language.Character> Character = new Converter<java.lang.Character, ceylon.language.Character>() {
+    public ceylon.language.Character convert(java.lang.Character src) {
+      return new ceylon.language.Character(src);
+    }
+  };
+
   public static final Converter<java.lang.String, ceylon.language.String> String = new Converter<java.lang.String, ceylon.language.String>() {
     public ceylon.language.String convert(java.lang.String src) {
       return new ceylon.language.String(src);
+    }
+  };
+
+  public static final Converter<java.lang.Double, ceylon.language.Float> Double = new Converter<java.lang.Double, ceylon.language.Float>() {
+    public ceylon.language.Float convert(java.lang.Double src) {
+      return new ceylon.language.Float(src);
+    }
+  };
+
+  public static final Converter<java.lang.Float, ceylon.language.Float> Float = new Converter<java.lang.Float, ceylon.language.Float>() {
+    public ceylon.language.Float convert(java.lang.Float src) {
+      return new ceylon.language.Float(src);
     }
   };
 
@@ -49,9 +95,21 @@ public class ToCeylon {
     }
   };
 
+  public static final Converter<java.lang.Short, ceylon.language.Integer> Short = new Converter<java.lang.Short, ceylon.language.Integer>() {
+    public ceylon.language.Integer convert(java.lang.Short src) {
+      return new ceylon.language.Integer(src);
+    }
+  };
+
   public static final Converter<java.lang.Integer, ceylon.language.Integer> Integer = new Converter<java.lang.Integer, ceylon.language.Integer>() {
     public ceylon.language.Integer convert(java.lang.Integer src) {
       return new ceylon.language.Integer(src);
+    }
+  };
+
+  public static final Converter<java.lang.Byte, ceylon.language.Byte> Byte = new Converter<java.lang.Byte, ceylon.language.Byte>() {
+    public ceylon.language.Byte convert(java.lang.Byte src) {
+      return new ceylon.language.Byte(src);
     }
   };
 
