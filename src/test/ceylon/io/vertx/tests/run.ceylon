@@ -454,6 +454,81 @@ shared test void testMethodWithHandlerAsyncResultListComplexJsonArray() {
   assertEquals(arg, ArrayList { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
 }
 
+shared test void testMethodWithHandlerSetJsonArray() {
+  variable Set<JsonArray>|Null arg = null;
+  obj.methodWithHandlerSetJsonArray((Set<JsonArray> arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonArray { "green", "blue" }, JsonArray { "yellow", "purple" } });
+}
+
+shared test void testMethodWithHandlerSetNullJsonArray() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerSetComplexJsonArray() {
+  variable Set<JsonArray>|Null arg = null;
+  obj.methodWithHandlerSetComplexJsonArray((Set<JsonArray> arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
+}
+
+shared test void testMethodWithHandlerAsyncResultSetJsonArray() {
+  variable Set<JsonArray>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetJsonArray((Set<JsonArray>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonArray { "green", "blue" }, JsonArray { "yellow", "purple" } });
+}
+
+shared test void testMethodWithHandlerAsyncResultNullSetJsonArray() {
+  // Todo
+}
+
+shared test void testMethodWithHandlerAsyncResultSetComplexJsonArray() {
+  variable Set<JsonArray>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetComplexJsonArray((Set<JsonArray>|Throwable arg_) => arg=arg_);
+  assertEquals(arg, HashSet { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
+}
+
+shared test void testMethodWithHandlerAsyncResultListDataObject() {
+  variable List<TestDataObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultListDataObject((List<TestDataObject>|Throwable arg_) => arg=arg_);
+  assert(is List<TestDataObject> list=arg);
+  assertEquals(list.size, 2);
+  value obj1 = list[0];
+  assert(is TestDataObject obj1);
+  assertEquals(obj1.foo, "String 1");
+  assertEquals(obj1.bar, 1);
+  assertFloatEquals(obj1.wibble, 1.1);
+  value obj2 = list[1];
+  assert(is TestDataObject obj2);
+  assertEquals(obj2.foo, "String 2");
+  assertEquals(obj2.bar, 2);
+  assertFloatEquals(obj2.wibble, 2.2);
+}
+
+shared test void testMethodWithHandlerAsyncResultNullListDataObject() {
+  // Null
+}
+
+shared test void testMethodWithHandlerAsyncResultSetDataObject() {
+  variable Set<TestDataObject>|Throwable|Null arg = null;
+  obj.methodWithHandlerAsyncResultSetDataObject((Set<TestDataObject>|Throwable arg_) => arg=arg_);
+  assert(is Set<TestDataObject> val=arg);
+  value set = val.sort(comparingTestDataObject);
+  assertEquals(set.size, 2);
+  value obj1 = set[0];
+  assert(is TestDataObject obj1);
+  assertEquals(obj1.foo, "String 1");
+  assertEquals(obj1.bar, 1);
+  assertFloatEquals(obj1.wibble, 1.1);
+  value obj2 = set[1];
+  assert(is TestDataObject obj2);
+  assertEquals(obj2.foo, "String 2");
+  assertEquals(obj2.bar, 2);
+  assertFloatEquals(obj2.wibble, 2.2);
+}
+
+shared test void testMethodWithHandlerAsyncResultNullSetDataObject() {
+  // Null
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
