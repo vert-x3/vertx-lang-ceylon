@@ -18,7 +18,7 @@
     }
     if (propKind == CLASS_DATA_OBJECT) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
-      if (toJson) {
+      if (jsonifiable) {
         addClassImport(propType.translatePackageName('ceylon'), "to" + propType.simpleName, "to" + propType.simpleName);
       }
     }
@@ -66,7 +66,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
   }\n
 }\n
 
-@if{isClass && toJson}
+@if{isClass && jsonifiable}
 \n
 shared object to@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}> {\n
   shared actual @{type.raw.simpleName} convert(@{type.raw.simpleName}_ src) {\n
