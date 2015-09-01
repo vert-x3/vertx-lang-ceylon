@@ -98,7 +98,7 @@ public class MessageProducer<T> implements WriteStream<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.address());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.address());
     return ret;
   }
 

@@ -95,7 +95,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String statusMessage() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.statusMessage());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.statusMessage());
     return ret;
   }
 
@@ -111,7 +111,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   public ceylon.language.String getHeader(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
     java.lang.String arg_0 = headerName.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getHeader(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getHeader(arg_0));
     return ret;
   }
 
@@ -120,7 +120,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   public ceylon.language.String getTrailer(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String trailerName) {
     java.lang.String arg_0 = trailerName.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getTrailer(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getTrailer(arg_0));
     return ret;
   }
 

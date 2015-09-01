@@ -44,7 +44,7 @@ public class Counter {
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.get(arg_0);
   }
 
@@ -52,7 +52,7 @@ public class Counter {
   @TypeInfo("ceylon.language::Anything")
   public void incrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.incrementAndGet(arg_0);
   }
 
@@ -60,7 +60,7 @@ public class Counter {
   @TypeInfo("ceylon.language::Anything")
   public void getAndIncrement(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.getAndIncrement(arg_0);
   }
 
@@ -68,7 +68,7 @@ public class Counter {
   @TypeInfo("ceylon.language::Anything")
   public void decrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.decrementAndGet(arg_0);
   }
 
@@ -78,7 +78,7 @@ public class Counter {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long value, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     long arg_0 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.addAndGet(arg_0, arg_1);
   }
 
@@ -88,7 +88,7 @@ public class Counter {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long value, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     long arg_0 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return ceylon.language.Integer.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) { public Object toCeylon(java.lang.Long event) { return io.vertx.lang.ceylon.ToCeylon.Long.convert(event); } };
     delegate.getAndAdd(arg_0, arg_1);
   }
 
@@ -100,7 +100,7 @@ public class Counter {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     long arg_0 = expected;
     long arg_1 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return ceylon.language.Boolean.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return io.vertx.lang.ceylon.ToCeylon.Boolean.convert(event); } };
     delegate.compareAndSet(arg_0, arg_1, arg_2);
   }
 

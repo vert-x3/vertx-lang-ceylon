@@ -80,7 +80,7 @@ public class Buffer {
   public ceylon.language.String toString(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
     java.lang.String arg_0 = enc.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.toString(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.toString(arg_0));
     return ret;
   }
 
@@ -185,7 +185,7 @@ public class Buffer {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
     java.lang.String arg_2 = enc.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getString(arg_0, arg_1, arg_2));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString(arg_0, arg_1, arg_2));
     return ret;
   }
 
@@ -196,7 +196,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long end) {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
-    ceylon.language.String ret = new ceylon.language.String(delegate.getString(arg_0, arg_1));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString(arg_0, arg_1));
     return ret;
   }
 

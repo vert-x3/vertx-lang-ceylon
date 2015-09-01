@@ -73,7 +73,7 @@ public class Context {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String deploymentID() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.deploymentID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.deploymentID());
     return ret;
   }
 

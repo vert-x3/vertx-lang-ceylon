@@ -336,7 +336,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = link.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) { public Object toCeylon(java.lang.String event) { return new ceylon.language.String(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) { public Object toCeylon(java.lang.String event) { return io.vertx.lang.ceylon.ToCeylon.String.convert(event); } };
     FileSystem ret = new io.vertx.ceylon.core.file.FileSystem(delegate.readSymlink(arg_0, arg_1));
     return ret;
   }
@@ -346,7 +346,7 @@ public class FileSystem {
   public ceylon.language.String readSymlinkBlocking(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link) {
     java.lang.String arg_0 = link.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.readSymlinkBlocking(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.readSymlinkBlocking(arg_0));
     return ret;
   }
 
@@ -644,7 +644,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(handler) { public Object toCeylon(java.lang.Boolean event) { return ceylon.language.Boolean.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(handler) { public Object toCeylon(java.lang.Boolean event) { return io.vertx.lang.ceylon.ToCeylon.Boolean.convert(event); } };
     FileSystem ret = new io.vertx.ceylon.core.file.FileSystem(delegate.exists(arg_0, arg_1));
     return ret;
   }

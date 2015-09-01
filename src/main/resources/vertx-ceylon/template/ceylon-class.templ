@@ -396,24 +396,8 @@
     } else {
       var kind = type.kind;
       if (kind.basic || kind == CLASS_THROWABLE) {
-        if (type.name == 'java.lang.Byte') {
-          return 'ceylon.language.Byte.instance(' + expr + ')';
-        } else if (type.name == 'java.lang.Short') {
-          return 'ceylon.language.Integer.instance((long)(short)' + expr + ')';
-        } else if (type.name == 'java.lang.Integer') {
-          return 'ceylon.language.Integer.instance((long)(int)' + expr + ')';
-        } else if (type.name == 'java.lang.Long') {
-          return 'ceylon.language.Integer.instance(' + expr + ')';
-        } else if (type.name == 'java.lang.Float') {
-          return 'ceylon.language.Float.instance((float)' + expr + ')';
-        } else if (type.name == 'java.lang.Double') {
-          return 'ceylon.language.Float.instance(' + expr + ')';
-        } else if (type.name == 'java.lang.Boolean') {
-          return 'ceylon.language.Boolean.instance(' + expr + ')';
-        } else if (type.name == 'java.lang.Character') {
-          return 'ceylon.language.Character.instance(' + expr + ')';
-        } else if (type.name == 'java.lang.String') {
-          return 'new ceylon.language.String(' + expr + ')';
+        if (kind == CLASS_BOXED_PRIMITIVE || kind == CLASS_STRING) {
+          return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName + '.convert(' + expr + ')';
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {

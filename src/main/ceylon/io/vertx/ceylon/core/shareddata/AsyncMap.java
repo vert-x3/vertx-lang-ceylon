@@ -124,7 +124,7 @@ public class AsyncMap<K,V> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(v);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return ceylon.language.Boolean.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return io.vertx.lang.ceylon.ToCeylon.Boolean.convert(event); } };
     delegate.removeIfPresent(arg_0, arg_1, arg_2);
   }
 
@@ -150,7 +150,7 @@ public class AsyncMap<K,V> {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(oldValue);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.Helper.toJavaObject(newValue);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return ceylon.language.Boolean.instance(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) { public Object toCeylon(java.lang.Boolean event) { return io.vertx.lang.ceylon.ToCeylon.Boolean.convert(event); } };
     delegate.replaceIfPresent(arg_0, arg_1, arg_2, arg_3);
   }
 
@@ -166,7 +166,7 @@ public class AsyncMap<K,V> {
   @TypeInfo("ceylon.language::Anything")
   public void size(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Integer>(resultHandler) { public Object toCeylon(java.lang.Integer event) { return ceylon.language.Integer.instance((long)(int)event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Integer>(resultHandler) { public Object toCeylon(java.lang.Integer event) { return io.vertx.lang.ceylon.ToCeylon.Integer.convert(event); } };
     delegate.size(arg_0);
   }
 

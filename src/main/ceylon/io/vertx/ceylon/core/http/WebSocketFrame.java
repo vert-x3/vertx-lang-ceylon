@@ -96,7 +96,7 @@ public class WebSocketFrame {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textData() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.textData());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.textData());
     return ret;
   }
 

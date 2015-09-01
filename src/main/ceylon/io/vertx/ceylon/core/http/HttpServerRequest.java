@@ -104,21 +104,21 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.uri());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.uri());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String path() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.path());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.path());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String query() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.query());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.query());
     return ret;
   }
 
@@ -141,7 +141,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   public ceylon.language.String getHeader(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
     java.lang.String arg_0 = headerName.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getHeader(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getHeader(arg_0));
     return ret;
   }
 
@@ -157,7 +157,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   public ceylon.language.String getParam(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String paramName) {
     java.lang.String arg_0 = paramName.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getParam(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getParam(arg_0));
     return ret;
   }
 
@@ -178,7 +178,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String absoluteURI() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.absoluteURI());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.absoluteURI());
     return ret;
   }
 
@@ -235,7 +235,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   public ceylon.language.String getFormAttribute(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String attributeName) {
     java.lang.String arg_0 = attributeName.toString();
-    ceylon.language.String ret = new ceylon.language.String(delegate.getFormAttribute(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getFormAttribute(arg_0));
     return ret;
   }
 

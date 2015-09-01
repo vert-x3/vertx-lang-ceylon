@@ -53,7 +53,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream handler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Long> arg_0 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)ceylon.language.Integer.instance(event)); } };
+    io.vertx.core.Handler<java.lang.Long> arg_0 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.convert(event)); } };
     TimeoutStream ret = new io.vertx.ceylon.core.TimeoutStream(delegate.handler(arg_0));
     return ret;
   }

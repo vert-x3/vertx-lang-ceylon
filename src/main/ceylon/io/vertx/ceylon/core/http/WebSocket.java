@@ -51,14 +51,14 @@ public class WebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String binaryHandlerID() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.binaryHandlerID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.binaryHandlerID());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textHandlerID() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.textHandlerID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.textHandlerID());
     return ret;
   }
 

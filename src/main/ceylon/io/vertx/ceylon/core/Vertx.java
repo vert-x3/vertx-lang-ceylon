@@ -216,7 +216,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     long arg_0 = delay;
-    io.vertx.core.Handler<java.lang.Long> arg_1 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)ceylon.language.Integer.instance(event)); } };
+    io.vertx.core.Handler<java.lang.Long> arg_1 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.convert(event)); } };
     long ret = delegate.setTimer(arg_0, arg_1);
     return ret;
   }
@@ -236,7 +236,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     long arg_0 = delay;
-    io.vertx.core.Handler<java.lang.Long> arg_1 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)ceylon.language.Integer.instance(event)); } };
+    io.vertx.core.Handler<java.lang.Long> arg_1 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.convert(event)); } };
     long ret = delegate.setPeriodic(arg_0, arg_1);
     return ret;
   }
@@ -295,7 +295,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return new ceylon.language.String(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return io.vertx.lang.ceylon.ToCeylon.String.convert(event); } };
     delegate.deployVerticle(arg_0, arg_1);
   }
 
@@ -317,7 +317,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = name.toString();
     io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return new ceylon.language.String(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return io.vertx.lang.ceylon.ToCeylon.String.convert(event); } };
     delegate.deployVerticle(arg_0, arg_1, arg_2);
   }
 

@@ -94,35 +94,35 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String filename() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.filename());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.filename());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.name());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.name());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentType() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.contentType());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.contentType());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentTransferEncoding() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.contentTransferEncoding());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.contentTransferEncoding());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String charset() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.charset());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.charset());
     return ret;
   }
 

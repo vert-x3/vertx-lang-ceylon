@@ -48,7 +48,7 @@ public class MxRecord {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.name());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.name());
     return ret;
   }
 

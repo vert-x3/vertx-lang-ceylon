@@ -54,7 +54,7 @@ public interface RefedInterface2 {
 
     @Override
     public ceylon.language.String getString() {
-      ceylon.language.String ret = new ceylon.language.String(delegate.getString());
+      ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString());
       return ret;
     }
 

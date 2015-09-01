@@ -52,14 +52,14 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String binaryHandlerID() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.binaryHandlerID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.binaryHandlerID());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textHandlerID() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.textHandlerID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.textHandlerID());
     return ret;
   }
 
@@ -208,21 +208,21 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.uri());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.uri());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String path() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.path());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.path());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String query() {
-    ceylon.language.String ret = new ceylon.language.String(delegate.query());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.query());
     return ret;
   }
 
