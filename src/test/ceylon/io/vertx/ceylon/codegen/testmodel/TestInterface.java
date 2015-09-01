@@ -278,7 +278,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetOfDataObjectsParam(
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> dataObjects) {
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = null;
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.set(dataObjects, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithSetOfDataObjectsParam(arg_0);
   }
 
@@ -326,15 +326,15 @@ public class TestInterface implements SuperInterface2 {
     final @TypeInfo("ceylon.language::Set<ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Array> setJsonArray, 
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<RefedInterface1> setVertxGen, 
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> setDataObject) {
-    java.util.Set<java.lang.String> arg_0 = null;
-    java.util.Set<java.lang.Byte> arg_1 = null;
-    java.util.Set<java.lang.Short> arg_2 = null;
-    java.util.Set<java.lang.Integer> arg_3 = null;
-    java.util.Set<java.lang.Long> arg_4 = null;
-    java.util.Set<io.vertx.core.json.JsonObject> arg_5 = null;
-    java.util.Set<io.vertx.core.json.JsonArray> arg_6 = null;
-    java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = null;
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_8 = null;
+    java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.set(setString, io.vertx.lang.ceylon.ToJava.String);
+    java.util.Set<java.lang.Byte> arg_1 = io.vertx.lang.ceylon.ToJava.set(setByte, io.vertx.lang.ceylon.ToJava.Byte);
+    java.util.Set<java.lang.Short> arg_2 = io.vertx.lang.ceylon.ToJava.set(setShort, io.vertx.lang.ceylon.ToJava.Short);
+    java.util.Set<java.lang.Integer> arg_3 = io.vertx.lang.ceylon.ToJava.set(setInt, io.vertx.lang.ceylon.ToJava.Integer);
+    java.util.Set<java.lang.Long> arg_4 = io.vertx.lang.ceylon.ToJava.set(setLong, io.vertx.lang.ceylon.ToJava.Long);
+    java.util.Set<io.vertx.core.json.JsonObject> arg_5 = io.vertx.lang.ceylon.ToJava.set(setJsonObject, io.vertx.lang.ceylon.ToJava.JsonObject);
+    java.util.Set<io.vertx.core.json.JsonArray> arg_6 = io.vertx.lang.ceylon.ToJava.set(setJsonArray, io.vertx.lang.ceylon.ToJava.JsonArray);
+    java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = io.vertx.lang.ceylon.ToJava.set(setVertxGen, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_8 = io.vertx.lang.ceylon.ToJava.set(setDataObject, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithSetParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
   }
 

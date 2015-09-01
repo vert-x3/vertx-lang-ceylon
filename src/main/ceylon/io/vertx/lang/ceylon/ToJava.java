@@ -6,12 +6,11 @@ public class ToJava {
       ceylon.language.List<C> from,
       Converter<C, J> converter) {
     java.util.List<J> to = new java.util.ArrayList<J>(); // Todo: prealocate size
-    ceylon.language.Iterator<? extends C> iterator = to.iterator();
     addAll(from, to, converter);
     return to;
   }
 
-  public static <J, C> java.util.Set<J> list(
+  public static <J, C> java.util.Set<J> set(
       ceylon.language.Set<C> from,
       Converter<C, J> converter) {
     java.util.Set<J> to = new java.util.HashSet<J>(); // Todo: prealocate size
