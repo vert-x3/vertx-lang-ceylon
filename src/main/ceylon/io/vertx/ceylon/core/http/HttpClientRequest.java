@@ -76,7 +76,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     HttpClientRequest ret = new io.vertx.ceylon.core.http.HttpClientRequest(delegate.drainHandler(arg_0));
     return ret;
   }
@@ -108,7 +108,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     HttpClientRequest ret = new io.vertx.ceylon.core.http.HttpClientRequest(delegate.endHandler(arg_0));
     return ret;
   }
@@ -185,7 +185,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest continueHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     HttpClientRequest ret = new io.vertx.ceylon.core.http.HttpClientRequest(delegate.continueHandler(arg_0));
     return ret;
   }

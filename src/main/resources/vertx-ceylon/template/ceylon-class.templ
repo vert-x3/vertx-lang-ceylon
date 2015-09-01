@@ -278,6 +278,9 @@
         var resultKind = resultType.kind;
         var adapterType = resultType.erased;
         return 'new io.vertx.lang.ceylon.AsyncResultAdapter<' + adapterType.name + '>(' + expr + ') { public Object toCeylon(' + adapterType.name + ' event) { return ' + genConvReturn(adapterType, 'event') + '; } }';
+      } else if (eventKind == CLASS_VOID) {
+        /* Special case */
+        return 'new ' + type.erased.name + '() { public void handle(' + type.erased.args[0].name + ' event) { ' + expr + '.$call$(); } }';
       } else {
         return 'new ' + type.erased.name + '() { public void handle(' + type.erased.args[0].name + ' event) { ' + expr + '.$call$((Object)' + genConvReturn(type.erased.args[0], 'event') + '); } }';
       }

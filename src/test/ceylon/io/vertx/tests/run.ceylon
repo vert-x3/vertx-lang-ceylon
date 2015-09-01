@@ -567,6 +567,12 @@ shared test void testMethodWithConcreteHandlerUserTypesSubtypeExtension() {
   assertEquals(u.getString(), "echidnas");
 }
 
+shared test void testMethodWithHandlerVoid() {
+  variable Integer count = 0;
+  obj.methodWithHandlerVoid(() => count++);
+  assertEquals(count, 1);
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);

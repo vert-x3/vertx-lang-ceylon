@@ -112,7 +112,7 @@ public class WebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     WebSocket ret = new io.vertx.ceylon.core.http.WebSocket(delegate.endHandler(arg_0));
     return ret;
   }
@@ -139,7 +139,7 @@ public class WebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     WebSocket ret = new io.vertx.ceylon.core.http.WebSocket(delegate.drainHandler(arg_0));
     return ret;
   }
@@ -184,7 +184,7 @@ public class WebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket closeHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     WebSocket ret = new io.vertx.ceylon.core.http.WebSocket(delegate.closeHandler(arg_0));
     return ret;
   }

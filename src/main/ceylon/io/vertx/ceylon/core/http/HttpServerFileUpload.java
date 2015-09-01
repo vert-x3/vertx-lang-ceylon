@@ -57,7 +57,7 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     HttpServerFileUpload ret = new io.vertx.ceylon.core.http.HttpServerFileUpload(delegate.endHandler(arg_0));
     return ret;
   }

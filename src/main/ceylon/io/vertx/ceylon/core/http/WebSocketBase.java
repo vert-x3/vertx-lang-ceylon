@@ -168,7 +168,7 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase endHandler(final Callable<?> endHandler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
       WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.endHandler(arg_0));
       return ret;
     }
@@ -189,7 +189,7 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase drainHandler(final Callable<?> handler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
       WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.drainHandler(arg_0));
       return ret;
     }
@@ -236,7 +236,7 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase closeHandler(final Callable<?> handler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
       WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.closeHandler(arg_0));
       return ret;
     }

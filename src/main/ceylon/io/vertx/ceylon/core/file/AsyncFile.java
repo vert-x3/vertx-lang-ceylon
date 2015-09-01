@@ -71,7 +71,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     AsyncFile ret = new io.vertx.ceylon.core.file.AsyncFile(delegate.endHandler(arg_0));
     return ret;
   }
@@ -98,7 +98,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     AsyncFile ret = new io.vertx.ceylon.core.file.AsyncFile(delegate.drainHandler(arg_0));
     return ret;
   }

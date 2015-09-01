@@ -70,7 +70,7 @@ public class NetSocketStream implements ReadStream<NetSocket> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     NetSocketStream ret = new io.vertx.ceylon.core.net.NetSocketStream(delegate.endHandler(arg_0));
     return ret;
   }

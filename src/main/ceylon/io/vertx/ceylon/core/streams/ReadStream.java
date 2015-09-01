@@ -92,7 +92,7 @@ public interface ReadStream<T> extends StreamBase {
 
     @Override
     public ReadStream<T> endHandler(final Callable<?> endHandler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
       ReadStream<T> ret = new io.vertx.ceylon.core.streams.ReadStream.Impl(delegate.endHandler(arg_0));
       return ret;
     }

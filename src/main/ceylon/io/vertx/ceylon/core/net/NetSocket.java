@@ -80,7 +80,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     NetSocket ret = new io.vertx.ceylon.core.net.NetSocket(delegate.endHandler(arg_0));
     return ret;
   }
@@ -107,7 +107,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     NetSocket ret = new io.vertx.ceylon.core.net.NetSocket(delegate.drainHandler(arg_0));
     return ret;
   }
@@ -191,7 +191,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket closeHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     NetSocket ret = new io.vertx.ceylon.core.net.NetSocket(delegate.closeHandler(arg_0));
     return ret;
   }
@@ -200,7 +200,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket upgradeToSsl(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     NetSocket ret = new io.vertx.ceylon.core.net.NetSocket(delegate.upgradeToSsl(arg_0));
     return ret;
   }

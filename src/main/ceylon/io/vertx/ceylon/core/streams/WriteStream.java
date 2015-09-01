@@ -94,7 +94,7 @@ public interface WriteStream<T> extends StreamBase {
 
     @Override
     public WriteStream<T> drainHandler(final Callable<?> handler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$((Object)null); } };
+      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
       WriteStream<T> ret = new io.vertx.ceylon.core.streams.WriteStream.Impl(delegate.drainHandler(arg_0));
       return ret;
     }
