@@ -45,7 +45,7 @@ public class GenericRefedInterface<T> {
   @TypeInfo("ceylon.language::Anything")
   public void setValue(
     final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T value) {
-    java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.setValue(arg_0);
   }
 

@@ -2,6 +2,33 @@ package io.vertx.lang.ceylon;
 
 public class ToJava {
 
+  public static <T> T object(Object o) {
+    Converter converter = null;
+    if (o instanceof ceylon.language.String) {
+      converter = String;
+    } else if (o instanceof ceylon.language.Boolean) {
+      converter = Boolean;
+    } else if (o instanceof ceylon.language.Byte) {
+      converter = Byte;
+    } else if (o instanceof ceylon.language.Character) {
+      converter = Character;
+    } else if (o instanceof ceylon.language.Integer) {
+      converter = Long;
+    } else if (o instanceof ceylon.language.Byte) {
+      converter = Byte;
+    } else if (o instanceof ceylon.language.Float) {
+      converter = Double;
+    } else if (o instanceof ceylon.json.Object) {
+      converter = JsonObject;
+    } else if (o instanceof ceylon.json.Array) {
+      converter = JsonArray;
+    }
+    if (converter != null) {
+      o = converter.convert(o);
+    }
+    return (T) o;
+  }
+
   public static <J, C> java.util.List<J> list(
       ceylon.language.List<C> from,
       Converter<C, J> converter) {
@@ -29,6 +56,12 @@ public class ToJava {
       to.add(converter.convert(elt));
     }
   }
+
+  public static final Converter<ceylon.language.Boolean, java.lang.Boolean> Boolean = new Converter<ceylon.language.Boolean, java.lang.Boolean>() {
+    public java.lang.Boolean convert(ceylon.language.Boolean src) {
+      return src.booleanValue();
+    }
+  };
 
   public static final Converter<ceylon.language.String, java.lang.String> String = new Converter<ceylon.language.String, java.lang.String>() {
     public java.lang.String convert(ceylon.language.String src) {

@@ -130,7 +130,7 @@ public class Context {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
     final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object value) {
     java.lang.String arg_0 = key.toString();
-    java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(value);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.put(arg_0, arg_1);
   }
 
