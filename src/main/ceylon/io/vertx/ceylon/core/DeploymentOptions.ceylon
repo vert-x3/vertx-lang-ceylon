@@ -53,7 +53,7 @@ shared class DeploymentOptions(
   }
 }
 
-shared object toDeploymentOptions satisfies Converter<DeploymentOptions_, DeploymentOptions> {
+shared object toCeylonDeploymentOptions satisfies Converter<DeploymentOptions_, DeploymentOptions> {
   shared actual DeploymentOptions convert(DeploymentOptions_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);

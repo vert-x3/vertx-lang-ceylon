@@ -33,7 +33,7 @@ shared class TestDataObject(
   }
 }
 
-shared object toTestDataObject satisfies Converter<TestDataObject_, TestDataObject> {
+shared object toCeylonTestDataObject satisfies Converter<TestDataObject_, TestDataObject> {
   shared actual TestDataObject convert(TestDataObject_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);

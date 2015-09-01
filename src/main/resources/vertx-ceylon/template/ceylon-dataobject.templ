@@ -70,7 +70,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 
 @if{isClass && jsonifiable}
 \n
-shared object to@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}> {\n
+shared object toCeylon@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}> {\n
   shared actual @{type.raw.simpleName} convert(@{type.raw.simpleName}_ src) {\n
     value json = parse(src.toJson().string);\n
     assert(is JsonObject json);\n

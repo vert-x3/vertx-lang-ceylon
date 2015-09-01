@@ -25,7 +25,7 @@ shared class MetricsOptions(
   }
 }
 
-shared object toMetricsOptions satisfies Converter<MetricsOptions_, MetricsOptions> {
+shared object toCeylonMetricsOptions satisfies Converter<MetricsOptions_, MetricsOptions> {
   shared actual MetricsOptions convert(MetricsOptions_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
