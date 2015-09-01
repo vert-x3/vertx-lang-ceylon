@@ -573,6 +573,21 @@ shared test void testMethodWithHandlerVoid() {
   assertEquals(count, 1);
 }
 
+shared test void testMethodWithHandlerAsyncResultVoid() {
+  value arg = ArrayList<Throwable?>();
+  obj.methodWithHandlerAsyncResultVoid(false, arg.add);
+  assertEquals(arg.size, 1);
+  assertEquals(arg[0], null);
+}
+
+shared test void testMethodWithHandlerAsyncResultVoidFails() {
+  value arg = ArrayList<Throwable?>();
+  obj.methodWithHandlerAsyncResultVoid(true, arg.add);
+  assertEquals(arg.size, 1);
+  assert(exists err=arg[0]);
+  assertEquals(err.message, "foo!");
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
