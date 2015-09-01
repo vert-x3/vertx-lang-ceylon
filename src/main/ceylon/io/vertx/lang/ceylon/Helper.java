@@ -21,8 +21,12 @@ public class Helper {
        return obj.toString();
     } else if (obj instanceof ceylon.language.Boolean) {
       return ((ceylon.language.Boolean)obj).booleanValue();
+    } else if (obj instanceof ceylon.language.Character) {
+      return (char)((ceylon.language.Character)obj).intValue();
     } else if (obj instanceof ceylon.language.Integer) {
       return ((ceylon.language.Integer)obj).longValue();
+    } else if (obj instanceof ceylon.language.Byte) {
+      return ((ceylon.language.Byte)obj).byteValue();
     } else if (obj instanceof ceylon.language.Float) {
       return ((ceylon.language.Float)obj).doubleValue();
     } else if (obj instanceof ceylon.json.Object) {

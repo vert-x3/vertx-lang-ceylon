@@ -609,6 +609,19 @@ shared test void testMethodWithHandlerAsyncResultGenericUserType() {
   assertEquals(val.\ivalue, "string_value_2");
 }
 
+shared test void testMethodWithGenericParam() {
+  obj.methodWithGenericParam("String", "foo");
+  obj.methodWithGenericParam("Boolean", true);
+  obj.methodWithGenericParam("Byte", 123.byte);
+  obj.methodWithGenericParam("Character", 'x');
+  obj.methodWithGenericParam("Long", 1265615234);
+  obj.methodWithGenericParam("Double", 12.34566);
+  obj.methodWithGenericParam("Ref", RefedInterface1Impl().setString("bar"));
+  obj.methodWithGenericParam("JsonObject", JsonObject { "foo"->"hello", "bar"->123 });
+  obj.methodWithGenericParam("JsonObjectComplex", JsonObject { "outer" -> JsonObject { "foo"->"hello" }, "bar" -> JsonArray { "this", "that" } });
+  obj.methodWithGenericParam("JsonArray", JsonArray { "foo", "bar", "wib" });
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
