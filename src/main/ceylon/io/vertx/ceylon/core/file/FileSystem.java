@@ -577,7 +577,7 @@ public class FileSystem {
     final @TypeInfo("io.vertx.ceylon.core.file::OpenOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.file.OpenOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::AsyncFile)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.AsyncFile>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.AsyncFile>(handler) { public Object toCeylon(io.vertx.core.file.AsyncFile event) { return io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(event); } };
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.convert(delegate.open(arg_0, arg_1, arg_2));
     return ret;
@@ -589,7 +589,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
     final @TypeInfo("io.vertx.ceylon.core.file::OpenOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.file.OpenOptions options) {
     java.lang.String arg_0 = path.toString();
-    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.openBlocking(arg_0, arg_1));
     return ret;
   }

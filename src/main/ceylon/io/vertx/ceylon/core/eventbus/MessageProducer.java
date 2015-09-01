@@ -90,7 +90,7 @@ public class MessageProducer<T> implements WriteStream<T> {
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> deliveryOptions(
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
-    io.vertx.core.eventbus.DeliveryOptions arg_0 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_0 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.deliveryOptions(arg_0));
     return ret;
   }

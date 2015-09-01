@@ -83,7 +83,7 @@ public class EventBus implements Measured {
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -100,7 +100,7 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event); } };
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2, arg_3));
     return ret;
@@ -125,7 +125,7 @@ public class EventBus implements Measured {
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
-    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.publish(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -203,7 +203,7 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.sender(arg_0, arg_1));
     return ret;
   }
@@ -229,7 +229,7 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.publisher(arg_0, arg_1));
     return ret;
   }

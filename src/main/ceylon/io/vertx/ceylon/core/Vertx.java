@@ -69,7 +69,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
-    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.convert(io.vertx.core.Vertx.vertx(arg_0));
     return ret;
   }
@@ -79,7 +79,7 @@ public class Vertx implements Measured {
   public static void clusteredVertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) { public Object toCeylon(io.vertx.core.Vertx event) { return io.vertx.ceylon.core.Vertx.TO_CEYLON.convert(event); } };
     io.vertx.core.Vertx.clusteredVertx(arg_0, arg_1);
   }
@@ -102,7 +102,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer createNetServer(
     final @TypeInfo("io.vertx.ceylon.core.net::NetServerOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetServerOptions options) {
-    io.vertx.core.net.NetServerOptions arg_0 = options == null ? null : new io.vertx.core.net.NetServerOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.net.NetServerOptions arg_0 = options == null ? null : new io.vertx.core.net.NetServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.convert(delegate.createNetServer(arg_0));
     return ret;
   }
@@ -118,7 +118,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient createNetClient(
     final @TypeInfo("io.vertx.ceylon.core.net::NetClientOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetClientOptions options) {
-    io.vertx.core.net.NetClientOptions arg_0 = options == null ? null : new io.vertx.core.net.NetClientOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.net.NetClientOptions arg_0 = options == null ? null : new io.vertx.core.net.NetClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.convert(delegate.createNetClient(arg_0));
     return ret;
   }
@@ -134,7 +134,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer createHttpServer(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpServerOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpServerOptions options) {
-    io.vertx.core.http.HttpServerOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpServerOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.http.HttpServerOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.createHttpServer(arg_0));
     return ret;
   }
@@ -150,7 +150,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient createHttpClient(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpClientOptions options) {
-    io.vertx.core.http.HttpClientOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.http.HttpClientOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.createHttpClient(arg_0));
     return ret;
   }
@@ -166,7 +166,7 @@ public class Vertx implements Measured {
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket createDatagramSocket(
     final @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocketOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.datagram.DatagramSocketOptions options) {
-    io.vertx.core.datagram.DatagramSocketOptions arg_0 = options == null ? null : new io.vertx.core.datagram.DatagramSocketOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.datagram.DatagramSocketOptions arg_0 = options == null ? null : new io.vertx.core.datagram.DatagramSocketOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.createDatagramSocket(arg_0));
     return ret;
   }
@@ -305,7 +305,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     delegate.deployVerticle(arg_0, arg_1);
   }
 
@@ -316,7 +316,7 @@ public class Vertx implements Measured {
     final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
+    io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) { public Object toCeylon(java.lang.String event) { return io.vertx.lang.ceylon.ToCeylon.String.convert(event); } };
     delegate.deployVerticle(arg_0, arg_1, arg_2);
   }

@@ -262,7 +262,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithDataObjectParam(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestDataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.TestDataObject dataObject) {
-    io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.Helper.toJsonObject(dataObject.toJson()));
+    io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.methodWithDataObjectParam(arg_0);
   }
 
@@ -286,7 +286,7 @@ public class TestInterface implements SuperInterface2 {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullDataObjectParam(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestDataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.TestDataObject dataObject) {
-    io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.Helper.toJsonObject(dataObject.toJson()));
+    io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.methodWithNullDataObjectParam(arg_0);
   }
 
