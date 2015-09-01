@@ -588,6 +588,13 @@ shared test void testMethodWithHandlerAsyncResultVoidFails() {
   assertEquals(err.message, "foo!");
 }
 
+shared test void testMethodWithHandlerThrowable() {
+  variable Throwable? err = null;
+  obj.methodWithHandlerThrowable((Throwable arg) => err=arg);
+  assert(exists val=err);
+  assertEquals(val.message, "cheese!");
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
