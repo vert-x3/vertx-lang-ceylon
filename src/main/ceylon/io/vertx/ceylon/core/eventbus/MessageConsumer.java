@@ -49,7 +49,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
   public MessageConsumer<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.exceptionHandler(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
     return ret;
   }
 
@@ -57,22 +57,22 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)new io.vertx.ceylon.core.eventbus.Message(event)); } };
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.handler(arg_0));
+    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event)); } };
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.handler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> pause() {
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.pause());
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.pause());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> resume() {
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.resume());
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.resume());
     return ret;
   }
 
@@ -81,14 +81,14 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
   public MessageConsumer<T> endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.endHandler(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.endHandler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> bodyStream() {
-    ReadStream<T> ret = new io.vertx.ceylon.core.streams.ReadStream.Impl(delegate.bodyStream());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.bodyStream());
     return ret;
   }
 
@@ -111,7 +111,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
   public MessageConsumer<T> setMaxBufferedMessages(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxBufferedMessages) {
     int arg_0 = (int)maxBufferedMessages;
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.setMaxBufferedMessages(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.setMaxBufferedMessages(arg_0));
     return ret;
   }
 

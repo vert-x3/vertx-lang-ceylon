@@ -43,21 +43,21 @@ public class MyInterface {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("com.acme.ceylon.pkg::MyInterface")
   public static MyInterface create() {
-    MyInterface ret = new com.acme.ceylon.pkg.MyInterface(com.acme.pkg.MyInterface.create());
+    MyInterface ret = com.acme.ceylon.pkg.MyInterface.TO_CEYLON.convert(com.acme.pkg.MyInterface.create());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("com.acme.ceylon.pkg.sub::SubInterface")
   public SubInterface sub() {
-    SubInterface ret = new com.acme.ceylon.pkg.sub.SubInterface(delegate.sub());
+    SubInterface ret = com.acme.ceylon.pkg.sub.SubInterface.TO_CEYLON.convert(delegate.sub());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestInterface")
   public TestInterface method() {
-    TestInterface ret = new io.vertx.ceylon.codegen.testmodel.TestInterface(delegate.method());
+    TestInterface ret = io.vertx.ceylon.codegen.testmodel.TestInterface.TO_CEYLON.convert(delegate.method());
     return ret;
   }
 

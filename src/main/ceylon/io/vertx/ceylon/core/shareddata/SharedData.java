@@ -50,7 +50,7 @@ public class SharedData {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) { return new io.vertx.ceylon.core.shareddata.AsyncMap(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) { return io.vertx.ceylon.core.shareddata.AsyncMap.TO_CEYLON.convert(event); } };
     delegate.getClusterWideMap(arg_0, arg_1);
   }
 
@@ -60,7 +60,7 @@ public class SharedData {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Lock event) { return new io.vertx.ceylon.core.shareddata.Lock(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Lock event) { return io.vertx.ceylon.core.shareddata.Lock.TO_CEYLON.convert(event); } };
     delegate.getLock(arg_0, arg_1);
   }
 
@@ -72,7 +72,7 @@ public class SharedData {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.String arg_0 = name.toString();
     long arg_1 = timeout;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Lock event) { return new io.vertx.ceylon.core.shareddata.Lock(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Lock event) { return io.vertx.ceylon.core.shareddata.Lock.TO_CEYLON.convert(event); } };
     delegate.getLockWithTimeout(arg_0, arg_1, arg_2);
   }
 
@@ -82,7 +82,7 @@ public class SharedData {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Counter)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.String arg_0 = name.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Counter>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Counter>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Counter event) { return new io.vertx.ceylon.core.shareddata.Counter(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Counter>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Counter>(resultHandler) { public Object toCeylon(io.vertx.core.shareddata.Counter event) { return io.vertx.ceylon.core.shareddata.Counter.TO_CEYLON.convert(event); } };
     delegate.getCounter(arg_0, arg_1);
   }
 
@@ -95,7 +95,7 @@ public class SharedData {
   public <K,V> LocalMap<K,V> getLocalMap(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = name.toString();
-    LocalMap<K,V> ret = new io.vertx.ceylon.core.shareddata.LocalMap(delegate.getLocalMap(arg_0));
+    LocalMap<K,V> ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.convert(delegate.getLocalMap(arg_0));
     return ret;
   }
 

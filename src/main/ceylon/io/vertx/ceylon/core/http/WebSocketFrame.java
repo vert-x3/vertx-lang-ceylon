@@ -46,7 +46,7 @@ public class WebSocketFrame {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -57,7 +57,7 @@ public class WebSocketFrame {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     java.lang.String arg_0 = str.toString();
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.textFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.textFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -68,7 +68,7 @@ public class WebSocketFrame {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = new io.vertx.ceylon.core.http.WebSocketFrame(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -103,7 +103,7 @@ public class WebSocketFrame {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer binaryData() {
-    Buffer ret = new io.vertx.ceylon.core.buffer.Buffer(delegate.binaryData());
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.binaryData());
     return ret;
   }
 

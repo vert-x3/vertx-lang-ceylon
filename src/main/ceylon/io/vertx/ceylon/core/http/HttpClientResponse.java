@@ -47,7 +47,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse resume() {
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.resume());
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.resume());
     return ret;
   }
 
@@ -56,7 +56,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   public HttpClientResponse exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.exceptionHandler(arg_0));
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
     return ret;
   }
 
@@ -64,15 +64,15 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.handler(arg_0));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.handler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse pause() {
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.pause());
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.pause());
     return ret;
   }
 
@@ -81,7 +81,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   public HttpClientResponse endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.endHandler(arg_0));
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.endHandler(arg_0));
     return ret;
   }
 
@@ -102,7 +102,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.headers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
     return ret;
   }
 
@@ -127,7 +127,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.trailers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.trailers());
     return ret;
   }
 
@@ -142,15 +142,15 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse bodyHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> bodyHandler) {
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { bodyHandler.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    HttpClientResponse ret = new io.vertx.ceylon.core.http.HttpClientResponse(delegate.bodyHandler(arg_0));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { bodyHandler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(delegate.bodyHandler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
-    NetSocket ret = new io.vertx.ceylon.core.net.NetSocket(delegate.netSocket());
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.convert(delegate.netSocket());
     return ret;
   }
 

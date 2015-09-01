@@ -43,14 +43,14 @@ public class DatagramPacket {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress sender() {
-    SocketAddress ret = new io.vertx.ceylon.core.net.SocketAddress(delegate.sender());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.sender());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer data() {
-    Buffer ret = new io.vertx.ceylon.core.buffer.Buffer(delegate.data());
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.data());
     return ret;
   }
 

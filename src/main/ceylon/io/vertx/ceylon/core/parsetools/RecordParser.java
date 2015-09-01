@@ -44,7 +44,7 @@ public class RecordParser {
   @TypeInfo("ceylon.language::Anything")
   public void setOutput(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     delegate.setOutput(arg_0);
   }
 
@@ -54,8 +54,8 @@ public class RecordParser {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     java.lang.String arg_0 = delim.toString();
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    RecordParser ret = new io.vertx.ceylon.core.parsetools.RecordParser(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.convert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
     return ret;
   }
 
@@ -65,8 +65,8 @@ public class RecordParser {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer delim, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)delim.getDelegate();
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    RecordParser ret = new io.vertx.ceylon.core.parsetools.RecordParser(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.convert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
     return ret;
   }
 
@@ -76,8 +76,8 @@ public class RecordParser {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long size, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     int arg_0 = (int)size;
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    RecordParser ret = new io.vertx.ceylon.core.parsetools.RecordParser(io.vertx.core.parsetools.RecordParser.newFixed(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.convert(io.vertx.core.parsetools.RecordParser.newFixed(arg_0, arg_1));
     return ret;
   }
 

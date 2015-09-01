@@ -50,7 +50,7 @@ public class RefedInterface1 {
   public RefedInterface1 setString(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = str.toString();
-    RefedInterface1 ret = new io.vertx.ceylon.codegen.testmodel.RefedInterface1(delegate.setString(arg_0));
+    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(delegate.setString(arg_0));
     return ret;
   }
 

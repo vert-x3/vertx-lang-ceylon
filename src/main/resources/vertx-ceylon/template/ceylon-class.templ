@@ -420,7 +420,7 @@
         } else if (valueKind.basic) {
         }
       } else if (kind == CLASS_API) {
-        return 'new ' + type.raw.translateName('ceylon') + (type.raw.concrete ? '' : '.Impl') + '(' + expr + ')';
+        return type.raw.translateName('ceylon') + '.TO_CEYLON.convert(' + expr + ')';
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';

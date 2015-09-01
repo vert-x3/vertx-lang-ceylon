@@ -61,7 +61,7 @@ public interface RefedInterface2 {
     @Override
     public RefedInterface2 setString(final ceylon.language.String str) {
       java.lang.String arg_0 = str.toString();
-      RefedInterface2 ret = new io.vertx.ceylon.codegen.testmodel.RefedInterface2.Impl(delegate.setString(arg_0));
+      RefedInterface2 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON.convert(delegate.setString(arg_0));
       return ret;
     }
   }

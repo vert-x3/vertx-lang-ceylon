@@ -49,7 +49,7 @@ public class Future<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> future() {
-    Future<T> ret = new io.vertx.ceylon.core.Future(io.vertx.core.Future.future());
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.convert(io.vertx.core.Future.future());
     return ret;
   }
 
@@ -59,7 +59,7 @@ public class Future<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> succeededFuture() {
-    Future<T> ret = new io.vertx.ceylon.core.Future(io.vertx.core.Future.succeededFuture());
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.convert(io.vertx.core.Future.succeededFuture());
     return ret;
   }
 
@@ -71,7 +71,7 @@ public class Future<T> {
   public static <T> Future<T> succeededFuture(
     final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T result) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.Helper.toJavaObject(result);
-    Future<T> ret = new io.vertx.ceylon.core.Future(io.vertx.core.Future.succeededFuture(arg_0));
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.convert(io.vertx.core.Future.succeededFuture(arg_0));
     return ret;
   }
 
@@ -83,7 +83,7 @@ public class Future<T> {
   public static <T> Future<T> failedFuture(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String failureMessage) {
     java.lang.String arg_0 = failureMessage.toString();
-    Future<T> ret = new io.vertx.ceylon.core.Future(io.vertx.core.Future.failedFuture(arg_0));
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.convert(io.vertx.core.Future.failedFuture(arg_0));
     return ret;
   }
 

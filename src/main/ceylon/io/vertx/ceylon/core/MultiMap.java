@@ -44,7 +44,7 @@ public class MultiMap {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public static MultiMap caseInsensitiveMultiMap() {
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(io.vertx.core.MultiMap.caseInsensitiveMultiMap());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(io.vertx.core.MultiMap.caseInsensitiveMultiMap());
     return ret;
   }
 
@@ -96,7 +96,7 @@ public class MultiMap {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
     java.lang.String arg_0 = name.toString();
     java.lang.String arg_1 = value.toString();
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.add(arg_0, arg_1));
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.add(arg_0, arg_1));
     return ret;
   }
 
@@ -105,7 +105,7 @@ public class MultiMap {
   public MultiMap addAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = (io.vertx.core.MultiMap)map.getDelegate();
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.addAll(arg_0));
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.addAll(arg_0));
     return ret;
   }
 
@@ -116,7 +116,7 @@ public class MultiMap {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
     java.lang.String arg_0 = name.toString();
     java.lang.String arg_1 = value.toString();
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.set(arg_0, arg_1));
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.set(arg_0, arg_1));
     return ret;
   }
 
@@ -125,7 +125,7 @@ public class MultiMap {
   public MultiMap setAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = (io.vertx.core.MultiMap)map.getDelegate();
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.setAll(arg_0));
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.setAll(arg_0));
     return ret;
   }
 
@@ -134,14 +134,14 @@ public class MultiMap {
   public MultiMap remove(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = name.toString();
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.remove(arg_0));
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.remove(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap clear() {
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.clear());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.clear());
     return ret;
   }
 

@@ -146,7 +146,7 @@ public class Context {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx owner() {
-    Vertx ret = new io.vertx.ceylon.core.Vertx(delegate.owner());
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.convert(delegate.owner());
     return ret;
   }
 

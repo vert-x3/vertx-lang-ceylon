@@ -149,54 +149,54 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
     @Override
     public WebSocketBase exceptionHandler(final Callable<?> handler) {
       io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.exceptionHandler(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase handler(final Callable<?> handler) {
-      io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.handler(arg_0));
+      io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.handler(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase pause() {
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.pause());
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.pause());
       return ret;
     }
 
     @Override
     public WebSocketBase resume() {
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.resume());
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.resume());
       return ret;
     }
 
     @Override
     public WebSocketBase endHandler(final Callable<?> endHandler) {
       io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.endHandler(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.endHandler(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase write(final Buffer data) {
       io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.write(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.write(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase setWriteQueueMaxSize(final long maxSize) {
       int arg_0 = (int)maxSize;
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.setWriteQueueMaxSize(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase drainHandler(final Callable<?> handler) {
       io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.drainHandler(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.drainHandler(arg_0));
       return ret;
     }
 
@@ -215,42 +215,42 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
     @Override
     public WebSocketBase writeFrame(final WebSocketFrame frame) {
       io.vertx.core.http.WebSocketFrame arg_0 = (io.vertx.core.http.WebSocketFrame)frame.getDelegate();
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.writeFrame(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.writeFrame(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase writeFinalTextFrame(final ceylon.language.String text) {
       java.lang.String arg_0 = text.toString();
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.writeFinalTextFrame(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.writeFinalTextFrame(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase writeFinalBinaryFrame(final Buffer data) {
       io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.writeFinalBinaryFrame(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.writeFinalBinaryFrame(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase writeBinaryMessage(final Buffer data) {
       io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.writeBinaryMessage(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.writeBinaryMessage(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase closeHandler(final Callable<?> handler) {
       io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.closeHandler(arg_0));
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.closeHandler(arg_0));
       return ret;
     }
 
     @Override
     public WebSocketBase frameHandler(final Callable<?> handler) {
-      io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() { public void handle(io.vertx.core.http.WebSocketFrame event) { handler.$call$((Object)new io.vertx.ceylon.core.http.WebSocketFrame(event)); } };
-      WebSocketBase ret = new io.vertx.ceylon.core.http.WebSocketBase.Impl(delegate.frameHandler(arg_0));
+      io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() { public void handle(io.vertx.core.http.WebSocketFrame event) { handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(event)); } };
+      WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.convert(delegate.frameHandler(arg_0));
       return ret;
     }
 
@@ -261,13 +261,13 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public SocketAddress remoteAddress() {
-      SocketAddress ret = new io.vertx.ceylon.core.net.SocketAddress(delegate.remoteAddress());
+      SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.remoteAddress());
       return ret;
     }
 
     @Override
     public SocketAddress localAddress() {
-      SocketAddress ret = new io.vertx.ceylon.core.net.SocketAddress(delegate.localAddress());
+      SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
       return ret;
     }
   }

@@ -55,7 +55,7 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1));
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1));
     return ret;
   }
 
@@ -70,8 +70,8 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return new io.vertx.ceylon.core.eventbus.Message(event); } };
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1, arg_2));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event); } };
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2));
     return ret;
   }
 
@@ -84,7 +84,7 @@ public class EventBus implements Measured {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1, arg_2));
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2));
     return ret;
   }
 
@@ -101,8 +101,8 @@ public class EventBus implements Measured {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return new io.vertx.ceylon.core.eventbus.Message(event); } };
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.send(arg_0, arg_1, arg_2, arg_3));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) { public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) { return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event); } };
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
 
@@ -113,7 +113,7 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message) {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.publish(arg_0, arg_1));
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.publish(arg_0, arg_1));
     return ret;
   }
 
@@ -126,7 +126,7 @@ public class EventBus implements Measured {
     java.lang.String arg_0 = address.toString();
     java.lang.Object arg_1 = io.vertx.lang.ceylon.Helper.toJavaObject(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    EventBus ret = new io.vertx.ceylon.core.eventbus.EventBus(delegate.publish(arg_0, arg_1, arg_2));
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.publish(arg_0, arg_1, arg_2));
     return ret;
   }
 
@@ -138,7 +138,7 @@ public class EventBus implements Measured {
   public <T> MessageConsumer<T> consumer(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
     java.lang.String arg_0 = address.toString();
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.consumer(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.consumer(arg_0));
     return ret;
   }
 
@@ -151,8 +151,8 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)new io.vertx.ceylon.core.eventbus.Message(event)); } };
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.consumer(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event)); } };
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.consumer(arg_0, arg_1));
     return ret;
   }
 
@@ -164,7 +164,7 @@ public class EventBus implements Measured {
   public <T> MessageConsumer<T> localConsumer(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
     java.lang.String arg_0 = address.toString();
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.localConsumer(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.localConsumer(arg_0));
     return ret;
   }
 
@@ -177,8 +177,8 @@ public class EventBus implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = address.toString();
-    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)new io.vertx.ceylon.core.eventbus.Message(event)); } };
-    MessageConsumer<T> ret = new io.vertx.ceylon.core.eventbus.MessageConsumer(delegate.localConsumer(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event)); } };
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.localConsumer(arg_0, arg_1));
     return ret;
   }
 
@@ -190,7 +190,7 @@ public class EventBus implements Measured {
   public <T> MessageProducer<T> sender(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
     java.lang.String arg_0 = address.toString();
-    MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.sender(arg_0));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.sender(arg_0));
     return ret;
   }
 
@@ -204,7 +204,7 @@ public class EventBus implements Measured {
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.sender(arg_0, arg_1));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.sender(arg_0, arg_1));
     return ret;
   }
 
@@ -216,7 +216,7 @@ public class EventBus implements Measured {
   public <T> MessageProducer<T> publisher(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
     java.lang.String arg_0 = address.toString();
-    MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.publisher(arg_0));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.publisher(arg_0));
     return ret;
   }
 
@@ -230,7 +230,7 @@ public class EventBus implements Measured {
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = address.toString();
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.Helper.toJsonObject(options.toJson()));
-    MessageProducer<T> ret = new io.vertx.ceylon.core.eventbus.MessageProducer(delegate.publisher(arg_0, arg_1));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.convert(delegate.publisher(arg_0, arg_1));
     return ret;
   }
 

@@ -72,14 +72,14 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
-    SocketAddress ret = new io.vertx.ceylon.core.net.SocketAddress(delegate.remoteAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.remoteAddress());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
-    SocketAddress ret = new io.vertx.ceylon.core.net.SocketAddress(delegate.localAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
     return ret;
   }
 
@@ -88,7 +88,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.exceptionHandler(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
     return ret;
   }
 
@@ -96,22 +96,22 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)new io.vertx.ceylon.core.buffer.Buffer(event)); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.handler(arg_0));
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.handler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket pause() {
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.pause());
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.pause());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket resume() {
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.resume());
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.resume());
     return ret;
   }
 
@@ -120,7 +120,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.endHandler(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.endHandler(arg_0));
     return ret;
   }
 
@@ -129,7 +129,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.write(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.write(arg_0));
     return ret;
   }
 
@@ -138,7 +138,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.setWriteQueueMaxSize(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
     return ret;
   }
 
@@ -147,7 +147,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.drainHandler(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.drainHandler(arg_0));
     return ret;
   }
 
@@ -156,7 +156,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket writeFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame) {
     io.vertx.core.http.WebSocketFrame arg_0 = (io.vertx.core.http.WebSocketFrame)frame.getDelegate();
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.writeFrame(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFrame(arg_0));
     return ret;
   }
 
@@ -165,7 +165,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket writeFinalTextFrame(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String text) {
     java.lang.String arg_0 = text.toString();
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.writeFinalTextFrame(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFinalTextFrame(arg_0));
     return ret;
   }
 
@@ -174,7 +174,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket writeFinalBinaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.writeFinalBinaryFrame(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFinalBinaryFrame(arg_0));
     return ret;
   }
 
@@ -183,7 +183,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket writeBinaryMessage(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = (io.vertx.core.buffer.Buffer)data.getDelegate();
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.writeBinaryMessage(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeBinaryMessage(arg_0));
     return ret;
   }
 
@@ -192,7 +192,7 @@ public class ServerWebSocket implements WebSocketBase {
   public ServerWebSocket closeHandler(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.closeHandler(arg_0));
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.closeHandler(arg_0));
     return ret;
   }
 
@@ -200,8 +200,8 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket frameHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() { public void handle(io.vertx.core.http.WebSocketFrame event) { handler.$call$((Object)new io.vertx.ceylon.core.http.WebSocketFrame(event)); } };
-    ServerWebSocket ret = new io.vertx.ceylon.core.http.ServerWebSocket(delegate.frameHandler(arg_0));
+    io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() { public void handle(io.vertx.core.http.WebSocketFrame event) { handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(event)); } };
+    ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.frameHandler(arg_0));
     return ret;
   }
 
@@ -229,7 +229,7 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
-    MultiMap ret = new io.vertx.ceylon.core.MultiMap(delegate.headers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
     return ret;
   }
 
