@@ -984,6 +984,48 @@ shared test void testNullJsonParams() {
   // Todo
 }
 
+shared test void testJsonHandlerParams() {
+  variable JsonObject? jsonObject = null;
+  variable JsonArray? jsonArray = null;
+  obj.methodWithHandlerJson((JsonObject arg) => jsonObject = arg, (JsonArray arg) => jsonArray = arg);
+  assertEquals(jsonObject, JsonObject { "cheese"->"stilton" });
+  assertEquals(jsonArray, JsonArray { "socks", "shoes" });
+}
+
+shared test void testNullJsonHandlerParams() {
+  // Todo
+}
+
+shared test void testComplexJsonHandlerParams() {
+  variable JsonObject? jsonObject = null;
+  variable JsonArray? jsonArray = null;
+  obj.methodWithHandlerComplexJson((JsonObject arg) => jsonObject = arg, (JsonArray arg) => jsonArray = arg);
+  assertEquals(jsonObject, JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } });
+  assertEquals(jsonArray, JsonArray { JsonArray { JsonObject { "foo"->"hello" } }, JsonArray {  JsonObject { "bar"->"bye" } } });
+}
+
+shared test void testJsonHandlerAsyncResultParams() {
+  variable JsonObject|Throwable|Null jsonObject = null;
+  variable JsonArray|Throwable|Null jsonArray = null;
+  obj.methodWithHandlerAsyncResultJsonObject((JsonObject|Throwable arg) => jsonObject = arg);
+  obj.methodWithHandlerAsyncResultJsonArray((JsonArray|Throwable arg) => jsonArray = arg);
+  assertEquals(jsonObject, JsonObject { "cheese"->"stilton" });
+  assertEquals(jsonArray, JsonArray { "socks", "shoes" });
+}
+
+shared test void testNullJsonHandlerAsyncResultParams() {
+  // Todo
+}
+
+shared test void testComplexJsonHandlerAsyncResultParams() {
+  variable JsonObject|Throwable|Null jsonObject = null;
+  variable JsonArray|Throwable|Null jsonArray = null;
+  obj.methodWithHandlerAsyncResultComplexJsonObject((JsonObject|Throwable arg) => jsonObject = arg);
+  obj.methodWithHandlerAsyncResultComplexJsonArray((JsonArray|Throwable arg) => jsonArray = arg);
+  assertEquals(jsonObject, JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } });
+  assertEquals(jsonArray, JsonArray { JsonObject { "foo"->"hello" },  JsonObject { "bar"->"bye" } });
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
