@@ -30,8 +30,7 @@ public class LocalMap<K,V> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.shareddata.LocalMap delegate;
+  @Ignore private final io.vertx.core.shareddata.LocalMap delegate;
 
   public LocalMap(io.vertx.core.shareddata.LocalMap delegate) {
     this.delegate = delegate;

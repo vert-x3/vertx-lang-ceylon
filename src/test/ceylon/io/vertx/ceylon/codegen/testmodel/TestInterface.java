@@ -34,8 +34,9 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.TestInterface delegate;
+  @Ignore private RefedInterface1 cached_methodWithCachedReturn;
+  @Ignore private java.lang.Long cached_methodWithCachedReturnPrimitive;
+  @Ignore private final io.vertx.codegen.testmodel.TestInterface delegate;
 
   public TestInterface(io.vertx.codegen.testmodel.TestInterface delegate) {
     super(delegate);
@@ -1048,8 +1049,12 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1")
   public RefedInterface1 methodWithCachedReturn(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
+    if (cached_methodWithCachedReturn != null) {
+      return cached_methodWithCachedReturn;
+    }
     java.lang.String arg_0 = foo.toString();
     RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(delegate.methodWithCachedReturn(arg_0));
+     cached_methodWithCachedReturn = ret;
     return ret;
   }
 
@@ -1057,8 +1062,12 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Integer")
   public long methodWithCachedReturnPrimitive(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long arg) {
+    if (cached_methodWithCachedReturnPrimitive != null) {
+      return cached_methodWithCachedReturnPrimitive;
+    }
     int arg_0 = (int)arg;
     long ret = delegate.methodWithCachedReturnPrimitive(arg_0);
+     cached_methodWithCachedReturnPrimitive = ret;
     return ret;
   }
 

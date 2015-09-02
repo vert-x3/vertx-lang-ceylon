@@ -26,8 +26,7 @@ public class SubInterface {
     }
   };
 
-  @Ignore
-  private final com.acme.pkg.sub.SubInterface delegate;
+  @Ignore private final com.acme.pkg.sub.SubInterface delegate;
 
   public SubInterface(com.acme.pkg.sub.SubInterface delegate) {
     this.delegate = delegate;

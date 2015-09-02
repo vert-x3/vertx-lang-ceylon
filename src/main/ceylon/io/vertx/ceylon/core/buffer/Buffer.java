@@ -27,8 +27,7 @@ public class Buffer {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.buffer.Buffer delegate;
+  @Ignore private final io.vertx.core.buffer.Buffer delegate;
 
   public Buffer(io.vertx.core.buffer.Buffer delegate) {
     this.delegate = delegate;

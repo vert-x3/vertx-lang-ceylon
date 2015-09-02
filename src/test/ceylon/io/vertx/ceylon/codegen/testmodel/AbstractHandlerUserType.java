@@ -37,8 +37,7 @@ public interface AbstractHandlerUserType {
 
   @Ignore
   public class Impl implements AbstractHandlerUserType {
-    @Ignore
-    private final io.vertx.codegen.testmodel.AbstractHandlerUserType delegate;
+    @Ignore private final io.vertx.codegen.testmodel.AbstractHandlerUserType delegate;
 
     public Impl(io.vertx.codegen.testmodel.AbstractHandlerUserType delegate) {
       this.delegate = delegate;
@@ -51,8 +50,8 @@ public interface AbstractHandlerUserType {
 
     @Override
     public void handle(final RefedInterface1 arg0) {
-      io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(arg0);
-      delegate.handle(arg_0);
+    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(arg0);
+    delegate.handle(arg_0);
     }
   }
 

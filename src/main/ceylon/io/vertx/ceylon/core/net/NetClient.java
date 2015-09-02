@@ -29,8 +29,7 @@ public class NetClient implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.net.NetClient delegate;
+  @Ignore private final io.vertx.core.net.NetClient delegate;
 
   public NetClient(io.vertx.core.net.NetClient delegate) {
     this.delegate = delegate;

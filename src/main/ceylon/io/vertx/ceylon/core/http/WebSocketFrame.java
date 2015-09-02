@@ -27,8 +27,9 @@ public class WebSocketFrame {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.WebSocketFrame delegate;
+  @Ignore private ceylon.language.String cached_textData;
+  @Ignore private Buffer cached_binaryData;
+  @Ignore private final io.vertx.core.http.WebSocketFrame delegate;
 
   public WebSocketFrame(io.vertx.core.http.WebSocketFrame delegate) {
     this.delegate = delegate;
@@ -96,14 +97,22 @@ public class WebSocketFrame {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textData() {
+    if (cached_textData != null) {
+      return cached_textData;
+    }
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.textData());
+     cached_textData = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer binaryData() {
+    if (cached_binaryData != null) {
+      return cached_binaryData;
+    }
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.binaryData());
+     cached_binaryData = ret;
     return ret;
   }
 

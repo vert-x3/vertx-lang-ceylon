@@ -26,8 +26,7 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.te
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate;
+  @Ignore private final io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate;
 
   public ConcreteHandlerUserTypeExtension(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate) {
     super(delegate);

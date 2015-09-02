@@ -30,8 +30,10 @@ public class ServerWebSocket implements WebSocketBase {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.ServerWebSocket delegate;
+  @Ignore private SocketAddress cached_remoteAddress;
+  @Ignore private SocketAddress cached_localAddress;
+  @Ignore private MultiMap cached_headers;
+  @Ignore private final io.vertx.core.http.ServerWebSocket delegate;
 
   public ServerWebSocket(io.vertx.core.http.ServerWebSocket delegate) {
     this.delegate = delegate;
@@ -72,14 +74,22 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
+    if (cached_remoteAddress != null) {
+      return cached_remoteAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.remoteAddress());
+     cached_remoteAddress = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
+    if (cached_localAddress != null) {
+      return cached_localAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
+     cached_localAddress = ret;
     return ret;
   }
 
@@ -229,7 +239,11 @@ public class ServerWebSocket implements WebSocketBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
+    if (cached_headers != null) {
+      return cached_headers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
+     cached_headers = ret;
     return ret;
   }
 

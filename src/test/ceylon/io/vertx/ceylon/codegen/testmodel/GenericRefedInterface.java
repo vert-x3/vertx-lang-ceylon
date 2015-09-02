@@ -29,8 +29,7 @@ public class GenericRefedInterface<T> {
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.GenericRefedInterface delegate;
+  @Ignore private final io.vertx.codegen.testmodel.GenericRefedInterface delegate;
 
   public GenericRefedInterface(io.vertx.codegen.testmodel.GenericRefedInterface delegate) {
     this.delegate = delegate;

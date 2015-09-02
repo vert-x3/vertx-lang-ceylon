@@ -26,8 +26,7 @@ public class RefedInterface1 {
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.RefedInterface1 delegate;
+  @Ignore private final io.vertx.codegen.testmodel.RefedInterface1 delegate;
 
   public RefedInterface1(io.vertx.codegen.testmodel.RefedInterface1 delegate) {
     this.delegate = delegate;

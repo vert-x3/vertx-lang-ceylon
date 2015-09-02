@@ -32,8 +32,9 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpServerResponse delegate;
+  @Ignore private MultiMap cached_headers;
+  @Ignore private MultiMap cached_trailers;
+  @Ignore private final io.vertx.core.http.HttpServerResponse delegate;
 
   public HttpServerResponse(io.vertx.core.http.HttpServerResponse delegate) {
     this.delegate = delegate;
@@ -138,7 +139,11 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
+    if (cached_headers != null) {
+      return cached_headers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
+     cached_headers = ret;
     return ret;
   }
 
@@ -156,7 +161,11 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
+    if (cached_trailers != null) {
+      return cached_trailers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.trailers());
+     cached_trailers = ret;
     return ret;
   }
 

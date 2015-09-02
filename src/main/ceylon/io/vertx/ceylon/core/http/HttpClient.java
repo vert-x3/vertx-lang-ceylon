@@ -31,8 +31,7 @@ public class HttpClient implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpClient delegate;
+  @Ignore private final io.vertx.core.http.HttpClient delegate;
 
   public HttpClient(io.vertx.core.http.HttpClient delegate) {
     this.delegate = delegate;

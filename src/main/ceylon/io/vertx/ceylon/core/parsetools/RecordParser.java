@@ -28,8 +28,7 @@ public class RecordParser {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.parsetools.RecordParser delegate;
+  @Ignore private final io.vertx.core.parsetools.RecordParser delegate;
 
   public RecordParser(io.vertx.core.parsetools.RecordParser delegate) {
     this.delegate = delegate;

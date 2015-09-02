@@ -28,8 +28,7 @@ public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.ServerWebSocketStream delegate;
+  @Ignore private final io.vertx.core.http.ServerWebSocketStream delegate;
 
   public ServerWebSocketStream(io.vertx.core.http.ServerWebSocketStream delegate) {
     this.delegate = delegate;

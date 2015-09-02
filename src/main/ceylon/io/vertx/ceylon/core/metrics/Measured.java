@@ -35,8 +35,7 @@ public interface Measured {
 
   @Ignore
   public class Impl implements Measured {
-    @Ignore
-    private final io.vertx.core.metrics.Measured delegate;
+    @Ignore private final io.vertx.core.metrics.Measured delegate;
 
     public Impl(io.vertx.core.metrics.Measured delegate) {
       this.delegate = delegate;
@@ -49,7 +48,7 @@ public interface Measured {
 
     @Override
     public boolean isMetricsEnabled() {
-      boolean ret = delegate.isMetricsEnabled();
+    boolean ret = delegate.isMetricsEnabled();
       return ret;
     }
   }

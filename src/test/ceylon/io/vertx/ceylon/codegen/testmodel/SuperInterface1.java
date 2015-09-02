@@ -26,8 +26,7 @@ public class SuperInterface1 {
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.SuperInterface1 delegate;
+  @Ignore private final io.vertx.codegen.testmodel.SuperInterface1 delegate;
 
   public SuperInterface1(io.vertx.codegen.testmodel.SuperInterface1 delegate) {
     this.delegate = delegate;

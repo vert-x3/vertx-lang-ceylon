@@ -32,8 +32,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.eventbus.MessageConsumer delegate;
+  @Ignore private final io.vertx.core.eventbus.MessageConsumer delegate;
 
   public MessageConsumer(io.vertx.core.eventbus.MessageConsumer delegate) {
     this.delegate = delegate;

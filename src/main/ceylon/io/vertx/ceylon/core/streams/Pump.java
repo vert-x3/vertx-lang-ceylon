@@ -26,8 +26,7 @@ public class Pump {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.streams.Pump delegate;
+  @Ignore private final io.vertx.core.streams.Pump delegate;
 
   public Pump(io.vertx.core.streams.Pump delegate) {
     this.delegate = delegate;

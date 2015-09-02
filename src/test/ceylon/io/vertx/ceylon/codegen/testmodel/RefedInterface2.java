@@ -40,8 +40,7 @@ public interface RefedInterface2 {
 
   @Ignore
   public class Impl implements RefedInterface2 {
-    @Ignore
-    private final io.vertx.codegen.testmodel.RefedInterface2 delegate;
+    @Ignore private final io.vertx.codegen.testmodel.RefedInterface2 delegate;
 
     public Impl(io.vertx.codegen.testmodel.RefedInterface2 delegate) {
       this.delegate = delegate;
@@ -54,14 +53,14 @@ public interface RefedInterface2 {
 
     @Override
     public ceylon.language.String getString() {
-      ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString());
       return ret;
     }
 
     @Override
     public RefedInterface2 setString(final ceylon.language.String str) {
-      java.lang.String arg_0 = str.toString();
-      RefedInterface2 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON.convert(delegate.setString(arg_0));
+    java.lang.String arg_0 = str.toString();
+    RefedInterface2 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON.convert(delegate.setString(arg_0));
       return this;
     }
   }

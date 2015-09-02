@@ -28,8 +28,7 @@ public class NetSocketStream implements ReadStream<NetSocket> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.net.NetSocketStream delegate;
+  @Ignore private final io.vertx.core.net.NetSocketStream delegate;
 
   public NetSocketStream(io.vertx.core.net.NetSocketStream delegate) {
     this.delegate = delegate;

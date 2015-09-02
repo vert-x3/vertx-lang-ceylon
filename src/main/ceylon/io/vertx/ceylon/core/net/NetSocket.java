@@ -31,8 +31,9 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.net.NetSocket delegate;
+  @Ignore private SocketAddress cached_remoteAddress;
+  @Ignore private SocketAddress cached_localAddress;
+  @Ignore private final io.vertx.core.net.NetSocket delegate;
 
   public NetSocket(io.vertx.core.net.NetSocket delegate) {
     this.delegate = delegate;
@@ -176,14 +177,22 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
+    if (cached_remoteAddress != null) {
+      return cached_remoteAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.remoteAddress());
+     cached_remoteAddress = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
+    if (cached_localAddress != null) {
+      return cached_localAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
+     cached_localAddress = ret;
     return ret;
   }
 

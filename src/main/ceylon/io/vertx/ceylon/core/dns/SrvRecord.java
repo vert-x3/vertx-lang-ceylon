@@ -26,8 +26,7 @@ public class SrvRecord {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.dns.SrvRecord delegate;
+  @Ignore private final io.vertx.core.dns.SrvRecord delegate;
 
   public SrvRecord(io.vertx.core.dns.SrvRecord delegate) {
     this.delegate = delegate;

@@ -31,8 +31,7 @@ public class Future<T> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.Future delegate;
+  @Ignore private final io.vertx.core.Future delegate;
 
   public Future(io.vertx.core.Future delegate) {
     this.delegate = delegate;

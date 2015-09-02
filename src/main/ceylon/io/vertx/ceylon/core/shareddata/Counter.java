@@ -28,8 +28,7 @@ public class Counter {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.shareddata.Counter delegate;
+  @Ignore private final io.vertx.core.shareddata.Counter delegate;
 
   public Counter(io.vertx.core.shareddata.Counter delegate) {
     this.delegate = delegate;

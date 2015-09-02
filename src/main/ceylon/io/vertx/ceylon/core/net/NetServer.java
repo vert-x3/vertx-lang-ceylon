@@ -29,8 +29,7 @@ public class NetServer implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.net.NetServer delegate;
+  @Ignore private final io.vertx.core.net.NetServer delegate;
 
   public NetServer(io.vertx.core.net.NetServer delegate) {
     this.delegate = delegate;

@@ -39,8 +39,10 @@ public class Vertx implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.Vertx delegate;
+  @Ignore private FileSystem cached_fileSystem;
+  @Ignore private EventBus cached_eventBus;
+  @Ignore private SharedData cached_sharedData;
+  @Ignore private final io.vertx.core.Vertx delegate;
 
   public Vertx(io.vertx.core.Vertx delegate) {
     this.delegate = delegate;
@@ -181,14 +183,22 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem fileSystem() {
+    if (cached_fileSystem != null) {
+      return cached_fileSystem;
+    }
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.convert(delegate.fileSystem());
+     cached_fileSystem = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus eventBus() {
+    if (cached_eventBus != null) {
+      return cached_eventBus;
+    }
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.convert(delegate.eventBus());
+     cached_eventBus = ret;
     return ret;
   }
 
@@ -206,7 +216,11 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.shareddata::SharedData")
   public SharedData sharedData() {
+    if (cached_sharedData != null) {
+      return cached_sharedData;
+    }
     SharedData ret = io.vertx.ceylon.core.shareddata.SharedData.TO_CEYLON.convert(delegate.sharedData());
+     cached_sharedData = ret;
     return ret;
   }
 

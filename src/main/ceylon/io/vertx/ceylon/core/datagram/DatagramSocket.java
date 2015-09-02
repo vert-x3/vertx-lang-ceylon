@@ -32,8 +32,8 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.datagram.DatagramSocket delegate;
+  @Ignore private SocketAddress cached_localAddress;
+  @Ignore private final io.vertx.core.datagram.DatagramSocket delegate;
 
   public DatagramSocket(io.vertx.core.datagram.DatagramSocket delegate) {
     this.delegate = delegate;
@@ -126,7 +126,11 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
+    if (cached_localAddress != null) {
+      return cached_localAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
+     cached_localAddress = ret;
     return ret;
   }
 

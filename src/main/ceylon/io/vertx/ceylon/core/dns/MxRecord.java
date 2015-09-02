@@ -26,8 +26,7 @@ public class MxRecord {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.dns.MxRecord delegate;
+  @Ignore private final io.vertx.core.dns.MxRecord delegate;
 
   public MxRecord(io.vertx.core.dns.MxRecord delegate) {
     this.delegate = delegate;

@@ -29,8 +29,7 @@ public class Context {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.Context delegate;
+  @Ignore private final io.vertx.core.Context delegate;
 
   public Context(io.vertx.core.Context delegate) {
     this.delegate = delegate;

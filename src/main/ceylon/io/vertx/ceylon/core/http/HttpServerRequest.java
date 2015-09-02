@@ -34,8 +34,14 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpServerRequest delegate;
+  @Ignore private HttpServerResponse cached_response;
+  @Ignore private MultiMap cached_headers;
+  @Ignore private MultiMap cached_params;
+  @Ignore private SocketAddress cached_remoteAddress;
+  @Ignore private SocketAddress cached_localAddress;
+  @Ignore private NetSocket cached_netSocket;
+  @Ignore private MultiMap cached_formAttributes;
+  @Ignore private final io.vertx.core.http.HttpServerRequest delegate;
 
   public HttpServerRequest(io.vertx.core.http.HttpServerRequest delegate) {
     this.delegate = delegate;
@@ -125,14 +131,22 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
+    if (cached_response != null) {
+      return cached_response;
+    }
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.convert(delegate.response());
+     cached_response = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
+    if (cached_headers != null) {
+      return cached_headers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
+     cached_headers = ret;
     return ret;
   }
 
@@ -148,7 +162,11 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap params() {
+    if (cached_params != null) {
+      return cached_params;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.params());
+     cached_params = ret;
     return ret;
   }
 
@@ -164,14 +182,22 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
+    if (cached_remoteAddress != null) {
+      return cached_remoteAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.remoteAddress());
+     cached_remoteAddress = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
+    if (cached_localAddress != null) {
+      return cached_localAddress;
+    }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.convert(delegate.localAddress());
+     cached_localAddress = ret;
     return ret;
   }
 
@@ -194,7 +220,11 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
+    if (cached_netSocket != null) {
+      return cached_netSocket;
+    }
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.convert(delegate.netSocket());
+     cached_netSocket = ret;
     return ret;
   }
 
@@ -226,7 +256,11 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap formAttributes() {
+    if (cached_formAttributes != null) {
+      return cached_formAttributes;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.formAttributes());
+     cached_formAttributes = ret;
     return ret;
   }
 

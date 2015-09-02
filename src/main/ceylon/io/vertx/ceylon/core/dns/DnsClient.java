@@ -29,8 +29,7 @@ public class DnsClient {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.dns.DnsClient delegate;
+  @Ignore private final io.vertx.core.dns.DnsClient delegate;
 
   public DnsClient(io.vertx.core.dns.DnsClient delegate) {
     this.delegate = delegate;

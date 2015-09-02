@@ -29,8 +29,7 @@ public class HttpServer implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpServer delegate;
+  @Ignore private final io.vertx.core.http.HttpServer delegate;
 
   public HttpServer(io.vertx.core.http.HttpServer delegate) {
     this.delegate = delegate;

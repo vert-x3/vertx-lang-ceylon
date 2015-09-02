@@ -26,8 +26,7 @@ public class FileProps {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.file.FileProps delegate;
+  @Ignore private final io.vertx.core.file.FileProps delegate;
 
   public FileProps(io.vertx.core.file.FileProps delegate) {
     this.delegate = delegate;

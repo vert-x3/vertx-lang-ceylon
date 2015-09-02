@@ -28,8 +28,7 @@ public class SharedData {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.shareddata.SharedData delegate;
+  @Ignore private final io.vertx.core.shareddata.SharedData delegate;
 
   public SharedData(io.vertx.core.shareddata.SharedData delegate) {
     this.delegate = delegate;

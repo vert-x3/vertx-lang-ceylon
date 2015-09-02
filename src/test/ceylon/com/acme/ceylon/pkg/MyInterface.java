@@ -28,8 +28,7 @@ public class MyInterface {
     }
   };
 
-  @Ignore
-  private final com.acme.pkg.MyInterface delegate;
+  @Ignore private final com.acme.pkg.MyInterface delegate;
 
   public MyInterface(com.acme.pkg.MyInterface delegate) {
     this.delegate = delegate;

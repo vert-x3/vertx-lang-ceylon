@@ -747,13 +747,6 @@
     }
     sb.append(genConvReturn(method.returnType, expr.toString()));
     sb.append(';\n');
-    if (method.returnType.name != 'void') {
-      if (method.fluent) {
-        sb.append(indent).append('return this;\n');
-      } else {
-        sb.append(indent).append('return ret;\n');
-      }
-    }
     return sb.toString();
   }
 }
@@ -767,8 +760,26 @@
 @end{}
 
 @declare{'genClassCtor'}
-@{indent}@Ignore\n
-@{indent}private final @{type.raw.name} delegate;\n
+	@foreach{method:methods}
+		@if{method.cacheReturn}
+			@code{cachedType=genJavaInterropTypeDecl(method.returnType)}
+			@if{method.returnType.kind == CLASS_PRIMITIVE}
+				@if{method.returnType.name == 'boolean'}
+					@code{cachedType='java.lang.Boolean'}
+				@else{method.returnType.name == 'byte'}
+					@code{cachedType='java.lang.Byte'}
+				@else{method.returnType.name == 'short' || method.returnType.name == 'int' || method.returnType.name == 'long'}
+					@code{cachedType='java.lang.Long'}
+				@else{method.returnType.name == 'float' || method.returnType.name == 'double'}
+					@code{cachedType='java.lang.Double'}
+				@else{method.returnType.name == 'char'}
+					@code{cachedType='java.lang.Character'}
+				@end{}
+			@end{}
+@{indent}@Ignore private @{cachedType} cached_@{method.name};\n
+		@end{}
+	@end{}
+@{indent}@Ignore private final @{type.raw.name} delegate;\n
 \n
 @{indent}public @{ctor}(@{type.raw.name} delegate) {\n
 @if{concreteSuperTypes.size() > 0}
@@ -781,6 +792,25 @@
 @{indent}public Object getDelegate() {\n
 @{indent}  return delegate;\n
 @{indent}}\n
+@end{}
+
+@declare{'genMethodBody'}
+	@if{method.cacheReturn}
+@{indent}if (cached_@{method.name} != null) {\n
+@{indent}  return cached_@{method.name};\n
+@{indent}}\n
+	@end{}
+	@{genMethodCall(method, '    ')}
+	@if{method.returnType.name != 'void'}
+		@if{method.fluent}
+@{indent}return this;\n
+		@else{}
+			@if{method.cacheReturn}
+@{indent} cached_@{method.name} = ret;\n
+			@end{}
+@{indent}return ret;\n
+		@end{}
+	@end{}
 @end{}
 
 @comment{"Generate the imports"}
@@ -847,7 +877,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 
 \n
 @if{concrete}
-@includeNamed{'genClassCtor';indent='  ';ctor=type.raw.simpleName}
+	@includeNamed{'genClassCtor';indent='  ';ctor=type.raw.simpleName}
 @else{}
   @Ignore\n
   Object getDelegate();\n
@@ -866,7 +896,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
 \n    final @TypeInfo("@{genCeylonTypeDecl(param.type)}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 	@if{concrete} {\n
-@{genMethodCall(method, '    ')}
+		@includeNamed{'genMethodBody';indent='    '}
   }\n
 	@else{}
 ;\n
@@ -886,7 +916,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
     public @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(
 @foreach{param:method.params}
 final @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '}) {\n
-@{genMethodCall(method, '      ')}
+@includeNamed{'genMethodBody';indent='      '}
     }\n
 @end{}
 

@@ -29,8 +29,7 @@ public class MultiMap {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.MultiMap delegate;
+  @Ignore private final io.vertx.core.MultiMap delegate;
 
   public MultiMap(io.vertx.core.MultiMap delegate) {
     this.delegate = delegate;

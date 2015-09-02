@@ -28,8 +28,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.TimeoutStream delegate;
+  @Ignore private final io.vertx.core.TimeoutStream delegate;
 
   public TimeoutStream(io.vertx.core.TimeoutStream delegate) {
     this.delegate = delegate;

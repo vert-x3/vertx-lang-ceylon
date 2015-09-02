@@ -27,8 +27,7 @@ public class ConcreteHandlerUserType {
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate;
+  @Ignore private final io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate;
 
   public ConcreteHandlerUserType(io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate) {
     this.delegate = delegate;

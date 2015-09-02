@@ -26,8 +26,7 @@ public class Lock {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.shareddata.Lock delegate;
+  @Ignore private final io.vertx.core.shareddata.Lock delegate;
 
   public Lock(io.vertx.core.shareddata.Lock delegate) {
     this.delegate = delegate;

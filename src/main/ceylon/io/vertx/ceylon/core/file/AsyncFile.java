@@ -31,8 +31,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.file.AsyncFile delegate;
+  @Ignore private final io.vertx.core.file.AsyncFile delegate;
 
   public AsyncFile(io.vertx.core.file.AsyncFile delegate) {
     this.delegate = delegate;

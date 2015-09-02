@@ -28,8 +28,7 @@ public class DatagramPacket {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.datagram.DatagramPacket delegate;
+  @Ignore private final io.vertx.core.datagram.DatagramPacket delegate;
 
   public DatagramPacket(io.vertx.core.datagram.DatagramPacket delegate) {
     this.delegate = delegate;

@@ -26,8 +26,7 @@ public class SocketAddress {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.net.SocketAddress delegate;
+  @Ignore private final io.vertx.core.net.SocketAddress delegate;
 
   public SocketAddress(io.vertx.core.net.SocketAddress delegate) {
     this.delegate = delegate;

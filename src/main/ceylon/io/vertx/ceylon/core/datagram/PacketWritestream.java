@@ -29,8 +29,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.datagram.PacketWritestream delegate;
+  @Ignore private final io.vertx.core.datagram.PacketWritestream delegate;
 
   public PacketWritestream(io.vertx.core.datagram.PacketWritestream delegate) {
     this.delegate = delegate;

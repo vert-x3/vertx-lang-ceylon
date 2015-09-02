@@ -27,8 +27,7 @@ public class Factory {
     }
   };
 
-  @Ignore
-  private final io.vertx.codegen.testmodel.Factory delegate;
+  @Ignore private final io.vertx.codegen.testmodel.Factory delegate;
 
   public Factory(io.vertx.codegen.testmodel.Factory delegate) {
     this.delegate = delegate;

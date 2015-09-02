@@ -953,6 +953,15 @@ shared test void testStaticFactoryMethod() {
   assertEquals(ret.getString(), "bar");
 }
 
+shared test void testMethodWithCachedReturn() {
+  value ret1 = obj.methodWithCachedReturn("bar");
+  assertEquals(ret1.getString(), "bar");
+  value ret2 = obj.methodWithCachedReturn("bar");
+  assertEquals(ret2, ret1);
+  value ret3 = obj.methodWithCachedReturn("bar");
+  assertEquals(ret3, ret1);
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;

@@ -44,8 +44,7 @@ public interface SuperInterface2 {
 
   @Ignore
   public class Impl implements SuperInterface2 {
-    @Ignore
-    private final io.vertx.codegen.testmodel.SuperInterface2 delegate;
+    @Ignore private final io.vertx.codegen.testmodel.SuperInterface2 delegate;
 
     public Impl(io.vertx.codegen.testmodel.SuperInterface2 delegate) {
       this.delegate = delegate;
@@ -58,16 +57,16 @@ public interface SuperInterface2 {
 
     @Override
     public void otherSuperMethodWithBasicParams(final byte b, final long s, final long i, final long l, final double f, final double d, final boolean bool, final int ch, final ceylon.language.String str) {
-      byte arg_0 = b;
-      short arg_1 = (short)s;
-      int arg_2 = (int)i;
-      long arg_3 = l;
-      float arg_4 = (float)f;
-      double arg_5 = d;
-      boolean arg_6 = bool;
-      char arg_7 = (char)ch;
-      java.lang.String arg_8 = str.toString();
-      delegate.otherSuperMethodWithBasicParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
+    byte arg_0 = b;
+    short arg_1 = (short)s;
+    int arg_2 = (int)i;
+    long arg_3 = l;
+    float arg_4 = (float)f;
+    double arg_5 = d;
+    boolean arg_6 = bool;
+    char arg_7 = (char)ch;
+    java.lang.String arg_8 = str.toString();
+    delegate.otherSuperMethodWithBasicParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
     }
   }
 

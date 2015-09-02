@@ -29,8 +29,7 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpServerFileUpload delegate;
+  @Ignore private final io.vertx.core.http.HttpServerFileUpload delegate;
 
   public HttpServerFileUpload(io.vertx.core.http.HttpServerFileUpload delegate) {
     this.delegate = delegate;

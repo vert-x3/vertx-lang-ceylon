@@ -32,8 +32,8 @@ public class Message<T> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.eventbus.Message delegate;
+  @Ignore private T cached_body;
+  @Ignore private final io.vertx.core.eventbus.Message delegate;
 
   public Message(io.vertx.core.eventbus.Message delegate) {
     this.delegate = delegate;
@@ -61,7 +61,11 @@ public class Message<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T")
   public T body() {
+    if (cached_body != null) {
+      return cached_body;
+    }
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
+     cached_body = ret;
     return ret;
   }
 

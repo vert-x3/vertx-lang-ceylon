@@ -32,8 +32,11 @@ public class HttpClientResponse implements ReadStream<Buffer> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpClientResponse delegate;
+  @Ignore private MultiMap cached_headers;
+  @Ignore private MultiMap cached_trailers;
+  @Ignore private ceylon.language.List<ceylon.language.String> cached_cookies;
+  @Ignore private NetSocket cached_netSocket;
+  @Ignore private final io.vertx.core.http.HttpClientResponse delegate;
 
   public HttpClientResponse(io.vertx.core.http.HttpClientResponse delegate) {
     this.delegate = delegate;
@@ -102,7 +105,11 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
+    if (cached_headers != null) {
+      return cached_headers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.headers());
+     cached_headers = ret;
     return ret;
   }
 
@@ -127,14 +134,22 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
+    if (cached_trailers != null) {
+      return cached_trailers;
+    }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.trailers());
+     cached_trailers = ret;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> cookies() {
+    if (cached_cookies != null) {
+      return cached_cookies;
+    }
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.cookies(), io.vertx.lang.ceylon.ToCeylon.String);
+     cached_cookies = ret;
     return ret;
   }
 
@@ -150,7 +165,11 @@ public class HttpClientResponse implements ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
+    if (cached_netSocket != null) {
+      return cached_netSocket;
+    }
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.convert(delegate.netSocket());
+     cached_netSocket = ret;
     return ret;
   }
 

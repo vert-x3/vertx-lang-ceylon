@@ -29,8 +29,7 @@ public class EventBus implements Measured {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.eventbus.EventBus delegate;
+  @Ignore private final io.vertx.core.eventbus.EventBus delegate;
 
   public EventBus(io.vertx.core.eventbus.EventBus delegate) {
     this.delegate = delegate;

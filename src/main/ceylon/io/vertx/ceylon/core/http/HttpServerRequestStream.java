@@ -28,8 +28,7 @@ public class HttpServerRequestStream implements ReadStream<HttpServerRequest> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.http.HttpServerRequestStream delegate;
+  @Ignore private final io.vertx.core.http.HttpServerRequestStream delegate;
 
   public HttpServerRequestStream(io.vertx.core.http.HttpServerRequestStream delegate) {
     this.delegate = delegate;

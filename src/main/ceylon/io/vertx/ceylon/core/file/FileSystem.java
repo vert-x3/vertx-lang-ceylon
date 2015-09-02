@@ -30,8 +30,7 @@ public class FileSystem {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.file.FileSystem delegate;
+  @Ignore private final io.vertx.core.file.FileSystem delegate;
 
   public FileSystem(io.vertx.core.file.FileSystem delegate) {
     this.delegate = delegate;

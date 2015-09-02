@@ -32,8 +32,7 @@ public class AsyncMap<K,V> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.shareddata.AsyncMap delegate;
+  @Ignore private final io.vertx.core.shareddata.AsyncMap delegate;
 
   public AsyncMap(io.vertx.core.shareddata.AsyncMap delegate) {
     this.delegate = delegate;

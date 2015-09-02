@@ -58,8 +58,7 @@ public interface ReadStream<T> extends StreamBase {
 
   @Ignore
   public class Impl<T> implements ReadStream<T> {
-    @Ignore
-    private final io.vertx.core.streams.ReadStream delegate;
+    @Ignore private final io.vertx.core.streams.ReadStream delegate;
 
     public Impl(io.vertx.core.streams.ReadStream delegate) {
       this.delegate = delegate;
@@ -72,34 +71,34 @@ public interface ReadStream<T> extends StreamBase {
 
     @Override
     public ReadStream<T> exceptionHandler(final Callable<?> handler) {
-      io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
-      ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
       return this;
     }
 
     @Override
     public ReadStream<T> handler(final Callable<?> handler) {
-      io.vertx.core.Handler<java.lang.Object> arg_0 = new io.vertx.core.Handler<java.lang.Object>() { public void handle(java.lang.Object event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event)); } };
-      ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.handler(arg_0));
+    io.vertx.core.Handler<java.lang.Object> arg_0 = new io.vertx.core.Handler<java.lang.Object>() { public void handle(java.lang.Object event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event)); } };
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.handler(arg_0));
       return this;
     }
 
     @Override
     public ReadStream<T> pause() {
-      ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.pause());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.pause());
       return this;
     }
 
     @Override
     public ReadStream<T> resume() {
-      ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.resume());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.resume());
       return this;
     }
 
     @Override
     public ReadStream<T> endHandler(final Callable<?> endHandler) {
-      io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
-      ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.endHandler(arg_0));
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.convert(delegate.endHandler(arg_0));
       return this;
     }
   }

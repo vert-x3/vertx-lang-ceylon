@@ -31,8 +31,7 @@ public class MessageProducer<T> implements WriteStream<T> {
     }
   };
 
-  @Ignore
-  private final io.vertx.core.eventbus.MessageProducer delegate;
+  @Ignore private final io.vertx.core.eventbus.MessageProducer delegate;
 
   public MessageProducer(io.vertx.core.eventbus.MessageProducer delegate) {
     this.delegate = delegate;
