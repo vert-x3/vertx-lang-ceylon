@@ -11,7 +11,7 @@ import ceylon.json {
   JsonObject=Object, JsonArray=Array
 }
 import ceylon.collection {
-  HashSet, ArrayList
+  HashSet, ArrayList, HashMap
 }
 
 TestInterface obj = TestInterface(TestInterfaceImpl());
@@ -695,6 +695,21 @@ shared test void testMethodSetParams() {
     HashSet { JsonArray { "foo" }, JsonArray { "blah" } },
     HashSet { refed1, refed2 },
     HashSet { TestDataObject { foo="String 1"; bar=1; wibble=1.1; }, TestDataObject { foo="String 2"; bar=2; wibble=2.2; } }
+  );
+}
+
+shared test void testMethodMapParams() {
+  value refed1 = RefedInterface1(RefedInterface1Impl().setString("foo"));
+  value refed2 = RefedInterface1(RefedInterface1Impl().setString("bar"));
+  obj.methodWithMapParams(
+    HashMap { "foo"->"bar", "eek"->"wibble" },
+    HashMap { "foo"->2.byte, "eek"->3.byte },
+    HashMap { "foo"->12, "eek"->13 },
+    HashMap { "foo"->1234, "eek"->1345 },
+    HashMap { "foo"->123, "eek"->456 },
+    HashMap { "foo"->JsonObject { "foo"->"bar" }, "eek"->JsonObject { "eek"->"wibble" } },
+    HashMap { "foo"->JsonArray { "foo" }, "eek"->JsonArray { "blah" } },
+    HashMap { "foo"->refed1, "eek"->refed2 }
   );
 }
 

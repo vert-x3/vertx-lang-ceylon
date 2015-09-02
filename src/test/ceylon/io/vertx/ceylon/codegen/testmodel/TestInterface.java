@@ -341,22 +341,22 @@ public class TestInterface implements SuperInterface2 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapParams(
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.language.String> mapString, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.language.Byte> mapByte, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.language.Integer> mapShort, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.language.Integer> mapInt, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.language.Integer> mapLong, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.json.Object> mapJsonObject, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,ceylon.json.Array> mapJsonArray, 
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") Map<ceylon.language.String,RefedInterface1> mapVertxGen) {
-    java.util.Map<java.lang.String,java.lang.String> arg_0 = null;
-    java.util.Map<java.lang.String,java.lang.Byte> arg_1 = null;
-    java.util.Map<java.lang.String,java.lang.Short> arg_2 = null;
-    java.util.Map<java.lang.String,java.lang.Integer> arg_3 = null;
-    java.util.Map<java.lang.String,java.lang.Long> arg_4 = null;
-    java.util.Map<java.lang.String,io.vertx.core.json.JsonObject> arg_5 = null;
-    java.util.Map<java.lang.String,io.vertx.core.json.JsonArray> arg_6 = null;
-    java.util.Map<java.lang.String,io.vertx.codegen.testmodel.RefedInterface1> arg_7 = null;
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.String> mapString, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> mapByte, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> mapShort, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> mapInt, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> mapLong, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Object> mapJsonObject, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Array> mapJsonArray, 
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,io.vertx.ceylon.codegen.testmodel::RefedInterface1>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,RefedInterface1> mapVertxGen) {
+    java.util.Map<java.lang.String,java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.map(mapString, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.String);
+    java.util.Map<java.lang.String,java.lang.Byte> arg_1 = io.vertx.lang.ceylon.ToJava.map(mapByte, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.Byte);
+    java.util.Map<java.lang.String,java.lang.Short> arg_2 = io.vertx.lang.ceylon.ToJava.map(mapShort, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.Short);
+    java.util.Map<java.lang.String,java.lang.Integer> arg_3 = io.vertx.lang.ceylon.ToJava.map(mapInt, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.Integer);
+    java.util.Map<java.lang.String,java.lang.Long> arg_4 = io.vertx.lang.ceylon.ToJava.map(mapLong, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.Long);
+    java.util.Map<java.lang.String,io.vertx.core.json.JsonObject> arg_5 = io.vertx.lang.ceylon.ToJava.map(mapJsonObject, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.JsonObject);
+    java.util.Map<java.lang.String,io.vertx.core.json.JsonArray> arg_6 = io.vertx.lang.ceylon.ToJava.map(mapJsonArray, io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.JsonArray);
+    java.util.Map<java.lang.String,io.vertx.codegen.testmodel.RefedInterface1> arg_7 = io.vertx.lang.ceylon.ToJava.map(mapVertxGen, io.vertx.lang.ceylon.ToJava.String, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
     delegate.methodWithMapParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7);
   }
 
@@ -1203,134 +1203,134 @@ public class TestInterface implements SuperInterface2 {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
-  public Map<ceylon.language.String,ceylon.language.String> methodWithMapReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.String> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
-  public Map<ceylon.language.String,ceylon.language.String> methodWithMapStringReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapStringReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.String> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>")
-  public Map<ceylon.language.String,ceylon.language.Integer> methodWithMapLongReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapLongReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>")
-  public Map<ceylon.language.String,ceylon.language.Integer> methodWithMapIntegerReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapIntegerReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>")
-  public Map<ceylon.language.String,ceylon.language.Integer> methodWithMapShortReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapShortReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>")
-  public Map<ceylon.language.String,ceylon.language.Byte> methodWithMapByteReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> methodWithMapByteReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Byte> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Character>")
-  public Map<ceylon.language.String,ceylon.language.Character> methodWithMapCharacterReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Character> methodWithMapCharacterReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Character> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Character> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean>")
-  public Map<ceylon.language.String,ceylon.language.Boolean> methodWithMapBooleanReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> methodWithMapBooleanReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Boolean> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>")
-  public Map<ceylon.language.String,ceylon.language.Float> methodWithMapFloatReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapFloatReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Float> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>")
-  public Map<ceylon.language.String,ceylon.language.Float> methodWithMapDoubleReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapDoubleReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.language.Float> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>")
-  public Map<ceylon.language.String,ceylon.json.Object> methodWithMapJsonObjectReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithMapJsonObjectReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.json.Object> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>")
-  public Map<ceylon.language.String,ceylon.json.Object> methodWithMapComplexJsonObjectReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithMapComplexJsonObjectReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.json.Object> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>")
-  public Map<ceylon.language.String,ceylon.json.Array> methodWithMapJsonArrayReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithMapJsonArrayReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.json.Array> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>")
-  public Map<ceylon.language.String,ceylon.json.Array> methodWithMapComplexJsonArrayReturn(
+  public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithMapComplexJsonArrayReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    Map<ceylon.language.String,ceylon.json.Array> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = null;
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
-  public Map<ceylon.language.String,ceylon.language.String> methodWithNullMapReturn() {
-    Map<ceylon.language.String,ceylon.language.String> ret = null;
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithNullMapReturn() {
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
     return ret;
   }
 
