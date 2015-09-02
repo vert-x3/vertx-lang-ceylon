@@ -10,8 +10,6 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.MultiMap;
 import io.vertx.ceylon.core.buffer.Buffer;
-import io.vertx.core.http.HttpVersion;
-import io.vertx.core.http.HttpMethod;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
@@ -94,16 +92,16 @@ public class HttpServerRequest implements ReadStream<Buffer> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
-  public ceylon.language.String version() {
-    ceylon.language.String ret = null;
+  @TypeInfo("io.vertx.ceylon.core.http::HttpVersion")
+  public io.vertx.ceylon.core.http.HttpVersion version() {
+    io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.toCeylonHttpVersion_.get_().convert(delegate.version());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
-  public ceylon.language.String method() {
-    ceylon.language.String ret = null;
+  @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
+  public io.vertx.ceylon.core.http.HttpMethod method() {
+    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.toCeylonHttpMethod_.get_().convert(delegate.method());
     return ret;
   }
 

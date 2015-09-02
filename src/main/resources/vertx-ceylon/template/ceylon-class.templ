@@ -295,6 +295,11 @@
     } else if (kind == CLASS_JSON_OBJECT) {
     } else if (kind == CLASS_JSON_ARRAY) {
     } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_().convert(' + expr + ')';
+      } else {
+        return type.name + '.valueOf(' + expr + '.toString())';
+      }
     } else if (kind == CLASS_LIST || kind == CLASS_SET) {
       var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToJava.list' : 'io.vertx.lang.ceylon.ToJava.set';
       var eltType = type.args[0];
@@ -434,6 +439,11 @@
       } else if (kind == CLASS_OBJECT) {
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
+        if (type.gen) {
+          return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().convert(' + expr + ')';
+        } else {
+          return 'new ceylon.language.String(' + expr + '.name())';
+        }
       }
     }
     return 'null';
@@ -456,8 +466,14 @@
         }
         decl += '>';
       }
-    } else if (kind == CLASS_STRING || kind == CLASS_ENUM) {
+    } else if (kind == CLASS_STRING) {
       decl = 'ceylon.language.String';
+    } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        decl = type.translateName('ceylon');
+      } else {
+        decl = 'ceylon.language.String';
+      }
     } else if (kind == CLASS_BOXED_PRIMITIVE) {
       var name = type.name;
       if (name == 'java.lang.Long' || name == 'java.lang.Integer' || name == 'java.lang.Short') {
@@ -535,8 +551,14 @@
         }
         decl += '>';
       }
-    } else if (kind == CLASS_STRING || kind == CLASS_ENUM) {
+    } else if (kind == CLASS_STRING) {
       decl = 'ceylon.language::String';
+    } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        decl = type.translatePackageName('ceylon') + "::" + type.simpleName;
+      } else {
+        decl = 'ceylon.language::String';
+      }
     } else if (kind == CLASS_BOXED_PRIMITIVE) {
       var name = type.name;
       if (name == 'java.lang.Long' || name == 'java.lang.Integer' || name == 'java.lang.Short') {
@@ -833,6 +855,13 @@ import ceylon.language.DocAnnotation$annotation$;\n
 	@else{importedType.kind == CLASS_API}
 		@if{!ifacePackageName.equals(importedType.packageName)}
 			import @{importedType.raw.translateName("ceylon")};\n
+		@end{}
+	@else{importedType.kind == CLASS_ENUM && importedType.gen}
+		@if{!ifacePackageName.equals(importedType.packageName)}
+			import @{importedType.raw.translateName("ceylon")};\n
+			@foreach{value:importedType.values}
+			import @{importedType.raw.translateName("ceylon")};\n
+			@end{}
 		@end{}
 	@else{}
 		@if{!importedType.packageName.equals("java.lang")}

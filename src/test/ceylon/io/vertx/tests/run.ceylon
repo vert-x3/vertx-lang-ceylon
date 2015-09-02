@@ -1,5 +1,7 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1, RefedInterface2, TestDataObject, Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension, GenericRefedInterface
+  TestInterface, RefedInterface1, RefedInterface2, TestDataObject,
+  Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
+  GenericRefedInterface, TestGenEnum, \iMIKE, \iBOB
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl
@@ -1024,6 +1026,26 @@ shared test void testComplexJsonHandlerAsyncResultParams() {
   obj.methodWithHandlerAsyncResultComplexJsonArray((JsonArray|Throwable arg) => jsonArray = arg);
   assertEquals(jsonObject, JsonObject { "outer" -> JsonObject { "socks"->"tartan" }, "list" -> JsonArray { "yellow", "blue" } });
   assertEquals(jsonArray, JsonArray { JsonObject { "foo"->"hello" },  JsonObject { "bar"->"bye" } });
+}
+
+shared test void testMethodWithEnumParam() {
+  value ret = obj.methodWithEnumParam("cabbages", "JULIEN");
+  assertEquals(ret, "cabbagesJULIEN");
+}
+
+shared test void testMethodWithGenEnumParam() {
+  value ret = obj.methodWithGenEnumParam("cabbages", \iMIKE);
+  assertEquals(ret, "cabbagesMIKE");
+}
+
+shared test void testMethodWithEnumReturn() {
+  value ret = obj.methodWithEnumReturn("JULIEN");
+  assertEquals(ret, "JULIEN");
+}
+
+shared test void testMethodWithGenEnumReturn() {
+  value ret = obj.methodWithGenEnumReturn("BOB");
+  assertEquals(ret, \iBOB);
 }
 
 void assertFloatEquals(Anything actual, Float expected) {

@@ -23,6 +23,8 @@ shared class VertxOptions(
   shared Integer? clusterPingInterval = null,
   shared Integer? clusterPingReplyInterval = null,
   shared Integer? clusterPort = null,
+  shared String? clusterPublicHost = null,
+  shared Integer? clusterPublicPort = null,
   shared Boolean? clustered = null,
   shared Integer? eventLoopPoolSize = null,
   shared Boolean? haEnabled = null,
@@ -50,6 +52,12 @@ shared class VertxOptions(
     }
     if (exists clusterPort) {
       json.put("clusterPort", clusterPort);
+    }
+    if (exists clusterPublicHost) {
+      json.put("clusterPublicHost", clusterPublicHost);
+    }
+    if (exists clusterPublicPort) {
+      json.put("clusterPublicPort", clusterPublicPort);
     }
     if (exists clustered) {
       json.put("clustered", clustered);

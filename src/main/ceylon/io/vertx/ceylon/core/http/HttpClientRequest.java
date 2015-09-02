@@ -10,7 +10,6 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.streams.WriteStream;
-import io.vertx.core.http.HttpMethod;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
@@ -136,9 +135,9 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
-  public ceylon.language.String method() {
-    ceylon.language.String ret = null;
+  @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
+  public io.vertx.ceylon.core.http.HttpMethod method() {
+    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.toCeylonHttpMethod_.get_().convert(delegate.method());
     return ret;
   }
 

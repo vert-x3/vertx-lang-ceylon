@@ -36,6 +36,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
 
   @Ignore private RefedInterface1 cached_methodWithCachedReturn;
   @Ignore private java.lang.Long cached_methodWithCachedReturnPrimitive;
+  @Ignore private ceylon.language.List<RefedInterface1> cached_methodWithCachedListReturn;
   @Ignore private final io.vertx.codegen.testmodel.TestInterface delegate;
 
   public TestInterface(io.vertx.codegen.testmodel.TestInterface delegate) {
@@ -1072,6 +1073,17 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   }
 
   @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1>")
+  public ceylon.language.List<RefedInterface1> methodWithCachedListReturn() {
+    if (cached_methodWithCachedListReturn != null) {
+      return cached_methodWithCachedListReturn;
+    }
+    ceylon.language.List<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithCachedListReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
+     cached_methodWithCachedListReturn = ret;
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object methodWithJsonObjectReturn() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.methodWithJsonObjectReturn());
@@ -1476,7 +1488,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String weirdo) {
     java.lang.String arg_0 = strVal.toString();
-    io.vertx.codegen.testmodel.TestEnum arg_1 = null;
+    io.vertx.codegen.testmodel.TestEnum arg_1 = io.vertx.codegen.testmodel.TestEnum.valueOf(weirdo.toString());
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.methodWithEnumParam(arg_0, arg_1));
     return ret;
   }
@@ -1486,7 +1498,27 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public ceylon.language.String methodWithEnumReturn(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal) {
     java.lang.String arg_0 = strVal.toString();
-    ceylon.language.String ret = null;
+    ceylon.language.String ret = new ceylon.language.String(delegate.methodWithEnumReturn(arg_0).name());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String methodWithGenEnumParam(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal, 
+    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestGenEnum") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.TestGenEnum weirdo) {
+    java.lang.String arg_0 = strVal.toString();
+    io.vertx.codegen.testmodel.TestGenEnum arg_1 = io.vertx.ceylon.codegen.testmodel.toJavaTestGenEnum_.get_().convert(weirdo);
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.methodWithGenEnumParam(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestGenEnum")
+  public io.vertx.ceylon.codegen.testmodel.TestGenEnum methodWithGenEnumReturn(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal) {
+    java.lang.String arg_0 = strVal.toString();
+    io.vertx.ceylon.codegen.testmodel.TestGenEnum ret = io.vertx.ceylon.codegen.testmodel.toCeylonTestGenEnum_.get_().convert(delegate.methodWithGenEnumReturn(arg_0));
     return ret;
   }
 

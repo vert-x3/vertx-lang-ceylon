@@ -1,0 +1,35 @@
+@includeNamed{'ceylon-common.templ'}
+
+import io.vertx.lang.ceylon { Converter }\n
+import @{type.packageName} { @{type.simpleName}_=@{type.simpleName} }\n
+
+\n
+shared abstract class @{type.simpleName}(shared String name) of @foreach{member:members}@{asValidMember(member)}@end{' | '} {\n
+}\n
+
+\n
+@foreach{member : members}
+shared object @{asValidMember(member)} extends @{type.simpleName}("@{member}") {}\n
+@end{}
+
+\n
+shared object toJava@{type.simpleName} satisfies Converter<@{type.simpleName}, @{type.simpleName}_> {\n
+  shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
+    switch (src)
+@foreach{member:members}
+    case(@{asValidMember(member)}) { return @{type.simpleName}_.@{asValidMember(member)}; }\n
+@end{}
+  }\n
+}\n
+
+\n
+shared object toCeylon@{type.simpleName} satisfies Converter<@{type.simpleName}_, @{type.simpleName}> {\n
+  shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
+@foreach{member:members}
+    if (src == @{type.simpleName}_.@{asValidMember(member)}) {\n
+      return @{asValidMember(member)};\n
+    }\n
+@end{}
+    throw Exception("Invalid enum value");\n
+  }\n
+}\n

@@ -5,6 +5,10 @@
     "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.java'",
     "templateFileName": "vertx-ceylon/template/ceylon-class.templ"
   }, {
+    "kind": "enum",
+    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "templateFileName": "vertx-ceylon/template/ceylon-enum.templ"
+  }, {
     "kind": "package",
     "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '/package.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-package.templ"

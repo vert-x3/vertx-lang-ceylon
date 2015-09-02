@@ -161,4 +161,13 @@
   def getPropertyNameFromSetter(method) {
     return java.beans.Introspector.decapitalize(method.name.substring(3));
   }
+
+  def asValidMember(name) {
+    if (Character.isLowerCase(name.charAt(0))) {
+      return name;
+    } else {
+      return '\\i' + name;
+    }
+  }
 }
+
