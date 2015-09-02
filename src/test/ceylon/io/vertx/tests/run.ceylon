@@ -405,14 +405,6 @@ shared test void testMethodWithHandlerListDataObject() {
   assertFloatEquals(obj2.wibble, 2.2);
 }
 
-shared test void testListStringReturn() {
-  value list = obj.methodWithListStringReturn();
-  assertEquals(list.size, 3);
-  assertEquals(list[0], "foo");
-  assertEquals(list[1], "bar");
-  assertEquals(list[2], "wibble");
-}
-
 shared test void testMethodWithHandlerNullListDataObject() {
   // Todo
 }
@@ -747,6 +739,14 @@ shared test void testDataObjectReturn() {
 
 shared test void testDataObjectNullReturn() {
   // Todo
+}
+
+shared test void testListStringReturn() {
+  value list = obj.methodWithListStringReturn();
+  assertEquals(list.size, 3);
+  assertEquals(list[0], "foo");
+  assertEquals(list[1], "bar");
+  assertEquals(list[2], "wibble");
 }
 
 shared test void testListLongReturn() {
