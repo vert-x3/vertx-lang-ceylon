@@ -270,6 +270,8 @@
         return expr + ".toString()";
       }
       return expr;
+    } else if (kind.json) {
+       return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName + '.convert(' + expr + ')';
     } else if (kind == CLASS_HANDLER) {
       var eventType = type.args[0];
       var eventKind = eventType.kind;

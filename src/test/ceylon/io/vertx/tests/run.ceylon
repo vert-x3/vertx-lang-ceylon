@@ -976,6 +976,14 @@ shared test void testComplexJsonReturns() {
   assertEquals(obj.methodWithComplexJsonArrayReturn(), JsonArray { JsonObject { "foo"->"hello" }, JsonObject { "bar"->"bye" } });
 }
 
+shared test void testJsonParams() {
+  obj.methodWithJsonParams(JsonObject { "cat"->"lion", "cheese"->"cheddar" }, JsonArray { "house", "spider" });
+}
+
+shared test void testNullJsonParams() {
+  // Todo
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;

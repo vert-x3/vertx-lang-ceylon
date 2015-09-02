@@ -1118,8 +1118,8 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public void methodWithJsonParams(
     final @TypeInfo("ceylon.json::Object") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object jsonObject, 
     final @TypeInfo("ceylon.json::Array") @DocAnnotation$annotation$(description = "todo") ceylon.json.Array jsonArray) {
-    io.vertx.core.json.JsonObject arg_0 = null;
-    io.vertx.core.json.JsonArray arg_1 = null;
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.convert(jsonObject);
+    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.convert(jsonArray);
     delegate.methodWithJsonParams(arg_0, arg_1);
   }
 
@@ -1128,8 +1128,8 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public void methodWithNullJsonParams(
     final @TypeInfo("ceylon.json::Object") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object jsonObject, 
     final @TypeInfo("ceylon.json::Array") @DocAnnotation$annotation$(description = "todo") ceylon.json.Array jsonArray) {
-    io.vertx.core.json.JsonObject arg_0 = null;
-    io.vertx.core.json.JsonArray arg_1 = null;
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.convert(jsonObject);
+    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.convert(jsonArray);
     delegate.methodWithNullJsonParams(arg_0, arg_1);
   }
 
