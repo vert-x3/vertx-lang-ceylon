@@ -725,6 +725,20 @@ shared test void testBasicReturns() {
   assertEquals(obj.methodWithStringReturn(), "orangutan");
 }
 
+shared test void testVertxGenReturn() {
+  value r = obj.methodWithVertxGenReturn();
+  assertEquals(r.getString(), "chaffinch");
+}
+
+shared test void testVertxGenNullReturn() {
+  // Todo
+}
+
+shared test void testVertxAbstractGenReturn() {
+  value r = obj.methodWithAbstractVertxGenReturn();
+  assertEquals(r.getString(), "abstractchaffinch");
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
