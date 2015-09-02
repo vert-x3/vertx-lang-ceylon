@@ -916,6 +916,21 @@ shared test void testMapComplexJsonArrayReturn() {
   assertEquals(map, HashMap { "foo"->JsonArray { JsonObject { "foo"->"hello" }, JsonObject { "bar"->"bye" } } });
 }
 
+shared test void testOverloadedMethods() {
+  value refed = RefedInterface1(RefedInterface1Impl());
+  refed.setString("dog");
+  assertEquals(obj.overloadedMethod("cat", refed), "meth1");
+  variable String? callback = null;
+  assertEquals(obj.overloadedMethod("cat", refed, 12345, (String arg) => callback = arg), "meth2");
+  assertEquals(callback, "giraffe");
+  callback = null;
+  assertEquals(obj.overloadedMethod("cat", (String arg) => callback = arg), "meth3");
+  assertEquals(callback, "giraffe");
+  callback = null;
+  assertEquals(obj.overloadedMethod("cat", refed, (String arg) => callback = arg), "meth4");
+  assertEquals(callback, "giraffe");
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
