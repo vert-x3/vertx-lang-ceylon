@@ -948,6 +948,11 @@ shared test void testFluentMethod() {
   assertEquals(ret, obj);
 }
 
+shared test void testStaticFactoryMethod() {
+  value ret = TestInterface.staticFactoryMethod("bar");
+  assertEquals(ret.getString(), "bar");
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
