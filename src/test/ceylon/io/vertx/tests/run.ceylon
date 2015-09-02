@@ -936,6 +936,13 @@ shared test void testSuperInterfaces() {
   obj.otherSuperMethodWithBasicParams(123.byte, 12345, 1234567, 1265615234, 12.345, 12.34566, true, 'X', "foobar");
 }
 
+shared test void testMethodWithGenericReturn() {
+  value jsonObject = obj.methodWithGenericReturn<JsonObject>("JsonObject");
+  assertEquals(jsonObject, JsonObject { "foo"->"hello", "bar"->123 });
+  value jsonArray = obj.methodWithGenericReturn<JsonArray>("JsonArray");
+  assertEquals(jsonArray, JsonArray { "foo", "bar", "wib" });
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
