@@ -1206,7 +1206,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.methodWithMapReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -1215,7 +1215,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapStringReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.methodWithMapStringReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -1224,7 +1224,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapLongReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapLongReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
@@ -1233,7 +1233,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapIntegerReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapIntegerReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
@@ -1242,7 +1242,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapShortReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapShortReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
@@ -1251,7 +1251,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> methodWithMapByteReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithMapByteReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
@@ -1260,7 +1260,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Character> methodWithMapCharacterReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Character> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Character.$TypeDescriptor$, delegate.methodWithMapCharacterReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
@@ -1269,7 +1269,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> methodWithMapBooleanReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithMapBooleanReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
@@ -1278,7 +1278,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapFloatReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, delegate.methodWithMapFloatReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
@@ -1287,7 +1287,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapDoubleReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, delegate.methodWithMapDoubleReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
@@ -1296,7 +1296,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithMapJsonObjectReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.json.Object.$TypeDescriptor$, delegate.methodWithMapJsonObjectReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
@@ -1305,7 +1305,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithMapComplexJsonObjectReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.json.Object.$TypeDescriptor$, delegate.methodWithMapComplexJsonObjectReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
@@ -1314,7 +1314,7 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithMapJsonArrayReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.json.Array.$TypeDescriptor$, delegate.methodWithMapJsonArrayReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
@@ -1323,14 +1323,14 @@ public class TestInterface implements SuperInterface2 {
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithMapComplexJsonArrayReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.String> arg_0 = new io.vertx.core.Handler<java.lang.String>() { public void handle(java.lang.String event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.convert(event)); } };
-    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.json.Array.$TypeDescriptor$, delegate.methodWithMapComplexJsonArrayReturn(arg_0), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithNullMapReturn() {
-    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = null;
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.map(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.methodWithNullMapReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

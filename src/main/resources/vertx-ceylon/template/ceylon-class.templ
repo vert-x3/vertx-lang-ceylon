@@ -423,12 +423,13 @@
           return collection + '(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
         }
       } else if (kind == CLASS_MAP) {
-        var valueType = type.args[1];
-        var valueKind = valueType.kind;
-        if (valueKind == CLASS_JSON_OBJECT) {
-        } else if (valueKind == CLASS_JSON_ARRAY) {
-        } else if (valueKind.basic) {
-        }
+        var valArg =  type.args[1];
+        return 'io.vertx.lang.ceylon.ToCeylon.map(' +
+          'ceylon.language.String.$TypeDescriptor$, ' +
+          genCeylonTypeDecl(valArg).replace('::', '.') + '.$TypeDescriptor$, ' +
+          expr + ', ' +
+          'io.vertx.lang.ceylon.ToCeylon.String, ' +
+          'io.vertx.lang.ceylon.ToCeylon.' + valArg.simpleName + ')';
       } else if (kind == CLASS_API) {
         return type.raw.translateName('ceylon') + '.TO_CEYLON.convert(' + expr + ')';
       } else if (kind.json) {

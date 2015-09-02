@@ -886,6 +886,36 @@ shared test void testSetDataObjectReturn() {
   assertFloatEquals(j2["wibble"], 2.2);
 }
 
+shared test void testMapStringReturn() {
+  Map<String, String> map = obj.methodWithMapStringReturn((String arg) => {});
+  assertEquals(map, HashMap { "foo"->"bar" });
+}
+
+shared test void testMapLongReturn() {
+  Map<String, Integer> map = obj.methodWithMapLongReturn((String arg) => {});
+  assertEquals(map, HashMap { "foo"->123 });
+}
+
+shared test void testMapJsonObjectReturn() {
+  Map<String, JsonObject> map = obj.methodWithMapJsonObjectReturn((String arg) => {});
+  assertEquals(map, JsonObject { "eek"->"wibble" });
+}
+
+shared test void testMapComplexJsonObjectReturn() {
+  Map<String, JsonObject> map = obj.methodWithMapJsonObjectReturn((String arg) => {});
+  assertEquals(map, JsonObject { "outer"->JsonObject { "socks"->"tartan" }, "list"->JsonArray { "yellow", "blue" } });
+}
+
+shared test void testMapJsonArrayReturn() {
+  Map<String, JsonArray> map = obj.methodWithMapJsonArrayReturn((String arg) => {});
+  assertEquals(map, JsonArray { "wibble" });
+}
+
+shared test void testMapComplexJsonArrayReturn() {
+  Map<String, JsonArray> map = obj.methodWithMapComplexJsonArrayReturn((String arg) => {});
+  assertEquals(map, JsonArray { JsonObject { "foo"->"hello" }, JsonObject { "bar"->"bye" } });
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;

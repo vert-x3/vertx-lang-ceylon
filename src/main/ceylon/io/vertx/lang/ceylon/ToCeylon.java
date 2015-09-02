@@ -2,6 +2,8 @@ package io.vertx.lang.ceylon;
 
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 
+import java.lang.UnsupportedOperationException;
+
 public class ToCeylon {
 
   public static final <T> T object(Object o) {
@@ -57,6 +59,21 @@ public class ToCeylon {
       ret.add(ceylonElt);
     }
     return ret;
+  }
+
+  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> map(
+      TypeDescriptor keyTypeDesc,
+      TypeDescriptor valTypeDesc,
+      java.util.Map<JK, JV> from,
+      Converter<JK, CK> keyConverter,
+      Converter<JV, CV> valConverter) {
+    ceylon.collection.HashMap<CK, CV> to = new ceylon.collection.HashMap<CK, CV>(keyTypeDesc, valTypeDesc);
+    for (java.util.Map.Entry<JK, JV> javaEntry : from.entrySet()) {
+      CK ceylonKey = keyConverter.convert(javaEntry.getKey());
+      CV ceylonVal = valConverter.convert(javaEntry.getValue());
+      to.put(ceylonKey, ceylonVal);
+    }
+    return to;
   }
 
   public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {
