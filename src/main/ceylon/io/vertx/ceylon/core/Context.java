@@ -79,7 +79,7 @@ public class Context {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object config() {
-    ceylon.json.Object ret = null;
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.config());
     return ret;
   }
 

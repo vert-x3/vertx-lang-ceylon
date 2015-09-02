@@ -401,8 +401,8 @@
       return expr;
     } else {
       var kind = type.kind;
-      if (kind.basic || kind == CLASS_THROWABLE) {
-        if (kind == CLASS_BOXED_PRIMITIVE || kind == CLASS_STRING) {
+      if (kind.basic || kind == CLASS_THROWABLE || kind.json) {
+        if (kind == CLASS_BOXED_PRIMITIVE || kind == CLASS_STRING || kind.json) {
           return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName + '.convert(' + expr + ')';
         }
         return expr;

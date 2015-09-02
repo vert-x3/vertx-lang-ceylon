@@ -1074,42 +1074,42 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object methodWithJsonObjectReturn() {
-    ceylon.json.Object ret = null;
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.methodWithJsonObjectReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object methodWithNullJsonObjectReturn() {
-    ceylon.json.Object ret = null;
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.methodWithNullJsonObjectReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object methodWithComplexJsonObjectReturn() {
-    ceylon.json.Object ret = null;
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.methodWithComplexJsonObjectReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Array")
   public ceylon.json.Array methodWithJsonArrayReturn() {
-    ceylon.json.Array ret = null;
+    ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(delegate.methodWithJsonArrayReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Array")
   public ceylon.json.Array methodWithNullJsonArrayReturn() {
-    ceylon.json.Array ret = null;
+    ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(delegate.methodWithNullJsonArrayReturn());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Array")
   public ceylon.json.Array methodWithComplexJsonArrayReturn() {
-    ceylon.json.Array ret = null;
+    ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(delegate.methodWithComplexJsonArrayReturn());
     return ret;
   }
 
@@ -1138,8 +1138,8 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public void methodWithHandlerJson(
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonObjectHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonArrayHandler) {
-    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)null); } };
-    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event)); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event)); } };
     delegate.methodWithHandlerJson(arg_0, arg_1);
   }
 
@@ -1148,8 +1148,8 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public void methodWithHandlerNullJson(
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonObjectHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonArrayHandler) {
-    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)null); } };
-    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event)); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event)); } };
     delegate.methodWithHandlerNullJson(arg_0, arg_1);
   }
 
@@ -1158,8 +1158,8 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public void methodWithHandlerComplexJson(
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonObjectHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> jsonArrayHandler) {
-    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)null); } };
-    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)null); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() { public void handle(io.vertx.core.json.JsonObject event) { jsonObjectHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event)); } };
+    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() { public void handle(io.vertx.core.json.JsonArray event) { jsonArrayHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event)); } };
     delegate.methodWithHandlerComplexJson(arg_0, arg_1);
   }
 
@@ -1167,7 +1167,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event); } };
     delegate.methodWithHandlerAsyncResultJsonObject(arg_0);
   }
 
@@ -1175,7 +1175,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultNullJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event); } };
     delegate.methodWithHandlerAsyncResultNullJsonObject(arg_0);
   }
 
@@ -1183,7 +1183,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultComplexJsonObject(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) { public Object toCeylon(io.vertx.core.json.JsonObject event) { return io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(event); } };
     delegate.methodWithHandlerAsyncResultComplexJsonObject(arg_0);
   }
 
@@ -1191,7 +1191,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event); } };
     delegate.methodWithHandlerAsyncResultJsonArray(arg_0);
   }
 
@@ -1199,7 +1199,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultNullJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event); } };
     delegate.methodWithHandlerAsyncResultNullJsonArray(arg_0);
   }
 
@@ -1207,7 +1207,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultComplexJsonArray(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return null; } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) { public Object toCeylon(io.vertx.core.json.JsonArray event) { return io.vertx.lang.ceylon.ToCeylon.JsonArray.convert(event); } };
     delegate.methodWithHandlerAsyncResultComplexJsonArray(arg_0);
   }
 
