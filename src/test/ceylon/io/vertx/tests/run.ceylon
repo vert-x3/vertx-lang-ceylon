@@ -967,6 +967,10 @@ shared test void testJsonReturns() {
   assertEquals(obj.methodWithJsonArrayReturn(), JsonArray { "socks", "shoes" });
 }
 
+shared test void testNullJsonReturns() {
+  // Todo
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;
