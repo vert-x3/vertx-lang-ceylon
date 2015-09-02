@@ -46,7 +46,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -55,21 +55,21 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Long> arg_0 = new io.vertx.core.Handler<java.lang.Long>() { public void handle(java.lang.Long event) { handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.convert(event)); } };
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream pause() {
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream resume() {
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -78,7 +78,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

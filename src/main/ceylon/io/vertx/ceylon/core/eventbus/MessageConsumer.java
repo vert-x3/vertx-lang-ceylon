@@ -50,7 +50,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -59,21 +59,21 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() { public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) { handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.convert(event)); } };
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> pause() {
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> resume() {
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -82,7 +82,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

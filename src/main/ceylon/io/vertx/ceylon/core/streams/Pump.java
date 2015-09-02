@@ -74,21 +74,21 @@ public class Pump {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump start() {
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.start());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump stop() {
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.stop());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

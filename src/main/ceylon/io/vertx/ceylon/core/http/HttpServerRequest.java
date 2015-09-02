@@ -52,7 +52,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -61,21 +61,21 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest pause() {
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest resume() {
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -84,7 +84,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -188,7 +188,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> bodyHandler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { bodyHandler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.bodyHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -204,7 +204,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expect) {
     boolean arg_0 = expect;
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.setExpectMultipart(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -220,7 +220,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerFileUpload)") @DocAnnotation$annotation$(description = "todo") Callable<?> uploadHandler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpServerFileUpload> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.HttpServerFileUpload>() { public void handle(io.vertx.core.http.HttpServerFileUpload event) { uploadHandler.$call$((Object)io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.convert(event)); } };
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(delegate.uploadHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

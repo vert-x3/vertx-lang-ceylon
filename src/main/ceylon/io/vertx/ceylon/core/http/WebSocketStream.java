@@ -46,7 +46,7 @@ public class WebSocketStream implements ReadStream<WebSocket> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -55,21 +55,21 @@ public class WebSocketStream implements ReadStream<WebSocket> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { handler.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream pause() {
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream resume() {
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -78,7 +78,7 @@ public class WebSocketStream implements ReadStream<WebSocket> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
 }

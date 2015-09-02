@@ -53,7 +53,7 @@ public interface StreamBase {
     public StreamBase exceptionHandler(final Callable<?> handler) {
       io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
       StreamBase ret = io.vertx.ceylon.core.streams.StreamBase.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-      return ret;
+      return this;
     }
   }
 

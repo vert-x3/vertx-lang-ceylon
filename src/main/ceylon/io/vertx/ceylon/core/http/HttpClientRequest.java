@@ -57,7 +57,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -66,7 +66,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.write(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -75,7 +75,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -84,7 +84,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.drainHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -93,21 +93,21 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { handler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest pause() {
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest resume() {
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -116,7 +116,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -125,7 +125,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean chunked) {
     boolean arg_0 = chunked;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.setChunked(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -164,7 +164,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     java.lang.String arg_0 = name.toString();
     java.lang.String arg_1 = value.toString();
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.putHeader(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -173,7 +173,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
     java.lang.String arg_0 = chunk.toString();
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.write(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -184,7 +184,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     java.lang.String arg_0 = chunk.toString();
     java.lang.String arg_1 = enc.toString();
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.write(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -193,14 +193,14 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.continueHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest sendHead() {
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.sendHead());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -241,7 +241,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long timeoutMs) {
     long arg_0 = timeoutMs;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.convert(delegate.setTimeout(arg_0));
-    return ret;
+    return this;
   }
 
 }

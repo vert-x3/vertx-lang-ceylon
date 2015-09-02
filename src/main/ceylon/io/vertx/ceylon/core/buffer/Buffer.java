@@ -206,7 +206,7 @@ public class Buffer {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer buff) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(buff);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendBuffer(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -219,7 +219,7 @@ public class Buffer {
     int arg_1 = (int)offset;
     int arg_2 = (int)len;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendBuffer(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -228,7 +228,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Byte") @DocAnnotation$annotation$(description = "todo") byte b) {
     byte arg_0 = b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendByte(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -237,7 +237,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long b) {
     short arg_0 = (short)b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendUnsignedByte(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -246,7 +246,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long i) {
     int arg_0 = (int)i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendInt(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -255,7 +255,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long i) {
     long arg_0 = i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendUnsignedInt(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -264,7 +264,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long l) {
     long arg_0 = l;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendLong(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -273,7 +273,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long s) {
     short arg_0 = (short)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendShort(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -282,7 +282,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long s) {
     int arg_0 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendUnsignedShort(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -291,7 +291,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double f) {
     float arg_0 = (float)f;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendFloat(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -300,7 +300,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double d) {
     double arg_0 = d;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendDouble(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -311,7 +311,7 @@ public class Buffer {
     java.lang.String arg_0 = str.toString();
     java.lang.String arg_1 = enc.toString();
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendString(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -320,7 +320,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = str.toString();
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.appendString(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -331,7 +331,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     byte arg_1 = b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setByte(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -353,7 +353,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     int arg_1 = (int)i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setInt(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -364,7 +364,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     long arg_1 = i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setUnsignedInt(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -375,7 +375,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     long arg_1 = l;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setLong(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -386,7 +386,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     double arg_1 = d;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setDouble(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -397,7 +397,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     float arg_1 = (float)f;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setFloat(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -408,7 +408,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     short arg_1 = (short)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setShort(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -419,7 +419,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     int arg_1 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setUnsignedShort(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -430,7 +430,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(b);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setBuffer(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -445,7 +445,7 @@ public class Buffer {
     int arg_2 = (int)offset;
     int arg_3 = (int)len;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setBuffer(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -456,7 +456,7 @@ public class Buffer {
     int arg_0 = (int)pos;
     java.lang.String arg_1 = str.toString();
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setString(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -469,7 +469,7 @@ public class Buffer {
     java.lang.String arg_1 = str.toString();
     java.lang.String arg_2 = enc.toString();
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.setString(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

@@ -748,7 +748,11 @@
     sb.append(genConvReturn(method.returnType, expr.toString()));
     sb.append(';\n');
     if (method.returnType.name != 'void') {
-      sb.append(indent).append('return ret;\n');
+      if (method.fluent) {
+        sb.append(indent).append('return this;\n');
+      } else {
+        sb.append(indent).append('return ret;\n');
+      }
     }
     return sb.toString();
   }

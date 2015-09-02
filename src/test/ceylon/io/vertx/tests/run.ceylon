@@ -943,6 +943,11 @@ shared test void testMethodWithGenericReturn() {
   assertEquals(jsonArray, JsonArray { "foo", "bar", "wib" });
 }
 
+shared test void testFluentMethod() {
+  value ret = obj.fluentMethod("bar");
+  assertEquals(ret, obj);
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;

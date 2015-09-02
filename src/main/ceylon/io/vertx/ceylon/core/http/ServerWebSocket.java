@@ -89,7 +89,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -98,21 +98,21 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket pause() {
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket resume() {
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -121,7 +121,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -130,7 +130,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.write(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -139,7 +139,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -148,7 +148,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.drainHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -157,7 +157,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame) {
     io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.convert(frame);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFrame(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -166,7 +166,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String text) {
     java.lang.String arg_0 = text.toString();
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFinalTextFrame(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -175,7 +175,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeFinalBinaryFrame(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -184,7 +184,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.writeBinaryMessage(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -193,7 +193,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.closeHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -202,7 +202,7 @@ public class ServerWebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() { public void handle(io.vertx.core.http.WebSocketFrame event) { handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(event)); } };
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(delegate.frameHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

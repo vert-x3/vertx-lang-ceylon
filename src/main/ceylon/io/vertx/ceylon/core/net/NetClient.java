@@ -58,7 +58,7 @@ public class NetClient implements Measured {
     java.lang.String arg_1 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetSocket>(connectHandler) { public Object toCeylon(io.vertx.core.net.NetSocket event) { return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.convert(event); } };
     NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.convert(delegate.connect(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

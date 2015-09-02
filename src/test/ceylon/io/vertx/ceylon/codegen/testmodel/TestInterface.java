@@ -1032,7 +1032,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = str.toString();
     TestInterface ret = io.vertx.ceylon.codegen.testmodel.TestInterface.TO_CEYLON.convert(delegate.fluentMethod(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

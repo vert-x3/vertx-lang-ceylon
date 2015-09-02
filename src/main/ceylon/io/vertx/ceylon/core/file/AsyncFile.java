@@ -56,21 +56,21 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() { public void handle(io.vertx.core.buffer.Buffer event) { handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event)); } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile pause() {
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile resume() {
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -79,7 +79,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -88,7 +88,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.write(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -97,7 +97,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -106,7 +106,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.drainHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -115,7 +115,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -142,7 +142,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     long arg_1 = position;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) { public Object toCeylon(java.lang.Void event) { return null; } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.write(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -159,14 +159,14 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     int arg_3 = (int)length;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_4 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.buffer.Buffer>(handler) { public Object toCeylon(io.vertx.core.buffer.Buffer event) { return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(event); } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.read(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile flush() {
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.flush());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -175,7 +175,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) { public Object toCeylon(java.lang.Void event) { return null; } };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.flush(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -184,7 +184,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long readPos) {
     long arg_0 = readPos;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.setReadPos(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -193,7 +193,7 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long writePos) {
     long arg_0 = writePos;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.setWritePos(arg_0));
-    return ret;
+    return this;
   }
 
 }

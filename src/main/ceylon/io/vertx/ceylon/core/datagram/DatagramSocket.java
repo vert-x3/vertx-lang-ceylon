@@ -63,7 +63,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -89,7 +89,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -106,7 +106,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_3 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_4 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.send(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -138,7 +138,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_0 = multicastAddress.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.listenMulticastGroup(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -153,7 +153,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = source.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.listenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -164,7 +164,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_0 = multicastAddress.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.unlistenMulticastGroup(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -179,7 +179,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = source.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.unlistenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -192,7 +192,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_1 = sourceToBlock.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -207,7 +207,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = sourceToBlock.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -220,21 +220,21 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_1 = host.toString();
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) { public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) { return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.listen(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket pause() {
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.pause());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket resume() {
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.resume());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -243,7 +243,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { endHandler.$call$(); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.endHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -252,7 +252,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket> arg_0 = new io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket>() { public void handle(io.vertx.core.datagram.DatagramPacket event) { handler.$call$((Object)io.vertx.ceylon.core.datagram.DatagramPacket.TO_CEYLON.convert(event)); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.handler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -261,7 +261,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { handler.$call$((Object)event); } };
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.convert(delegate.exceptionHandler(arg_0));
-    return ret;
+    return this;
   }
 
 }

@@ -97,7 +97,7 @@ public class MultiMap {
     java.lang.String arg_0 = name.toString();
     java.lang.String arg_1 = value.toString();
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.add(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -106,7 +106,7 @@ public class MultiMap {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.addAll(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -117,7 +117,7 @@ public class MultiMap {
     java.lang.String arg_0 = name.toString();
     java.lang.String arg_1 = value.toString();
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.set(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -126,7 +126,7 @@ public class MultiMap {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.setAll(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -135,14 +135,14 @@ public class MultiMap {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = name.toString();
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.remove(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap clear() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.convert(delegate.clear());
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
