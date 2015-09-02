@@ -739,6 +739,16 @@ shared test void testVertxAbstractGenReturn() {
   assertEquals(r.getString(), "abstractchaffinch");
 }
 
+shared test void testDataObjectReturn() {
+  value r = obj.methodWithDataObjectReturn();
+  assertEquals(r.foo, "foo");
+  assertEquals(r.bar, 123);
+}
+
+shared test void testDataObjectNullReturn() {
+  // Todo
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
