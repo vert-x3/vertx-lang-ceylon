@@ -931,6 +931,11 @@ shared test void testOverloadedMethods() {
   assertEquals(callback, "giraffe");
 }
 
+shared test void testSuperInterfaces() {
+  obj.superMethodWithBasicParams(123.byte, 12345, 1234567, 1265615234, 12.345, 12.34566, true, 'X', "foobar");
+  obj.otherSuperMethodWithBasicParams(123.byte, 12345, 1234567, 1265615234, 12.345, 12.34566, true, 'X', "foobar");
+}
+
 void assertFloatEquals(Anything actual, Float expected) {
   assert(is Float actual);
   variable value diff = expected - actual;

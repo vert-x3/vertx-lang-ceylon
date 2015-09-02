@@ -18,7 +18,7 @@ import java.util.List;
 import io.vertx.core.Handler;
 
 @DocAnnotation$annotation$(description = "todo")
-public class TestInterface implements SuperInterface2 {
+public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterface1 implements SuperInterface2 {
 
   public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(TestInterface.class);
 
@@ -38,6 +38,7 @@ public class TestInterface implements SuperInterface2 {
   private final io.vertx.codegen.testmodel.TestInterface delegate;
 
   public TestInterface(io.vertx.codegen.testmodel.TestInterface delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 

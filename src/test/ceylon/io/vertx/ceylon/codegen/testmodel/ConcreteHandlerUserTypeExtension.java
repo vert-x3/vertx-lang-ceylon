@@ -10,7 +10,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @DocAnnotation$annotation$(description = "todo")
-public class ConcreteHandlerUserTypeExtension {
+public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType {
 
   public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ConcreteHandlerUserTypeExtension.class);
 
@@ -30,6 +30,7 @@ public class ConcreteHandlerUserTypeExtension {
   private final io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate;
 
   public ConcreteHandlerUserTypeExtension(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 
