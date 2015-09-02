@@ -713,6 +713,18 @@ shared test void testMethodMapParams() {
   );
 }
 
+shared test void testBasicReturns() {
+  assertEquals(obj.methodWithByteReturn(), 123.byte);
+  assertEquals(obj.methodWithShortReturn(), 12345);
+  assertEquals(obj.methodWithIntReturn(), 12345464);
+  assertEquals(obj.methodWithLongReturn(), 65675123);
+  assertFloatEquals(obj.methodWithFloatReturn(), 1.23);
+  assertFloatEquals(obj.methodWithDoubleReturn(), 3.34535);
+  assertEquals(obj.methodWithBooleanReturn(), true);
+  assertEquals(obj.methodWithCharReturn(), 'Y');
+  assertEquals(obj.methodWithStringReturn(), "orangutan");
+}
+
 shared test void testListLongReturn() {
   value list = obj.methodWithListLongReturn();
   assertEquals(list.size, 2);
