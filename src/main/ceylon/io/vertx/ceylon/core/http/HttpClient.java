@@ -259,7 +259,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_2 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.getNow(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -272,7 +272,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_1 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.getNow(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -283,7 +283,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_0 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.getNow(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -482,7 +482,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_2 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.headNow(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -495,7 +495,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_1 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.headNow(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -506,7 +506,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_0 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.headNow(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -613,7 +613,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_2 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.optionsNow(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -626,7 +626,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_1 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.optionsNow(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -637,7 +637,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_0 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() { public void handle(io.vertx.core.http.HttpClientResponse event) { responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.optionsNow(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -836,7 +836,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_2 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -849,7 +849,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_1 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -866,7 +866,7 @@ public class HttpClient implements Measured {
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -881,7 +881,7 @@ public class HttpClient implements Measured {
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -900,7 +900,7 @@ public class HttpClient implements Measured {
     io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -917,7 +917,7 @@ public class HttpClient implements Measured {
     io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -938,7 +938,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_5 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_6 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -957,7 +957,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_4 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -968,7 +968,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_0 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -981,7 +981,7 @@ public class HttpClient implements Measured {
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -996,7 +996,7 @@ public class HttpClient implements Measured {
     io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1013,7 +1013,7 @@ public class HttpClient implements Measured {
     java.lang.String arg_3 = subProtocols.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

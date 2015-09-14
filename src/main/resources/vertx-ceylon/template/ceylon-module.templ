@@ -1,21 +1,25 @@
-@code{
-  var refedMods = new java.util.HashSet();
-  for (clazz : classes) {
-    for (refed : clazz.referencedTypes) {
-      if (refed.module.packageName != module.packageName) {
-        refedMods.add(refed.module.translatePackageName('ceylon'));
-      }
-    }
-  }
-  var ceylonMod = module.translatePackageName('ceylon');
-}
+@if{incrementalIndex==0}
 native("jvm")\n
+@code{
+  var ceylonMod = type.raw.module.translatePackageName('ceylon');
+  session.refedMods = new java.util.HashSet();
+}
 module @{ceylonMod} "1.0.0" {\n
   native("jvm") import java.base "7";\n
   shared import ceylon.json "1.1.1";\n
   shared import io.vertx.lang.ceylon "1.0.0";\n
   shared import @{options.get(ceylonMod)}; // @{ceylonMod}\n
-	@foreach{mod : refedMods}
+@end{}
+@code{
+  for (refed : referencedTypes) {
+    if (refed.module.packageName != type.raw.module.packageName) {
+      session.refedMods.add(refed.module.translatePackageName('ceylon'));
+    }
+  }
+}
+@if{incrementalIndex==incrementalSize-1}
+	@foreach{mod : session.refedMods}
   shared import @{mod} "1.0.0";\n
 	@end{}
-}
+}\n
+@end{}
