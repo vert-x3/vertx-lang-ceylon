@@ -4,15 +4,15 @@ import io.vertx.core.http { HttpMethod_=HttpMethod }
 shared abstract class HttpMethod(shared String name) of \iOPTIONS | \iGET | \iHEAD | \iPOST | \iPUT | \iDELETE | \iTRACE | \iCONNECT | \iPATCH {
 }
 
-shared object \iOPTIONS extends HttpMethod("OPTIONS") {}
-shared object \iGET extends HttpMethod("GET") {}
-shared object \iHEAD extends HttpMethod("HEAD") {}
-shared object \iPOST extends HttpMethod("POST") {}
-shared object \iPUT extends HttpMethod("PUT") {}
-shared object \iDELETE extends HttpMethod("DELETE") {}
-shared object \iTRACE extends HttpMethod("TRACE") {}
-shared object \iCONNECT extends HttpMethod("CONNECT") {}
-shared object \iPATCH extends HttpMethod("PATCH") {}
+shared object \iOPTIONS extends HttpMethod("io.vertx.codegen.EnumValueInfo@529d8508") {}
+shared object \iGET extends HttpMethod("io.vertx.codegen.EnumValueInfo@424ea768") {}
+shared object \iHEAD extends HttpMethod("io.vertx.codegen.EnumValueInfo@2961aad6") {}
+shared object \iPOST extends HttpMethod("io.vertx.codegen.EnumValueInfo@1a1885a6") {}
+shared object \iPUT extends HttpMethod("io.vertx.codegen.EnumValueInfo@2413f628") {}
+shared object \iDELETE extends HttpMethod("io.vertx.codegen.EnumValueInfo@13d17025") {}
+shared object \iTRACE extends HttpMethod("io.vertx.codegen.EnumValueInfo@37425f93") {}
+shared object \iCONNECT extends HttpMethod("io.vertx.codegen.EnumValueInfo@69a9c968") {}
+shared object \iPATCH extends HttpMethod("io.vertx.codegen.EnumValueInfo@5230d0c3") {}
 
 shared object toJavaHttpMethod satisfies Converter<HttpMethod, HttpMethod_> {
   shared actual HttpMethod_ convert(HttpMethod src) {
