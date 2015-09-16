@@ -9,7 +9,7 @@ shared abstract class @{type.simpleName}(shared String name) of @foreach{value:v
 
 \n
 @foreach{value : values}
-shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{value}") {}\n
+shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{value.identifier}") {}\n
 @end{}
 
 \n

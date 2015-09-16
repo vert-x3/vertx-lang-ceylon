@@ -4,21 +4,21 @@ import io.vertx.core.dns { DnsResponseCode_=DnsResponseCode }
 shared abstract class DnsResponseCode(shared String name) of \iNOERROR | \iFORMERROR | \iSERVFAIL | \iNXDOMAIN | \iNOTIMPL | \iREFUSED | \iYXDOMAIN | \iYXRRSET | \iNXRRSET | \iNOTAUTH | \iNOTZONE | \iBADVERS | \iBADSIG | \iBADKEY | \iBADTIME {
 }
 
-shared object \iNOERROR extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@1cdeb850") {}
-shared object \iFORMERROR extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@253c5b81") {}
-shared object \iSERVFAIL extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@bd9c170") {}
-shared object \iNXDOMAIN extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@651c8a24") {}
-shared object \iNOTIMPL extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@c69a2ef") {}
-shared object \iREFUSED extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@4b4e10b0") {}
-shared object \iYXDOMAIN extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@ed99ae8") {}
-shared object \iYXRRSET extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@f156cbd") {}
-shared object \iNXRRSET extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@4e2ac96a") {}
-shared object \iNOTAUTH extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@755a9b8f") {}
-shared object \iNOTZONE extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@37165116") {}
-shared object \iBADVERS extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@13c2b3cd") {}
-shared object \iBADSIG extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@bbb4946") {}
-shared object \iBADKEY extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@2a1c2d5d") {}
-shared object \iBADTIME extends DnsResponseCode("io.vertx.codegen.EnumValueInfo@2f8757e9") {}
+shared object \iNOERROR extends DnsResponseCode("NOERROR") {}
+shared object \iFORMERROR extends DnsResponseCode("FORMERROR") {}
+shared object \iSERVFAIL extends DnsResponseCode("SERVFAIL") {}
+shared object \iNXDOMAIN extends DnsResponseCode("NXDOMAIN") {}
+shared object \iNOTIMPL extends DnsResponseCode("NOTIMPL") {}
+shared object \iREFUSED extends DnsResponseCode("REFUSED") {}
+shared object \iYXDOMAIN extends DnsResponseCode("YXDOMAIN") {}
+shared object \iYXRRSET extends DnsResponseCode("YXRRSET") {}
+shared object \iNXRRSET extends DnsResponseCode("NXRRSET") {}
+shared object \iNOTAUTH extends DnsResponseCode("NOTAUTH") {}
+shared object \iNOTZONE extends DnsResponseCode("NOTZONE") {}
+shared object \iBADVERS extends DnsResponseCode("BADVERS") {}
+shared object \iBADSIG extends DnsResponseCode("BADSIG") {}
+shared object \iBADKEY extends DnsResponseCode("BADKEY") {}
+shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
 
 shared object toJavaDnsResponseCode satisfies Converter<DnsResponseCode, DnsResponseCode_> {
   shared actual DnsResponseCode_ convert(DnsResponseCode src) {

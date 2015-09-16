@@ -4,10 +4,10 @@ import io.vertx.codegen.testmodel { TestGenEnum_=TestGenEnum }
 shared abstract class TestGenEnum(shared String name) of \iLAURA | \iBOB | \iMIKE | \iLELAND {
 }
 
-shared object \iLAURA extends TestGenEnum("io.vertx.codegen.EnumValueInfo@4430f3ae") {}
-shared object \iBOB extends TestGenEnum("io.vertx.codegen.EnumValueInfo@e182e09") {}
-shared object \iMIKE extends TestGenEnum("io.vertx.codegen.EnumValueInfo@4ffc80d3") {}
-shared object \iLELAND extends TestGenEnum("io.vertx.codegen.EnumValueInfo@1f98c86d") {}
+shared object \iLAURA extends TestGenEnum("LAURA") {}
+shared object \iBOB extends TestGenEnum("BOB") {}
+shared object \iMIKE extends TestGenEnum("MIKE") {}
+shared object \iLELAND extends TestGenEnum("LELAND") {}
 
 shared object toJavaTestGenEnum satisfies Converter<TestGenEnum, TestGenEnum_> {
   shared actual TestGenEnum_ convert(TestGenEnum src) {

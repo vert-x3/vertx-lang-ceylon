@@ -57,6 +57,17 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
+  public CommandLine parse(
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments, 
+    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean validate) {
+    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.list(arguments, io.vertx.lang.ceylon.ToJava.String);
+    boolean arg_1 = validate;
+    CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.convert(delegate.parse(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getName());

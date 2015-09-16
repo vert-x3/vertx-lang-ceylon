@@ -4,10 +4,10 @@ import io.vertx.core.http { WebsocketVersion_=WebsocketVersion }
 shared abstract class WebsocketVersion(shared String name) of \iV00 | \iV07 | \iV08 | \iV13 {
 }
 
-shared object \iV00 extends WebsocketVersion("io.vertx.codegen.EnumValueInfo@53e8d7e3") {}
-shared object \iV07 extends WebsocketVersion("io.vertx.codegen.EnumValueInfo@353f763c") {}
-shared object \iV08 extends WebsocketVersion("io.vertx.codegen.EnumValueInfo@36c4d9cb") {}
-shared object \iV13 extends WebsocketVersion("io.vertx.codegen.EnumValueInfo@16b980a0") {}
+shared object \iV00 extends WebsocketVersion("V00") {}
+shared object \iV07 extends WebsocketVersion("V07") {}
+shared object \iV08 extends WebsocketVersion("V08") {}
+shared object \iV13 extends WebsocketVersion("V13") {}
 
 shared object toJavaWebsocketVersion satisfies Converter<WebsocketVersion, WebsocketVersion_> {
   shared actual WebsocketVersion_ convert(WebsocketVersion src) {

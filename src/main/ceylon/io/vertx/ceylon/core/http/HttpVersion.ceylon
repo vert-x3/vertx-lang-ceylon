@@ -4,8 +4,8 @@ import io.vertx.core.http { HttpVersion_=HttpVersion }
 shared abstract class HttpVersion(shared String name) of \iHTTP_1_0 | \iHTTP_1_1 {
 }
 
-shared object \iHTTP_1_0 extends HttpVersion("io.vertx.codegen.EnumValueInfo@210d151") {}
-shared object \iHTTP_1_1 extends HttpVersion("io.vertx.codegen.EnumValueInfo@392813e7") {}
+shared object \iHTTP_1_0 extends HttpVersion("HTTP_1_0") {}
+shared object \iHTTP_1_1 extends HttpVersion("HTTP_1_1") {}
 
 shared object toJavaHttpVersion satisfies Converter<HttpVersion, HttpVersion_> {
   shared actual HttpVersion_ convert(HttpVersion src) {
