@@ -13,7 +13,6 @@ import io.vertx.ceylon.core.streams.WriteStream;
 import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
-import io.vertx.ceylon.core.Future;
 
 @DocAnnotation$annotation$(description = "todo")
 public class HttpServerResponse implements WriteStream<Buffer> {
@@ -350,8 +349,8 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse headersEndHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<ceylon.language::Anything>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Void>> arg_0 = new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Void>>() { public void handle(io.vertx.core.Future<java.lang.Void> event) { handler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.convert(event)); } };
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { handler.$call$(); } };
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.convert(delegate.headersEndHandler(arg_0));
     return this;
   }

@@ -70,11 +70,11 @@ public class AsyncMap<K,V> {
   public void put(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K k, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V v, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long timeout, 
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long ttl, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    long arg_2 = timeout;
+    long arg_2 = ttl;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) { public Object toCeylon(java.lang.Void event) { return null; } };
     delegate.put(arg_0, arg_1, arg_2, arg_3);
   }
@@ -96,11 +96,11 @@ public class AsyncMap<K,V> {
   public void putIfAbsent(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K k, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V v, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long timeout, 
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long ttl, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|V)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    long arg_2 = timeout;
+    long arg_2 = ttl;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_3 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(completionHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
     delegate.putIfAbsent(arg_0, arg_1, arg_2, arg_3);
   }

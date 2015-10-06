@@ -842,6 +842,23 @@ public class HttpClient implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    int arg_0 = (int)port;
+    java.lang.String arg_1 = host.toString();
+    java.lang.String arg_2 = requestURI.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_4 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
@@ -850,6 +867,21 @@ public class HttpClient implements Measured {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = host.toString();
+    java.lang.String arg_1 = requestURI.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_3 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -872,6 +904,25 @@ public class HttpClient implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    int arg_0 = (int)port;
+    java.lang.String arg_1 = host.toString();
+    java.lang.String arg_2 = requestURI.toString();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_5 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
@@ -882,6 +933,23 @@ public class HttpClient implements Measured {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = host.toString();
+    java.lang.String arg_1 = requestURI.toString();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_4 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -906,6 +974,27 @@ public class HttpClient implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    int arg_0 = (int)port;
+    java.lang.String arg_1 = host.toString();
+    java.lang.String arg_2 = requestURI.toString();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_6 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
@@ -918,6 +1007,25 @@ public class HttpClient implements Measured {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = host.toString();
+    java.lang.String arg_1 = requestURI.toString();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_5 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -944,6 +1052,29 @@ public class HttpClient implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    int arg_0 = (int)port;
+    java.lang.String arg_1 = host.toString();
+    java.lang.String arg_2 = requestURI.toString();
+    io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    java.lang.String arg_5 = subProtocols.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_6 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_7 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
@@ -963,12 +1094,46 @@ public class HttpClient implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = host.toString();
+    java.lang.String arg_1 = requestURI.toString();
+    io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    java.lang.String arg_4 = subProtocols.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_6 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = requestURI.toString();
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = requestURI.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_2 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -982,6 +1147,21 @@ public class HttpClient implements Measured {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = requestURI.toString();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_3 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1005,6 +1185,23 @@ public class HttpClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = requestURI.toString();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_4 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = requestURI.toString();
@@ -1014,6 +1211,25 @@ public class HttpClient implements Measured {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
+    java.lang.String arg_0 = requestURI.toString();
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().convert(version);
+    java.lang.String arg_3 = subProtocols.toString();
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() { public void handle(io.vertx.core.http.WebSocket event) { wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<java.lang.Throwable> arg_5 = new io.vertx.core.Handler<java.lang.Throwable>() { public void handle(java.lang.Throwable event) { failureHandler.$call$((Object)event); } };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.convert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")

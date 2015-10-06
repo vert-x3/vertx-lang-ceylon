@@ -195,4 +195,13 @@ public class AsyncFile implements ReadStream<Buffer>, WriteStream<Buffer> {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
+  public AsyncFile setReadBufferSize(
+    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long readBufferSize) {
+    int arg_0 = (int)readBufferSize;
+    AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.convert(delegate.setReadBufferSize(arg_0));
+    return this;
+  }
+
 }
