@@ -17,7 +17,7 @@
   <properties>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
-    <stack.version>3.1.0-SNAPSHOT</stack.version>
+    <stack.version>3.2.0-SNAPSHOT</stack.version>
   </properties>
 
   <dependencyManagement>
@@ -209,7 +209,7 @@
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/main</outputDirectory>
-                <io.vertx.ceylon.core>"io.vertx.vertx-core" "3.1.0-SNAPSHOT"</io.vertx.ceylon.core>
+                <io.vertx.ceylon.core>"io.vertx.vertx-core" "3.2.0-SNAPSHOT"</io.vertx.ceylon.core>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/vertx-core</sourceDirectory>
             </configuration>
@@ -227,8 +227,8 @@
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/test</outputDirectory>
-                <io.vertx.ceylon.codegen.testmodel>"io.vertx.vertx-codegen-tck" "3.1.0-SNAPSHOT"</io.vertx.ceylon.codegen.testmodel>
-                <com.acme.ceylon.pkg>"io.vertx.vertx-codegen-tck" "3.1.0-SNAPSHOT"</com.acme.ceylon.pkg>
+                <io.vertx.ceylon.codegen.testmodel>"io.vertx.vertx-codegen-tck" "3.2.0-SNAPSHOT"</io.vertx.ceylon.codegen.testmodel>
+                <com.acme.ceylon.pkg>"io.vertx.vertx-codegen-tck" "3.2.0-SNAPSHOT"</com.acme.ceylon.pkg>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/codegen</sourceDirectory>
               <excludes>

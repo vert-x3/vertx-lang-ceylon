@@ -656,7 +656,7 @@
 @end{}
 
 @declare{'genExtendsClause'}
-	@if{concreteSuperTypes.size() > 0}extends @{genTypeDecl(concreteSuperTypes[0])}(delegate) @end{}
+	@if{concreteSuperType != null}extends @{genTypeDecl(concreteSuperType)}(delegate) @end{}
 @end{}
 
 @code{
@@ -806,7 +806,7 @@
 @{indent}@Ignore private final @{type.raw.name} delegate;\n
 \n
 @{indent}public @{ctor}(@{type.raw.name} delegate) {\n
-@if{concreteSuperTypes.size() > 0}
+@if{concreteSuperType != null}
 @{indent}  super(delegate);\n
 @end{}
 @{indent}  this.delegate = delegate;\n
@@ -876,7 +876,7 @@ import ceylon.language.DocAnnotation$annotation$;\n
 @end{}
 @DocAnnotation$annotation$(description = "todo")\n
 public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams}
-@if{concreteSuperTypes.size() > 0} extends @{concreteSuperTypes[0].translateName('ceylon')}@end{}
+@if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}
 @if{abstractSuperTypes.size() > 0}
 	 @if{concrete}implements@else{}extends@end{}
 	@foreach{abstractSuperType:abstractSuperTypes}
