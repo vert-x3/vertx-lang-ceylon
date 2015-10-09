@@ -41,8 +41,8 @@ public class SubInterface {
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String reverse(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String s) {
-    java.lang.String arg_0 = s.toString();
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.reverse(arg_0));
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(s);
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.reverse(arg_0));
     return ret;
   }
 

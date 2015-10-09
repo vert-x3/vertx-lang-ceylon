@@ -42,7 +42,7 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V get(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
@@ -51,7 +51,7 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V put(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
@@ -91,7 +91,7 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V putIfAbsent(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
@@ -126,7 +126,7 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V replace(
     final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
     final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {

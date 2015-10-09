@@ -3,273 +3,24 @@
 @code{
 
   /*
-   * Returns the Ruby class qualified name for a given Vert.x Api interface
-   * (for instance io.vertx.core.Vertx -> Vertx::Vertx), the generated name uses the module name the
-   * Api interface belongs to.
-   * @param type the type
-   */
-  def genRubyClassFqn(type) {
-    return "::" + type.module.getName(CASE_CAMEL) + "::" + type.simpleName;
-  }
-
-  def genRubyDocType(type) {
-
-    var kind = type.kind;
-    if (kind == CLASS_OBJECT) {
-      return "Object";
-    } else if (kind == CLASS_JSON_OBJECT) {
-      return "Hash{String => Object}";
-    } else if (kind == CLASS_JSON_ARRAY) {
-      return "Array<String,Object>";
-    } else if (kind == CLASS_ASYNC_RESULT) {
-      return "AsyncResult"; /* Find something better than that... */
-    } else if (kind == CLASS_HANDLER) {
-      return "Proc";
-    } else if (kind.collection) {
-      if (kind == CLASS_LIST) {
-        return "Array<" + genRubyDocType(type.args[0]) + ">";
-      } else if (kind == CLASS_SET) {
-        return "Set<" + genRubyDocType(type.args[0]) + ">";
-      } else if (kind == CLASS_MAP) {
-        return "Hash{" + genRubyDocType(type.args[0]) + " => " + genRubyDocType(type.args[1]) + "}";
-      }
-    } else if (kind == CLASS_DATA_OBJECT) {
-      return "Hash"; /* can we do something better ? */
-    } else if (kind == CLASS_ENUM) {
-      var buffer = "";
-      boolean index = 0;
-      for (value : type.values) {
-        if (index > 0) {
-          buffer += ",";
-        }
-        buffer += ":" + value;
-        index = index + 1;
-      }
-      return buffer;
-    } else if (kind.basic) {
-      if (kind == CLASS_STRING) {
-        return "String";
-      } else {
-        var typeName = type.name;
-        if (typeName == "byte" || typeName == "java.lang.Byte" ||
-            typeName == "short" || typeName == "java.lang.Short" ||
-            typeName == "int" || typeName == "java.lang.Integer" ||
-            typeName == "char" || typeName == "java.lang.Character" ||
-            typeName == "long" || typeName == "java.lang.Long") {
-          return "Fixnum";
-        }
-        if (typeName == "float" || typeName == "java.lang.Float" ||
-            typeName == "double" || typeName == "java.lang.Double") {
-          return "Float";
-        }
-        if (typeName == "boolean" || typeName == "java.lang.Boolean") {
-          return "true,false";
-        }
-      }
-    } else if (kind == CLASS_API) {
-      return genRubyClassFqn(type.raw);
-    }
-    System.out.println("Untranslated type " + type + " with kind " + kind);
-    return "Nil";
-  }
-
-  def renderLinkToHtml(link) {
-    var rawType = link.targetType.raw;
-    var label = link.label.trim();
-    if (rawType.module != null) {
-      var elt = link.targetElement;
-      var rubyType = genRubyDocType(rawType);
-      var kind = elt.getKind().name();
-      if (kind == "CLASS" || kind == "INTERFACE") {
-        return "{" + rubyType + label + "}";
-      } else if (kind == "METHOD") {
-        return "{" + rubyType + "#" + CASE_SNAKE.format(CASE_CAMEL.parse(elt.getSimpleName().toString())) + (label.length() > 0 ? " " : "") + label + "}";
-      } else {
-        System.out.println("Unhandled kind " + kind + " for " + link.targetType);
-      }
-    } else {
-      if (label != null) {
-        return label;
-      } else {
-        return genRubyDocType(link.targetType);
-      }
-    }
-  }
-
-  /*
-   * Returns the Ruby class qualified name for the Java type suitable for creating instances of the type
-   * (for instance java.util.HashMap -> Java::JavaUtil::HashMap), the generated name uses the package name
-   * of the type.
-   * @param type the type
-   */
-  def genJavaClassFqn(type) {
-    var kind = type.getKind();
-    if (kind == CLASS_PRIMITIVE) {
-      return "Java::" + type.simpleName;
-    } else if (kind == CLASS_STRING) {
-      return "Java::java.lang.String";
-    } else if (kind == CLASS_HANDLER) {
-      return "Java::IoVertxCore::Handler";
-    } else if (kind == CLASS_OBJECT) {
-      return "Java::java.lang.Object";
-    } else {
-      type = type.raw;
-      return  "Java::" + CASE_CAMEL.format(CASE_QUALIFIED.parse(type.packageName)) + "::" + type.simpleName;
-    }
-  }
-
-  /* Ruby reserved words */
-  var reservedWords = new java.util.HashSet();
-  reservedWords.add("alias");
-  reservedWords.add("and");
-  reservedWords.add("BEGIN");
-  reservedWords.add("begin");
-  reservedWords.add("def");
-  reservedWords.add("elsif");
-  reservedWords.add("END");
-  reservedWords.add("end");
-  reservedWords.add("ensure");
-  reservedWords.add("in");
-  reservedWords.add("module");
-  reservedWords.add("next");
-  reservedWords.add("nil");
-  reservedWords.add("not");
-  reservedWords.add("or");
-  reservedWords.add("redo");
-  reservedWords.add("rescue");
-  reservedWords.add("retry");
-  reservedWords.add("self");
-  reservedWords.add("then");
-  reservedWords.add("undef");
-  reservedWords.add("unless");
-  reservedWords.add("until");
-  reservedWords.add("when");
-  reservedWords.add("yield");
-
-  /*
-   * Generate a correct ruby name that does not clash with an identifier.
-   */
-  def genRubyName(name) {
-    if (reservedWords.contains(name)) {
-      return "_" + name
-    } else {
-      return name;
-    }
-  }
-
-  /*
-   * Generate a ruby method name for a given method.
+   * Generate a Ceylon method name for a given method.
    */
   def genMethodName(method) {
     return toCeylonIdentifier(method.name);
-  }
-
-  /*
-   * Returns the predicate for the specified type and expression that validates a Ruby object can be converted
-   * to a specified Java object.
-   * @param expr the expression that evaluates to the object to validate
-   * @param type the type to validate
-   */
-  def genTypeCheckPredicate(expr, type) {
-    var kind = type.kind;
-    if (kind == CLASS_STRING) {
-      return expr + ".class == String";
-    } else if (kind == CLASS_ENUM) {
-      return expr + ".class == Symbol";
-    } else if (kind.basic) {
-      var typeName = type.name;
-      if (typeName == "byte" || typeName == "java.lang.Byte" ||
-          typeName == "short" || typeName == "java.lang.Short" ||
-          typeName == "int" || typeName == "java.lang.Integer" ||
-          typeName == "char" || typeName == "java.lang.Character" ||
-          typeName == "long" || typeName == "java.lang.Long") {
-        return expr + ".class == Fixnum";
-      }
-      if (typeName == "float" || typeName == "java.lang.Float" ||
-          typeName == "double" || typeName == "java.lang.Double") {
-        return expr + ".class == Float";
-      }
-      if (typeName == "boolean" || typeName == "java.lang.Boolean") {
-        return "(" + expr + ".class == TrueClass || " + expr + ".class == FalseClass)";
-      }
-    } else if (kind == CLASS_OBJECT) {
-      return "(" + expr + ".class == String  || " + expr + ".class == Hash || " + expr + ".class == Array || "
-      + expr + ".class == NilClass || " + expr + ".class == TrueClass || " + expr + ".class == FalseClass || "
-      + expr + ".class == Fixnum || " + expr + ".class == Float)";
-    } else if (kind == CLASS_API) {
-      return expr + ".class.method_defined?(:j_del)";
-    } else if (kind == CLASS_HANDLER) {
-      return expr + ".class == Proc";
-    } else if (kind == CLASS_DATA_OBJECT || kind == CLASS_JSON_OBJECT) {
-      return expr + ".class == Hash";
-    } else if (kind == CLASS_JSON_ARRAY) {
-      return expr + ".class == Array";
-    } else if (kind == CLASS_LIST) {
-      return expr + ".class == Array";
-    } else if (kind == CLASS_SET) {
-      return expr + ".class == Set";
-    } else if (kind == CLASS_MAP) {
-      return expr + ".class == Hash";
-    }
-    return "false";
-  }
-
-  /*
-   * Returns the method call for a given method.
-   * @param method the called method
-   * @param params the parameter names to use
-   */
-  def old_genMethodCall(method,params) {
-    var args = "(";
-    var signature = "(:" + method.getName() + ", [";
-    var index = 1;
-    if (method.params.size() > 0) {
-      for (param : method.params) {
-        if (param != method.params[0]) {
-          args += ",";
-          signature += ",";
-        }
-        args += genConvParam(param.type, params[index - 1]);
-        signature += genJavaClassFqn(param.type) + ".java_class";
-        index += 1;
-      }
-    }
-    args += ")";
-    signature += "])";
-    /*
-    return "(Java::IoVertxLangRuby::Helper.fixJavaMethod(" + (method.staticMethod ? genJavaClassFqn(type) : "@j_del") +
-       ".java_class.declared_method" + signature +
-       ")).invoke" + args;
-    */
-    return (method.staticMethod ? genJavaClassFqn(type) : "@j_del") + ".java_method" + signature + ".call" + args;
   }
 
   def genConvParam(type, expr) {
     var kind = type.kind;
     if (kind.basic) {
       var sname = type.simpleName;
-      if (sname == 'int' || sname == 'short' || sname == 'float' || sname == 'char') {
-        return '(' + sname + ')' + expr;
-      } else if (sname == 'Boolean') {
-        return expr + '.booleanValue()';
-      } else if (sname == 'Byte') {
-        return expr + '.byteValue()';
-      } else if (sname == 'Short') {
-        return '(short)' + expr + '.longValue()';
-      } else if (sname == 'Integer') {
-        return '(int)' + expr + '.longValue()';
-      } else if (sname == 'Long') {
-        return expr + '.longValue()';
-      } else if (sname == 'Float') {
-        return '(float)' + expr + '.doubleValue()';
-      } else if (sname == 'Double') {
-        return expr + '.doubleValue()';
-      } else if (sname == 'Character') {
-        return '(char)' + expr + '.intValue()';
-      } else if (sname == 'String') {
-        return expr + ".toString()";
+      if (kind == CLASS_PRIMITIVE) {
+        if (sname == 'int' || sname == 'short' || sname == 'float' || sname == 'char') {
+          return '(' + sname + ')' + expr;
+        }
+        return expr;
+      } else {
+       return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName + '.safeConvert(' + expr + ')';
       }
-      return expr;
     } else if (kind.json) {
        return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName + '.convert(' + expr + ')';
     } else if (kind == CLASS_HANDLER) {
@@ -279,12 +30,24 @@
         var resultType = eventType.args[0];
         var resultKind = resultType.kind;
         var adapterType = resultType.erased;
-        return 'new io.vertx.lang.ceylon.AsyncResultAdapter<' + adapterType.name + '>(' + expr + ') { public Object toCeylon(' + adapterType.name + ' event) { return ' + genConvReturn(adapterType, 'event') + '; } }';
+        return expr + ' == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<' + adapterType.name + '>(' + expr + ') {\n' +
+        '      public Object toCeylon(' + adapterType.name + ' event) {\n' +
+        '        return ' + genConvReturn(adapterType, 'event') + ';\n' +
+        '      }\n' +
+        '    }';
       } else if (eventKind == CLASS_VOID) {
         /* Special case */
-        return 'new ' + type.erased.name + '() { public void handle(' + type.erased.args[0].name + ' event) { ' + expr + '.$call$(); } }';
+        return expr + ' == null ? null : new ' + type.erased.name + '() {\n' +
+        '      public void handle(' + type.erased.args[0].name + ' event) {\n' +
+        '        ' + expr + '.$call$();\n' +
+        '      }\n' +
+        '    }';
       } else {
-        return 'new ' + type.erased.name + '() { public void handle(' + type.erased.args[0].name + ' event) { ' + expr + '.$call$((Object)' + genConvReturn(type.erased.args[0], 'event') + '); } }';
+        return expr + ' == null ? null : new ' + type.erased.name + '() {\n' +
+        '      public void handle(' + type.erased.args[0].name + ' event) {\n' +
+        '        ' + expr + '.$call$((Object)' + genConvReturn(type.erased.args[0], 'event') + ');\n' +
+        '      }\n' +
+        '    }';
       }
     } else if (kind == CLASS_API) {
       return type.raw.translateName('ceylon') + '.TO_JAVA.convert(' + expr + ')';
@@ -399,7 +162,7 @@
   }
 
   /*
-   * Returns the Ruby expression that converts a Java object to a Ruby object.
+   * Returns the Ceylon expression that converts a Java object to a Ceylon object.
    * @param type the type of the Java object
    * @param expr the expression that evaluates to the Java object
    */
@@ -410,18 +173,18 @@
       var kind = type.kind;
       if (kind.basic || kind == CLASS_THROWABLE || kind.json) {
         if (kind == CLASS_BOXED_PRIMITIVE || kind == CLASS_STRING || kind.json) {
-          return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName + '.convert(' + expr + ')';
+          return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName + '.safeConvert(' + expr + ')';
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().convert(' + expr + ')';
+        return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : 'io.vertx.lang.ceylon.ToCeylon.set';
         var typeArg = type.args[0];
         if (typeArg.kind.basic || typeArg.kind.json) {
-          return collection + '(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
+          return collection + '(' + genCeylonTypeDecl(typeArg, false).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
         } else if (typeArg.kind == CLASS_DATA_OBJECT) {
-          return collection + '(' + genCeylonTypeDecl(typeArg).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.toCeylon' + typeArg.simpleName + '_.get_())';
+          return collection + '(' + genCeylonTypeDecl(typeArg, false).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.toCeylon' + typeArg.simpleName + '_.get_())';
         } else if (typeArg.kind == CLASS_API) {
           return collection + '(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
         }
@@ -429,18 +192,18 @@
         var valArg =  type.args[1];
         return 'io.vertx.lang.ceylon.ToCeylon.map(' +
           'ceylon.language.String.$TypeDescriptor$, ' +
-          genCeylonTypeDecl(valArg).replace('::', '.') + '.$TypeDescriptor$, ' +
+          genCeylonTypeDecl(valArg, false).replace('::', '.') + '.$TypeDescriptor$, ' +
           expr + ', ' +
           'io.vertx.lang.ceylon.ToCeylon.String, ' +
           'io.vertx.lang.ceylon.ToCeylon.' + valArg.simpleName + ')';
       } else if (kind == CLASS_API) {
-        return type.raw.translateName('ceylon') + '.TO_CEYLON.convert(' + expr + ')';
+        return type.raw.translateName('ceylon') + '.TO_CEYLON.safeConvert(' + expr + ')';
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
         if (type.gen) {
-          return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().convert(' + expr + ')';
+          return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().safeConvert(' + expr + ')';
         } else {
           return 'new ceylon.language.String(' + expr + '.name())';
         }
@@ -537,16 +300,16 @@
   /*
    * Generate Ceylon type declaration.
    */
-  def genCeylonTypeDecl(type) {
+  def genCeylonTypeDecl(type, wantNullable) {
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = type.raw.translatePackageName('ceylon') + "::" + type.simpleName;
       if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
-        decl = genCeylonTypeDecl(type.raw);
+        decl = genCeylonTypeDecl(type.raw, wantNullable);
         var sep = '<';
         for (typeArg : type.args) {
-          decl += sep + genCeylonTypeDecl(typeArg);
+          decl += sep + genCeylonTypeDecl(typeArg, wantNullable);
           sep = ',';
         }
         decl += '>';
@@ -601,10 +364,10 @@
         if (result.kind == CLASS_VOID) {
           decl = 'ceylon.language::Anything(ceylon.language::Throwable?)';
         } else {
-          decl = 'ceylon.language::Anything(ceylon.language::Throwable|' + genCeylonTypeDecl(result) + ')';
+          decl = 'ceylon.language::Anything(ceylon.language::Throwable|' + genCeylonTypeDecl(result, wantNullable) + ')';
         }
       } else {
-        decl = 'ceylon.language::Anything(' + genCeylonTypeDecl(type.args[0]) + ')';
+        decl = 'ceylon.language::Anything(' + genCeylonTypeDecl(type.args[0], wantNullable) + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
       decl = 'ceylon.language::Throwable';
@@ -613,11 +376,11 @@
     } else if (kind == CLASS_VOID) {
       decl = 'ceylon.language::Anything';
     } else if (kind == CLASS_SET) {
-      decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0]) + '>';
+      decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0], wantNullable) + '>';
     } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0]) + '>';
+      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0], wantNullable) + '>';
     } else if (kind == CLASS_MAP) {
-      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0]) + ',' + genCeylonTypeDecl(type.args[1]) + '>';
+      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0], wantNullable) + ',' + genCeylonTypeDecl(type.args[1], wantNullable) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
       decl = 'ceylon.json::Object';
     } else if (kind == CLASS_JSON_ARRAY) {
@@ -626,6 +389,12 @@
       if (type instanceof io.vertx.codegen.TypeInfo$Void) {
         decl = 'ceylon.language::Anything';
       }
+    }
+    if (type.nullable) {
+      System.out.println("NULLABLE " + type);
+    }
+    if (wantNullable && type.nullable) {
+      decl += "?";
     }
     return decl;
   }
@@ -920,12 +689,12 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 @includeNamed{'genTypeParamsDesc';params=method.typeParams;indent='  '}
 @end{}
   @DocAnnotation$annotation$(description = "todo")\n
-  @TypeInfo("@{genCeylonTypeDecl(method.returnType)}")\n
+  @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
   @if{concrete}public @end{}
 @if{method.staticMethod}static @end{}
 @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
 @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type)}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 	@if{concrete} {\n
 		@includeNamed{'genMethodBody';indent='    '}
   }\n

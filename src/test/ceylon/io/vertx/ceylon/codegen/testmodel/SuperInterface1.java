@@ -57,7 +57,7 @@ public class SuperInterface1 {
     double arg_5 = d;
     boolean arg_6 = bool;
     char arg_7 = (char)ch;
-    java.lang.String arg_8 = str.toString();
+    java.lang.String arg_8 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     delegate.superMethodWithBasicParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
   }
 

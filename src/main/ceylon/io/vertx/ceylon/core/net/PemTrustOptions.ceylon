@@ -26,7 +26,7 @@ shared class PemTrustOptions(
   }
 }
 
-shared object toJavaPemTrustOptions satisfies Converter<PemTrustOptions, PemTrustOptions_> {
+shared object toJavaPemTrustOptions extends Converter<PemTrustOptions, PemTrustOptions_>() {
   shared actual PemTrustOptions_ convert(PemTrustOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

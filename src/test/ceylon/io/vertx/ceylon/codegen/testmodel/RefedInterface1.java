@@ -40,7 +40,7 @@ public class RefedInterface1 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString() {
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.getString());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString());
     return ret;
   }
 
@@ -48,8 +48,8 @@ public class RefedInterface1 {
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1")
   public RefedInterface1 setString(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
-    java.lang.String arg_0 = str.toString();
-    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(delegate.setString(arg_0));
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
+    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(delegate.setString(arg_0));
     return this;
   }
 

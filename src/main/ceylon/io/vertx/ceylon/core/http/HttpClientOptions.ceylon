@@ -100,7 +100,7 @@ shared class HttpClientOptions(
   }
 }
 
-shared object toJavaHttpClientOptions satisfies Converter<HttpClientOptions, HttpClientOptions_> {
+shared object toJavaHttpClientOptions extends Converter<HttpClientOptions, HttpClientOptions_>() {
   shared actual HttpClientOptions_ convert(HttpClientOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

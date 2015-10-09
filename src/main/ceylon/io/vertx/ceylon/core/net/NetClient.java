@@ -54,9 +54,13 @@ public class NetClient implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> connectHandler) {
     int arg_0 = (int)port;
-    java.lang.String arg_1 = host.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetSocket>(connectHandler) { public Object toCeylon(io.vertx.core.net.NetSocket event) { return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.convert(event); } };
-    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.convert(delegate.connect(arg_0, arg_1, arg_2));
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = connectHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetSocket>(connectHandler) {
+      public Object toCeylon(io.vertx.core.net.NetSocket event) {
+        return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(event);
+      }
+    };
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.safeConvert(delegate.connect(arg_0, arg_1, arg_2));
     return this;
   }
 

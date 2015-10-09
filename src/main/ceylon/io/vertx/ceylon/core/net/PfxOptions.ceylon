@@ -31,7 +31,7 @@ shared class PfxOptions(
   }
 }
 
-shared object toJavaPfxOptions satisfies Converter<PfxOptions, PfxOptions_> {
+shared object toJavaPfxOptions extends Converter<PfxOptions, PfxOptions_>() {
   shared actual PfxOptions_ convert(PfxOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

@@ -66,7 +66,11 @@ public class Context {
   @TypeInfo("ceylon.language::Anything")
   public void runOnContext(
     final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> action) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = new io.vertx.core.Handler<java.lang.Void>() { public void handle(java.lang.Void event) { action.$call$(); } };
+    io.vertx.core.Handler<java.lang.Void> arg_0 = action == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
+      public void handle(java.lang.Void event) {
+        action.$call$();
+      }
+    };
     delegate.runOnContext(arg_0);
   }
 
@@ -79,9 +83,17 @@ public class Context {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() { public void handle(io.vertx.core.Future<java.lang.Object> event) { blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.convert(event)); } };
+    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
+      public void handle(io.vertx.core.Future<java.lang.Object> event) {
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+      }
+    };
     boolean arg_1 = ordered;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+      public Object toCeylon(java.lang.Object event) {
+        return io.vertx.lang.ceylon.ToCeylon.object(event);
+      }
+    };
     delegate.executeBlocking(arg_0, arg_1, arg_2);
   }
 
@@ -93,22 +105,30 @@ public class Context {
   public <T> void executeBlocking(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() { public void handle(io.vertx.core.Future<java.lang.Object> event) { blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.convert(event)); } };
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) { public Object toCeylon(java.lang.Object event) { return io.vertx.lang.ceylon.ToCeylon.object(event); } };
+    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
+      public void handle(io.vertx.core.Future<java.lang.Object> event) {
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+      public Object toCeylon(java.lang.Object event) {
+        return io.vertx.lang.ceylon.ToCeylon.object(event);
+      }
+    };
     delegate.executeBlocking(arg_0, arg_1);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String deploymentID() {
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.deploymentID());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.deploymentID());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.json::Object")
+  @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object config() {
-    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.convert(delegate.config());
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.config());
     return ret;
   }
 
@@ -144,10 +164,10 @@ public class Context {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T")
+  @TypeInfo("T?")
   public <T> T get(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
-    java.lang.String arg_0 = key.toString();
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
@@ -157,7 +177,7 @@ public class Context {
   public void put(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
     final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object value) {
-    java.lang.String arg_0 = key.toString();
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.put(arg_0, arg_1);
   }
@@ -166,7 +186,7 @@ public class Context {
   @TypeInfo("ceylon.language::Boolean")
   public boolean remove(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
-    java.lang.String arg_0 = key.toString();
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     boolean ret = delegate.remove(arg_0);
     return ret;
   }
@@ -174,7 +194,7 @@ public class Context {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx owner() {
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.convert(delegate.owner());
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(delegate.owner());
     return ret;
   }
 

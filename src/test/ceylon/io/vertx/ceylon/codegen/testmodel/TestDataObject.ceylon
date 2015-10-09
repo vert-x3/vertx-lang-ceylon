@@ -33,7 +33,7 @@ shared class TestDataObject(
   }
 }
 
-shared object toCeylonTestDataObject satisfies Converter<TestDataObject_, TestDataObject> {
+shared object toCeylonTestDataObject extends Converter<TestDataObject_, TestDataObject>() {
   shared actual TestDataObject convert(TestDataObject_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
@@ -48,7 +48,7 @@ shared object toCeylonTestDataObject satisfies Converter<TestDataObject_, TestDa
   }
 }
 
-shared object toJavaTestDataObject satisfies Converter<TestDataObject, TestDataObject_> {
+shared object toJavaTestDataObject extends Converter<TestDataObject, TestDataObject_>() {
   shared actual TestDataObject_ convert(TestDataObject src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

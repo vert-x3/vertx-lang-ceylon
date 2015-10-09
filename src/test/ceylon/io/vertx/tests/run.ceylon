@@ -1,13 +1,13 @@
 import io.vertx.ceylon.codegen.testmodel {
-  TestInterface, RefedInterface1, RefedInterface2, TestDataObject,
+  TestInterface, TestNullable, RefedInterface1, RefedInterface2, TestDataObject,
   Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
   GenericRefedInterface, TestGenEnum, \iMIKE, \iBOB
 }
 import io.vertx.codegen.testmodel {
-  TestInterfaceImpl, RefedInterface1Impl
+  TestInterfaceImpl, RefedInterface1Impl, TestNullableImpl
 }
 import ceylon.test {
-  test, assertEquals, assertTrue
+  test, assertEquals, assertTrue, assertNull, assertNotNull
 }
 import ceylon.json {
   JsonObject=Object, JsonArray=Array
@@ -17,6 +17,7 @@ import ceylon.collection {
 }
 
 TestInterface obj = TestInterface(TestInterfaceImpl());
+TestNullable testNullable = TestNullable(TestNullableImpl());
 
 Comparison comparingRefedInterface1(RefedInterface1 x, RefedInterface1 y) {
   return x.getString().compare(y.getString());
@@ -1046,6 +1047,131 @@ shared test void testMethodWithEnumReturn() {
 shared test void testMethodWithGenEnumReturn() {
   value ret = obj.methodWithGenEnumReturn("BOB");
   assertEquals(ret, \iBOB);
+}
+
+shared test void testMethodWithNullableStringParam() {
+  testNullable.methodWithNullableStringParam(null, true);
+  testNullable.methodWithNullableStringParam("abc", false);
+}
+
+shared test void testMethodWithNullableStringHandler() {
+  variable String? ret = null;
+  void callback(String? val) {
+    ret = val;
+  }
+  testNullable.methodWithNullableStringHandler(true, callback);
+  assertEquals("the_string_value", ret);
+  testNullable.methodWithNullableStringHandler(false, callback);
+  assertNull(ret);
+}
+
+shared test void testMethodWithNullableStringHandlerAsyncResult() {
+  variable Throwable|String? ret = null;
+  void callback(Throwable|String? val) {
+    ret = val;
+  }
+  testNullable.methodWithNullableStringHandlerAsyncResult(true, callback);
+  assertEquals("the_string_value", ret);
+  testNullable.methodWithNullableStringHandlerAsyncResult(false, callback);
+  assertNull(ret);
+}
+
+shared test void testMethodWithNullableStringReturn() {
+  String? ret1 = testNullable.methodWithNullableStringReturn(true);
+  assertEquals("the_string_value", ret1);
+  String? ret2 = testNullable.methodWithNullableStringReturn(false);
+  assertNull(ret2);
+}
+
+shared test void testMethodWithListNullableStringParam() {
+  testNullable.methodWithListNullableStringParam(ArrayList { "first", null, "third" });
+}
+
+shared test void testMethodWithListNullableStringHandler() {
+  variable Integer count = 0;
+  void f(List<String?> l) {
+    assertEquals(l, ArrayList { "first", null, "third" });
+    count++;
+  }
+  testNullable.methodWithListNullableStringHandler(f);
+  assertEquals(count, 1);
+}
+
+shared test void testMethodWithListNullableStringHandlerAsyncResult() {
+  variable Integer count = 0;
+  void f(Throwable|List<String?> l) {
+    assert(is List<String?> l);
+    assertEquals(l, ArrayList { "first", null, "third" });
+    count++;
+  }
+  testNullable.methodWithListNullableStringHandler(f);
+  assertEquals(count, 1);
+}
+
+shared test void testMethodWithListNullableStringReturn() {
+  assertEquals(testNullable.methodWithListNullableStringReturn(), ArrayList { "first", null, "third" });
+}
+
+shared test void testMethodWithNullableHandler() {
+  testNullable.methodWithNullableHandler(null, true);
+  variable Integer count = 0;
+  void f(String s) {
+    assertEquals(s, "the_string_value");
+    count++;
+  }
+  testNullable.methodWithNullableHandler(f, false);
+  assertEquals(count, 1);
+}
+
+shared test void testMethodWithNullableHandlerAsyncResult() {
+  testNullable.methodWithNullableHandlerAsyncResult(null, true);
+  variable Integer count = 0;
+  void f(Throwable|String s) {
+    assertEquals(s, "the_string_value");
+    count++;
+  }
+  testNullable.methodWithNullableHandlerAsyncResult(f, false);
+  assertEquals(count, 1);
+}
+
+shared test void testMethodWithGenericNullableStringParam() {
+  GenericRefedInterface<String?> refed = testNullable.methodWithGenericNullableStringReturn<String>();
+  testNullable.methodWithGenericNullableStringParam("wibble", refed);
+}
+
+shared test void methodWithGenericNullableStringHandler() {
+  variable Integer count = 0;
+  void f(GenericRefedInterface<String?> refed) {
+    refed.\ivalue = "wibble";
+    assertEquals(refed.\ivalue, "wibble");
+    refed.\ivalue = null;
+    assertEquals(refed.\ivalue, null);
+    count++;
+  }
+  testNullable.methodWithGenericNullableStringHandler<String>(f);
+  assertEquals(count, 1);
+}
+
+shared test void methodWithGenericNullableStringHandlerAsyncResult() {
+  variable Integer count = 0;
+  void f(Throwable|GenericRefedInterface<String?> refed) {
+    assert(is GenericRefedInterface<String?> refed);
+    refed.\ivalue = "wibble";
+    assertEquals(refed.\ivalue, "wibble");
+    refed.\ivalue = null;
+    assertEquals(refed.\ivalue, null);
+    count++;
+  }
+  testNullable.methodWithGenericNullableStringHandler<String>(f);
+  assertEquals(count, 1);
+}
+
+shared test void testMethodWithGenericNullableStringReturn() {
+  GenericRefedInterface<String?> refed = testNullable.methodWithGenericNullableStringReturn<String>();
+  refed.\ivalue = "wibble";
+  assertEquals(refed.\ivalue, "wibble");
+  refed.\ivalue = null;
+  assertEquals(refed.\ivalue, null);
 }
 
 void assertFloatEquals(Anything actual, Float expected) {

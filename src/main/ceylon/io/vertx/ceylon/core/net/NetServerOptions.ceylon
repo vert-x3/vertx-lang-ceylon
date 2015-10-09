@@ -80,7 +80,7 @@ shared class NetServerOptions(
   }
 }
 
-shared object toJavaNetServerOptions satisfies Converter<NetServerOptions, NetServerOptions_> {
+shared object toJavaNetServerOptions extends Converter<NetServerOptions, NetServerOptions_>() {
   shared actual NetServerOptions_ convert(NetServerOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

@@ -88,7 +88,7 @@ shared class HttpServerOptions(
   }
 }
 
-shared object toJavaHttpServerOptions satisfies Converter<HttpServerOptions, HttpServerOptions_> {
+shared object toJavaHttpServerOptions extends Converter<HttpServerOptions, HttpServerOptions_>() {
   shared actual HttpServerOptions_ convert(HttpServerOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

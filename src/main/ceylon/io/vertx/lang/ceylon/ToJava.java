@@ -55,7 +55,7 @@ public class ToJava {
         break;
       }
       C elt = (C) next;
-      to.add(converter.convert(elt));
+      to.add(converter.safeConvert(elt));
     }
   }
 

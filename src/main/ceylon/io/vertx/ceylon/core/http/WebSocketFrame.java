@@ -47,7 +47,7 @@ public class WebSocketFrame {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -56,9 +56,9 @@ public class WebSocketFrame {
   public static WebSocketFrame textFrame(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
-    java.lang.String arg_0 = str.toString();
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.textFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(io.vertx.core.http.WebSocketFrame.textFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -69,7 +69,7 @@ public class WebSocketFrame {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     boolean arg_1 = isFinal;
-    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.convert(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
     return ret;
   }
 
@@ -100,7 +100,7 @@ public class WebSocketFrame {
     if (cached_textData != null) {
       return cached_textData;
     }
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.convert(delegate.textData());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.textData());
      cached_textData = ret;
     return ret;
   }
@@ -111,7 +111,7 @@ public class WebSocketFrame {
     if (cached_binaryData != null) {
       return cached_binaryData;
     }
-    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.convert(delegate.binaryData());
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.binaryData());
      cached_binaryData = ret;
     return ret;
   }

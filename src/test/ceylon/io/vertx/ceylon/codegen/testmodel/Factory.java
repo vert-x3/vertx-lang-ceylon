@@ -42,8 +42,12 @@ public class Factory {
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::ConcreteHandlerUserType")
   public static ConcreteHandlerUserType createConcreteHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.codegen.testmodel::RefedInterface1)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() { public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) { handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(event)); } };
-    ConcreteHandlerUserType ret = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType.TO_CEYLON.convert(io.vertx.codegen.testmodel.Factory.createConcreteHandlerUserType(arg_0));
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
+      public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {
+        handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(event));
+      }
+    };
+    ConcreteHandlerUserType ret = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType.TO_CEYLON.safeConvert(io.vertx.codegen.testmodel.Factory.createConcreteHandlerUserType(arg_0));
     return ret;
   }
 
@@ -51,8 +55,12 @@ public class Factory {
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::AbstractHandlerUserType")
   public static AbstractHandlerUserType createAbstractHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.codegen.testmodel::RefedInterface1)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() { public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) { handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(event)); } };
-    AbstractHandlerUserType ret = io.vertx.ceylon.codegen.testmodel.AbstractHandlerUserType.TO_CEYLON.convert(io.vertx.codegen.testmodel.Factory.createAbstractHandlerUserType(arg_0));
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
+      public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {
+        handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(event));
+      }
+    };
+    AbstractHandlerUserType ret = io.vertx.ceylon.codegen.testmodel.AbstractHandlerUserType.TO_CEYLON.safeConvert(io.vertx.codegen.testmodel.Factory.createAbstractHandlerUserType(arg_0));
     return ret;
   }
 
@@ -60,8 +68,12 @@ public class Factory {
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::ConcreteHandlerUserTypeExtension")
   public static ConcreteHandlerUserTypeExtension createConcreteHandlerUserTypeExtension(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.codegen.testmodel::RefedInterface1)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() { public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) { handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.convert(event)); } };
-    ConcreteHandlerUserTypeExtension ret = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserTypeExtension.TO_CEYLON.convert(io.vertx.codegen.testmodel.Factory.createConcreteHandlerUserTypeExtension(arg_0));
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
+      public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {
+        handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(event));
+      }
+    };
+    ConcreteHandlerUserTypeExtension ret = io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserTypeExtension.TO_CEYLON.safeConvert(io.vertx.codegen.testmodel.Factory.createConcreteHandlerUserTypeExtension(arg_0));
     return ret;
   }
 

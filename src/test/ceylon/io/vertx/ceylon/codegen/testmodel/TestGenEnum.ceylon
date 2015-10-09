@@ -9,7 +9,7 @@ shared object \iBOB extends TestGenEnum("BOB") {}
 shared object \iMIKE extends TestGenEnum("MIKE") {}
 shared object \iLELAND extends TestGenEnum("LELAND") {}
 
-shared object toJavaTestGenEnum satisfies Converter<TestGenEnum, TestGenEnum_> {
+shared object toJavaTestGenEnum extends Converter<TestGenEnum, TestGenEnum_>() {
   shared actual TestGenEnum_ convert(TestGenEnum src) {
     switch (src)    case(\iLAURA) { return TestGenEnum_.\iLAURA; }
     case(\iBOB) { return TestGenEnum_.\iBOB; }
@@ -18,7 +18,7 @@ shared object toJavaTestGenEnum satisfies Converter<TestGenEnum, TestGenEnum_> {
   }
 }
 
-shared object toCeylonTestGenEnum satisfies Converter<TestGenEnum_, TestGenEnum> {
+shared object toCeylonTestGenEnum extends Converter<TestGenEnum_, TestGenEnum>() {
   shared actual TestGenEnum convert(TestGenEnum_ src) {
     if (src == TestGenEnum_.\iLAURA) {
       return \iLAURA;

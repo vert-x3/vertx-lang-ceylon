@@ -70,7 +70,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 
 @if{isClass && jsonifiable}
 \n
-shared object toCeylon@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}> {\n
+shared object toCeylon@{type.raw.simpleName} extends Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}>() {\n
   shared actual @{type.raw.simpleName} convert(@{type.raw.simpleName}_ src) {\n
     value json = parse(src.toJson().string);\n
     assert(is JsonObject json);\n
@@ -112,7 +112,7 @@ shared object toCeylon@{type.raw.simpleName} satisfies Converter<@{type.raw.simp
 
 @if{isClass && concrete}
 \n
-shared object toJava@{type.raw.simpleName} satisfies Converter<@{type.raw.simpleName}, @{type.raw.simpleName}_> {\n
+shared object toJava@{type.raw.simpleName} extends Converter<@{type.raw.simpleName}, @{type.raw.simpleName}_>() {\n
   shared actual @{type.raw.simpleName}_ convert(@{type.raw.simpleName} src) {\n
     // Todo : make optimized version without json\n
     value json = JsonObject_(src.toJson().string);\n

@@ -43,7 +43,7 @@ public class ToCeylon {
       Converter<J, C> converter) {
     ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(eltTypeDesc);
     for (J javaElt : list) {
-      C ceylonElt = converter.convert(javaElt);
+      C ceylonElt = converter.safeConvert(javaElt);
       ret.add(ceylonElt);
     }
     return ret;

@@ -53,7 +53,7 @@ shared class DeploymentOptions(
   }
 }
 
-shared object toCeylonDeploymentOptions satisfies Converter<DeploymentOptions_, DeploymentOptions> {
+shared object toCeylonDeploymentOptions extends Converter<DeploymentOptions_, DeploymentOptions>() {
   shared actual DeploymentOptions convert(DeploymentOptions_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
@@ -78,7 +78,7 @@ shared object toCeylonDeploymentOptions satisfies Converter<DeploymentOptions_, 
   }
 }
 
-shared object toJavaDeploymentOptions satisfies Converter<DeploymentOptions, DeploymentOptions_> {
+shared object toJavaDeploymentOptions extends Converter<DeploymentOptions, DeploymentOptions_>() {
   shared actual DeploymentOptions_ convert(DeploymentOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

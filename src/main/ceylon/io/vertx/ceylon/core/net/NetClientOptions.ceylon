@@ -76,7 +76,7 @@ shared class NetClientOptions(
   }
 }
 
-shared object toJavaNetClientOptions satisfies Converter<NetClientOptions, NetClientOptions_> {
+shared object toJavaNetClientOptions extends Converter<NetClientOptions, NetClientOptions_>() {
   shared actual NetClientOptions_ convert(NetClientOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

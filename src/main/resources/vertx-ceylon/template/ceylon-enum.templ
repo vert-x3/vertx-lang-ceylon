@@ -13,7 +13,7 @@ shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{v
 @end{}
 
 \n
-shared object toJava@{type.simpleName} satisfies Converter<@{type.simpleName}, @{type.simpleName}_> {\n
+shared object toJava@{type.simpleName} extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
   shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
     switch (src)
 @foreach{value:values}
@@ -23,7 +23,7 @@ shared object toJava@{type.simpleName} satisfies Converter<@{type.simpleName}, @
 }\n
 
 \n
-shared object toCeylon@{type.simpleName} satisfies Converter<@{type.simpleName}_, @{type.simpleName}> {\n
+shared object toCeylon@{type.simpleName} extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
   shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
 @foreach{value:values}
     if (src == @{type.simpleName}_.@{asValidMember(value.identifier)}) {\n

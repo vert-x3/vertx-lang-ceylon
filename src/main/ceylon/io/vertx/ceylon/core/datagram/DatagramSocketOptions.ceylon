@@ -52,7 +52,7 @@ shared class DatagramSocketOptions(
   }
 }
 
-shared object toJavaDatagramSocketOptions satisfies Converter<DatagramSocketOptions, DatagramSocketOptions_> {
+shared object toJavaDatagramSocketOptions extends Converter<DatagramSocketOptions, DatagramSocketOptions_>() {
   shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

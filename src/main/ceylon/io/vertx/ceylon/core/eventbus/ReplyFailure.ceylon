@@ -8,7 +8,7 @@ shared object \iTIMEOUT extends ReplyFailure("TIMEOUT") {}
 shared object \iNO_HANDLERS extends ReplyFailure("NO_HANDLERS") {}
 shared object \iRECIPIENT_FAILURE extends ReplyFailure("RECIPIENT_FAILURE") {}
 
-shared object toJavaReplyFailure satisfies Converter<ReplyFailure, ReplyFailure_> {
+shared object toJavaReplyFailure extends Converter<ReplyFailure, ReplyFailure_>() {
   shared actual ReplyFailure_ convert(ReplyFailure src) {
     switch (src)    case(\iTIMEOUT) { return ReplyFailure_.\iTIMEOUT; }
     case(\iNO_HANDLERS) { return ReplyFailure_.\iNO_HANDLERS; }
@@ -16,7 +16,7 @@ shared object toJavaReplyFailure satisfies Converter<ReplyFailure, ReplyFailure_
   }
 }
 
-shared object toCeylonReplyFailure satisfies Converter<ReplyFailure_, ReplyFailure> {
+shared object toCeylonReplyFailure extends Converter<ReplyFailure_, ReplyFailure>() {
   shared actual ReplyFailure convert(ReplyFailure_ src) {
     if (src == ReplyFailure_.\iTIMEOUT) {
       return \iTIMEOUT;

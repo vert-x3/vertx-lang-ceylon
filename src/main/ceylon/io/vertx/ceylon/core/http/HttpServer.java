@@ -50,39 +50,47 @@ public class HttpServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream requestStream() {
-    HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.convert(delegate.requestStream());
+    HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.safeConvert(delegate.requestStream());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer requestHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest>() { public void handle(io.vertx.core.http.HttpServerRequest event) { handler.$call$((Object)io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.convert(event)); } };
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.requestHandler(arg_0));
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest>() {
+      public void handle(io.vertx.core.http.HttpServerRequest event) {
+        handler.$call$((Object)io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.safeConvert(event));
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.requestHandler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream websocketStream() {
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.convert(delegate.websocketStream());
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.websocketStream());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer websocketHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket> arg_0 = new io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket>() { public void handle(io.vertx.core.http.ServerWebSocket event) { handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.convert(event)); } };
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.websocketHandler(arg_0));
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket>() {
+      public void handle(io.vertx.core.http.ServerWebSocket event) {
+        handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(event));
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.websocketHandler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen() {
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen());
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen());
     return this;
   }
 
@@ -92,8 +100,8 @@ public class HttpServer implements Measured {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
     int arg_0 = (int)port;
-    java.lang.String arg_1 = host.toString();
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen(arg_0, arg_1));
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1));
     return this;
   }
 
@@ -104,9 +112,13 @@ public class HttpServer implements Measured {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
     int arg_0 = (int)port;
-    java.lang.String arg_1 = host.toString();
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_2 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) { public Object toCeylon(io.vertx.core.http.HttpServer event) { return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(event); } };
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen(arg_0, arg_1, arg_2));
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+      public Object toCeylon(io.vertx.core.http.HttpServer event) {
+        return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(event);
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -115,7 +127,7 @@ public class HttpServer implements Measured {
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port) {
     int arg_0 = (int)port;
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen(arg_0));
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen(arg_0));
     return this;
   }
 
@@ -125,8 +137,12 @@ public class HttpServer implements Measured {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
     int arg_0 = (int)port;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_1 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) { public Object toCeylon(io.vertx.core.http.HttpServer event) { return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(event); } };
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen(arg_0, arg_1));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+      public Object toCeylon(io.vertx.core.http.HttpServer event) {
+        return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(event);
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1));
     return this;
   }
 
@@ -134,8 +150,12 @@ public class HttpServer implements Measured {
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) { public Object toCeylon(io.vertx.core.http.HttpServer event) { return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(event); } };
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.convert(delegate.listen(arg_0));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_0 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+      public Object toCeylon(io.vertx.core.http.HttpServer event) {
+        return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(event);
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.listen(arg_0));
     return this;
   }
 
@@ -148,8 +168,12 @@ public class HttpServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) { public Object toCeylon(java.lang.Void event) { return null; } };
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)?") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
     delegate.close(arg_0);
   }
 

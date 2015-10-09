@@ -61,7 +61,7 @@ shared class OpenOptions(
   }
 }
 
-shared object toJavaOpenOptions satisfies Converter<OpenOptions, OpenOptions_> {
+shared object toJavaOpenOptions extends Converter<OpenOptions, OpenOptions_>() {
   shared actual OpenOptions_ convert(OpenOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

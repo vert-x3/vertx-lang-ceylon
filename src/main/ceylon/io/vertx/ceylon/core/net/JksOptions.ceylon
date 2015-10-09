@@ -31,7 +31,7 @@ shared class JksOptions(
   }
 }
 
-shared object toJavaJksOptions satisfies Converter<JksOptions, JksOptions_> {
+shared object toJavaJksOptions extends Converter<JksOptions, JksOptions_>() {
   shared actual JksOptions_ convert(JksOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

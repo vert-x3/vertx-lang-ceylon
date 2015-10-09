@@ -9,7 +9,7 @@ shared object \iV07 extends WebsocketVersion("V07") {}
 shared object \iV08 extends WebsocketVersion("V08") {}
 shared object \iV13 extends WebsocketVersion("V13") {}
 
-shared object toJavaWebsocketVersion satisfies Converter<WebsocketVersion, WebsocketVersion_> {
+shared object toJavaWebsocketVersion extends Converter<WebsocketVersion, WebsocketVersion_>() {
   shared actual WebsocketVersion_ convert(WebsocketVersion src) {
     switch (src)    case(\iV00) { return WebsocketVersion_.\iV00; }
     case(\iV07) { return WebsocketVersion_.\iV07; }
@@ -18,7 +18,7 @@ shared object toJavaWebsocketVersion satisfies Converter<WebsocketVersion, Webso
   }
 }
 
-shared object toCeylonWebsocketVersion satisfies Converter<WebsocketVersion_, WebsocketVersion> {
+shared object toCeylonWebsocketVersion extends Converter<WebsocketVersion_, WebsocketVersion>() {
   shared actual WebsocketVersion convert(WebsocketVersion_ src) {
     if (src == WebsocketVersion_.\iV00) {
       return \iV00;

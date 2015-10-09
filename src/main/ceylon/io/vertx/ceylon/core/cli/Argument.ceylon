@@ -20,6 +20,7 @@ shared class Argument(
   shared String? description = null,
   shared Boolean? hidden = null,
   shared Integer? index = null,
+  shared Boolean? multiValued = null,
   shared Boolean? required = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
@@ -38,6 +39,9 @@ shared class Argument(
     if (exists index) {
       json.put("index", index);
     }
+    if (exists multiValued) {
+      json.put("multiValued", multiValued);
+    }
     if (exists required) {
       json.put("required", required);
     }
@@ -45,7 +49,7 @@ shared class Argument(
   }
 }
 
-shared object toCeylonArgument satisfies Converter<Argument_, Argument> {
+shared object toCeylonArgument extends Converter<Argument_, Argument>() {
   shared actual Argument convert(Argument_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
@@ -54,6 +58,7 @@ shared object toCeylonArgument satisfies Converter<Argument_, Argument> {
     String? description = json.getStringOrNull("description");
     Boolean? hidden = json.getBooleanOrNull("hidden");
     Integer? index = json.getIntegerOrNull("index");
+    Boolean? multiValued = json.getBooleanOrNull("multiValued");
     Boolean? required = json.getBooleanOrNull("required");
     return Argument {
       argName = argName;
@@ -61,12 +66,13 @@ shared object toCeylonArgument satisfies Converter<Argument_, Argument> {
       description = description;
       hidden = hidden;
       index = index;
+      multiValued = multiValued;
       required = required;
     };
   }
 }
 
-shared object toJavaArgument satisfies Converter<Argument, Argument_> {
+shared object toJavaArgument extends Converter<Argument, Argument_>() {
   shared actual Argument_ convert(Argument src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

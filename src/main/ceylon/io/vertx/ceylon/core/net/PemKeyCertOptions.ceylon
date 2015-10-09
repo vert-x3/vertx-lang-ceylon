@@ -30,7 +30,7 @@ shared class PemKeyCertOptions(
   }
 }
 
-shared object toJavaPemKeyCertOptions satisfies Converter<PemKeyCertOptions, PemKeyCertOptions_> {
+shared object toJavaPemKeyCertOptions extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
   shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

@@ -47,7 +47,7 @@ public class Pump {
     final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.convert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.convert(ws);
-    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(io.vertx.core.streams.Pump.pump(arg_0, arg_1));
+    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1));
     return ret;
   }
 
@@ -63,7 +63,7 @@ public class Pump {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.convert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.convert(ws);
     int arg_2 = (int)writeQueueMaxSize;
-    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(io.vertx.core.streams.Pump.pump(arg_0, arg_1, arg_2));
+    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1, arg_2));
     return ret;
   }
 
@@ -72,21 +72,21 @@ public class Pump {
   public Pump setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.setWriteQueueMaxSize(arg_0));
+    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump start() {
-    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.start());
+    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(delegate.start());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump stop() {
-    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.convert(delegate.stop());
+    Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(delegate.stop());
     return this;
   }
 

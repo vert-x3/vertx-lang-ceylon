@@ -20,7 +20,7 @@ shared object \iBADSIG extends DnsResponseCode("BADSIG") {}
 shared object \iBADKEY extends DnsResponseCode("BADKEY") {}
 shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
 
-shared object toJavaDnsResponseCode satisfies Converter<DnsResponseCode, DnsResponseCode_> {
+shared object toJavaDnsResponseCode extends Converter<DnsResponseCode, DnsResponseCode_>() {
   shared actual DnsResponseCode_ convert(DnsResponseCode src) {
     switch (src)    case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
     case(\iFORMERROR) { return DnsResponseCode_.\iFORMERROR; }
@@ -40,7 +40,7 @@ shared object toJavaDnsResponseCode satisfies Converter<DnsResponseCode, DnsResp
   }
 }
 
-shared object toCeylonDnsResponseCode satisfies Converter<DnsResponseCode_, DnsResponseCode> {
+shared object toCeylonDnsResponseCode extends Converter<DnsResponseCode_, DnsResponseCode>() {
   shared actual DnsResponseCode convert(DnsResponseCode_ src) {
     if (src == DnsResponseCode_.\iNOERROR) {
       return \iNOERROR;

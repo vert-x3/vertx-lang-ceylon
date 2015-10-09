@@ -25,7 +25,7 @@ shared class MetricsOptions(
   }
 }
 
-shared object toCeylonMetricsOptions satisfies Converter<MetricsOptions_, MetricsOptions> {
+shared object toCeylonMetricsOptions extends Converter<MetricsOptions_, MetricsOptions>() {
   shared actual MetricsOptions convert(MetricsOptions_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
@@ -36,7 +36,7 @@ shared object toCeylonMetricsOptions satisfies Converter<MetricsOptions_, Metric
   }
 }
 
-shared object toJavaMetricsOptions satisfies Converter<MetricsOptions, MetricsOptions_> {
+shared object toJavaMetricsOptions extends Converter<MetricsOptions, MetricsOptions_>() {
   shared actual MetricsOptions_ convert(MetricsOptions src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

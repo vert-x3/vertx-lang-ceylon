@@ -16,9 +16,11 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.cli.Option */
 shared class Option(
   shared String? argName = null,
+  shared String? choices = null,
   shared String? defaultValue = null,
   shared String? description = null,
   shared Boolean? flag = null,
+  shared Boolean? help = null,
   shared Boolean? hidden = null,
   shared String? longName = null,
   shared Boolean? multiValued = null,
@@ -30,6 +32,9 @@ shared class Option(
     if (exists argName) {
       json.put("argName", argName);
     }
+    if (exists choices) {
+      json.put("choices", choices);
+    }
     if (exists defaultValue) {
       json.put("defaultValue", defaultValue);
     }
@@ -38,6 +43,9 @@ shared class Option(
     }
     if (exists flag) {
       json.put("flag", flag);
+    }
+    if (exists help) {
+      json.put("help", help);
     }
     if (exists hidden) {
       json.put("hidden", hidden);
@@ -61,14 +69,16 @@ shared class Option(
   }
 }
 
-shared object toCeylonOption satisfies Converter<Option_, Option> {
+shared object toCeylonOption extends Converter<Option_, Option>() {
   shared actual Option convert(Option_ src) {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
     String? argName = json.getStringOrNull("argName");
+    String? choices = json.getStringOrNull("choices");
     String? defaultValue = json.getStringOrNull("defaultValue");
     String? description = json.getStringOrNull("description");
     Boolean? flag = json.getBooleanOrNull("flag");
+    Boolean? help = json.getBooleanOrNull("help");
     Boolean? hidden = json.getBooleanOrNull("hidden");
     String? longName = json.getStringOrNull("longName");
     Boolean? multiValued = json.getBooleanOrNull("multiValued");
@@ -77,9 +87,11 @@ shared object toCeylonOption satisfies Converter<Option_, Option> {
     Boolean? singleValued = json.getBooleanOrNull("singleValued");
     return Option {
       argName = argName;
+      choices = choices;
       defaultValue = defaultValue;
       description = description;
       flag = flag;
+      help = help;
       hidden = hidden;
       longName = longName;
       multiValued = multiValued;
@@ -90,7 +102,7 @@ shared object toCeylonOption satisfies Converter<Option_, Option> {
   }
 }
 
-shared object toJavaOption satisfies Converter<Option, Option_> {
+shared object toJavaOption extends Converter<Option, Option_>() {
   shared actual Option_ convert(Option src) {
     // Todo : make optimized version without json
     value json = JsonObject_(src.toJson().string);

@@ -14,7 +14,7 @@ shared object \iTRACE extends HttpMethod("TRACE") {}
 shared object \iCONNECT extends HttpMethod("CONNECT") {}
 shared object \iPATCH extends HttpMethod("PATCH") {}
 
-shared object toJavaHttpMethod satisfies Converter<HttpMethod, HttpMethod_> {
+shared object toJavaHttpMethod extends Converter<HttpMethod, HttpMethod_>() {
   shared actual HttpMethod_ convert(HttpMethod src) {
     switch (src)    case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
     case(\iGET) { return HttpMethod_.\iGET; }
@@ -28,7 +28,7 @@ shared object toJavaHttpMethod satisfies Converter<HttpMethod, HttpMethod_> {
   }
 }
 
-shared object toCeylonHttpMethod satisfies Converter<HttpMethod_, HttpMethod> {
+shared object toCeylonHttpMethod extends Converter<HttpMethod_, HttpMethod>() {
   shared actual HttpMethod convert(HttpMethod_ src) {
     if (src == HttpMethod_.\iOPTIONS) {
       return \iOPTIONS;
