@@ -1384,6 +1384,65 @@ shared void testListNullable<T>(
   assertEquals(2, count);
 }
 
+shared test void testSetNullableByte() => testSetNullable(ArrayList { 12.byte,null,24.byte }, nullableTCK.methodWithSetNullableByteParam, nullableTCK.methodWithSetNullableByteHandler, nullableTCK.methodWithSetNullableByteHandlerAsyncResult, nullableTCK.methodWithSetNullableByteReturn);
+shared test void testSetNullableShort() => testSetNullable(ArrayList { 520,null,1040 }, nullableTCK.methodWithSetNullableShortParam, nullableTCK.methodWithSetNullableShortHandler, nullableTCK.methodWithSetNullableShortHandlerAsyncResult, nullableTCK.methodWithSetNullableShortReturn);
+shared test void testSetNullableInteger() => testSetNullable(ArrayList { 12345,null,54321 }, nullableTCK.methodWithSetNullableIntegerParam, nullableTCK.methodWithSetNullableIntegerHandler, nullableTCK.methodWithSetNullableIntegerHandlerAsyncResult, nullableTCK.methodWithSetNullableIntegerReturn);
+shared test void testSetNullableLong() => testSetNullable(ArrayList { 123456789,null,987654321 }, nullableTCK.methodWithSetNullableLongParam, nullableTCK.methodWithSetNullableLongHandler, nullableTCK.methodWithSetNullableLongHandlerAsyncResult, nullableTCK.methodWithSetNullableLongReturn);
+shared test void testSetNullableFloat() => testSetNullable(ArrayList { 1.1,null,3.3 }, nullableTCK.methodWithSetNullableFloatParam, nullableTCK.methodWithSetNullableFloatHandler, nullableTCK.methodWithSetNullableFloatHandlerAsyncResult, nullableTCK.methodWithSetNullableFloatReturn, assertFloatEquals);
+shared test void testSetNullableDouble() => testSetNullable(ArrayList { 1.11,null,3.33 }, nullableTCK.methodWithSetNullableDoubleParam, nullableTCK.methodWithSetNullableDoubleHandler, nullableTCK.methodWithSetNullableDoubleHandlerAsyncResult, nullableTCK.methodWithSetNullableDoubleReturn, assertFloatEquals);
+shared test void testSetNullableBoolean() => testSetNullable(ArrayList { true,null,false }, nullableTCK.methodWithSetNullableBooleanParam, nullableTCK.methodWithSetNullableBooleanHandler, nullableTCK.methodWithSetNullableBooleanHandlerAsyncResult, nullableTCK.methodWithSetNullableBooleanReturn);
+shared test void testSetNullableString() => testSetNullable(ArrayList { "first",null,"third" }, nullableTCK.methodWithSetNullableStringParam, nullableTCK.methodWithSetNullableStringHandler, nullableTCK.methodWithSetNullableStringHandlerAsyncResult, nullableTCK.methodWithSetNullableStringReturn);
+shared test void testSetNullableChar() => testSetNullable(ArrayList { 'F',null,'R' }, nullableTCK.methodWithSetNullableCharParam, nullableTCK.methodWithSetNullableCharHandler, nullableTCK.methodWithSetNullableCharHandlerAsyncResult, nullableTCK.methodWithSetNullableCharReturn);
+shared test void testSetNullableJsonObject() => testSetNullable(ArrayList { JsonObject { "foo"->"bar" }, null, JsonObject { "juu"->3 } }, nullableTCK.methodWithSetNullableJsonObjectParam, nullableTCK.methodWithSetNullableJsonObjectHandler, nullableTCK.methodWithSetNullableJsonObjectHandlerAsyncResult, nullableTCK.methodWithSetNullableJsonObjectReturn);
+shared test void testSetNullableJsonArray() => testSetNullable(ArrayList { JsonArray { "foo","bar" }, null, JsonArray { "juu" } }, nullableTCK.methodWithSetNullableJsonArrayParam, nullableTCK.methodWithSetNullableJsonArrayHandler, nullableTCK.methodWithSetNullableJsonArrayHandlerAsyncResult, nullableTCK.methodWithSetNullableJsonArrayReturn);
+shared test void testSetNullableApi() => testSetNullable(ArrayList { RefedInterface1(RefedInterface1Impl().setString("first")), null, RefedInterface1(RefedInterface1Impl().setString("third")) }, nullableTCK.methodWithSetNullableApiParam, nullableTCK.methodWithSetNullableApiHandler, nullableTCK.methodWithSetNullableApiHandlerAsyncResult, nullableTCK.methodWithSetNullableApiReturn, assertRefedInterface1Equals);
+shared test void testSetNullableDataObject() => testSetNullable(ArrayList { TestDataObject { foo="first"; bar=1; wibble=1.1; }, null, TestDataObject { foo="third"; bar=3; wibble=3.3; } }, nullableTCK.methodWithSetNullableDataObjectParam, nullableTCK.methodWithSetNullableDataObjectHandler, nullableTCK.methodWithSetNullableDataObjectHandlerAsyncResult, nullableTCK.methodWithSetNullableDataObjectReturn, assertTestDataObjectEquals);
+shared test void testSetNullableEnum() => testSetNullable(ArrayList { "TIM", null, "JULIEN" }, nullableTCK.methodWithSetNullableEnumParam, nullableTCK.methodWithSetNullableEnumHandler, nullableTCK.methodWithSetNullableEnumHandlerAsyncResult, nullableTCK.methodWithSetNullableEnumReturn);
+
+shared void testSetNullable<T>(
+    List<T?> expected,
+    Anything(Collection<T?>) setNullableParamFunction,
+    Anything(Anything(Collection<T?>)) setNullableHandlerFunction,
+    Anything(Anything(Collection<T?>|Throwable)) setNullableHandlerAsyncResultFunction,
+    Collection<T?>() setNullableReturnFunction,
+    Anything(Anything,Anything) check = assertEquals
+  ) {
+  void checkSet(Collection<T?> actual) {
+    assertEquals(expected.size, actual.size);
+    variable Integer count = 0;
+    for (expectedItem in expected) {
+      for (actualItem in actual) {
+        try {
+          if (exists expectedItem) {
+            check(expectedItem, actualItem);
+          } else {
+            assertNull(actualItem);
+          }
+          count++;
+          break;
+        } catch (Throwable ignore) {
+        }
+      }
+    }
+    assertEquals(expected.size, count);
+  }
+  setNullableParamFunction(expected);
+  variable Integer count = 0;
+  void a(Collection<T?> set) {
+    checkSet(set);
+    count++;
+  }
+  setNullableHandlerFunction(a);
+  void b(Collection<T?>|Throwable set) {
+    assert(is Collection<T?> set);
+    checkSet(set);
+    count++;
+  }
+  setNullableHandlerAsyncResultFunction(b);
+  checkSet(setNullableReturnFunction());
+  assertEquals(2, count);
+}
+
 void assertTestDataObjectEquals(Anything actual, Anything expected) {
   assert(is TestDataObject actual);
   assert(is TestDataObject expected);

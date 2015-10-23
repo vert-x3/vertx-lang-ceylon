@@ -3646,18 +3646,18 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Byte?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Byte> param) {
-    java.util.Set<java.lang.Byte> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Byte);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Byte?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Byte> param) {
+    java.util.Set<java.lang.Byte> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Byte);
     delegate.methodWithSetNullableByteParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Byte>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Byte>>() {
       public void handle(java.util.Set<java.lang.Byte> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte));
       }
     };
     delegate.methodWithSetNullableByteHandler(arg_0);
@@ -3666,37 +3666,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Byte> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
     };
     delegate.methodWithSetNullableByteHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Byte?>")
-  public ceylon.language.Set<ceylon.language.Byte> methodWithSetNullableByteReturn() {
-    ceylon.language.Set<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithSetNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Byte?>")
+  public ceylon.language.Collection<ceylon.language.Byte> methodWithSetNullableByteReturn() {
+    ceylon.language.Collection<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithSetNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
-    java.util.Set<java.lang.Short> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Short);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
+    java.util.Set<java.lang.Short> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Short);
     delegate.methodWithSetNullableShortParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Short>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Short>>() {
       public void handle(java.util.Set<java.lang.Short> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short));
       }
     };
     delegate.methodWithSetNullableShortHandler(arg_0);
@@ -3705,37 +3705,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Short> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
     };
     delegate.methodWithSetNullableShortHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>")
-  public ceylon.language.Set<ceylon.language.Integer> methodWithSetNullableShortReturn() {
-    ceylon.language.Set<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
+  public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableShortReturn() {
+    ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
-    java.util.Set<java.lang.Integer> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Integer);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
+    java.util.Set<java.lang.Integer> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Integer);
     delegate.methodWithSetNullableIntegerParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Integer>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Integer>>() {
       public void handle(java.util.Set<java.lang.Integer> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer));
       }
     };
     delegate.methodWithSetNullableIntegerHandler(arg_0);
@@ -3744,37 +3744,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Integer> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
     };
     delegate.methodWithSetNullableIntegerHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>")
-  public ceylon.language.Set<ceylon.language.Integer> methodWithSetNullableIntegerReturn() {
-    ceylon.language.Set<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
+  public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableIntegerReturn() {
+    ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
-    java.util.Set<java.lang.Long> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Long);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
+    java.util.Set<java.lang.Long> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Long);
     delegate.methodWithSetNullableLongParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Long>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Long>>() {
       public void handle(java.util.Set<java.lang.Long> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long));
       }
     };
     delegate.methodWithSetNullableLongHandler(arg_0);
@@ -3783,37 +3783,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Long> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
     };
     delegate.methodWithSetNullableLongHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Integer?>")
-  public ceylon.language.Set<ceylon.language.Integer> methodWithSetNullableLongReturn() {
-    ceylon.language.Set<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
+  public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableLongReturn() {
+    ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Boolean?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Boolean> param) {
-    java.util.Set<java.lang.Boolean> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Boolean);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Boolean?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Boolean> param) {
+    java.util.Set<java.lang.Boolean> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Boolean);
     delegate.methodWithSetNullableBooleanParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Boolean>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Boolean>>() {
       public void handle(java.util.Set<java.lang.Boolean> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean));
       }
     };
     delegate.methodWithSetNullableBooleanHandler(arg_0);
@@ -3822,37 +3822,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Boolean> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
     };
     delegate.methodWithSetNullableBooleanHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Boolean?>")
-  public ceylon.language.Set<ceylon.language.Boolean> methodWithSetNullableBooleanReturn() {
-    ceylon.language.Set<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithSetNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Boolean?>")
+  public ceylon.language.Collection<ceylon.language.Boolean> methodWithSetNullableBooleanReturn() {
+    ceylon.language.Collection<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithSetNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Float> param) {
-    java.util.Set<java.lang.Float> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Float);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Float> param) {
+    java.util.Set<java.lang.Float> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Float);
     delegate.methodWithSetNullableFloatParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Float>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Float>>() {
       public void handle(java.util.Set<java.lang.Float> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float));
       }
     };
     delegate.methodWithSetNullableFloatHandler(arg_0);
@@ -3861,37 +3861,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Float> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
     };
     delegate.methodWithSetNullableFloatHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Float?>")
-  public ceylon.language.Set<ceylon.language.Float> methodWithSetNullableFloatReturn() {
-    ceylon.language.Set<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>")
+  public ceylon.language.Collection<ceylon.language.Float> methodWithSetNullableFloatReturn() {
+    ceylon.language.Collection<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Float> param) {
-    java.util.Set<java.lang.Double> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Double);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Float> param) {
+    java.util.Set<java.lang.Double> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Double);
     delegate.methodWithSetNullableDoubleParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Double>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Double>>() {
       public void handle(java.util.Set<java.lang.Double> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double));
       }
     };
     delegate.methodWithSetNullableDoubleHandler(arg_0);
@@ -3900,37 +3900,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Double> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
     };
     delegate.methodWithSetNullableDoubleHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Float?>")
-  public ceylon.language.Set<ceylon.language.Float> methodWithSetNullableDoubleReturn() {
-    ceylon.language.Set<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>")
+  public ceylon.language.Collection<ceylon.language.Float> methodWithSetNullableDoubleReturn() {
+    ceylon.language.Collection<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
-    java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.String);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.String> param) {
+    java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.String);
     delegate.methodWithSetNullableStringParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.String>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.String>>() {
       public void handle(java.util.Set<java.lang.String> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String));
       }
     };
     delegate.methodWithSetNullableStringHandler(arg_0);
@@ -3939,37 +3939,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.String>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     delegate.methodWithSetNullableStringHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::String?>")
-  public ceylon.language.Set<ceylon.language.String> methodWithSetNullableStringReturn() {
-    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::String?>")
+  public ceylon.language.Collection<ceylon.language.String> methodWithSetNullableStringReturn() {
+    ceylon.language.Collection<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::Character?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Character> param) {
-    java.util.Set<java.lang.Character> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.Character);
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::Character?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Character> param) {
+    java.util.Set<java.lang.Character> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.Character);
     delegate.methodWithSetNullableCharParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<java.lang.Character>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<java.lang.Character>>() {
       public void handle(java.util.Set<java.lang.Character> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character));
       }
     };
     delegate.methodWithSetNullableCharHandler(arg_0);
@@ -3978,37 +3978,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Character> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
     };
     delegate.methodWithSetNullableCharHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::Character?>")
-  public ceylon.language.Set<ceylon.language.Character> methodWithSetNullableCharReturn() {
-    ceylon.language.Set<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithSetNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
+  @TypeInfo("ceylon.language::Collection<ceylon.language::Character?>")
+  public ceylon.language.Collection<ceylon.language.Character> methodWithSetNullableCharReturn() {
+    ceylon.language.Collection<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithSetNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.json::Object?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Object> param) {
-    java.util.Set<io.vertx.core.json.JsonObject> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.JsonObject);
+    final @TypeInfo("ceylon.language::Collection<ceylon.json::Object?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.json.Object> param) {
+    java.util.Set<io.vertx.core.json.JsonObject> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.JsonObject);
     delegate.methodWithSetNullableJsonObjectParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() {
       public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
       }
     };
     delegate.methodWithSetNullableJsonObjectHandler(arg_0);
@@ -4017,37 +4017,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
     };
     delegate.methodWithSetNullableJsonObjectHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.json::Object?>")
-  public ceylon.language.Set<ceylon.json.Object> methodWithSetNullableJsonObjectReturn() {
-    ceylon.language.Set<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithSetNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
+  @TypeInfo("ceylon.language::Collection<ceylon.json::Object?>")
+  public ceylon.language.Collection<ceylon.json.Object> methodWithSetNullableJsonObjectReturn() {
+    ceylon.language.Collection<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithSetNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.json::Array?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Array> param) {
-    java.util.Set<io.vertx.core.json.JsonArray> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.JsonArray);
+    final @TypeInfo("ceylon.language::Collection<ceylon.json::Array?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.json.Array> param) {
+    java.util.Set<io.vertx.core.json.JsonArray> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.JsonArray);
     delegate.methodWithSetNullableJsonArrayParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() {
       public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
       }
     };
     delegate.methodWithSetNullableJsonArrayHandler(arg_0);
@@ -4056,37 +4056,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
     };
     delegate.methodWithSetNullableJsonArrayHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.json::Array?>")
-  public ceylon.language.Set<ceylon.json.Array> methodWithSetNullableJsonArrayReturn() {
-    ceylon.language.Set<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithSetNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
+  @TypeInfo("ceylon.language::Collection<ceylon.json::Array?>")
+  public ceylon.language.Collection<ceylon.json.Array> methodWithSetNullableJsonArrayReturn() {
+    ceylon.language.Collection<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithSetNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiParam(
-    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<RefedInterface1> param) {
-    java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
+    final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<RefedInterface1> param) {
+    java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
     delegate.methodWithSetNullableApiParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON));
       }
     };
     delegate.methodWithSetNullableApiHandler(arg_0);
@@ -4095,37 +4095,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
       }
     };
     delegate.methodWithSetNullableApiHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>")
-  public ceylon.language.Set<RefedInterface1> methodWithSetNullableApiReturn() {
-    ceylon.language.Set<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithSetNullableApiReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
+  @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>")
+  public ceylon.language.Collection<RefedInterface1> methodWithSetNullableApiReturn() {
+    ceylon.language.Collection<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithSetNullableApiReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectParam(
-    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithSetNullableDataObjectParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
       }
     };
     delegate.methodWithSetNullableDataObjectHandler(arg_0);
@@ -4134,37 +4134,37 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
       }
     };
     delegate.methodWithSetNullableDataObjectHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject?>")
-  public ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithSetNullableDataObjectReturn() {
-    ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.set(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+  @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>")
+  public ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithSetNullableDataObjectReturn() {
+    ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumParam(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
+    final @TypeInfo("ceylon.language::Collection<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.String> param) {
+    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.setOfNullable(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithSetNullableEnumParam(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
       }
     };
     delegate.methodWithSetNullableEnumHandler(arg_0);
@@ -4173,19 +4173,19 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumHandlerAsyncResult(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
-        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
+        return io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
     };
     delegate.methodWithSetNullableEnumHandlerAsyncResult(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Set<ceylon.language::String?>")
-  public ceylon.language.Set<ceylon.language.String> methodWithSetNullableEnumReturn() {
-    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
+  @TypeInfo("ceylon.language::Collection<ceylon.language::String?>")
+  public ceylon.language.Collection<ceylon.language.String> methodWithSetNullableEnumReturn() {
+    ceylon.language.Collection<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.setOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 

@@ -69,6 +69,26 @@ public class ToCeylon {
     }
   }
 
+  public static <J, C> ceylon.language.Collection<C> setOfNullable(
+      TypeDescriptor eltTypeDesc,
+      java.util.Set<J> set,
+      Converter<J, C> converter) {
+    if (set != null) {
+      ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(TypeDescriptor.union(new TypeDescriptor[]{ceylon.language.Null.$TypeDescriptor$, eltTypeDesc}));
+      for (J javaElt : set) {
+        if (javaElt != null) {
+          C ceylonElt = converter.convert(javaElt);
+          ret.add(ceylonElt);
+        } else {
+          ret.add(null);
+        }
+      }
+      return ret;
+    } else {
+      return null;
+    }
+  }
+
   public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> map(
       TypeDescriptor keyTypeDesc,
       TypeDescriptor valTypeDesc,
