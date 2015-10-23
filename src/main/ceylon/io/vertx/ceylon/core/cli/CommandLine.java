@@ -42,7 +42,7 @@ public class CommandLine {
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public static CommandLine create(
     final @TypeInfo("io.vertx.ceylon.core.cli::CLI") @DocAnnotation$annotation$(description = "todo") CLI cli) {
-    io.vertx.core.cli.CLI arg_0 = io.vertx.ceylon.core.cli.CLI.TO_JAVA.convert(cli);
+    io.vertx.core.cli.CLI arg_0 = io.vertx.ceylon.core.cli.CLI.TO_JAVA.safeConvert(cli);
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.safeConvert(io.vertx.core.cli.CommandLine.create(arg_0));
     return ret;
   }

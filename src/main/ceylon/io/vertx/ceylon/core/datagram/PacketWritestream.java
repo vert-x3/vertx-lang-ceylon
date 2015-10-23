@@ -64,7 +64,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.write(arg_0));
     return this;
   }

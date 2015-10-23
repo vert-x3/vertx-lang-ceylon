@@ -103,7 +103,7 @@ public class MultiMap {
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap addAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
-    io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(map);
+    io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.addAll(arg_0));
     return this;
   }
@@ -123,7 +123,7 @@ public class MultiMap {
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap setAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
-    io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.convert(map);
+    io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.setAll(arg_0));
     return this;
   }

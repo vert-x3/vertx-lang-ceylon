@@ -150,7 +150,7 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(delegate.write(arg_0));
     return this;
   }
@@ -181,7 +181,7 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket writeFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame) {
-    io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.convert(frame);
+    io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.safeConvert(frame);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(delegate.writeFrame(arg_0));
     return this;
   }
@@ -199,7 +199,7 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket writeFinalBinaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(delegate.writeFinalBinaryFrame(arg_0));
     return this;
   }
@@ -208,7 +208,7 @@ public class ServerWebSocket implements WebSocketBase {
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket writeBinaryMessage(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(delegate.writeBinaryMessage(arg_0));
     return this;
   }

@@ -108,7 +108,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.write(arg_0));
     return this;
   }

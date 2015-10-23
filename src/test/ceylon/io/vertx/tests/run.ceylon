@@ -17,7 +17,7 @@ import ceylon.collection {
 }
 
 TestInterface obj = TestInterface(TestInterfaceImpl());
-NullableTCK testNullable = NullableTCK(NullableTCKImpl());
+NullableTCK nullableTCK = NullableTCK(NullableTCKImpl());
 
 Comparison comparingRefedInterface1(RefedInterface1 x, RefedInterface1 y) {
   return x.getString().compare(y.getString());
@@ -1051,6 +1051,57 @@ shared test void testMethodWithGenEnumReturn() {
   assertEquals(ret, \iBOB);
 }
 
+shared test void testNullableByte() => testNullable(67.byte, nullableTCK.methodWithNullableByteParam, nullableTCK.methodWithNullableByteHandler, nullableTCK.methodWithNullableByteHandlerAsyncResult, nullableTCK.methodWithNullableByteReturn);
+shared test void testNullableShort() => testNullable(1024, nullableTCK.methodWithNullableShortParam, nullableTCK.methodWithNullableShortHandler, nullableTCK.methodWithNullableShortHandlerAsyncResult, nullableTCK.methodWithNullableShortReturn);
+shared test void testNullableInteger() => testNullable(1234567, nullableTCK.methodWithNullableIntegerParam, nullableTCK.methodWithNullableIntegerHandler, nullableTCK.methodWithNullableIntegerHandlerAsyncResult, nullableTCK.methodWithNullableIntegerReturn);
+shared test void testNullableLong() => testNullable(9876543210, nullableTCK.methodWithNullableLongParam, nullableTCK.methodWithNullableLongHandler, nullableTCK.methodWithNullableLongHandlerAsyncResult, nullableTCK.methodWithNullableLongReturn);
+shared test void testNullableFloat() => testNullable(3.14, nullableTCK.methodWithNullableFloatParam, nullableTCK.methodWithNullableFloatHandler, nullableTCK.methodWithNullableFloatHandlerAsyncResult, nullableTCK.methodWithNullableFloatReturn, assertFloatEquals);
+shared test void testNullableDouble() => testNullable(3.1415926, nullableTCK.methodWithNullableDoubleParam, nullableTCK.methodWithNullableDoubleHandler, nullableTCK.methodWithNullableDoubleHandlerAsyncResult, nullableTCK.methodWithNullableDoubleReturn);
+shared test void testNullableBoolean() => testNullable(true, nullableTCK.methodWithNullableBooleanParam, nullableTCK.methodWithNullableBooleanHandler, nullableTCK.methodWithNullableBooleanHandlerAsyncResult, nullableTCK.methodWithNullableBooleanReturn);
+shared test void testNullableString() => testNullable("the_string_value", nullableTCK.methodWithNullableStringParam, nullableTCK.methodWithNullableStringHandler, nullableTCK.methodWithNullableStringHandlerAsyncResult, nullableTCK.methodWithNullableStringReturn);
+shared test void testNullableChar() => testNullable('f', nullableTCK.methodWithNullableCharParam, nullableTCK.methodWithNullableCharHandler, nullableTCK.methodWithNullableCharHandlerAsyncResult, nullableTCK.methodWithNullableCharReturn);
+shared test void testNullableJsonObject() => testNullable(JsonObject { "foo"->"wibble", "bar"->3 }, nullableTCK.methodWithNullableJsonObjectParam, nullableTCK.methodWithNullableJsonObjectHandler, nullableTCK.methodWithNullableJsonObjectHandlerAsyncResult, nullableTCK.methodWithNullableJsonObjectReturn);
+shared test void testNullableJsonArray() => testNullable(JsonArray { "one","two","three" }, nullableTCK.methodWithNullableJsonArrayParam, nullableTCK.methodWithNullableJsonArrayHandler, nullableTCK.methodWithNullableJsonArrayHandlerAsyncResult, nullableTCK.methodWithNullableJsonArrayReturn);
+shared test void testNullableApi() => testNullable(RefedInterface1(RefedInterface1Impl().setString("lovely_dae")), nullableTCK.methodWithNullableApiParam, nullableTCK.methodWithNullableApiHandler, nullableTCK.methodWithNullableApiHandlerAsyncResult, nullableTCK.methodWithNullableApiReturn, assertRefedInterface1Equals);
+shared test void testNullableDataObject() => testNullable(TestDataObject { foo="foo_value"; bar=12345; wibble=3.5; }, nullableTCK.methodWithNullableDataObjectParam, nullableTCK.methodWithNullableDataObjectHandler, nullableTCK.methodWithNullableDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableDataObjectReturn, assertTestDataObjectEquals);
+shared test void testNullableEnum() => testNullable("TIM", nullableTCK.methodWithNullableEnumParam, nullableTCK.methodWithNullableEnumHandler, nullableTCK.methodWithNullableEnumHandlerAsyncResult, nullableTCK.methodWithNullableEnumReturn);
+
+shared void testNullable<T>(
+    T expected,
+    Anything(Boolean,T?) nullableParamFunction,
+    Anything(Boolean,Anything(T?)) nullableHandlerFunction,
+    Anything(Boolean,Anything(T?|Throwable)) nullableHandlerAsyncResultFunction,
+    T?(Boolean) nullableReturnFunction,
+    Anything(Anything,Anything) check = assertEquals
+    ) {
+  nullableParamFunction(true, null);
+  nullableParamFunction(false, expected);
+  variable Integer count = 0;
+  void a(T? val) {
+    assertNull(val);
+    count++;
+  }
+  nullableHandlerFunction(false, a);
+  void b(T? val) {
+    check(expected, val);
+    count++;
+  }
+  nullableHandlerFunction(true, b);
+  void c(T?|Throwable val) {
+    assertNull(val);
+    count++;
+  }
+  nullableHandlerAsyncResultFunction(false, c);
+  void d(T?|Throwable val) {
+    check(expected, val);
+    count++;
+  }
+  nullableHandlerAsyncResultFunction(true, d);
+  assertNull(nullableReturnFunction(false));
+  check(expected, nullableReturnFunction(true));
+  assertEquals(4, count);
+}
+
 /*
 shared test void testMethodWithNullableStringParam() {
   testNullable.methodWithNullableStringParam(null, true);
@@ -1178,8 +1229,23 @@ shared test void testMethodWithGenericNullableStringReturn() {
 }
 */
 
-void assertFloatEquals(Anything actual, Float expected) {
+void assertTestDataObjectEquals(Anything actual, Anything expected) {
+  assert(is TestDataObject actual);
+  assert(is TestDataObject expected);
+  assertEquals(actual.foo, expected.foo);
+  assertEquals(actual.bar, expected.bar);
+  assertEquals(actual.wibble, expected.wibble);
+}
+
+void assertRefedInterface1Equals(Anything actual, Anything expected) {
+  assert(is RefedInterface1 actual);
+  assert(is RefedInterface1 expected);
+  assertEquals(actual.getString(), expected.getString());
+}
+
+void assertFloatEquals(Anything actual, Anything expected) {
   assert(is Float actual);
+  assert(is Float expected);
   variable value diff = expected - actual;
   if (diff < 0.float) {
     diff -= diff;

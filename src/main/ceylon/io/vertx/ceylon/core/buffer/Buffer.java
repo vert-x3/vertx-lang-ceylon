@@ -203,7 +203,7 @@ public class Buffer {
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendBuffer(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer buff) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(buff);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buff);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.appendBuffer(arg_0));
     return this;
   }
@@ -214,7 +214,7 @@ public class Buffer {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer buff, 
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long offset, 
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long len) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(buff);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buff);
     int arg_1 = (int)offset;
     int arg_2 = (int)len;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.appendBuffer(arg_0, arg_1, arg_2));
@@ -427,7 +427,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long pos, 
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer b) {
     int arg_0 = (int)pos;
-    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(b);
+    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(b);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.setBuffer(arg_0, arg_1));
     return this;
   }
@@ -440,7 +440,7 @@ public class Buffer {
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long offset, 
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long len) {
     int arg_0 = (int)pos;
-    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(b);
+    io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(b);
     int arg_2 = (int)offset;
     int arg_3 = (int)len;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.setBuffer(arg_0, arg_1, arg_2, arg_3));

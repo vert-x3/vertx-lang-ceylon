@@ -553,7 +553,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableJsonObjectParam(
     final @TypeInfo("ceylon.json::Object") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object param) {
-    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.convert(param);
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(param);
     boolean ret = delegate.methodWithNonNullableJsonObjectParam(arg_0);
     return ret;
   }
@@ -564,7 +564,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.json::Object?") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object param) {
     boolean arg_0 = expectNull;
-    io.vertx.core.json.JsonObject arg_1 = io.vertx.lang.ceylon.ToJava.JsonObject.convert(param);
+    io.vertx.core.json.JsonObject arg_1 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(param);
     delegate.methodWithNullableJsonObjectParam(arg_0, arg_1);
   }
 
@@ -609,7 +609,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableJsonArrayParam(
     final @TypeInfo("ceylon.json::Array") @DocAnnotation$annotation$(description = "todo") ceylon.json.Array param) {
-    io.vertx.core.json.JsonArray arg_0 = io.vertx.lang.ceylon.ToJava.JsonArray.convert(param);
+    io.vertx.core.json.JsonArray arg_0 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(param);
     boolean ret = delegate.methodWithNonNullableJsonArrayParam(arg_0);
     return ret;
   }
@@ -620,7 +620,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.json::Array?") @DocAnnotation$annotation$(description = "todo") ceylon.json.Array param) {
     boolean arg_0 = expectNull;
-    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.convert(param);
+    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(param);
     delegate.methodWithNullableJsonArrayParam(arg_0, arg_1);
   }
 
@@ -665,7 +665,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableApiParam(
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @DocAnnotation$annotation$(description = "todo") RefedInterface1 param) {
-    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(param);
+    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.safeConvert(param);
     boolean ret = delegate.methodWithNonNullableApiParam(arg_0);
     return ret;
   }
@@ -676,7 +676,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1?") @DocAnnotation$annotation$(description = "todo") RefedInterface1 param) {
     boolean arg_0 = expectNull;
-    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.convert(param);
+    io.vertx.codegen.testmodel.RefedInterface1 arg_1 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.safeConvert(param);
     delegate.methodWithNullableApiParam(arg_0, arg_1);
   }
 
@@ -777,7 +777,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableEnumParam(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String param) {
-    io.vertx.codegen.testmodel.TestEnum arg_0 = io.vertx.codegen.testmodel.TestEnum.valueOf(param.toString());
+    io.vertx.codegen.testmodel.TestEnum arg_0 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class).safeConvert(param);
     boolean ret = delegate.methodWithNonNullableEnumParam(arg_0);
     return ret;
   }
@@ -788,7 +788,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.language::String?") @DocAnnotation$annotation$(description = "todo") ceylon.language.String param) {
     boolean arg_0 = expectNull;
-    io.vertx.codegen.testmodel.TestEnum arg_1 = io.vertx.codegen.testmodel.TestEnum.valueOf(param.toString());
+    io.vertx.codegen.testmodel.TestEnum arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class).safeConvert(param);
     delegate.methodWithNullableEnumParam(arg_0, arg_1);
   }
 
@@ -800,7 +800,7 @@ public class NullableTCK {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.codegen.testmodel.TestEnum> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.TestEnum>() {
       public void handle(io.vertx.codegen.testmodel.TestEnum event) {
-        handler.$call$((Object)new ceylon.language.String(event.name()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Enumeration.safeConvert(event));
       }
     };
     delegate.methodWithNullableEnumHandler(arg_0, arg_1);
@@ -814,7 +814,7 @@ public class NullableTCK {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestEnum>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestEnum>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.TestEnum event) {
-        return new ceylon.language.String(event.name());
+        return io.vertx.lang.ceylon.ToCeylon.Enumeration.safeConvert(event);
       }
     };
     delegate.methodWithNullableEnumHandlerAsyncResult(arg_0, arg_1);
@@ -825,7 +825,7 @@ public class NullableTCK {
   public ceylon.language.String methodWithNullableEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
     boolean arg_0 = notNull;
-    ceylon.language.String ret = new ceylon.language.String(delegate.methodWithNullableEnumReturn(arg_0).name());
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.Enumeration.safeConvert(delegate.methodWithNullableEnumReturn(arg_0));
     return ret;
   }
 

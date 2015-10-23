@@ -45,7 +45,7 @@ public class WebSocketFrame {
   public static WebSocketFrame binaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data, 
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     boolean arg_1 = isFinal;
     WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(io.vertx.core.http.WebSocketFrame.binaryFrame(arg_0, arg_1));
     return ret;
@@ -67,7 +67,7 @@ public class WebSocketFrame {
   public static WebSocketFrame continuationFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data, 
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     boolean arg_1 = isFinal;
     WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(io.vertx.core.http.WebSocketFrame.continuationFrame(arg_0, arg_1));
     return ret;

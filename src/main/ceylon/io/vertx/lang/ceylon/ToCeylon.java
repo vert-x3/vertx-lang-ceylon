@@ -141,4 +141,10 @@ public class ToCeylon {
       return (ceylon.json.Array)ceylon.json.parse_.parse(src.toString());
     }
   };
+
+  public static final Converter<Enum, ceylon.language.String> Enumeration = new Converter<Enum, ceylon.language.String>() {
+    public ceylon.language.String convert(Enum src) {
+      return new ceylon.language.String(src.name());
+    }
+  };
 }

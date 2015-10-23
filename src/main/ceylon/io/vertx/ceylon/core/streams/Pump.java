@@ -45,8 +45,8 @@ public class Pump {
   public static <T> Pump pump(
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
     final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws) {
-    io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.convert(rs);
-    io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.convert(ws);
+    io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
+    io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1));
     return ret;
   }
@@ -60,8 +60,8 @@ public class Pump {
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
     final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws, 
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long writeQueueMaxSize) {
-    io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.convert(rs);
-    io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.convert(ws);
+    io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
+    io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     int arg_2 = (int)writeQueueMaxSize;
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1, arg_2));
     return ret;

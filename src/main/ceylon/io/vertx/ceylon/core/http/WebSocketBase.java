@@ -194,7 +194,7 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase write(final Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.write(arg_0));
       return this;
     }
@@ -231,7 +231,7 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase writeFrame(final WebSocketFrame frame) {
-    io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.convert(frame);
+    io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.safeConvert(frame);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeFrame(arg_0));
       return this;
     }
@@ -245,14 +245,14 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
     @Override
     public WebSocketBase writeFinalBinaryFrame(final Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeFinalBinaryFrame(arg_0));
       return this;
     }
 
     @Override
     public WebSocketBase writeBinaryMessage(final Buffer data) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeBinaryMessage(arg_0));
       return this;
     }
