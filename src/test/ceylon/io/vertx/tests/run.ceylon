@@ -1188,6 +1188,72 @@ shared void testNullableList<T>(
   assertEquals(4, count);
 }
 
+shared test void testNullableSetByte() => testNullableSet(HashSet { 1.byte,2.byte,3.byte }, nullableTCK.methodWithNullableSetByteParam, nullableTCK.methodWithNullableSetByteHandler, nullableTCK.methodWithNullableSetByteHandlerAsyncResult, nullableTCK.methodWithNullableSetByteReturn);
+shared test void testNullableSetShort() => testNullableSet(HashSet { 1,2,3 }, nullableTCK.methodWithNullableSetShortParam, nullableTCK.methodWithNullableSetShortHandler, nullableTCK.methodWithNullableSetShortHandlerAsyncResult, nullableTCK.methodWithNullableSetShortReturn);
+shared test void testNullableSetInteger() => testNullableSet(HashSet { 1,2,3 }, nullableTCK.methodWithNullableSetIntegerParam, nullableTCK.methodWithNullableSetIntegerHandler, nullableTCK.methodWithNullableSetIntegerHandlerAsyncResult, nullableTCK.methodWithNullableSetIntegerReturn);
+shared test void testNullableSetLong() => testNullableSet(HashSet { 1,2,3 }, nullableTCK.methodWithNullableSetLongParam, nullableTCK.methodWithNullableSetLongHandler, nullableTCK.methodWithNullableSetLongHandlerAsyncResult, nullableTCK.methodWithNullableSetLongReturn);
+shared test void testNullableSetFloat() => testNullableSet(HashSet { 1.1,2.2,3.3 }, nullableTCK.methodWithNullableSetFloatParam, nullableTCK.methodWithNullableSetFloatHandler, nullableTCK.methodWithNullableSetFloatHandlerAsyncResult, nullableTCK.methodWithNullableSetFloatReturn, assertFloatEquals);
+shared test void testNullableSetDouble() => testNullableSet(HashSet { 1.11,2.22,3.33 }, nullableTCK.methodWithNullableSetDoubleParam, nullableTCK.methodWithNullableSetDoubleHandler, nullableTCK.methodWithNullableSetDoubleHandlerAsyncResult, nullableTCK.methodWithNullableSetDoubleReturn, assertFloatEquals);
+shared test void testNullableSetString() => testNullableSet(HashSet { "first","second","third" }, nullableTCK.methodWithNullableSetStringParam, nullableTCK.methodWithNullableSetStringHandler, nullableTCK.methodWithNullableSetStringHandlerAsyncResult, nullableTCK.methodWithNullableSetStringReturn);
+shared test void testNullableSetChar() => testNullableSet(HashSet { 'x','y','z' }, nullableTCK.methodWithNullableSetCharParam, nullableTCK.methodWithNullableSetCharHandler, nullableTCK.methodWithNullableSetCharHandlerAsyncResult, nullableTCK.methodWithNullableSetCharReturn);
+shared test void testNullableSetJsonObject() => testNullableSet(HashSet { JsonObject { "foo"->"bar" }, JsonObject { "juu"->3 } }, nullableTCK.methodWithNullableSetJsonObjectParam, nullableTCK.methodWithNullableSetJsonObjectHandler, nullableTCK.methodWithNullableSetJsonObjectHandlerAsyncResult, nullableTCK.methodWithNullableSetJsonObjectReturn);
+shared test void testNullableSetJsonArray() => testNullableSet(HashSet { JsonArray { "foo","bar" }, JsonArray { "juu" } }, nullableTCK.methodWithNullableSetJsonArrayParam, nullableTCK.methodWithNullableSetJsonArrayHandler, nullableTCK.methodWithNullableSetJsonArrayHandlerAsyncResult, nullableTCK.methodWithNullableSetJsonArrayReturn);
+shared test void testNullableSetApi() => testNullableSet(HashSet { RefedInterface1(RefedInterface1Impl().setString("refed_is_here")) }, nullableTCK.methodWithNullableSetApiParam, nullableTCK.methodWithNullableSetApiHandler, nullableTCK.methodWithNullableSetApiHandlerAsyncResult, nullableTCK.methodWithNullableSetApiReturn, assertRefedInterface1Equals);
+shared test void testNullableSetDataObject() => testNullableSet(HashSet { TestDataObject { foo="foo_value"; bar=12345; wibble=5.6; } }, nullableTCK.methodWithNullableSetDataObjectParam, nullableTCK.methodWithNullableSetDataObjectHandler, nullableTCK.methodWithNullableSetDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableSetDataObjectReturn, assertTestDataObjectEquals);
+shared test void testNullableSetEnum() => testNullableSet(HashSet { "TIM", "JULIEN" }, nullableTCK.methodWithNullableSetEnumParam, nullableTCK.methodWithNullableSetEnumHandler, nullableTCK.methodWithNullableSetEnumHandlerAsyncResult, nullableTCK.methodWithNullableSetEnumReturn);
+
+shared void testNullableSet<T>(
+    Set<T> expected,
+    Anything(Boolean,Set<T>?) nullableSetParamFunction,
+    Anything(Boolean,Anything(Set<T>?)) nullableSetHandlerFunction,
+    Anything(Boolean,Anything(Set<T>?|Throwable)) nullableSetHandlerAsyncResultFunction,
+    Set<T>?(Boolean) nullableSetReturnFunction,
+    Anything(Anything,Anything) check = assertEquals
+    ) {
+  void assertSetEquals(Set<T> expected, Anything actual) {
+    assert(is Set<T> actual);
+    assertEquals(expected.size, actual.size);
+    variable Integer count = 0;
+    for (expectedItem in expected) {
+      for (actualItem in actual) {
+        try {
+          check(expectedItem, actualItem);
+          count++;
+          break;
+        } catch (Throwable ignore) {
+        }
+      }
+    }
+    assertEquals(expected.size, count);
+  }
+  nullableSetParamFunction(false, expected);
+  nullableSetParamFunction(true, null);
+  variable Integer count = 0;
+  void a(Set<T>? set) {
+    assertNull(set);
+    count++;
+  }
+  nullableSetHandlerFunction(false, a);
+  void b(Set<T>? set) {
+    assertSetEquals(expected, set);
+    count++;
+  }
+  nullableSetHandlerFunction(true, b);
+  void c(Set<T>?|Throwable set) {
+    assertNull(set);
+    count++;
+  }
+  nullableSetHandlerAsyncResultFunction(false, c);
+  void d(Set<T>?|Throwable set) {
+    assertSetEquals(expected, set);
+    count++;
+  }
+  nullableSetHandlerAsyncResultFunction(true, d);
+  assertNull(nullableSetReturnFunction(false));
+  assertSetEquals(expected, nullableSetReturnFunction(true));
+  assertEquals(4, count);
+}
+
 /*
 shared test void testMethodWithNullableStringParam() {
   testNullable.methodWithNullableStringParam(null, true);

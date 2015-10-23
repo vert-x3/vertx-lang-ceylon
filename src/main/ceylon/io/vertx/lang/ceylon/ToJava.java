@@ -46,9 +46,13 @@ public class ToJava {
   public static <J, C> java.util.Set<J> set(
       ceylon.language.Set<C> from,
       Converter<C, J> converter) {
-    java.util.Set<J> to = new java.util.HashSet<J>(); // Todo: prealocate size
-    addAll(from, to, converter);
-    return to;
+    if (from != null) {
+      java.util.Set<J> to = new java.util.HashSet<J>(); // Todo: prealocate size
+      addAll(from, to, converter);
+      return to;
+    } else {
+      return null;
+    }
   }
 
   private static <J, C> void addAll(ceylon.language.Collection<C> from, java.util.Collection<J> to, Converter<C, J> converter) {

@@ -57,12 +57,16 @@ public class ToCeylon {
       TypeDescriptor eltTypeDesc,
       java.util.Set<J> set,
       Converter<J, C> converter) {
-    ceylon.collection.HashSet<C> ret = new ceylon.collection.HashSet<C>(eltTypeDesc);
-    for (J javaElt : set) {
-      C ceylonElt = converter.convert(javaElt);
-      ret.add(ceylonElt);
+    if (set != null) {
+      ceylon.collection.HashSet<C> ret = new ceylon.collection.HashSet<C>(eltTypeDesc);
+      for (J javaElt : set) {
+        C ceylonElt = converter.convert(javaElt);
+        ret.add(ceylonElt);
+      }
+      return ret;
+    } else {
+      return null;
     }
-    return ret;
   }
 
   public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> map(
