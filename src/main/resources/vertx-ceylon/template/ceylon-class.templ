@@ -65,25 +65,35 @@
       }
     } else if (kind == CLASS_LIST || kind == CLASS_SET) {
       var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToJava.list' : 'io.vertx.lang.ceylon.ToJava.set';
-      var eltType = type.args[0];
-      var eltKind = eltType.kind;
-      if (eltKind.basic || eltKind.json) {
-        return collection + '(' + expr + ', ' + 'io.vertx.lang.ceylon.ToJava.' + eltType.simpleName + ')';
-      } else if (eltKind == CLASS_API) {
-        return collection + '(' + expr + ', ' + eltType.translateName('ceylon') + '.TO_JAVA)';
-      } else if (eltKind == CLASS_DATA_OBJECT) {
-        return collection + '(' + expr + ', ' + eltType.translatePackageName('ceylon') + '.toJava' + eltType.simpleName + '_.get_()' + ')';
+      var eltConverter = genParamConverter(type.args[0]);
+      if (eltConverter != null) {
+        return collection + '(' + expr + ', ' + eltConverter + ')';
       }
     } else if (kind == CLASS_MAP) {
-      var valType = type.args[1];
-      var valKind = valType.kind;
-      if (valKind.basic || valKind.json) {
-        return 'io.vertx.lang.ceylon.ToJava.map' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, io.vertx.lang.ceylon.ToJava.' + valType.simpleName + ')';
-      } else if (valKind == CLASS_API) {
-        return 'io.vertx.lang.ceylon.ToJava.map' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, ' + valType.translateName('ceylon') + '.TO_JAVA)';
+      var valConverter = genParamConverter(type.args[1]);
+      if (valConverter != null) {
+        return 'io.vertx.lang.ceylon.ToJava.map' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, ' + valConverter + ')';
       }
     }
     return 'null';
+  }
+
+  def genParamConverter(type) {
+    var kind = type.kind;
+    if (kind.basic || kind.json) {
+      return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName;
+    } else if (kind == CLASS_API) {
+      return type.translateName('ceylon') + '.TO_JAVA';
+    } else if (kind == CLASS_DATA_OBJECT) {
+      return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_()';
+    } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_()';
+      } else {
+        return 'io.vertx.lang.ceylon.ToJava.enumeration(' + type.name + '.class)';
+      }
+    }
+    return null;
   }
 
   def genConvParamType(type) {

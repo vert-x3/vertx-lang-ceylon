@@ -143,4 +143,12 @@ public class ToJava {
       return new io.vertx.core.json.JsonArray(src.toString());
     }
   };
+
+  public static final <E extends Enum<E>> Converter<ceylon.language.String, E> enumeration(final Class<E> enumType) {
+    return new Converter<ceylon.language.String, E>() {
+      public E convert(ceylon.language.String src) {
+        return Enum.valueOf(enumType, src.toString());
+      }
+    };
+  }
 }

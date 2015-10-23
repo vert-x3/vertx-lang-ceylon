@@ -391,7 +391,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     java.util.List<io.vertx.core.json.JsonArray> arg_6 = io.vertx.lang.ceylon.ToJava.list(listJsonArray, io.vertx.lang.ceylon.ToJava.JsonArray);
     java.util.List<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = io.vertx.lang.ceylon.ToJava.list(listVertxGen, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
     java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_8 = io.vertx.lang.ceylon.ToJava.list(listDataObject, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
-    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_9 = null;
+    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_9 = io.vertx.lang.ceylon.ToJava.list(listEnum, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithListParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8, arg_9);
   }
 
@@ -417,7 +417,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     java.util.Set<io.vertx.core.json.JsonArray> arg_6 = io.vertx.lang.ceylon.ToJava.set(setJsonArray, io.vertx.lang.ceylon.ToJava.JsonArray);
     java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> arg_7 = io.vertx.lang.ceylon.ToJava.set(setVertxGen, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
     java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_8 = io.vertx.lang.ceylon.ToJava.set(setDataObject, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
-    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_9 = null;
+    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_9 = io.vertx.lang.ceylon.ToJava.set(setEnum, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithSetParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8, arg_9);
   }
 

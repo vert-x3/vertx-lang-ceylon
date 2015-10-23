@@ -1626,7 +1626,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListEnumParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = null;
+    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     boolean ret = delegate.methodWithNonNullableListEnumParam(arg_0);
     return ret;
   }
@@ -1637,7 +1637,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.language::List<ceylon.language::String>?") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
     boolean arg_0 = expectNull;
-    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_1 = null;
+    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_1 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithNullableListEnumParam(arg_0, arg_1);
   }
 
@@ -2410,7 +2410,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetEnumParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = null;
+    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     boolean ret = delegate.methodWithNonNullableSetEnumParam(arg_0);
     return ret;
   }
@@ -2421,7 +2421,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>?") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
     boolean arg_0 = expectNull;
-    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_1 = null;
+    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_1 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithNullableSetEnumParam(arg_0, arg_1);
   }
 
@@ -3608,7 +3608,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = null;
+    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithListNullableEnumParam(arg_0);
   }
 
@@ -4154,7 +4154,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = null;
+    java.util.Set<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.set(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithSetNullableEnumParam(arg_0);
   }
 
