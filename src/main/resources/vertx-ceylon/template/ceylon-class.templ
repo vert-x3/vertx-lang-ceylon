@@ -92,81 +92,6 @@
     return null;
   }
 
-  def genConvParamType(type) {
-    var kind = type.kind;
-    if (kind == CLASS_OBJECT) {
-      return 'Object';
-    }
-    if (kind == CLASS_VOID) {
-      return "Void_";
-    }
-    if (kind == CLASS_STRING) {
-      return "String_";
-    }
-    if (kind.basic) {
-      var name = type.simpleName;
-      if (name == 'byte' || name == 'Byte') {
-        return 'Byte_';
-      }
-      if (name == 'short' || name == 'Short') {
-        return 'Short_';
-      }
-      if (name == 'Integer' || name == 'int' ) {
-        return 'Integer_';
-      }
-      if (name == 'Long' || name == 'long') {
-        return 'Long_';
-      }
-      if (name == 'boolean' || name == 'Boolean') {
-        return 'Boolean_';
-      }
-      if (name == 'float' || name == 'Float') {
-        return 'Float_';
-      }
-      if (name == 'double' || name == 'Double') {
-        return 'Double_';
-      }
-      if (name == 'char' || name == 'Character') {
-        return 'Character_';
-      }
-    }
-    if (kind == CLASS_API) {
-      var s = type.raw.simpleName + '_';
-      if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
-        s += genConvParamTypeArgs(type.args);
-      }
-      return s;
-    }
-    if (kind == CLASS_DATA_OBJECT) {
-      return type.simpleName + "_";
-    }
-    if (kind == CLASS_JSON_OBJECT) {
-      return "JsonObject_";
-    }
-    if (kind == CLASS_JSON_ARRAY) {
-      return "JsonArray_";
-    }
-    if (kind == CLASS_LIST || kind == CLASS_SET) {
-      return type.raw.simpleName + '_' + genConvParamTypeArgs(type.args);
-    }
-    if (kind == CLASS_THROWABLE) {
-      return "Throwable";
-    }
-    return 'Nothing';
-  }
-
-  def genConvParamTypeArgs(typeArgs) {
-    StringBuilder s = new java.lang.StringBuilder();
-    s.append('<');
-    var sep = '';
-    for (typeArg : typeArgs) {
-      s.append(sep).append(genConvParamType(typeArg));
-      sep = ',';
-    }
-    s.append('>');
-    return s.toString();
-  }
-
   /*
    * Returns the Ceylon expression that converts a Java object to a Ceylon object.
    * @param type the type of the Java object
@@ -430,22 +355,6 @@
     return decl;
   }
 }
-
-@declare{'initializer'}
-    # @private\n
-    # @param j_del [@{genRubyClassFqn(type.raw)}] the java delegate\n
-    def initialize(j_del)\n
-	@if{callSuper}
-      super(j_del)\n
-	@end{}
-      @j_del = j_del\n
-    end\n
-    # @private\n
-    # @return [@{genRubyClassFqn(type.raw)}] the underlying java delegate\n
-    def j_del\n
-      @j_del\n
-    end\n
-@end{}
 
 @declare{'genTypeParams'}
 	@if{params.size() > 0}
