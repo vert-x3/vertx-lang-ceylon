@@ -51,7 +51,7 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus send(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message) {
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.safeConvert(delegate.send(arg_0, arg_1));
@@ -65,8 +65,8 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public <T> EventBus send(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)?") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
@@ -82,7 +82,7 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus send(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message, 
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
@@ -98,9 +98,9 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public <T> EventBus send(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message, 
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)?") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
@@ -117,7 +117,7 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus publish(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message) {
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.safeConvert(delegate.publish(arg_0, arg_1));
@@ -128,7 +128,7 @@ public class EventBus implements Measured {
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus publish(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Object?") @DocAnnotation$annotation$(description = "todo") Object message, 
+    final @TypeInfo("ceylon.language::Object") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
@@ -251,8 +251,20 @@ public class EventBus implements Measured {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
+  public void start(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    delegate.start(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)?") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;

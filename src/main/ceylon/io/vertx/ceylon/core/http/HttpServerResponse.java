@@ -54,7 +54,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer?") @DocAnnotation$annotation$(description = "todo") Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.convert(data);
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.write(arg_0));
     return this;
@@ -85,7 +85,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -190,7 +190,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse closeHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -373,7 +373,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse headersEndHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -386,7 +386,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse bodyEndHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();

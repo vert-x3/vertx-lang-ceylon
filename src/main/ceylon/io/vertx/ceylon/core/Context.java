@@ -119,14 +119,14 @@ public class Context {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String?")
+  @TypeInfo("ceylon.language::String")
   public ceylon.language.String deploymentID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.deploymentID());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.json::Object?")
+  @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object config() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.config());
     return ret;
@@ -164,7 +164,7 @@ public class Context {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
+  @TypeInfo("T")
   public <T> T get(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);

@@ -57,7 +57,7 @@ public class NetServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer connectHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.net.NetSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.net.NetSocket>() {
       public void handle(io.vertx.core.net.NetSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(event));
@@ -103,7 +103,7 @@ public class NetServer implements Measured {
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)?") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
@@ -128,7 +128,7 @@ public class NetServer implements Measured {
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)?") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
     int arg_0 = (int)port;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
@@ -148,7 +148,7 @@ public class NetServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)?") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;

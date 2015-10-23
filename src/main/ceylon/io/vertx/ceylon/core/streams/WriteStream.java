@@ -36,12 +36,12 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> write(
-    final @TypeInfo("T?") @DocAnnotation$annotation$(description = "todo") T data);
+    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T data);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
@@ -55,7 +55,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @Ignore
   public class Impl<T> implements WriteStream<T> {

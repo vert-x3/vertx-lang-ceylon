@@ -91,7 +91,7 @@ public class Vertx implements Measured {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Context?")
+  @TypeInfo("io.vertx.ceylon.core::Context")
   public static Context currentContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(io.vertx.core.Vertx.currentContext());
     return ret;
@@ -306,7 +306,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)?") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;

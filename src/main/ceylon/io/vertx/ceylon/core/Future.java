@@ -68,7 +68,7 @@ public class Future<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> succeededFuture(
-    final @TypeInfo("T?") @DocAnnotation$annotation$(description = "todo") T result) {
+    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T result) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(result);
     Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(io.vertx.core.Future.succeededFuture(arg_0));
     return ret;
@@ -108,7 +108,7 @@ public class Future<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void complete(
-    final @TypeInfo("T?") @DocAnnotation$annotation$(description = "todo") T result) {
+    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T result) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(result);
     delegate.complete(arg_0);
   }

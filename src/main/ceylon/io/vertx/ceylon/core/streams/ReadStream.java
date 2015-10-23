@@ -36,12 +36,12 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T)?") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(T)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
@@ -54,7 +54,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   ReadStream<T> endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
+    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
 
   @Ignore
   public class Impl<T> implements ReadStream<T> {
