@@ -3101,7 +3101,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableByteParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Byte?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Byte> param) {
-    java.util.List<java.lang.Byte> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Byte);
+    java.util.List<java.lang.Byte> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Byte);
     delegate.methodWithListNullableByteParam(arg_0);
   }
 
@@ -3111,7 +3111,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Byte>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Byte>>() {
       public void handle(java.util.List<java.lang.Byte> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte));
       }
     };
     delegate.methodWithListNullableByteHandler(arg_0);
@@ -3123,7 +3123,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Byte?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Byte> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
     };
     delegate.methodWithListNullableByteHandlerAsyncResult(arg_0);
@@ -3132,7 +3132,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Byte?>")
   public ceylon.language.List<ceylon.language.Byte> methodWithListNullableByteReturn() {
-    ceylon.language.List<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithListNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
+    ceylon.language.List<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithListNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
@@ -3140,7 +3140,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableShortParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
-    java.util.List<java.lang.Short> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Short);
+    java.util.List<java.lang.Short> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Short);
     delegate.methodWithListNullableShortParam(arg_0);
   }
 
@@ -3150,7 +3150,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Short>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Short>>() {
       public void handle(java.util.List<java.lang.Short> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short));
       }
     };
     delegate.methodWithListNullableShortHandler(arg_0);
@@ -3162,7 +3162,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Short> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
     };
     delegate.methodWithListNullableShortHandlerAsyncResult(arg_0);
@@ -3171,7 +3171,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableShortReturn() {
-    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
+    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
@@ -3179,7 +3179,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableIntegerParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
-    java.util.List<java.lang.Integer> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Integer);
+    java.util.List<java.lang.Integer> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Integer);
     delegate.methodWithListNullableIntegerParam(arg_0);
   }
 
@@ -3189,7 +3189,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Integer>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Integer>>() {
       public void handle(java.util.List<java.lang.Integer> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer));
       }
     };
     delegate.methodWithListNullableIntegerHandler(arg_0);
@@ -3201,7 +3201,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Integer> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
     };
     delegate.methodWithListNullableIntegerHandlerAsyncResult(arg_0);
@@ -3210,7 +3210,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableIntegerReturn() {
-    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
+    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
@@ -3218,7 +3218,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableLongParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
-    java.util.List<java.lang.Long> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Long);
+    java.util.List<java.lang.Long> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Long);
     delegate.methodWithListNullableLongParam(arg_0);
   }
 
@@ -3228,7 +3228,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Long>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Long>>() {
       public void handle(java.util.List<java.lang.Long> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long));
       }
     };
     delegate.methodWithListNullableLongHandler(arg_0);
@@ -3240,7 +3240,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Long> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
     };
     delegate.methodWithListNullableLongHandlerAsyncResult(arg_0);
@@ -3249,7 +3249,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableLongReturn() {
-    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
+    ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
@@ -3257,7 +3257,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableBooleanParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Boolean?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Boolean> param) {
-    java.util.List<java.lang.Boolean> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Boolean);
+    java.util.List<java.lang.Boolean> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Boolean);
     delegate.methodWithListNullableBooleanParam(arg_0);
   }
 
@@ -3267,7 +3267,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Boolean>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Boolean>>() {
       public void handle(java.util.List<java.lang.Boolean> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean));
       }
     };
     delegate.methodWithListNullableBooleanHandler(arg_0);
@@ -3279,7 +3279,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Boolean?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Boolean> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
     };
     delegate.methodWithListNullableBooleanHandlerAsyncResult(arg_0);
@@ -3288,7 +3288,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Boolean?>")
   public ceylon.language.List<ceylon.language.Boolean> methodWithListNullableBooleanReturn() {
-    ceylon.language.List<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithListNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
+    ceylon.language.List<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithListNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
@@ -3296,7 +3296,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableFloatParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
-    java.util.List<java.lang.Float> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Float);
+    java.util.List<java.lang.Float> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Float);
     delegate.methodWithListNullableFloatParam(arg_0);
   }
 
@@ -3306,7 +3306,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Float>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Float>>() {
       public void handle(java.util.List<java.lang.Float> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float));
       }
     };
     delegate.methodWithListNullableFloatHandler(arg_0);
@@ -3318,7 +3318,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Float> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
     };
     delegate.methodWithListNullableFloatHandlerAsyncResult(arg_0);
@@ -3327,7 +3327,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float?>")
   public ceylon.language.List<ceylon.language.Float> methodWithListNullableFloatReturn() {
-    ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
+    ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
@@ -3335,7 +3335,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDoubleParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
-    java.util.List<java.lang.Double> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Double);
+    java.util.List<java.lang.Double> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Double);
     delegate.methodWithListNullableDoubleParam(arg_0);
   }
 
@@ -3345,7 +3345,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Double>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Double>>() {
       public void handle(java.util.List<java.lang.Double> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double));
       }
     };
     delegate.methodWithListNullableDoubleHandler(arg_0);
@@ -3357,7 +3357,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Double> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
     };
     delegate.methodWithListNullableDoubleHandlerAsyncResult(arg_0);
@@ -3366,7 +3366,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float?>")
   public ceylon.language.List<ceylon.language.Float> methodWithListNullableDoubleReturn() {
-    ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
+    ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
@@ -3374,7 +3374,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableStringParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
-    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.String);
+    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.String);
     delegate.methodWithListNullableStringParam(arg_0);
   }
 
@@ -3384,7 +3384,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.String>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.String>>() {
       public void handle(java.util.List<java.lang.String> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String));
       }
     };
     delegate.methodWithListNullableStringHandler(arg_0);
@@ -3396,7 +3396,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     delegate.methodWithListNullableStringHandlerAsyncResult(arg_0);
@@ -3405,7 +3405,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String?>")
   public ceylon.language.List<ceylon.language.String> methodWithListNullableStringReturn() {
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -3413,7 +3413,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableCharParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Character?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Character> param) {
-    java.util.List<java.lang.Character> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.Character);
+    java.util.List<java.lang.Character> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.Character);
     delegate.methodWithListNullableCharParam(arg_0);
   }
 
@@ -3423,7 +3423,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<java.lang.Character>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<java.lang.Character>>() {
       public void handle(java.util.List<java.lang.Character> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character));
       }
     };
     delegate.methodWithListNullableCharHandler(arg_0);
@@ -3435,7 +3435,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Character?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Character> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
     };
     delegate.methodWithListNullableCharHandlerAsyncResult(arg_0);
@@ -3444,7 +3444,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Character?>")
   public ceylon.language.List<ceylon.language.Character> methodWithListNullableCharReturn() {
-    ceylon.language.List<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithListNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
+    ceylon.language.List<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithListNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
@@ -3452,7 +3452,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonObjectParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Object?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Object> param) {
-    java.util.List<io.vertx.core.json.JsonObject> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.JsonObject);
+    java.util.List<io.vertx.core.json.JsonObject> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.JsonObject);
     delegate.methodWithListNullableJsonObjectParam(arg_0);
   }
 
@@ -3462,7 +3462,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonObject>>() {
       public void handle(java.util.List<io.vertx.core.json.JsonObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
       }
     };
     delegate.methodWithListNullableJsonObjectHandler(arg_0);
@@ -3474,7 +3474,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Object?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
     };
     delegate.methodWithListNullableJsonObjectHandlerAsyncResult(arg_0);
@@ -3483,7 +3483,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Object?>")
   public ceylon.language.List<ceylon.json.Object> methodWithListNullableJsonObjectReturn() {
-    ceylon.language.List<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithListNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
+    ceylon.language.List<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithListNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
@@ -3491,7 +3491,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonArrayParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Array?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Array> param) {
-    java.util.List<io.vertx.core.json.JsonArray> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.JsonArray);
+    java.util.List<io.vertx.core.json.JsonArray> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.JsonArray);
     delegate.methodWithListNullableJsonArrayParam(arg_0);
   }
 
@@ -3501,7 +3501,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonArray>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonArray>>() {
       public void handle(java.util.List<io.vertx.core.json.JsonArray> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
       }
     };
     delegate.methodWithListNullableJsonArrayHandler(arg_0);
@@ -3513,7 +3513,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Array?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonArray> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
     };
     delegate.methodWithListNullableJsonArrayHandlerAsyncResult(arg_0);
@@ -3522,7 +3522,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Array?>")
   public ceylon.language.List<ceylon.json.Array> methodWithListNullableJsonArrayReturn() {
-    ceylon.language.List<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithListNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
+    ceylon.language.List<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithListNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
@@ -3530,7 +3530,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableApiParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<RefedInterface1> param) {
-    java.util.List<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
+    java.util.List<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA);
     delegate.methodWithListNullableApiParam(arg_0);
   }
 
@@ -3540,7 +3540,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.RefedInterface1> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON));
       }
     };
     delegate.methodWithListNullableApiHandler(arg_0);
@@ -3552,7 +3552,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.RefedInterface1> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
       }
     };
     delegate.methodWithListNullableApiHandlerAsyncResult(arg_0);
@@ -3561,7 +3561,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::RefedInterface1?>")
   public ceylon.language.List<RefedInterface1> methodWithListNullableApiReturn() {
-    ceylon.language.List<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithListNullableApiReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
+    ceylon.language.List<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithListNullableApiReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
     return ret;
   }
 
@@ -3569,7 +3569,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
     delegate.methodWithListNullableDataObjectParam(arg_0);
   }
 
@@ -3579,7 +3579,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
       }
     };
     delegate.methodWithListNullableDataObjectHandler(arg_0);
@@ -3591,7 +3591,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
       }
     };
     delegate.methodWithListNullableDataObjectHandlerAsyncResult(arg_0);
@@ -3600,7 +3600,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>")
   public ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithListNullableDataObjectReturn() {
-    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
     return ret;
   }
 
@@ -3608,7 +3608,7 @@ public class NullableTCK {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String?>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.list(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
+    java.util.List<io.vertx.codegen.testmodel.TestEnum> arg_0 = io.vertx.lang.ceylon.ToJava.listOfNullable(param, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class));
     delegate.methodWithListNullableEnumParam(arg_0);
   }
 
@@ -3618,7 +3618,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestEnum>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestEnum>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
       }
     };
     delegate.methodWithListNullableEnumHandler(arg_0);
@@ -3630,7 +3630,7 @@ public class NullableTCK {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
+        return io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
     };
     delegate.methodWithListNullableEnumHandlerAsyncResult(arg_0);
@@ -3639,7 +3639,7 @@ public class NullableTCK {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String?>")
   public ceylon.language.List<ceylon.language.String> methodWithListNullableEnumReturn() {
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.listOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 

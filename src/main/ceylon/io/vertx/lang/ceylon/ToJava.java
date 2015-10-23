@@ -43,6 +43,12 @@ public class ToJava {
     }
   }
 
+  public static <J, C> java.util.List<J> listOfNullable(
+      ceylon.language.List<C> from,
+      Converter<C, J> converter) {
+    return list(from, converter);
+  }
+
   public static <J, C> java.util.Set<J> set(
       ceylon.language.Set<C> from,
       Converter<C, J> converter) {

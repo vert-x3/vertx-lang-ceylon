@@ -53,6 +53,13 @@ public class ToCeylon {
     }
   }
 
+  public static <J, C> ceylon.language.List<C> listOfNullable(
+      TypeDescriptor eltTypeDesc,
+      java.util.List<J> list,
+      Converter<J, C> converter) {
+    return list(nullable(eltTypeDesc), list, converter);
+  }
+
   public static <J, C> ceylon.language.Set<C> set(
       TypeDescriptor eltTypeDesc,
       java.util.Set<J> set,
@@ -74,7 +81,7 @@ public class ToCeylon {
       java.util.Set<J> set,
       Converter<J, C> converter) {
     if (set != null) {
-      ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(TypeDescriptor.union(new TypeDescriptor[]{ceylon.language.Null.$TypeDescriptor$, eltTypeDesc}));
+      ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(nullable(eltTypeDesc));
       for (J javaElt : set) {
         if (javaElt != null) {
           C ceylonElt = converter.convert(javaElt);
@@ -183,5 +190,9 @@ public class ToCeylon {
   public static <E extends Enum<E>> Converter<E, ceylon.language.String> enumeration() {
     Converter obj = Enumeration;
     return obj;
+  }
+
+  private static TypeDescriptor nullable(TypeDescriptor typeDesc) {
+    return TypeDescriptor.union(new TypeDescriptor[]{ceylon.language.Null.$TypeDescriptor$, typeDesc});
   }
 }

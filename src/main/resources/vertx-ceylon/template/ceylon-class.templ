@@ -61,10 +61,10 @@
       return genParamConverter(type) + '.safeConvert(' + expr + ')';
     } else if (kind == CLASS_LIST || kind == CLASS_SET) {
       var eltType = type.args[0];
-      var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToJava.list' : (eltType.nullable ? 'io.vertx.lang.ceylon.ToJava.setOfNullable' : 'io.vertx.lang.ceylon.ToJava.set');
+      var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToJava.list' : 'io.vertx.lang.ceylon.ToJava.set';
       var eltConverter = genParamConverter(eltType);
       if (eltConverter != null) {
-        return collection + '(' + expr + ', ' + eltConverter + ')';
+        return collection + (eltType.nullable ? 'OfNullable' : '') + '(' + expr + ', ' + eltConverter + ')';
       }
     } else if (kind == CLASS_MAP) {
       var valConverter = genParamConverter(type.args[1]);
@@ -112,8 +112,8 @@
         return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var eltType = type.args[0];
-        var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : (eltType.nullable ? 'io.vertx.lang.ceylon.ToCeylon.setOfNullable' : 'io.vertx.lang.ceylon.ToCeylon.set');
-        return collection + '(' + genJavaClassName(eltType, '.') + '.$TypeDescriptor$, ' + expr + ', ' + genReturnConverter(eltType) + ')';
+        var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : 'io.vertx.lang.ceylon.ToCeylon.set';
+        return collection + (eltType.nullable ? 'OfNullable' : '') + '(' + genJavaClassName(eltType, '.') + '.$TypeDescriptor$, ' + expr + ', ' + genReturnConverter(eltType) + ')';
       } else if (kind == CLASS_MAP) {
         var valArg =  type.args[1];
         return 'io.vertx.lang.ceylon.ToCeylon.map(' +
