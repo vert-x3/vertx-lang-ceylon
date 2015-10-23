@@ -59,7 +59,7 @@
     } else if (kind == CLASS_JSON_ARRAY) {
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_().convert(' + expr + ')';
+        return genParamConverter(type) + '.convert(' + expr + ')';
       } else {
         return type.name + '.valueOf(' + expr + '.toString())';
       }
