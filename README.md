@@ -3,4 +3,6 @@ vertx-lang-ceylon
 
 ## todo list
 
-- everything
+- ceylon method parameter names
+- finish nullable tck
+- verticle factory
