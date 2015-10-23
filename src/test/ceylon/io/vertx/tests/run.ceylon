@@ -1513,6 +1513,23 @@ shared void testMapNullableOut<T>(
   assertEquals(2, count);
 }
 
+shared test void testNullableHandler() {
+  variable Integer count = 0;
+  nullableTCK.methodWithNullableHandler(true, null);
+  void a(String s) {
+    assertEquals("the_string_value", s);
+    count++;
+  }
+  nullableTCK.methodWithNullableHandler(false, a);
+  nullableTCK.methodWithNullableHandlerAsyncResult(true, null);
+  void b(String|Throwable s) {
+    assertEquals("the_string_value", s);
+    count++;
+  }
+  nullableTCK.methodWithNullableHandlerAsyncResult(false, b);
+  assertEquals(2, count);
+}
+
 void assertTestDataObjectEquals(Anything actual, Anything expected) {
   assert(is TestDataObject actual);
   assert(is TestDataObject expected);
