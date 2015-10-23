@@ -41,7 +41,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   WriteStream<T> write(
-    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T data);
+    final @TypeInfo("T?") @DocAnnotation$annotation$(description = "todo") T data);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")

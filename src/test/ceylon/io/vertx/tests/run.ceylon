@@ -599,7 +599,7 @@ shared test void testMethodWithHandlerGenericUserType() {
 
 shared test void testMethodWithHandlerAsyncResultGenericUserType() {
   variable GenericRefedInterface<String>|Throwable|Null gen = null;
-  obj.methodWithHandlerGenericUserType<String>("string_value_2", (GenericRefedInterface<String>|Throwable arg) => gen=arg);
+  obj.methodWithHandlerGenericUserType<String>("string_value_2", (GenericRefedInterface<String>?|Throwable arg) => gen=arg);
   assert(is GenericRefedInterface<String> val=gen);
   assertEquals(val.\ivalue, "string_value_2");
 }
@@ -620,7 +620,7 @@ shared test void testMethodWithGenericParam() {
 shared test void testMethodWithGenericHandler() {
   void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
     variable Object? val = null;
-    obj.methodWithGenericHandler<Object>(type, (Object result) => val = result);
+    obj.methodWithGenericHandler<Object>(type, (Object? result) => val = result);
     assert(exists actual = val);
     compare(actual, expected);
   }
@@ -642,7 +642,7 @@ shared test void testMethodWithGenericHandler() {
 shared test void testMethodWithGenericHandlerAsyncResult() {
   void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
     variable Object|Throwable|Null val = null;
-    obj.methodWithGenericHandlerAsyncResult<Object>(type, (Object|Throwable result) => val = result);
+    obj.methodWithGenericHandlerAsyncResult<Object>(type, (Object?|Throwable result) => val = result);
     assert(exists actual = val);
     compare(actual, expected);
   }
@@ -1099,6 +1099,35 @@ shared void testNullable<T>(
   nullableHandlerAsyncResultFunction(true, d);
   assertNull(nullableReturnFunction(false));
   check(expected, nullableReturnFunction(true));
+  assertEquals(4, count);
+}
+
+shared void testGenericNullableTypeVariable() {
+  nullableTCK.methodWithNullableTypeVariableParam(false, "whatever");
+  nullableTCK.methodWithNullableTypeVariableParam(true, null);
+  variable Integer count = 0;
+  void a(String? val) {
+    assertEquals("wibble", val);
+    count++;
+  }
+  nullableTCK.methodWithNullableTypeVariableHandler<String>(true, "wibble", a);
+  void b(String? val) {
+    assertNull(val);
+    count++;
+  }
+  nullableTCK.methodWithNullableTypeVariableHandler<String>(true, null, b);
+  void c(String?|Throwable val) {
+    assertEquals("sausages", val);
+    count++;
+  }
+  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult<String>(true, "sausages", c);
+  void d(String?|Throwable val) {
+    assertNull(val);
+    count++;
+  }
+  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult<String>(true, null, d);
+  assertEquals("fizz1", nullableTCK.methodWithNullableTypeVariableReturn<String>(true, "fizz1"));
+  assertNull(nullableTCK.methodWithNullableTypeVariableReturn(false, "fizz2"));
   assertEquals(4, count);
 }
 

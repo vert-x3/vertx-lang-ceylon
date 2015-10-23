@@ -65,7 +65,7 @@ public class MessageProducer<T> implements WriteStream<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> write(
-    final @TypeInfo("T") @DocAnnotation$annotation$(description = "todo") T data) {
+    final @TypeInfo("T?") @DocAnnotation$annotation$(description = "todo") T data) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(data);
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.safeConvert(delegate.write(arg_0));
     return this;

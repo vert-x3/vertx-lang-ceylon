@@ -188,17 +188,17 @@
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : 'io.vertx.lang.ceylon.ToCeylon.set';
         var typeArg = type.args[0];
         if (typeArg.kind.basic || typeArg.kind.json) {
-          return collection + '(' + genCeylonTypeDecl(typeArg, false).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
+          return collection + '(' + genJavaClassName(typeArg, '.') + '.$TypeDescriptor$, ' + expr + ', io.vertx.lang.ceylon.ToCeylon.' + typeArg.simpleName + ')';
         } else if (typeArg.kind == CLASS_DATA_OBJECT) {
-          return collection + '(' + genCeylonTypeDecl(typeArg, false).replace('::', '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.toCeylon' + typeArg.simpleName + '_.get_())';
+          return collection + '(' + genJavaClassName(typeArg, '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translatePackageName('ceylon') + '.toCeylon' + typeArg.simpleName + '_.get_())';
         } else if (typeArg.kind == CLASS_API) {
-          return collection + '(' + typeArg.translateName('ceylon') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
+          return collection + '(' + genJavaClassName(typeArg, '.') + '.$TypeDescriptor$, ' + expr + ', ' + typeArg.translateName('ceylon') + '.TO_CEYLON)';
         }
       } else if (kind == CLASS_MAP) {
         var valArg =  type.args[1];
         return 'io.vertx.lang.ceylon.ToCeylon.map(' +
           'ceylon.language.String.$TypeDescriptor$, ' +
-          genCeylonTypeDecl(valArg, false).replace('::', '.') + '.$TypeDescriptor$, ' +
+          genJavaClassName(valArg, '.') + '.$TypeDescriptor$, ' +
           expr + ', ' +
           'io.vertx.lang.ceylon.ToCeylon.String, ' +
           'io.vertx.lang.ceylon.ToCeylon.' + valArg.simpleName + ')';
@@ -303,61 +303,83 @@
     return decl;
   }
 
+  def genJavaClassName(type, sep) {
+    var kind = type.kind;
+    if (kind == CLASS_STRING) {
+      return 'ceylon.language' + sep + 'String';
+    } else if (kind == CLASS_API) {
+      return type.raw.translatePackageName('ceylon') + sep + type.simpleName;
+    } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        return type.translatePackageName('ceylon') + sep + type.simpleName;
+      } else {
+        return 'ceylon.language' + sep + 'String';
+      }
+    } else if (kind == CLASS_BOXED_PRIMITIVE) {
+      var name = type.name;
+      if (name == 'java.lang.Long' || name == 'java.lang.Integer' || name == 'java.lang.Short') {
+        return 'ceylon.language' + sep + 'Integer';
+      } else if (name == 'java.lang.Float' || name == 'java.lang.Double') {
+        return 'ceylon.language' + sep + 'Float';
+      } else if (name == 'java.lang.Boolean') {
+        return 'ceylon.language' + sep + 'Boolean';
+      } else if (name == 'java.lang.Character') {
+        return 'ceylon.language' + sep + 'Character';
+      } else if (name == 'java.lang.Byte') {
+        return 'ceylon.language' + sep + 'Byte';
+      }
+    } else if (kind == CLASS_PRIMITIVE) {
+      var name = type.name;
+      if (name == 'long' || name == 'int' || name == 'short') {
+        return 'ceylon.language' + sep + 'Integer';
+      } else if (name == 'float' || name == 'double') {
+        return 'ceylon.language' + sep + 'Float';
+      } else if (name == 'boolean') {
+        return 'ceylon.language' + sep + 'Boolean';
+      } else if (name == 'char') {
+        return 'ceylon.language' + sep + 'Character';
+      } else if (name == 'byte') {
+        return 'ceylon.language' + sep + 'Byte';
+      }
+    } else if (kind == CLASS_DATA_OBJECT) {
+      return type.translatePackageName('ceylon') + sep + type.simpleName;
+    } else if (kind == CLASS_JSON_OBJECT) {
+      return 'ceylon.json' + sep + 'Object';
+    } else if (kind == CLASS_JSON_ARRAY) {
+      return 'ceylon.json' + sep + 'Array';
+    }
+    return 'todo(' + type + ',' + kind + ')';
+  }
+
   /*
    * Generate Ceylon type declaration.
    */
-  def genCeylonTypeDecl(type, wantNullable) {
+  def genCeylonTypeDecl(type, allowNullable) {
+    var nullable = type.nullable;
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
-      decl = type.raw.translatePackageName('ceylon') + "::" + type.simpleName;
+      decl = genJavaClassName(type.raw, '::');
       if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
-        decl = genCeylonTypeDecl(type.raw, wantNullable);
+        decl = genCeylonTypeDecl(type.raw, allowNullable);
         var sep = '<';
         for (typeArg : type.args) {
-          decl += sep + genCeylonTypeDecl(typeArg, wantNullable);
+          decl += sep + genCeylonTypeDecl(typeArg, false);
           sep = ',';
         }
         decl += '>';
       }
     } else if (kind == CLASS_STRING) {
-      decl = 'ceylon.language::String';
+      decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_ENUM) {
-      if (type.gen) {
-        decl = type.translatePackageName('ceylon') + "::" + type.simpleName;
-      } else {
-        decl = 'ceylon.language::String';
-      }
-    } else if (kind == CLASS_BOXED_PRIMITIVE) {
-      var name = type.name;
-      if (name == 'java.lang.Long' || name == 'java.lang.Integer' || name == 'java.lang.Short') {
-        decl = 'ceylon.language::Integer';
-      } else if (name == 'java.lang.Float' || name == 'java.lang.Double') {
-        decl = 'ceylon.language::Float';
-      } else if (name == 'java.lang.Boolean') {
-        decl = 'ceylon.language::Boolean';
-      } else if (name == 'java.lang.Character') {
-        decl = 'ceylon.language::Character';
-      } else if (name == 'java.lang.Byte') {
-        decl = 'ceylon.language::Byte';
-      }
-    } else if (kind == CLASS_PRIMITIVE) {
-      var name = type.name;
-      if (name == 'long' || name == 'int' || name == 'short') {
-        decl = 'ceylon.language::Integer';
-      } else if (name == 'float' || name == 'double') {
-        decl = 'ceylon.language::Float';
-      } else if (name == 'boolean') {
-        decl = 'ceylon.language::Boolean';
-      } else if (name == 'char') {
-        decl = 'ceylon.language::Character';
-      } else if (name == 'byte') {
-        decl = 'ceylon.language::Byte';
-      }
+      decl = genJavaClassName(type, '::');
+    } else if (kind == CLASS_PRIMITIVE || kind == CLASS_BOXED_PRIMITIVE) {
+      decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
       /* handle this instanceof better */
       if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
         decl = type.name;
+        nullable = true;
       } else {
         decl = 'ceylon.language::Object';
       }
@@ -370,36 +392,33 @@
         if (result.kind == CLASS_VOID) {
           decl = 'ceylon.language::Anything(ceylon.language::Throwable?)';
         } else {
-          decl = 'ceylon.language::Anything(ceylon.language::Throwable|' + genCeylonTypeDecl(result, wantNullable) + ')';
+          decl = 'ceylon.language::Anything(ceylon.language::Throwable|' + genCeylonTypeDecl(result, allowNullable) + ')';
         }
       } else {
-        decl = 'ceylon.language::Anything(' + genCeylonTypeDecl(type.args[0], wantNullable) + ')';
+        decl = 'ceylon.language::Anything(' + genCeylonTypeDecl(type.args[0], allowNullable) + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
       decl = 'ceylon.language::Throwable';
     } else if (kind == CLASS_DATA_OBJECT) {
-      decl = type.translatePackageName('ceylon') + "::" + type.simpleName;
+      decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_VOID) {
       decl = 'ceylon.language::Anything';
     } else if (kind == CLASS_SET) {
-      decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0], wantNullable) + '>';
+      decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
     } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0], wantNullable) + '>';
+      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
     } else if (kind == CLASS_MAP) {
-      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0], wantNullable) + ',' + genCeylonTypeDecl(type.args[1], wantNullable) + '>';
+      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0], allowNullable) + ',' + genCeylonTypeDecl(type.args[1], allowNullable) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
-      decl = 'ceylon.json::Object';
+      decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_JSON_ARRAY) {
-      decl = 'ceylon.json::Array';
+      decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OTHER) {
       if (type instanceof io.vertx.codegen.TypeInfo$Void) {
         decl = 'ceylon.language::Anything';
       }
     }
-    if (type.nullable) {
-      System.out.println("NULLABLE " + type);
-    }
-    if (wantNullable && type.nullable) {
+    if (allowNullable && nullable) {
       decl += "?";
     }
     return decl;

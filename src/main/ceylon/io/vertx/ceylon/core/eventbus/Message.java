@@ -59,7 +59,7 @@ public class Message<T> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T")
+  @TypeInfo("T?")
   public T body() {
     if (cached_body != null) {
       return cached_body;

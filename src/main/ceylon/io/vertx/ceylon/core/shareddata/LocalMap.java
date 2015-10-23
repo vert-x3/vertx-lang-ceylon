@@ -42,19 +42,19 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V get(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V put(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.put(arg_0, arg_1));
@@ -62,9 +62,9 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V remove(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
     return ret;
@@ -91,10 +91,10 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V putIfAbsent(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.putIfAbsent(arg_0, arg_1));
@@ -104,8 +104,8 @@ public class LocalMap<K,V> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeIfPresent(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     boolean ret = delegate.removeIfPresent(arg_0, arg_1);
@@ -115,9 +115,9 @@ public class LocalMap<K,V> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean replaceIfPresent(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V oldValue, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V newValue) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V oldValue, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V newValue) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(oldValue);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.ToJava.object(newValue);
@@ -126,10 +126,10 @@ public class LocalMap<K,V> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("V")
+  @TypeInfo("V?")
   public V replace(
-    final @TypeInfo("K") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.replace(arg_0, arg_1));

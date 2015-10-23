@@ -65,7 +65,7 @@ public class CommandLine {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T")
+  @TypeInfo("T?")
   public <T> T getOptionValue(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -77,7 +77,7 @@ public class CommandLine {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T")
+  @TypeInfo("T?")
   public <T> T getArgumentValue(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -89,7 +89,7 @@ public class CommandLine {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T")
+  @TypeInfo("T?")
   public <T> T getArgumentValue(
     final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;
