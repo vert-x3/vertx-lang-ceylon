@@ -1131,6 +1131,63 @@ shared void testGenericNullableTypeVariable() {
   assertEquals(4, count);
 }
 
+shared test void testNullableListByte() => testNullableList(ArrayList { 1.byte,2.byte,3.byte }, nullableTCK.methodWithNullableListByteParam, nullableTCK.methodWithNullableListByteHandler, nullableTCK.methodWithNullableListByteHandlerAsyncResult, nullableTCK.methodWithNullableListByteReturn);
+shared test void testNullableListShort() => testNullableList(ArrayList { 1,2,3 }, nullableTCK.methodWithNullableListShortParam, nullableTCK.methodWithNullableListShortHandler, nullableTCK.methodWithNullableListShortHandlerAsyncResult, nullableTCK.methodWithNullableListShortReturn);
+shared test void testNullableListInteger() => testNullableList(ArrayList { 1,2,3 }, nullableTCK.methodWithNullableListIntegerParam, nullableTCK.methodWithNullableListIntegerHandler, nullableTCK.methodWithNullableListIntegerHandlerAsyncResult, nullableTCK.methodWithNullableListIntegerReturn);
+shared test void testNullableListLong() => testNullableList(ArrayList { 1,2,3 }, nullableTCK.methodWithNullableListLongParam, nullableTCK.methodWithNullableListLongHandler, nullableTCK.methodWithNullableListLongHandlerAsyncResult, nullableTCK.methodWithNullableListLongReturn);
+shared test void testNullableListFloat() => testNullableList(ArrayList { 1.1,2.2,3.3 }, nullableTCK.methodWithNullableListFloatParam, nullableTCK.methodWithNullableListFloatHandler, nullableTCK.methodWithNullableListFloatHandlerAsyncResult, nullableTCK.methodWithNullableListFloatReturn, assertFloatEquals);
+shared test void testNullableListDouble() => testNullableList(ArrayList { 1.11,2.22,3.33 }, nullableTCK.methodWithNullableListDoubleParam, nullableTCK.methodWithNullableListDoubleHandler, nullableTCK.methodWithNullableListDoubleHandlerAsyncResult, nullableTCK.methodWithNullableListDoubleReturn, assertFloatEquals);
+shared test void testNullableListString() => testNullableList(ArrayList { "first","second","third" }, nullableTCK.methodWithNullableListStringParam, nullableTCK.methodWithNullableListStringHandler, nullableTCK.methodWithNullableListStringHandlerAsyncResult, nullableTCK.methodWithNullableListStringReturn);
+shared test void testNullableListChar() => testNullableList(ArrayList { 'x','y','z' }, nullableTCK.methodWithNullableListCharParam, nullableTCK.methodWithNullableListCharHandler, nullableTCK.methodWithNullableListCharHandlerAsyncResult, nullableTCK.methodWithNullableListCharReturn);
+shared test void testNullableListJsonObject() => testNullableList(ArrayList { JsonObject { "foo"->"bar" }, JsonObject { "juu"->3 } }, nullableTCK.methodWithNullableListJsonObjectParam, nullableTCK.methodWithNullableListJsonObjectHandler, nullableTCK.methodWithNullableListJsonObjectHandlerAsyncResult, nullableTCK.methodWithNullableListJsonObjectReturn);
+shared test void testNullableListJsonArray() => testNullableList(ArrayList { JsonArray { "foo","bar" }, JsonArray { "juu" } }, nullableTCK.methodWithNullableListJsonArrayParam, nullableTCK.methodWithNullableListJsonArrayHandler, nullableTCK.methodWithNullableListJsonArrayHandlerAsyncResult, nullableTCK.methodWithNullableListJsonArrayReturn);
+shared test void testNullableListApi() => testNullableList(ArrayList { RefedInterface1(RefedInterface1Impl().setString("refed_is_here")) }, nullableTCK.methodWithNullableListApiParam, nullableTCK.methodWithNullableListApiHandler, nullableTCK.methodWithNullableListApiHandlerAsyncResult, nullableTCK.methodWithNullableListApiReturn, assertRefedInterface1Equals);
+shared test void testNullableListDataObject() => testNullableList(ArrayList { TestDataObject { foo="foo_value"; bar=12345; wibble=5.6; } }, nullableTCK.methodWithNullableListDataObjectParam, nullableTCK.methodWithNullableListDataObjectHandler, nullableTCK.methodWithNullableListDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableListDataObjectReturn, assertTestDataObjectEquals);
+shared test void testNullableListEnum() => testNullableList(ArrayList { "TIM", "JULIEN" }, nullableTCK.methodWithNullableListEnumParam, nullableTCK.methodWithNullableListEnumHandler, nullableTCK.methodWithNullableListEnumHandlerAsyncResult, nullableTCK.methodWithNullableListEnumReturn);
+
+shared void testNullableList<T>(
+    List<T> expected,
+    Anything(Boolean,List<T>?) nullableListParamFunction,
+    Anything(Boolean,Anything(List<T>?)) nullableListHandlerFunction,
+    Anything(Boolean,Anything(List<T>?|Throwable)) nullableListHandlerAsyncResultFunction,
+    List<T>?(Boolean) nullableListReturnFunction,
+    Anything(Anything,Anything) check = assertEquals
+    ) {
+  void assertListEquals(List<T> expected, Anything actual) {
+    assert(is List<T> actual);
+    assertEquals(expected.size, actual.size);
+    for (index->item in expected.indexed) {
+      check(item, actual[index]);
+    }
+  }
+  nullableListParamFunction(false, expected);
+  nullableListParamFunction(true, null);
+  variable Integer count = 0;
+  void a(List<T>? list) {
+    assertNull(list);
+    count++;
+  }
+  nullableListHandlerFunction(false, a);
+  void b(List<T>? list) {
+    assertListEquals(expected, list);
+    count++;
+  }
+  nullableListHandlerFunction(true, b);
+  void c(List<T>?|Throwable list) {
+    assertNull(list);
+    count++;
+  }
+  nullableListHandlerAsyncResultFunction(false, c);
+  void d(List<T>?|Throwable list) {
+    assertListEquals(expected, list);
+    count++;
+  }
+  nullableListHandlerAsyncResultFunction(true, d);
+  assertNull(nullableListReturnFunction(false));
+  assertListEquals(expected, nullableListReturnFunction(true));
+  assertEquals(4, count);
+}
+
 /*
 shared test void testMethodWithNullableStringParam() {
   testNullable.methodWithNullableStringParam(null, true);

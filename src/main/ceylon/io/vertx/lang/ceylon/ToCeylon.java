@@ -41,12 +41,16 @@ public class ToCeylon {
       TypeDescriptor eltTypeDesc,
       java.util.List<J> list,
       Converter<J, C> converter) {
-    ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(eltTypeDesc);
-    for (J javaElt : list) {
-      C ceylonElt = converter.safeConvert(javaElt);
-      ret.add(ceylonElt);
+    if (list != null) {
+      ceylon.collection.ArrayList<C> ret = new ceylon.collection.ArrayList<C>(eltTypeDesc);
+      for (J javaElt : list) {
+        C ceylonElt = converter.safeConvert(javaElt);
+        ret.add(ceylonElt);
+      }
+      return ret;
+    } else {
+      return null;
     }
-    return ret;
   }
 
   public static <J, C> ceylon.language.Set<C> set(
@@ -147,4 +151,9 @@ public class ToCeylon {
       return new ceylon.language.String(src.name());
     }
   };
+
+  public static <E extends Enum<E>> Converter<E, ceylon.language.String> enumeration() {
+    Converter obj = Enumeration;
+    return obj;
+  }
 }

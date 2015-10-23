@@ -767,7 +767,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestEnum>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestEnum>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
-        listHandler.$call$((Object)null);
+        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
       }
     };
     delegate.methodWithHandlerListEnum(arg_0);
@@ -779,7 +779,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.language::String>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>> arg_0 = setHandler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
-        setHandler.$call$((Object)null);
+        setHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration()));
       }
     };
     delegate.methodWithHandlerSetEnum(arg_0);
@@ -1031,7 +1031,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @DocAnnotation$annotation$(description = "todo") Callable<?> listHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(listHandler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
-        return null;
+        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
     };
     delegate.methodWithHandlerAsyncResultListEnum(arg_0);
@@ -1043,7 +1043,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String>)") @DocAnnotation$annotation$(description = "todo") Callable<?> setHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = setHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(setHandler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
-        return null;
+        return io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
     };
     delegate.methodWithHandlerAsyncResultSetEnum(arg_0);
@@ -1891,7 +1891,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> methodWithListEnumReturn() {
-    ceylon.language.List<ceylon.language.String> ret = null;
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 
@@ -1961,7 +1961,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> methodWithSetEnumReturn() {
-    ceylon.language.Set<ceylon.language.String> ret = null;
+    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 
@@ -1988,7 +1988,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public ceylon.language.String methodWithEnumReturn(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(strVal);
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.Enumeration.safeConvert(delegate.methodWithEnumReturn(arg_0));
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration().safeConvert(delegate.methodWithEnumReturn(arg_0));
     return ret;
   }
 

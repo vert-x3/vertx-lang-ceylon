@@ -34,9 +34,13 @@ public class ToJava {
   public static <J, C> java.util.List<J> list(
       ceylon.language.List<C> from,
       Converter<C, J> converter) {
-    java.util.List<J> to = new java.util.ArrayList<J>(); // Todo: prealocate size
-    addAll(from, to, converter);
-    return to;
+    if (from != null) {
+      java.util.List<J> to = new java.util.ArrayList<J>(); // Todo: prealocate size
+      addAll(from, to, converter);
+      return to;
+    } else {
+      return null;
+    }
   }
 
   public static <J, C> java.util.Set<J> set(
