@@ -106,13 +106,26 @@ public class ToCeylon {
       ceylon.collection.HashMap<CK, CV> to = new ceylon.collection.HashMap<CK, CV>(keyTypeDesc, valTypeDesc);
       for (java.util.Map.Entry<JK, JV> javaEntry : from.entrySet()) {
         CK ceylonKey = keyConverter.convert(javaEntry.getKey());
-        CV ceylonVal = valConverter.convert(javaEntry.getValue());
-        to.put(ceylonKey, ceylonVal);
+        if (javaEntry.getValue() != null) {
+          CV ceylonVal = valConverter.convert(javaEntry.getValue());
+          to.put(ceylonKey, ceylonVal);
+        } else {
+          to.put(ceylonKey, null);
+        }
       }
       return to;
     } else {
       return null;
     }
+  }
+
+  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> mapOfNullable(
+      TypeDescriptor keyTypeDesc,
+      TypeDescriptor valTypeDesc,
+      java.util.Map<JK, JV> from,
+      Converter<JK, CK> keyConverter,
+      Converter<JV, CV> valConverter) {
+    return map(keyTypeDesc, nullable(valTypeDesc), from, keyConverter, valConverter);
   }
 
   public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {

@@ -99,8 +99,12 @@ public class ToJava {
         }
         ceylon.language.Entry<? extends CK, ? extends CV> entry = (ceylon.language.Entry<? extends CK, ? extends CV>)next;
         JK key = keyConverter.convert(entry.getKey());
-        JV val = valConverter.convert(entry.getItem());
-        to.put(key, val);
+        if (entry.getItem() != null) {
+          JV val = valConverter.convert(entry.getItem());
+          to.put(key, val);
+        } else {
+          to.put(key, null);
+        }
       }
       return to;
     } else {

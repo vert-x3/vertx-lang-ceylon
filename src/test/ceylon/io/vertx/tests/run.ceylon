@@ -1443,6 +1443,76 @@ shared void testSetNullable<T>(
   assertEquals(2, count);
 }
 
+shared test void testMapNullableByte() => testMapNullable(ArrayList { 12.byte,null,24.byte }, nullableTCK.methodWithMapNullableByteParam, nullableTCK.methodWithMapNullableByteHandler, nullableTCK.methodWithMapNullableByteHandlerAsyncResult, nullableTCK.methodWithMapNullableByteReturn);
+shared test void testMapNullableShort() => testMapNullable(ArrayList { 520,null,1040 }, nullableTCK.methodWithMapNullableShortParam, nullableTCK.methodWithMapNullableShortHandler, nullableTCK.methodWithMapNullableShortHandlerAsyncResult, nullableTCK.methodWithMapNullableShortReturn);
+shared test void testMapNullableInteger() => testMapNullable(ArrayList { 12345,null,54321 }, nullableTCK.methodWithMapNullableIntegerParam, nullableTCK.methodWithMapNullableIntegerHandler, nullableTCK.methodWithMapNullableIntegerHandlerAsyncResult, nullableTCK.methodWithMapNullableIntegerReturn);
+shared test void testMapNullableLong() => testMapNullable(ArrayList { 123456789,null,987654321 }, nullableTCK.methodWithMapNullableLongParam, nullableTCK.methodWithMapNullableLongHandler, nullableTCK.methodWithMapNullableLongHandlerAsyncResult, nullableTCK.methodWithMapNullableLongReturn);
+shared test void testMapNullableFloat() => testMapNullable(ArrayList { 1.1,null,3.3 }, nullableTCK.methodWithMapNullableFloatParam, nullableTCK.methodWithMapNullableFloatHandler, nullableTCK.methodWithMapNullableFloatHandlerAsyncResult, nullableTCK.methodWithMapNullableFloatReturn, assertFloatEquals);
+shared test void testMapNullableDouble() => testMapNullable(ArrayList { 1.11,null,3.33 }, nullableTCK.methodWithMapNullableDoubleParam, nullableTCK.methodWithMapNullableDoubleHandler, nullableTCK.methodWithMapNullableDoubleHandlerAsyncResult, nullableTCK.methodWithMapNullableDoubleReturn, assertFloatEquals);
+shared test void testMapNullableBoolean() => testMapNullable(ArrayList { true, null, false }, nullableTCK.methodWithMapNullableBooleanParam, nullableTCK.methodWithMapNullableBooleanHandler, nullableTCK.methodWithMapNullableBooleanHandlerAsyncResult, nullableTCK.methodWithMapNullableBooleanReturn);
+shared test void testMapNullableString() => testMapNullable(ArrayList { "first",null,"third" }, nullableTCK.methodWithMapNullableStringParam, nullableTCK.methodWithMapNullableStringHandler, nullableTCK.methodWithMapNullableStringHandlerAsyncResult, nullableTCK.methodWithMapNullableStringReturn);
+shared test void testMapNullableChar() => testMapNullable(ArrayList { 'F',null,'R' }, nullableTCK.methodWithMapNullableCharParam, nullableTCK.methodWithMapNullableCharHandler, nullableTCK.methodWithMapNullableCharHandlerAsyncResult, nullableTCK.methodWithMapNullableCharReturn);
+shared test void testMapNullableJsonObject() => testMapNullable(ArrayList { JsonObject { "foo"->"bar" }, null, JsonObject { "juu"->3 } }, nullableTCK.methodWithMapNullableJsonObjectParam, nullableTCK.methodWithMapNullableJsonObjectHandler, nullableTCK.methodWithMapNullableJsonObjectHandlerAsyncResult, nullableTCK.methodWithMapNullableJsonObjectReturn);
+shared test void testMapNullableJsonArray() => testMapNullable(ArrayList { JsonArray { "foo","bar" }, null, JsonArray { "juu" } }, nullableTCK.methodWithMapNullableJsonArrayParam, nullableTCK.methodWithMapNullableJsonArrayHandler, nullableTCK.methodWithMapNullableJsonArrayHandlerAsyncResult, nullableTCK.methodWithMapNullableJsonArrayReturn);
+shared test void testMapNullableApi() => testMapNullableIn(ArrayList { RefedInterface1(RefedInterface1Impl().setString("first")), null, RefedInterface1(RefedInterface1Impl().setString("third")) }, nullableTCK.methodWithMapNullableApiParam, assertRefedInterface1Equals);
+
+shared void testMapNullable<T>(
+    List<T> expected,
+    Anything(Map<String, T?>) mapNullableParamFunction,
+    Anything(Anything(Map<String, T?>)) mapNullableHandlerFunction,
+    Anything(Anything(Map<String, T?>|Throwable)) mapNullableHandlerAsyncResultFunction,
+    Map<String, T?>() mapNullableReturnFunction,
+    Anything(Anything,Anything) check = assertEquals
+    ) {
+  testMapNullableIn(expected, mapNullableParamFunction, check);
+  testMapNullableOut(expected, mapNullableHandlerFunction, mapNullableHandlerAsyncResultFunction, mapNullableReturnFunction, check);
+}
+
+shared void testMapNullableIn<T>(
+    List<T> expected,
+    Anything(Map<String, T?>) mapNullableParamFunction,
+    Anything(Anything,Anything) check
+    ) {
+  HashMap<String, T> map = HashMap<String, T>();
+  for (index->item in expected.indexed) {
+    map.put("``(index + 1)``", item);
+  }
+  mapNullableParamFunction(map);
+}
+
+shared void testMapNullableOut<T>(
+    List<T> expected,
+    Anything(Anything(Map<String, T?>)) mapNullableHandlerFunction,
+    Anything(Anything(Map<String, T?>|Throwable)) mapNullableHandlerAsyncResultFunction,
+    Map<String, T?>() mapNullableReturnFunction,
+    Anything(Anything,Anything) check
+    ) {
+  void checkMap(Anything actual) {
+    assert(is Map<String, T?> actual);
+    assertEquals(expected.size, actual.size);
+    for (index->item in expected.indexed) {
+      if (exists item) {
+        check(item, actual["``(index + 1)``"]);
+      } else {
+        assertNull(actual["``(index + 1)``"]);
+      }
+    }
+  }
+  variable Integer count = 0;
+  void a(Map<String, T?> set) {
+    checkMap(set);
+    count++;
+  }
+  mapNullableHandlerFunction(a);
+  void b(Map<String, T?>|Throwable set) {
+    checkMap(set);
+    count++;
+  }
+  mapNullableHandlerAsyncResultFunction(b);
+  checkMap(mapNullableReturnFunction());
+  assertEquals(2, count);
+}
+
 void assertTestDataObjectEquals(Anything actual, Anything expected) {
   assert(is TestDataObject actual);
   assert(is TestDataObject expected);

@@ -115,11 +115,11 @@
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.list' : 'io.vertx.lang.ceylon.ToCeylon.set';
         return collection + (eltType.nullable ? 'OfNullable' : '') + '(' + genJavaClassName(eltType, '.') + '.$TypeDescriptor$, ' + expr + ', ' + genReturnConverter(eltType) + ')';
       } else if (kind == CLASS_MAP) {
-        var valArg =  type.args[1];
-        return 'io.vertx.lang.ceylon.ToCeylon.map(' +
+        var valType =  type.args[1];
+        return 'io.vertx.lang.ceylon.ToCeylon.map' + (valType.nullable ? 'OfNullable(' : '(') +
           'ceylon.language.String.$TypeDescriptor$, ' +
-          genJavaClassName(valArg, '.') + '.$TypeDescriptor$, ' +
-          expr + ', ' + 'io.vertx.lang.ceylon.ToCeylon.String, ' + genReturnConverter(valArg) + ')';
+          genJavaClassName(valType, '.') + '.$TypeDescriptor$, ' +
+          expr + ', ' + 'io.vertx.lang.ceylon.ToCeylon.String, ' + genReturnConverter(valType) + ')';
       } else if (kind == CLASS_API) {
         return type.raw.translateName('ceylon') + '.TO_CEYLON.safeConvert(' + expr + ')';
       } else if (kind.json) {
