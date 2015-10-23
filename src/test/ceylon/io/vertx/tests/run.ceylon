@@ -1153,7 +1153,7 @@ shared void testNullableList<T>(
     List<T>?(Boolean) nullableListReturnFunction,
     Anything(Anything,Anything) check = assertEquals
     ) {
-  void assertListEquals(List<T> expected, Anything actual) {
+  void checkList(Anything actual) {
     assert(is List<T> actual);
     assertEquals(expected.size, actual.size);
     for (index->item in expected.indexed) {
@@ -1169,7 +1169,7 @@ shared void testNullableList<T>(
   }
   nullableListHandlerFunction(false, a);
   void b(List<T>? list) {
-    assertListEquals(expected, list);
+    checkList(list);
     count++;
   }
   nullableListHandlerFunction(true, b);
@@ -1179,12 +1179,12 @@ shared void testNullableList<T>(
   }
   nullableListHandlerAsyncResultFunction(false, c);
   void d(List<T>?|Throwable list) {
-    assertListEquals(expected, list);
+    checkList(list);
     count++;
   }
   nullableListHandlerAsyncResultFunction(true, d);
   assertNull(nullableListReturnFunction(false));
-  assertListEquals(expected, nullableListReturnFunction(true));
+  checkList(nullableListReturnFunction(true));
   assertEquals(4, count);
 }
 
@@ -1210,7 +1210,7 @@ shared void testNullableSet<T>(
     Set<T>?(Boolean) nullableSetReturnFunction,
     Anything(Anything,Anything) check = assertEquals
     ) {
-  void assertSetEquals(Set<T> expected, Anything actual) {
+  void checkSet(Anything actual) {
     assert(is Set<T> actual);
     assertEquals(expected.size, actual.size);
     variable Integer count = 0;
@@ -1235,7 +1235,7 @@ shared void testNullableSet<T>(
   }
   nullableSetHandlerFunction(false, a);
   void b(Set<T>? set) {
-    assertSetEquals(expected, set);
+    checkSet(set);
     count++;
   }
   nullableSetHandlerFunction(true, b);
@@ -1245,12 +1245,12 @@ shared void testNullableSet<T>(
   }
   nullableSetHandlerAsyncResultFunction(false, c);
   void d(Set<T>?|Throwable set) {
-    assertSetEquals(expected, set);
+    checkSet(set);
     count++;
   }
   nullableSetHandlerAsyncResultFunction(true, d);
   assertNull(nullableSetReturnFunction(false));
-  assertSetEquals(expected, nullableSetReturnFunction(true));
+  checkSet(nullableSetReturnFunction(true));
   assertEquals(4, count);
 }
 
