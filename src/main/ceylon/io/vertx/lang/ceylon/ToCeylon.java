@@ -75,13 +75,17 @@ public class ToCeylon {
       java.util.Map<JK, JV> from,
       Converter<JK, CK> keyConverter,
       Converter<JV, CV> valConverter) {
-    ceylon.collection.HashMap<CK, CV> to = new ceylon.collection.HashMap<CK, CV>(keyTypeDesc, valTypeDesc);
-    for (java.util.Map.Entry<JK, JV> javaEntry : from.entrySet()) {
-      CK ceylonKey = keyConverter.convert(javaEntry.getKey());
-      CV ceylonVal = valConverter.convert(javaEntry.getValue());
-      to.put(ceylonKey, ceylonVal);
+    if (from != null) {
+      ceylon.collection.HashMap<CK, CV> to = new ceylon.collection.HashMap<CK, CV>(keyTypeDesc, valTypeDesc);
+      for (java.util.Map.Entry<JK, JV> javaEntry : from.entrySet()) {
+        CK ceylonKey = keyConverter.convert(javaEntry.getKey());
+        CV ceylonVal = valConverter.convert(javaEntry.getValue());
+        to.put(ceylonKey, ceylonVal);
+      }
+      return to;
+    } else {
+      return null;
     }
-    return to;
   }
 
   public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {

@@ -71,19 +71,23 @@ public class ToJava {
       ceylon.language.Map<CK, CV> from,
       Converter<CK, JK> keyConverter,
       Converter<CV, JV> valConverter) {
-    ceylon.language.Iterator<? extends ceylon.language.Entry<? extends CK, ? extends CV>> iterator = from.iterator();
-    java.util.Map<JK, JV> to = new java.util.HashMap<JK, JV>();
-    while (true) {
-      Object next = iterator.next();
-      if (next instanceof ceylon.language.Finished) {
-        break;
+    if (from != null) {
+      ceylon.language.Iterator<? extends ceylon.language.Entry<? extends CK, ? extends CV>> iterator = from.iterator();
+      java.util.Map<JK, JV> to = new java.util.HashMap<JK, JV>();
+      while (true) {
+        Object next = iterator.next();
+        if (next instanceof ceylon.language.Finished) {
+          break;
+        }
+        ceylon.language.Entry<? extends CK, ? extends CV> entry = (ceylon.language.Entry<? extends CK, ? extends CV>)next;
+        JK key = keyConverter.convert(entry.getKey());
+        JV val = valConverter.convert(entry.getItem());
+        to.put(key, val);
       }
-      ceylon.language.Entry<? extends CK, ? extends CV> entry = (ceylon.language.Entry<? extends CK, ? extends CV>)next;
-      JK key = keyConverter.convert(entry.getKey());
-      JV val = valConverter.convert(entry.getItem());
-      to.put(key, val);
+      return to;
+    } else {
+      return null;
     }
-    return to;
   }
 
   public static final Converter<ceylon.language.Boolean, java.lang.Boolean> Boolean = new Converter<ceylon.language.Boolean, java.lang.Boolean>() {
