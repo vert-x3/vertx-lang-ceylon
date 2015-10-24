@@ -1,5 +1,15 @@
 @includeNamed{'ceylon-common.templ'}
 
+@code{
+  def asValidMember(name) {
+    if (Character.isLowerCase(name.charAt(0))) {
+      return name;
+    } else {
+      return '\\i' + name;
+    }
+  }
+}
+
 import io.vertx.lang.ceylon { Converter }\n
 import @{type.packageName} { @{type.simpleName}_=@{type.simpleName} }\n
 

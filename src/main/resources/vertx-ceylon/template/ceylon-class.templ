@@ -373,47 +373,6 @@
 	@end{}
 @end{}
 
-@declare{'genExtendsClause'}
-	@if{concreteSuperType != null}extends @{genTypeDecl(concreteSuperType)}(delegate) @end{}
-@end{}
-
-@code{
-  def genSatisfiesClause() {
-    var s = new java.lang.StringBuilder();
-    var sep = 'satisfies ';
-    for(superType : abstractSuperTypes) {
-      s.append(sep).append(genTypeDecl(superType));
-      sep = '& ';
-    }
-    return s.toString();
-  }
-}
-
-@code{
-  def genDelegateType(type) {
-    StringBuilder s = new java.lang.StringBuilder();
-    s.append(type.raw.simpleName).append('_');
-    if (type.raw.params.size() > 0) {
-      s.append('<');
-      var sep = '';
-      for (typeParam : type.raw.params) {
-        s.append(sep).append('Object');
-        sep = ',';
-      }
-      s.append('>');
-    }
-    return s.toString();
-  }
-}
-
-@declare{'genMethodParams'}
-[@foreach{param:method.params}@{genTypeDecl(param.type)}@end{','}]
-@end{}
-
-@declare{'genMethodArgs'}
-@foreach{method:methods}@includeNamed{'genMethodParams'}@end{'|'}
-@end{}
-
 @code{
   def genMethodCallCeylon(method, indent) {
     var sb = new java.lang.StringBuilder();
