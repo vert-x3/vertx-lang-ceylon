@@ -2,13 +2,6 @@
 @includeNamed{'ceylon-common.templ'}
 @code{
 
-  /*
-   * Generate a Ceylon method name for a given method.
-   */
-  def genMethodName(method) {
-    return toCeylonIdentifier(method.name);
-  }
-
   def genConvParam(type, expr) {
     var kind = type.kind;
     if (kind.basic) {
@@ -392,7 +385,7 @@
     } else if (isSetterMethod(method)) {
       sb.append('delegate.').append(toCeylonIdentifier(getPropertyNameFromSetter(method))).append(' = ').append(args[0]);
     } else {
-      sb.append('Anything v = delegate.').append(genMethodName(method)).append('(');
+      sb.append('Anything v = delegate.').append(toCeylonIdentifier(method.name)).append('(');
       var paramIdx = 0;
       for (param : method.params) {
         if (paramIdx > 0) {
