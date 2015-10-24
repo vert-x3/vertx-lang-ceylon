@@ -1,1 +1,1 @@
-ceylon compile --suppress-warning --javac=-target=8 --source=src/examples/ceylon examples
+ceylon compile --rep aether --suppress-warning --javac=-target=8 --source=src/examples/ceylon
