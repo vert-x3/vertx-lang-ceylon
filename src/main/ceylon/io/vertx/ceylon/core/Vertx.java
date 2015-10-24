@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
@@ -70,7 +71,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(io.vertx.core.Vertx.vertx(arg_0));
     return ret;
@@ -79,8 +80,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public static void clusteredVertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) {
       public Object toCeylon(io.vertx.core.Vertx event) {
@@ -107,7 +108,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer createNetServer(
-    final @TypeInfo("io.vertx.ceylon.core.net::NetServerOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetServerOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.net::NetServerOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetServerOptions options) {
     io.vertx.core.net.NetServerOptions arg_0 = options == null ? null : new io.vertx.core.net.NetServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.createNetServer(arg_0));
     return ret;
@@ -123,7 +124,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient createNetClient(
-    final @TypeInfo("io.vertx.ceylon.core.net::NetClientOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetClientOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.net::NetClientOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetClientOptions options) {
     io.vertx.core.net.NetClientOptions arg_0 = options == null ? null : new io.vertx.core.net.NetClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.safeConvert(delegate.createNetClient(arg_0));
     return ret;
@@ -139,7 +140,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer createHttpServer(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpServerOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpServerOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpServerOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpServerOptions options) {
     io.vertx.core.http.HttpServerOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.createHttpServer(arg_0));
     return ret;
@@ -155,7 +156,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient createHttpClient(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpClientOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpClientOptions options) {
     io.vertx.core.http.HttpClientOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.createHttpClient(arg_0));
     return ret;
@@ -171,7 +172,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket createDatagramSocket(
-    final @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocketOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.datagram.DatagramSocketOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocketOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.datagram.DatagramSocketOptions options) {
     io.vertx.core.datagram.DatagramSocketOptions arg_0 = options == null ? null : new io.vertx.core.datagram.DatagramSocketOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.createDatagramSocket(arg_0));
     return ret;
@@ -209,8 +210,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient createDnsClient(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.createDnsClient(arg_0, arg_1));
@@ -231,8 +232,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer")
   public long setTimer(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     long arg_0 = delay;
     io.vertx.core.Handler<java.lang.Long> arg_1 = handler == null ? null : new io.vertx.core.Handler<java.lang.Long>() {
       public void handle(java.lang.Long event) {
@@ -246,7 +247,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream timerStream(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay) {
+    final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay) {
     long arg_0 = delay;
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.timerStream(arg_0));
     return ret;
@@ -255,8 +256,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer")
   public long setPeriodic(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     long arg_0 = delay;
     io.vertx.core.Handler<java.lang.Long> arg_1 = handler == null ? null : new io.vertx.core.Handler<java.lang.Long>() {
       public void handle(java.lang.Long event) {
@@ -270,7 +271,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream periodicStream(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long delay) {
+    final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay) {
     long arg_0 = delay;
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.periodicStream(arg_0));
     return ret;
@@ -279,7 +280,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean cancelTimer(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long id) {
+    final @TypeInfo("ceylon.language::Integer") @Name("id") @DocAnnotation$annotation$(description = "todo") long id) {
     long arg_0 = id;
     boolean ret = delegate.cancelTimer(arg_0);
     return ret;
@@ -288,7 +289,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void runOnContext(
-    final @TypeInfo("ceylon.language::Anything()") @DocAnnotation$annotation$(description = "todo") Callable<?> action) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("action") @DocAnnotation$annotation$(description = "todo") Callable<?> action) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = action == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         action.$call$();
@@ -306,7 +307,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
@@ -318,7 +319,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     delegate.deployVerticle(arg_0);
   }
@@ -326,8 +327,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) {
       public Object toCeylon(java.lang.String event) {
@@ -340,8 +341,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
+    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     delegate.deployVerticle(arg_0, arg_1);
@@ -350,9 +351,9 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
+    final @TypeInfo("io.vertx.ceylon.core::DeploymentOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.DeploymentOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) {
@@ -366,7 +367,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void undeploy(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String deploymentID) {
+    final @TypeInfo("ceylon.language::String") @Name("deploymentID") @DocAnnotation$annotation$(description = "todo") ceylon.language.String deploymentID) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(deploymentID);
     delegate.undeploy(arg_0);
   }
@@ -374,8 +375,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void undeploy(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String deploymentID, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("deploymentID") @DocAnnotation$annotation$(description = "todo") ceylon.language.String deploymentID, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(deploymentID);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
@@ -405,9 +406,9 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
@@ -428,8 +429,8 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));

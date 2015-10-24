@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
@@ -32,15 +33,15 @@ public interface SuperInterface2 {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   void otherSuperMethodWithBasicParams(
-    final @TypeInfo("ceylon.language::Byte") @DocAnnotation$annotation$(description = "todo") byte b, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long s, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long i, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long l, 
-    final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double f, 
-    final @TypeInfo("ceylon.language::Float") @DocAnnotation$annotation$(description = "todo") double d, 
-    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean bool, 
-    final @TypeInfo("ceylon.language::Character") @DocAnnotation$annotation$(description = "todo") int ch, 
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
+    final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l, 
+    final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f, 
+    final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("bool") @DocAnnotation$annotation$(description = "todo") boolean bool, 
+    final @TypeInfo("ceylon.language::Character") @Name("ch") @DocAnnotation$annotation$(description = "todo") int ch, 
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
 
   @Ignore
   public class Impl implements SuperInterface2 {

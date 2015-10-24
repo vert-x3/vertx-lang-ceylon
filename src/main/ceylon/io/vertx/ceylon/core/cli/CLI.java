@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
@@ -41,7 +42,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public static CLI create(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(io.vertx.core.cli.CLI.create(arg_0));
     return ret;
@@ -50,7 +51,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments) {
     java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(arguments, io.vertx.lang.ceylon.ToJava.String);
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.safeConvert(delegate.parse(arg_0));
     return ret;
@@ -59,8 +60,8 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments, 
-    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean validate) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("validate") @DocAnnotation$annotation$(description = "todo") boolean validate) {
     java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(arguments, io.vertx.lang.ceylon.ToJava.String);
     boolean arg_1 = validate;
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.safeConvert(delegate.parse(arg_0, arg_1));
@@ -77,7 +78,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setName(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setName(arg_0));
     return this;
@@ -93,7 +94,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setDescription(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String desc) {
+    final @TypeInfo("ceylon.language::String") @Name("desc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String desc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(desc);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setDescription(arg_0));
     return this;
@@ -109,7 +110,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setSummary(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String summary) {
+    final @TypeInfo("ceylon.language::String") @Name("summary") @DocAnnotation$annotation$(description = "todo") ceylon.language.String summary) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(summary);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setSummary(arg_0));
     return this;
@@ -125,7 +126,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setHidden(
-    final @TypeInfo("ceylon.language::Boolean") @DocAnnotation$annotation$(description = "todo") boolean hidden) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("hidden") @DocAnnotation$annotation$(description = "todo") boolean hidden) {
     boolean arg_0 = hidden;
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setHidden(arg_0));
     return this;
@@ -141,7 +142,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOption(
-    final @TypeInfo("io.vertx.ceylon.core.cli::Option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
+    final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
     io.vertx.core.cli.Option arg_0 = option == null ? null : new io.vertx.core.cli.Option(io.vertx.lang.ceylon.ToJava.JsonObject.convert(option.toJson()));
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.addOption(arg_0));
     return this;
@@ -150,7 +151,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOptions(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
     java.util.List<io.vertx.core.cli.Option> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(options, io.vertx.ceylon.core.cli.toJavaOption_.get_());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.addOptions(arg_0));
     return this;
@@ -159,7 +160,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setOptions(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
     java.util.List<io.vertx.core.cli.Option> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(options, io.vertx.ceylon.core.cli.toJavaOption_.get_());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setOptions(arg_0));
     return this;
@@ -175,7 +176,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArgument(
-    final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
+    final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
     io.vertx.core.cli.Argument arg_0 = arg == null ? null : new io.vertx.core.cli.Argument(io.vertx.lang.ceylon.ToJava.JsonObject.convert(arg.toJson()));
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.addArgument(arg_0));
     return this;
@@ -184,7 +185,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArguments(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
     java.util.List<io.vertx.core.cli.Argument> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(args, io.vertx.ceylon.core.cli.toJavaArgument_.get_());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.addArguments(arg_0));
     return this;
@@ -193,7 +194,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setArguments(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
     java.util.List<io.vertx.core.cli.Argument> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(args, io.vertx.ceylon.core.cli.toJavaArgument_.get_());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.setArguments(arg_0));
     return this;
@@ -202,7 +203,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::Option")
   public io.vertx.ceylon.core.cli.Option getOption(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.ceylon.core.cli.Option ret = io.vertx.ceylon.core.cli.toCeylonOption_.get_().safeConvert(delegate.getOption(arg_0));
     return ret;
@@ -211,7 +212,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument")
   public io.vertx.ceylon.core.cli.Argument getArgument(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.ceylon.core.cli.Argument ret = io.vertx.ceylon.core.cli.toCeylonArgument_.get_().safeConvert(delegate.getArgument(arg_0));
     return ret;
@@ -220,7 +221,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument")
   public io.vertx.ceylon.core.cli.Argument getArgument(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;
     io.vertx.ceylon.core.cli.Argument ret = io.vertx.ceylon.core.cli.toCeylonArgument_.get_().safeConvert(delegate.getArgument(arg_0));
     return ret;
@@ -229,7 +230,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI removeOption(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.removeOption(arg_0));
     return this;
@@ -238,7 +239,7 @@ public class CLI {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI removeArgument(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.removeArgument(arg_0));
     return this;

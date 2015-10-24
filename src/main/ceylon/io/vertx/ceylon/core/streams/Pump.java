@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
@@ -43,8 +44,8 @@ public class Pump {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public static <T> Pump pump(
-    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws) {
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1));
@@ -57,9 +58,9 @@ public class Pump {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public static <T> Pump pump(
-    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws, 
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long writeQueueMaxSize) {
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws, 
+    final @TypeInfo("ceylon.language::Integer") @Name("writeQueueMaxSize") @DocAnnotation$annotation$(description = "todo") long writeQueueMaxSize) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     int arg_2 = (int)writeQueueMaxSize;
@@ -70,7 +71,7 @@ public class Pump {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;

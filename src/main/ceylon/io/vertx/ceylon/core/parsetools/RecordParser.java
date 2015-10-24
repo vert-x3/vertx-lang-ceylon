@@ -5,6 +5,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
@@ -42,7 +43,7 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setOutput(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event));
@@ -54,8 +55,8 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newDelimited(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
+    final @TypeInfo("ceylon.language::String") @Name("delim") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(delim);
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
@@ -69,8 +70,8 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newDelimited(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer delim, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim") @DocAnnotation$annotation$(description = "todo") Buffer delim, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(delim);
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
@@ -84,8 +85,8 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newFixed(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long size, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
+    final @TypeInfo("ceylon.language::Integer") @Name("size") @DocAnnotation$annotation$(description = "todo") long size, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
     int arg_0 = (int)size;
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_1 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
@@ -99,7 +100,7 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
-    final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim) {
+    final @TypeInfo("ceylon.language::String") @Name("delim") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(delim);
     delegate.delimitedMode(arg_0);
   }
@@ -107,7 +108,7 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer delim) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim") @DocAnnotation$annotation$(description = "todo") Buffer delim) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(delim);
     delegate.delimitedMode(arg_0);
   }
@@ -115,7 +116,7 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void fixedSizeMode(
-    final @TypeInfo("ceylon.language::Integer") @DocAnnotation$annotation$(description = "todo") long size) {
+    final @TypeInfo("ceylon.language::Integer") @Name("size") @DocAnnotation$annotation$(description = "todo") long size) {
     int arg_0 = (int)size;
     delegate.fixedSizeMode(arg_0);
   }
@@ -123,7 +124,7 @@ public class RecordParser {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @DocAnnotation$annotation$(description = "todo") Buffer buffer) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "todo") Buffer buffer) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buffer);
     delegate.handle(arg_0);
   }

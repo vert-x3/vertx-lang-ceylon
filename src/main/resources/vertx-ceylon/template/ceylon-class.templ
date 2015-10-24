@@ -564,6 +564,7 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameter;\n
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;\n
 import com.redhat.ceylon.compiler.java.metadata.Variance;\n
 import com.redhat.ceylon.compiler.java.metadata.Ignore;\n
+import com.redhat.ceylon.compiler.java.metadata.Name;\n
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;\n
 import ceylon.language.Callable;\n
 import ceylon.language.DocAnnotation$annotation$;\n
@@ -643,7 +644,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 @if{method.staticMethod}static @end{}
 @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
 @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 	@if{concrete} {\n
 		@includeNamed{'genMethodBody';indent='    '}
   }\n
