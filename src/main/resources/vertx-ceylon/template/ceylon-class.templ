@@ -55,8 +55,6 @@
       return 'io.vertx.lang.ceylon.ToJava.object(' + expr + ')';
     } else if (kind == CLASS_DATA_OBJECT) {
       return expr + ' == null ? null : new ' + type.name + '(io.vertx.lang.ceylon.ToJava.JsonObject.convert(' + expr + '.toJson()))';
-    } else if (kind == CLASS_JSON_OBJECT) {
-    } else if (kind == CLASS_JSON_ARRAY) {
     } else if (kind == CLASS_ENUM) {
       return genParamConverter(type) + '.safeConvert(' + expr + ')';
     } else if (kind == CLASS_LIST || kind == CLASS_SET) {
