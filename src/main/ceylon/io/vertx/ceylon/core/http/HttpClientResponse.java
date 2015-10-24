@@ -160,7 +160,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
     if (cached_cookies != null) {
       return cached_cookies;
     }
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.cookies(), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.cookies(), io.vertx.lang.ceylon.ToCeylon.String);
      cached_cookies = ret;
     return ret;
   }

@@ -57,7 +57,7 @@ public class CommandLine {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> allArguments() {
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.allArguments(), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.allArguments(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -120,7 +120,7 @@ public class CommandLine {
   public ceylon.language.List<ceylon.language.String> getRawValues(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
     io.vertx.core.cli.Option arg_0 = option == null ? null : new io.vertx.core.cli.Option(io.vertx.lang.ceylon.ToJava.JsonObject.convert(option.toJson()));
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.getRawValues(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.getRawValues(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -129,7 +129,7 @@ public class CommandLine {
   public ceylon.language.List<ceylon.language.String> getRawValuesForOption(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
     io.vertx.core.cli.Option arg_0 = option == null ? null : new io.vertx.core.cli.Option(io.vertx.lang.ceylon.ToJava.JsonObject.convert(option.toJson()));
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.getRawValuesForOption(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.getRawValuesForOption(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -138,7 +138,7 @@ public class CommandLine {
   public ceylon.language.List<ceylon.language.String> getRawValuesForArgument(
     final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument argument) {
     io.vertx.core.cli.Argument arg_0 = argument == null ? null : new io.vertx.core.cli.Argument(io.vertx.lang.ceylon.ToJava.JsonObject.convert(argument.toJson()));
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.getRawValuesForArgument(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.getRawValuesForArgument(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

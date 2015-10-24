@@ -565,7 +565,7 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readDir(arg_0, arg_1));
@@ -577,7 +577,7 @@ public class FileSystem {
   public ceylon.language.List<ceylon.language.String> readDirBlocking(
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.readDirBlocking(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.readDirBlocking(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
@@ -591,7 +591,7 @@ public class FileSystem {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filter);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readDir(arg_0, arg_1, arg_2));
@@ -605,7 +605,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filter) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filter);
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, delegate.readDirBlocking(arg_0, arg_1), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.readDirBlocking(arg_0, arg_1), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

@@ -388,7 +388,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> deploymentIDs() {
-    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.set(ceylon.language.String.$TypeDescriptor$, delegate.deploymentIDs(), io.vertx.lang.ceylon.ToCeylon.String);
+    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.deploymentIDs(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

@@ -37,7 +37,7 @@ public class ToCeylon {
     return (T) o;
   }
 
-  public static <J, C> ceylon.language.List<C> list(
+  public static <J, C> ceylon.language.List<C> convertList(
       TypeDescriptor eltTypeDesc,
       java.util.List<J> list,
       Converter<J, C> converter) {
@@ -53,14 +53,14 @@ public class ToCeylon {
     }
   }
 
-  public static <J, C> ceylon.language.List<C> listOfNullable(
+  public static <J, C> ceylon.language.List<C> convertListOfNullable(
       TypeDescriptor eltTypeDesc,
       java.util.List<J> list,
       Converter<J, C> converter) {
-    return list(nullable(eltTypeDesc), list, converter);
+    return convertList(nullable(eltTypeDesc), list, converter);
   }
 
-  public static <J, C> ceylon.language.Set<C> set(
+  public static <J, C> ceylon.language.Set<C> convertSet(
       TypeDescriptor eltTypeDesc,
       java.util.Set<J> set,
       Converter<J, C> converter) {
@@ -76,7 +76,7 @@ public class ToCeylon {
     }
   }
 
-  public static <J, C> ceylon.language.Collection<C> setOfNullable(
+  public static <J, C> ceylon.language.Collection<C> convertSetOfNullable(
       TypeDescriptor eltTypeDesc,
       java.util.Set<J> set,
       Converter<J, C> converter) {
@@ -96,7 +96,7 @@ public class ToCeylon {
     }
   }
 
-  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> map(
+  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> convertMap(
       TypeDescriptor keyTypeDesc,
       TypeDescriptor valTypeDesc,
       java.util.Map<JK, JV> from,
@@ -119,13 +119,13 @@ public class ToCeylon {
     }
   }
 
-  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> mapOfNullable(
+  public static <JK, JV, CK, CV> ceylon.language.Map<CK, CV> convertMapOfNullable(
       TypeDescriptor keyTypeDesc,
       TypeDescriptor valTypeDesc,
       java.util.Map<JK, JV> from,
       Converter<JK, CK> keyConverter,
       Converter<JV, CV> valConverter) {
-    return map(keyTypeDesc, nullable(valTypeDesc), from, keyConverter, valConverter);
+    return convertMap(keyTypeDesc, nullable(valTypeDesc), from, keyConverter, valConverter);
   }
 
   public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {

@@ -93,7 +93,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveA(arg_0, arg_1));
@@ -108,7 +108,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveAAAA(arg_0, arg_1));
@@ -123,7 +123,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveCNAME(arg_0, arg_1));
@@ -138,7 +138,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.MxRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.dns.MxRecord>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.dns.MxRecord> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.core.dns.MxRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.MxRecord.TO_CEYLON);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.dns.MxRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.MxRecord.TO_CEYLON);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveMX(arg_0, arg_1));
@@ -153,7 +153,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveTXT(arg_0, arg_1));
@@ -183,7 +183,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveNS(arg_0, arg_1));
@@ -198,7 +198,7 @@ public class DnsClient {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.SrvRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.dns.SrvRecord>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.dns.SrvRecord> event) {
-        return io.vertx.lang.ceylon.ToCeylon.list(io.vertx.ceylon.core.dns.SrvRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.SrvRecord.TO_CEYLON);
+        return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.dns.SrvRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.SrvRecord.TO_CEYLON);
       }
     };
     DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.resolveSRV(arg_0, arg_1));

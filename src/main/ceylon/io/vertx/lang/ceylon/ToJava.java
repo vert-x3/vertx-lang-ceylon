@@ -31,7 +31,7 @@ public class ToJava {
     return (T) o;
   }
 
-  public static <J, C> java.util.List<J> list(
+  public static <J, C> java.util.List<J> convertList(
       ceylon.language.List<C> from,
       Converter<C, J> converter) {
     if (from != null) {
@@ -43,13 +43,13 @@ public class ToJava {
     }
   }
 
-  public static <J, C> java.util.List<J> listOfNullable(
+  public static <J, C> java.util.List<J> convertListOfNullable(
       ceylon.language.List<C> from,
       Converter<C, J> converter) {
-    return list(from, converter);
+    return convertList(from, converter);
   }
 
-  public static <J, C> java.util.Set<J> set(
+  public static <J, C> java.util.Set<J> convertSet(
       ceylon.language.Set<C> from,
       Converter<C, J> converter) {
     if (from != null) {
@@ -61,7 +61,7 @@ public class ToJava {
     }
   }
 
-  public static <J, C> java.util.Set<J> setOfNullable(
+  public static <J, C> java.util.Set<J> convertSetOfNullable(
       ceylon.language.Collection<C> from,
       Converter<C, J> converter) {
     if (from != null) {
@@ -85,7 +85,7 @@ public class ToJava {
     }
   }
 
-  public static <JK, JV, CK, CV> java.util.Map<JK, JV> map(
+  public static <JK, JV, CK, CV> java.util.Map<JK, JV> convertMap(
       ceylon.language.Map<CK, CV> from,
       Converter<CK, JK> keyConverter,
       Converter<CV, JV> valConverter) {
