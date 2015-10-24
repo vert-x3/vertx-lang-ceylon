@@ -19,10 +19,10 @@
         }
         return expr;
       } else {
-       return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName + '.safeConvert(' + expr + ')';
+       return genParamConverter(type) + '.safeConvert(' + expr + ')';
       }
     } else if (kind.json) {
-       return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName + '.safeConvert(' + expr + ')';
+       return genParamConverter(type) + '.safeConvert(' + expr + ')';
     } else if (kind == CLASS_HANDLER) {
       var eventType = type.args[0];
       var eventKind = eventType.kind;
