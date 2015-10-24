@@ -10,18 +10,16 @@ vertx-lang-ceylon
 
 ## Build
 
-### Import the Vert.x dependencies in the `modules` Ceylon repository
-
-```
-sh import-vertx.sh
-```
-
-NOTE: you need to have these jars in your maven repository because Ceylon _import-jar_ needs a jar file.
-
-### Generate the Ceylon/Java sources
+### Generate the Ceylon/Java sources and copy the jar dependencies in target/jars
 
 ```
 mvn clean test-compile
+```
+
+### Import the jar dependencies in the `modules` Ceylon repository
+
+```
+sh import-vertx.sh
 ```
 
 ### Compile the sources
