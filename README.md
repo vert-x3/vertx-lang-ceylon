@@ -8,6 +8,10 @@ vertx-lang-ceylon
 - verticle factory
 - documentation generation
 
+## CI
+
+[![Build Status](https://vietj.ci.cloudbees.com/buildStatus/icon?job=ceylon-lang-vertx)](https://vietj.ci.cloudbees.com/job/ceylon-lang-vertx/)
+
 ## Build
 
 ### Generate the Ceylon/Java sources and copy the jar dependencies in target/jars
