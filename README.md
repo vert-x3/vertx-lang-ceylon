@@ -3,6 +3,5 @@ vertx-lang-ceylon
 
 ## todo list
 
-- ceylon method parameter names
-- finish nullable tck
+- consider using ceylon.promise for Handler<AsyncResult<T>> ending methods
 - verticle factory
