@@ -250,28 +250,4 @@ public class EventBus implements Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Anything")
-  public void start(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
-      public Object toCeylon(java.lang.Void event) {
-        return null;
-      }
-    };
-    delegate.start(arg_0);
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Anything")
-  public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
-      public Object toCeylon(java.lang.Void event) {
-        return null;
-      }
-    };
-    delegate.close(arg_0);
-  }
-
 }

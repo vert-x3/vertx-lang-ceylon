@@ -1014,7 +1014,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1054,7 +1054,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1102,7 +1102,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1146,7 +1146,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1198,7 +1198,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1246,7 +1246,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1302,7 +1302,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1354,7 +1354,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1390,7 +1390,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1430,7 +1430,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1474,7 +1474,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -1522,7 +1522,7 @@ public class HttpClient implements Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
