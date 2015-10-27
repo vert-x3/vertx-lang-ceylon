@@ -1103,7 +1103,7 @@ shared void testNullable<T>(
   assertEquals(4, count);
 }
 
-shared void testGenericNullableTypeVariable() {
+shared void testNullableTypeVariable() {
   nullableTCK.methodWithNullableTypeVariableParam(false, "whatever");
   nullableTCK.methodWithNullableTypeVariableParam(true, null);
   variable Integer count = 0;
@@ -1130,6 +1130,11 @@ shared void testGenericNullableTypeVariable() {
   assertEquals("fizz1", nullableTCK.methodWithNullableTypeVariableReturn<String>(true, "fizz1"));
   assertNull(nullableTCK.methodWithNullableTypeVariableReturn(false, "fizz2"));
   assertEquals(4, count);
+}
+
+shared void testNullableObjectParam() {
+  nullableTCK.methodWithNullableObjectParam(true, null);
+  nullableTCK.methodWithNullableObjectParam(false, "object_param");
 }
 
 shared test void testNullableListByte() => testNullableList(ArrayList { 12.byte,24.byte,(-12).byte }, nullableTCK.methodWithNullableListByteParam, nullableTCK.methodWithNullableListByteHandler, nullableTCK.methodWithNullableListByteHandlerAsyncResult, nullableTCK.methodWithNullableListByteReturn);

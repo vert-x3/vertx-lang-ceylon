@@ -332,7 +332,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   @TypeInfo("ceylon.language::Anything")
   public void methodWithObjectParam(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::Object") @Name("obj") @DocAnnotation$annotation$(description = "todo") Object obj) {
+    final @TypeInfo("ceylon.language::Object?") @Name("obj") @DocAnnotation$annotation$(description = "todo") Object obj) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(obj);
     delegate.methodWithObjectParam(arg_0, arg_1);

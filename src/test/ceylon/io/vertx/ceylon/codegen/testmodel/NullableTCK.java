@@ -952,6 +952,16 @@ public class NullableTCK {
   }
 
   @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithNullableObjectParam(
+    final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
+    final @TypeInfo("ceylon.language::Object?") @Name("param") @DocAnnotation$annotation$(description = "todo") Object param) {
+    boolean arg_0 = expectNull;
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(param);
+    delegate.methodWithNullableObjectParam(arg_0, arg_1);
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListByteParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Byte>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Byte> param) {

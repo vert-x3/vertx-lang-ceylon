@@ -303,10 +303,10 @@
     } else if (kind == CLASS_PRIMITIVE || kind == CLASS_BOXED_PRIMITIVE) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
+      nullable = true;
       /* handle this instanceof better */
       if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
         decl = type.name;
-        nullable = true;
       } else {
         decl = 'ceylon.language::Object';
       }
