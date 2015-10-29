@@ -58,7 +58,7 @@ public class NetServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer connectHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.net.NetSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.net.NetSocket>() {
       public void handle(io.vertx.core.net.NetSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(event));

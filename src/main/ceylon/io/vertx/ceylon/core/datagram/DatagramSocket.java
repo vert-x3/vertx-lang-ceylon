@@ -171,7 +171,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   public DatagramSocket listenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
     final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "todo") ceylon.language.String networkInterface, 
-    final @TypeInfo("ceylon.language::String") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
+    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
@@ -205,7 +205,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   public DatagramSocket unlistenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
     final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "todo") ceylon.language.String networkInterface, 
-    final @TypeInfo("ceylon.language::String") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
+    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
@@ -289,7 +289,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket endHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -302,7 +302,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket>() {
       public void handle(io.vertx.core.datagram.DatagramPacket event) {
         handler.$call$((Object)io.vertx.ceylon.core.datagram.DatagramPacket.TO_CEYLON.safeConvert(event));
@@ -315,7 +315,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);

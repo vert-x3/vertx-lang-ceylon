@@ -92,7 +92,7 @@ public class Vertx implements Measured {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Context")
+  @TypeInfo("io.vertx.ceylon.core::Context?")
   public static Context currentContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(io.vertx.core.Vertx.currentContext());
     return ret;

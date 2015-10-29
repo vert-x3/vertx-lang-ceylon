@@ -85,7 +85,7 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getDescription() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDescription());
     return ret;
@@ -101,7 +101,7 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getSummary() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getSummary());
     return ret;
@@ -201,7 +201,7 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.cli::Option")
+  @TypeInfo("io.vertx.ceylon.core.cli::Option?")
   public io.vertx.ceylon.core.cli.Option getOption(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -210,7 +210,7 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.cli::Argument")
+  @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -219,7 +219,7 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.cli::Argument")
+  @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;

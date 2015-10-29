@@ -71,7 +71,7 @@ public class Message<T> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String replyAddress() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.replyAddress());
     return ret;

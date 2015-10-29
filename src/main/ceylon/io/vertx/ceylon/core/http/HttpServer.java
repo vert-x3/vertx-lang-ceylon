@@ -58,7 +58,7 @@ public class HttpServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer requestHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest>() {
       public void handle(io.vertx.core.http.HttpServerRequest event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.safeConvert(event));
@@ -78,7 +78,7 @@ public class HttpServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer websocketHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket>() {
       public void handle(io.vertx.core.http.ServerWebSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(event));

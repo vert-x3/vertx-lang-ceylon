@@ -81,7 +81,7 @@ public class SrvRecord {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String target() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.target());
     return ret;

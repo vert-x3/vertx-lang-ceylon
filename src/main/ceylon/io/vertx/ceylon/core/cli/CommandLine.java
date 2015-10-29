@@ -144,7 +144,7 @@ public class CommandLine {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getRawValueForOption(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
     io.vertx.core.cli.Option arg_0 = option == null ? null : new io.vertx.core.cli.Option(io.vertx.lang.ceylon.ToJava.JsonObject.convert(option.toJson()));
@@ -162,7 +162,7 @@ public class CommandLine {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getRawValueForArgument(
     final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
     io.vertx.core.cli.Argument arg_0 = arg == null ? null : new io.vertx.core.cli.Argument(io.vertx.lang.ceylon.ToJava.JsonObject.convert(arg.toJson()));

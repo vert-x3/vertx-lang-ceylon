@@ -222,8 +222,8 @@ public class FileSystem {
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chown(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
-    final @TypeInfo("ceylon.language::String") @Name("user") @DocAnnotation$annotation$(description = "todo") ceylon.language.String user, 
-    final @TypeInfo("ceylon.language::String") @Name("group") @DocAnnotation$annotation$(description = "todo") ceylon.language.String group, 
+    final @TypeInfo("ceylon.language::String?") @Name("user") @DocAnnotation$annotation$(description = "todo") ceylon.language.String user, 
+    final @TypeInfo("ceylon.language::String?") @Name("group") @DocAnnotation$annotation$(description = "todo") ceylon.language.String group, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(user);
@@ -241,8 +241,8 @@ public class FileSystem {
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chownBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
-    final @TypeInfo("ceylon.language::String") @Name("user") @DocAnnotation$annotation$(description = "todo") ceylon.language.String user, 
-    final @TypeInfo("ceylon.language::String") @Name("group") @DocAnnotation$annotation$(description = "todo") ceylon.language.String group) {
+    final @TypeInfo("ceylon.language::String?") @Name("user") @DocAnnotation$annotation$(description = "todo") ceylon.language.String user, 
+    final @TypeInfo("ceylon.language::String?") @Name("group") @DocAnnotation$annotation$(description = "todo") ceylon.language.String group) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(user);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(group);
