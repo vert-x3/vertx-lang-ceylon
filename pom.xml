@@ -20,6 +20,21 @@
     <stack.version>3.2.0-SNAPSHOT</stack.version>
   </properties>
 
+  <!-- Temporarily until ceylon-maven-plugin hits central -->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>sonatype-nexus-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
