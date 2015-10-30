@@ -87,6 +87,13 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>system</artifactId>
+      <type>pom</type>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+
     <!-- Test dependencies -->
     <dependency>
       <groupId>io.vertx</groupId>
@@ -151,6 +158,154 @@
       </plugins>
     </pluginManagement>
     <plugins>
+
+      <plugin>
+        <groupId>org.ceylon-lang</groupId>
+        <artifactId>ceylon-maven-plugin</artifactId>
+        <version>1.2.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>main.lang</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/main/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/lang/ceylon/**</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>main.vertx-core.ceylon</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/main/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/ceylon/core/**/*.ceylon</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>main.vertx-core.java</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <target>8</target>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+                <userRepo>${project.build.directory}/modules</userRepo>
+              </userRepos>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/main/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/ceylon/core/**/*.java</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>test.codegen.ceylon</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/test/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/ceylon/codegen/testmodel/**/*.ceylon</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test.codegen.java</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <target>8</target>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/test/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/ceylon/codegen/testmodel/**/*.java</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test.tests.java</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/test/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/tests/**</include>
+                      <include>io/vertx/mod2/**</include>
+                    </includes>
+                  </fileset>
+                </source>
+              </sources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>run.tests.java</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+                <userRepo>${project.build.directory}/modules</userRepo>
+              </userRepos>
+              <module>io.vertx.tests</module>
+              <version>1.0.0</version>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
