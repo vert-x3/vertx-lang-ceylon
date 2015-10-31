@@ -123,15 +123,14 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-unit</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-core</artifactId>
-      <type>test-jar</type>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
 
@@ -393,6 +392,10 @@
                     <includes>
                       <include>io/vertx/ceylon/core/**/*.ceylon</include>
                     </includes>
+                    <excludes>
+                      <exclude>io/vertx/ceylon/core/Verticle.ceylon</exclude>
+                      <exclude>io/vertx/ceylon/core/impl/**</exclude>
+                    </excludes>
                   </fileset>
                 </source>
               </sources>
@@ -416,6 +419,8 @@
                     <directory>${basedir}/src/main/ceylon</directory>
                     <includes>
                       <include>io/vertx/ceylon/core/**/*.java</include>
+                      <include>io/vertx/ceylon/core/Verticle.ceylon</include>
+                      <include>io/vertx/ceylon/core/impl/**</include>
                     </includes>
                   </fileset>
                 </source>
@@ -614,6 +619,11 @@
             <groupId>io.vertx</groupId>
             <artifactId>vertx-codegen</artifactId>
             <classifier>tck</classifier>
+            <version>3.2.0-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-unit</artifactId>
             <version>3.2.0-SNAPSHOT</version>
           </dependency>
         </dependencies>
