@@ -408,7 +408,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <target>8</target>
+              <javacOptions>-target 8</javacOptions>
               <userRepos>
                 <userRepo>${basedir}/modules</userRepo>
                 <userRepo>${project.build.directory}/modules</userRepo>
@@ -454,7 +454,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <target>8</target>
+              <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
                   <fileset>
