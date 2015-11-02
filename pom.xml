@@ -366,6 +366,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -385,6 +388,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -411,7 +417,6 @@
               <javacOptions>-target 8</javacOptions>
               <userRepos>
                 <userRepo>${basedir}/modules</userRepo>
-                <userRepo>${project.build.directory}/modules</userRepo>
               </userRepos>
               <sources>
                 <source>
@@ -435,6 +440,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -454,6 +462,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+              </userRepos>
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
@@ -474,6 +485,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>${basedir}/modules</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -497,7 +511,6 @@
             <configuration>
               <userRepos>
                 <userRepo>${basedir}/modules</userRepo>
-                <userRepo>${project.build.directory}/modules</userRepo>
               </userRepos>
               <module>io.vertx.tests</module>
               <version>1.0.0</version>
