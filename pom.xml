@@ -193,8 +193,6 @@
                     <version>1.3</version>
                   </dependency>
                   <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
-                  <name>org.hamcrest.hamcrest-core</name>
-                  <version>1.3</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -203,8 +201,6 @@
                     <version>4.11</version>
                   </dependency>
                   <descriptor>descriptors/junit.junit.properties</descriptor>
-                  <name>junit.junit</name>
-                  <version>4.11</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -213,8 +209,6 @@
                     <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-core.properties</descriptor>
-                  <name>com.fasterxml.jackson.core.jackson-core</name>
-                  <version>2.6.1</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -223,8 +217,6 @@
                     <version>2.6.0</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-annotations.properties</descriptor>
-                  <name>com.fasterxml.jackson.core.jackson-annotations</name>
-                  <version>2.6.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -233,8 +225,6 @@
                     <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-databind.properties</descriptor>
-                  <name>com.fasterxml.jackson.core.jackson-databind</name>
-                  <version>2.6.1</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -243,8 +233,6 @@
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-common.properties</descriptor>
-                  <name>io.netty.netty-common</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -253,8 +241,6 @@
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-buffer.properties</descriptor>
-                  <name>io.netty.netty-buffer</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -263,8 +249,6 @@
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-transport.properties</descriptor>
-                  <name>io.netty.netty-transport</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -274,8 +258,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-codec.properties</descriptor>
-                  <name>io.netty.netty-codec</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -285,8 +267,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-handler.properties</descriptor>
-                  <name>io.netty.netty-handler</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -295,8 +275,6 @@
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-codec-http.properties</descriptor>
-                  <name>io.netty.netty-codec-http</name>
-                  <version>4.0.31.Final</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -306,8 +284,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen.properties</descriptor>
-                  <name>io.vertx.vertx-codegen</name>
-                  <version>3.2.0-SNAPSHOT</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -319,7 +295,6 @@
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
                   <name>io.vertx.vertx-codegen-tck</name>
-                  <version>3.2.0-SNAPSHOT</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -329,8 +304,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
-                  <name>io.vertx.vertx-core</name>
-                  <version>3.2.0-SNAPSHOT</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -340,8 +313,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
-                  <name>com.hazelcast.hazelcast</name>
-                  <version>3.5.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -351,8 +322,6 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
-                  <name>io.vertx.vertx-hazelcast</name>
-                  <version>3.2.0-SNAPSHOT</version>
                 </moduleImport>
               </moduleImports>
             </configuration>
