@@ -190,7 +190,6 @@
                   <dependency>
                     <groupId>org.hamcrest</groupId>
                     <artifactId>hamcrest-core</artifactId>
-                    <version>1.3</version>
                   </dependency>
                   <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
                 </moduleImport>
@@ -198,7 +197,6 @@
                   <dependency>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
-                    <version>4.11</version>
                   </dependency>
                   <descriptor>descriptors/junit.junit.properties</descriptor>
                 </moduleImport>
@@ -206,7 +204,6 @@
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-core</artifactId>
-                    <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-core.properties</descriptor>
                 </moduleImport>
@@ -214,7 +211,6 @@
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-annotations</artifactId>
-                    <version>2.6.0</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-annotations.properties</descriptor>
                 </moduleImport>
@@ -222,7 +218,6 @@
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-databind</artifactId>
-                    <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-databind.properties</descriptor>
                 </moduleImport>
@@ -230,7 +225,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-common</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-common.properties</descriptor>
                 </moduleImport>
@@ -238,7 +232,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-buffer</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-buffer.properties</descriptor>
                 </moduleImport>
@@ -246,7 +239,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-transport</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-transport.properties</descriptor>
                 </moduleImport>
@@ -254,7 +246,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-codec</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-codec.properties</descriptor>
@@ -263,7 +254,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-handler</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-handler.properties</descriptor>
@@ -272,7 +262,6 @@
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-codec-http</artifactId>
-                    <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-codec-http.properties</descriptor>
                 </moduleImport>
@@ -280,7 +269,6 @@
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-codegen</artifactId>
-                    <version>3.2.0-SNAPSHOT</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen.properties</descriptor>
@@ -290,7 +278,6 @@
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-codegen</artifactId>
                     <classifier>tck</classifier>
-                    <version>3.2.0-SNAPSHOT</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
@@ -300,7 +287,6 @@
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-core</artifactId>
-                    <version>3.2.0-SNAPSHOT</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
