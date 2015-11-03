@@ -134,6 +134,12 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-hazelcast</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -295,7 +301,6 @@
                   <dependency>
                     <groupId>com.hazelcast</groupId>
                     <artifactId>hazelcast</artifactId>
-                    <version>3.5.2</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
@@ -304,7 +309,6 @@
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-hazelcast</artifactId>
-                    <version>3.2.0-SNAPSHOT</version>
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
