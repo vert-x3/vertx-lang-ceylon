@@ -180,94 +180,93 @@
         <executions>
 
           <execution>
-            <id>import-deps</id>
-            <phase>initialize</phase>
+            <id>import-dependencies</id>
             <goals>
               <goal>import-dependency</goal>
             </goals>
             <configuration>
-              <imports>
-                <import>
+              <moduleImports>
+                <moduleImport>
                   <dependency>
                     <groupId>org.hamcrest</groupId>
                     <artifactId>hamcrest-core</artifactId>
                     <version>1.3</version>
                   </dependency>
                   <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
-                  <module>org.hamcrest.hamcrest-core</module>
+                  <name>org.hamcrest.hamcrest-core</name>
                   <version>1.3</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                     <version>4.11</version>
                   </dependency>
                   <descriptor>descriptors/junit.junit.properties</descriptor>
-                  <module>junit.junit</module>
+                  <name>junit.junit</name>
                   <version>4.11</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-core</artifactId>
                     <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-core.properties</descriptor>
-                  <module>com.fasterxml.jackson.core.jackson-core</module>
+                  <name>com.fasterxml.jackson.core.jackson-core</name>
                   <version>2.6.1</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-annotations</artifactId>
                     <version>2.6.0</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-annotations.properties</descriptor>
-                  <module>com.fasterxml.jackson.core.jackson-annotations</module>
+                  <name>com.fasterxml.jackson.core.jackson-annotations</name>
                   <version>2.6.0</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-databind</artifactId>
                     <version>2.6.1</version>
                   </dependency>
                   <descriptor>descriptors/com.fasterxml.jackson.core.jackson-databind.properties</descriptor>
-                  <module>com.fasterxml.jackson.core.jackson-databind</module>
+                  <name>com.fasterxml.jackson.core.jackson-databind</name>
                   <version>2.6.1</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-common</artifactId>
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-common.properties</descriptor>
-                  <module>io.netty.netty-common</module>
+                  <name>io.netty.netty-common</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-buffer</artifactId>
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-buffer.properties</descriptor>
-                  <module>io.netty.netty-buffer</module>
+                  <name>io.netty.netty-buffer</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-transport</artifactId>
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-transport.properties</descriptor>
-                  <module>io.netty.netty-transport</module>
+                  <name>io.netty.netty-transport</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-codec</artifactId>
@@ -275,10 +274,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-codec.properties</descriptor>
-                  <module>io.netty.netty-codec</module>
+                  <name>io.netty.netty-codec</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-handler</artifactId>
@@ -286,20 +285,20 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-handler.properties</descriptor>
-                  <module>io.netty.netty-handler</module>
+                  <name>io.netty.netty-handler</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
                     <artifactId>netty-codec-http</artifactId>
                     <version>4.0.31.Final</version>
                   </dependency>
                   <descriptor>descriptors/io.netty.netty-codec-http.properties</descriptor>
-                  <module>io.netty.netty-codec-http</module>
+                  <name>io.netty.netty-codec-http</name>
                   <version>4.0.31.Final</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-codegen</artifactId>
@@ -307,10 +306,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen.properties</descriptor>
-                  <module>io.vertx.vertx-codegen</module>
+                  <name>io.vertx.vertx-codegen</name>
                   <version>3.2.0-SNAPSHOT</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-codegen</artifactId>
@@ -319,10 +318,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
-                  <module>io.vertx.vertx-codegen-tck</module>
+                  <name>io.vertx.vertx-codegen-tck</name>
                   <version>3.2.0-SNAPSHOT</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-core</artifactId>
@@ -330,10 +329,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
-                  <module>io.vertx.vertx-core</module>
+                  <name>io.vertx.vertx-core</name>
                   <version>3.2.0-SNAPSHOT</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>com.hazelcast</groupId>
                     <artifactId>hazelcast</artifactId>
@@ -341,10 +340,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
-                  <module>com.hazelcast.hazelcast</module>
+                  <name>com.hazelcast.hazelcast</name>
                   <version>3.5.2</version>
-                </import>
-                <import>
+                </moduleImport>
+                <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-hazelcast</artifactId>
@@ -352,10 +351,10 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
-                  <module>io.vertx.vertx-hazelcast</module>
+                  <name>io.vertx.vertx-hazelcast</name>
                   <version>3.2.0-SNAPSHOT</version>
-                </import>
-              </imports>
+                </moduleImport>
+              </moduleImports>
             </configuration>
           </execution>
 
@@ -491,8 +490,7 @@
               <goal>run</goal>
             </goals>
             <configuration>
-              <module>io.vertx.tests</module>
-              <version>1.0.0</version>
+              <module>io.vertx.tests/1.0.0</module>
             </configuration>
           </execution>
 
