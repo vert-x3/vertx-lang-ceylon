@@ -29,12 +29,14 @@ public class CeylonVerticle extends AbstractVerticle {
 
 
   private static final Pattern pattern = Pattern.compile("([\\p{Alpha}.]+)/([\\p{Alnum}.]+)");
+  private final CeylonVerticleFactory factory;
   private final ClassLoader classLoader;
   private final String name;
-  private JavaRunner runner;
   private Object verticle;
+  private ModuleDeployment module;
 
-  public CeylonVerticle(ClassLoader classLoader, String name) {
+  public CeylonVerticle(CeylonVerticleFactory factory, ClassLoader classLoader, String name) {
+    this.factory = factory;
     this.classLoader = classLoader;
     this.name = name;
   }
@@ -69,33 +71,52 @@ public class CeylonVerticle extends AbstractVerticle {
         if (!matcher.find()) {
           throw new Exception("Invalid");
         }
-        String pkg = matcher.group(1).trim();
-        File sourcePath = moduleRoot;
-        for (int i = pkg.split("\\.").length;i > 0;i--) {
-          sourcePath = sourcePath.getParentFile();
-        }
-        scan(sources, moduleRoot);
-        List<Module> compiledModules = compileModules(sourcePath, sources);
-        Module compiledModule = compiledModules.get(0);
+        moduleName = matcher.group(1).trim();
+        synchronized (factory.modules) {
+          module = factory.modules.get(moduleName);
+          if (module == null) {
+            File sourcePath = moduleRoot;
+            for (int i = moduleName.split("\\.").length;i > 0;i--) {
+              sourcePath = sourcePath.getParentFile();
+            }
+            scan(sources, moduleRoot);
+            List<ModuleInfo> compiledModules = compileModules(sourcePath, sources);
+            ModuleInfo compiledModule = compiledModules.get(0);
 
-        //
-        runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-        moduleName = compiledModule.name;
+            //
+            runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
+
+            // For now hardcode this repository
+            runnerOptions.addUserRepository("target/modules");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
+            factory.modules.put(moduleName, module = new ModuleDeployment(compiledModule.name, compiledModule.version, runner));
+          } else {
+            module.instances++;
+          }
+        }
       } else {
         Matcher matcher = pattern.matcher(name);
         if (matcher.matches()) {
-          runnerOptions.addExtraModule(moduleName = matcher.group(1), matcher.group(2));
+          synchronized (factory.modules) {
+            moduleName = matcher.group(1);
+            module = factory.modules.get(moduleName);
+            if (module == null) {
+              // For now hardcode this repository
+              runnerOptions.addUserRepository("target/modules");
+              String moduleVersion = matcher.group(2);
+              runnerOptions.addExtraModule(moduleName, moduleVersion);
+              JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
+              factory.modules.put(moduleName, module = new ModuleDeployment(moduleName, moduleVersion, runner));
+            } else {
+              module.instances++;
+            }
+          }
         } else {
           throw new Exception("Invalid module " + name + " should be name/version");
         }
       }
 
-      // For now hardcode this repository
-      runnerOptions.addUserRepository("target/modules");
-
-      // compiledModule.name, compiledModule.version
-      runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
-      ClassLoader loader = runner.getModuleClassLoader();
+      ClassLoader loader = module.runner.getModuleClassLoader();
       Method introspector = loader.loadClass("io.vertx.ceylon.core.impl.resolveVerticles_").getDeclaredMethod("resolveVerticles", String.class, String.class);
       Map<String, Callable<?>> moduleFactories = (Map<String, Callable<?>>) introspector.invoke(null, moduleName, null);
 
@@ -119,18 +140,23 @@ public class CeylonVerticle extends AbstractVerticle {
 
   @Override
   public void stop(Future<Void> stopFuture) throws Exception {
-
-    // Wrap objects
-    Class<?> futureClass = runner.getModuleClassLoader().loadClass("io.vertx.ceylon.core.Future");
+    boolean cleanup;
+    synchronized (factory.modules) {
+      cleanup = --module.instances == 0;
+      if (cleanup) {
+        factory.modules.remove(module.name);
+      }
+    }
+    Class<?> futureClass = module.runner.getModuleClassLoader().loadClass("io.vertx.ceylon.core.Future");
     Object wrappedStopFuture = futureClass.getConstructor(Future.class).newInstance(stopFuture);
-
-    // Stop, cleanup
     Method stopAsync = verticle.getClass().getMethod("stopAsync", futureClass);
     stopAsync.invoke(verticle, wrappedStopFuture);
-    runner.cleanup();
+    if (cleanup) {
+      module.runner.cleanup();
+    }
   }
 
-  private List<Module> compileModules(File sourcePath, List<File> sources) throws Exception {
+  private List<ModuleInfo> compileModules(File sourcePath, List<File> sources) throws Exception {
     ExtendedCompilerOptions options = new ExtendedCompilerOptions();
     options.setSourcePath(Collections.singletonList(sourcePath));
 
@@ -142,7 +168,7 @@ public class CeylonVerticle extends AbstractVerticle {
     options.setVerbose(false);
     options.setFiles(sources);
 
-    List<Module> modules = new ArrayList<>();
+    List<ModuleInfo> modules = new ArrayList<>();
     Compiler compiler = new JavaCompilerImpl();
     boolean compiled = compiler.compile(options, new CompilationListener() {
 
@@ -169,7 +195,7 @@ public class CeylonVerticle extends AbstractVerticle {
       }
 
       public void moduleCompiled(String module, String version) {
-        modules.add(new Module(module, version));
+        modules.add(new ModuleInfo(module, version));
       }
     });
     if (!compiled) {

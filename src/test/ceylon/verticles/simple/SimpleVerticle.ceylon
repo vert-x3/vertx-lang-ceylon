@@ -4,10 +4,22 @@ import java.lang { System }
 shared class SimpleVerticle() extends Verticle() {
 
   shared actual void start() {
-    System.setProperty("ceylon.verticle", deploymentID);
+    value prop = "ceylon.verticle.``deploymentID``";
+    lock.lock();
+    try {
+      System.setProperty(prop, "``++counter``");
+    } finally {
+      lock.unlock();
+    }
   }
 
   shared actual void stop() {
-    System.clearProperty("ceylon.verticle");
+    value prop = "ceylon.verticle.``deploymentID``";
+    lock.lock();
+    try {
+      System.setProperty(prop, "``--counter``");
+    } finally {
+      lock.unlock();
+    }
   }
 }
