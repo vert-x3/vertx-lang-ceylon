@@ -1,6 +1,6 @@
 import io.vertx.ceylon.core { Verticle, Future }
 
-shared class TestVerticle() extends Verticle() {
+shared class DeployVerticle() extends Verticle() {
 
   shared actual void startAsync(Future<Anything> fut) {
     assert(exists cfg = config);
