@@ -85,9 +85,6 @@ public class CeylonVerticleFactory implements VerticleFactory {
 
             //
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-
-            // For now hardcode this repository
-            runnerOptions.addUserRepository("target/modules");
             JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
           } else {
@@ -101,8 +98,6 @@ public class CeylonVerticleFactory implements VerticleFactory {
             moduleName = matcher.group(1);
             module = modules.get(moduleName);
             if (module == null) {
-              // For now hardcode this repository
-              runnerOptions.addUserRepository("target/modules");
               String moduleVersion = matcher.group(2);
               runnerOptions.addExtraModule(moduleName, moduleVersion);
               JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
@@ -138,10 +133,6 @@ public class CeylonVerticleFactory implements VerticleFactory {
     ExtendedCompilerOptions options = new ExtendedCompilerOptions();
     options.setSourcePath(Collections.singletonList(sourcePath));
 
-    // For now hardcode this repository
-    options.addUserRepository("target/modules");
-
-//    options.setOutputRepository(targetModulesDirectory.getAbsolutePath());
     options.setTarget("8");
     options.setVerbose(false);
     options.setFiles(sources);

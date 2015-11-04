@@ -190,21 +190,8 @@
               <goal>import-dependency</goal>
             </goals>
             <configuration>
+              <out>repo</out>
               <moduleImports>
-                <moduleImport>
-                  <dependency>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>hamcrest-core</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/junit.junit.properties</descriptor>
-                </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
@@ -281,16 +268,6 @@
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
-                    <artifactId>vertx-codegen</artifactId>
-                    <classifier>tck</classifier>
-                  </dependency>
-                  <force>true</force>
-                  <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
-                  <name>io.vertx.vertx-codegen-tck</name>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.vertx</groupId>
                     <artifactId>vertx-core</artifactId>
                   </dependency>
                   <force>true</force>
@@ -315,6 +292,40 @@
               </moduleImports>
             </configuration>
           </execution>
+          <execution>
+            <id>import-dependencies2</id>
+            <goals>
+              <goal>import-dependency</goal>
+            </goals>
+            <configuration>
+              <moduleImports>
+                <moduleImport>
+                  <dependency>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                  </dependency>
+                  <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                  </dependency>
+                  <descriptor>descriptors/junit.junit.properties</descriptor>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-codegen</artifactId>
+                    <classifier>tck</classifier>
+                  </dependency>
+                  <force>true</force>
+                  <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
+                  <name>io.vertx.vertx-codegen-tck</name>
+                </moduleImport>
+              </moduleImports>
+            </configuration>
+          </execution>
 
           <execution>
             <id>main.lang</id>
@@ -323,6 +334,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <out>repo</out>
               <sources>
                 <source>
                   <fileset>
@@ -342,6 +354,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <out>repo</out>
               <sources>
                 <source>
                   <fileset>
@@ -365,6 +378,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <out>repo</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
@@ -388,6 +402,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>repo</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -407,6 +424,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>repo</userRepo>
+              </userRepos>
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
@@ -427,6 +447,9 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>repo</userRepo>
+              </userRepos>
               <sources>
                 <source>
                   <fileset>
@@ -456,6 +479,10 @@
               <goal>run</goal>
             </goals>
             <configuration>
+              <userRepos>
+                <userRepo>repo</userRepo>
+                <userRepo>modules</userRepo>
+              </userRepos>
               <module>io.vertx.tests/1.0.0</module>
             </configuration>
           </execution>

@@ -1,0 +1,5 @@
+[repositories]
+global=./target/repo
+
+[repository.LOCAL]
+url=./target/modules
