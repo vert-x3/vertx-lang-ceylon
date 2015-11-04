@@ -155,8 +155,7 @@
               <modules.path>${project.build.directory}/modules</modules.path>
             </systemPropertyVariables>
             <additionalClasspathElements>
-              <additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
-              <additionalClasspathElement>${project.basedir}/src/main/resources</additionalClasspathElement>
+              <additionalClasspathElement>${project.basedir}/src/test/ceylon</additionalClasspathElement>
             </additionalClasspathElements>
           </configuration>
         </plugin>

@@ -3,6 +3,7 @@ package io.vertx.lang.ceylon;
 import com.redhat.ceylon.compiler.java.runtime.metamodel.Metamodel;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
+import io.vertx.core.json.JsonObject;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class VerticleTest {
   public void testVerticleLifecycle(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
-    vertx.deployVerticle("ceylon:simpleverticle", context.asyncAssertSuccess(id -> {
+    vertx.deployVerticle("ceylon:verticles/simple", context.asyncAssertSuccess(id -> {
       context.assertEquals(id, System.getProperty("ceylon.verticle"));
       vertx.undeploy(id, context.asyncAssertSuccess(v -> {
         context.assertNull(System.getProperty("ceylon.verticle"));
@@ -48,7 +49,8 @@ public class VerticleTest {
   public void testDeployCeylon(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
-    vertx.deployVerticle("ceylon:deployceylon", context.asyncAssertSuccess(id -> {
+    DeploymentOptions options = new DeploymentOptions().setConfig(new JsonObject().put("verticleName", "ceylon:verticles.simple/1.0.0"));
+    vertx.deployVerticle("ceylon:verticles/deployverticle", options, context.asyncAssertSuccess(id -> {
       context.assertNotNull(System.getProperty("ceylon.verticle"));
       vertx.undeploy(id, context.asyncAssertSuccess(v -> {
         context.assertNull(System.getProperty("ceylon.verticle"));
