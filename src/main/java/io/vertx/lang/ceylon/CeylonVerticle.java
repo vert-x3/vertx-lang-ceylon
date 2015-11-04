@@ -27,6 +27,8 @@ import java.util.regex.Pattern;
  */
 public class CeylonVerticle extends AbstractVerticle {
 
+
+  private static final Pattern pattern = Pattern.compile("([\\p{Alpha}.]+)/([\\p{Alnum}.]+)");
   private final ClassLoader classLoader;
   private final String name;
   private JavaRunner runner;
@@ -45,49 +47,55 @@ public class CeylonVerticle extends AbstractVerticle {
     } else {
 
       // Try a module to compile
-      URL moduleURL = classLoader.getResource(name + "/module.ceylon");
-      if (moduleURL == null) {
-        throw new Exception("Not found " + name);
-      }
-      ArrayList<File> sources = new ArrayList<>();
-      File moduleSource = new File(moduleURL.toURI());
-      File moduleRoot = moduleSource.getParentFile();
-      if (!moduleRoot.isDirectory()) {
-        throw new Exception(moduleURL + " must point to a module directory");
-      }
-      File pkgRoot = new File(moduleRoot, "package.ceylon");
-      if (!pkgRoot.exists() || !pkgRoot.isFile()) {
-        throw new Exception("No package.ceylon");
-      }
-      String pkgContent = new String(Files.readAllBytes(pkgRoot.toPath()), StandardCharsets.UTF_8);
-      Pattern p = Pattern.compile("shared package ([^;]*);"); // Will do for now
-      Matcher matcher = p.matcher(pkgContent);
-      if (!matcher.find()) {
-        throw new Exception("Invalid");
-      }
-      String pkg = matcher.group(1).trim();
-      File sourcePath = moduleRoot;
-      for (int i = pkg.split("\\.").length;i > 0;i--) {
-        sourcePath = sourcePath.getParentFile();
-      }
-      scan(sources, moduleRoot);
-      List<Module> compiledModules = compileModules(sourcePath, sources);
-      Module compiledModule = compiledModules.get(0);
-
-      // Run it now
       final JavaRunnerOptions runnerOptions = new JavaRunnerOptions();
+      String moduleName;
+      URL moduleURL = classLoader.getResource(name + "/module.ceylon");
+      if (moduleURL != null) {
+        ArrayList<File> sources = new ArrayList<>();
+        File moduleSource = new File(moduleURL.toURI());
+        File moduleRoot = moduleSource.getParentFile();
+        if (!moduleRoot.isDirectory()) {
+          throw new Exception(moduleURL + " must point to a module directory");
+        }
+        File pkgRoot = new File(moduleRoot, "package.ceylon");
+        if (!pkgRoot.exists() || !pkgRoot.isFile()) {
+          throw new Exception("No package.ceylon");
+        }
+        String pkgContent = new String(Files.readAllBytes(pkgRoot.toPath()), StandardCharsets.UTF_8);
+        Pattern p = Pattern.compile("shared package ([^;]*);"); // Will do for now
+        Matcher matcher = p.matcher(pkgContent);
+        if (!matcher.find()) {
+          throw new Exception("Invalid");
+        }
+        String pkg = matcher.group(1).trim();
+        File sourcePath = moduleRoot;
+        for (int i = pkg.split("\\.").length;i > 0;i--) {
+          sourcePath = sourcePath.getParentFile();
+        }
+        scan(sources, moduleRoot);
+        List<Module> compiledModules = compileModules(sourcePath, sources);
+        Module compiledModule = compiledModules.get(0);
+
+        //
+        runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
+        moduleName = compiledModule.name;
+      } else {
+        Matcher matcher = pattern.matcher(name);
+        if (matcher.matches()) {
+          runnerOptions.addExtraModule(moduleName = matcher.group(1), matcher.group(2));
+        } else {
+          throw new Exception("Invalid module " + name + " should be name/version");
+        }
+      }
 
       // For now hardcode this repository
       runnerOptions.addUserRepository("target/modules");
-
-      //
-      runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
 
       // compiledModule.name, compiledModule.version
       runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
       ClassLoader loader = runner.getModuleClassLoader();
       Method introspector = loader.loadClass("io.vertx.ceylon.core.impl.resolveVerticles_").getDeclaredMethod("resolveVerticles", String.class, String.class);
-      Map<String, Callable<?>> moduleFactories = (Map<String, Callable<?>>) introspector.invoke(null, compiledModule.name, null);
+      Map<String, Callable<?>> moduleFactories = (Map<String, Callable<?>>) introspector.invoke(null, moduleName, null);
 
       // Wrap objects
       Class<?> vertxClass = loader.loadClass("io.vertx.ceylon.core.Vertx");

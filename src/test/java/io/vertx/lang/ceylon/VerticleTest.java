@@ -23,4 +23,16 @@ public class VerticleTest {
       }));
     }));
   }
+
+  @Test
+  public void testCompiledVerticleLifecycle(TestContext context) {
+    Vertx vertx = Vertx.vertx();
+    System.clearProperty("ceylon.verticle");
+    vertx.deployVerticle("ceylon:verticles.simple/1.0.0", context.asyncAssertSuccess(id -> {
+      context.assertEquals(id, System.getProperty("ceylon.verticle"));
+      vertx.undeploy(id, context.asyncAssertSuccess(v -> {
+        context.assertNull(System.getProperty("ceylon.verticle"));
+      }));
+    }));
+  }
 }

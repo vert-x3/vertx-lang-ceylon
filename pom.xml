@@ -152,7 +152,7 @@
           <configuration>
             <systemPropertyVariables>
               <java.util.logging.SimpleFormatter.format>%4$s: %3$s - %5$s %6$s%n</java.util.logging.SimpleFormatter.format>
-              <gems.path>${project.build.directory}/gems</gems.path>
+              <modules.path>${project.build.directory}/modules</modules.path>
             </systemPropertyVariables>
             <additionalClasspathElements>
               <additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
@@ -435,6 +435,14 @@
                     <includes>
                       <include>io/vertx/tests/**</include>
                       <include>io/vertx/mod2/**</include>
+                    </includes>
+                  </fileset>
+                </source>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/test/ceylon</directory>
+                    <includes>
+                      <include>verticles/**</include>
                     </includes>
                   </fileset>
                 </source>
