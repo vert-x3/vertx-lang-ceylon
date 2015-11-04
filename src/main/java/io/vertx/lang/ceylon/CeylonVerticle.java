@@ -3,7 +3,9 @@ package io.vertx.lang.ceylon;
 import com.redhat.ceylon.compiler.java.runtime.tools.*;
 import com.redhat.ceylon.compiler.java.runtime.tools.Compiler;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Context;
 import io.vertx.core.Future;
+import io.vertx.core.Vertx;
 import io.vertx.lang.ceylon.compiler.ExtendedCompilerOptions;
 import io.vertx.lang.ceylon.compiler.JavaCompilerImpl;
 
@@ -27,6 +29,8 @@ public class CeylonVerticle extends AbstractVerticle {
 
   private final ClassLoader classLoader;
   private final String name;
+  private JavaRunner runner;
+  private Object verticle;
 
   public CeylonVerticle(ClassLoader classLoader, String name) {
     this.classLoader = classLoader;
@@ -80,20 +84,39 @@ public class CeylonVerticle extends AbstractVerticle {
       runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
 
       // compiledModule.name, compiledModule.version
-      JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
+      runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
       ClassLoader loader = runner.getModuleClassLoader();
       Method introspector = loader.loadClass("io.vertx.ceylon.core.impl.resolveVerticles_").getDeclaredMethod("resolveVerticles", String.class, String.class);
       Map<String, Callable<?>> moduleFactories = (Map<String, Callable<?>>) introspector.invoke(null, compiledModule.name, null);
-      System.out.println("moduleFactories = " + moduleFactories);
 
-      //
+      // Wrap objects
+      Class<?> vertxClass = loader.loadClass("io.vertx.ceylon.core.Vertx");
+      Object wrappedVertx = vertxClass.getConstructor(Vertx.class).newInstance(vertx);
+      Class<?> contextClass = loader.loadClass("io.vertx.ceylon.core.Context");
+      Object wrapperContext = contextClass.getConstructor(Context.class).newInstance(context);
       Class<?> futureClass = loader.loadClass("io.vertx.ceylon.core.Future");
       Object wrappedStartFuture = futureClass.getConstructor(Future.class).newInstance(startFuture);
+
+      // Create, init, start
       Callable<?> factory = moduleFactories.values().iterator().next();
-      Object verticle = factory.call();
+      verticle = factory.call();
+      Method init = verticle.getClass().getMethod("init", vertxClass, contextClass);
+      init.invoke(verticle, wrappedVertx, wrapperContext);
       Method startAsync = verticle.getClass().getMethod("startAsync", futureClass);
       startAsync.invoke(verticle, wrappedStartFuture);
     }
+  }
+
+  @Override
+  public void stop(Future<Void> stopFuture) throws Exception {
+
+    // Wrap objects
+    Class<?> futureClass = runner.getModuleClassLoader().loadClass("io.vertx.ceylon.core.Future");
+    Object wrappedStopFuture = futureClass.getConstructor(Future.class).newInstance(stopFuture);
+
+    // Stop
+    Method stopAsync = verticle.getClass().getMethod("stopAsync", futureClass);
+    stopAsync.invoke(verticle, wrappedStopFuture);
   }
 
   private List<Module> compileModules(File sourcePath, List<File> sources) throws Exception {

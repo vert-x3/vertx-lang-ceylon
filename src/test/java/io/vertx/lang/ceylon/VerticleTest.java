@@ -13,8 +13,14 @@ import org.junit.runner.RunWith;
 public class VerticleTest {
 
   @Test
-  public void testFoo(TestContext context) {
+  public void testVerticleLifecycle(TestContext context) {
     Vertx vertx = Vertx.vertx();
-    vertx.deployVerticle("ceylon:simpleverticle", context.asyncAssertSuccess());
+    System.clearProperty("ceylon.verticle");
+    vertx.deployVerticle("ceylon:simpleverticle", context.asyncAssertSuccess(id -> {
+      context.assertEquals(id, System.getProperty("ceylon.verticle"));
+      vertx.undeploy(id, context.asyncAssertSuccess(v -> {
+        context.assertNull(System.getProperty("ceylon.verticle"));
+      }));
+    }));
   }
 }
