@@ -54,14 +54,22 @@ public class CeylonVerticleFactory implements VerticleFactory {
       // Try a module to compile
       String moduleName;
       Module module;
+      File moduleRoot = null;
       URL moduleURL = classLoader.getResource(verticleName + "/module.ceylon");
       if (moduleURL != null) {
-        ArrayList<File> sources = new ArrayList<>();
         File moduleSource = new File(moduleURL.toURI());
-        File moduleRoot = moduleSource.getParentFile();
+        moduleRoot = moduleSource.getParentFile();
         if (!moduleRoot.isDirectory()) {
           throw new Exception(moduleURL + " must point to a module directory");
         }
+      } else {
+        File moduleFile = new File(new File(verticleName), "module.ceylon");
+        if (moduleFile.exists() && moduleFile.isFile()) {
+          moduleRoot = moduleFile.getParentFile();
+        }
+      }
+      if (moduleRoot != null) {
+        ArrayList<File> sources = new ArrayList<>();
         File pkgRoot = new File(moduleRoot, "package.ceylon");
         if (!pkgRoot.exists() || !pkgRoot.isFile()) {
           throw new Exception("No package.ceylon");

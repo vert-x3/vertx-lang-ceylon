@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.io.File;
+import java.net.URL;
 import java.util.HashSet;
 
 /**
@@ -29,10 +31,25 @@ public class VerticleTest {
   }
 
   @Test
-  public void testDeployVerticle(TestContext context) {
+  public void testDeployVerticleFromClassPath(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
     vertx.deployVerticle("ceylon:verticles/simple", context.asyncAssertSuccess(id -> {
+      context.assertEquals("1", System.getProperty("ceylon.verticle." + id));
+      vertx.undeploy(id, context.asyncAssertSuccess(v -> {
+        context.assertEquals("0", System.getProperty("ceylon.verticle." + id));
+      }));
+    }));
+  }
+
+  @Test
+  public void testDeployVerticleFromFileSystem(TestContext context) throws Exception {
+    URL url = Thread.currentThread().getContextClassLoader().getResource("verticles/simple/module.ceylon");
+    context.assertNotNull(url);
+    File file = new File(url.toURI()).getParentFile();
+    Vertx vertx = Vertx.vertx();
+    System.clearProperty("ceylon.verticle");
+    vertx.deployVerticle("ceylon:" + file.getAbsolutePath(), context.asyncAssertSuccess(id -> {
       context.assertEquals("1", System.getProperty("ceylon.verticle." + id));
       vertx.undeploy(id, context.asyncAssertSuccess(v -> {
         context.assertEquals("0", System.getProperty("ceylon.verticle." + id));
