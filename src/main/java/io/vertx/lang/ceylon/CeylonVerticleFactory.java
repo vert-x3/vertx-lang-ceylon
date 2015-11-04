@@ -16,6 +16,11 @@ public class CeylonVerticleFactory implements VerticleFactory {
   }
 
   @Override
+  public boolean blockingCreate() {
+    return true;
+  }
+
+  @Override
   public Verticle createVerticle(String verticleName, ClassLoader classLoader) throws Exception {
     return new CeylonVerticle(classLoader, VerticleFactory.removePrefix(verticleName));
   }
