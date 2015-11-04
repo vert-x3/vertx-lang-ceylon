@@ -1,5 +1,6 @@
 package io.vertx.lang.ceylon;
 
+import com.redhat.ceylon.common.tools.ModuleSpec;
 import com.redhat.ceylon.compiler.java.runtime.tools.*;
 import io.vertx.core.Verticle;
 import io.vertx.core.spi.VerticleFactory;
@@ -23,7 +24,7 @@ import java.util.regex.Pattern;
  */
 public class CeylonVerticleFactory implements VerticleFactory {
 
-  private static final Pattern pattern = Pattern.compile("([\\p{Alpha}.]+)/([\\p{Alnum}.]+)");
+//  private static final Pattern pattern = Pattern.compile("([\\p{Alpha}.]+)/([\\p{Alnum}.-]+)");
   private final Map<String, Module> modules = new HashMap<>();
 
   @Override
@@ -85,29 +86,25 @@ public class CeylonVerticleFactory implements VerticleFactory {
 
             //
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0-SNAPSHOT");
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
           } else {
             module.instances++;
           }
         }
       } else {
-        Matcher matcher = pattern.matcher(verticleName);
-        if (matcher.matches()) {
-          synchronized (modules) {
-            moduleName = matcher.group(1);
-            module = modules.get(moduleName);
-            if (module == null) {
-              String moduleVersion = matcher.group(2);
-              runnerOptions.addExtraModule(moduleName, moduleVersion);
-              JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0");
-              modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
-            } else {
-              module.instances++;
-            }
+        ModuleSpec moduleSpec = ModuleSpec.parse(verticleName);
+        synchronized (modules) {
+          moduleName = moduleSpec.getName();
+          module = modules.get(moduleName);
+          if (module == null) {
+            String moduleVersion = moduleSpec.getVersion();
+            runnerOptions.addExtraModule(moduleName, moduleVersion);
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0-SNAPSHOT");
+            modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
+          } else {
+            module.instances++;
           }
-        } else {
-          throw new Exception("Invalid module " + verticleName + " should be name/version");
         }
       }
       return new CeylonVerticle(module);

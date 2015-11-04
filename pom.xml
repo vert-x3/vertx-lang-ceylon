@@ -483,7 +483,7 @@
                 <userRepo>repo</userRepo>
                 <userRepo>modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/1.0.0</module>
+              <module>io.vertx.tests/1.0.0-SNAPSHOT</module>
             </configuration>
           </execution>
 
