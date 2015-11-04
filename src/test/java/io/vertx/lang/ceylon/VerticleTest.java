@@ -22,7 +22,7 @@ public class VerticleTest {
   }
 
   @Test
-  public void testVerticleLifecycle(TestContext context) {
+  public void testDeployVerticle(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
     vertx.deployVerticle("ceylon:verticles/simple", context.asyncAssertSuccess(id -> {
@@ -34,7 +34,7 @@ public class VerticleTest {
   }
 
   @Test
-  public void testCompiledVerticleLifecycle(TestContext context) {
+  public void testDeployCompiledVerticle(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
     vertx.deployVerticle("ceylon:verticles.simple/1.0.0", context.asyncAssertSuccess(id -> {
@@ -46,7 +46,20 @@ public class VerticleTest {
   }
 
   @Test
-  public void testDeployCeylon(TestContext context) {
+  public void testVerticleDeployingCeylonVerticle(TestContext context) {
+    Vertx vertx = Vertx.vertx();
+    System.clearProperty("ceylon.verticle");
+    DeploymentOptions options = new DeploymentOptions().setConfig(new JsonObject().put("verticleName", "ceylon:verticles/simple"));
+    vertx.deployVerticle("ceylon:verticles/deployverticle", options, context.asyncAssertSuccess(id -> {
+      context.assertNotNull(System.getProperty("ceylon.verticle"));
+      vertx.undeploy(id, context.asyncAssertSuccess(v -> {
+        context.assertNull(System.getProperty("ceylon.verticle"));
+      }));
+    }));
+  }
+
+  @Test
+  public void testVerticleDeployingCompiledCeylonVerticle(TestContext context) {
     Vertx vertx = Vertx.vertx();
     System.clearProperty("ceylon.verticle");
     DeploymentOptions options = new DeploymentOptions().setConfig(new JsonObject().put("verticleName", "ceylon:verticles.simple/1.0.0"));
