@@ -8,6 +8,8 @@ shared test void testDeployVerticleInstance() {
     value latch = CountDownLatch(2);
     object verticle extends Verticle() {
       shared actual void start() {
+        value v = vertx;
+        value c = context;
         latch.countDown();
       }
     }
