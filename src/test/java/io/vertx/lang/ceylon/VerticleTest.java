@@ -1,8 +1,11 @@
 package io.vertx.lang.ceylon;
 
+import com.redhat.ceylon.compiler.java.runtime.metamodel.Metamodel;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,6 +14,11 @@ import org.junit.runner.RunWith;
  */
 @RunWith(VertxUnitRunner.class)
 public class VerticleTest {
+
+  @Before
+  public void before() {
+    Metamodel.resetModuleManager();
+  }
 
   @Test
   public void testVerticleLifecycle(TestContext context) {

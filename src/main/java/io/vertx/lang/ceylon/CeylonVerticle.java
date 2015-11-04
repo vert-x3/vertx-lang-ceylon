@@ -46,8 +46,10 @@ public class CeylonVerticle extends AbstractVerticle {
       startFuture.fail("todo " + name);
     } else {
 
+      JavaRunnerOptions runnerOptions = new JavaRunnerOptions();
+      runnerOptions.setDelegateClassLoader(classLoader);
+
       // Try a module to compile
-      final JavaRunnerOptions runnerOptions = new JavaRunnerOptions();
       String moduleName;
       URL moduleURL = classLoader.getResource(name + "/module.ceylon");
       if (moduleURL != null) {
