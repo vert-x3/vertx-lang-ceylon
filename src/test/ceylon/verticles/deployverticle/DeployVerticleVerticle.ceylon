@@ -4,7 +4,7 @@ shared class DeployVerticle() extends Verticle() {
 
   shared actual void startAsync(Future<Anything> fut) {
     assert(exists cfg = config);
-    assert(is String verticleName = cfg["verticleName"]);
+    assert(is String verticleNwame = cfg["verticleName"]);
     void handleResult(Throwable|String result) {
       if (is String result) {
         fut.complete();
