@@ -1,10 +1,10 @@
 import io.vertx.ceylon.core { Verticle, Future }
 
-shared class DeployVerticle() extends Verticle() {
+shared class DeployerVerticle() extends Verticle() {
 
   shared actual void startAsync(Future<Anything> fut) {
     assert(exists cfg = config);
-    assert(is String verticleNwame = cfg["verticleName"]);
+    assert(is String verticleName = cfg["verticleName"]);
     void handleResult(Throwable|String result) {
       if (is String result) {
         fut.complete();
