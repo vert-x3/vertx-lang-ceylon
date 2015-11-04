@@ -114,9 +114,10 @@ public class CeylonVerticle extends AbstractVerticle {
     Class<?> futureClass = runner.getModuleClassLoader().loadClass("io.vertx.ceylon.core.Future");
     Object wrappedStopFuture = futureClass.getConstructor(Future.class).newInstance(stopFuture);
 
-    // Stop
+    // Stop, cleanup
     Method stopAsync = verticle.getClass().getMethod("stopAsync", futureClass);
     stopAsync.invoke(verticle, wrappedStopFuture);
+    runner.cleanup();
   }
 
   private List<Module> compileModules(File sourcePath, List<File> sources) throws Exception {
