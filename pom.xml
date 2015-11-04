@@ -102,10 +102,35 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- Ceylon dependencies -->
     <dependency>
       <groupId>org.ceylon-lang</groupId>
-      <artifactId>system</artifactId>
-      <type>pom</type>
+      <artifactId>com.redhat.ceylon.common</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>com.redhat.ceylon.compiler.java</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>com.redhat.ceylon.model</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>com.redhat.ceylon.module-resolver</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>com.redhat.ceylon.typechecker</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ceylon-lang</groupId>
+      <artifactId>ceylon.language</artifactId>
       <version>1.2.0-SNAPSHOT</version>
     </dependency>
 
