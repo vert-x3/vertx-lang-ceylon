@@ -3,6 +3,9 @@ vertx-lang-ceylon
 
 ## todo list
 
+- generate data object converter in java to have @GenIgnore
+- don't share the underlying vertx module
+- fix reified generic problem (Message<String> reply)
 - consider converting enum members to lower cases to be more ceylonic
 - consider using ceylon.promise for Handler<AsyncResult<T>> ending methods
 - verticle factory
