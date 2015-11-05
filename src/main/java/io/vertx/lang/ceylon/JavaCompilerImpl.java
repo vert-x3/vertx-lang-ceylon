@@ -1,4 +1,4 @@
-package io.vertx.lang.ceylon.compiler;
+package io.vertx.lang.ceylon;
 
 import com.redhat.ceylon.compiler.java.launcher.Main.ExitState;
 import com.redhat.ceylon.compiler.java.launcher.Main.ExitState.CeylonState;

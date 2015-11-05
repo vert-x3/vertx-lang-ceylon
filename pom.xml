@@ -323,7 +323,7 @@
           </execution>
 
           <execution>
-            <id>main.lang</id>
+            <id>io.vertx.ceylon.lang</id>
             <phase>compile</phase>
             <goals>
               <goal>compile</goal>
@@ -344,11 +344,18 @@
                   <fileset>
                     <directory>${basedir}/src/main/java</directory>
                     <includes>
-                      <include>io/vertx/lang/ceylon/**</include>
+                      <include>io/vertx/lang/ceylon/*.java</include>
                     </includes>
                   </fileset>
                 </source>
               </sources>
+              <resources>
+                <resource>
+                  <fileset>
+                    <directory>${basedir}/src/main/resource</directory>
+                  </fileset>
+                </resource>
+              </resources>
             </configuration>
           </execution>
           <execution>

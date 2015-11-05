@@ -4,8 +4,6 @@ import com.redhat.ceylon.common.tools.ModuleSpec;
 import com.redhat.ceylon.compiler.java.runtime.tools.*;
 import io.vertx.core.Verticle;
 import io.vertx.core.spi.VerticleFactory;
-import io.vertx.lang.ceylon.compiler.ExtendedCompilerOptions;
-import io.vertx.lang.ceylon.compiler.JavaCompilerImpl;
 
 import java.io.File;
 import java.net.URL;
