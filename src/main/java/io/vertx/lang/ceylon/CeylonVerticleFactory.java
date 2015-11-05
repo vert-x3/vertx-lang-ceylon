@@ -142,7 +142,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
     options.setVerbose(false);
     options.setFiles(sources);
 
-    List<ModuleInfo> modules = new ArrayList<>();
+    final List<ModuleInfo> modules = new ArrayList<>();
     com.redhat.ceylon.compiler.java.runtime.tools.Compiler compiler = new JavaCompilerImpl();
     boolean compiled = compiler.compile(options, new CompilationListener() {
 

@@ -330,10 +330,19 @@
             </goals>
             <configuration>
               <out>repo</out>
+              <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
                   <fileset>
                     <directory>${basedir}/src/main/ceylon</directory>
+                    <includes>
+                      <include>io/vertx/lang/ceylon/**</include>
+                    </includes>
+                  </fileset>
+                </source>
+                <source>
+                  <fileset>
+                    <directory>${basedir}/src/main/java</directory>
                     <includes>
                       <include>io/vertx/lang/ceylon/**</include>
                     </includes>
