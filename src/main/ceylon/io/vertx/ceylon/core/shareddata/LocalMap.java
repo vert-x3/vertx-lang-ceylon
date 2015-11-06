@@ -10,8 +10,12 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@TypeParameters({
+  @TypeParameter(value="K",variance=Variance.NONE),
+  @TypeParameter(value="V",variance=Variance.NONE)
+})
 @DocAnnotation$annotation$(description = "todo")
-public class LocalMap {
+public class LocalMap<K,V> {
 
   public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(LocalMap.class);
 
@@ -39,31 +43,31 @@ public class LocalMap {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object get(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key) {
+  @TypeInfo("V?")
+  public V get(
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object put(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
+  @TypeInfo("V?")
+  public V put(
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.put(arg_0, arg_1));
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.put(arg_0, arg_1));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object remove(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key) {
+  @TypeInfo("V?")
+  public V remove(
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
     return ret;
   }
 
@@ -88,21 +92,21 @@ public class LocalMap {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object putIfAbsent(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
+  @TypeInfo("V?")
+  public V putIfAbsent(
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.putIfAbsent(arg_0, arg_1));
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.putIfAbsent(arg_0, arg_1));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeIfPresent(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     boolean ret = delegate.removeIfPresent(arg_0, arg_1);
@@ -112,9 +116,9 @@ public class LocalMap {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean replaceIfPresent(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("oldValue") @DocAnnotation$annotation$(description = "todo") Object oldValue, 
-    final @TypeInfo("ceylon.language::Object?") @Name("newValue") @DocAnnotation$annotation$(description = "todo") Object newValue) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @Name("oldValue") @DocAnnotation$annotation$(description = "todo") V oldValue, 
+    final @TypeInfo("V?") @Name("newValue") @DocAnnotation$annotation$(description = "todo") V newValue) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(oldValue);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.ToJava.object(newValue);
@@ -123,13 +127,13 @@ public class LocalMap {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object replace(
-    final @TypeInfo("ceylon.language::Object?") @Name("key") @DocAnnotation$annotation$(description = "todo") Object key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
+  @TypeInfo("V?")
+  public V replace(
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.replace(arg_0, arg_1));
+    V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.replace(arg_0, arg_1));
     return ret;
   }
 

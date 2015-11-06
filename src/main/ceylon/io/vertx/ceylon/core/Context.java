@@ -75,12 +75,15 @@ public class Context {
     delegate.runOnContext(arg_0);
   }
 
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<ceylon.language::Object>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+  public <T> void executeBlocking(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Object?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
@@ -95,11 +98,14 @@ public class Context {
     delegate.executeBlocking(arg_0, arg_1, arg_2);
   }
 
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<ceylon.language::Object>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Object?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+  public <T> void executeBlocking(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
@@ -155,12 +161,15 @@ public class Context {
     return ret;
   }
 
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Object?")
-  public Object get(
+  @TypeInfo("T?")
+  public <T> T get(
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
-    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
   }
 

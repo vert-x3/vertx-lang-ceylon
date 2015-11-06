@@ -148,20 +148,15 @@
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
+      decl = type.simpleName;
       if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
-        if (type.raw.concrete) {
-          decl = type.raw.simpleName;
-        } else {
-          decl = genJavaInterropTypeDecl(type.raw);
-          var sep = '<';
-          for (typeArg : type.args) {
-            decl += sep + genJavaInterropTypeDecl(typeArg);
-            sep = ',';
-          }
-          decl += '>';
+        decl = genJavaInterropTypeDecl(type.raw);
+        var sep = '<';
+        for (typeArg : type.args) {
+          decl += sep + genJavaInterropTypeDecl(typeArg);
+          sep = ',';
         }
-      } else {
-        decl = type.simpleName;
+        decl += '>';
       }
     } else if (kind == CLASS_STRING) {
       decl = 'ceylon.language.String';
@@ -199,11 +194,10 @@
       }
     } else if (kind == CLASS_OBJECT) {
       /* handle this instanceof better */
-      decl = 'Object';
       if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
-        if (type.param instanceof io.vertx.codegen.TypeParamInfo$Class && !type.param.concreteType) {
-          decl = type.name;
-        }
+        decl = type.name;
+      } else {
+        decl = 'Object';
       }
     } else if (kind == CLASS_HANDLER) {
       var arg = type.args[0];
@@ -310,12 +304,11 @@
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
       nullable = true;
-      decl = 'ceylon.language::Object';
       /* handle this instanceof better */
       if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
-        if (type.param instanceof io.vertx.codegen.TypeParamInfo$Class && !type.param.concreteType) {
-          decl = type.name;
-        }
+        decl = type.name;
+      } else {
+        decl = 'ceylon.language::Object';
       }
     } else if (kind == CLASS_HANDLER) {
       var arg = type.args[0];
@@ -413,6 +406,14 @@
   }
 }
 
+@declare{'genTypeParamsDesc'}
+@{indent}@TypeParameters({\n
+	@foreach{param:params}
+@{indent}  @TypeParameter(value="@{param.name}",variance=Variance.NONE)
+	@end{',\n'}
+\n@{indent}})\n
+@end{}
+
 @declare{'genClassMembers'}
 	@foreach{method:methods}
 		@if{method.cacheReturn}
@@ -475,9 +476,13 @@
 @end{}
 
 @declare{'genMethodDecl'}
+@if{method.typeParams.size() > 0}
+@includeNamed{'genTypeParamsDesc';params=method.typeParams}
+@end{}
   @DocAnnotation$annotation$(description = "todo")\n
   @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
   public @if{method.staticMethod}static @end{}
+@if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
 @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
 \n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
@@ -517,15 +522,11 @@ import ceylon.language.DocAnnotation$annotation$;\n
 @end{}
 
 \n
-@if{typeParams.size() > 0 && !concrete}
-	@TypeParameters({\n
-		@foreach{typeParam:typeParams}
-	  @TypeParameter(value="@{typeParam.name}",variance=Variance.NONE)
-		@end{',\n'}
-	\n})\n
+@if{typeParams.size() > 0}
+@includeNamed{'genTypeParamsDesc';params=typeParams;indent=''}
 @end{}
 @DocAnnotation$annotation$(description = "todo")\n
-public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@if{!concrete}@includeNamed{'genTypeParams';params=typeParams}@end{}
+public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams}
 @if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}
 @if{abstractSuperTypes.size() > 0}
 	 @if{concrete}implements@else{}extends@end{}
