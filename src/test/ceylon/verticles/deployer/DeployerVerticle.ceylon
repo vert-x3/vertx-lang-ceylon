@@ -2,7 +2,7 @@ import io.vertx.ceylon.core { Verticle, Future }
 
 shared class DeployerVerticle() extends Verticle() {
 
-  shared actual void startAsync(Future<Anything> fut) {
+  shared actual void startAsync(Future fut) {
     assert(exists cfg = config);
     assert(is String verticleName = cfg["verticleName"]);
     void handleResult(Throwable|String result) {

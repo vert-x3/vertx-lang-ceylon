@@ -62,39 +62,30 @@ public class CommandLine {
     return ret;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public <T> T getOptionValue(
+  @TypeInfo("ceylon.language::Object?")
+  public Object getOptionValue(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getOptionValue(arg_0));
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getOptionValue(arg_0));
     return ret;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public <T> T getArgumentValue(
+  @TypeInfo("ceylon.language::Object?")
+  public Object getArgumentValue(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
     return ret;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public <T> T getArgumentValue(
+  @TypeInfo("ceylon.language::Object?")
+  public Object getArgumentValue(
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
     return ret;
   }
 

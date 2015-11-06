@@ -28,7 +28,7 @@ shared abstract class Verticle() {
 
   shared List<String> processArgs => context.processArgs();
 
-  shared default void startAsync(Future<Anything> startFuture) {
+  shared default void startAsync(Future startFuture) {
     start();
     startFuture.complete();
   }
@@ -37,7 +37,7 @@ shared abstract class Verticle() {
     // Implement start logic here
   }
 
-  shared default void stopAsync(Future<Anything> stopFuture) {
+  shared default void stopAsync(Future stopFuture) {
     stop();
     stopFuture.complete();
   }
@@ -55,10 +55,10 @@ shared abstract class Verticle() {
 
     object verticle_ extends AbstractVerticle_() {
       shared actual void start(Future_<Void_> handler) {
-        outer.startAsync(Future<Anything>(handler));
+        outer.startAsync(Future(handler));
       }
       shared actual void stop(Future_<Void_> handler) {
-        outer.stopAsync(Future<Anything>(handler));
+        outer.stopAsync(Future(handler));
       }
       shared actual void init(Vertx_ vertx, Context_ context) {
         outer.init(Vertx(vertx), Context(context));

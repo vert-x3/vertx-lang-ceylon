@@ -10,11 +10,8 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@TypeParameters({
-  @TypeParameter(value="T",variance=Variance.NONE)
-})
 @DocAnnotation$annotation$(description = "todo")
-public class GenericRefedInterface<T> {
+public class GenericRefedInterface {
 
   public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(GenericRefedInterface.class);
 
@@ -44,15 +41,15 @@ public class GenericRefedInterface<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setValue(
-    final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value) {
+    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.setValue(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public T getValue() {
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getValue());
+  @TypeInfo("ceylon.language::Object?")
+  public Object getValue() {
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getValue());
     return ret;
   }
 

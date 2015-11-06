@@ -886,28 +886,22 @@ public class NullableTCK {
     return ret;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void methodWithNullableTypeVariableParam(
+  public void methodWithNullableTypeVariableParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
-    final @TypeInfo("T?") @Name("param") @DocAnnotation$annotation$(description = "todo") T param) {
+    final @TypeInfo("ceylon.language::Object?") @Name("param") @DocAnnotation$annotation$(description = "todo") Object param) {
     boolean arg_0 = expectNull;
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(param);
     delegate.methodWithNullableTypeVariableParam(arg_0, arg_1);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void methodWithNullableTypeVariableHandler(
+  public void methodWithNullableTypeVariableHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
-    final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value, 
-    final @TypeInfo("ceylon.language::Anything(T?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Object?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     boolean arg_0 = notNull;
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     io.vertx.core.Handler<java.lang.Object> arg_2 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
@@ -918,15 +912,12 @@ public class NullableTCK {
     delegate.methodWithNullableTypeVariableHandler(arg_0, arg_1, arg_2);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void methodWithNullableTypeVariableHandlerAsyncResult(
+  public void methodWithNullableTypeVariableHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
-    final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Object?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     boolean arg_0 = notNull;
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
@@ -937,17 +928,14 @@ public class NullableTCK {
     delegate.methodWithNullableTypeVariableHandlerAsyncResult(arg_0, arg_1, arg_2);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public <T> T methodWithNullableTypeVariableReturn(
+  @TypeInfo("ceylon.language::Object?")
+  public Object methodWithNullableTypeVariableReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
-    final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value) {
+    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "todo") Object value) {
     boolean arg_0 = notNull;
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.methodWithNullableTypeVariableReturn(arg_0, arg_1));
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.methodWithNullableTypeVariableReturn(arg_0, arg_1));
     return ret;
   }
 

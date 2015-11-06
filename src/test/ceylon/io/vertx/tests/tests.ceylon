@@ -591,16 +591,16 @@ shared test void testMethodWithHandlerThrowable() {
 }
 
 shared test void testMethodWithHandlerGenericUserType() {
-  variable GenericRefedInterface<String>? gen = null;
-  obj.methodWithHandlerGenericUserType<String>("string_value", (GenericRefedInterface<String> arg) => gen=arg);
-  assert(is GenericRefedInterface<String> val=gen);
+  variable GenericRefedInterface? gen = null;
+  obj.methodWithHandlerGenericUserType("string_value", (GenericRefedInterface arg) => gen=arg);
+  assert(is GenericRefedInterface val=gen);
   assertEquals(val.\ivalue, "string_value");
 }
 
 shared test void testMethodWithHandlerAsyncResultGenericUserType() {
-  variable GenericRefedInterface<String>|Throwable|Null gen = null;
-  obj.methodWithHandlerGenericUserType<String>("string_value_2", (GenericRefedInterface<String>?|Throwable arg) => gen=arg);
-  assert(is GenericRefedInterface<String> val=gen);
+  variable GenericRefedInterface|Throwable|Null gen = null;
+  obj.methodWithHandlerGenericUserType("string_value_2", (GenericRefedInterface?|Throwable arg) => gen=arg);
+  assert(is GenericRefedInterface val=gen);
   assertEquals(val.\ivalue, "string_value_2");
 }
 
@@ -620,7 +620,7 @@ shared test void testMethodWithGenericParam() {
 shared test void testMethodWithGenericHandler() {
   void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
     variable Object? val = null;
-    obj.methodWithGenericHandler<Object>(type, (Object? result) => val = result);
+    obj.methodWithGenericHandler(type, (Object? result) => val = result);
     assert(exists actual = val);
     compare(actual, expected);
   }
@@ -642,7 +642,7 @@ shared test void testMethodWithGenericHandler() {
 shared test void testMethodWithGenericHandlerAsyncResult() {
   void test<T>(String type, T expected, void compare(Object actual, T expected) => assertEquals(actual, expected)) {
     variable Object|Throwable|Null val = null;
-    obj.methodWithGenericHandlerAsyncResult<Object>(type, (Object?|Throwable result) => val = result);
+    obj.methodWithGenericHandlerAsyncResult(type, (Object?|Throwable result) => val = result);
     assert(exists actual = val);
     compare(actual, expected);
   }
@@ -942,9 +942,9 @@ shared test void testSuperInterfaces() {
 }
 
 shared test void testMethodWithGenericReturn() {
-  value jsonObject = obj.methodWithGenericReturn<JsonObject>("JsonObject");
+  value jsonObject = obj.methodWithGenericReturn("JsonObject");
   assertEquals(jsonObject, JsonObject { "foo"->"hello", "bar"->123 });
-  value jsonArray = obj.methodWithGenericReturn<JsonArray>("JsonArray");
+  value jsonArray = obj.methodWithGenericReturn("JsonArray");
   assertEquals(jsonArray, JsonArray { "foo", "bar", "wib" });
 }
 
@@ -1107,27 +1107,27 @@ shared void testNullableTypeVariable() {
   nullableTCK.methodWithNullableTypeVariableParam(false, "whatever");
   nullableTCK.methodWithNullableTypeVariableParam(true, null);
   variable Integer count = 0;
-  void a(String? val) {
+  void a(Object? val) {
     assertEquals("wibble", val);
     count++;
   }
-  nullableTCK.methodWithNullableTypeVariableHandler<String>(true, "wibble", a);
-  void b(String? val) {
+  nullableTCK.methodWithNullableTypeVariableHandler(true, "wibble", a);
+  void b(Object? val) {
     assertNull(val);
     count++;
   }
-  nullableTCK.methodWithNullableTypeVariableHandler<String>(true, null, b);
-  void c(String?|Throwable val) {
+  nullableTCK.methodWithNullableTypeVariableHandler(true, null, b);
+  void c(Object?|Throwable val) {
     assertEquals("sausages", val);
     count++;
   }
-  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult<String>(true, "sausages", c);
-  void d(String?|Throwable val) {
+  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult(true, "sausages", c);
+  void d(Object?|Throwable val) {
     assertNull(val);
     count++;
   }
-  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult<String>(true, null, d);
-  assertEquals("fizz1", nullableTCK.methodWithNullableTypeVariableReturn<String>(true, "fizz1"));
+  nullableTCK.methodWithNullableTypeVariableHandlerAsyncResult(true, null, d);
+  assertEquals("fizz1", nullableTCK.methodWithNullableTypeVariableReturn(true, "fizz1"));
   assertNull(nullableTCK.methodWithNullableTypeVariableReturn(false, "fizz2"));
   assertEquals(4, count);
 }

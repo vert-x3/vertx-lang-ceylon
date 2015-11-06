@@ -40,15 +40,11 @@ public class SharedData {
     return delegate;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="K",variance=Variance.NONE),
-    @TypeParameter(value="V",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <K,V> void getClusterWideMap(
+  public void getClusterWideMap(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<ceylon.language::Object,ceylon.language::Object>)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) {
@@ -102,16 +98,12 @@ public class SharedData {
     delegate.getCounter(arg_0, arg_1);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="K",variance=Variance.NONE),
-    @TypeParameter(value="V",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<K,V>")
-  public <K,V> LocalMap<K,V> getLocalMap(
+  @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<ceylon.language::Object,ceylon.language::Object>")
+  public LocalMap getLocalMap(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    LocalMap<K,V> ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.safeConvert(delegate.getLocalMap(arg_0));
+    LocalMap ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.safeConvert(delegate.getLocalMap(arg_0));
     return ret;
   }
 

@@ -13,11 +13,8 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@TypeParameters({
-  @TypeParameter(value="T",variance=Variance.NONE)
-})
 @DocAnnotation$annotation$(description = "todo")
-public class Message<T> {
+public class Message {
 
   public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Message.class);
 
@@ -33,7 +30,7 @@ public class Message<T> {
     }
   };
 
-  @Ignore private T cached_body;
+  @Ignore private Object cached_body;
   @Ignore private final io.vertx.core.eventbus.Message delegate;
 
   public Message(io.vertx.core.eventbus.Message delegate) {
@@ -60,12 +57,12 @@ public class Message<T> {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("T?")
-  public T body() {
+  @TypeInfo("ceylon.language::Object?")
+  public Object body() {
     if (cached_body != null) {
       return cached_body;
     }
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
     cached_body = ret;
     return ret;
   }
@@ -85,14 +82,11 @@ public class Message<T> {
     delegate.reply(arg_0);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="R",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <R> void reply(
+  public void reply(
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<ceylon.language::Object>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
@@ -112,15 +106,12 @@ public class Message<T> {
     delegate.reply(arg_0, arg_1);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="R",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <R> void reply(
+  public void reply(
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<ceylon.language::Object>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {

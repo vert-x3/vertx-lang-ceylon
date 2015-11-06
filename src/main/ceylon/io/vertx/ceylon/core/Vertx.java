@@ -400,15 +400,12 @@ public class Vertx implements Measured {
     return ret;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+  public void executeBlocking(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<ceylon.language::Object>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Object?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
@@ -423,14 +420,11 @@ public class Vertx implements Measured {
     delegate.executeBlocking(arg_0, arg_1, arg_2);
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+  public void executeBlocking(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<ceylon.language::Object>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Object?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
