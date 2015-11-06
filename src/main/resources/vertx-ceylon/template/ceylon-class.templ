@@ -372,43 +372,6 @@
 @end{}
 
 @code{
-  def genMethodCallCeylon(method, indent) {
-    var sb = new java.lang.StringBuilder();
-    var args = new java.util.ArrayList();
-    var idx = 0;
-    for (param : method.params) {
-      if (param.type.kind == CLASS_API) {
-        sb.append(indent).append('assert(is Delegating<').append(genConvParamType(param.type)).append('> arg_').append(idx).append(' = args[').append(idx).append(']);\n');
-        args.add('arg_' + idx + '.delegate');
-      } else {
-        sb.append(indent).append(genConvParam(param.type, 'arg_' + idx, 'args[' + idx + ']')).append(';\n');
-        args.add('arg_' + idx);
-      }
-      idx += 1;
-    }
-    sb.append(indent);
-    if (isGetterMethod(method)) {
-      sb.append('Anything v = delegate.').append(toCeylonIdentifier(getPropertyNameFromGetter(method)));
-    } else if (isSetterMethod(method)) {
-      sb.append('delegate.').append(toCeylonIdentifier(getPropertyNameFromSetter(method))).append(' = ').append(args[0]);
-    } else {
-      sb.append('Anything v = delegate.').append(toCeylonIdentifier(method.name)).append('(');
-      var paramIdx = 0;
-      for (param : method.params) {
-        if (paramIdx > 0) {
-          sb.append(',');
-        }
-        sb.append(args[paramIdx]);
-        paramIdx += 1;
-      }
-      sb.append(')');
-    }
-    sb.append(';\n');
-    return sb.toString();
-  }
-}
-
-@code{
   def genMethodCall(method, indent) {
     var sb = new java.lang.StringBuilder();
     var args = new java.util.ArrayList();
