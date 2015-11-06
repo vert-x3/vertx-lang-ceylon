@@ -62,43 +62,6 @@ public class Vertx implements Measured {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Vertx")
-  public static Vertx vertx() {
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(io.vertx.core.Vertx.vertx());
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Vertx")
-  public static Vertx vertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
-    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(io.vertx.core.Vertx.vertx(arg_0));
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Anything")
-  public static void clusteredVertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
-    io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) {
-      public Object toCeylon(io.vertx.core.Vertx event) {
-        return io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(event);
-      }
-    };
-    io.vertx.core.Vertx.clusteredVertx(arg_0, arg_1);
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Context?")
-  public static Context currentContext() {
-    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(io.vertx.core.Vertx.currentContext());
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Context")
   public Context getOrCreateContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(delegate.getOrCreateContext());

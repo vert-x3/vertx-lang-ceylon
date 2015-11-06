@@ -43,27 +43,6 @@ public class Context {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Boolean")
-  public static boolean isOnWorkerThread() {
-    boolean ret = io.vertx.core.Context.isOnWorkerThread();
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Boolean")
-  public static boolean isOnEventLoopThread() {
-    boolean ret = io.vertx.core.Context.isOnEventLoopThread();
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Boolean")
-  public static boolean isOnVertxThread() {
-    boolean ret = io.vertx.core.Context.isOnVertxThread();
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void runOnContext(
     final @TypeInfo("ceylon.language::Anything()") @Name("action") @DocAnnotation$annotation$(description = "todo") Callable<?> action) {

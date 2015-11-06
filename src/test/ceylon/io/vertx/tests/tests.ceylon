@@ -1,6 +1,6 @@
 import io.vertx.ceylon.codegen.testmodel {
   TestInterface, NullableTCK, RefedInterface1, RefedInterface2, TestDataObject,
-  Factory, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
+  Factory, factory, testInterface, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
   GenericRefedInterface, TestGenEnum, \iMIKE, \iBOB, \iLELAND
 }
 import io.vertx.codegen.testmodel {
@@ -540,7 +540,7 @@ shared test void testMethodWithHandlerAsyncResultUserTypes() {
 
 shared test void testMethodWithConcreteHandlerUserTypesSubtype() {
   variable RefedInterface1? val = null;
-  ConcreteHandlerUserType sub = Factory.createConcreteHandlerUserType((RefedInterface1 arg) => val=arg);
+  ConcreteHandlerUserType sub = factory.createConcreteHandlerUserType((RefedInterface1 arg) => val=arg);
   obj.methodWithConcreteHandlerUserTypeSubtype(sub);
   assert(exists u=val);
   assertEquals(u.getString(), "echidnas");
@@ -548,7 +548,7 @@ shared test void testMethodWithConcreteHandlerUserTypesSubtype() {
 
 shared test void testMethodWithAbstractHandlerUserTypesSubtype() {
   variable RefedInterface1? val = null;
-  AbstractHandlerUserType sub = Factory.createAbstractHandlerUserType((RefedInterface1 arg) => val=arg);
+  AbstractHandlerUserType sub = factory.createAbstractHandlerUserType((RefedInterface1 arg) => val=arg);
   obj.methodWithAbstractHandlerUserTypeSubtype(sub);
   assert(exists u=val);
   assertEquals(u.getString(), "echidnas");
@@ -556,7 +556,7 @@ shared test void testMethodWithAbstractHandlerUserTypesSubtype() {
 
 shared test void testMethodWithConcreteHandlerUserTypesSubtypeExtension() {
   variable RefedInterface1? val = null;
-  ConcreteHandlerUserTypeExtension sub = Factory.createConcreteHandlerUserTypeExtension((RefedInterface1 arg) => val=arg);
+  ConcreteHandlerUserTypeExtension sub = factory.createConcreteHandlerUserTypeExtension((RefedInterface1 arg) => val=arg);
   obj.methodWithConcreteHandlerUserTypeSubtypeExtension(sub);
   assert(exists u=val);
   assertEquals(u.getString(), "echidnas");
@@ -954,7 +954,7 @@ shared test void testFluentMethod() {
 }
 
 shared test void testStaticFactoryMethod() {
-  value ret = TestInterface.staticFactoryMethod("bar");
+  value ret = testInterface.staticFactoryMethod("bar");
   assertEquals(ret.getString(), "bar");
 }
 

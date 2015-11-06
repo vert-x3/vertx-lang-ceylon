@@ -40,15 +40,6 @@ public class CLI {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.cli::CLI")
-  public static CLI create(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(io.vertx.core.cli.CLI.create(arg_0));
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments) {

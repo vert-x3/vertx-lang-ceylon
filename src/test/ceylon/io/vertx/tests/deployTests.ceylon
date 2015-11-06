@@ -1,21 +1,21 @@
-import io.vertx.ceylon.core { Verticle, Vertx }
+import io.vertx.ceylon.core { Verticle, Vertx, vertx }
 import java.util.concurrent { CountDownLatch }
 import ceylon.test { test }
 
 shared test void testDeployVerticleInstance() {
-  value vertx = Vertx.vertx();
+  Vertx instance = vertx.vertx();
   try {
     value latch = CountDownLatch(2);
     object verticle extends Verticle() {
       shared actual void start() {
-        value v = vertx;
+        value v = instance;
         value c = context;
         latch.countDown();
       }
     }
-    verticle.deploy(vertx, null, (String|Throwable id) => latch.countDown());
+    verticle.deploy(instance, null, (String|Throwable id) => latch.countDown());
     latch.await();
   } finally {
-    vertx.close();
+    instance.close();
   }
 }

@@ -41,13 +41,6 @@ public class MyInterface {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("com.acme.ceylon.pkg::MyInterface")
-  public static MyInterface create() {
-    MyInterface ret = com.acme.ceylon.pkg.MyInterface.TO_CEYLON.safeConvert(com.acme.pkg.MyInterface.create());
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("com.acme.ceylon.pkg.sub::SubInterface")
   public SubInterface sub() {
     SubInterface ret = com.acme.ceylon.pkg.sub.SubInterface.TO_CEYLON.safeConvert(delegate.sub());

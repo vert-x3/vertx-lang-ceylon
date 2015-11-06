@@ -1412,15 +1412,6 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1")
-  public static RefedInterface1 staticFactoryMethod(
-    final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(foo);
-    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(io.vertx.codegen.testmodel.TestInterface.staticFactoryMethod(arg_0));
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1")
   public RefedInterface1 methodWithCachedReturn(
     final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
     if (cached_methodWithCachedReturn != null) {

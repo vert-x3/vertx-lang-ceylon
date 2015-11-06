@@ -43,50 +43,6 @@ public class Future<T> {
     return delegate;
   }
 
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
-  public static <T> Future<T> future() {
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(io.vertx.core.Future.future());
-    return ret;
-  }
-
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
-  public static <T> Future<T> succeededFuture() {
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(io.vertx.core.Future.succeededFuture());
-    return ret;
-  }
-
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
-  public static <T> Future<T> succeededFuture(
-    final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "todo") T result) {
-    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(result);
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(io.vertx.core.Future.succeededFuture(arg_0));
-    return ret;
-  }
-
-  @TypeParameters({
-    @TypeParameter(value="T",variance=Variance.NONE)
-  })
-  @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
-  public static <T> Future<T> failedFuture(
-    final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String failureMessage) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(failureMessage);
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(io.vertx.core.Future.failedFuture(arg_0));
-    return ret;
-  }
-
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isComplete() {

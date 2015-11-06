@@ -4,6 +4,10 @@
     "kind": "class",
     "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.java'",
     "templateFileName": "vertx-ceylon/template/ceylon-class.templ"
+  },{
+    "kind": "class",
+    "fileName": "model.staticMethods.size() > 0 ? ('ceylon/' + model.type.raw.translatePackageName('ceylon').replace('.', '/') + '/' + CASE_CAMEL.to(CASE_LOWER_CAMEL, model.type.raw.simpleName) + '_.java') : null",
+    "templateFileName": "vertx-ceylon/template/ceylon-object.templ"
   }, {
     "kind": "class",
     "incremental": true,

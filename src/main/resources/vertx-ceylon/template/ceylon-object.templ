@@ -1,0 +1,32 @@
+@includeNamed{'/vertx-java/template/common-lib.templ'}
+@includeNamed{'ceylon-common.templ'}
+
+@code{packageName=type.raw.translatePackageName('ceylon')}
+@code{objectName=CASE_CAMEL.to(CASE_LOWER_CAMEL, type.raw.simpleName)}
+@code{indent='  '}
+
+package @{packageName};\n
+
+\n
+@includeNamed{'genImports'}
+\n
+
+@Name("@{objectName}")\n
+@com.redhat.ceylon.compiler.java.metadata.Object\n
+public class @{objectName}_ {\n
+\n
+  private static final @{objectName}_ instance = new @{objectName}_();\n
+\n
+  @Ignore\n
+  @TypeInfo("@{type.raw.translatePackageName('ceylon')}::@{objectName}")\n
+  public static @{objectName}_ get_() {\n
+    return instance;\n
+  }\n
+\n
+@foreach{method:staticMethods}\n
+@includeNamed{'genMethodDecl'} {\n
+@includeNamed{'genMethodBody'}
+@{indent}}\n
+@end{}
+\n
+}\n

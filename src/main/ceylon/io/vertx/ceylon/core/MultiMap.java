@@ -42,13 +42,6 @@ public class MultiMap {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core::MultiMap")
-  public static MultiMap caseInsensitiveMultiMap() {
-    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(io.vertx.core.MultiMap.caseInsensitiveMultiMap());
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String get(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
