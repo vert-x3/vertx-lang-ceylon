@@ -36,25 +36,25 @@ public interface ReadStream<T> extends StreamBase {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
-  ReadStream<T> exceptionHandler(
+  public ReadStream<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
-  ReadStream<T> handler(
+  public ReadStream<T> handler(
     final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
-  ReadStream<T> pause();
+  public ReadStream<T> pause();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
-  ReadStream<T> resume();
+  public ReadStream<T> resume();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
-  ReadStream<T> endHandler(
+  public ReadStream<T> endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
 
   @Ignore
@@ -70,8 +70,10 @@ public interface ReadStream<T> extends StreamBase {
       return delegate;
     }
 
-    @Override
-    public ReadStream<T> exceptionHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
+  public ReadStream<T> exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -81,8 +83,10 @@ public interface ReadStream<T> extends StreamBase {
       return this;
     }
 
-    @Override
-    public ReadStream<T> handler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
+  public ReadStream<T> handler(
+    final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
       public void handle(java.lang.Object event) {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
@@ -92,20 +96,24 @@ public interface ReadStream<T> extends StreamBase {
       return this;
     }
 
-    @Override
-    public ReadStream<T> pause() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
+  public ReadStream<T> pause() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.pause());
       return this;
     }
 
-    @Override
-    public ReadStream<T> resume() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
+  public ReadStream<T> resume() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.resume());
       return this;
     }
 
-    @Override
-    public ReadStream<T> endHandler(final Callable<?> endHandler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
+  public ReadStream<T> endHandler(
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

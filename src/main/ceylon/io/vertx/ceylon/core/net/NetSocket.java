@@ -254,7 +254,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
       return cached_remoteAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
-     cached_remoteAddress = ret;
+    cached_remoteAddress = ret;
     return ret;
   }
 
@@ -265,7 +265,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
       return cached_localAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
-     cached_localAddress = ret;
+    cached_localAddress = ret;
     return ret;
   }
 

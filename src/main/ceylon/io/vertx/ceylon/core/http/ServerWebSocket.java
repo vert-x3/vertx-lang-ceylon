@@ -79,7 +79,7 @@ public class ServerWebSocket implements WebSocketBase {
       return cached_remoteAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
-     cached_remoteAddress = ret;
+    cached_remoteAddress = ret;
     return ret;
   }
 
@@ -90,7 +90,7 @@ public class ServerWebSocket implements WebSocketBase {
       return cached_localAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
-     cached_localAddress = ret;
+    cached_localAddress = ret;
     return ret;
   }
 
@@ -268,7 +268,7 @@ public class ServerWebSocket implements WebSocketBase {
       return cached_headers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
-     cached_headers = ret;
+    cached_headers = ret;
     return ret;
   }
 

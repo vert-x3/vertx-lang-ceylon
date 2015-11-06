@@ -147,7 +147,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
       return cached_localAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
-     cached_localAddress = ret;
+    cached_localAddress = ret;
     return ret;
   }
 

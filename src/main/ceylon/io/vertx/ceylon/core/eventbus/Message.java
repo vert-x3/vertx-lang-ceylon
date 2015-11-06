@@ -66,7 +66,7 @@ public class Message<T> {
       return cached_body;
     }
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
-     cached_body = ret;
+    cached_body = ret;
     return ret;
   }
 

@@ -102,7 +102,7 @@ public class WebSocketFrame {
       return cached_textData;
     }
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.textData());
-     cached_textData = ret;
+    cached_textData = ret;
     return ret;
   }
 
@@ -113,7 +113,7 @@ public class WebSocketFrame {
       return cached_binaryData;
     }
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.binaryData());
-     cached_binaryData = ret;
+    cached_binaryData = ret;
     return ret;
   }
 

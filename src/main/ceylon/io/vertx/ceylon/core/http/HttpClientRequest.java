@@ -172,7 +172,7 @@ public class HttpClientRequest implements WriteStream<Buffer>, ReadStream<HttpCl
       return cached_headers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
-     cached_headers = ret;
+    cached_headers = ret;
     return ret;
   }
 

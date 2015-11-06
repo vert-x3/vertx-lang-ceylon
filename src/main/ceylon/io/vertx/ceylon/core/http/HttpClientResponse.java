@@ -122,7 +122,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
       return cached_headers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
-     cached_headers = ret;
+    cached_headers = ret;
     return ret;
   }
 
@@ -151,7 +151,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
       return cached_trailers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.trailers());
-     cached_trailers = ret;
+    cached_trailers = ret;
     return ret;
   }
 
@@ -162,7 +162,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
       return cached_cookies;
     }
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.cookies(), io.vertx.lang.ceylon.ToCeylon.String);
-     cached_cookies = ret;
+    cached_cookies = ret;
     return ret;
   }
 
@@ -186,7 +186,7 @@ public class HttpClientResponse implements ReadStream<Buffer> {
       return cached_netSocket;
     }
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.netSocket());
-     cached_netSocket = ret;
+    cached_netSocket = ret;
     return ret;
   }
 

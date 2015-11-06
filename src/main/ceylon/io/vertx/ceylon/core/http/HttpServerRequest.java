@@ -146,7 +146,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_response;
     }
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.response());
-     cached_response = ret;
+    cached_response = ret;
     return ret;
   }
 
@@ -157,7 +157,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_headers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
-     cached_headers = ret;
+    cached_headers = ret;
     return ret;
   }
 
@@ -177,7 +177,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_params;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.params());
-     cached_params = ret;
+    cached_params = ret;
     return ret;
   }
 
@@ -197,7 +197,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_remoteAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
-     cached_remoteAddress = ret;
+    cached_remoteAddress = ret;
     return ret;
   }
 
@@ -208,7 +208,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_localAddress;
     }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
-     cached_localAddress = ret;
+    cached_localAddress = ret;
     return ret;
   }
 
@@ -239,7 +239,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_netSocket;
     }
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.netSocket());
-     cached_netSocket = ret;
+    cached_netSocket = ret;
     return ret;
   }
 
@@ -279,7 +279,7 @@ public class HttpServerRequest implements ReadStream<Buffer> {
       return cached_formAttributes;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.formAttributes());
-     cached_formAttributes = ret;
+    cached_formAttributes = ret;
     return ret;
   }
 

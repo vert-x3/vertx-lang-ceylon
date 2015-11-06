@@ -151,7 +151,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
       return cached_headers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
-     cached_headers = ret;
+    cached_headers = ret;
     return ret;
   }
 
@@ -173,7 +173,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
       return cached_trailers;
     }
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.trailers());
-     cached_trailers = ret;
+    cached_trailers = ret;
     return ret;
   }
 

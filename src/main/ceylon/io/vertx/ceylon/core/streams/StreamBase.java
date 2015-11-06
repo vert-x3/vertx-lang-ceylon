@@ -33,7 +33,7 @@ public interface StreamBase {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
-  StreamBase exceptionHandler(
+  public StreamBase exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @Ignore
@@ -49,8 +49,10 @@ public interface StreamBase {
       return delegate;
     }
 
-    @Override
-    public StreamBase exceptionHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
+  public StreamBase exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);

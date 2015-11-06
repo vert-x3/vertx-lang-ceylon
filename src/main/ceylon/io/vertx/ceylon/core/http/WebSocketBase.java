@@ -37,95 +37,95 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
-  boolean writeQueueFull();
+  public boolean writeQueueFull();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase exceptionHandler(
+  public WebSocketBase exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase handler(
+  public WebSocketBase handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase pause();
+  public WebSocketBase pause();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase resume();
+  public WebSocketBase resume();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase endHandler(
+  public WebSocketBase endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase write(
+  public WebSocketBase write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase setWriteQueueMaxSize(
+  public WebSocketBase setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase drainHandler(
+  public WebSocketBase drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
-  ceylon.language.String binaryHandlerID();
+  public ceylon.language.String binaryHandlerID();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
-  ceylon.language.String textHandlerID();
+  public ceylon.language.String textHandlerID();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase writeFrame(
+  public WebSocketBase writeFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @Name("frame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase writeFinalTextFrame(
+  public WebSocketBase writeFinalTextFrame(
     final @TypeInfo("ceylon.language::String") @Name("text") @DocAnnotation$annotation$(description = "todo") ceylon.language.String text);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase writeFinalBinaryFrame(
+  public WebSocketBase writeFinalBinaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase writeBinaryMessage(
+  public WebSocketBase writeBinaryMessage(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase closeHandler(
+  public WebSocketBase closeHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
-  WebSocketBase frameHandler(
+  public WebSocketBase frameHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  void close();
+  public void close();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
-  SocketAddress remoteAddress();
+  public SocketAddress remoteAddress();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
-  SocketAddress localAddress();
+  public SocketAddress localAddress();
 
   @Ignore
   public class Impl implements WebSocketBase {
@@ -142,14 +142,17 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return delegate;
     }
 
-    @Override
-    public boolean writeQueueFull() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
       return ret;
     }
 
-    @Override
-    public WebSocketBase exceptionHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -159,8 +162,10 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public WebSocketBase handler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase handler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event));
@@ -170,20 +175,24 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public WebSocketBase pause() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase pause() {
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.pause());
       return this;
     }
 
-    @Override
-    public WebSocketBase resume() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase resume() {
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.resume());
       return this;
     }
 
-    @Override
-    public WebSocketBase endHandler(final Callable<?> endHandler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase endHandler(
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -193,22 +202,28 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public WebSocketBase write(final Buffer data) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase write(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.write(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase setWriteQueueMaxSize(final long maxSize) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase setWriteQueueMaxSize(
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase drainHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase drainHandler(
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -218,48 +233,60 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public ceylon.language.String binaryHandlerID() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String binaryHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.binaryHandlerID());
       return ret;
     }
 
-    @Override
-    public ceylon.language.String textHandlerID() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String textHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.textHandlerID());
       return ret;
     }
 
-    @Override
-    public WebSocketBase writeFrame(final WebSocketFrame frame) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeFrame(
+    final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @Name("frame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame) {
     io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.safeConvert(frame);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeFrame(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase writeFinalTextFrame(final ceylon.language.String text) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeFinalTextFrame(
+    final @TypeInfo("ceylon.language::String") @Name("text") @DocAnnotation$annotation$(description = "todo") ceylon.language.String text) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(text);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeFinalTextFrame(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase writeFinalBinaryFrame(final Buffer data) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeFinalBinaryFrame(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeFinalBinaryFrame(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase writeBinaryMessage(final Buffer data) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeBinaryMessage(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.safeConvert(delegate.writeBinaryMessage(arg_0));
       return this;
     }
 
-    @Override
-    public WebSocketBase closeHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase closeHandler(
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -269,8 +296,10 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public WebSocketBase frameHandler(final Callable<?> handler) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase frameHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() {
       public void handle(io.vertx.core.http.WebSocketFrame event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(event));
@@ -280,28 +309,31 @@ public interface WebSocketBase extends ReadStream<Buffer>, WriteStream<Buffer> {
       return this;
     }
 
-    @Override
-    public void close() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void close() {
     delegate.close();
     }
 
-    @Override
-    public SocketAddress remoteAddress() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
+  public SocketAddress remoteAddress() {
       if (cached_remoteAddress != null) {
         return cached_remoteAddress;
       }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
-       cached_remoteAddress = ret;
+      cached_remoteAddress = ret;
       return ret;
     }
 
-    @Override
-    public SocketAddress localAddress() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
+  public SocketAddress localAddress() {
       if (cached_localAddress != null) {
         return cached_localAddress;
       }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
-       cached_localAddress = ret;
+      cached_localAddress = ret;
       return ret;
     }
   }

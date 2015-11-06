@@ -192,7 +192,7 @@ public class Vertx implements Measured {
       return cached_fileSystem;
     }
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.fileSystem());
-     cached_fileSystem = ret;
+    cached_fileSystem = ret;
     return ret;
   }
 
@@ -203,7 +203,7 @@ public class Vertx implements Measured {
       return cached_eventBus;
     }
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.safeConvert(delegate.eventBus());
-     cached_eventBus = ret;
+    cached_eventBus = ret;
     return ret;
   }
 
@@ -225,7 +225,7 @@ public class Vertx implements Measured {
       return cached_sharedData;
     }
     SharedData ret = io.vertx.ceylon.core.shareddata.SharedData.TO_CEYLON.safeConvert(delegate.sharedData());
-     cached_sharedData = ret;
+    cached_sharedData = ret;
     return ret;
   }
 

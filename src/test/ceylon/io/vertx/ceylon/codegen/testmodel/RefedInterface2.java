@@ -32,11 +32,11 @@ public interface RefedInterface2 {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
-  ceylon.language.String getString();
+  public ceylon.language.String getString();
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface2")
-  RefedInterface2 setString(
+  public RefedInterface2 setString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
 
   @Ignore
@@ -52,14 +52,17 @@ public interface RefedInterface2 {
       return delegate;
     }
 
-    @Override
-    public ceylon.language.String getString() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String getString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString());
       return ret;
     }
 
-    @Override
-    public RefedInterface2 setString(final ceylon.language.String str) {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface2")
+  public RefedInterface2 setString(
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     RefedInterface2 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON.safeConvert(delegate.setString(arg_0));
       return this;

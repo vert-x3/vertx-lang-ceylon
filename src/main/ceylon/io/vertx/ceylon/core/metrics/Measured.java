@@ -32,7 +32,7 @@ public interface Measured {
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
-  boolean isMetricsEnabled();
+  public boolean isMetricsEnabled();
 
   @Ignore
   public class Impl implements Measured {
@@ -47,8 +47,9 @@ public interface Measured {
       return delegate;
     }
 
-    @Override
-    public boolean isMetricsEnabled() {
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
       return ret;
     }

@@ -1428,7 +1428,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     }
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(foo);
     RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(delegate.methodWithCachedReturn(arg_0));
-     cached_methodWithCachedReturn = ret;
+    cached_methodWithCachedReturn = ret;
     return ret;
   }
 
@@ -1441,7 +1441,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     }
     int arg_0 = (int)arg;
     long ret = delegate.methodWithCachedReturnPrimitive(arg_0);
-     cached_methodWithCachedReturnPrimitive = ret;
+    cached_methodWithCachedReturnPrimitive = ret;
     return ret;
   }
 
@@ -1452,7 +1452,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
       return cached_methodWithCachedListReturn;
     }
     ceylon.language.List<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithCachedListReturn(), io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON);
-     cached_methodWithCachedListReturn = ret;
+    cached_methodWithCachedListReturn = ret;
     return ret;
   }
 

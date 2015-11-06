@@ -451,7 +451,7 @@
 \n@{indent}})\n
 @end{}
 
-@declare{'genClassCtor'}
+@declare{'genClassMembers'}
 	@foreach{method:methods}
 		@if{method.cacheReturn}
 			@code{cachedType=genJavaInterropTypeDecl(method.returnType)}
@@ -484,25 +484,44 @@
 @{indent}public Object getDelegate() {\n
 @{indent}  return delegate;\n
 @{indent}}\n
+
+@foreach{method:methods}\n
+@includeNamed{'genMethodDecl'} {\n
+@includeNamed{'genMethodBody'}
+@{indent}}\n
+@end{}
+
 @end{}
 
 @declare{'genMethodBody'}
 	@if{method.cacheReturn}
-@{indent}if (cached_@{method.name} != null) {\n
-@{indent}  return cached_@{method.name};\n
-@{indent}}\n
+@{indent}  if (cached_@{method.name} != null) {\n
+@{indent}    return cached_@{method.name};\n
+@{indent}  }\n
 	@end{}
 	@{genMethodCall(method, '    ')}
 	@if{method.returnType.name != 'void'}
 		@if{method.fluent}
-@{indent}return this;\n
+@{indent}  return this;\n
 		@else{}
 			@if{method.cacheReturn}
-@{indent} cached_@{method.name} = ret;\n
+@{indent}  cached_@{method.name} = ret;\n
 			@end{}
-@{indent}return ret;\n
+@{indent}  return ret;\n
 		@end{}
 	@end{}
+@end{}
+
+@declare{'genMethodDecl'}
+@if{method.typeParams.size() > 0}
+@includeNamed{'genTypeParamsDesc';params=method.typeParams}
+@end{}
+  @DocAnnotation$annotation$(description = "todo")\n
+  @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
+  public @if{method.staticMethod}static @end{}
+@if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
+@{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
 
 @comment{"Generate the imports"}
@@ -574,55 +593,28 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
     }\n
   };\n
 
-
 \n
+
 @if{concrete}
-	@includeNamed{'genClassCtor';indent='  ';ctor=type.raw.simpleName}
+
+	@includeNamed{'genClassMembers';indent='  ';ctor=type.raw.simpleName}
+
 @else{}
-  @Ignore\n
-  Object getDelegate();\n
-@end{}
 
-@foreach{method:methods}
-\n
-@if{method.typeParams.size() > 0}
-@includeNamed{'genTypeParamsDesc';params=method.typeParams;indent='  '}
-@end{}
-  @DocAnnotation$annotation$(description = "todo")\n
-  @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
-  @if{concrete}public @end{}
-@if{method.staticMethod}static @end{}
-@if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
-@{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{param:method.params}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @DocAnnotation$annotation$(description = "todo") @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
-	@if{concrete} {\n
-		@includeNamed{'genMethodBody';indent='    '}
-  }\n
-	@else{}
-;\n
+	  @Ignore\n
+	  Object getDelegate();\n
+
+	@foreach{method:methods}
+		\n
+		@includeNamed{'genMethodDecl'};\n
 	@end{}
+
+	\n  @Ignore\n
+	  public class Impl@includeNamed{'genTypeParams';params=typeParams} implements @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams} {\n
+	@includeNamed{'genClassMembers';indent='    ';ctor='Impl'}
+	  }\n
+
 @end{}
-
-@if{!concrete}
-\n
-  @Ignore\n
-  public class Impl@includeNamed{'genTypeParams';params=typeParams} implements @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams} {\n
-
-@includeNamed{'genClassCtor';indent='    ';ctor='Impl'}
-
-@foreach{method:methods}
-\n
-    @Override\n
-    public @{genJavaInterropTypeDecl(method.returnType)} @{method.name}(
-@foreach{param:method.params}
-final @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '}) {\n
-@includeNamed{'genMethodBody';indent='      '}
-    }\n
-@end{}
-
-  }\n
-@end{}
-
 
 \n
 }\n
