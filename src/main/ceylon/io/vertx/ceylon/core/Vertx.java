@@ -25,7 +25,8 @@ import io.vertx.ceylon.core.file.FileSystem;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.http.HttpClient;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class Vertx implements ReifiedType,  Measured {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Vertx, Vertx> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Vertx, Vertx>() {

@@ -18,7 +18,8 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {

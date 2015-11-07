@@ -12,7 +12,8 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class MxRecord implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.MxRecord, MxRecord> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.MxRecord, MxRecord>() {

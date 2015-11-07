@@ -15,7 +15,8 @@ import java.util.List;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class DnsClient implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.DnsClient, DnsClient> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.DnsClient, DnsClient>() {

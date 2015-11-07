@@ -20,7 +20,8 @@ import io.vertx.core.json.JsonArray;
 import java.util.List;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterface1 implements ReifiedType,  SuperInterface2 {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface>() {

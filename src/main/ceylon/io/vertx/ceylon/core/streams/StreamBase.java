@@ -13,7 +13,8 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public interface StreamBase {
 
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.StreamBase, StreamBase> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.StreamBase, StreamBase>() {

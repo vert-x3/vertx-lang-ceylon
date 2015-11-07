@@ -74,7 +74,7 @@ package @{type.raw.translatePackageName('ceylon')};\n
 @if{typeParams.size() > 0}
 @includeNamed{'genTypeParamsDesc';params=typeParams;indent=''}
 @end{}
-@Ceylon(major = 8)
+@Ceylon(major = 8)\n
 @DocAnnotation$annotation$(description = "todo")\n
 public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams}
 @if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}

@@ -14,7 +14,8 @@ import ceylon.language.DocAnnotation$annotation$;
 import com.acme.ceylon.pkg.sub.SubInterface;
 import io.vertx.ceylon.codegen.testmodel.TestInterface;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class MyInterface implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.MyInterface, MyInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.MyInterface, MyInterface>() {

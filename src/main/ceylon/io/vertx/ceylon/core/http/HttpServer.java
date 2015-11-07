@@ -15,7 +15,8 @@ import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class HttpServer implements ReifiedType,  Measured {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServer, HttpServer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServer, HttpServer>() {

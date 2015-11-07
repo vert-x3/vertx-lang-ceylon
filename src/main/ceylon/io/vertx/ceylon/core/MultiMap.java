@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class MultiMap implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.MultiMap, MultiMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.MultiMap, MultiMap>() {

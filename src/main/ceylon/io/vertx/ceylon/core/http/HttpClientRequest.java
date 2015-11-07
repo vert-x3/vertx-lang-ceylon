@@ -17,7 +17,8 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  ReadStream<HttpClientResponse> {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClientRequest, HttpClientRequest> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClientRequest, HttpClientRequest>() {

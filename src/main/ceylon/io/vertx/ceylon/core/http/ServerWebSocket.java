@@ -16,7 +16,8 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class ServerWebSocket implements ReifiedType,  WebSocketBase {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocket, ServerWebSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocket, ServerWebSocket>() {

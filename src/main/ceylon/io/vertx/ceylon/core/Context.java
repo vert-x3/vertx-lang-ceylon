@@ -16,7 +16,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class Context implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context>() {

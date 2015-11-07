@@ -15,7 +15,8 @@ import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class HttpClient implements ReifiedType,  Measured {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClient, HttpClient> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClient, HttpClient>() {

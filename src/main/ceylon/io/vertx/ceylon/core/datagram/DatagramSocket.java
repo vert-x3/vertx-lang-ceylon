@@ -18,7 +18,8 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,  Measured {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramSocket, DatagramSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramSocket, DatagramSocket>() {

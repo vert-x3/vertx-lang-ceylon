@@ -15,7 +15,8 @@ import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.streams.WriteStream;
 import io.vertx.core.Handler;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {

@@ -18,7 +18,8 @@ import io.vertx.core.Handler;
   @TypeParameter(value="K",variance=Variance.NONE),
   @TypeParameter(value="V",variance=Variance.NONE)
 })
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class AsyncMap<K,V> implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {

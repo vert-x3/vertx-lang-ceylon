@@ -15,7 +15,8 @@ import ceylon.language.DocAnnotation$annotation$;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class GenericRefedInterface<T> implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.GenericRefedInterface, GenericRefedInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.GenericRefedInterface, GenericRefedInterface>() {

@@ -16,7 +16,8 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="K",variance=Variance.NONE),
   @TypeParameter(value="V",variance=Variance.NONE)
 })
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class LocalMap<K,V> implements ReifiedType {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.LocalMap, LocalMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.LocalMap, LocalMap>() {

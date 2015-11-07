@@ -18,7 +18,8 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 import io.vertx.ceylon.core.net.NetSocket;
 
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerRequest, HttpServerRequest> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerRequest, HttpServerRequest>() {

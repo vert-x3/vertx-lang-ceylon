@@ -17,7 +17,8 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
 public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageProducer, MessageProducer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageProducer, MessageProducer>() {
