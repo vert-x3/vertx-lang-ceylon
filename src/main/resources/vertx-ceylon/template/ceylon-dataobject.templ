@@ -128,7 +128,7 @@
 @includeNamed{'genImports'}
 
 /* Generated from @{type.name} */\n
-shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass}(
+shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@foreach{prop:props}
 \n  @if{prop.declared}shared @end{}@{genTypeDecl(prop.type)}? @{toCeylonIdentifier(prop.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
@@ -164,8 +164,8 @@ shared @if{isClass}class@else{}interface@end{} @{type.raw.simpleName}@if{isClass
 
 @if{isClass && jsonifiable}
 \n
-shared object toCeylon@{type.raw.simpleName} extends Converter<@{type.raw.simpleName}_, @{type.raw.simpleName}>() {\n
-  shared actual @{type.raw.simpleName} convert(@{type.raw.simpleName}_ src) {\n
+shared object toCeylon@{type.simpleName} extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
+  shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
     value json = parse(src.toJson().string);\n
     assert(is JsonObject json);\n
 	@foreach{prop:props}
@@ -194,7 +194,7 @@ shared object toCeylon@{type.raw.simpleName} extends Converter<@{type.raw.simple
     /* @{propType} not handled */\n
 		@end{}
 	@end{}
-    return @{type.raw.simpleName} {\n
+    return @{type.simpleName} {\n
 	@foreach{prop:props}
 		@code{propName=toCeylonIdentifier(prop.name)}
       @{propName} = @{propName};\n
@@ -206,11 +206,11 @@ shared object toCeylon@{type.raw.simpleName} extends Converter<@{type.raw.simple
 
 @if{isClass && concrete}
 \n
-shared object toJava@{type.raw.simpleName} extends Converter<@{type.raw.simpleName}, @{type.raw.simpleName}_>() {\n
-  shared actual @{type.raw.simpleName}_ convert(@{type.raw.simpleName} src) {\n
+shared object toJava@{type.simpleName} extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
+  shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
     // Todo : make optimized version without json\n
     value json = JsonObject_(src.toJson().string);\n
-    value ret = @{type.raw.simpleName}_(json);\n
+    value ret = @{type.simpleName}_(json);\n
     return ret;\n
   }\n
 }\n

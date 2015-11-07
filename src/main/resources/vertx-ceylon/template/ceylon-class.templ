@@ -23,25 +23,25 @@
 		@end{}
 	@end{}
 
-	@if{type.raw.params.size() > 0}
+	@if{type.params.size() > 0}
 @{indent}@Ignore private final TypeDescriptor $TypeDescriptor$;\n
 	@else{}
-@{indent}@Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
+@{indent}@Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.simpleName}.class);\n
 	@end{}
-	@foreach{typeParam:type.raw.params}
+	@foreach{typeParam:type.params}
 @{indent}@Ignore private final TypeDescriptor @{'$reified$' + typeParam.name};\n
 	@end{}
 
-	@{indent}@Ignore private final @{type.raw.name} delegate;\n
+	@{indent}@Ignore private final @{type.name} delegate;\n
 \n
-@{indent}public @{ctor}(@foreach{typeParam:type.raw.params}@Ignore TypeDescriptor @{'$reified$' + typeParam.name}, @end{}@{type.raw.name} delegate) {\n
+@{indent}public @{ctor}(@foreach{typeParam:type.params}@Ignore TypeDescriptor @{'$reified$' + typeParam.name}, @end{}@{type.name} delegate) {\n
 @if{concreteSuperType != null}
 @{indent}  super(delegate);\n
 @end{}
-@if{type.raw.params.size() > 0}
-@{indent}  this.$TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class@foreach{typeParam:type.raw.params}, @{'$reified$' + typeParam.name}@end{});\n
+@if{type.params.size() > 0}
+@{indent}  this.$TypeDescriptor$ = TypeDescriptor.klass(@{type.simpleName}.class@foreach{typeParam:type.params}, @{'$reified$' + typeParam.name}@end{});\n
 @end{}
-@foreach{typeParam:type.raw.params}
+@foreach{typeParam:type.params}
 @{indent}  this.@{'$reified$' + typeParam.name} = @{'$reified$' + typeParam.name};\n
 @end{}
 @{indent}  this.delegate = delegate;\n
@@ -65,7 +65,7 @@
 @end{}
 
 @comment{"Generate the imports"}
-package @{type.raw.translatePackageName('ceylon')};\n
+package @{type.translatePackageName('ceylon')};\n
 
 \n
 @includeNamed{'genImports'}
@@ -76,7 +76,7 @@ package @{type.raw.translatePackageName('ceylon')};\n
 @end{}
 @Ceylon(major = 8)\n
 @DocAnnotation$annotation$(description = "todo")\n
-public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams}
+public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams}
 @if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}
 @if{concrete} implements ReifiedType@end{}
 @if{abstractSuperTypes.size() > 0}
@@ -87,23 +87,23 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 @end{} {\n
 
 \n
-  @if{concrete}public static final @end{}io.vertx.lang.ceylon.ConverterFactory<@{type.raw.name}, @{type.raw.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<@{type.raw.name}, @{type.raw.simpleName}>() {\n
-    public io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}> converter(final TypeDescriptor... descriptors) {\n
-      return new io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}>() {\n
-        public @{type.raw.simpleName} convert(@{type.raw.name} src) {\n
-          return new @{type.raw.simpleName}@if{!concrete}.Impl@end{}@code{index=0}(@foreach{typeParam : type.raw.params}descriptors[@{(index++)}], @end{}src);\n
+  @if{concrete}public static final @end{}io.vertx.lang.ceylon.ConverterFactory<@{type.name}, @{type.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<@{type.name}, @{type.simpleName}>() {\n
+    public io.vertx.lang.ceylon.Converter<@{type.name}, @{type.simpleName}> converter(final TypeDescriptor... descriptors) {\n
+      return new io.vertx.lang.ceylon.Converter<@{type.name}, @{type.simpleName}>() {\n
+        public @{type.simpleName} convert(@{type.name} src) {\n
+          return new @{type.simpleName}@if{!concrete}.Impl@end{}@code{index=0}(@foreach{typeParam : type.params}descriptors[@{(index++)}], @end{}src);\n
         }\n
       };\n
     }\n
   };\n
 
 \n
-  @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.raw.simpleName}, @{type.raw.name}> TO_JAVA = new io.vertx.lang.ceylon.Converter<@{type.raw.simpleName}, @{type.raw.name}>() {\n
-    public @{type.raw.name} convert(@{type.raw.simpleName} src) {\n
+  @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.simpleName}, @{type.name}> TO_JAVA = new io.vertx.lang.ceylon.Converter<@{type.simpleName}, @{type.name}>() {\n
+    public @{type.name} convert(@{type.simpleName} src) {\n
 @if{concrete}
       return src.delegate;\n
 @else{}
-      return (@{type.raw.name})src.getDelegate();\n
+      return (@{type.name})src.getDelegate();\n
 @end{}
     }\n
   };\n
@@ -112,12 +112,12 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 
 @if{concrete}
 
-	@includeNamed{'genClassMembers';indent='  ';ctor=type.raw.simpleName}
+	@includeNamed{'genClassMembers';indent='  ';ctor=type.simpleName}
 
 @else{}
 
 	  @Ignore\n
-	  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
+	  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.simpleName}.class);\n
 
 	  @Ignore\n
 	  Object getDelegate();\n
@@ -128,7 +128,7 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 	@end{}
 
 	\n  @Ignore\n
-	  public class Impl@includeNamed{'genTypeParams';params=typeParams} implements @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams} {\n
+	  public class Impl@includeNamed{'genTypeParams';params=typeParams} implements @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams} {\n
 	@includeNamed{'genClassMembers';indent='    ';ctor='Impl'}
 	  }\n
 

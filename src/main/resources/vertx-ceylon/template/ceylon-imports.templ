@@ -12,7 +12,7 @@
     packageImport.put(className, classAlias);
   }
 
-  addClassImport(type.raw.packageName, type.raw.simpleName, type.raw.simpleName + "_");
+  addClassImport(type.packageName, type.simpleName, type.simpleName + "_");
   /*
   addClassImport("io.vertx.core", "Handler", "Handler_");
   addClassImport("io.vertx.core", "AsyncResult", "AsyncResult_");
@@ -20,7 +20,7 @@
 
   def importType(importedType) {
     var importedKind = importedType.kind;
-    if (importedType != type.raw) {
+    if (importedType != type) {
       if (importedKind == CLASS_API || importedKind == CLASS_DATA_OBJECT) {
         var translated = importedType.module.translateQualifiedName(importedType.packageName, 'ceylon');
         addClassImport(translated, importedType.simpleName, importedType.simpleName);
