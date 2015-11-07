@@ -21,6 +21,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageProducer, MessageProducer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageProducer, MessageProducer>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageProducer, MessageProducer> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageProducer, MessageProducer>() {
@@ -31,6 +32,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<MessageProducer, io.vertx.core.eventbus.MessageProducer> TO_JAVA = new io.vertx.lang.ceylon.Converter<MessageProducer, io.vertx.core.eventbus.MessageProducer>() {
     public io.vertx.core.eventbus.MessageProducer convert(MessageProducer src) {
       return src.delegate;
@@ -47,6 +49,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

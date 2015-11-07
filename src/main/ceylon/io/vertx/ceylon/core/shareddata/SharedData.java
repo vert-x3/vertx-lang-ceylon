@@ -18,6 +18,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class SharedData implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.SharedData, SharedData> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.SharedData, SharedData>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.SharedData, SharedData> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.SharedData, SharedData>() {
@@ -28,6 +29,7 @@ public class SharedData implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<SharedData, io.vertx.core.shareddata.SharedData> TO_JAVA = new io.vertx.lang.ceylon.Converter<SharedData, io.vertx.core.shareddata.SharedData>() {
     public io.vertx.core.shareddata.SharedData convert(SharedData src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class SharedData implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

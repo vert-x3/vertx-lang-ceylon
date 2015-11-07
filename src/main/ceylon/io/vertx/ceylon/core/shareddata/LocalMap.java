@@ -20,6 +20,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class LocalMap<K,V> implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.LocalMap, LocalMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.LocalMap, LocalMap>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.LocalMap, LocalMap> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.LocalMap, LocalMap>() {
@@ -30,6 +31,7 @@ public class LocalMap<K,V> implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<LocalMap, io.vertx.core.shareddata.LocalMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<LocalMap, io.vertx.core.shareddata.LocalMap>() {
     public io.vertx.core.shareddata.LocalMap convert(LocalMap src) {
       return src.delegate;
@@ -48,6 +50,7 @@ public class LocalMap<K,V> implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class Pump implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.Pump, Pump> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.Pump, Pump>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.streams.Pump, Pump> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.Pump, Pump>() {
@@ -26,6 +27,7 @@ public class Pump implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Pump, io.vertx.core.streams.Pump> TO_JAVA = new io.vertx.lang.ceylon.Converter<Pump, io.vertx.core.streams.Pump>() {
     public io.vertx.core.streams.Pump convert(Pump src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class Pump implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

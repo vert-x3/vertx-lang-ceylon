@@ -21,6 +21,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class Future<T> implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Future, Future> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Future, Future>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future>() {
@@ -31,6 +32,7 @@ public class Future<T> implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Future, io.vertx.core.Future> TO_JAVA = new io.vertx.lang.ceylon.Converter<Future, io.vertx.core.Future>() {
     public io.vertx.core.Future convert(Future src) {
       return src.delegate;
@@ -47,6 +49,7 @@ public class Future<T> implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

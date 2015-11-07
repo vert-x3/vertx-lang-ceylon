@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class SubInterface implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.sub.SubInterface, SubInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.sub.SubInterface, SubInterface>() {
     public io.vertx.lang.ceylon.Converter<com.acme.pkg.sub.SubInterface, SubInterface> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<com.acme.pkg.sub.SubInterface, SubInterface>() {
@@ -26,6 +27,7 @@ public class SubInterface implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<SubInterface, com.acme.pkg.sub.SubInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<SubInterface, com.acme.pkg.sub.SubInterface>() {
     public com.acme.pkg.sub.SubInterface convert(SubInterface src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class SubInterface implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

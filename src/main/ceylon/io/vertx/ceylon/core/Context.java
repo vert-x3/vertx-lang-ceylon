@@ -20,6 +20,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class Context implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context>() {
@@ -30,6 +31,7 @@ public class Context implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Context, io.vertx.core.Context> TO_JAVA = new io.vertx.lang.ceylon.Converter<Context, io.vertx.core.Context>() {
     public io.vertx.core.Context convert(Context src) {
       return src.delegate;
@@ -43,6 +45,7 @@ public class Context implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

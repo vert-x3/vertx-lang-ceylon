@@ -17,6 +17,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public interface AbstractHandlerUserType {
 
+  @Ignore
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.AbstractHandlerUserType, AbstractHandlerUserType> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.AbstractHandlerUserType, AbstractHandlerUserType>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.AbstractHandlerUserType, AbstractHandlerUserType> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.AbstractHandlerUserType, AbstractHandlerUserType>() {
@@ -27,6 +28,7 @@ public interface AbstractHandlerUserType {
     }
   };
 
+  @Ignore
   io.vertx.lang.ceylon.Converter<AbstractHandlerUserType, io.vertx.codegen.testmodel.AbstractHandlerUserType> TO_JAVA = new io.vertx.lang.ceylon.Converter<AbstractHandlerUserType, io.vertx.codegen.testmodel.AbstractHandlerUserType>() {
     public io.vertx.codegen.testmodel.AbstractHandlerUserType convert(AbstractHandlerUserType src) {
       return (io.vertx.codegen.testmodel.AbstractHandlerUserType)src.getDelegate();
@@ -52,6 +54,7 @@ public interface AbstractHandlerUserType {
       this.delegate = delegate;
     }
 
+    @Ignore 
     public TypeDescriptor $getType$() {
       return $TypeDescriptor$;
     }

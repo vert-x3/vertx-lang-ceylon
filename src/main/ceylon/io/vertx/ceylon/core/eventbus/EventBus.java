@@ -19,6 +19,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class EventBus implements ReifiedType,  Measured {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.EventBus, EventBus> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.EventBus, EventBus>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.EventBus, EventBus> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.EventBus, EventBus>() {
@@ -29,6 +30,7 @@ public class EventBus implements ReifiedType,  Measured {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<EventBus, io.vertx.core.eventbus.EventBus> TO_JAVA = new io.vertx.lang.ceylon.Converter<EventBus, io.vertx.core.eventbus.EventBus>() {
     public io.vertx.core.eventbus.EventBus convert(EventBus src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class EventBus implements ReifiedType,  Measured {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

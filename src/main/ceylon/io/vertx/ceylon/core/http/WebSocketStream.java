@@ -18,6 +18,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketStream, WebSocketStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketStream, WebSocketStream>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketStream, WebSocketStream> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketStream, WebSocketStream>() {
@@ -28,6 +29,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<WebSocketStream, io.vertx.core.http.WebSocketStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocketStream, io.vertx.core.http.WebSocketStream>() {
     public io.vertx.core.http.WebSocketStream convert(WebSocketStream src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

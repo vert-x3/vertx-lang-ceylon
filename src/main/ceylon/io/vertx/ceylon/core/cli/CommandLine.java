@@ -17,6 +17,7 @@ import java.util.List;
 @DocAnnotation$annotation$(description = "todo")
 public class CommandLine implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.cli.CommandLine, CommandLine> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.cli.CommandLine, CommandLine>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine>() {
@@ -27,6 +28,7 @@ public class CommandLine implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<CommandLine, io.vertx.core.cli.CommandLine> TO_JAVA = new io.vertx.lang.ceylon.Converter<CommandLine, io.vertx.core.cli.CommandLine>() {
     public io.vertx.core.cli.CommandLine convert(CommandLine src) {
       return src.delegate;
@@ -40,6 +42,7 @@ public class CommandLine implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

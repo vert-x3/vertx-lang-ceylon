@@ -17,6 +17,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class ConcreteHandlerUserType implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserType, ConcreteHandlerUserType> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserType, ConcreteHandlerUserType>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserType, ConcreteHandlerUserType> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserType, ConcreteHandlerUserType>() {
@@ -27,6 +28,7 @@ public class ConcreteHandlerUserType implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<ConcreteHandlerUserType, io.vertx.codegen.testmodel.ConcreteHandlerUserType> TO_JAVA = new io.vertx.lang.ceylon.Converter<ConcreteHandlerUserType, io.vertx.codegen.testmodel.ConcreteHandlerUserType>() {
     public io.vertx.codegen.testmodel.ConcreteHandlerUserType convert(ConcreteHandlerUserType src) {
       return src.delegate;
@@ -40,6 +42,7 @@ public class ConcreteHandlerUserType implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

@@ -24,6 +24,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterface1 implements ReifiedType,  SuperInterface2 {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.TestInterface, TestInterface> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.TestInterface, TestInterface>() {
@@ -34,6 +35,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<TestInterface, io.vertx.codegen.testmodel.TestInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<TestInterface, io.vertx.codegen.testmodel.TestInterface>() {
     public io.vertx.codegen.testmodel.TestInterface convert(TestInterface src) {
       return src.delegate;
@@ -51,6 +53,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

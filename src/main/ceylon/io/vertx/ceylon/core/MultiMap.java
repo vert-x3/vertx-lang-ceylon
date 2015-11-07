@@ -19,6 +19,7 @@ import java.util.Set;
 @DocAnnotation$annotation$(description = "todo")
 public class MultiMap implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.MultiMap, MultiMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.MultiMap, MultiMap>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.MultiMap, MultiMap> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.MultiMap, MultiMap>() {
@@ -29,6 +30,7 @@ public class MultiMap implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<MultiMap, io.vertx.core.MultiMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<MultiMap, io.vertx.core.MultiMap>() {
     public io.vertx.core.MultiMap convert(MultiMap src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class MultiMap implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

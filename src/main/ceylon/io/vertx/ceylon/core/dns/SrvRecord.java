@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class SrvRecord implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.SrvRecord, SrvRecord> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.SrvRecord, SrvRecord>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.dns.SrvRecord, SrvRecord> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.dns.SrvRecord, SrvRecord>() {
@@ -26,6 +27,7 @@ public class SrvRecord implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<SrvRecord, io.vertx.core.dns.SrvRecord> TO_JAVA = new io.vertx.lang.ceylon.Converter<SrvRecord, io.vertx.core.dns.SrvRecord>() {
     public io.vertx.core.dns.SrvRecord convert(SrvRecord src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class SrvRecord implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

@@ -19,6 +19,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {
@@ -29,6 +30,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<PacketWritestream, io.vertx.core.datagram.PacketWritestream> TO_JAVA = new io.vertx.lang.ceylon.Converter<PacketWritestream, io.vertx.core.datagram.PacketWritestream>() {
     public io.vertx.core.datagram.PacketWritestream convert(PacketWritestream src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class SocketAddress implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.SocketAddress, SocketAddress> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.SocketAddress, SocketAddress>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.net.SocketAddress, SocketAddress> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.SocketAddress, SocketAddress>() {
@@ -26,6 +27,7 @@ public class SocketAddress implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<SocketAddress, io.vertx.core.net.SocketAddress> TO_JAVA = new io.vertx.lang.ceylon.Converter<SocketAddress, io.vertx.core.net.SocketAddress>() {
     public io.vertx.core.net.SocketAddress convert(SocketAddress src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class SocketAddress implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

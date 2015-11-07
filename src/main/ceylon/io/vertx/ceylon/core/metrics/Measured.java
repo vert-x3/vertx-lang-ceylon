@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public interface Measured {
 
+  @Ignore
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.metrics.Measured, Measured> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.metrics.Measured, Measured>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.metrics.Measured, Measured> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.metrics.Measured, Measured>() {
@@ -26,6 +27,7 @@ public interface Measured {
     }
   };
 
+  @Ignore
   io.vertx.lang.ceylon.Converter<Measured, io.vertx.core.metrics.Measured> TO_JAVA = new io.vertx.lang.ceylon.Converter<Measured, io.vertx.core.metrics.Measured>() {
     public io.vertx.core.metrics.Measured convert(Measured src) {
       return (io.vertx.core.metrics.Measured)src.getDelegate();
@@ -50,6 +52,7 @@ public interface Measured {
       this.delegate = delegate;
     }
 
+    @Ignore 
     public TypeDescriptor $getType$() {
       return $TypeDescriptor$;
     }

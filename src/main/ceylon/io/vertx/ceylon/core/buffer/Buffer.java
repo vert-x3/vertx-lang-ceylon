@@ -17,6 +17,7 @@ import io.vertx.core.shareddata.impl.ClusterSerializable;
 @DocAnnotation$annotation$(description = "todo")
 public class Buffer implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.buffer.Buffer, Buffer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.buffer.Buffer, Buffer>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.buffer.Buffer, Buffer> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.buffer.Buffer, Buffer>() {
@@ -27,6 +28,7 @@ public class Buffer implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Buffer, io.vertx.core.buffer.Buffer> TO_JAVA = new io.vertx.lang.ceylon.Converter<Buffer, io.vertx.core.buffer.Buffer>() {
     public io.vertx.core.buffer.Buffer convert(Buffer src) {
       return src.delegate;
@@ -40,6 +42,7 @@ public class Buffer implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

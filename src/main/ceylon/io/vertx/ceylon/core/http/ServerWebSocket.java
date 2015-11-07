@@ -20,6 +20,7 @@ import io.vertx.ceylon.core.net.SocketAddress;
 @DocAnnotation$annotation$(description = "todo")
 public class ServerWebSocket implements ReifiedType,  WebSocketBase {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocket, ServerWebSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocket, ServerWebSocket>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocket, ServerWebSocket> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocket, ServerWebSocket>() {
@@ -30,6 +31,7 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<ServerWebSocket, io.vertx.core.http.ServerWebSocket> TO_JAVA = new io.vertx.lang.ceylon.Converter<ServerWebSocket, io.vertx.core.http.ServerWebSocket>() {
     public io.vertx.core.http.ServerWebSocket convert(ServerWebSocket src) {
       return src.delegate;
@@ -46,6 +48,7 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

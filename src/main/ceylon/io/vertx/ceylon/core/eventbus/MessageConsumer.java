@@ -22,6 +22,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {
@@ -32,6 +33,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<MessageConsumer, io.vertx.core.eventbus.MessageConsumer> TO_JAVA = new io.vertx.lang.ceylon.Converter<MessageConsumer, io.vertx.core.eventbus.MessageConsumer>() {
     public io.vertx.core.eventbus.MessageConsumer convert(MessageConsumer src) {
       return src.delegate;
@@ -48,6 +50,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

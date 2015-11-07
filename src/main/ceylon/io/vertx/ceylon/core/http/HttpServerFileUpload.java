@@ -19,6 +19,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload>() {
@@ -29,6 +30,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<HttpServerFileUpload, io.vertx.core.http.HttpServerFileUpload> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerFileUpload, io.vertx.core.http.HttpServerFileUpload>() {
     public io.vertx.core.http.HttpServerFileUpload convert(HttpServerFileUpload src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

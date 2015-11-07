@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class Lock implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Lock, Lock> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Lock, Lock>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock>() {
@@ -26,6 +27,7 @@ public class Lock implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Lock, io.vertx.core.shareddata.Lock> TO_JAVA = new io.vertx.lang.ceylon.Converter<Lock, io.vertx.core.shareddata.Lock>() {
     public io.vertx.core.shareddata.Lock convert(Lock src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class Lock implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

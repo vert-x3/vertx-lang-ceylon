@@ -22,6 +22,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class Message<T> implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.Message, Message> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.Message, Message>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message>() {
@@ -32,6 +33,7 @@ public class Message<T> implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Message, io.vertx.core.eventbus.Message> TO_JAVA = new io.vertx.lang.ceylon.Converter<Message, io.vertx.core.eventbus.Message>() {
     public io.vertx.core.eventbus.Message convert(Message src) {
       return src.delegate;
@@ -49,6 +51,7 @@ public class Message<T> implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

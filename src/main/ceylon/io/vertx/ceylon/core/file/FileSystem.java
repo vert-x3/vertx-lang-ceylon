@@ -20,6 +20,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class FileSystem implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileSystem, FileSystem> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileSystem, FileSystem>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem>() {
@@ -30,6 +31,7 @@ public class FileSystem implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<FileSystem, io.vertx.core.file.FileSystem> TO_JAVA = new io.vertx.lang.ceylon.Converter<FileSystem, io.vertx.core.file.FileSystem>() {
     public io.vertx.core.file.FileSystem convert(FileSystem src) {
       return src.delegate;
@@ -43,6 +45,7 @@ public class FileSystem implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

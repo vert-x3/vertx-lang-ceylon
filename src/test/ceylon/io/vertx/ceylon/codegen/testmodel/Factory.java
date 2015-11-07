@@ -17,6 +17,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class Factory implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.Factory, Factory> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.Factory, Factory>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.Factory, Factory> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.Factory, Factory>() {
@@ -27,6 +28,7 @@ public class Factory implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Factory, io.vertx.codegen.testmodel.Factory> TO_JAVA = new io.vertx.lang.ceylon.Converter<Factory, io.vertx.codegen.testmodel.Factory>() {
     public io.vertx.codegen.testmodel.Factory convert(Factory src) {
       return src.delegate;
@@ -40,6 +42,7 @@ public class Factory implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

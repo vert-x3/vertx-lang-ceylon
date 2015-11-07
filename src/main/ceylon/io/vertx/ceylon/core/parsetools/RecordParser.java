@@ -18,6 +18,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class RecordParser implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.parsetools.RecordParser, RecordParser> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.parsetools.RecordParser, RecordParser>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.parsetools.RecordParser, RecordParser> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.parsetools.RecordParser, RecordParser>() {
@@ -28,6 +29,7 @@ public class RecordParser implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<RecordParser, io.vertx.core.parsetools.RecordParser> TO_JAVA = new io.vertx.lang.ceylon.Converter<RecordParser, io.vertx.core.parsetools.RecordParser>() {
     public io.vertx.core.parsetools.RecordParser convert(RecordParser src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class RecordParser implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

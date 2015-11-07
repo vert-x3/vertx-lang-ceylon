@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class FileProps implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileProps, FileProps> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileProps, FileProps>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileProps, FileProps> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileProps, FileProps>() {
@@ -26,6 +27,7 @@ public class FileProps implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<FileProps, io.vertx.core.file.FileProps> TO_JAVA = new io.vertx.lang.ceylon.Converter<FileProps, io.vertx.core.file.FileProps>() {
     public io.vertx.core.file.FileProps convert(FileProps src) {
       return src.delegate;
@@ -39,6 +41,7 @@ public class FileProps implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

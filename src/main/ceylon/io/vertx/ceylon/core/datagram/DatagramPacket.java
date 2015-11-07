@@ -18,6 +18,7 @@ import io.vertx.ceylon.core.net.SocketAddress;
 @DocAnnotation$annotation$(description = "todo")
 public class DatagramPacket implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramPacket, DatagramPacket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramPacket, DatagramPacket>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramPacket, DatagramPacket> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramPacket, DatagramPacket>() {
@@ -28,6 +29,7 @@ public class DatagramPacket implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<DatagramPacket, io.vertx.core.datagram.DatagramPacket> TO_JAVA = new io.vertx.lang.ceylon.Converter<DatagramPacket, io.vertx.core.datagram.DatagramPacket>() {
     public io.vertx.core.datagram.DatagramPacket convert(DatagramPacket src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class DatagramPacket implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

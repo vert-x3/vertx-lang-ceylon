@@ -21,6 +21,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetSocket, NetSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetSocket, NetSocket>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket>() {
@@ -31,6 +32,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<NetSocket, io.vertx.core.net.NetSocket> TO_JAVA = new io.vertx.lang.ceylon.Converter<NetSocket, io.vertx.core.net.NetSocket>() {
     public io.vertx.core.net.NetSocket convert(NetSocket src) {
       return src.delegate;
@@ -46,6 +48,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

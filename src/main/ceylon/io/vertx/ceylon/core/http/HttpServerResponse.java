@@ -21,6 +21,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerResponse, HttpServerResponse> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
@@ -31,6 +32,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<HttpServerResponse, io.vertx.core.http.HttpServerResponse> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpServerResponse, io.vertx.core.http.HttpServerResponse>() {
     public io.vertx.core.http.HttpServerResponse convert(HttpServerResponse src) {
       return src.delegate;
@@ -46,6 +48,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

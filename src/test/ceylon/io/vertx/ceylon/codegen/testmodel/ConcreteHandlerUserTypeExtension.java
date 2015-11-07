@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
@@ -26,6 +27,7 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.te
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<ConcreteHandlerUserTypeExtension, io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension> TO_JAVA = new io.vertx.lang.ceylon.Converter<ConcreteHandlerUserTypeExtension, io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension>() {
     public io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension convert(ConcreteHandlerUserTypeExtension src) {
       return src.delegate;
@@ -40,6 +42,7 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.te
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

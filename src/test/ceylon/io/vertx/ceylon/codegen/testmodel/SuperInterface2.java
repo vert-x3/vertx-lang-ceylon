@@ -16,6 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
 @DocAnnotation$annotation$(description = "todo")
 public interface SuperInterface2 {
 
+  @Ignore
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
@@ -26,6 +27,7 @@ public interface SuperInterface2 {
     }
   };
 
+  @Ignore
   io.vertx.lang.ceylon.Converter<SuperInterface2, io.vertx.codegen.testmodel.SuperInterface2> TO_JAVA = new io.vertx.lang.ceylon.Converter<SuperInterface2, io.vertx.codegen.testmodel.SuperInterface2>() {
     public io.vertx.codegen.testmodel.SuperInterface2 convert(SuperInterface2 src) {
       return (io.vertx.codegen.testmodel.SuperInterface2)src.getDelegate();
@@ -59,6 +61,7 @@ public interface SuperInterface2 {
       this.delegate = delegate;
     }
 
+    @Ignore 
     public TypeDescriptor $getType$() {
       return $TypeDescriptor$;
     }

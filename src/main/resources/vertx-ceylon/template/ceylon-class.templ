@@ -47,6 +47,7 @@
 @{indent}  this.delegate = delegate;\n
 @{indent}}\n
 \n
+@{indent}@Ignore \n
 @{indent}public TypeDescriptor $getType$() {\n
 @{indent}  return $TypeDescriptor$;\n
 @{indent}}\n
@@ -87,6 +88,7 @@ public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{
 @end{} {\n
 
 \n
+  @Ignore\n
   @if{concrete}public static final @end{}io.vertx.lang.ceylon.ConverterFactory<@{type.name}, @{type.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<@{type.name}, @{type.simpleName}>() {\n
     public io.vertx.lang.ceylon.Converter<@{type.name}, @{type.simpleName}> converter(final TypeDescriptor... descriptors) {\n
       return new io.vertx.lang.ceylon.Converter<@{type.name}, @{type.simpleName}>() {\n
@@ -98,6 +100,7 @@ public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{
   };\n
 
 \n
+  @Ignore\n
   @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.simpleName}, @{type.name}> TO_JAVA = new io.vertx.lang.ceylon.Converter<@{type.simpleName}, @{type.name}>() {\n
     public @{type.name} convert(@{type.simpleName} src) {\n
 @if{concrete}

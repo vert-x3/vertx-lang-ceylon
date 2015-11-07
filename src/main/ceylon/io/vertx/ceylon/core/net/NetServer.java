@@ -19,6 +19,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class NetServer implements ReifiedType,  Measured {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetServer, NetServer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetServer, NetServer>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer>() {
@@ -29,6 +30,7 @@ public class NetServer implements ReifiedType,  Measured {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<NetServer, io.vertx.core.net.NetServer> TO_JAVA = new io.vertx.lang.ceylon.Converter<NetServer, io.vertx.core.net.NetServer>() {
     public io.vertx.core.net.NetServer convert(NetServer src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class NetServer implements ReifiedType,  Measured {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

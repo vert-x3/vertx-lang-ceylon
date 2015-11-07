@@ -21,6 +21,7 @@ import io.vertx.ceylon.core.net.SocketAddress;
 @DocAnnotation$annotation$(description = "todo")
 public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> {
 
+  @Ignore
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketBase, WebSocketBase> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketBase, WebSocketBase>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketBase, WebSocketBase> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketBase, WebSocketBase>() {
@@ -31,6 +32,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
     }
   };
 
+  @Ignore
   io.vertx.lang.ceylon.Converter<WebSocketBase, io.vertx.core.http.WebSocketBase> TO_JAVA = new io.vertx.lang.ceylon.Converter<WebSocketBase, io.vertx.core.http.WebSocketBase>() {
     public io.vertx.core.http.WebSocketBase convert(WebSocketBase src) {
       return (io.vertx.core.http.WebSocketBase)src.getDelegate();
@@ -145,6 +147,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       this.delegate = delegate;
     }
 
+    @Ignore 
     public TypeDescriptor $getType$() {
       return $TypeDescriptor$;
     }

@@ -22,6 +22,7 @@ import io.vertx.ceylon.core.net.NetSocket;
 @DocAnnotation$annotation$(description = "todo")
 public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClientResponse, HttpClientResponse> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpClientResponse, HttpClientResponse>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpClientResponse, HttpClientResponse> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpClientResponse, HttpClientResponse>() {
@@ -32,6 +33,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<HttpClientResponse, io.vertx.core.http.HttpClientResponse> TO_JAVA = new io.vertx.lang.ceylon.Converter<HttpClientResponse, io.vertx.core.http.HttpClientResponse>() {
     public io.vertx.core.http.HttpClientResponse convert(HttpClientResponse src) {
       return src.delegate;
@@ -49,6 +51,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

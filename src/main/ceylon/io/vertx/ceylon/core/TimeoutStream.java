@@ -18,6 +18,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.Integer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.TimeoutStream, TimeoutStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.TimeoutStream, TimeoutStream>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream>() {
@@ -28,6 +29,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<TimeoutStream, io.vertx.core.TimeoutStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<TimeoutStream, io.vertx.core.TimeoutStream>() {
     public io.vertx.core.TimeoutStream convert(TimeoutStream src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

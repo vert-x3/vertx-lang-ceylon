@@ -21,6 +21,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.AsyncFile, AsyncFile> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.AsyncFile, AsyncFile>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.file.AsyncFile, AsyncFile> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.file.AsyncFile, AsyncFile>() {
@@ -31,6 +32,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<AsyncFile, io.vertx.core.file.AsyncFile> TO_JAVA = new io.vertx.lang.ceylon.Converter<AsyncFile, io.vertx.core.file.AsyncFile>() {
     public io.vertx.core.file.AsyncFile convert(AsyncFile src) {
       return src.delegate;
@@ -44,6 +46,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

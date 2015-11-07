@@ -20,6 +20,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public interface ReadStream<T> extends StreamBase {
 
+  @Ignore
   io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.ReadStream, ReadStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.ReadStream, ReadStream>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream>() {
@@ -30,6 +31,7 @@ public interface ReadStream<T> extends StreamBase {
     }
   };
 
+  @Ignore
   io.vertx.lang.ceylon.Converter<ReadStream, io.vertx.core.streams.ReadStream> TO_JAVA = new io.vertx.lang.ceylon.Converter<ReadStream, io.vertx.core.streams.ReadStream>() {
     public io.vertx.core.streams.ReadStream convert(ReadStream src) {
       return (io.vertx.core.streams.ReadStream)src.getDelegate();
@@ -76,6 +78,7 @@ public interface ReadStream<T> extends StreamBase {
       this.delegate = delegate;
     }
 
+    @Ignore 
     public TypeDescriptor $getType$() {
       return $TypeDescriptor$;
     }

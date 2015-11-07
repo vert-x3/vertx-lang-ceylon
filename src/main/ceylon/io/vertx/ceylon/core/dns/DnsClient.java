@@ -19,6 +19,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class DnsClient implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.DnsClient, DnsClient> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.dns.DnsClient, DnsClient>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.dns.DnsClient, DnsClient> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.dns.DnsClient, DnsClient>() {
@@ -29,6 +30,7 @@ public class DnsClient implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<DnsClient, io.vertx.core.dns.DnsClient> TO_JAVA = new io.vertx.lang.ceylon.Converter<DnsClient, io.vertx.core.dns.DnsClient>() {
     public io.vertx.core.dns.DnsClient convert(DnsClient src) {
       return src.delegate;
@@ -42,6 +44,7 @@ public class DnsClient implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

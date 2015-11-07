@@ -18,6 +18,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class Counter implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Counter, Counter> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Counter, Counter>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter>() {
@@ -28,6 +29,7 @@ public class Counter implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<Counter, io.vertx.core.shareddata.Counter> TO_JAVA = new io.vertx.lang.ceylon.Converter<Counter, io.vertx.core.shareddata.Counter>() {
     public io.vertx.core.shareddata.Counter convert(Counter src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class Counter implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

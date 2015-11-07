@@ -24,6 +24,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class NullableTCK implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.NullableTCK, NullableTCK> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.NullableTCK, NullableTCK>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.NullableTCK, NullableTCK> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.NullableTCK, NullableTCK>() {
@@ -34,6 +35,7 @@ public class NullableTCK implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<NullableTCK, io.vertx.codegen.testmodel.NullableTCK> TO_JAVA = new io.vertx.lang.ceylon.Converter<NullableTCK, io.vertx.codegen.testmodel.NullableTCK>() {
     public io.vertx.codegen.testmodel.NullableTCK convert(NullableTCK src) {
       return src.delegate;
@@ -47,6 +49,7 @@ public class NullableTCK implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

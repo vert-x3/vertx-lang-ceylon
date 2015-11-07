@@ -22,6 +22,7 @@ import io.vertx.core.Handler;
 @DocAnnotation$annotation$(description = "todo")
 public class AsyncMap<K,V> implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {
     public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {
@@ -32,6 +33,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<AsyncMap, io.vertx.core.shareddata.AsyncMap> TO_JAVA = new io.vertx.lang.ceylon.Converter<AsyncMap, io.vertx.core.shareddata.AsyncMap>() {
     public io.vertx.core.shareddata.AsyncMap convert(AsyncMap src) {
       return src.delegate;
@@ -50,6 +52,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }

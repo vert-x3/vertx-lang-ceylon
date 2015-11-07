@@ -18,6 +18,7 @@ import io.vertx.ceylon.codegen.testmodel.TestInterface;
 @DocAnnotation$annotation$(description = "todo")
 public class MyInterface implements ReifiedType {
 
+  @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.MyInterface, MyInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<com.acme.pkg.MyInterface, MyInterface>() {
     public io.vertx.lang.ceylon.Converter<com.acme.pkg.MyInterface, MyInterface> converter(final TypeDescriptor... descriptors) {
       return new io.vertx.lang.ceylon.Converter<com.acme.pkg.MyInterface, MyInterface>() {
@@ -28,6 +29,7 @@ public class MyInterface implements ReifiedType {
     }
   };
 
+  @Ignore
   public static final io.vertx.lang.ceylon.Converter<MyInterface, com.acme.pkg.MyInterface> TO_JAVA = new io.vertx.lang.ceylon.Converter<MyInterface, com.acme.pkg.MyInterface>() {
     public com.acme.pkg.MyInterface convert(MyInterface src) {
       return src.delegate;
@@ -41,6 +43,7 @@ public class MyInterface implements ReifiedType {
     this.delegate = delegate;
   }
 
+  @Ignore 
   public TypeDescriptor $getType$() {
     return $TypeDescriptor$;
   }
