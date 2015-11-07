@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,19 +8,22 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.Integer> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(TimeoutStream.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream>() {
-    public TimeoutStream convert(io.vertx.core.TimeoutStream src) {
-      return new TimeoutStream(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.TimeoutStream, TimeoutStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.TimeoutStream, TimeoutStream>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.TimeoutStream, TimeoutStream>() {
+        public TimeoutStream convert(io.vertx.core.TimeoutStream src) {
+          return new TimeoutStream(src);
+        }
+      };
     }
   };
 
@@ -29,10 +33,15 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(TimeoutStream.class);
   @Ignore private final io.vertx.core.TimeoutStream delegate;
 
   public TimeoutStream(io.vertx.core.TimeoutStream delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -49,7 +58,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
         handler.$call$((Object)event);
       }
     };
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -62,21 +71,21 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event));
       }
     };
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream pause() {
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.pause());
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream resume() {
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.resume());
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -89,7 +98,7 @@ public class TimeoutStream implements ReadStream<ceylon.language.Integer> {
         endHandler.$call$();
       }
     };
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 

@@ -2,6 +2,7 @@
 @includeNamed{'ceylon-common.templ'}
 
 @declare{'genClassMembers'}
+
 	@foreach{method:instanceMethods}
 		@if{method.cacheReturn}
 			@code{cachedType=genJavaInterropTypeDecl(method.returnType)}
@@ -21,13 +22,33 @@
 @{indent}@Ignore private @{cachedType} cached_@{method.name};\n
 		@end{}
 	@end{}
-@{indent}@Ignore private final @{type.raw.name} delegate;\n
+
+	@if{type.raw.params.size() > 0}
+@{indent}@Ignore private final TypeDescriptor $TypeDescriptor$;\n
+	@else{}
+@{indent}@Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
+	@end{}
+	@foreach{typeParam:type.raw.params}
+@{indent}@Ignore private final TypeDescriptor @{'$reified$' + typeParam.name};\n
+	@end{}
+
+	@{indent}@Ignore private final @{type.raw.name} delegate;\n
 \n
-@{indent}public @{ctor}(@{type.raw.name} delegate) {\n
+@{indent}public @{ctor}(@foreach{typeParam:type.raw.params}@Ignore TypeDescriptor @{'$reified$' + typeParam.name}, @end{}@{type.raw.name} delegate) {\n
 @if{concreteSuperType != null}
 @{indent}  super(delegate);\n
 @end{}
+@if{type.raw.params.size() > 0}
+@{indent}  this.$TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class@foreach{typeParam:type.raw.params}, @{'$reified$' + typeParam.name}@end{});\n
+@end{}
+@foreach{typeParam:type.raw.params}
+@{indent}  this.@{'$reified$' + typeParam.name} = @{'$reified$' + typeParam.name};\n
+@end{}
 @{indent}  this.delegate = delegate;\n
+@{indent}}\n
+\n
+@{indent}public TypeDescriptor $getType$() {\n
+@{indent}  return $TypeDescriptor$;\n
 @{indent}}\n
 \n
 @{indent}@Ignore\n
@@ -53,23 +74,26 @@ package @{type.raw.translatePackageName('ceylon')};\n
 @if{typeParams.size() > 0}
 @includeNamed{'genTypeParamsDesc';params=typeParams;indent=''}
 @end{}
+@Ceylon(major = 8)
 @DocAnnotation$annotation$(description = "todo")\n
 public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNamed{'genTypeParams';params=typeParams}
 @if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}
+@if{concrete} implements ReifiedType@end{}
 @if{abstractSuperTypes.size() > 0}
-	 @if{concrete}implements@else{}extends@end{}
+	@if{concrete}@if{abstractSuperTypes.size() > 0}, @end{}@else{} extends@end{}
 	@foreach{abstractSuperType:abstractSuperTypes}
 	 @{genJavaInterropTypeDecl(abstractSuperType)}
-	@end{','}
+	@end{', '}
 @end{} {\n
 
 \n
-  @if{concrete}public static final @end{}TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
-
-\n
-  @if{concrete}public static final @end{}io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}>() {\n
-    public @{type.raw.simpleName} convert(@{type.raw.name} src) {\n
-      return new @{type.raw.simpleName}@if{!concrete}.Impl@end{}(src);\n
+  @if{concrete}public static final @end{}io.vertx.lang.ceylon.ConverterFactory<@{type.raw.name}, @{type.raw.simpleName}> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<@{type.raw.name}, @{type.raw.simpleName}>() {\n
+    public io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}> converter(final TypeDescriptor... descriptors) {\n
+      return new io.vertx.lang.ceylon.Converter<@{type.raw.name}, @{type.raw.simpleName}>() {\n
+        public @{type.raw.simpleName} convert(@{type.raw.name} src) {\n
+          return new @{type.raw.simpleName}@if{!concrete}.Impl@end{}@code{index=0}(@foreach{typeParam : type.raw.params}descriptors[@{(index++)}], @end{}src);\n
+        }\n
+      };\n
     }\n
   };\n
 
@@ -91,6 +115,9 @@ public @if{concrete}class@else{}interface@end{} @{type.raw.simpleName}@includeNa
 	@includeNamed{'genClassMembers';indent='  ';ctor=type.raw.simpleName}
 
 @else{}
+
+	  @Ignore\n
+	  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{type.raw.simpleName}.class);\n
 
 	  @Ignore\n
 	  Object getDelegate();\n

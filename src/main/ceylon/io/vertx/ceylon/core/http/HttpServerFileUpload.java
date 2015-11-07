@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.http;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,20 +8,23 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class HttpServerFileUpload implements ReadStream<Buffer> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerFileUpload.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload>() {
-    public HttpServerFileUpload convert(io.vertx.core.http.HttpServerFileUpload src) {
-      return new HttpServerFileUpload(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerFileUpload, HttpServerFileUpload>() {
+        public HttpServerFileUpload convert(io.vertx.core.http.HttpServerFileUpload src) {
+          return new HttpServerFileUpload(src);
+        }
+      };
     }
   };
 
@@ -30,10 +34,15 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerFileUpload.class);
   @Ignore private final io.vertx.core.http.HttpServerFileUpload delegate;
 
   public HttpServerFileUpload(io.vertx.core.http.HttpServerFileUpload delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -50,7 +59,7 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
         handler.$call$((Object)event);
       }
     };
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -60,10 +69,10 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
-        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
@@ -76,21 +85,21 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
         endHandler.$call$();
       }
     };
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload pause() {
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.pause());
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload resume() {
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.resume());
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -99,7 +108,7 @@ public class HttpServerFileUpload implements ReadStream<Buffer> {
   public HttpServerFileUpload streamToFileSystem(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
-    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.safeConvert(delegate.streamToFileSystem(arg_0));
+    HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.streamToFileSystem(arg_0));
     return this;
   }
 

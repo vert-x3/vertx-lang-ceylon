@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.shareddata;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,19 +8,22 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class Counter {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Counter implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Counter.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter>() {
-    public Counter convert(io.vertx.core.shareddata.Counter src) {
-      return new Counter(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Counter, Counter> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Counter, Counter>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Counter, Counter>() {
+        public Counter convert(io.vertx.core.shareddata.Counter src) {
+          return new Counter(src);
+        }
+      };
     }
   };
 
@@ -29,10 +33,15 @@ public class Counter {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Counter.class);
   @Ignore private final io.vertx.core.shareddata.Counter delegate;
 
   public Counter(io.vertx.core.shareddata.Counter delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore

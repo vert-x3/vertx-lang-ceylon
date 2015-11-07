@@ -1,5 +1,6 @@
 package io.vertx.ceylon.codegen.testmodel;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,17 +8,20 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@DocAnnotation$annotation$(description = "todo")
-public class RefedInterface1 {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class RefedInterface1 implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RefedInterface1.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1>() {
-    public RefedInterface1 convert(io.vertx.codegen.testmodel.RefedInterface1 src) {
-      return new RefedInterface1(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.RefedInterface1, RefedInterface1>() {
+        public RefedInterface1 convert(io.vertx.codegen.testmodel.RefedInterface1 src) {
+          return new RefedInterface1(src);
+        }
+      };
     }
   };
 
@@ -27,10 +31,15 @@ public class RefedInterface1 {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RefedInterface1.class);
   @Ignore private final io.vertx.codegen.testmodel.RefedInterface1 delegate;
 
   public RefedInterface1(io.vertx.codegen.testmodel.RefedInterface1 delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -50,7 +59,7 @@ public class RefedInterface1 {
   public RefedInterface1 setString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
-    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.safeConvert(delegate.setString(arg_0));
+    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
     return this;
   }
 

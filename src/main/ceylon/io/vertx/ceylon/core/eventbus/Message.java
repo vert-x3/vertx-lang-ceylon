@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.eventbus;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.MultiMap;
@@ -16,14 +18,16 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
-public class Message<T> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Message<T> implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Message.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message>() {
-    public Message convert(io.vertx.core.eventbus.Message src) {
-      return new Message(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.Message, Message> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.Message, Message>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.Message, Message>() {
+        public Message convert(io.vertx.core.eventbus.Message src) {
+          return new Message(descriptors[0], src);
+        }
+      };
     }
   };
 
@@ -34,10 +38,18 @@ public class Message<T> {
   };
 
   @Ignore private T cached_body;
+  @Ignore private final TypeDescriptor $TypeDescriptor$;
+  @Ignore private final TypeDescriptor $reified$T;
   @Ignore private final io.vertx.core.eventbus.Message delegate;
 
-  public Message(io.vertx.core.eventbus.Message delegate) {
+  public Message(@Ignore TypeDescriptor $reified$T, io.vertx.core.eventbus.Message delegate) {
+    this.$TypeDescriptor$ = TypeDescriptor.klass(Message.class, $reified$T);
+    this.$reified$T = $reified$T;
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -55,7 +67,7 @@ public class Message<T> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
-    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.headers());
     return ret;
   }
 
@@ -90,13 +102,13 @@ public class Message<T> {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <R> void reply(
+  public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1);
@@ -117,7 +129,7 @@ public class Message<T> {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <R> void reply(
+  public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
@@ -125,7 +137,7 @@ public class Message<T> {
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1, arg_2);

@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.shareddata;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,17 +8,20 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@DocAnnotation$annotation$(description = "todo")
-public class Lock {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Lock implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Lock.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock>() {
-    public Lock convert(io.vertx.core.shareddata.Lock src) {
-      return new Lock(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Lock, Lock> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.Lock, Lock>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.Lock, Lock>() {
+        public Lock convert(io.vertx.core.shareddata.Lock src) {
+          return new Lock(src);
+        }
+      };
     }
   };
 
@@ -27,10 +31,15 @@ public class Lock {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Lock.class);
   @Ignore private final io.vertx.core.shareddata.Lock delegate;
 
   public Lock(io.vertx.core.shareddata.Lock delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore

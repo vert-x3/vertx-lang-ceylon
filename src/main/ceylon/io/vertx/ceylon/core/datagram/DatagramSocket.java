@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.datagram;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -16,14 +18,16 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
-@DocAnnotation$annotation$(description = "todo")
-public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,  Measured {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(DatagramSocket.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramSocket, DatagramSocket> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramSocket, DatagramSocket>() {
-    public DatagramSocket convert(io.vertx.core.datagram.DatagramSocket src) {
-      return new DatagramSocket(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramSocket, DatagramSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.DatagramSocket, DatagramSocket>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramSocket, DatagramSocket> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.DatagramSocket, DatagramSocket>() {
+        public DatagramSocket convert(io.vertx.core.datagram.DatagramSocket src) {
+          return new DatagramSocket(src);
+        }
+      };
     }
   };
 
@@ -34,10 +38,15 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
   };
 
   @Ignore private SocketAddress cached_localAddress;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(DatagramSocket.class);
   @Ignore private final io.vertx.core.datagram.DatagramSocket delegate;
 
   public DatagramSocket(io.vertx.core.datagram.DatagramSocket delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -64,10 +73,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -78,7 +87,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.sender(arg_0, arg_1));
+    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.sender(arg_0, arg_1));
     return ret;
   }
 
@@ -94,10 +103,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -115,10 +124,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_4 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3, arg_4));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3, arg_4));
     return this;
   }
 
@@ -146,7 +155,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     if (cached_localAddress != null) {
       return cached_localAddress;
     }
-    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
     cached_localAddress = ret;
     return ret;
   }
@@ -159,10 +168,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.listenMulticastGroup(arg_0, arg_1));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.listenMulticastGroup(arg_0, arg_1));
     return this;
   }
 
@@ -178,10 +187,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.listenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.listenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -193,10 +202,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.unlistenMulticastGroup(arg_0, arg_1));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.unlistenMulticastGroup(arg_0, arg_1));
     return this;
   }
 
@@ -212,10 +221,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.unlistenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.unlistenMulticastGroup(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -229,10 +238,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -248,10 +257,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2, arg_3));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.blockMulticastGroup(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -265,24 +274,24 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
-        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1, arg_2));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1, arg_2));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket pause() {
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.pause());
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket resume() {
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.resume());
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -295,7 +304,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
         endHandler.$call$();
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
@@ -305,10 +314,10 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket>() {
       public void handle(io.vertx.core.datagram.DatagramPacket event) {
-        handler.$call$((Object)io.vertx.ceylon.core.datagram.DatagramPacket.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.datagram.DatagramPacket.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
@@ -321,7 +330,7 @@ public class DatagramSocket implements ReadStream<DatagramPacket>, Measured {
         handler.$call$((Object)event);
       }
     };
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 

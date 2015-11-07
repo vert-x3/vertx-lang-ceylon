@@ -6,7 +6,6 @@ import ceylon.test { test }
 shared test void testMessageReply() {
   value instance = vertx.vertx();
   try {
-    /* fails
     value latch = CountDownLatch(1);
     instance.eventBus().consumer("the_address", (Message<String> msg) => msg.reply("the_reply"));
     instance.eventBus().send("the_address", "the_message", void (Message<String>|Throwable reply) {
@@ -18,7 +17,6 @@ shared test void testMessageReply() {
       }
     });
     latch.await();
-    */
   } finally {
     instance.close();
   }

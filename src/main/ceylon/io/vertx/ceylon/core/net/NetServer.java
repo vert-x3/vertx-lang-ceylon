@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.net;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,20 +8,23 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class NetServer implements Measured {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class NetServer implements ReifiedType,  Measured {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetServer.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer>() {
-    public NetServer convert(io.vertx.core.net.NetServer src) {
-      return new NetServer(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetServer, NetServer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetServer, NetServer>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetServer, NetServer>() {
+        public NetServer convert(io.vertx.core.net.NetServer src) {
+          return new NetServer(src);
+        }
+      };
     }
   };
 
@@ -30,10 +34,15 @@ public class NetServer implements Measured {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetServer.class);
   @Ignore private final io.vertx.core.net.NetServer delegate;
 
   public NetServer(io.vertx.core.net.NetServer delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -51,7 +60,7 @@ public class NetServer implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream connectStream() {
-    NetSocketStream ret = io.vertx.ceylon.core.net.NetSocketStream.TO_CEYLON.safeConvert(delegate.connectStream());
+    NetSocketStream ret = io.vertx.ceylon.core.net.NetSocketStream.TO_CEYLON.converter().safeConvert(delegate.connectStream());
     return ret;
   }
 
@@ -61,17 +70,17 @@ public class NetServer implements Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.net.NetSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.net.NetSocket>() {
       public void handle(io.vertx.core.net.NetSocket event) {
-        handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.connectHandler(arg_0));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.connectHandler(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen() {
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen());
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen());
     return this;
   }
 
@@ -81,10 +90,10 @@ public class NetServer implements Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_0 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
-        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen(arg_0));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0));
     return this;
   }
 
@@ -95,7 +104,7 @@ public class NetServer implements Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1));
     return this;
   }
 
@@ -109,10 +118,10 @@ public class NetServer implements Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
-        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1, arg_2));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -121,7 +130,7 @@ public class NetServer implements Measured {
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port) {
     int arg_0 = (int)port;
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen(arg_0));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0));
     return this;
   }
 
@@ -133,10 +142,10 @@ public class NetServer implements Measured {
     int arg_0 = (int)port;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
-        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.listen(arg_0, arg_1));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1));
     return this;
   }
 

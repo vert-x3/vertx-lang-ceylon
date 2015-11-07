@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.http;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,19 +8,22 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class ServerWebSocketStream implements ReifiedType,  ReadStream<ServerWebSocket> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ServerWebSocketStream.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream>() {
-    public ServerWebSocketStream convert(io.vertx.core.http.ServerWebSocketStream src) {
-      return new ServerWebSocketStream(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.ServerWebSocketStream, ServerWebSocketStream>() {
+        public ServerWebSocketStream convert(io.vertx.core.http.ServerWebSocketStream src) {
+          return new ServerWebSocketStream(src);
+        }
+      };
     }
   };
 
@@ -29,10 +33,15 @@ public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ServerWebSocketStream.class);
   @Ignore private final io.vertx.core.http.ServerWebSocketStream delegate;
 
   public ServerWebSocketStream(io.vertx.core.http.ServerWebSocketStream delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -49,7 +58,7 @@ public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
         handler.$call$((Object)event);
       }
     };
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -59,24 +68,24 @@ public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket>() {
       public void handle(io.vertx.core.http.ServerWebSocket event) {
-        handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream pause() {
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.pause());
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream resume() {
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.resume());
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -89,7 +98,7 @@ public class ServerWebSocketStream implements ReadStream<ServerWebSocket> {
         endHandler.$call$();
       }
     };
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 

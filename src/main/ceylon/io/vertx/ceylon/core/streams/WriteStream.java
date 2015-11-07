@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.streams;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
@@ -14,14 +16,16 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
 public interface WriteStream<T> extends StreamBase {
 
-  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WriteStream.class);
-
-  io.vertx.lang.ceylon.Converter<io.vertx.core.streams.WriteStream, WriteStream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.WriteStream, WriteStream>() {
-    public WriteStream convert(io.vertx.core.streams.WriteStream src) {
-      return new WriteStream.Impl(src);
+  io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.WriteStream, WriteStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.WriteStream, WriteStream>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.streams.WriteStream, WriteStream> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.WriteStream, WriteStream>() {
+        public WriteStream convert(io.vertx.core.streams.WriteStream src) {
+          return new WriteStream.Impl(descriptors[0], src);
+        }
+      };
     }
   };
 
@@ -31,6 +35,8 @@ public interface WriteStream<T> extends StreamBase {
     }
   };
 
+  @Ignore
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WriteStream.class);
   @Ignore
   Object getDelegate();
 
@@ -60,10 +66,18 @@ public interface WriteStream<T> extends StreamBase {
 
   @Ignore
   public class Impl<T> implements WriteStream<T> {
+    @Ignore private final TypeDescriptor $TypeDescriptor$;
+    @Ignore private final TypeDescriptor $reified$T;
     @Ignore private final io.vertx.core.streams.WriteStream delegate;
 
-    public Impl(io.vertx.core.streams.WriteStream delegate) {
+    public Impl(@Ignore TypeDescriptor $reified$T, io.vertx.core.streams.WriteStream delegate) {
+      this.$TypeDescriptor$ = TypeDescriptor.klass(WriteStream.class, $reified$T);
+      this.$reified$T = $reified$T;
       this.delegate = delegate;
+    }
+
+    public TypeDescriptor $getType$() {
+      return $TypeDescriptor$;
     }
 
     @Ignore
@@ -80,7 +94,7 @@ public interface WriteStream<T> extends StreamBase {
         handler.$call$((Object)event);
       }
     };
-    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.exceptionHandler(arg_0));
       return this;
     }
 
@@ -89,7 +103,7 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(data);
-    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.write(arg_0));
       return this;
     }
 
@@ -98,7 +112,7 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
+    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.setWriteQueueMaxSize(arg_0));
       return this;
     }
 
@@ -118,7 +132,7 @@ public interface WriteStream<T> extends StreamBase {
         handler.$call$();
       }
     };
-    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.safeConvert(delegate.drainHandler(arg_0));
+    WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.drainHandler(arg_0));
       return this;
     }
   }

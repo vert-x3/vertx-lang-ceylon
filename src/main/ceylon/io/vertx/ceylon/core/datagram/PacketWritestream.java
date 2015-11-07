@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.datagram;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,20 +8,23 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.streams.WriteStream;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class PacketWritestream implements WriteStream<Buffer> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(PacketWritestream.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {
-    public PacketWritestream convert(io.vertx.core.datagram.PacketWritestream src) {
-      return new PacketWritestream(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.datagram.PacketWritestream, PacketWritestream>() {
+        public PacketWritestream convert(io.vertx.core.datagram.PacketWritestream src) {
+          return new PacketWritestream(src);
+        }
+      };
     }
   };
 
@@ -30,10 +34,15 @@ public class PacketWritestream implements WriteStream<Buffer> {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(PacketWritestream.class);
   @Ignore private final io.vertx.core.datagram.PacketWritestream delegate;
 
   public PacketWritestream(io.vertx.core.datagram.PacketWritestream delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -57,7 +66,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
         handler.$call$((Object)event);
       }
     };
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -66,7 +75,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
   public PacketWritestream write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
@@ -75,7 +84,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
   public PacketWritestream setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
+    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
   }
 
@@ -88,7 +97,7 @@ public class PacketWritestream implements WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.safeConvert(delegate.drainHandler(arg_0));
+    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.drainHandler(arg_0));
     return this;
   }
 

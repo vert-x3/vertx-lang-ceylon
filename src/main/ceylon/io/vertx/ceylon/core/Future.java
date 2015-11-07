@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
@@ -15,14 +17,16 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
-public class Future<T> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Future<T> implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Future.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future>() {
-    public Future convert(io.vertx.core.Future src) {
-      return new Future(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Future, Future> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Future, Future>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.Future, Future>() {
+        public Future convert(io.vertx.core.Future src) {
+          return new Future(descriptors[0], src);
+        }
+      };
     }
   };
 
@@ -32,10 +36,18 @@ public class Future<T> {
     }
   };
 
+  @Ignore private final TypeDescriptor $TypeDescriptor$;
+  @Ignore private final TypeDescriptor $reified$T;
   @Ignore private final io.vertx.core.Future delegate;
 
-  public Future(io.vertx.core.Future delegate) {
+  public Future(@Ignore TypeDescriptor $reified$T, io.vertx.core.Future delegate) {
+    this.$TypeDescriptor$ = TypeDescriptor.klass(Future.class, $reified$T);
+    this.$reified$T = $reified$T;
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore

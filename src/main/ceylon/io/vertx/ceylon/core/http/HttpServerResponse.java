@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.http;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -15,14 +17,16 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class HttpServerResponse implements WriteStream<Buffer> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerResponse.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
-    public HttpServerResponse convert(io.vertx.core.http.HttpServerResponse src) {
-      return new HttpServerResponse(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerResponse, HttpServerResponse> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.HttpServerResponse, HttpServerResponse>() {
+        public HttpServerResponse convert(io.vertx.core.http.HttpServerResponse src) {
+          return new HttpServerResponse(src);
+        }
+      };
     }
   };
 
@@ -34,10 +38,15 @@ public class HttpServerResponse implements WriteStream<Buffer> {
 
   @Ignore private MultiMap cached_headers;
   @Ignore private MultiMap cached_trailers;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerResponse.class);
   @Ignore private final io.vertx.core.http.HttpServerResponse delegate;
 
   public HttpServerResponse(io.vertx.core.http.HttpServerResponse delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -61,7 +70,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         handler.$call$((Object)event);
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -70,7 +79,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
@@ -79,7 +88,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
   }
 
@@ -92,7 +101,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.drainHandler(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.drainHandler(arg_0));
     return this;
   }
 
@@ -108,7 +117,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse setStatusCode(
     final @TypeInfo("ceylon.language::Integer") @Name("statusCode") @DocAnnotation$annotation$(description = "todo") long statusCode) {
     int arg_0 = (int)statusCode;
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.setStatusCode(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.setStatusCode(arg_0));
     return this;
   }
 
@@ -124,7 +133,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse setStatusMessage(
     final @TypeInfo("ceylon.language::String") @Name("statusMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String statusMessage) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(statusMessage);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.setStatusMessage(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.setStatusMessage(arg_0));
     return this;
   }
 
@@ -133,7 +142,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse setChunked(
     final @TypeInfo("ceylon.language::Boolean") @Name("chunked") @DocAnnotation$annotation$(description = "todo") boolean chunked) {
     boolean arg_0 = chunked;
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.setChunked(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.setChunked(arg_0));
     return this;
   }
 
@@ -150,7 +159,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     if (cached_headers != null) {
       return cached_headers;
     }
-    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.headers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.headers());
     cached_headers = ret;
     return ret;
   }
@@ -162,7 +171,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.putHeader(arg_0, arg_1));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.putHeader(arg_0, arg_1));
     return this;
   }
 
@@ -172,7 +181,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     if (cached_trailers != null) {
       return cached_trailers;
     }
-    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.safeConvert(delegate.trailers());
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.trailers());
     cached_trailers = ret;
     return ret;
   }
@@ -184,7 +193,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.putTrailer(arg_0, arg_1));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.putTrailer(arg_0, arg_1));
     return this;
   }
 
@@ -197,7 +206,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.closeHandler(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.closeHandler(arg_0));
     return this;
   }
 
@@ -208,7 +217,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.write(arg_0, arg_1));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.write(arg_0, arg_1));
     return this;
   }
 
@@ -217,14 +226,14 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse writeContinue() {
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.writeContinue());
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeContinue());
     return this;
   }
 
@@ -265,7 +274,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0));
     return this;
   }
 
@@ -276,7 +285,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "todo") long offset) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1));
     return this;
   }
 
@@ -289,7 +298,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     long arg_2 = length;
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -304,7 +313,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         return null;
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1));
     return this;
   }
 
@@ -321,7 +330,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         return null;
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -340,7 +349,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         return null;
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2, arg_3));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -380,7 +389,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.headersEndHandler(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.headersEndHandler(arg_0));
     return this;
   }
 
@@ -393,7 +402,7 @@ public class HttpServerResponse implements WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.safeConvert(delegate.bodyEndHandler(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.bodyEndHandler(arg_0));
     return this;
   }
 

@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.net;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -15,14 +17,16 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetSocket.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket>() {
-    public NetSocket convert(io.vertx.core.net.NetSocket src) {
-      return new NetSocket(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetSocket, NetSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetSocket, NetSocket>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetSocket, NetSocket>() {
+        public NetSocket convert(io.vertx.core.net.NetSocket src) {
+          return new NetSocket(src);
+        }
+      };
     }
   };
 
@@ -34,10 +38,15 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
 
   @Ignore private SocketAddress cached_remoteAddress;
   @Ignore private SocketAddress cached_localAddress;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetSocket.class);
   @Ignore private final io.vertx.core.net.NetSocket delegate;
 
   public NetSocket(io.vertx.core.net.NetSocket delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -61,7 +70,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         handler.$call$((Object)event);
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -71,24 +80,24 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
-        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket pause() {
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.pause());
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket resume() {
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.resume());
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -101,7 +110,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         endHandler.$call$();
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
@@ -110,7 +119,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   public NetSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
@@ -119,7 +128,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   public NetSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
   }
 
@@ -132,7 +141,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.drainHandler(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.drainHandler(arg_0));
     return this;
   }
 
@@ -148,7 +157,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
@@ -159,7 +168,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.write(arg_0, arg_1));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0, arg_1));
     return this;
   }
 
@@ -168,7 +177,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0));
     return this;
   }
 
@@ -179,7 +188,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "todo") long offset) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1));
     return this;
   }
 
@@ -192,7 +201,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     long arg_2 = length;
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -207,7 +216,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         return null;
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1));
     return this;
   }
 
@@ -224,7 +233,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         return null;
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -243,7 +252,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         return null;
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.sendFile(arg_0, arg_1, arg_2, arg_3));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -253,7 +262,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     if (cached_remoteAddress != null) {
       return cached_remoteAddress;
     }
-    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.remoteAddress());
     cached_remoteAddress = ret;
     return ret;
   }
@@ -264,7 +273,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
     if (cached_localAddress != null) {
       return cached_localAddress;
     }
-    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
     cached_localAddress = ret;
     return ret;
   }
@@ -284,7 +293,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.closeHandler(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.closeHandler(arg_0));
     return this;
   }
 
@@ -297,7 +306,7 @@ public class NetSocket implements ReadStream<Buffer>, WriteStream<Buffer> {
         handler.$call$();
       }
     };
-    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(delegate.upgradeToSsl(arg_0));
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.upgradeToSsl(arg_0));
     return this;
   }
 

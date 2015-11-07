@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.datagram.DatagramSocket;
@@ -39,7 +41,7 @@ public class vertx_ {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx() {
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(io.vertx.core.Vertx.vertx());
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx());
     return ret;
   }
 
@@ -48,7 +50,7 @@ public class vertx_ {
   public static Vertx vertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(io.vertx.core.Vertx.vertx(arg_0));
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx(arg_0));
     return ret;
   }
 
@@ -60,7 +62,7 @@ public class vertx_ {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) {
       public Object toCeylon(io.vertx.core.Vertx event) {
-        return io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(event);
       }
     };
     io.vertx.core.Vertx.clusteredVertx(arg_0, arg_1);
@@ -69,7 +71,7 @@ public class vertx_ {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Context?")
   public static Context currentContext() {
-    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(io.vertx.core.Vertx.currentContext());
+    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.currentContext());
     return ret;
   }
 

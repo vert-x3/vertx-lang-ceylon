@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.shareddata;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
@@ -16,14 +18,16 @@ import io.vertx.core.Handler;
   @TypeParameter(value="K",variance=Variance.NONE),
   @TypeParameter(value="V",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
-public class AsyncMap<K,V> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class AsyncMap<K,V> implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(AsyncMap.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {
-    public AsyncMap convert(io.vertx.core.shareddata.AsyncMap src) {
-      return new AsyncMap(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.shareddata.AsyncMap, AsyncMap>() {
+        public AsyncMap convert(io.vertx.core.shareddata.AsyncMap src) {
+          return new AsyncMap(descriptors[0], descriptors[1], src);
+        }
+      };
     }
   };
 
@@ -33,10 +37,20 @@ public class AsyncMap<K,V> {
     }
   };
 
+  @Ignore private final TypeDescriptor $TypeDescriptor$;
+  @Ignore private final TypeDescriptor $reified$K;
+  @Ignore private final TypeDescriptor $reified$V;
   @Ignore private final io.vertx.core.shareddata.AsyncMap delegate;
 
-  public AsyncMap(io.vertx.core.shareddata.AsyncMap delegate) {
+  public AsyncMap(@Ignore TypeDescriptor $reified$K, @Ignore TypeDescriptor $reified$V, io.vertx.core.shareddata.AsyncMap delegate) {
+    this.$TypeDescriptor$ = TypeDescriptor.klass(AsyncMap.class, $reified$K, $reified$V);
+    this.$reified$K = $reified$K;
+    this.$reified$V = $reified$V;
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore

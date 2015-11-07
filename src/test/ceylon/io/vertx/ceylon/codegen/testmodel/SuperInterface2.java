@@ -1,5 +1,6 @@
 package io.vertx.ceylon.codegen.testmodel;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,17 +8,20 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
 public interface SuperInterface2 {
 
-  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SuperInterface2.class);
-
-  io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
-    public SuperInterface2 convert(io.vertx.codegen.testmodel.SuperInterface2 src) {
-      return new SuperInterface2.Impl(src);
+  io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.SuperInterface2, SuperInterface2>() {
+        public SuperInterface2 convert(io.vertx.codegen.testmodel.SuperInterface2 src) {
+          return new SuperInterface2.Impl(src);
+        }
+      };
     }
   };
 
@@ -27,6 +31,8 @@ public interface SuperInterface2 {
     }
   };
 
+  @Ignore
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SuperInterface2.class);
   @Ignore
   Object getDelegate();
 
@@ -45,10 +51,15 @@ public interface SuperInterface2 {
 
   @Ignore
   public class Impl implements SuperInterface2 {
+    @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SuperInterface2.class);
     @Ignore private final io.vertx.codegen.testmodel.SuperInterface2 delegate;
 
     public Impl(io.vertx.codegen.testmodel.SuperInterface2 delegate) {
       this.delegate = delegate;
+    }
+
+    public TypeDescriptor $getType$() {
+      return $TypeDescriptor$;
     }
 
     @Ignore

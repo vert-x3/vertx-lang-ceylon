@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.eventbus;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.ReadStream;
@@ -16,14 +18,16 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
-public class MessageConsumer<T> implements ReadStream<Message<T>> {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MessageConsumer.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {
-    public MessageConsumer convert(io.vertx.core.eventbus.MessageConsumer src) {
-      return new MessageConsumer(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.eventbus.MessageConsumer, MessageConsumer>() {
+        public MessageConsumer convert(io.vertx.core.eventbus.MessageConsumer src) {
+          return new MessageConsumer(descriptors[0], src);
+        }
+      };
     }
   };
 
@@ -33,10 +37,18 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     }
   };
 
+  @Ignore private final TypeDescriptor $TypeDescriptor$;
+  @Ignore private final TypeDescriptor $reified$T;
   @Ignore private final io.vertx.core.eventbus.MessageConsumer delegate;
 
-  public MessageConsumer(io.vertx.core.eventbus.MessageConsumer delegate) {
+  public MessageConsumer(@Ignore TypeDescriptor $reified$T, io.vertx.core.eventbus.MessageConsumer delegate) {
+    this.$TypeDescriptor$ = TypeDescriptor.klass(MessageConsumer.class, $reified$T);
+    this.$reified$T = $reified$T;
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -53,7 +65,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
         handler.$call$((Object)event);
       }
     };
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -63,24 +75,24 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() {
       public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.handler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> pause() {
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.pause());
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> resume() {
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.resume());
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.resume());
     return this;
   }
 
@@ -93,14 +105,14 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
         endHandler.$call$();
       }
     };
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> bodyStream() {
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.bodyStream());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.bodyStream());
     return ret;
   }
 
@@ -123,7 +135,7 @@ public class MessageConsumer<T> implements ReadStream<Message<T>> {
   public MessageConsumer<T> setMaxBufferedMessages(
     final @TypeInfo("ceylon.language::Integer") @Name("maxBufferedMessages") @DocAnnotation$annotation$(description = "todo") long maxBufferedMessages) {
     int arg_0 = (int)maxBufferedMessages;
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.safeConvert(delegate.setMaxBufferedMessages(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.setMaxBufferedMessages(arg_0));
     return ret;
   }
 

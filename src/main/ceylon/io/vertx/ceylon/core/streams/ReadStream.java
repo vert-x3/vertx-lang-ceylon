@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.streams;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
@@ -14,14 +16,16 @@ import io.vertx.core.Handler;
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
 })
-@DocAnnotation$annotation$(description = "todo")
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
 public interface ReadStream<T> extends StreamBase {
 
-  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ReadStream.class);
-
-  io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream>() {
-    public ReadStream convert(io.vertx.core.streams.ReadStream src) {
-      return new ReadStream.Impl(src);
+  io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.ReadStream, ReadStream> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.streams.ReadStream, ReadStream>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.streams.ReadStream, ReadStream>() {
+        public ReadStream convert(io.vertx.core.streams.ReadStream src) {
+          return new ReadStream.Impl(descriptors[0], src);
+        }
+      };
     }
   };
 
@@ -31,6 +35,8 @@ public interface ReadStream<T> extends StreamBase {
     }
   };
 
+  @Ignore
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ReadStream.class);
   @Ignore
   Object getDelegate();
 
@@ -59,10 +65,18 @@ public interface ReadStream<T> extends StreamBase {
 
   @Ignore
   public class Impl<T> implements ReadStream<T> {
+    @Ignore private final TypeDescriptor $TypeDescriptor$;
+    @Ignore private final TypeDescriptor $reified$T;
     @Ignore private final io.vertx.core.streams.ReadStream delegate;
 
-    public Impl(io.vertx.core.streams.ReadStream delegate) {
+    public Impl(@Ignore TypeDescriptor $reified$T, io.vertx.core.streams.ReadStream delegate) {
+      this.$TypeDescriptor$ = TypeDescriptor.klass(ReadStream.class, $reified$T);
+      this.$reified$T = $reified$T;
       this.delegate = delegate;
+    }
+
+    public TypeDescriptor $getType$() {
+      return $TypeDescriptor$;
     }
 
     @Ignore
@@ -79,7 +93,7 @@ public interface ReadStream<T> extends StreamBase {
         handler.$call$((Object)event);
       }
     };
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.exceptionHandler(arg_0));
       return this;
     }
 
@@ -92,21 +106,21 @@ public interface ReadStream<T> extends StreamBase {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
       }
     };
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.handler(arg_0));
       return this;
     }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> pause() {
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.pause());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.pause());
       return this;
     }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> resume() {
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.resume());
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.resume());
       return this;
     }
 
@@ -119,7 +133,7 @@ public interface ReadStream<T> extends StreamBase {
         endHandler.$call$();
       }
     };
-    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.endHandler(arg_0));
       return this;
     }
   }

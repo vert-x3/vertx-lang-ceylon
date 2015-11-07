@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.http;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,20 +8,23 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
-@DocAnnotation$annotation$(description = "todo")
-public class WebSocket implements WebSocketBase {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class WebSocket implements ReifiedType,  WebSocketBase {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocket.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocket, WebSocket> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocket, WebSocket>() {
-    public WebSocket convert(io.vertx.core.http.WebSocket src) {
-      return new WebSocket(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocket, WebSocket> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocket, WebSocket>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocket, WebSocket> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocket, WebSocket>() {
+        public WebSocket convert(io.vertx.core.http.WebSocket src) {
+          return new WebSocket(src);
+        }
+      };
     }
   };
 
@@ -32,10 +36,15 @@ public class WebSocket implements WebSocketBase {
 
   @Ignore private SocketAddress cached_remoteAddress;
   @Ignore private SocketAddress cached_localAddress;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocket.class);
   @Ignore private final io.vertx.core.http.WebSocket delegate;
 
   public WebSocket(io.vertx.core.http.WebSocket delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -76,7 +85,7 @@ public class WebSocket implements WebSocketBase {
     if (cached_remoteAddress != null) {
       return cached_remoteAddress;
     }
-    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.remoteAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.remoteAddress());
     cached_remoteAddress = ret;
     return ret;
   }
@@ -87,7 +96,7 @@ public class WebSocket implements WebSocketBase {
     if (cached_localAddress != null) {
       return cached_localAddress;
     }
-    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.safeConvert(delegate.localAddress());
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
     cached_localAddress = ret;
     return ret;
   }
@@ -101,7 +110,7 @@ public class WebSocket implements WebSocketBase {
         handler.$call$((Object)event);
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.exceptionHandler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
@@ -111,24 +120,24 @@ public class WebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
-        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.handler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket pause() {
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.pause());
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket resume() {
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.resume());
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
@@ -141,7 +150,7 @@ public class WebSocket implements WebSocketBase {
         endHandler.$call$();
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.endHandler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
@@ -150,7 +159,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.write(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
   }
 
@@ -159,7 +168,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
     int arg_0 = (int)maxSize;
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.setWriteQueueMaxSize(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
   }
 
@@ -172,7 +181,7 @@ public class WebSocket implements WebSocketBase {
         handler.$call$();
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.drainHandler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.drainHandler(arg_0));
     return this;
   }
 
@@ -181,7 +190,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket writeFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame") @Name("frame") @DocAnnotation$annotation$(description = "todo") WebSocketFrame frame) {
     io.vertx.core.http.WebSocketFrame arg_0 = io.vertx.ceylon.core.http.WebSocketFrame.TO_JAVA.safeConvert(frame);
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.writeFrame(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.writeFrame(arg_0));
     return this;
   }
 
@@ -190,7 +199,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket writeFinalTextFrame(
     final @TypeInfo("ceylon.language::String") @Name("text") @DocAnnotation$annotation$(description = "todo") ceylon.language.String text) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(text);
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.writeFinalTextFrame(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.writeFinalTextFrame(arg_0));
     return this;
   }
 
@@ -199,7 +208,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket writeFinalBinaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.writeFinalBinaryFrame(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.writeFinalBinaryFrame(arg_0));
     return this;
   }
 
@@ -208,7 +217,7 @@ public class WebSocket implements WebSocketBase {
   public WebSocket writeBinaryMessage(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.writeBinaryMessage(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.writeBinaryMessage(arg_0));
     return this;
   }
 
@@ -221,7 +230,7 @@ public class WebSocket implements WebSocketBase {
         handler.$call$();
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.closeHandler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.closeHandler(arg_0));
     return this;
   }
 
@@ -231,10 +240,10 @@ public class WebSocket implements WebSocketBase {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocketFrame>() {
       public void handle(io.vertx.core.http.WebSocketFrame event) {
-        handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.safeConvert(delegate.frameHandler(arg_0));
+    WebSocket ret = io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(delegate.frameHandler(arg_0));
     return this;
   }
 

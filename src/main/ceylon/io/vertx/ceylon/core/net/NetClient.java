@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.net;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,20 +8,23 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class NetClient implements Measured {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class NetClient implements ReifiedType,  Measured {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetClient.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetClient, NetClient> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetClient, NetClient>() {
-    public NetClient convert(io.vertx.core.net.NetClient src) {
-      return new NetClient(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetClient, NetClient> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.net.NetClient, NetClient>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetClient, NetClient> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.net.NetClient, NetClient>() {
+        public NetClient convert(io.vertx.core.net.NetClient src) {
+          return new NetClient(src);
+        }
+      };
     }
   };
 
@@ -30,10 +34,15 @@ public class NetClient implements Measured {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetClient.class);
   @Ignore private final io.vertx.core.net.NetClient delegate;
 
   public NetClient(io.vertx.core.net.NetClient delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -58,10 +67,10 @@ public class NetClient implements Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = connectHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetSocket>(connectHandler) {
       public Object toCeylon(io.vertx.core.net.NetSocket event) {
-        return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.safeConvert(delegate.connect(arg_0, arg_1, arg_2));
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.converter().safeConvert(delegate.connect(arg_0, arg_1, arg_2));
     return this;
   }
 

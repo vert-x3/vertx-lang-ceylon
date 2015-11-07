@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.datagram.DatagramSocket;
@@ -23,14 +25,16 @@ import io.vertx.ceylon.core.file.FileSystem;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.http.HttpClient;
 
-@DocAnnotation$annotation$(description = "todo")
-public class Vertx implements Measured {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Vertx implements ReifiedType,  Measured {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Vertx.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.Vertx, Vertx> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.Vertx, Vertx>() {
-    public Vertx convert(io.vertx.core.Vertx src) {
-      return new Vertx(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Vertx, Vertx> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Vertx, Vertx>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.Vertx, Vertx> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.Vertx, Vertx>() {
+        public Vertx convert(io.vertx.core.Vertx src) {
+          return new Vertx(src);
+        }
+      };
     }
   };
 
@@ -43,10 +47,15 @@ public class Vertx implements Measured {
   @Ignore private FileSystem cached_fileSystem;
   @Ignore private EventBus cached_eventBus;
   @Ignore private SharedData cached_sharedData;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Vertx.class);
   @Ignore private final io.vertx.core.Vertx delegate;
 
   public Vertx(io.vertx.core.Vertx delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -64,7 +73,7 @@ public class Vertx implements Measured {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Context")
   public Context getOrCreateContext() {
-    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.safeConvert(delegate.getOrCreateContext());
+    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(delegate.getOrCreateContext());
     return ret;
   }
 
@@ -73,14 +82,14 @@ public class Vertx implements Measured {
   public NetServer createNetServer(
     final @TypeInfo("io.vertx.ceylon.core.net::NetServerOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetServerOptions options) {
     io.vertx.core.net.NetServerOptions arg_0 = options == null ? null : new io.vertx.core.net.NetServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.createNetServer(arg_0));
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.createNetServer(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer createNetServer() {
-    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.safeConvert(delegate.createNetServer());
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.createNetServer());
     return ret;
   }
 
@@ -89,14 +98,14 @@ public class Vertx implements Measured {
   public NetClient createNetClient(
     final @TypeInfo("io.vertx.ceylon.core.net::NetClientOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.net.NetClientOptions options) {
     io.vertx.core.net.NetClientOptions arg_0 = options == null ? null : new io.vertx.core.net.NetClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.safeConvert(delegate.createNetClient(arg_0));
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.converter().safeConvert(delegate.createNetClient(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient createNetClient() {
-    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.safeConvert(delegate.createNetClient());
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.converter().safeConvert(delegate.createNetClient());
     return ret;
   }
 
@@ -105,14 +114,14 @@ public class Vertx implements Measured {
   public HttpServer createHttpServer(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpServerOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpServerOptions options) {
     io.vertx.core.http.HttpServerOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpServerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.createHttpServer(arg_0));
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.createHttpServer(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer createHttpServer() {
-    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.safeConvert(delegate.createHttpServer());
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.createHttpServer());
     return ret;
   }
 
@@ -121,14 +130,14 @@ public class Vertx implements Measured {
   public HttpClient createHttpClient(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpClientOptions options) {
     io.vertx.core.http.HttpClientOptions arg_0 = options == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.createHttpClient(arg_0));
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.createHttpClient(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient createHttpClient() {
-    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.safeConvert(delegate.createHttpClient());
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.createHttpClient());
     return ret;
   }
 
@@ -137,14 +146,14 @@ public class Vertx implements Measured {
   public DatagramSocket createDatagramSocket(
     final @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocketOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.datagram.DatagramSocketOptions options) {
     io.vertx.core.datagram.DatagramSocketOptions arg_0 = options == null ? null : new io.vertx.core.datagram.DatagramSocketOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.createDatagramSocket(arg_0));
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.createDatagramSocket(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket createDatagramSocket() {
-    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.safeConvert(delegate.createDatagramSocket());
+    DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.createDatagramSocket());
     return ret;
   }
 
@@ -154,7 +163,7 @@ public class Vertx implements Measured {
     if (cached_fileSystem != null) {
       return cached_fileSystem;
     }
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.fileSystem());
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.fileSystem());
     cached_fileSystem = ret;
     return ret;
   }
@@ -165,7 +174,7 @@ public class Vertx implements Measured {
     if (cached_eventBus != null) {
       return cached_eventBus;
     }
-    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.safeConvert(delegate.eventBus());
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.converter().safeConvert(delegate.eventBus());
     cached_eventBus = ret;
     return ret;
   }
@@ -177,7 +186,7 @@ public class Vertx implements Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.safeConvert(delegate.createDnsClient(arg_0, arg_1));
+    DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.converter().safeConvert(delegate.createDnsClient(arg_0, arg_1));
     return ret;
   }
 
@@ -187,7 +196,7 @@ public class Vertx implements Measured {
     if (cached_sharedData != null) {
       return cached_sharedData;
     }
-    SharedData ret = io.vertx.ceylon.core.shareddata.SharedData.TO_CEYLON.safeConvert(delegate.sharedData());
+    SharedData ret = io.vertx.ceylon.core.shareddata.SharedData.TO_CEYLON.converter().safeConvert(delegate.sharedData());
     cached_sharedData = ret;
     return ret;
   }
@@ -212,7 +221,7 @@ public class Vertx implements Measured {
   public TimeoutStream timerStream(
     final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay) {
     long arg_0 = delay;
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.timerStream(arg_0));
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.timerStream(arg_0));
     return ret;
   }
 
@@ -236,7 +245,7 @@ public class Vertx implements Measured {
   public TimeoutStream periodicStream(
     final @TypeInfo("ceylon.language::Integer") @Name("delay") @DocAnnotation$annotation$(description = "todo") long delay) {
     long arg_0 = delay;
-    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.safeConvert(delegate.periodicStream(arg_0));
+    TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.periodicStream(arg_0));
     return ret;
   }
 
@@ -368,13 +377,13 @@ public class Vertx implements Measured {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
+  public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
     boolean arg_1 = ordered;
@@ -391,12 +400,12 @@ public class Vertx implements Measured {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
+  public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {

@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
@@ -14,14 +16,16 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class Context {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class Context implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Context.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context>() {
-    public Context convert(io.vertx.core.Context src) {
-      return new Context(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.Context, Context>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.Context, Context>() {
+        public Context convert(io.vertx.core.Context src) {
+          return new Context(src);
+        }
+      };
     }
   };
 
@@ -31,10 +35,15 @@ public class Context {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Context.class);
   @Ignore private final io.vertx.core.Context delegate;
 
   public Context(io.vertx.core.Context delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -59,13 +68,13 @@ public class Context {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
+  public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "todo") boolean ordered, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
     boolean arg_1 = ordered;
@@ -82,12 +91,12 @@ public class Context {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public <T> void executeBlocking(
+  public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
@@ -145,7 +154,7 @@ public class Context {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
-  public <T> T get(
+  public <T> T get(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
@@ -174,7 +183,7 @@ public class Context {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx owner() {
-    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.safeConvert(delegate.owner());
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.owner());
     return ret;
   }
 

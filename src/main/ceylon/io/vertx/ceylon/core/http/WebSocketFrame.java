@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.http;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,18 +8,21 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 
-@DocAnnotation$annotation$(description = "todo")
-public class WebSocketFrame {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class WebSocketFrame implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocketFrame.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketFrame, WebSocketFrame> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketFrame, WebSocketFrame>() {
-    public WebSocketFrame convert(io.vertx.core.http.WebSocketFrame src) {
-      return new WebSocketFrame(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketFrame, WebSocketFrame> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.http.WebSocketFrame, WebSocketFrame>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketFrame, WebSocketFrame> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.http.WebSocketFrame, WebSocketFrame>() {
+        public WebSocketFrame convert(io.vertx.core.http.WebSocketFrame src) {
+          return new WebSocketFrame(src);
+        }
+      };
     }
   };
 
@@ -30,10 +34,15 @@ public class WebSocketFrame {
 
   @Ignore private ceylon.language.String cached_textData;
   @Ignore private Buffer cached_binaryData;
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocketFrame.class);
   @Ignore private final io.vertx.core.http.WebSocketFrame delegate;
 
   public WebSocketFrame(io.vertx.core.http.WebSocketFrame delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -79,7 +88,7 @@ public class WebSocketFrame {
     if (cached_binaryData != null) {
       return cached_binaryData;
     }
-    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.binaryData());
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.binaryData());
     cached_binaryData = ret;
     return ret;
   }

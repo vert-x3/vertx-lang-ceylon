@@ -1,5 +1,6 @@
 package io.vertx.ceylon.codegen.testmodel;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,17 +8,20 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
-@DocAnnotation$annotation$(description = "todo")
-public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ConcreteHandlerUserTypeExtension.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
-    public ConcreteHandlerUserTypeExtension convert(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension src) {
-      return new ConcreteHandlerUserTypeExtension(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
+        public ConcreteHandlerUserTypeExtension convert(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension src) {
+          return new ConcreteHandlerUserTypeExtension(src);
+        }
+      };
     }
   };
 
@@ -27,11 +31,16 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.te
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ConcreteHandlerUserTypeExtension.class);
   @Ignore private final io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate;
 
   public ConcreteHandlerUserTypeExtension(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate) {
     super(delegate);
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore

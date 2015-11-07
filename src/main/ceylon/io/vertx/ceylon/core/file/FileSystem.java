@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.file;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,6 +8,7 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
@@ -14,14 +16,16 @@ import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@DocAnnotation$annotation$(description = "todo")
-public class FileSystem {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class FileSystem implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FileSystem.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem>() {
-    public FileSystem convert(io.vertx.core.file.FileSystem src) {
-      return new FileSystem(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileSystem, FileSystem> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.file.FileSystem, FileSystem>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.file.FileSystem, FileSystem>() {
+        public FileSystem convert(io.vertx.core.file.FileSystem src) {
+          return new FileSystem(src);
+        }
+      };
     }
   };
 
@@ -31,10 +35,15 @@ public class FileSystem {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FileSystem.class);
   @Ignore private final io.vertx.core.file.FileSystem delegate;
 
   public FileSystem(io.vertx.core.file.FileSystem delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -55,7 +64,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.copy(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.copy(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -66,7 +75,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("to") @DocAnnotation$annotation$(description = "todo") ceylon.language.String to) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.copyBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.copyBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -85,7 +94,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.copyRecursive(arg_0, arg_1, arg_2, arg_3));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.copyRecursive(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -98,7 +107,7 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
     boolean arg_2 = recursive;
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.copyRecursiveBlocking(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.copyRecursiveBlocking(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -115,7 +124,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.move(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.move(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -126,7 +135,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("to") @DocAnnotation$annotation$(description = "todo") ceylon.language.String to) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.moveBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.moveBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -143,7 +152,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.truncate(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.truncate(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -154,7 +163,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::Integer") @Name("len") @DocAnnotation$annotation$(description = "todo") long len) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     long arg_1 = len;
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.truncateBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.truncateBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -171,7 +180,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chmod(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chmod(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -182,7 +191,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("perms") @DocAnnotation$annotation$(description = "todo") ceylon.language.String perms) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chmodBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chmodBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -201,7 +210,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chmodRecursive(arg_0, arg_1, arg_2, arg_3));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chmodRecursive(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -214,7 +223,7 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(dirPerms);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chmodRecursiveBlocking(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chmodRecursiveBlocking(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -233,7 +242,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chown(arg_0, arg_1, arg_2, arg_3));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chown(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -246,7 +255,7 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(user);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(group);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.chownBlocking(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.chownBlocking(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -258,10 +267,10 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileProps event) {
-        return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.props(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.props(arg_0, arg_1));
     return this;
   }
 
@@ -270,7 +279,7 @@ public class FileSystem {
   public FileProps propsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileProps ret = io.vertx.ceylon.core.file.FileProps.TO_CEYLON.safeConvert(delegate.propsBlocking(arg_0));
+    FileProps ret = io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(delegate.propsBlocking(arg_0));
     return ret;
   }
 
@@ -282,10 +291,10 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileProps event) {
-        return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.lprops(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.lprops(arg_0, arg_1));
     return this;
   }
 
@@ -294,7 +303,7 @@ public class FileSystem {
   public FileProps lpropsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileProps ret = io.vertx.ceylon.core.file.FileProps.TO_CEYLON.safeConvert(delegate.lpropsBlocking(arg_0));
+    FileProps ret = io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(delegate.lpropsBlocking(arg_0));
     return ret;
   }
 
@@ -311,7 +320,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.link(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.link(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -322,7 +331,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("existing") @DocAnnotation$annotation$(description = "todo") ceylon.language.String existing) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(existing);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.linkBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.linkBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -339,7 +348,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.symlink(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.symlink(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -350,7 +359,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("existing") @DocAnnotation$annotation$(description = "todo") ceylon.language.String existing) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(existing);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.symlinkBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.symlinkBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -365,7 +374,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.unlink(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.unlink(arg_0, arg_1));
     return this;
   }
 
@@ -374,7 +383,7 @@ public class FileSystem {
   public FileSystem unlinkBlocking(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.unlinkBlocking(arg_0));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.unlinkBlocking(arg_0));
     return this;
   }
 
@@ -389,7 +398,7 @@ public class FileSystem {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readSymlink(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.readSymlink(arg_0, arg_1));
     return this;
   }
 
@@ -413,7 +422,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.delete(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.delete(arg_0, arg_1));
     return this;
   }
 
@@ -422,7 +431,7 @@ public class FileSystem {
   public FileSystem deleteBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.deleteBlocking(arg_0));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.deleteBlocking(arg_0));
     return this;
   }
 
@@ -439,7 +448,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.deleteRecursive(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.deleteRecursive(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -450,7 +459,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::Boolean") @Name("recursive") @DocAnnotation$annotation$(description = "todo") boolean recursive) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     boolean arg_1 = recursive;
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.deleteRecursiveBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.deleteRecursiveBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -465,7 +474,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdir(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdir(arg_0, arg_1));
     return this;
   }
 
@@ -474,7 +483,7 @@ public class FileSystem {
   public FileSystem mkdirBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirBlocking(arg_0));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirBlocking(arg_0));
     return this;
   }
 
@@ -491,7 +500,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdir(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdir(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -502,7 +511,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("perms") @DocAnnotation$annotation$(description = "todo") ceylon.language.String perms) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -517,7 +526,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirs(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirs(arg_0, arg_1));
     return this;
   }
 
@@ -526,7 +535,7 @@ public class FileSystem {
   public FileSystem mkdirsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirsBlocking(arg_0));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirsBlocking(arg_0));
     return this;
   }
 
@@ -543,7 +552,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirs(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirs(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -554,7 +563,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("perms") @DocAnnotation$annotation$(description = "todo") ceylon.language.String perms) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.mkdirsBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.mkdirsBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -569,7 +578,7 @@ public class FileSystem {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readDir(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.readDir(arg_0, arg_1));
     return this;
   }
 
@@ -595,7 +604,7 @@ public class FileSystem {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readDir(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.readDir(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -618,10 +627,10 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.buffer.Buffer>(handler) {
       public Object toCeylon(io.vertx.core.buffer.Buffer event) {
-        return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.readFile(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.readFile(arg_0, arg_1));
     return this;
   }
 
@@ -630,7 +639,7 @@ public class FileSystem {
   public Buffer readFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.safeConvert(delegate.readFileBlocking(arg_0));
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.readFileBlocking(arg_0));
     return ret;
   }
 
@@ -647,7 +656,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.writeFile(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.writeFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -658,7 +667,7 @@ public class FileSystem {
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.writeFileBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.writeFileBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -672,10 +681,10 @@ public class FileSystem {
     io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.AsyncFile>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.AsyncFile>(handler) {
       public Object toCeylon(io.vertx.core.file.AsyncFile event) {
-        return io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.open(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.open(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -686,7 +695,7 @@ public class FileSystem {
     final @TypeInfo("io.vertx.ceylon.core.file::OpenOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.file.OpenOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.safeConvert(delegate.openBlocking(arg_0, arg_1));
+    AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.openBlocking(arg_0, arg_1));
     return ret;
   }
 
@@ -701,7 +710,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.createFile(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.createFile(arg_0, arg_1));
     return this;
   }
 
@@ -710,7 +719,7 @@ public class FileSystem {
   public FileSystem createFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.createFileBlocking(arg_0));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.createFileBlocking(arg_0));
     return this;
   }
 
@@ -727,7 +736,7 @@ public class FileSystem {
         return null;
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.createFile(arg_0, arg_1, arg_2));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.createFile(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -738,7 +747,7 @@ public class FileSystem {
     final @TypeInfo("ceylon.language::String") @Name("perms") @DocAnnotation$annotation$(description = "todo") ceylon.language.String perms) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.createFileBlocking(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.createFileBlocking(arg_0, arg_1));
     return this;
   }
 
@@ -753,7 +762,7 @@ public class FileSystem {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.exists(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.exists(arg_0, arg_1));
     return this;
   }
 
@@ -774,10 +783,10 @@ public class FileSystem {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileSystemProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileSystemProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileSystemProps event) {
-        return io.vertx.ceylon.core.file.FileSystemProps.TO_CEYLON.safeConvert(event);
+        return io.vertx.ceylon.core.file.FileSystemProps.TO_CEYLON.converter().safeConvert(event);
       }
     };
-    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.safeConvert(delegate.fsProps(arg_0, arg_1));
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.fsProps(arg_0, arg_1));
     return this;
   }
 
@@ -786,7 +795,7 @@ public class FileSystem {
   public FileSystemProps fsPropsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    FileSystemProps ret = io.vertx.ceylon.core.file.FileSystemProps.TO_CEYLON.safeConvert(delegate.fsPropsBlocking(arg_0));
+    FileSystemProps ret = io.vertx.ceylon.core.file.FileSystemProps.TO_CEYLON.converter().safeConvert(delegate.fsPropsBlocking(arg_0));
     return ret;
   }
 

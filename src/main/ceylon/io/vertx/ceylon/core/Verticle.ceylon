@@ -1,5 +1,5 @@
 import ceylon.json { JsonObject=Object }
-import io.vertx.core { AbstractVerticle_=AbstractVerticle, Future_=Future, Vertx_=Vertx, Handler_=Handler, DeploymentOptions_=DeploymentOptions, AsyncResult_=AsyncResult, Context_=Context }
+import io.vertx.core { Verticle_=Verticle,AbstractVerticle_=AbstractVerticle, Future_=Future, Vertx_=Vertx, Handler_=Handler, DeploymentOptions_=DeploymentOptions, AsyncResult_=AsyncResult, Context_=Context }
 import java.lang { Void_=Void, String_=String }
 
 shared abstract class Verticle() {
@@ -53,18 +53,6 @@ shared abstract class Verticle() {
       throw Exception("Already deployed to a Vert.x instance");
     }
 
-    object verticle_ extends AbstractVerticle_() {
-      shared actual void start(Future_<Void_> handler) {
-        outer.startAsync(Future<Anything>(handler));
-      }
-      shared actual void stop(Future_<Void_> handler) {
-        outer.stopAsync(Future<Anything>(handler));
-      }
-      shared actual void init(Vertx_ vertx, Context_ context) {
-        outer.init(Vertx(vertx), Context(context));
-      }
-    }
-
     DeploymentOptions_ options_;
     if (exists options) {
       options_ = toJavaDeploymentOptions.convert(options);
@@ -84,6 +72,21 @@ shared abstract class Verticle() {
       }
     }
 
-    Helper.deployVerticle(vertx, verticle_, options_, completionHandler_);
+    Helper.deployVerticle(vertx, nativeVerticle, options_, completionHandler_);
+  }
+
+  shared Verticle_ nativeVerticle {
+    object verticle_ extends AbstractVerticle_() {
+      shared actual void start(Future_<Void_> handler) {
+        outer.startAsync(Future<Anything>(handler));
+      }
+      shared actual void stop(Future_<Void_> handler) {
+        outer.stopAsync(Future<Anything>(handler));
+      }
+      shared actual void init(Vertx_ vertx, Context_ context) {
+        outer.init(Vertx(vertx), Context(context));
+      }
+    }
+    return verticle_;
   }
 }

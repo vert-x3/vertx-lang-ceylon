@@ -1,5 +1,6 @@
 package io.vertx.ceylon.core.cli;
 
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
 import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
@@ -7,18 +8,21 @@ import com.redhat.ceylon.compiler.java.metadata.Variance;
 import com.redhat.ceylon.compiler.java.metadata.Ignore;
 import com.redhat.ceylon.compiler.java.metadata.Name;
 import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
-@DocAnnotation$annotation$(description = "todo")
-public class CommandLine {
+@Ceylon(major = 8)@DocAnnotation$annotation$(description = "todo")
+public class CommandLine implements ReifiedType {
 
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(CommandLine.class);
-
-  public static final io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine> TO_CEYLON = new io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine>() {
-    public CommandLine convert(io.vertx.core.cli.CommandLine src) {
-      return new CommandLine(src);
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.cli.CommandLine, CommandLine> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.cli.CommandLine, CommandLine>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.core.cli.CommandLine, CommandLine>() {
+        public CommandLine convert(io.vertx.core.cli.CommandLine src) {
+          return new CommandLine(src);
+        }
+      };
     }
   };
 
@@ -28,10 +32,15 @@ public class CommandLine {
     }
   };
 
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(CommandLine.class);
   @Ignore private final io.vertx.core.cli.CommandLine delegate;
 
   public CommandLine(io.vertx.core.cli.CommandLine delegate) {
     this.delegate = delegate;
+  }
+
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
   }
 
   @Ignore
@@ -42,7 +51,7 @@ public class CommandLine {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI cli() {
-    CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.safeConvert(delegate.cli());
+    CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.cli());
     return ret;
   }
 
@@ -58,7 +67,7 @@ public class CommandLine {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
-  public <T> T getOptionValue(
+  public <T> T getOptionValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getOptionValue(arg_0));
@@ -70,7 +79,7 @@ public class CommandLine {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
-  public <T> T getArgumentValue(
+  public <T> T getArgumentValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
@@ -82,7 +91,7 @@ public class CommandLine {
   })
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
-  public <T> T getArgumentValue(
+  public <T> T getArgumentValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
     int arg_0 = (int)index;
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getArgumentValue(arg_0));
