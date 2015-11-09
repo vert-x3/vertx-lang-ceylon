@@ -9,11 +9,6 @@
     "fileName": "model.staticMethods.size() > 0 ? ('ceylon/' + model.type.translatePackageName('ceylon').replace('.', '/') + '/' + CASE_CAMEL.to(CASE_LOWER_CAMEL, model.type.simpleName) + '_.java') : null",
     "templateFileName": "vertx-ceylon/template/ceylon-object.templ"
   }, {
-    "kind": "class",
-    "incremental": true,
-    "fileName": "'ceylon/' + module.translateQualifiedName(module.packageName, 'ceylon').replace('.', '/') + '/module.ceylon'",
-    "templateFileName": "vertx-ceylon/template/ceylon-module.templ"
-  }, {
     "kind": "enum",
     "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-enum.templ"
