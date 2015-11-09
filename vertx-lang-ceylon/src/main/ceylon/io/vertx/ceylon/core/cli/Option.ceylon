@@ -18,7 +18,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.cli.Option */
 shared class Option(
   shared String? argName = null,
-  shared String? choices = null,
+  shared {String*}? choices = null,
   shared String? defaultValue = null,
   shared String? description = null,
   shared Boolean? flag = null,
@@ -35,7 +35,7 @@ shared class Option(
       json.put("argName", argName);
     }
     if (exists choices) {
-      json.put("choices", choices);
+      json.put("choices", JsonArray(choices));
     }
     if (exists defaultValue) {
       json.put("defaultValue", defaultValue);
@@ -76,7 +76,7 @@ shared object toCeylonOption extends Converter<Option_, Option>() {
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
     String? argName = json.getStringOrNull("argName");
-    String? choices = json.getStringOrNull("choices");
+    {String*}? choices = json.getArrayOrNull("choices")?.strings;
     String? defaultValue = json.getStringOrNull("defaultValue");
     String? description = json.getStringOrNull("description");
     Boolean? flag = json.getBooleanOrNull("flag");

@@ -25,10 +25,10 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(
   Integer? connectTimeout = null,
-  String? crlPaths = null,
+  {String*}? crlPaths = null,
   shared String? defaultHost = null,
   shared Integer? defaultPort = null,
-  String? enabledCipherSuites = null,
+  {String*}? enabledCipherSuites = null,
   Integer? idleTimeout = null,
   shared Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,

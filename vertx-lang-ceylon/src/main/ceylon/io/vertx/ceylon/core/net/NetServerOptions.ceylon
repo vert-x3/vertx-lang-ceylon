@@ -26,8 +26,8 @@ import io.vertx.core.json {
 shared class NetServerOptions(
   shared Integer? acceptBacklog = null,
   shared Boolean? clientAuthRequired = null,
-  String? crlPaths = null,
-  String? enabledCipherSuites = null,
+  {String*}? crlPaths = null,
+  {String*}? enabledCipherSuites = null,
   shared String? host = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,

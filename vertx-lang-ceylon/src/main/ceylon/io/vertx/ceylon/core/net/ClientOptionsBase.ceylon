@@ -25,8 +25,8 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.ClientOptionsBase */
 shared class ClientOptionsBase(
   shared Integer? connectTimeout = null,
-  String? crlPaths = null,
-  String? enabledCipherSuites = null,
+  {String*}? crlPaths = null,
+  {String*}? enabledCipherSuites = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,

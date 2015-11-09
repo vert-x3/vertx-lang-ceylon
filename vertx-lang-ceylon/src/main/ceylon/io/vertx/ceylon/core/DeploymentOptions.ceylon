@@ -18,10 +18,10 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.DeploymentOptions */
 shared class DeploymentOptions(
   shared JsonObject? config = null,
-  shared String? extraClasspath = null,
+  shared {String*}? extraClasspath = null,
   shared Boolean? ha = null,
   shared Integer? instances = null,
-  shared String? isolatedClasses = null,
+  shared {String*}? isolatedClasses = null,
   shared String? isolationGroup = null,
   shared Boolean? multiThreaded = null,
   shared Boolean? worker = null) satisfies BaseDataObject {
@@ -31,7 +31,7 @@ shared class DeploymentOptions(
       json.put("config", config);
     }
     if (exists extraClasspath) {
-      json.put("extraClasspath", extraClasspath);
+      json.put("extraClasspath", JsonArray(extraClasspath));
     }
     if (exists ha) {
       json.put("ha", ha);
@@ -40,7 +40,7 @@ shared class DeploymentOptions(
       json.put("instances", instances);
     }
     if (exists isolatedClasses) {
-      json.put("isolatedClasses", isolatedClasses);
+      json.put("isolatedClasses", JsonArray(isolatedClasses));
     }
     if (exists isolationGroup) {
       json.put("isolationGroup", isolationGroup);
@@ -60,10 +60,10 @@ shared object toCeylonDeploymentOptions extends Converter<DeploymentOptions_, De
     value json = parse(src.toJson().string);
     assert(is JsonObject json);
     JsonObject? config = json.getObjectOrNull("config");
-    String? extraClasspath = json.getStringOrNull("extraClasspath");
+    {String*}? extraClasspath = json.getArrayOrNull("extraClasspath")?.strings;
     Boolean? ha = json.getBooleanOrNull("ha");
     Integer? instances = json.getIntegerOrNull("instances");
-    String? isolatedClasses = json.getStringOrNull("isolatedClasses");
+    {String*}? isolatedClasses = json.getArrayOrNull("isolatedClasses")?.strings;
     String? isolationGroup = json.getStringOrNull("isolationGroup");
     Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
     Boolean? worker = json.getBooleanOrNull("worker");

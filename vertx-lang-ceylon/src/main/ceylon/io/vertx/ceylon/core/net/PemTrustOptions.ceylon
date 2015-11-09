@@ -17,12 +17,12 @@ import io.vertx.core.json {
 }
 /* Generated from io.vertx.core.net.PemTrustOptions */
 shared class PemTrustOptions(
-  shared String? certPaths = null) satisfies
+  shared {String*}? certPaths = null) satisfies
   TrustOptions & BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists certPaths) {
-      json.put("certPaths", certPaths);
+      json.put("certPaths", JsonArray(certPaths));
     }
     return json;
   }

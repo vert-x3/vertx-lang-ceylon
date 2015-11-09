@@ -2,97 +2,74 @@
 @includeNamed{'ceylon-imports.templ'}
 
 @code{
-  def genTypeDecl(type) {
+  def genPropTypeDecl(prop) {
+    var type = prop.type;
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = type.simpleName;
-      if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
-        decl = genTypeDecl(type.raw);
-        var sep = '<';
-        for (typeArg : type.args) {
-          decl += sep + genTypeDecl(typeArg);
-          sep = ',';
-        }
-        decl += '>';
-      }
     } else if (kind == CLASS_STRING || kind == CLASS_ENUM) {
       decl = 'String';
-    } else if (kind == CLASS_BOXED_PRIMITIVE) {
-      var name = type.name;
-      if (name == 'java.lang.Long' || name == 'java.lang.Integer' || name == 'java.lang.Short') {
-        decl = 'Integer';
-      } else if (name == 'java.lang.Float' || name == 'java.lang.Double') {
-        decl = 'Float';
-      } else if (name == 'java.lang.Boolean') {
-        decl = 'Boolean';
-      } else if (name == 'java.lang.Character') {
-        decl = 'Character';
-      } else if (name == 'java.lang.Byte') {
-        decl = 'Byte';
-      }
-    } else if (kind == CLASS_PRIMITIVE) {
-      var name = type.name;
-      if (name == 'long' || name == 'int' || name == 'short') {
-        decl = 'Integer';
-      } else if (name == 'float' || name == 'double') {
-        decl = 'Float';
-      } else if (name == 'boolean') {
-        decl = 'Boolean';
-      } else if (name == 'char') {
-        decl = 'Character';
-      } else if (name == 'byte') {
-        decl = 'Byte';
-      }
-    } else if (kind == CLASS_OBJECT) {
-      /* handle this instanceof better */
-      if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
-        if (type.param instanceof io.vertx.codegen.TypeParamInfo$Class) {
-          decl = type.name;
-        } else {
-          decl = 'Object';
-        }
-      } else {
-        decl = 'Object';
-      }
-    } else if (kind == CLASS_HANDLER) {
-      var arg = type.args[0];
-      if (arg.kind == CLASS_VOID) {
-        decl = 'Anything()';
-      } else if (arg.kind == CLASS_ASYNC_RESULT) {
-        var result = arg.args[0];
-        if (result.kind == CLASS_VOID) {
-          decl = 'Anything(Throwable?)';
-        } else {
-          decl = 'Anything(Throwable|' + genTypeDecl(result) + ')';
-        }
-      } else {
-        decl = 'Anything(' + genTypeDecl(type.args[0]) + ')';
-      }
-    } else if (kind == CLASS_THROWABLE) {
-      decl = 'Throwable';
+    } else if (isInteger(type)) {
+      decl = 'Integer';
+    } else if (isFloat(type)) {
+      decl = 'Float';
+    } else if (isBoolean(type)) {
+      decl = 'Boolean';
     } else if (kind == CLASS_DATA_OBJECT) {
       decl = type.simpleName;
-    } else if (kind == CLASS_LIST) {
-      decl = 'List<' + genTypeDecl(type.args[0]) + '>';
-    } else if (kind == CLASS_VOID) {
-      decl = 'Anything';
-    } else if (kind == CLASS_SET) {
-      decl = 'Set<' + genTypeDecl(type.args[0]) + '>';
-    } else if (kind == CLASS_LIST) {
-      decl = 'List<' + genTypeDecl(type.args[0])) + '>';
-    } else if (kind == CLASS_MAP) {
-      decl = 'Map<' + genTypeDecl(type.args[0]) + ',' + genTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
       decl = 'JsonObject';
     } else if (kind == CLASS_JSON_ARRAY) {
       decl = 'JsonArray';
-    } else if (kind == CLASS_OTHER) {
-      if (type instanceof io.vertx.codegen.TypeInfo$Void) {
-        decl = 'Anything';
+    } else {
+      return 'Nothing /* ' + prop +  ' */';
+    }
+    if (prop.kind.value) {
+      return decl;
+    } else if (prop.kind.list) {
+      return '{' + decl + '*}';
+    } else {
+      return 'Nothing /* ' + prop +  ' */';
+    }
+  }
+
+  def genPropToCeylonExpr(prop, expr) {
+    var type = prop.type;
+    if (prop.kind.value) {
+      if (type.kind == CLASS_STRING) {
+        return expr + '.getStringOrNull("' + prop.name + '")';
+      } else if (isInteger(type)) {
+        return expr + '.getIntegerOrNull("' + prop.name + '")';
+      } else if (isBoolean(type)) {
+        return expr + '.getBooleanOrNull("' + prop.name + '")';
+      } else if (isFloat(type)) {
+        return expr + '.getFloatOrNull("' + prop.name + '")';
+      } else if (type.kind == CLASS_JSON_OBJECT) {
+        return expr + '.getObjectOrNull("' + prop.name + '")';
+      } else if (type.kind == CLASS_JSON_ARRAY) {
+        return expr + '.getArrayOrNull(' + prop.name + ')';
+      } else if (type.kind == CLASS_DATA_OBJECT) {
+        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then to' + type.simpleName + '(tmp) else null';
+      }
+    } else if (prop.kind.list) {
+      if (type.kind == CLASS_STRING) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
+      } else if (isInteger(type)) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.integers';
+      } else if (isFloat(type)) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.floats';
+      } else if (isBoolean(type)) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.booleans';
+      } else if (type.kind == CLASS_JSON_OBJECT) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.objects';
+      } else if (type.kind == CLASS_JSON_ARRAY) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.arrays';
+      } else if (type.kind == CLASS_DATA_OBJECT) {
+        return 'if (exists tmp1 = ' + expr + '.getObjectOrNull("' + prop.name + '")) then { for(tmp2 in tmp1) ' + type.simpleName + '() } else null';
       }
     }
-    return decl;
+    return 'null /* ' + type + ' not handled */';
   }
 }
 
@@ -116,7 +93,7 @@
     if (propKind == CLASS_DATA_OBJECT) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
       if (jsonifiable) {
-        addClassImport(propType.translatePackageName('ceylon'), "to" + propType.simpleName, "to" + propType.simpleName);
+        addClassImport(propType.translatePackageName('ceylon'), "toCeylon" + propType.simpleName, "toCeylon" + propType.simpleName);
       }
     }
   }
@@ -132,7 +109,7 @@
 /* Generated from @{type.name} */\n
 shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@foreach{prop:props}
-\n  @if{prop.declared}shared @end{}@{genTypeDecl(prop.type)}? @{toCeylonIdentifier(prop.name)} = null
+\n  @if{prop.declared}shared @end{}@{genPropTypeDecl(prop)}? @{toCeylonIdentifier(prop.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}
 	@foreach{prop:props}
@@ -152,10 +129,20 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 		@code{propName=toCeylonIdentifier(prop.name)}
 		@code{propType=prop.type}
     if (exists @{propName}) {\n
-		@if{propType.kind.basic || propType.kind.json}
+		@if{prop.kind.value}
+			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", @{propName});\n
-		@else{propType.kind == CLASS_DATA_OBJECT}
+			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", @{propName}.toJson());\n
+			@end{}
+		@else{prop.kind.list}
+			@if{propType.kind.basic || propType.kind.json}
+      json.put("@{prop.name}", JsonArray(@{propName}));\n
+			@else{}
+      throw Exception("not yet implemented");\n
+			@end{}
+		@else{}
+      throw Exception("not yet implemented");\n
 		@end{}
     }\n
 	@end{}
@@ -173,28 +160,7 @@ shared object toCeylon@{type.simpleName} extends Converter<@{type.simpleName}_, 
 	@foreach{prop:props}
 		@code{propName=toCeylonIdentifier(prop.name)}
 		@code{propType=prop.type}
-		@if{propType.name == 'java.lang.String'}
-    String? @{propName} = json.getStringOrNull("@{prop.name}");\n
-		@else{propType.name == 'java.lang.Short' || propType.name == 'java.lang.Integer' || propType.name == 'java.lang.Long' || propType.name == 'short' || propType.name == 'int' || propType.name == 'long'}
-    Integer? @{propName} = json.getIntegerOrNull("@{prop.name}");\n
-		@else{propType.name == 'java.lang.Boolean' || propType.name == 'boolean'}
-    Boolean? @{propName} = json.getBooleanOrNull("@{prop.name}");\n
-		@else{propType.name == 'java.lang.Float' || propType.name == 'java.lang.Double' || propType.name == 'float' || propType.name == 'double'}
-    Float? @{propName} = json.getFloatOrNull("@{prop.name}");\n
-		@else{propType.name == 'io.vertx.core.json.JsonObject'}
-    JsonObject? @{propName} = json.getObjectOrNull("@{prop.name}");\n
-		@else{propType.name == 'io.vertx.core.json.JsonArray'}
-    JsonArray? @{propName} = json.getArrayOrNull("@{prop.name}");\n
-		@else{propType.kind == CLASS_DATA_OBJECT}
-    @{prop.type.simpleName}? @{propName};\n
-    if (exists tmp = json.getObjectOrNull("@{prop.name}")) {\n
-      @{propName} = to@{prop.type.simpleName}(tmp);\n
-    } else {\n
-      @{propName} = null;\n
-    }\n
-		@else{}
-    /* @{propType} not handled */\n
-		@end{}
+    @{genPropTypeDecl(prop)}? @{propName} = @{genPropToCeylonExpr(prop, 'json')};\n
 	@end{}
     return @{type.simpleName} {\n
 	@foreach{prop:props}

@@ -24,8 +24,8 @@ import io.vertx.core.json {
 }
 /* Generated from io.vertx.core.net.TCPSSLOptions */
 shared class TCPSSLOptions(
-  shared String? crlPaths = null,
-  shared String? enabledCipherSuites = null,
+  shared {String*}? crlPaths = null,
+  shared {String*}? enabledCipherSuites = null,
   shared Integer? idleTimeout = null,
   shared JksOptions? keyStoreOptions = null,
   shared PemKeyCertOptions? pemKeyCertOptions = null,
@@ -49,10 +49,10 @@ shared class TCPSSLOptions(
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists crlPaths) {
-      json.put("crlPaths", crlPaths);
+      json.put("crlPaths", JsonArray(crlPaths));
     }
     if (exists enabledCipherSuites) {
-      json.put("enabledCipherSuites", enabledCipherSuites);
+      json.put("enabledCipherSuites", JsonArray(enabledCipherSuites));
     }
     if (exists idleTimeout) {
       json.put("idleTimeout", idleTimeout);

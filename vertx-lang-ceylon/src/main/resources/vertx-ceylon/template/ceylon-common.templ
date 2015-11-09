@@ -1,4 +1,17 @@
 @code{
+
+  def isInteger(type) {
+    return type.name == 'java.lang.Long' || type.name == 'java.lang.Integer' || type.name == 'java.lang.Short' || type.name == 'long' || type.name == 'int' || type.name == 'short';
+  }
+
+  def isFloat(type) {
+    return type.name == 'java.lang.Float' || type.name == 'java.lang.Double' || type.name == 'float' || type.name == 'double';
+  }
+
+  def isBoolean(type) {
+    return type.name == 'java.lang.Boolean' || type.name == 'boolean';
+  }
+
   def toCeylonIdentifier(s) {
     if (s == 'value') {
       return '\\ivalue';
