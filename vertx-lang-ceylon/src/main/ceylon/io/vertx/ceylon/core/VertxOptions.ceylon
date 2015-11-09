@@ -3,6 +3,7 @@ import io.vertx.core {
 }
 import ceylon.json {
   JsonObject=Object,
+  JsonArray=Array,
   parse
 }
 import io.vertx.lang.ceylon {
@@ -14,7 +15,8 @@ import io.vertx.ceylon.core.metrics {
   MetricsOptions
 }
 import io.vertx.core.json {
-  JsonObject_=JsonObject
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.VertxOptions */
 shared class VertxOptions(

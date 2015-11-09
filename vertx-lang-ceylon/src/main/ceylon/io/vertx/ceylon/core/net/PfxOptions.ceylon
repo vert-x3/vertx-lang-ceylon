@@ -1,5 +1,6 @@
 import ceylon.json {
   JsonObject=Object,
+  JsonArray=Array,
   parse
 }
 import io.vertx.lang.ceylon {
@@ -11,7 +12,8 @@ import io.vertx.core.net {
   PfxOptions_=PfxOptions
 }
 import io.vertx.core.json {
-  JsonObject_=JsonObject
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.PfxOptions */
 shared class PfxOptions(

@@ -3,6 +3,7 @@ import io.vertx.codegen.testmodel {
 }
 import ceylon.json {
   JsonObject=Object,
+  JsonArray=Array,
   parse
 }
 import io.vertx.lang.ceylon {
@@ -11,7 +12,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.core.json {
-  JsonObject_=JsonObject
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.TestDataObject */
 shared class TestDataObject(

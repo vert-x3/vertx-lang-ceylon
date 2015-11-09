@@ -7,6 +7,7 @@ import io.vertx.ceylon.core.net {
 }
 import ceylon.json {
   JsonObject=Object,
+  JsonArray=Array,
   parse
 }
 import io.vertx.lang.ceylon {
@@ -18,7 +19,8 @@ import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
 }
 import io.vertx.core.json {
-  JsonObject_=JsonObject
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.http.HttpClientOptions */
 shared class HttpClientOptions(

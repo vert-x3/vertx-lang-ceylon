@@ -3,6 +3,7 @@ import io.vertx.core.cli {
 }
 import ceylon.json {
   JsonObject=Object,
+  JsonArray=Array,
   parse
 }
 import io.vertx.lang.ceylon {
@@ -11,7 +12,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.core.json {
-  JsonObject_=JsonObject
+  JsonObject_=JsonObject,
+  JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.cli.Option */
 shared class Option(
