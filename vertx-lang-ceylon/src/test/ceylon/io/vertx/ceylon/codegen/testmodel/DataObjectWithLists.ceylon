@@ -13,9 +13,9 @@ import io.vertx.lang.ceylon {
 }
 import io.vertx.ceylon.codegen.testmodel {
   TestDataObject,
-  testDataObject,
+  testDataObject_=testDataObject,
   TestGenEnum,
-  testGenEnum
+  testGenEnum_=testGenEnum
 }
 import io.vertx.core.json {
   JsonObject_=JsonObject,
@@ -41,7 +41,7 @@ shared class DataObjectWithLists(
       json.put("booleanValues", JsonArray(booleanValues));
     }
     if (exists dataObjectValues) {
-      json.put("dataObjectValues", JsonArray(dataObjectValues.map(testDataObject.toJson)));
+      json.put("dataObjectValues", JsonArray(dataObjectValues.map(testDataObject_.toJson)));
     }
     if (exists doubleValues) {
       json.put("doubleValues", JsonArray(doubleValues));
@@ -53,7 +53,7 @@ shared class DataObjectWithLists(
       json.put("floatValues", JsonArray(floatValues));
     }
     if (exists genEnumValues) {
-      json.put("genEnumValues", JsonArray(genEnumValues.map(testGenEnum.toString)));
+      json.put("genEnumValues", JsonArray(genEnumValues.map(testGenEnum_.toString)));
     }
     if (exists integerValues) {
       json.put("integerValues", JsonArray(integerValues));

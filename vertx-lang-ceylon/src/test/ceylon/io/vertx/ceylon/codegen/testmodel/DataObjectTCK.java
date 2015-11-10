@@ -52,6 +52,21 @@ public class DataObjectTCK implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithValues")
+  public io.vertx.ceylon.codegen.testmodel.DataObjectWithValues getDataObjectWithValues() {
+    io.vertx.ceylon.codegen.testmodel.DataObjectWithValues ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithValues_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithValues());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void setDataObjectWithValues(
+    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithValues") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithValues dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithValues arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithValues(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithValues(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithLists")
   public io.vertx.ceylon.codegen.testmodel.DataObjectWithLists getDataObjectWithLists() {
     io.vertx.ceylon.codegen.testmodel.DataObjectWithLists ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());

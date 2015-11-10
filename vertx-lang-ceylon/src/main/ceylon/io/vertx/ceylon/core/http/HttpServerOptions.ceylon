@@ -16,7 +16,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.ceylon.core.http {
-  ClientAuth
+  ClientAuth,
+  clientAuth_=clientAuth
 }
 import io.vertx.core.http {
   HttpServerOptions_=HttpServerOptions

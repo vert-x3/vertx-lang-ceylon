@@ -54,9 +54,15 @@
       } else if (type.kind == CLASS_JSON_OBJECT) {
         return expr + '.getObjectOrNull("' + prop.name + '")';
       } else if (type.kind == CLASS_JSON_ARRAY) {
-        return expr + '.getArrayOrNull(' + prop.name + ')';
+        return expr + '.getArrayOrNull("' + prop.name + '")';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then to' + type.simpleName + '(tmp) else null';
+        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromJson(tmp) else null';
+      } else if (type.kind == CLASS_ENUM) {
+        if (type.gen) {
+          return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromString(tmp) else null';
+        } else {
+          return expr + '.getStringOrNull("' + prop.name + '")';
+        }
       }
     } else if (prop.kind.list) {
       if (type.kind == CLASS_STRING) {
@@ -104,9 +110,9 @@
     }
     if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
-      if (jsonifiable) {
+      if (jsonifiable || propKind == CLASS_ENUM) {
         var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
-        addClassImport(propType.translatePackageName('ceylon'), objectName, objectName);
+        addClassImport(propType.translatePackageName('ceylon'), objectName, objectName + '_');
       }
     }
   }
@@ -147,15 +153,21 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
       json.put("@{prop.name}", @{propName});\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", @{propName}.toJson());\n
+			@else{propType.kind == CLASS_ENUM}
+				@if{propType.gen}
+      json.put("@{prop.name}", @{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toString(@{propName}));\n
+				@else{}
+      json.put("@{prop.name}", @{propName});\n
+				@end{}
 			@end{}
 		@else{prop.kind.list}
 			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
-      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}.toJson)));\n
+      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson)));\n
 			@else{propType.kind == CLASS_ENUM}
 				@if{propType.gen}
-      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}.toString)));\n
+      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toString)));\n
 				@else{}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
 				@end{}

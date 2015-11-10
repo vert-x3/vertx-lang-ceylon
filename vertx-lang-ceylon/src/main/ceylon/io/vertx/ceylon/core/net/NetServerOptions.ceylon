@@ -16,7 +16,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.ceylon.core.http {
-  ClientAuth
+  ClientAuth,
+  clientAuth_=clientAuth
 }
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
@@ -74,6 +75,7 @@ shared class NetServerOptions(
       json.put("acceptBacklog", acceptBacklog);
     }
     if (exists clientAuth) {
+      json.put("clientAuth", clientAuth_.toString(clientAuth));
     }
     if (exists clientAuthRequired) {
       json.put("clientAuthRequired", clientAuthRequired);

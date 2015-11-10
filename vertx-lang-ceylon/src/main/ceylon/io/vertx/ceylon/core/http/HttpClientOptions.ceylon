@@ -16,7 +16,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.ceylon.core.http {
-  HttpVersion
+  HttpVersion,
+  httpVersion_=httpVersion
 }
 import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
@@ -97,6 +98,7 @@ shared class HttpClientOptions(
       json.put("pipelining", pipelining);
     }
     if (exists protocolVersion) {
+      json.put("protocolVersion", httpVersion_.toString(protocolVersion));
     }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);
