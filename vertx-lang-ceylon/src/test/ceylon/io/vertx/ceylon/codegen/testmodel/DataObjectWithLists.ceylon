@@ -1,5 +1,5 @@
 import io.vertx.codegen.testmodel {
-  DataObjectCollection_=DataObjectCollection
+  DataObjectWithLists_=DataObjectWithLists
 }
 import ceylon.json {
   JsonObject=Object,
@@ -21,8 +21,8 @@ import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
 }
-/* Generated from io.vertx.codegen.testmodel.DataObjectCollection */
-shared class DataObjectCollection(
+/* Generated from io.vertx.codegen.testmodel.DataObjectWithLists */
+shared class DataObjectWithLists(
   shared {Boolean*}? booleanValues = null,
   shared {TestDataObject*}? dataObjectValues = null,
   shared {Float*}? doubleValues = null,
@@ -77,9 +77,9 @@ shared class DataObjectCollection(
   }
 }
 
-shared object dataObjectCollection {
+shared object dataObjectWithLists {
 
-  shared DataObjectCollection fromJson(JsonObject json) {
+  shared DataObjectWithLists fromJson(JsonObject json) {
     {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
     {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testDataObject.fromJson);
     {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
@@ -92,7 +92,7 @@ shared object dataObjectCollection {
     {Integer*}? longValues = json.getArrayOrNull("longValues")?.integers;
     {Integer*}? shortValues = json.getArrayOrNull("shortValues")?.integers;
     {String*}? stringValues = json.getArrayOrNull("stringValues")?.strings;
-    return DataObjectCollection {
+    return DataObjectWithLists {
       booleanValues = booleanValues;
       dataObjectValues = dataObjectValues;
       doubleValues = doubleValues;
@@ -108,21 +108,21 @@ shared object dataObjectCollection {
     };
   }
 
-  shared object toCeylon extends Converter<DataObjectCollection_, DataObjectCollection>() {
-    shared actual DataObjectCollection convert(DataObjectCollection_ src) {
+  shared object toCeylon extends Converter<DataObjectWithLists_, DataObjectWithLists>() {
+    shared actual DataObjectWithLists convert(DataObjectWithLists_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
       return fromJson(json);
     }
   }
 
-  shared object toJava extends Converter<DataObjectCollection, DataObjectCollection_>() {
-    shared actual DataObjectCollection_ convert(DataObjectCollection src) {
+  shared object toJava extends Converter<DataObjectWithLists, DataObjectWithLists_>() {
+    shared actual DataObjectWithLists_ convert(DataObjectWithLists src) {
       // Todo : make optimized version without json
       value json = JsonObject_(src.toJson().string);
-      value ret = DataObjectCollection_(json);
+      value ret = DataObjectWithLists_(json);
       return ret;
     }
   }
-  shared JsonObject toJson(DataObjectCollection obj) => obj.toJson();
+  shared JsonObject toJson(DataObjectWithLists obj) => obj.toJson();
 }

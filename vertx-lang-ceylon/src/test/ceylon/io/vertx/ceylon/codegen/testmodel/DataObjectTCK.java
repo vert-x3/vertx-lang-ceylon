@@ -52,18 +52,18 @@ public class DataObjectTCK implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectCollection")
-  public io.vertx.ceylon.codegen.testmodel.DataObjectCollection getDataObjectCollection() {
-    io.vertx.ceylon.codegen.testmodel.DataObjectCollection ret = io.vertx.ceylon.codegen.testmodel.dataObjectCollection_.get_().getToCeylon().safeConvert(delegate.getDataObjectCollection());
+  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithLists")
+  public io.vertx.ceylon.codegen.testmodel.DataObjectWithLists getDataObjectWithLists() {
+    io.vertx.ceylon.codegen.testmodel.DataObjectWithLists ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
-  public void setDataObjectCollection(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectCollection") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectCollection dataObject) {
-    io.vertx.codegen.testmodel.DataObjectCollection arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectCollection(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
-    delegate.setDataObjectCollection(arg_0);
+  public void setDataObjectWithLists(
+    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithLists") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithLists dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithLists arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithLists(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithLists(arg_0);
   }
 
 }
