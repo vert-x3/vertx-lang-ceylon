@@ -28,11 +28,14 @@ shared class PemTrustOptions(
   }
 }
 
-shared object toJavaPemTrustOptions extends Converter<PemTrustOptions, PemTrustOptions_>() {
-  shared actual PemTrustOptions_ convert(PemTrustOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = PemTrustOptions_(json);
-    return ret;
+shared object pemTrust {
+
+  shared object toJava extends Converter<PemTrustOptions, PemTrustOptions_>() {
+    shared actual PemTrustOptions_ convert(PemTrustOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = PemTrustOptions_(json);
+      return ret;
+    }
   }
 }

@@ -51,34 +51,37 @@ shared class Argument(
   }
 }
 
-shared object toCeylonArgument extends Converter<Argument_, Argument>() {
-  shared actual Argument convert(Argument_ src) {
-    value json = parse(src.toJson().string);
-    assert(is JsonObject json);
-    String? argName = json.getStringOrNull("argName");
-    String? defaultValue = json.getStringOrNull("defaultValue");
-    String? description = json.getStringOrNull("description");
-    Boolean? hidden = json.getBooleanOrNull("hidden");
-    Integer? index = json.getIntegerOrNull("index");
-    Boolean? multiValued = json.getBooleanOrNull("multiValued");
-    Boolean? required = json.getBooleanOrNull("required");
-    return Argument {
-      argName = argName;
-      defaultValue = defaultValue;
-      description = description;
-      hidden = hidden;
-      index = index;
-      multiValued = multiValued;
-      required = required;
-    };
-  }
-}
+shared object argument {
 
-shared object toJavaArgument extends Converter<Argument, Argument_>() {
-  shared actual Argument_ convert(Argument src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = Argument_(json);
-    return ret;
+  shared object toCeylon extends Converter<Argument_, Argument>() {
+    shared actual Argument convert(Argument_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      String? argName = json.getStringOrNull("argName");
+      String? defaultValue = json.getStringOrNull("defaultValue");
+      String? description = json.getStringOrNull("description");
+      Boolean? hidden = json.getBooleanOrNull("hidden");
+      Integer? index = json.getIntegerOrNull("index");
+      Boolean? multiValued = json.getBooleanOrNull("multiValued");
+      Boolean? required = json.getBooleanOrNull("required");
+      return Argument {
+        argName = argName;
+        defaultValue = defaultValue;
+        description = description;
+        hidden = hidden;
+        index = index;
+        multiValued = multiValued;
+        required = required;
+      };
+    }
+  }
+
+  shared object toJava extends Converter<Argument, Argument_>() {
+    shared actual Argument_ convert(Argument src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = Argument_(json);
+      return ret;
+    }
   }
 }

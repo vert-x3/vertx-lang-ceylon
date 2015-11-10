@@ -93,3 +93,6 @@ shared class TCPSSLOptions(
     return json;
   }
 }
+
+shared object tcpsslOptions {
+}

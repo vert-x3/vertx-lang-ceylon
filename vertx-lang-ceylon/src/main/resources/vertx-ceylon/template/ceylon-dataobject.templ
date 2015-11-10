@@ -93,7 +93,8 @@
     if (propKind == CLASS_DATA_OBJECT) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
       if (jsonifiable) {
-        addClassImport(propType.translatePackageName('ceylon'), "toCeylon" + propType.simpleName, "toCeylon" + propType.simpleName);
+        var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
+        addClassImport(propType.translatePackageName('ceylon'), objectName, objectName);
       }
     }
   }
@@ -151,35 +152,40 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
   }\n
 }\n
 
+\n
+shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
+
 @if{isClass && jsonifiable}
 \n
-shared object toCeylon@{type.simpleName} extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
-  shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
-    value json = parse(src.toJson().string);\n
-    assert(is JsonObject json);\n
+  shared object toCeylon extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
+    shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
+      value json = parse(src.toJson().string);\n
+      assert(is JsonObject json);\n
 	@foreach{prop:props}
 		@code{propName=toCeylonIdentifier(prop.name)}
 		@code{propType=prop.type}
-    @{genPropTypeDecl(prop)}? @{propName} = @{genPropToCeylonExpr(prop, 'json')};\n
+      @{genPropTypeDecl(prop)}? @{propName} = @{genPropToCeylonExpr(prop, 'json')};\n
 	@end{}
-    return @{type.simpleName} {\n
+      return @{type.simpleName} {\n
 	@foreach{prop:props}
 		@code{propName=toCeylonIdentifier(prop.name)}
-      @{propName} = @{propName};\n
+        @{propName} = @{propName};\n
 	@end{}
-    };\n
+      };\n
+    }\n
   }\n
-}\n
 @end{}
 
 @if{isClass && concrete}
 \n
-shared object toJava@{type.simpleName} extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
-  shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
-    // Todo : make optimized version without json\n
-    value json = JsonObject_(src.toJson().string);\n
-    value ret = @{type.simpleName}_(json);\n
-    return ret;\n
+  shared object toJava extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
+    shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
+      // Todo : make optimized version without json\n
+      value json = JsonObject_(src.toJson().string);\n
+      value ret = @{type.simpleName}_(json);\n
+      return ret;\n
+    }\n
   }\n
-}\n
 @end{}
+
+}\n

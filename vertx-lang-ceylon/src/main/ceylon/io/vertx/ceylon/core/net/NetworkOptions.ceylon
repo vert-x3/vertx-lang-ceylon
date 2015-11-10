@@ -38,3 +38,6 @@ shared class NetworkOptions(
     return json;
   }
 }
+
+shared object networkOptions {
+}

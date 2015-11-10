@@ -22,3 +22,6 @@ shared interface TrustOptions satisfies BaseDataObject {
     return json;
   }
 }
+
+shared object trustOptions {
+}

@@ -758,7 +758,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.TestDataObject>() {
       public void handle(io.vertx.codegen.testmodel.TestDataObject event) {
-        handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_().safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon().safeConvert(event));
       }
     };
     delegate.methodWithNullableDataObjectHandler(arg_0, arg_1);
@@ -772,7 +772,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestDataObject>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.TestDataObject event) {
-        return io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_().safeConvert(event);
+        return io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon().safeConvert(event);
       }
     };
     delegate.methodWithNullableDataObjectHandlerAsyncResult(arg_0, arg_1);
@@ -783,7 +783,7 @@ public class NullableTCK implements ReifiedType {
   public io.vertx.ceylon.codegen.testmodel.TestDataObject methodWithNullableDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
     boolean arg_0 = notNull;
-    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_().safeConvert(delegate.methodWithNullableDataObjectReturn(arg_0));
+    io.vertx.ceylon.codegen.testmodel.TestDataObject ret = io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon().safeConvert(delegate.methodWithNullableDataObjectReturn(arg_0));
     return ret;
   }
 
@@ -1650,7 +1650,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListDataObjectParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     boolean ret = delegate.methodWithNonNullableListDataObjectParam(arg_0);
     return ret;
   }
@@ -1661,7 +1661,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject>?") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
     boolean arg_0 = expectNull;
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_1 = io.vertx.lang.ceylon.ToJava.convertList(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_1 = io.vertx.lang.ceylon.ToJava.convertList(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     delegate.methodWithNullableListDataObjectParam(arg_0, arg_1);
   }
 
@@ -1673,7 +1673,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon()));
       }
     };
     delegate.methodWithNullableListDataObjectHandler(arg_0, arg_1);
@@ -1687,7 +1687,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
       }
     };
     delegate.methodWithNullableListDataObjectHandlerAsyncResult(arg_0, arg_1);
@@ -1698,7 +1698,7 @@ public class NullableTCK implements ReifiedType {
   public ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithNullableListDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
     boolean arg_0 = notNull;
-    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithNullableListDataObjectReturn(arg_0), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithNullableListDataObjectReturn(arg_0), io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
     return ret;
   }
 
@@ -2490,7 +2490,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetDataObjectParam(
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     boolean ret = delegate.methodWithNonNullableSetDataObjectParam(arg_0);
     return ret;
   }
@@ -2501,7 +2501,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.codegen.testmodel::TestDataObject>?") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
     boolean arg_0 = expectNull;
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_1 = io.vertx.lang.ceylon.ToJava.convertSet(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_1 = io.vertx.lang.ceylon.ToJava.convertSet(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     delegate.methodWithNullableSetDataObjectParam(arg_0, arg_1);
   }
 
@@ -2513,7 +2513,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon()));
       }
     };
     delegate.methodWithNullableSetDataObjectHandler(arg_0, arg_1);
@@ -2527,7 +2527,7 @@ public class NullableTCK implements ReifiedType {
     boolean arg_0 = notNull;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
       }
     };
     delegate.methodWithNullableSetDataObjectHandlerAsyncResult(arg_0, arg_1);
@@ -2538,7 +2538,7 @@ public class NullableTCK implements ReifiedType {
   public ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithNullableSetDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
     boolean arg_0 = notNull;
-    ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithNullableSetDataObjectReturn(arg_0), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+    ceylon.language.Set<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithNullableSetDataObjectReturn(arg_0), io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
     return ret;
   }
 
@@ -3761,7 +3761,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertListOfNullable(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertListOfNullable(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     delegate.methodWithListNullableDataObjectParam(arg_0);
   }
 
@@ -3771,7 +3771,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon()));
       }
     };
     delegate.methodWithListNullableDataObjectHandler(arg_0);
@@ -3783,7 +3783,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
       }
     };
     delegate.methodWithListNullableDataObjectHandlerAsyncResult(arg_0);
@@ -3792,7 +3792,7 @@ public class NullableTCK implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.codegen.testmodel::TestDataObject?>")
   public ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithListNullableDataObjectReturn() {
-    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+    ceylon.language.List<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
     return ret;
   }
 
@@ -4346,7 +4346,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectParam(
     final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> param) {
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertSetOfNullable(param, io.vertx.ceylon.codegen.testmodel.toJavaTestDataObject_.get_());
+    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertSetOfNullable(param, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToJava());
     delegate.methodWithSetNullableDataObjectParam(arg_0);
   }
 
@@ -4356,7 +4356,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() {
       public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_()));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon()));
       }
     };
     delegate.methodWithSetNullableDataObjectHandler(arg_0);
@@ -4368,7 +4368,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+        return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
       }
     };
     delegate.methodWithSetNullableDataObjectHandlerAsyncResult(arg_0);
@@ -4377,7 +4377,7 @@ public class NullableTCK implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.codegen.testmodel::TestDataObject?>")
   public ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> methodWithSetNullableDataObjectReturn() {
-    ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.toCeylonTestDataObject_.get_());
+    ceylon.language.Collection<io.vertx.ceylon.codegen.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.codegen.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetNullableDataObjectReturn(), io.vertx.ceylon.codegen.testmodel.testData_.get_().getToCeylon());
     return ret;
   }
 

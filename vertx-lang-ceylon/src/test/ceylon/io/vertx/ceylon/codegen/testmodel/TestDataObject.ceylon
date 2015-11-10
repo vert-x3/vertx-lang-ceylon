@@ -35,26 +35,29 @@ shared class TestDataObject(
   }
 }
 
-shared object toCeylonTestDataObject extends Converter<TestDataObject_, TestDataObject>() {
-  shared actual TestDataObject convert(TestDataObject_ src) {
-    value json = parse(src.toJson().string);
-    assert(is JsonObject json);
-    Integer? bar = json.getIntegerOrNull("bar");
-    String? foo = json.getStringOrNull("foo");
-    Float? wibble = json.getFloatOrNull("wibble");
-    return TestDataObject {
-      bar = bar;
-      foo = foo;
-      wibble = wibble;
-    };
-  }
-}
+shared object testData {
 
-shared object toJavaTestDataObject extends Converter<TestDataObject, TestDataObject_>() {
-  shared actual TestDataObject_ convert(TestDataObject src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = TestDataObject_(json);
-    return ret;
+  shared object toCeylon extends Converter<TestDataObject_, TestDataObject>() {
+    shared actual TestDataObject convert(TestDataObject_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      Integer? bar = json.getIntegerOrNull("bar");
+      String? foo = json.getStringOrNull("foo");
+      Float? wibble = json.getFloatOrNull("wibble");
+      return TestDataObject {
+        bar = bar;
+        foo = foo;
+        wibble = wibble;
+      };
+    }
+  }
+
+  shared object toJava extends Converter<TestDataObject, TestDataObject_>() {
+    shared actual TestDataObject_ convert(TestDataObject src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = TestDataObject_(json);
+      return ret;
+    }
   }
 }

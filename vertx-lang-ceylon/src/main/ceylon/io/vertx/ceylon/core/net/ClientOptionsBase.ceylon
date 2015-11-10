@@ -73,3 +73,6 @@ shared class ClientOptionsBase(
     return json;
   }
 }
+
+shared object clientOptions {
+}

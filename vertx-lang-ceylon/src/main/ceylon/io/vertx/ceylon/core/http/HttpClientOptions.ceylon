@@ -102,11 +102,14 @@ shared class HttpClientOptions(
   }
 }
 
-shared object toJavaHttpClientOptions extends Converter<HttpClientOptions, HttpClientOptions_>() {
-  shared actual HttpClientOptions_ convert(HttpClientOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = HttpClientOptions_(json);
-    return ret;
+shared object httpClient {
+
+  shared object toJava extends Converter<HttpClientOptions, HttpClientOptions_>() {
+    shared actual HttpClientOptions_ convert(HttpClientOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = HttpClientOptions_(json);
+      return ret;
+    }
   }
 }

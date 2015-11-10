@@ -32,11 +32,14 @@ shared class PemKeyCertOptions(
   }
 }
 
-shared object toJavaPemKeyCertOptions extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
-  shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = PemKeyCertOptions_(json);
-    return ret;
+shared object pemKey {
+
+  shared object toJava extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
+    shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = PemKeyCertOptions_(json);
+      return ret;
+    }
   }
 }

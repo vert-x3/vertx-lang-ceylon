@@ -90,11 +90,14 @@ shared class HttpServerOptions(
   }
 }
 
-shared object toJavaHttpServerOptions extends Converter<HttpServerOptions, HttpServerOptions_>() {
-  shared actual HttpServerOptions_ convert(HttpServerOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = HttpServerOptions_(json);
-    return ret;
+shared object httpServer {
+
+  shared object toJava extends Converter<HttpServerOptions, HttpServerOptions_>() {
+    shared actual HttpServerOptions_ convert(HttpServerOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = HttpServerOptions_(json);
+      return ret;
+    }
   }
 }

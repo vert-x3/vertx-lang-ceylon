@@ -82,11 +82,14 @@ shared class NetServerOptions(
   }
 }
 
-shared object toJavaNetServerOptions extends Converter<NetServerOptions, NetServerOptions_>() {
-  shared actual NetServerOptions_ convert(NetServerOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = NetServerOptions_(json);
-    return ret;
+shared object netServer {
+
+  shared object toJava extends Converter<NetServerOptions, NetServerOptions_>() {
+    shared actual NetServerOptions_ convert(NetServerOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = NetServerOptions_(json);
+      return ret;
+    }
   }
 }

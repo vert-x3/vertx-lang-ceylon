@@ -93,7 +93,7 @@
     } else if (kind == CLASS_API) {
       return type.translateName('ceylon') + '.TO_JAVA';
     } else if (kind == CLASS_DATA_OBJECT) {
-      return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_()';
+      return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
         return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_()';
@@ -120,7 +120,7 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_().safeConvert(' + expr + ')';
+        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon().safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var eltType = type.args[0];
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.convertList' : 'io.vertx.lang.ceylon.ToCeylon.convertSet';
@@ -167,7 +167,7 @@
     if (kind.basic || kind.json) {
       return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName;
     } else if (kind == CLASS_DATA_OBJECT) {
-      return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_()';
+      return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
     } else if (kind == CLASS_API) {
       return type.translateName('ceylon') + '.TO_CEYLON.converter()';
     } else if (kind == CLASS_ENUM) {

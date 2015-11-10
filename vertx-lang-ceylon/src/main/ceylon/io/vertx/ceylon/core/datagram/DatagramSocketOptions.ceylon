@@ -54,11 +54,14 @@ shared class DatagramSocketOptions(
   }
 }
 
-shared object toJavaDatagramSocketOptions extends Converter<DatagramSocketOptions, DatagramSocketOptions_>() {
-  shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = DatagramSocketOptions_(json);
-    return ret;
+shared object datagramSocket {
+
+  shared object toJava extends Converter<DatagramSocketOptions, DatagramSocketOptions_>() {
+    shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = DatagramSocketOptions_(json);
+      return ret;
+    }
   }
 }

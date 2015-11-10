@@ -54,7 +54,7 @@ public class DataObjectTCK implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectCollection")
   public io.vertx.ceylon.codegen.testmodel.DataObjectCollection getDataObjectCollection() {
-    io.vertx.ceylon.codegen.testmodel.DataObjectCollection ret = io.vertx.ceylon.codegen.testmodel.toCeylonDataObjectCollection_.get_().safeConvert(delegate.getDataObjectCollection());
+    io.vertx.ceylon.codegen.testmodel.DataObjectCollection ret = io.vertx.ceylon.codegen.testmodel.dataObject_.get_().getToCeylon().safeConvert(delegate.getDataObjectCollection());
     return ret;
   }
 

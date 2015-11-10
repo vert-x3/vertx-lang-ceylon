@@ -33,11 +33,14 @@ shared class JksOptions(
   }
 }
 
-shared object toJavaJksOptions extends Converter<JksOptions, JksOptions_>() {
-  shared actual JksOptions_ convert(JksOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = JksOptions_(json);
-    return ret;
+shared object jksOptions {
+
+  shared object toJava extends Converter<JksOptions, JksOptions_>() {
+    shared actual JksOptions_ convert(JksOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = JksOptions_(json);
+      return ret;
+    }
   }
 }

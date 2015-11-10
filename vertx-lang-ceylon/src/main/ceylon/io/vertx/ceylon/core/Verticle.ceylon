@@ -55,7 +55,7 @@ shared abstract class Verticle() {
 
     DeploymentOptions_ options_;
     if (exists options) {
-      options_ = toJavaDeploymentOptions.convert(options);
+      options_ = deploymentOptions.toJava.convert(options);
     } else {
       options_ = DeploymentOptions_();
     }

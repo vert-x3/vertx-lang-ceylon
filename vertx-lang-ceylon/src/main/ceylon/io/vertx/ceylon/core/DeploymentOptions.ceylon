@@ -55,36 +55,39 @@ shared class DeploymentOptions(
   }
 }
 
-shared object toCeylonDeploymentOptions extends Converter<DeploymentOptions_, DeploymentOptions>() {
-  shared actual DeploymentOptions convert(DeploymentOptions_ src) {
-    value json = parse(src.toJson().string);
-    assert(is JsonObject json);
-    JsonObject? config = json.getObjectOrNull("config");
-    {String*}? extraClasspath = json.getArrayOrNull("extraClasspath")?.strings;
-    Boolean? ha = json.getBooleanOrNull("ha");
-    Integer? instances = json.getIntegerOrNull("instances");
-    {String*}? isolatedClasses = json.getArrayOrNull("isolatedClasses")?.strings;
-    String? isolationGroup = json.getStringOrNull("isolationGroup");
-    Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
-    Boolean? worker = json.getBooleanOrNull("worker");
-    return DeploymentOptions {
-      config = config;
-      extraClasspath = extraClasspath;
-      ha = ha;
-      instances = instances;
-      isolatedClasses = isolatedClasses;
-      isolationGroup = isolationGroup;
-      multiThreaded = multiThreaded;
-      worker = worker;
-    };
-  }
-}
+shared object deploymentOptions {
 
-shared object toJavaDeploymentOptions extends Converter<DeploymentOptions, DeploymentOptions_>() {
-  shared actual DeploymentOptions_ convert(DeploymentOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = DeploymentOptions_(json);
-    return ret;
+  shared object toCeylon extends Converter<DeploymentOptions_, DeploymentOptions>() {
+    shared actual DeploymentOptions convert(DeploymentOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      JsonObject? config = json.getObjectOrNull("config");
+      {String*}? extraClasspath = json.getArrayOrNull("extraClasspath")?.strings;
+      Boolean? ha = json.getBooleanOrNull("ha");
+      Integer? instances = json.getIntegerOrNull("instances");
+      {String*}? isolatedClasses = json.getArrayOrNull("isolatedClasses")?.strings;
+      String? isolationGroup = json.getStringOrNull("isolationGroup");
+      Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
+      Boolean? worker = json.getBooleanOrNull("worker");
+      return DeploymentOptions {
+        config = config;
+        extraClasspath = extraClasspath;
+        ha = ha;
+        instances = instances;
+        isolatedClasses = isolatedClasses;
+        isolationGroup = isolationGroup;
+        multiThreaded = multiThreaded;
+        worker = worker;
+      };
+    }
+  }
+
+  shared object toJava extends Converter<DeploymentOptions, DeploymentOptions_>() {
+    shared actual DeploymentOptions_ convert(DeploymentOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = DeploymentOptions_(json);
+      return ret;
+    }
   }
 }

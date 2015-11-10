@@ -31,11 +31,14 @@ shared class DeliveryOptions(
   }
 }
 
-shared object toJavaDeliveryOptions extends Converter<DeliveryOptions, DeliveryOptions_>() {
-  shared actual DeliveryOptions_ convert(DeliveryOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = DeliveryOptions_(json);
-    return ret;
+shared object deliveryOptions {
+
+  shared object toJava extends Converter<DeliveryOptions, DeliveryOptions_>() {
+    shared actual DeliveryOptions_ convert(DeliveryOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = DeliveryOptions_(json);
+      return ret;
+    }
   }
 }

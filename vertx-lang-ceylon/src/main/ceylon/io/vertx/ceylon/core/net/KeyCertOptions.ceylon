@@ -22,3 +22,6 @@ shared interface KeyCertOptions satisfies BaseDataObject {
     return json;
   }
 }
+
+shared object keyCert {
+}

@@ -27,22 +27,25 @@ shared class MetricsOptions(
   }
 }
 
-shared object toCeylonMetricsOptions extends Converter<MetricsOptions_, MetricsOptions>() {
-  shared actual MetricsOptions convert(MetricsOptions_ src) {
-    value json = parse(src.toJson().string);
-    assert(is JsonObject json);
-    Boolean? enabled = json.getBooleanOrNull("enabled");
-    return MetricsOptions {
-      enabled = enabled;
-    };
-  }
-}
+shared object metricsOptions {
 
-shared object toJavaMetricsOptions extends Converter<MetricsOptions, MetricsOptions_>() {
-  shared actual MetricsOptions_ convert(MetricsOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = MetricsOptions_(json);
-    return ret;
+  shared object toCeylon extends Converter<MetricsOptions_, MetricsOptions>() {
+    shared actual MetricsOptions convert(MetricsOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      Boolean? enabled = json.getBooleanOrNull("enabled");
+      return MetricsOptions {
+        enabled = enabled;
+      };
+    }
+  }
+
+  shared object toJava extends Converter<MetricsOptions, MetricsOptions_>() {
+    shared actual MetricsOptions_ convert(MetricsOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = MetricsOptions_(json);
+      return ret;
+    }
   }
 }

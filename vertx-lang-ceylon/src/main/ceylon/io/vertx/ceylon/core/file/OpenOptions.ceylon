@@ -63,11 +63,14 @@ shared class OpenOptions(
   }
 }
 
-shared object toJavaOpenOptions extends Converter<OpenOptions, OpenOptions_>() {
-  shared actual OpenOptions_ convert(OpenOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = OpenOptions_(json);
-    return ret;
+shared object openOptions {
+
+  shared object toJava extends Converter<OpenOptions, OpenOptions_>() {
+    shared actual OpenOptions_ convert(OpenOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = OpenOptions_(json);
+      return ret;
+    }
   }
 }

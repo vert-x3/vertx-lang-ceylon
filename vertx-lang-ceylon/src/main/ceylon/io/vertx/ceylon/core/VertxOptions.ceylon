@@ -98,11 +98,14 @@ shared class VertxOptions(
   }
 }
 
-shared object toJavaVertxOptions extends Converter<VertxOptions, VertxOptions_>() {
-  shared actual VertxOptions_ convert(VertxOptions src) {
-    // Todo : make optimized version without json
-    value json = JsonObject_(src.toJson().string);
-    value ret = VertxOptions_(json);
-    return ret;
+shared object vertxOptions {
+
+  shared object toJava extends Converter<VertxOptions, VertxOptions_>() {
+    shared actual VertxOptions_ convert(VertxOptions src) {
+      // Todo : make optimized version without json
+      value json = JsonObject_(src.toJson().string);
+      value ret = VertxOptions_(json);
+      return ret;
+    }
   }
 }
