@@ -73,4 +73,5 @@ shared object openOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(OpenOptions obj) => obj.toJson();
 }

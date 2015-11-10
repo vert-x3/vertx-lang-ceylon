@@ -43,4 +43,5 @@ shared object jksOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(JksOptions obj) => obj.toJson();
 }

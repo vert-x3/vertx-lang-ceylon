@@ -66,7 +66,7 @@
       } else if (type.kind == CLASS_JSON_ARRAY) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.arrays';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return 'if (exists tmp1 = ' + expr + '.getObjectOrNull("' + prop.name + '")) then { for(tmp2 in tmp1) ' + type.simpleName + '() } else null';
+        return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromJson)';
       }
     }
     return 'null /* ' + type + ' not handled */';
@@ -139,6 +139,8 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 		@else{prop.kind.list}
 			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
+			@else{propType.kind == CLASS_DATA_OBJECT}
+      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}.toJson)));\n
 			@else{}
       throw Exception("not yet implemented");\n
 			@end{}
@@ -157,21 +159,25 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
 
 @if{isClass && jsonifiable}
 \n
+  shared @{type.simpleName} fromJson(JsonObject json) {\n
+	@foreach{prop:props}
+		@code{propName=toCeylonIdentifier(prop.name)}
+		@code{propType=prop.type}
+    @{genPropTypeDecl(prop)}? @{propName} = @{genPropToCeylonExpr(prop, 'json')};\n
+	@end{}
+    return @{type.simpleName} {\n
+	@foreach{prop:props}
+		@code{propName=toCeylonIdentifier(prop.name)}
+      @{propName} = @{propName};\n
+	@end{}
+    };\n
+  }\n
+\n
   shared object toCeylon extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
     shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
       value json = parse(src.toJson().string);\n
       assert(is JsonObject json);\n
-	@foreach{prop:props}
-		@code{propName=toCeylonIdentifier(prop.name)}
-		@code{propType=prop.type}
-      @{genPropTypeDecl(prop)}? @{propName} = @{genPropToCeylonExpr(prop, 'json')};\n
-	@end{}
-      return @{type.simpleName} {\n
-	@foreach{prop:props}
-		@code{propName=toCeylonIdentifier(prop.name)}
-        @{propName} = @{propName};\n
-	@end{}
-      };\n
+      return fromJson(json);\n
     }\n
   }\n
 @end{}
@@ -186,6 +192,8 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
       return ret;\n
     }\n
   }\n
+
+  shared JsonObject toJson(@{type.simpleName} obj) => obj.toJson();\n
 @end{}
 
 }\n

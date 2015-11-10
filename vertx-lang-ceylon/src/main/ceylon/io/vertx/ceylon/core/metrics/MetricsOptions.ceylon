@@ -29,14 +29,18 @@ shared class MetricsOptions(
 
 shared object metricsOptions {
 
+  shared MetricsOptions fromJson(JsonObject json) {
+    Boolean? enabled = json.getBooleanOrNull("enabled");
+    return MetricsOptions {
+      enabled = enabled;
+    };
+  }
+
   shared object toCeylon extends Converter<MetricsOptions_, MetricsOptions>() {
     shared actual MetricsOptions convert(MetricsOptions_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
-      Boolean? enabled = json.getBooleanOrNull("enabled");
-      return MetricsOptions {
-        enabled = enabled;
-      };
+      return fromJson(json);
     }
   }
 
@@ -48,4 +52,5 @@ shared object metricsOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(MetricsOptions obj) => obj.toJson();
 }

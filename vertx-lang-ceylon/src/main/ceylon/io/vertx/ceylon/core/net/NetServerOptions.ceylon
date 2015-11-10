@@ -92,4 +92,5 @@ shared object netServer {
       return ret;
     }
   }
+  shared JsonObject toJson(NetServerOptions obj) => obj.toJson();
 }

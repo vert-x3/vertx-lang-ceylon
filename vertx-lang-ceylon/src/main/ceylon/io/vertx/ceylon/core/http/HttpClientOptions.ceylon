@@ -112,4 +112,5 @@ shared object httpClient {
       return ret;
     }
   }
+  shared JsonObject toJson(HttpClientOptions obj) => obj.toJson();
 }

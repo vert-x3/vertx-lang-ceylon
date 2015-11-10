@@ -100,4 +100,5 @@ shared object httpServer {
       return ret;
     }
   }
+  shared JsonObject toJson(HttpServerOptions obj) => obj.toJson();
 }

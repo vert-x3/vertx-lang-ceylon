@@ -73,36 +73,40 @@ shared class Option(
 
 shared object option {
 
+  shared Option fromJson(JsonObject json) {
+    String? argName = json.getStringOrNull("argName");
+    {String*}? choices = json.getArrayOrNull("choices")?.strings;
+    String? defaultValue = json.getStringOrNull("defaultValue");
+    String? description = json.getStringOrNull("description");
+    Boolean? flag = json.getBooleanOrNull("flag");
+    Boolean? help = json.getBooleanOrNull("help");
+    Boolean? hidden = json.getBooleanOrNull("hidden");
+    String? longName = json.getStringOrNull("longName");
+    Boolean? multiValued = json.getBooleanOrNull("multiValued");
+    Boolean? required = json.getBooleanOrNull("required");
+    String? shortName = json.getStringOrNull("shortName");
+    Boolean? singleValued = json.getBooleanOrNull("singleValued");
+    return Option {
+      argName = argName;
+      choices = choices;
+      defaultValue = defaultValue;
+      description = description;
+      flag = flag;
+      help = help;
+      hidden = hidden;
+      longName = longName;
+      multiValued = multiValued;
+      required = required;
+      shortName = shortName;
+      singleValued = singleValued;
+    };
+  }
+
   shared object toCeylon extends Converter<Option_, Option>() {
     shared actual Option convert(Option_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
-      String? argName = json.getStringOrNull("argName");
-      {String*}? choices = json.getArrayOrNull("choices")?.strings;
-      String? defaultValue = json.getStringOrNull("defaultValue");
-      String? description = json.getStringOrNull("description");
-      Boolean? flag = json.getBooleanOrNull("flag");
-      Boolean? help = json.getBooleanOrNull("help");
-      Boolean? hidden = json.getBooleanOrNull("hidden");
-      String? longName = json.getStringOrNull("longName");
-      Boolean? multiValued = json.getBooleanOrNull("multiValued");
-      Boolean? required = json.getBooleanOrNull("required");
-      String? shortName = json.getStringOrNull("shortName");
-      Boolean? singleValued = json.getBooleanOrNull("singleValued");
-      return Option {
-        argName = argName;
-        choices = choices;
-        defaultValue = defaultValue;
-        description = description;
-        flag = flag;
-        help = help;
-        hidden = hidden;
-        longName = longName;
-        multiValued = multiValued;
-        required = required;
-        shortName = shortName;
-        singleValued = singleValued;
-      };
+      return fromJson(json);
     }
   }
 
@@ -114,4 +118,5 @@ shared object option {
       return ret;
     }
   }
+  shared JsonObject toJson(Option obj) => obj.toJson();
 }

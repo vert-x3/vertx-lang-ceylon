@@ -43,4 +43,5 @@ shared object pfxOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(PfxOptions obj) => obj.toJson();
 }

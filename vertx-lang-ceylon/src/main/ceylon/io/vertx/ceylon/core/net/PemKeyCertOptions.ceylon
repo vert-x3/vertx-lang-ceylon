@@ -42,4 +42,5 @@ shared object pemKey {
       return ret;
     }
   }
+  shared JsonObject toJson(PemKeyCertOptions obj) => obj.toJson();
 }

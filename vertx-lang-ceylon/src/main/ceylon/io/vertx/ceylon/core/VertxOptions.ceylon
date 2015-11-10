@@ -108,4 +108,5 @@ shared object vertxOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(VertxOptions obj) => obj.toJson();
 }

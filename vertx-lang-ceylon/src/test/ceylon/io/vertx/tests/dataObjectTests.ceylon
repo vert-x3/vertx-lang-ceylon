@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  DataObjectTCK, DataObjectCollection
+  DataObjectTCK, DataObjectCollection, TestDataObject
 }
 import io.vertx.codegen.testmodel {
   DataObjectTCKImpl
@@ -36,6 +36,10 @@ shared test void testReadDataObjectCollection() {
   assertEquals(ArrayList{JsonArray{"foo"},JsonArray{"bar"}}, ArrayList{*jsonArrayValues});
   assert(exists stringValues = dataObjectCollection.stringValues);
   assertEquals(ArrayList{"stringValues1","stringValues2","stringValues3"}, ArrayList{*stringValues});
+  assert(exists dataObjectValues = dataObjectCollection.dataObjectValues?.sequence());
+  assertEquals(2, dataObjectValues.size);
+  assert(exists dataObject1 = dataObjectValues[0]);
+  assert(exists dataObject2 = dataObjectValues[1]);
 }
 
 shared test void testWriteDataObjectCollection() {
@@ -49,6 +53,7 @@ shared test void testWriteDataObjectCollection() {
     jsonObjectValues = {JsonObject{"foo"->"eek"},JsonObject{"foo"->"wibble"}};
     jsonArrayValues = {JsonArray{"foo"},JsonArray{"bar"}};
     stringValues = { "stringValues1", "stringValues2", "stringValues3" };
+    dataObjectValues = { TestDataObject { foo="1"; bar=1; wibble=1.1; }, TestDataObject { foo="2"; bar=2; wibble=2.2; } };
   };
   dataObjectTCK.dataObjectCollection = dataObjectCollection;
 }

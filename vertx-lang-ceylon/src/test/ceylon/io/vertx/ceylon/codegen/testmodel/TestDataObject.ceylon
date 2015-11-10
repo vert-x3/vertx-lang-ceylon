@@ -37,18 +37,22 @@ shared class TestDataObject(
 
 shared object testData {
 
+  shared TestDataObject fromJson(JsonObject json) {
+    Integer? bar = json.getIntegerOrNull("bar");
+    String? foo = json.getStringOrNull("foo");
+    Float? wibble = json.getFloatOrNull("wibble");
+    return TestDataObject {
+      bar = bar;
+      foo = foo;
+      wibble = wibble;
+    };
+  }
+
   shared object toCeylon extends Converter<TestDataObject_, TestDataObject>() {
     shared actual TestDataObject convert(TestDataObject_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
-      Integer? bar = json.getIntegerOrNull("bar");
-      String? foo = json.getStringOrNull("foo");
-      Float? wibble = json.getFloatOrNull("wibble");
-      return TestDataObject {
-        bar = bar;
-        foo = foo;
-        wibble = wibble;
-      };
+      return fromJson(json);
     }
   }
 
@@ -60,4 +64,5 @@ shared object testData {
       return ret;
     }
   }
+  shared JsonObject toJson(TestDataObject obj) => obj.toJson();
 }

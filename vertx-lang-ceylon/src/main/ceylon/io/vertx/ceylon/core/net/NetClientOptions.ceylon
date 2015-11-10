@@ -88,4 +88,5 @@ shared object netClient {
       return ret;
     }
   }
+  shared JsonObject toJson(NetClientOptions obj) => obj.toJson();
 }

@@ -13,6 +13,7 @@
 |===
 ^|Name | Type ^| Description
 |[[booleanValues]]`booleanValues`|`Array of Boolean`|-
+|[[dataObjectValues]]`dataObjectValues`|`Array of link:dataobjects.html#TestDataObject[TestDataObject]`|-
 |[[doubleValues]]`doubleValues`|`Array of Number (Double)`|-
 |[[floatValues]]`floatValues`|`Array of Number (Float)`|-
 |[[integerValues]]`integerValues`|`Array of Number (Integer)`|-

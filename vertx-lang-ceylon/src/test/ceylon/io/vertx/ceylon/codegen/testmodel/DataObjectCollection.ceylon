@@ -11,6 +11,10 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import io.vertx.ceylon.codegen.testmodel {
+  TestDataObject,
+  testData
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
@@ -18,6 +22,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.codegen.testmodel.DataObjectCollection */
 shared class DataObjectCollection(
   shared {Boolean*}? booleanValues = null,
+  shared {TestDataObject*}? dataObjectValues = null,
   shared {Float*}? doubleValues = null,
   shared {Float*}? floatValues = null,
   shared {Integer*}? integerValues = null,
@@ -30,6 +35,9 @@ shared class DataObjectCollection(
     value json = JsonObject();
     if (exists booleanValues) {
       json.put("booleanValues", JsonArray(booleanValues));
+    }
+    if (exists dataObjectValues) {
+      json.put("dataObjectValues", JsonArray(dataObjectValues.map(testData.toJson)));
     }
     if (exists doubleValues) {
       json.put("doubleValues", JsonArray(doubleValues));
@@ -61,30 +69,36 @@ shared class DataObjectCollection(
 
 shared object dataObject {
 
+  shared DataObjectCollection fromJson(JsonObject json) {
+    {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
+    {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testData.fromJson);
+    {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
+    {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
+    {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;
+    {JsonArray*}? jsonArrayValues = json.getArrayOrNull("jsonArrayValues")?.arrays;
+    {JsonObject*}? jsonObjectValues = json.getArrayOrNull("jsonObjectValues")?.objects;
+    {Integer*}? longValues = json.getArrayOrNull("longValues")?.integers;
+    {Integer*}? shortValues = json.getArrayOrNull("shortValues")?.integers;
+    {String*}? stringValues = json.getArrayOrNull("stringValues")?.strings;
+    return DataObjectCollection {
+      booleanValues = booleanValues;
+      dataObjectValues = dataObjectValues;
+      doubleValues = doubleValues;
+      floatValues = floatValues;
+      integerValues = integerValues;
+      jsonArrayValues = jsonArrayValues;
+      jsonObjectValues = jsonObjectValues;
+      longValues = longValues;
+      shortValues = shortValues;
+      stringValues = stringValues;
+    };
+  }
+
   shared object toCeylon extends Converter<DataObjectCollection_, DataObjectCollection>() {
     shared actual DataObjectCollection convert(DataObjectCollection_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
-      {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
-      {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
-      {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
-      {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;
-      {JsonArray*}? jsonArrayValues = json.getArrayOrNull("jsonArrayValues")?.arrays;
-      {JsonObject*}? jsonObjectValues = json.getArrayOrNull("jsonObjectValues")?.objects;
-      {Integer*}? longValues = json.getArrayOrNull("longValues")?.integers;
-      {Integer*}? shortValues = json.getArrayOrNull("shortValues")?.integers;
-      {String*}? stringValues = json.getArrayOrNull("stringValues")?.strings;
-      return DataObjectCollection {
-        booleanValues = booleanValues;
-        doubleValues = doubleValues;
-        floatValues = floatValues;
-        integerValues = integerValues;
-        jsonArrayValues = jsonArrayValues;
-        jsonObjectValues = jsonObjectValues;
-        longValues = longValues;
-        shortValues = shortValues;
-        stringValues = stringValues;
-      };
+      return fromJson(json);
     }
   }
 
@@ -96,4 +110,5 @@ shared object dataObject {
       return ret;
     }
   }
+  shared JsonObject toJson(DataObjectCollection obj) => obj.toJson();
 }

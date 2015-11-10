@@ -64,4 +64,5 @@ shared object datagramSocket {
       return ret;
     }
   }
+  shared JsonObject toJson(DatagramSocketOptions obj) => obj.toJson();
 }

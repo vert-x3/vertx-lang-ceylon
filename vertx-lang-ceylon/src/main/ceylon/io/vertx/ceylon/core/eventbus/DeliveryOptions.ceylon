@@ -41,4 +41,5 @@ shared object deliveryOptions {
       return ret;
     }
   }
+  shared JsonObject toJson(DeliveryOptions obj) => obj.toJson();
 }

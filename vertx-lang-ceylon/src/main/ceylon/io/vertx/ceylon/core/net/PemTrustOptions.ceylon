@@ -38,4 +38,5 @@ shared object pemTrust {
       return ret;
     }
   }
+  shared JsonObject toJson(PemTrustOptions obj) => obj.toJson();
 }
