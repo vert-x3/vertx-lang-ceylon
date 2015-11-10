@@ -17,6 +17,9 @@ import io.vertx.ceylon.codegen.testmodel {
   TestGenEnum,
   testGenEnum_=testGenEnum
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
@@ -81,11 +84,11 @@ shared object dataObjectWithLists {
 
   shared DataObjectWithLists fromJson(JsonObject json) {
     {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
-    {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testDataObject.fromJson);
+    {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testDataObject_.fromJson);
     {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
     {String*}? enumValues = json.getArrayOrNull("enumValues")?.strings;
     {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
-    {TestGenEnum*}? genEnumValues = json.getArrayOrNull("genEnumValues")?.strings?.map(testGenEnum.fromString);
+    {TestGenEnum*}? genEnumValues = json.getArrayOrNull("genEnumValues")?.strings?.map(testGenEnum_.fromString);
     {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;
     {JsonArray*}? jsonArrayValues = json.getArrayOrNull("jsonArrayValues")?.arrays;
     {JsonObject*}? jsonObjectValues = json.getArrayOrNull("jsonObjectValues")?.objects;

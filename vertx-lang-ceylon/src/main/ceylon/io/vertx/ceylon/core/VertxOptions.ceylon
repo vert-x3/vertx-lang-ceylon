@@ -14,6 +14,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.ceylon.core.metrics {
   MetricsOptions
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

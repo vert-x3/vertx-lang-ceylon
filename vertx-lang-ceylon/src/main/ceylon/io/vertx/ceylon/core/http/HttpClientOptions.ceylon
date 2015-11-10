@@ -22,6 +22,9 @@ import io.vertx.ceylon.core.http {
 import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

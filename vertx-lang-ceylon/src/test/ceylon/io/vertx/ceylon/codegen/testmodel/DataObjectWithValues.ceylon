@@ -17,6 +17,9 @@ import io.vertx.ceylon.codegen.testmodel {
   TestGenEnum,
   testGenEnum_=testGenEnum
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
@@ -111,11 +114,11 @@ shared object dataObjectWithValues {
     Integer? boxedIntValue = json.getIntegerOrNull("boxedIntValue");
     Integer? boxedLongValue = json.getIntegerOrNull("boxedLongValue");
     Integer? boxedShortValue = json.getIntegerOrNull("boxedShortValue");
-    TestDataObject? dataObjectValue = if (exists tmp = json.getObjectOrNull("dataObjectValue")) then testDataObject.fromJson(tmp) else null;
+    TestDataObject? dataObjectValue = if (exists tmp = json.getObjectOrNull("dataObjectValue")) then testDataObject_.fromJson(tmp) else null;
     Float? doubleValue = json.getFloatOrNull("doubleValue");
     String? enumValue = json.getStringOrNull("enumValue");
     Float? floatValue = json.getFloatOrNull("floatValue");
-    TestGenEnum? genEnumValue = if (exists tmp = json.getStringOrNull("genEnumValue")) then testGenEnum.fromString(tmp) else null;
+    TestGenEnum? genEnumValue = if (exists tmp = json.getStringOrNull("genEnumValue")) then testGenEnum_.fromString(tmp) else null;
     Integer? intValue = json.getIntegerOrNull("intValue");
     JsonArray? jsonArrayValue = json.getArrayOrNull("jsonArrayValue");
     JsonObject? jsonObjectValue = json.getObjectOrNull("jsonObjectValue");

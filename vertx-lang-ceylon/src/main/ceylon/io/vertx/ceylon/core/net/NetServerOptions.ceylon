@@ -22,6 +22,9 @@ import io.vertx.ceylon.core.http {
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

@@ -1,5 +1,5 @@
 import io.vertx.ceylon.codegen.testmodel {
-  DataObjectTCK, DataObjectWithLists, DataObjectWithValues, TestDataObject, \iLAURA, \iBOB, \iMIKE, \iLELAND
+  DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, TestDataObject, \iLAURA, \iBOB, \iMIKE, \iLELAND
 }
 import io.vertx.codegen.testmodel {
   DataObjectTCKImpl
@@ -18,26 +18,26 @@ DataObjectTCK dataObjectTCK = DataObjectTCK(DataObjectTCKImpl());
 
 shared test void testReadDataObjectWithValues() {
   value dataObject = dataObjectTCK.dataObjectWithValues;
-    assertEquals(true, dataObject.booleanValue);
-    assertEquals(520, dataObject.shortValue);
-    assertEquals(123456, dataObject.intValue);
-    assertEquals(123456789, dataObject.longValue);
-    assertEquals(1.1, dataObject.floatValue);
-    assertEquals(1.11, dataObject.doubleValue);
-    assertEquals(1040, dataObject.boxedShortValue);
-    assertEquals(true, dataObject.boxedBooleanValue);
-    assertEquals(654321, dataObject.boxedIntValue);
-    assertEquals(987654321, dataObject.boxedLongValue);
-    assertEquals(2.2, dataObject.boxedFloatValue);
-    assertEquals(2.22, dataObject.boxedDoubleValue);
-    assertEquals("wibble", dataObject.stringValue);
-    assertEquals(JsonObject{"foo"->"eek","bar"->"wibble"}, dataObject.jsonObjectValue);
-    assertEquals(JsonArray{"eek","wibble"}, dataObject.jsonArrayValue);
-    assertEquals("TIM", dataObject.enumValue);
-    assertEquals(\iMIKE, dataObject.genEnumValue);
-    assertEquals("1", dataObject.dataObjectValue?.foo);
-    assertEquals(1, dataObject.dataObjectValue?.bar);
-    assertEquals(1.1, dataObject.dataObjectValue?.wibble);
+  assertEquals(true, dataObject.booleanValue);
+  assertEquals(520, dataObject.shortValue);
+  assertEquals(123456, dataObject.intValue);
+  assertEquals(123456789, dataObject.longValue);
+  assertEquals(1.1, dataObject.floatValue);
+  assertEquals(1.11, dataObject.doubleValue);
+  assertEquals(1040, dataObject.boxedShortValue);
+  assertEquals(true, dataObject.boxedBooleanValue);
+  assertEquals(654321, dataObject.boxedIntValue);
+  assertEquals(987654321, dataObject.boxedLongValue);
+  assertEquals(2.2, dataObject.boxedFloatValue);
+  assertEquals(2.22, dataObject.boxedDoubleValue);
+  assertEquals("wibble", dataObject.stringValue);
+  assertEquals(JsonObject{"foo"->"eek","bar"->"wibble"}, dataObject.jsonObjectValue);
+  assertEquals(JsonArray{"eek","wibble"}, dataObject.jsonArrayValue);
+  assertEquals("TIM", dataObject.enumValue);
+  assertEquals(\iMIKE, dataObject.genEnumValue);
+  assertEquals("1", dataObject.dataObjectValue?.foo);
+  assertEquals(1, dataObject.dataObjectValue?.bar);
+  assertEquals(1.1, dataObject.dataObjectValue?.wibble);
 }
 
 shared test void testWriteDataObjectWithValues() {
@@ -110,4 +110,41 @@ shared test void testWriteDataObjectWithLists() {
     genEnumValues = { \iBOB, \iLAURA };
   };
   dataObjectTCK.dataObjectWithLists = dataObject;
+}
+
+shared test void testReadDataObjectWithMaps() {
+  value dataObject = dataObjectTCK.dataObjectWithMaps;
+  assertEquals(HashMap{"1"->true,"2"->false}, dataObject.booleanValues);
+  assertEquals(HashMap{"1"->520,"2"->1040}, dataObject.shortValues);
+  assertEquals(HashMap{"1"->123456,"2"->654321}, dataObject.integerValues);
+  assertEquals(HashMap{"1"->123456789,"2"->987654321}, dataObject.longValues);
+  assertEquals(HashMap{"1"->"stringValues1","2"->"stringValues2"}, dataObject.stringValues);
+  assertEquals(HashMap{"1"->JsonObject{"foo"->"eek"},"2"->JsonObject{"foo"->"wibble"}}, dataObject.jsonObjectValues);
+  assertEquals(HashMap{"1"->JsonArray{"foo"},"2"->JsonArray{"bar"}}, dataObject.jsonArrayValues);
+  assertEquals("1", dataObject.dataObjectValues?.get("1")?.foo);
+  assertEquals(1, dataObject.dataObjectValues?.get("1")?.bar);
+  assertEquals(1.1, dataObject.dataObjectValues?.get("1")?.wibble);
+  assertEquals("2", dataObject.dataObjectValues?.get("2")?.foo);
+  assertEquals(2, dataObject.dataObjectValues?.get("2")?.bar);
+  assertEquals(2.2, dataObject.dataObjectValues?.get("2")?.wibble);
+  assertEquals(HashMap{"1"->"TIM","2"->"JULIEN"}, dataObject.enumValues);
+  assertEquals(HashMap{"1"->\iBOB,"2"->\iLAURA}, dataObject.genEnumValues);
+}
+
+shared test void testWriteDataObjectWithMaps() {
+  value dataObject = DataObjectWithMaps {
+    booleanValues = HashMap { "1"->true, "2"->false };
+    shortValues = HashMap { "1"->520, "2"->1040 };
+    integerValues = HashMap { "1"->123456, "2"->654321 };
+    longValues = HashMap { "1"->123456789, "2"->987654321 };
+    floatValues = HashMap { "1"->1.1, "2"->2.2 };
+    doubleValues = HashMap { "1"->1.11, "2"->2.22 };
+    stringValues = HashMap { "1"->"stringValues1", "2"->"stringValues2" };
+    jsonObjectValues = HashMap { "1"->JsonObject{"foo"->"eek"}, "2"->JsonObject{"foo"->"wibble"} };
+    jsonArrayValues = HashMap { "1"->JsonArray{"foo"}, "2"->JsonArray{"bar"} };
+    dataObjectValues = HashMap { "1"-> TestDataObject { foo="1"; bar=1; wibble=1.1; },"2" -> TestDataObject { foo="2"; bar=2; wibble=2.2; } };
+    enumValues = HashMap { "1"->"TIM", "2"->"JULIEN" };
+    genEnumValues = HashMap { "1"->\iBOB, "2"->\iLAURA };
+  };
+  dataObjectTCK.dataObjectWithMaps = dataObject;
 }

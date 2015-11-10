@@ -11,6 +11,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.file {
   OpenOptions_=OpenOptions
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

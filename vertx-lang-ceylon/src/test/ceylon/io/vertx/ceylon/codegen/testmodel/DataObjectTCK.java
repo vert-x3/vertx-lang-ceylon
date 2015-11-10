@@ -81,4 +81,19 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithLists(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithMaps")
+  public io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps getDataObjectWithMaps() {
+    io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithMaps_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithMaps());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void setDataObjectWithMaps(
+    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithMaps") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithMaps arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithMaps(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithMaps(arg_0);
+  }
+
 }

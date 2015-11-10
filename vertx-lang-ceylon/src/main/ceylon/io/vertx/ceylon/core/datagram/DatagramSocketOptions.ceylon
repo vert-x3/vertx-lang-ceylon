@@ -14,6 +14,9 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

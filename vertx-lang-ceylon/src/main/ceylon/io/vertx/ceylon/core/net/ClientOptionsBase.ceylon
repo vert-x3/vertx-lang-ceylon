@@ -18,6 +18,9 @@ import io.vertx.lang.ceylon {
 import io.vertx.core.net {
   ClientOptionsBase_=ClientOptionsBase
 }
+import ceylon.collection {
+  HashMap
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray

@@ -35,6 +35,8 @@
       return decl;
     } else if (prop.kind.list) {
       return '{' + decl + '*}';
+    } else if (prop.kind.map) {
+      return 'Map<String, ' + decl + '>';
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
@@ -56,10 +58,10 @@
       } else if (type.kind == CLASS_JSON_ARRAY) {
         return expr + '.getArrayOrNull("' + prop.name + '")';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromJson(tmp) else null';
+        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson(tmp) else null';
       } else if (type.kind == CLASS_ENUM) {
         if (type.gen) {
-          return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromString(tmp) else null';
+          return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString(tmp) else null';
         } else {
           return expr + '.getStringOrNull("' + prop.name + '")';
         }
@@ -78,12 +80,34 @@
       } else if (type.kind == CLASS_JSON_ARRAY) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.arrays';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromJson)';
+        return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson)';
       } else if (type.kind == CLASS_ENUM) {
         if (type.gen) {
-          return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromString)';
+          return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString)';
         } else {
           return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
+        }
+      }
+    } else if (prop.kind.map) {
+      if (type.kind == CLASS_STRING) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
+      } else if (isInteger(type)) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is Integer val) key->val } else null';
+      } else if (isFloat(type)) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is Float val) key->val } else null';
+      } else if (isBoolean(type)) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is Boolean val) key->val } else null';
+      } else if (type.kind == CLASS_JSON_OBJECT) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is JsonObject val) key->val } else null';
+      } else if (type.kind == CLASS_JSON_ARRAY) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is JsonArray val) key->val } else null';
+      } else if (type.kind == CLASS_DATA_OBJECT) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is JsonObject val) key->' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson(val) } else null';
+      } if (type.kind == CLASS_ENUM) {
+        if (type.gen) {
+          return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString(val) } else null';
+        } else {
+          return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
         }
       }
     }
@@ -97,6 +121,7 @@
   addClassImport("ceylon.json", "Object", "JsonObject");
   addClassImport("ceylon.json", "Array", "JsonArray");
   addClassImport("ceylon.json", "parse", "parse");
+  addClassImport("ceylon.collection", "HashMap", "HashMap");
   addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
   addClassImport("io.vertx.lang.ceylon", "Converter", "Converter");
   addClassImport("io.vertx.lang.ceylon", "ToJava", "ToJava");
@@ -170,6 +195,20 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
       json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toString)));\n
 				@else{}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
+				@end{}
+			@else{}
+      throw Exception("not yet implemented");\n
+			@end{}
+		@else{prop.kind.map}
+			@if{propType.kind.basic || propType.kind.json}
+      json.put("@{prop.name}", JsonObject(@{propName}));\n
+			@else{propType.kind == CLASS_DATA_OBJECT}
+      json.put("@{prop.name}", JsonObject{for(k->v in @{propName}) k->@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson(v)});\n
+			@else{propType.kind == CLASS_ENUM}
+				@if{propType.gen}
+      json.put("@{prop.name}", JsonObject{for(k->v in @{propName}) k->@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toString(v)});\n
+				@else{}
+      json.put("@{prop.name}", JsonObject(@{propName}));\n
 				@end{}
 			@else{}
       throw Exception("not yet implemented");\n
