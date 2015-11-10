@@ -78,7 +78,7 @@ shared class NetClientOptions(
   }
 }
 
-shared object netClient {
+shared object netClientOptions {
 
   shared object toJava extends Converter<NetClientOptions, NetClientOptions_>() {
     shared actual NetClientOptions_ convert(NetClientOptions src) {

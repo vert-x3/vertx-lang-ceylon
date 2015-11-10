@@ -54,7 +54,7 @@ shared class DatagramSocketOptions(
   }
 }
 
-shared object datagramSocket {
+shared object datagramSocketOptions {
 
   shared object toJava extends Converter<DatagramSocketOptions, DatagramSocketOptions_>() {
     shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {

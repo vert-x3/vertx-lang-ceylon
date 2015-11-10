@@ -13,7 +13,7 @@ import io.vertx.lang.ceylon {
 }
 import io.vertx.ceylon.codegen.testmodel {
   TestDataObject,
-  testData
+  testDataObject
 }
 import io.vertx.core.json {
   JsonObject_=JsonObject,
@@ -37,7 +37,7 @@ shared class DataObjectCollection(
       json.put("booleanValues", JsonArray(booleanValues));
     }
     if (exists dataObjectValues) {
-      json.put("dataObjectValues", JsonArray(dataObjectValues.map(testData.toJson)));
+      json.put("dataObjectValues", JsonArray(dataObjectValues.map(testDataObject.toJson)));
     }
     if (exists doubleValues) {
       json.put("doubleValues", JsonArray(doubleValues));
@@ -67,11 +67,11 @@ shared class DataObjectCollection(
   }
 }
 
-shared object dataObject {
+shared object dataObjectCollection {
 
   shared DataObjectCollection fromJson(JsonObject json) {
     {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
-    {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testData.fromJson);
+    {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testDataObject.fromJson);
     {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
     {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
     {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;

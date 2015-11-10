@@ -35,7 +35,7 @@ shared class TestDataObject(
   }
 }
 
-shared object testData {
+shared object testDataObject {
 
   shared TestDataObject fromJson(JsonObject json) {
     Integer? bar = json.getIntegerOrNull("bar");

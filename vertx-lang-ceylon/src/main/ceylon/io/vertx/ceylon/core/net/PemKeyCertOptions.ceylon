@@ -32,7 +32,7 @@ shared class PemKeyCertOptions(
   }
 }
 
-shared object pemKey {
+shared object pemKeyCertOptions {
 
   shared object toJava extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
     shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {

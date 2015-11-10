@@ -90,7 +90,7 @@ shared class HttpServerOptions(
   }
 }
 
-shared object httpServer {
+shared object httpServerOptions {
 
   shared object toJava extends Converter<HttpServerOptions, HttpServerOptions_>() {
     shared actual HttpServerOptions_ convert(HttpServerOptions src) {

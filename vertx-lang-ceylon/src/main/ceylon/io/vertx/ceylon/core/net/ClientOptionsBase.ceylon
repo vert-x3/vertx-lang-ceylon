@@ -74,5 +74,5 @@ shared class ClientOptionsBase(
   }
 }
 
-shared object clientOptions {
+shared object clientOptionsBase {
 }

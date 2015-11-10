@@ -28,7 +28,7 @@ shared class PemTrustOptions(
   }
 }
 
-shared object pemTrust {
+shared object pemTrustOptions {
 
   shared object toJava extends Converter<PemTrustOptions, PemTrustOptions_>() {
     shared actual PemTrustOptions_ convert(PemTrustOptions src) {

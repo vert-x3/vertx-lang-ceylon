@@ -82,7 +82,7 @@ shared class NetServerOptions(
   }
 }
 
-shared object netServer {
+shared object netServerOptions {
 
   shared object toJava extends Converter<NetServerOptions, NetServerOptions_>() {
     shared actual NetServerOptions_ convert(NetServerOptions src) {

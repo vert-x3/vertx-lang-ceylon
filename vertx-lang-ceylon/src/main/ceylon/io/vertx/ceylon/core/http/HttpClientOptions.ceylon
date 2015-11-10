@@ -102,7 +102,7 @@ shared class HttpClientOptions(
   }
 }
 
-shared object httpClient {
+shared object httpClientOptions {
 
   shared object toJava extends Converter<HttpClientOptions, HttpClientOptions_>() {
     shared actual HttpClientOptions_ convert(HttpClientOptions src) {
