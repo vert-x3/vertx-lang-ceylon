@@ -10,9 +10,27 @@ shared object \iRECIPIENT_FAILURE extends ReplyFailure("RECIPIENT_FAILURE") {}
 
 shared object replyFailure {
 
+  shared String toString(ReplyFailure val) {
+      switch (val)
+      case(\iTIMEOUT) { return "TIMEOUT"; }
+      case(\iNO_HANDLERS) { return "NO_HANDLERS"; }
+      case(\iRECIPIENT_FAILURE) { return "RECIPIENT_FAILURE"; }
+  }
+
+  shared ReplyFailure fromString(String val) {
+      switch (val)
+      case("TIMEOUT") { return \iTIMEOUT; }
+      case("NO_HANDLERS") { return \iNO_HANDLERS; }
+      case("RECIPIENT_FAILURE") { return \iRECIPIENT_FAILURE; }
+      else {
+        throw Exception("Invalid ReplyFailure value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<ReplyFailure, ReplyFailure_>() {
     shared actual ReplyFailure_ convert(ReplyFailure src) {
-      switch (src)      case(\iTIMEOUT) { return ReplyFailure_.\iTIMEOUT; }
+      switch (src)
+      case(\iTIMEOUT) { return ReplyFailure_.\iTIMEOUT; }
       case(\iNO_HANDLERS) { return ReplyFailure_.\iNO_HANDLERS; }
       case(\iRECIPIENT_FAILURE) { return ReplyFailure_.\iRECIPIENT_FAILURE; }
     }

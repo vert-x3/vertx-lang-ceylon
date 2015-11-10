@@ -15,6 +15,9 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import io.vertx.ceylon.core.http {
+  ClientAuth
+}
 import io.vertx.core.http {
   HttpServerOptions_=HttpServerOptions
 }
@@ -25,6 +28,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.http.HttpServerOptions */
 shared class HttpServerOptions(
   Integer? acceptBacklog = null,
+  ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
@@ -51,6 +55,7 @@ shared class HttpServerOptions(
   Boolean? usePooledBuffers = null,
   shared String? websocketSubProtocols = null) extends NetServerOptions(
   acceptBacklog,
+  clientAuth,
   clientAuthRequired,
   crlPaths,
   enabledCipherSuites,

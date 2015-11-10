@@ -15,7 +15,9 @@
 |[[booleanValues]]`booleanValues`|`Array of Boolean`|-
 |[[dataObjectValues]]`dataObjectValues`|`Array of link:dataobjects.html#TestDataObject[TestDataObject]`|-
 |[[doubleValues]]`doubleValues`|`Array of Number (Double)`|-
+|[[enumValues]]`enumValues`|`Array of link:enums.html#TestEnum[TestEnum]`|-
 |[[floatValues]]`floatValues`|`Array of Number (Float)`|-
+|[[genEnumValues]]`genEnumValues`|`Array of link:enums.html#TestGenEnum[TestGenEnum]`|-
 |[[integerValues]]`integerValues`|`Array of Number (Integer)`|-
 |[[jsonArrayValues]]`jsonArrayValues`|`Array of Json array`|-
 |[[jsonObjectValues]]`jsonObjectValues`|`Array of Json object`|-

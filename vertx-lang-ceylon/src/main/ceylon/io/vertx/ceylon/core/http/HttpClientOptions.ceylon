@@ -15,6 +15,9 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import io.vertx.ceylon.core.http {
+  HttpVersion
+}
 import io.vertx.core.http {
   HttpClientOptions_=HttpClientOptions
 }
@@ -39,6 +42,7 @@ shared class HttpClientOptions(
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
   shared Boolean? pipelining = null,
+  shared HttpVersion? protocolVersion = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
@@ -91,6 +95,8 @@ shared class HttpClientOptions(
     }
     if (exists pipelining) {
       json.put("pipelining", pipelining);
+    }
+    if (exists protocolVersion) {
     }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);

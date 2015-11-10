@@ -8,7 +8,7 @@
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = type.simpleName;
-    } else if (kind == CLASS_STRING || kind == CLASS_ENUM) {
+    } else if (kind == CLASS_STRING) {
       decl = 'String';
     } else if (isInteger(type)) {
       decl = 'Integer';
@@ -22,6 +22,12 @@
       decl = 'JsonObject';
     } else if (kind == CLASS_JSON_ARRAY) {
       decl = 'JsonArray';
+    } else if (kind == CLASS_ENUM) {
+      if (type.gen) {
+        decl = type.simpleName;
+      } else {
+        decl = 'String';
+      }
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
@@ -67,6 +73,12 @@
         return expr + '.getArrayOrNull("' + prop.name + '")?.arrays';
       } else if (type.kind == CLASS_DATA_OBJECT) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromJson)';
+      } else if (type.kind == CLASS_ENUM) {
+        if (type.gen) {
+          return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '.fromString)';
+        } else {
+          return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
+        }
       }
     }
     return 'null /* ' + type + ' not handled */';
@@ -87,10 +99,10 @@
   for (prop : properties) {
     var propType = prop.type;
     var propKind = propType.kind;
-    if (propKind.basic || propKind.json || propKind == CLASS_DATA_OBJECT) {
+    if (propKind.basic || propKind.json || propKind == CLASS_DATA_OBJECT || propKind == CLASS_ENUM) {
       props.add(prop);
     }
-    if (propKind == CLASS_DATA_OBJECT) {
+    if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
       addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
       if (jsonifiable) {
         var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
@@ -141,6 +153,12 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
       json.put("@{prop.name}", JsonArray(@{propName}));\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}.toJson)));\n
+			@else{propType.kind == CLASS_ENUM}
+				@if{propType.gen}
+      json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}.toString)));\n
+				@else{}
+      json.put("@{prop.name}", JsonArray(@{propName}));\n
+				@end{}
 			@else{}
       throw Exception("not yet implemented");\n
 			@end{}

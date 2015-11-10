@@ -10,9 +10,27 @@ shared object \iREQUIRED extends ClientAuth("REQUIRED") {}
 
 shared object clientAuth {
 
+  shared String toString(ClientAuth val) {
+      switch (val)
+      case(\iNONE) { return "NONE"; }
+      case(\iREQUEST) { return "REQUEST"; }
+      case(\iREQUIRED) { return "REQUIRED"; }
+  }
+
+  shared ClientAuth fromString(String val) {
+      switch (val)
+      case("NONE") { return \iNONE; }
+      case("REQUEST") { return \iREQUEST; }
+      case("REQUIRED") { return \iREQUIRED; }
+      else {
+        throw Exception("Invalid ClientAuth value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<ClientAuth, ClientAuth_>() {
     shared actual ClientAuth_ convert(ClientAuth src) {
-      switch (src)      case(\iNONE) { return ClientAuth_.\iNONE; }
+      switch (src)
+      case(\iNONE) { return ClientAuth_.\iNONE; }
       case(\iREQUEST) { return ClientAuth_.\iREQUEST; }
       case(\iREQUIRED) { return ClientAuth_.\iREQUIRED; }
     }

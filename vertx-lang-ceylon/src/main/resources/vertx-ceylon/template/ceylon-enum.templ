@@ -26,12 +26,37 @@ shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{v
 shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
 
 \n
+  shared String toString(@{type.simpleName} val) {\n
+      switch (val)
+@foreach{value:values}
+\n
+      case(@{asValidMember(value.identifier)}) { return "@{value.identifier}"; }
+@end{}
+\n
+  }\n
+
+\n
+  shared @{type.simpleName} fromString(String val) {\n
+      switch (val)
+@foreach{value:values}
+\n
+      case("@{value.identifier}") { return @{asValidMember(value.identifier)}; }
+@end{}
+\n
+      else {\n
+        throw Exception("Invalid @{type.simpleName} value ``val``");\n
+      }\n
+  }\n
+
+\n
   shared object toJava extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
     shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
       switch (src)
 @foreach{value:values}
-      case(@{asValidMember(value.identifier)}) { return @{type.simpleName}_.@{asValidMember(value.identifier)}; }\n
+\n
+      case(@{asValidMember(value.identifier)}) { return @{type.simpleName}_.@{asValidMember(value.identifier)}; }
 @end{}
+\n
     }\n
   }\n
 

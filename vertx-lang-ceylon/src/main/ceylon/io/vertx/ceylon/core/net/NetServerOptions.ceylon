@@ -15,6 +15,9 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import io.vertx.ceylon.core.http {
+  ClientAuth
+}
 import io.vertx.core.net {
   NetServerOptions_=NetServerOptions
 }
@@ -25,6 +28,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.NetServerOptions */
 shared class NetServerOptions(
   shared Integer? acceptBacklog = null,
+  shared ClientAuth? clientAuth = null,
   shared Boolean? clientAuthRequired = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
@@ -68,6 +72,8 @@ shared class NetServerOptions(
     value json = JsonObject();
     if (exists acceptBacklog) {
       json.put("acceptBacklog", acceptBacklog);
+    }
+    if (exists clientAuth) {
     }
     if (exists clientAuthRequired) {
       json.put("clientAuthRequired", clientAuthRequired);

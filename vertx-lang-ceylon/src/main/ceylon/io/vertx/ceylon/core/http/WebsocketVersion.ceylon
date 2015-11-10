@@ -11,9 +11,29 @@ shared object \iV13 extends WebsocketVersion("V13") {}
 
 shared object websocketVersion {
 
+  shared String toString(WebsocketVersion val) {
+      switch (val)
+      case(\iV00) { return "V00"; }
+      case(\iV07) { return "V07"; }
+      case(\iV08) { return "V08"; }
+      case(\iV13) { return "V13"; }
+  }
+
+  shared WebsocketVersion fromString(String val) {
+      switch (val)
+      case("V00") { return \iV00; }
+      case("V07") { return \iV07; }
+      case("V08") { return \iV08; }
+      case("V13") { return \iV13; }
+      else {
+        throw Exception("Invalid WebsocketVersion value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<WebsocketVersion, WebsocketVersion_>() {
     shared actual WebsocketVersion_ convert(WebsocketVersion src) {
-      switch (src)      case(\iV00) { return WebsocketVersion_.\iV00; }
+      switch (src)
+      case(\iV00) { return WebsocketVersion_.\iV00; }
       case(\iV07) { return WebsocketVersion_.\iV07; }
       case(\iV08) { return WebsocketVersion_.\iV08; }
       case(\iV13) { return WebsocketVersion_.\iV13; }

@@ -16,9 +16,39 @@ shared object \iPATCH extends HttpMethod("PATCH") {}
 
 shared object httpMethod {
 
+  shared String toString(HttpMethod val) {
+      switch (val)
+      case(\iOPTIONS) { return "OPTIONS"; }
+      case(\iGET) { return "GET"; }
+      case(\iHEAD) { return "HEAD"; }
+      case(\iPOST) { return "POST"; }
+      case(\iPUT) { return "PUT"; }
+      case(\iDELETE) { return "DELETE"; }
+      case(\iTRACE) { return "TRACE"; }
+      case(\iCONNECT) { return "CONNECT"; }
+      case(\iPATCH) { return "PATCH"; }
+  }
+
+  shared HttpMethod fromString(String val) {
+      switch (val)
+      case("OPTIONS") { return \iOPTIONS; }
+      case("GET") { return \iGET; }
+      case("HEAD") { return \iHEAD; }
+      case("POST") { return \iPOST; }
+      case("PUT") { return \iPUT; }
+      case("DELETE") { return \iDELETE; }
+      case("TRACE") { return \iTRACE; }
+      case("CONNECT") { return \iCONNECT; }
+      case("PATCH") { return \iPATCH; }
+      else {
+        throw Exception("Invalid HttpMethod value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<HttpMethod, HttpMethod_>() {
     shared actual HttpMethod_ convert(HttpMethod src) {
-      switch (src)      case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
+      switch (src)
+      case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
       case(\iGET) { return HttpMethod_.\iGET; }
       case(\iHEAD) { return HttpMethod_.\iHEAD; }
       case(\iPOST) { return HttpMethod_.\iPOST; }

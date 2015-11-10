@@ -13,7 +13,9 @@ import io.vertx.lang.ceylon {
 }
 import io.vertx.ceylon.codegen.testmodel {
   TestDataObject,
-  testDataObject
+  testDataObject,
+  TestGenEnum,
+  testGenEnum
 }
 import io.vertx.core.json {
   JsonObject_=JsonObject,
@@ -24,7 +26,9 @@ shared class DataObjectCollection(
   shared {Boolean*}? booleanValues = null,
   shared {TestDataObject*}? dataObjectValues = null,
   shared {Float*}? doubleValues = null,
+  shared {String*}? enumValues = null,
   shared {Float*}? floatValues = null,
+  shared {TestGenEnum*}? genEnumValues = null,
   shared {Integer*}? integerValues = null,
   shared {JsonArray*}? jsonArrayValues = null,
   shared {JsonObject*}? jsonObjectValues = null,
@@ -42,8 +46,14 @@ shared class DataObjectCollection(
     if (exists doubleValues) {
       json.put("doubleValues", JsonArray(doubleValues));
     }
+    if (exists enumValues) {
+      json.put("enumValues", JsonArray(enumValues));
+    }
     if (exists floatValues) {
       json.put("floatValues", JsonArray(floatValues));
+    }
+    if (exists genEnumValues) {
+      json.put("genEnumValues", JsonArray(genEnumValues.map(testGenEnum.toString)));
     }
     if (exists integerValues) {
       json.put("integerValues", JsonArray(integerValues));
@@ -73,7 +83,9 @@ shared object dataObjectCollection {
     {Boolean*}? booleanValues = json.getArrayOrNull("booleanValues")?.booleans;
     {TestDataObject*}? dataObjectValues = json.getArrayOrNull("dataObjectValues")?.objects?.map(testDataObject.fromJson);
     {Float*}? doubleValues = json.getArrayOrNull("doubleValues")?.floats;
+    {String*}? enumValues = json.getArrayOrNull("enumValues")?.strings;
     {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
+    {TestGenEnum*}? genEnumValues = json.getArrayOrNull("genEnumValues")?.strings?.map(testGenEnum.fromString);
     {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;
     {JsonArray*}? jsonArrayValues = json.getArrayOrNull("jsonArrayValues")?.arrays;
     {JsonObject*}? jsonObjectValues = json.getArrayOrNull("jsonObjectValues")?.objects;
@@ -84,7 +96,9 @@ shared object dataObjectCollection {
       booleanValues = booleanValues;
       dataObjectValues = dataObjectValues;
       doubleValues = doubleValues;
+      enumValues = enumValues;
       floatValues = floatValues;
+      genEnumValues = genEnumValues;
       integerValues = integerValues;
       jsonArrayValues = jsonArrayValues;
       jsonObjectValues = jsonObjectValues;

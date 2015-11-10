@@ -11,9 +11,29 @@ shared object \iLELAND extends TestGenEnum("LELAND") {}
 
 shared object testGenEnum {
 
+  shared String toString(TestGenEnum val) {
+      switch (val)
+      case(\iLAURA) { return "LAURA"; }
+      case(\iBOB) { return "BOB"; }
+      case(\iMIKE) { return "MIKE"; }
+      case(\iLELAND) { return "LELAND"; }
+  }
+
+  shared TestGenEnum fromString(String val) {
+      switch (val)
+      case("LAURA") { return \iLAURA; }
+      case("BOB") { return \iBOB; }
+      case("MIKE") { return \iMIKE; }
+      case("LELAND") { return \iLELAND; }
+      else {
+        throw Exception("Invalid TestGenEnum value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<TestGenEnum, TestGenEnum_>() {
     shared actual TestGenEnum_ convert(TestGenEnum src) {
-      switch (src)      case(\iLAURA) { return TestGenEnum_.\iLAURA; }
+      switch (src)
+      case(\iLAURA) { return TestGenEnum_.\iLAURA; }
       case(\iBOB) { return TestGenEnum_.\iBOB; }
       case(\iMIKE) { return TestGenEnum_.\iMIKE; }
       case(\iLELAND) { return TestGenEnum_.\iLELAND; }

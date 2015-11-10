@@ -22,9 +22,51 @@ shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
 
 shared object dnsResponseCode {
 
+  shared String toString(DnsResponseCode val) {
+      switch (val)
+      case(\iNOERROR) { return "NOERROR"; }
+      case(\iFORMERROR) { return "FORMERROR"; }
+      case(\iSERVFAIL) { return "SERVFAIL"; }
+      case(\iNXDOMAIN) { return "NXDOMAIN"; }
+      case(\iNOTIMPL) { return "NOTIMPL"; }
+      case(\iREFUSED) { return "REFUSED"; }
+      case(\iYXDOMAIN) { return "YXDOMAIN"; }
+      case(\iYXRRSET) { return "YXRRSET"; }
+      case(\iNXRRSET) { return "NXRRSET"; }
+      case(\iNOTAUTH) { return "NOTAUTH"; }
+      case(\iNOTZONE) { return "NOTZONE"; }
+      case(\iBADVERS) { return "BADVERS"; }
+      case(\iBADSIG) { return "BADSIG"; }
+      case(\iBADKEY) { return "BADKEY"; }
+      case(\iBADTIME) { return "BADTIME"; }
+  }
+
+  shared DnsResponseCode fromString(String val) {
+      switch (val)
+      case("NOERROR") { return \iNOERROR; }
+      case("FORMERROR") { return \iFORMERROR; }
+      case("SERVFAIL") { return \iSERVFAIL; }
+      case("NXDOMAIN") { return \iNXDOMAIN; }
+      case("NOTIMPL") { return \iNOTIMPL; }
+      case("REFUSED") { return \iREFUSED; }
+      case("YXDOMAIN") { return \iYXDOMAIN; }
+      case("YXRRSET") { return \iYXRRSET; }
+      case("NXRRSET") { return \iNXRRSET; }
+      case("NOTAUTH") { return \iNOTAUTH; }
+      case("NOTZONE") { return \iNOTZONE; }
+      case("BADVERS") { return \iBADVERS; }
+      case("BADSIG") { return \iBADSIG; }
+      case("BADKEY") { return \iBADKEY; }
+      case("BADTIME") { return \iBADTIME; }
+      else {
+        throw Exception("Invalid DnsResponseCode value ``val``");
+      }
+  }
+
   shared object toJava extends Converter<DnsResponseCode, DnsResponseCode_>() {
     shared actual DnsResponseCode_ convert(DnsResponseCode src) {
-      switch (src)      case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
+      switch (src)
+      case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
       case(\iFORMERROR) { return DnsResponseCode_.\iFORMERROR; }
       case(\iSERVFAIL) { return DnsResponseCode_.\iSERVFAIL; }
       case(\iNXDOMAIN) { return DnsResponseCode_.\iNXDOMAIN; }
