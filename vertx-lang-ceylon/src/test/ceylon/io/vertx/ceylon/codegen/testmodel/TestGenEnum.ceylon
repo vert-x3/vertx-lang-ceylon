@@ -9,29 +9,32 @@ shared object \iBOB extends TestGenEnum("BOB") {}
 shared object \iMIKE extends TestGenEnum("MIKE") {}
 shared object \iLELAND extends TestGenEnum("LELAND") {}
 
-shared object toJavaTestGenEnum extends Converter<TestGenEnum, TestGenEnum_>() {
-  shared actual TestGenEnum_ convert(TestGenEnum src) {
-    switch (src)    case(\iLAURA) { return TestGenEnum_.\iLAURA; }
-    case(\iBOB) { return TestGenEnum_.\iBOB; }
-    case(\iMIKE) { return TestGenEnum_.\iMIKE; }
-    case(\iLELAND) { return TestGenEnum_.\iLELAND; }
-  }
-}
+shared object testGenEnum {
 
-shared object toCeylonTestGenEnum extends Converter<TestGenEnum_, TestGenEnum>() {
-  shared actual TestGenEnum convert(TestGenEnum_ src) {
-    if (src == TestGenEnum_.\iLAURA) {
-      return \iLAURA;
+  shared object toJava extends Converter<TestGenEnum, TestGenEnum_>() {
+    shared actual TestGenEnum_ convert(TestGenEnum src) {
+      switch (src)      case(\iLAURA) { return TestGenEnum_.\iLAURA; }
+      case(\iBOB) { return TestGenEnum_.\iBOB; }
+      case(\iMIKE) { return TestGenEnum_.\iMIKE; }
+      case(\iLELAND) { return TestGenEnum_.\iLELAND; }
     }
-    if (src == TestGenEnum_.\iBOB) {
-      return \iBOB;
+  }
+
+  shared object toCeylon extends Converter<TestGenEnum_, TestGenEnum>() {
+    shared actual TestGenEnum convert(TestGenEnum_ src) {
+      if (src == TestGenEnum_.\iLAURA) {
+        return \iLAURA;
+      }
+      if (src == TestGenEnum_.\iBOB) {
+        return \iBOB;
+      }
+      if (src == TestGenEnum_.\iMIKE) {
+        return \iMIKE;
+      }
+      if (src == TestGenEnum_.\iLELAND) {
+        return \iLELAND;
+      }
+      throw Exception("Invalid enum value");
     }
-    if (src == TestGenEnum_.\iMIKE) {
-      return \iMIKE;
-    }
-    if (src == TestGenEnum_.\iLELAND) {
-      return \iLELAND;
-    }
-    throw Exception("Invalid enum value");
   }
 }

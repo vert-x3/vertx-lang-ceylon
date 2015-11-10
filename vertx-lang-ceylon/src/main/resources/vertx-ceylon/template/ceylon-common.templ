@@ -96,7 +96,7 @@
       return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + '.toJava' + type.simpleName + '_.get_()';
+        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
       } else {
         return 'io.vertx.lang.ceylon.ToJava.enumeration(' + type.name + '.class)';
       }
@@ -172,7 +172,7 @@
       return type.translateName('ceylon') + '.TO_CEYLON.converter()';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + '.toCeylon' + type.simpleName + '_.get_()';
+        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
       } else {
         return 'io.vertx.lang.ceylon.ToCeylon.<' + type.name + '>enumeration()';
       }

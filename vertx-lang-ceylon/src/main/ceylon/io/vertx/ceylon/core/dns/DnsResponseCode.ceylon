@@ -20,73 +20,76 @@ shared object \iBADSIG extends DnsResponseCode("BADSIG") {}
 shared object \iBADKEY extends DnsResponseCode("BADKEY") {}
 shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
 
-shared object toJavaDnsResponseCode extends Converter<DnsResponseCode, DnsResponseCode_>() {
-  shared actual DnsResponseCode_ convert(DnsResponseCode src) {
-    switch (src)    case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
-    case(\iFORMERROR) { return DnsResponseCode_.\iFORMERROR; }
-    case(\iSERVFAIL) { return DnsResponseCode_.\iSERVFAIL; }
-    case(\iNXDOMAIN) { return DnsResponseCode_.\iNXDOMAIN; }
-    case(\iNOTIMPL) { return DnsResponseCode_.\iNOTIMPL; }
-    case(\iREFUSED) { return DnsResponseCode_.\iREFUSED; }
-    case(\iYXDOMAIN) { return DnsResponseCode_.\iYXDOMAIN; }
-    case(\iYXRRSET) { return DnsResponseCode_.\iYXRRSET; }
-    case(\iNXRRSET) { return DnsResponseCode_.\iNXRRSET; }
-    case(\iNOTAUTH) { return DnsResponseCode_.\iNOTAUTH; }
-    case(\iNOTZONE) { return DnsResponseCode_.\iNOTZONE; }
-    case(\iBADVERS) { return DnsResponseCode_.\iBADVERS; }
-    case(\iBADSIG) { return DnsResponseCode_.\iBADSIG; }
-    case(\iBADKEY) { return DnsResponseCode_.\iBADKEY; }
-    case(\iBADTIME) { return DnsResponseCode_.\iBADTIME; }
-  }
-}
+shared object dnsResponseCode {
 
-shared object toCeylonDnsResponseCode extends Converter<DnsResponseCode_, DnsResponseCode>() {
-  shared actual DnsResponseCode convert(DnsResponseCode_ src) {
-    if (src == DnsResponseCode_.\iNOERROR) {
-      return \iNOERROR;
+  shared object toJava extends Converter<DnsResponseCode, DnsResponseCode_>() {
+    shared actual DnsResponseCode_ convert(DnsResponseCode src) {
+      switch (src)      case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
+      case(\iFORMERROR) { return DnsResponseCode_.\iFORMERROR; }
+      case(\iSERVFAIL) { return DnsResponseCode_.\iSERVFAIL; }
+      case(\iNXDOMAIN) { return DnsResponseCode_.\iNXDOMAIN; }
+      case(\iNOTIMPL) { return DnsResponseCode_.\iNOTIMPL; }
+      case(\iREFUSED) { return DnsResponseCode_.\iREFUSED; }
+      case(\iYXDOMAIN) { return DnsResponseCode_.\iYXDOMAIN; }
+      case(\iYXRRSET) { return DnsResponseCode_.\iYXRRSET; }
+      case(\iNXRRSET) { return DnsResponseCode_.\iNXRRSET; }
+      case(\iNOTAUTH) { return DnsResponseCode_.\iNOTAUTH; }
+      case(\iNOTZONE) { return DnsResponseCode_.\iNOTZONE; }
+      case(\iBADVERS) { return DnsResponseCode_.\iBADVERS; }
+      case(\iBADSIG) { return DnsResponseCode_.\iBADSIG; }
+      case(\iBADKEY) { return DnsResponseCode_.\iBADKEY; }
+      case(\iBADTIME) { return DnsResponseCode_.\iBADTIME; }
     }
-    if (src == DnsResponseCode_.\iFORMERROR) {
-      return \iFORMERROR;
+  }
+
+  shared object toCeylon extends Converter<DnsResponseCode_, DnsResponseCode>() {
+    shared actual DnsResponseCode convert(DnsResponseCode_ src) {
+      if (src == DnsResponseCode_.\iNOERROR) {
+        return \iNOERROR;
+      }
+      if (src == DnsResponseCode_.\iFORMERROR) {
+        return \iFORMERROR;
+      }
+      if (src == DnsResponseCode_.\iSERVFAIL) {
+        return \iSERVFAIL;
+      }
+      if (src == DnsResponseCode_.\iNXDOMAIN) {
+        return \iNXDOMAIN;
+      }
+      if (src == DnsResponseCode_.\iNOTIMPL) {
+        return \iNOTIMPL;
+      }
+      if (src == DnsResponseCode_.\iREFUSED) {
+        return \iREFUSED;
+      }
+      if (src == DnsResponseCode_.\iYXDOMAIN) {
+        return \iYXDOMAIN;
+      }
+      if (src == DnsResponseCode_.\iYXRRSET) {
+        return \iYXRRSET;
+      }
+      if (src == DnsResponseCode_.\iNXRRSET) {
+        return \iNXRRSET;
+      }
+      if (src == DnsResponseCode_.\iNOTAUTH) {
+        return \iNOTAUTH;
+      }
+      if (src == DnsResponseCode_.\iNOTZONE) {
+        return \iNOTZONE;
+      }
+      if (src == DnsResponseCode_.\iBADVERS) {
+        return \iBADVERS;
+      }
+      if (src == DnsResponseCode_.\iBADSIG) {
+        return \iBADSIG;
+      }
+      if (src == DnsResponseCode_.\iBADKEY) {
+        return \iBADKEY;
+      }
+      if (src == DnsResponseCode_.\iBADTIME) {
+        return \iBADTIME;
+      }
+      throw Exception("Invalid enum value");
     }
-    if (src == DnsResponseCode_.\iSERVFAIL) {
-      return \iSERVFAIL;
-    }
-    if (src == DnsResponseCode_.\iNXDOMAIN) {
-      return \iNXDOMAIN;
-    }
-    if (src == DnsResponseCode_.\iNOTIMPL) {
-      return \iNOTIMPL;
-    }
-    if (src == DnsResponseCode_.\iREFUSED) {
-      return \iREFUSED;
-    }
-    if (src == DnsResponseCode_.\iYXDOMAIN) {
-      return \iYXDOMAIN;
-    }
-    if (src == DnsResponseCode_.\iYXRRSET) {
-      return \iYXRRSET;
-    }
-    if (src == DnsResponseCode_.\iNXRRSET) {
-      return \iNXRRSET;
-    }
-    if (src == DnsResponseCode_.\iNOTAUTH) {
-      return \iNOTAUTH;
-    }
-    if (src == DnsResponseCode_.\iNOTZONE) {
-      return \iNOTZONE;
-    }
-    if (src == DnsResponseCode_.\iBADVERS) {
-      return \iBADVERS;
-    }
-    if (src == DnsResponseCode_.\iBADSIG) {
-      return \iBADSIG;
-    }
-    if (src == DnsResponseCode_.\iBADKEY) {
-      return \iBADKEY;
-    }
-    if (src == DnsResponseCode_.\iBADTIME) {
-      return \iBADTIME;
-    }
-    throw Exception("Invalid enum value");
   }
 }

@@ -2003,7 +2003,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
     final @TypeInfo("ceylon.language::String") @Name("strVal") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal, 
     final @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestGenEnum") @Name("weirdo") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.TestGenEnum weirdo) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(strVal);
-    io.vertx.codegen.testmodel.TestGenEnum arg_1 = io.vertx.ceylon.codegen.testmodel.toJavaTestGenEnum_.get_().safeConvert(weirdo);
+    io.vertx.codegen.testmodel.TestGenEnum arg_1 = io.vertx.ceylon.codegen.testmodel.testGenEnum_.get_().getToJava().safeConvert(weirdo);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.methodWithGenEnumParam(arg_0, arg_1));
     return ret;
   }
@@ -2013,7 +2013,7 @@ public class TestInterface extends io.vertx.ceylon.codegen.testmodel.SuperInterf
   public io.vertx.ceylon.codegen.testmodel.TestGenEnum methodWithGenEnumReturn(
     final @TypeInfo("ceylon.language::String") @Name("strVal") @DocAnnotation$annotation$(description = "todo") ceylon.language.String strVal) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(strVal);
-    io.vertx.ceylon.codegen.testmodel.TestGenEnum ret = io.vertx.ceylon.codegen.testmodel.toCeylonTestGenEnum_.get_().safeConvert(delegate.methodWithGenEnumReturn(arg_0));
+    io.vertx.ceylon.codegen.testmodel.TestGenEnum ret = io.vertx.ceylon.codegen.testmodel.testGenEnum_.get_().getToCeylon().safeConvert(delegate.methodWithGenEnumReturn(arg_0));
     return ret;
   }
 

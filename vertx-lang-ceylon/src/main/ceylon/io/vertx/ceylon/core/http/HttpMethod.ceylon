@@ -14,49 +14,52 @@ shared object \iTRACE extends HttpMethod("TRACE") {}
 shared object \iCONNECT extends HttpMethod("CONNECT") {}
 shared object \iPATCH extends HttpMethod("PATCH") {}
 
-shared object toJavaHttpMethod extends Converter<HttpMethod, HttpMethod_>() {
-  shared actual HttpMethod_ convert(HttpMethod src) {
-    switch (src)    case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
-    case(\iGET) { return HttpMethod_.\iGET; }
-    case(\iHEAD) { return HttpMethod_.\iHEAD; }
-    case(\iPOST) { return HttpMethod_.\iPOST; }
-    case(\iPUT) { return HttpMethod_.\iPUT; }
-    case(\iDELETE) { return HttpMethod_.\iDELETE; }
-    case(\iTRACE) { return HttpMethod_.\iTRACE; }
-    case(\iCONNECT) { return HttpMethod_.\iCONNECT; }
-    case(\iPATCH) { return HttpMethod_.\iPATCH; }
-  }
-}
+shared object httpMethod {
 
-shared object toCeylonHttpMethod extends Converter<HttpMethod_, HttpMethod>() {
-  shared actual HttpMethod convert(HttpMethod_ src) {
-    if (src == HttpMethod_.\iOPTIONS) {
-      return \iOPTIONS;
+  shared object toJava extends Converter<HttpMethod, HttpMethod_>() {
+    shared actual HttpMethod_ convert(HttpMethod src) {
+      switch (src)      case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
+      case(\iGET) { return HttpMethod_.\iGET; }
+      case(\iHEAD) { return HttpMethod_.\iHEAD; }
+      case(\iPOST) { return HttpMethod_.\iPOST; }
+      case(\iPUT) { return HttpMethod_.\iPUT; }
+      case(\iDELETE) { return HttpMethod_.\iDELETE; }
+      case(\iTRACE) { return HttpMethod_.\iTRACE; }
+      case(\iCONNECT) { return HttpMethod_.\iCONNECT; }
+      case(\iPATCH) { return HttpMethod_.\iPATCH; }
     }
-    if (src == HttpMethod_.\iGET) {
-      return \iGET;
+  }
+
+  shared object toCeylon extends Converter<HttpMethod_, HttpMethod>() {
+    shared actual HttpMethod convert(HttpMethod_ src) {
+      if (src == HttpMethod_.\iOPTIONS) {
+        return \iOPTIONS;
+      }
+      if (src == HttpMethod_.\iGET) {
+        return \iGET;
+      }
+      if (src == HttpMethod_.\iHEAD) {
+        return \iHEAD;
+      }
+      if (src == HttpMethod_.\iPOST) {
+        return \iPOST;
+      }
+      if (src == HttpMethod_.\iPUT) {
+        return \iPUT;
+      }
+      if (src == HttpMethod_.\iDELETE) {
+        return \iDELETE;
+      }
+      if (src == HttpMethod_.\iTRACE) {
+        return \iTRACE;
+      }
+      if (src == HttpMethod_.\iCONNECT) {
+        return \iCONNECT;
+      }
+      if (src == HttpMethod_.\iPATCH) {
+        return \iPATCH;
+      }
+      throw Exception("Invalid enum value");
     }
-    if (src == HttpMethod_.\iHEAD) {
-      return \iHEAD;
-    }
-    if (src == HttpMethod_.\iPOST) {
-      return \iPOST;
-    }
-    if (src == HttpMethod_.\iPUT) {
-      return \iPUT;
-    }
-    if (src == HttpMethod_.\iDELETE) {
-      return \iDELETE;
-    }
-    if (src == HttpMethod_.\iTRACE) {
-      return \iTRACE;
-    }
-    if (src == HttpMethod_.\iCONNECT) {
-      return \iCONNECT;
-    }
-    if (src == HttpMethod_.\iPATCH) {
-      return \iPATCH;
-    }
-    throw Exception("Invalid enum value");
   }
 }

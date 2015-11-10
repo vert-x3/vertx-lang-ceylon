@@ -68,7 +68,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -82,7 +82,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request(arg_0, arg_1, arg_2));
@@ -97,7 +97,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> responseHandler) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -117,7 +117,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> responseHandler) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_3 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
@@ -134,7 +134,7 @@ public class HttpClient implements ReifiedType,  Measured {
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request(arg_0, arg_1));
     return ret;
@@ -146,7 +146,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> responseHandler) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
       public void handle(io.vertx.core.http.HttpClientResponse event) {
@@ -162,7 +162,7 @@ public class HttpClient implements ReifiedType,  Measured {
   public HttpClientRequest requestAbs(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(absoluteURI);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.requestAbs(arg_0, arg_1));
     return ret;
@@ -174,7 +174,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> responseHandler) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.toJavaHttpMethod_.get_().safeConvert(method);
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(absoluteURI);
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
       public void handle(io.vertx.core.http.HttpClientResponse event) {
@@ -1175,7 +1175,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1199,7 +1199,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1225,7 +1225,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1247,7 +1247,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1276,7 +1276,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_5 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_6 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1302,7 +1302,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_5 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_6 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1330,7 +1330,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_4 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1354,7 +1354,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_4 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_5 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1455,7 +1455,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1475,7 +1475,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -1500,7 +1500,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "todo") Callable<?> wsConnect) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1522,7 +1522,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1602,7 +1602,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
   }
@@ -1617,7 +1617,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
@@ -1635,7 +1635,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_5 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
     return ret;
@@ -1652,7 +1652,7 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_4 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
@@ -1686,7 +1686,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.WebsocketVersion version) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -1700,7 +1700,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("subProtocols") @DocAnnotation$annotation$(description = "todo") ceylon.language.String subProtocols) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.toJavaWebsocketVersion_.get_().safeConvert(version);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
     WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;

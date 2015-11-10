@@ -120,14 +120,14 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpVersion")
   public io.vertx.ceylon.core.http.HttpVersion version() {
-    io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.toCeylonHttpVersion_.get_().safeConvert(delegate.version());
+    io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.httpVersion_.get_().getToCeylon().safeConvert(delegate.version());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
   public io.vertx.ceylon.core.http.HttpMethod method() {
-    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.toCeylonHttpMethod_.get_().safeConvert(delegate.method());
+    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.httpMethod_.get_().getToCeylon().safeConvert(delegate.method());
     return ret;
   }
 

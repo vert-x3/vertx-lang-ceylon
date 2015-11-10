@@ -23,23 +23,28 @@ shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{v
 @end{}
 
 \n
-shared object toJava@{type.simpleName} extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
-  shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
-    switch (src)
-@foreach{value:values}
-    case(@{asValidMember(value.identifier)}) { return @{type.simpleName}_.@{asValidMember(value.identifier)}; }\n
-@end{}
-  }\n
-}\n
+shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
 
 \n
-shared object toCeylon@{type.simpleName} extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
-  shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
+  shared object toJava extends Converter<@{type.simpleName}, @{type.simpleName}_>() {\n
+    shared actual @{type.simpleName}_ convert(@{type.simpleName} src) {\n
+      switch (src)
 @foreach{value:values}
-    if (src == @{type.simpleName}_.@{asValidMember(value.identifier)}) {\n
-      return @{asValidMember(value.identifier)};\n
-    }\n
+      case(@{asValidMember(value.identifier)}) { return @{type.simpleName}_.@{asValidMember(value.identifier)}; }\n
 @end{}
-    throw Exception("Invalid enum value");\n
+    }\n
   }\n
+
+\n
+  shared object toCeylon extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
+    shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
+@foreach{value:values}
+      if (src == @{type.simpleName}_.@{asValidMember(value.identifier)}) {\n
+        return @{asValidMember(value.identifier)};\n
+      }\n
+@end{}
+      throw Exception("Invalid enum value");\n
+    }\n
+  }\n
+
 }\n

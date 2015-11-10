@@ -167,7 +167,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
   public io.vertx.ceylon.core.http.HttpMethod method() {
-    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.toCeylonHttpMethod_.get_().safeConvert(delegate.method());
+    io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.httpMethod_.get_().getToCeylon().safeConvert(delegate.method());
     return ret;
   }
 
