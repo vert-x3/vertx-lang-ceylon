@@ -134,13 +134,13 @@
       } else if (kind == CLASS_API) {
         var ret = new java.lang.StringBuilder(type.raw.translateName('ceylon'));
         ret.append('.TO_CEYLON.converter(');
-        if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
+        if (type.parameterized) {
           var index = 0;
           for (typeArg : type.args) {
             if (index > 0) {
               ret.append(', ');
             }
-            if (typeArg instanceof io.vertx.codegen.TypeInfo$Variable) {
+            if (typeArg.variable) {
               ret.append('$reified$').append(typeArg.name);
             } else {
               ret.append('null /* unsupported yet ' + typeArg + '/' + typeArg.kind + '  */ ');
@@ -188,7 +188,7 @@
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = type.simpleName;
-      if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
+      if (type.parameterized) {
         decl = genJavaInterropTypeDecl(type.raw);
         var sep = '<';
         for (typeArg : type.args) {
@@ -232,8 +232,7 @@
         decl = 'byte';
       }
     } else if (kind == CLASS_OBJECT) {
-      /* handle this instanceof better */
-      if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
+      if (type.variable) {
         decl = type.name;
       } else {
         decl = 'Object';
@@ -262,7 +261,7 @@
     } else if (kind == CLASS_JSON_ARRAY) {
       decl = 'ceylon.json.Array';
     } else if (kind == CLASS_OTHER) {
-      if (type instanceof io.vertx.codegen.TypeInfo$Void) {
+      if (type.void) {
         decl = 'void';
       }
     }
@@ -326,7 +325,7 @@
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = genJavaClassName(type.raw, '::');
-      if (type instanceof io.vertx.codegen.TypeInfo$Parameterized) {
+      if (type.parameterized) {
         decl = genCeylonTypeDecl(type.raw, allowNullable);
         var sep = '<';
         for (typeArg : type.args) {
@@ -343,8 +342,7 @@
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
       nullable = true;
-      /* handle this instanceof better */
-      if (type instanceof io.vertx.codegen.TypeInfo$Variable) {
+      if (type.variable) {
         decl = type.name;
       } else {
         decl = 'ceylon.language::Object';
@@ -384,7 +382,7 @@
     } else if (kind == CLASS_JSON_ARRAY) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OTHER) {
-      if (type instanceof io.vertx.codegen.TypeInfo$Void) {
+      if (type.void) {
         decl = 'ceylon.language::Anything';
       }
     }
