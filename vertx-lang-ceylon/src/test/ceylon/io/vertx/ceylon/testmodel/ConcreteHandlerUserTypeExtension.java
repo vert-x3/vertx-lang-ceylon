@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = "todo")
-public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.testmodel.ConcreteHandlerUserType implements ReifiedType {
+public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.testmodel.ConcreteHandlerUserType implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {
@@ -55,8 +55,8 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.codegen.te
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0) {
-    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0) {
+    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
 

@@ -1,4 +1,4 @@
-package com.acme.ceylon.pkg;
+package com.acme.ceylon.acme;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -11,8 +11,8 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
-import com.acme.ceylon.pkg.sub.SubInterface;
-import io.vertx.ceylon.codegen.testmodel.TestInterface;
+import com.acme.ceylon.acme.sub.SubInterface;
+import io.vertx.ceylon.testmodel.TestInterface;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = "todo")
@@ -54,16 +54,16 @@ public class MyInterface implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("com.acme.ceylon.pkg.sub::SubInterface")
+  @TypeInfo("com.acme.ceylon.acme.sub::SubInterface")
   public SubInterface sub() {
-    SubInterface ret = com.acme.ceylon.pkg.sub.SubInterface.TO_CEYLON.converter().safeConvert(delegate.sub());
+    SubInterface ret = com.acme.ceylon.acme.sub.SubInterface.TO_CEYLON.converter().safeConvert(delegate.sub());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::TestInterface")
+  @TypeInfo("io.vertx.ceylon.testmodel::TestInterface")
   public TestInterface method() {
-    TestInterface ret = io.vertx.ceylon.codegen.testmodel.TestInterface.TO_CEYLON.converter().safeConvert(delegate.method());
+    TestInterface ret = io.vertx.ceylon.testmodel.TestInterface.TO_CEYLON.converter().safeConvert(delegate.method());
     return ret;
   }
 

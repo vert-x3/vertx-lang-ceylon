@@ -1,4 +1,4 @@
-package com.acme.ceylon.pkg.sub;
+package com.acme.ceylon.acme.sub;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;

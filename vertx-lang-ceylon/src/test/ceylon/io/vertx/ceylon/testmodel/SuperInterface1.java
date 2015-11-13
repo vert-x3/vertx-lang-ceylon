@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;

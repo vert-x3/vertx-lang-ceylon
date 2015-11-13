@@ -394,7 +394,7 @@
                   <fileset>
                     <directory>${basedir}/src/test/ceylon</directory>
                     <includes>
-                      <include>io/vertx/ceylon/codegen/testmodel/**/*.ceylon</include>
+                      <include>io/vertx/ceylon/testmodel/**/*.ceylon</include>
                     </includes>
                   </fileset>
                 </source>
@@ -417,7 +417,7 @@
                   <fileset>
                     <directory>${basedir}/src/test/ceylon</directory>
                     <includes>
-                      <include>io/vertx/ceylon/codegen/testmodel/**/*.java</include>
+                      <include>io/vertx/ceylon/testmodel/**/*.java</include>
                     </includes>
                   </fileset>
                 </source>

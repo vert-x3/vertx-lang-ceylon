@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -44,7 +44,7 @@ public interface RefedInterface2 {
   public ceylon.language.String getString();
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface2")
+  @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
 
@@ -75,11 +75,11 @@ public interface RefedInterface2 {
     }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface2")
+  @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
-    RefedInterface2 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface2.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
+    RefedInterface2 ret = io.vertx.ceylon.testmodel.RefedInterface2.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
       return this;
     }
   }

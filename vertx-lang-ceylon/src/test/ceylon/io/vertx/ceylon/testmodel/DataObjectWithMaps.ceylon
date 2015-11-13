@@ -1,3 +1,9 @@
+import io.vertx.ceylon.testmodel {
+  TestDataObject,
+  testDataObject_=testDataObject,
+  TestGenEnum,
+  testGenEnum_=testGenEnum
+}
 import io.vertx.codegen.testmodel {
   DataObjectWithMaps_=DataObjectWithMaps
 }
@@ -10,12 +16,6 @@ import io.vertx.lang.ceylon {
   BaseDataObject,
   Converter,
   ToJava
-}
-import io.vertx.ceylon.codegen.testmodel {
-  TestDataObject,
-  testDataObject_=testDataObject,
-  TestGenEnum,
-  testGenEnum_=testGenEnum
 }
 import ceylon.collection {
   HashMap

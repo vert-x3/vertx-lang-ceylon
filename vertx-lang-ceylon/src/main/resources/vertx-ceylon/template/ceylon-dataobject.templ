@@ -134,15 +134,15 @@
       props.add(prop);
     }
     if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
-      addClassImport(propType.translatePackageName('ceylon'), propType.simpleName, propType.simpleName);
+      addClassImport(propType.translatePackageName2('ceylon'), propType.simpleName, propType.simpleName);
       if (jsonifiable || propKind == CLASS_ENUM) {
         var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
-        addClassImport(propType.translatePackageName('ceylon'), objectName, objectName + '_');
+        addClassImport(propType.translatePackageName2('ceylon'), objectName, objectName + '_');
       }
     }
   }
   if (superType != null) {
-    addClassImport(superType.translatePackageName('ceylon'), superType.simpleName, superType.simpleName);
+    addClassImport(superType.translatePackageName2('ceylon'), superType.simpleName, superType.simpleName);
   }
   addClassImport(type.packageName, type.simpleName, type.simpleName + "_");
 }

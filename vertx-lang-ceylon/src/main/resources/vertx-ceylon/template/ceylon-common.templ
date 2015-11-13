@@ -63,7 +63,7 @@
         '    }';
       }
     } else if (kind == CLASS_API) {
-      return type.raw.translateName('ceylon') + '.TO_JAVA.safeConvert(' + expr + ')';
+      return type.raw.translateName2('ceylon') + '.TO_JAVA.safeConvert(' + expr + ')';
     } else if (kind == CLASS_OBJECT) {
       return 'io.vertx.lang.ceylon.ToJava.object(' + expr + ')';
     } else if (kind == CLASS_DATA_OBJECT) {
@@ -91,12 +91,12 @@
     if (kind.basic || kind.json) {
       return 'io.vertx.lang.ceylon.ToJava.' + type.simpleName;
     } else if (kind == CLASS_API) {
-      return type.translateName('ceylon') + '.TO_JAVA';
+      return type.translateName2('ceylon') + '.TO_JAVA';
     } else if (kind == CLASS_DATA_OBJECT) {
-      return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
+      return type.translatePackageName2('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
+        return type.translatePackageName2('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToJava()';
       } else {
         return 'io.vertx.lang.ceylon.ToJava.enumeration(' + type.name + '.class)';
       }
@@ -120,7 +120,7 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon().safeConvert(' + expr + ')';
+        return type.translatePackageName2('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon().safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var eltType = type.args[0];
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.convertList' : 'io.vertx.lang.ceylon.ToCeylon.convertSet';
@@ -132,7 +132,7 @@
           genJavaClassName(valType, '.') + '.$TypeDescriptor$, ' +
           expr + ', ' + 'io.vertx.lang.ceylon.ToCeylon.String, ' + genReturnConverter(valType) + ')';
       } else if (kind == CLASS_API) {
-        var ret = new java.lang.StringBuilder(type.raw.translateName('ceylon'));
+        var ret = new java.lang.StringBuilder(type.raw.translateName2('ceylon'));
         ret.append('.TO_CEYLON.converter(');
         if (type.parameterized) {
           var index = 0;
@@ -167,12 +167,12 @@
     if (kind.basic || kind.json) {
       return 'io.vertx.lang.ceylon.ToCeylon.' + type.simpleName;
     } else if (kind == CLASS_DATA_OBJECT) {
-      return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
+      return type.translatePackageName2('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
     } else if (kind == CLASS_API) {
-      return type.translateName('ceylon') + '.TO_CEYLON.converter()';
+      return type.translateName2('ceylon') + '.TO_CEYLON.converter()';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
+        return type.translatePackageName2('ceylon') + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon()';
       } else {
         return 'io.vertx.lang.ceylon.ToCeylon.<' + type.name + '>enumeration()';
       }
@@ -201,7 +201,7 @@
       decl = 'ceylon.language.String';
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        decl = type.translateName('ceylon');
+        decl = type.translateName2('ceylon');
       } else {
         decl = 'ceylon.language.String';
       }
@@ -243,7 +243,7 @@
     } else if (kind == CLASS_THROWABLE) {
       decl = 'Throwable';
     } else if (kind == CLASS_DATA_OBJECT) {
-      decl = type.translatePackageName('ceylon') + "." + type.simpleName;
+      decl = type.translatePackageName2('ceylon') + "." + type.simpleName;
     } else if (kind == CLASS_VOID) {
       decl = 'Anything';
     } else if (kind == CLASS_LIST) {
@@ -273,10 +273,10 @@
     if (kind == CLASS_STRING) {
       return 'ceylon.language' + sep + 'String';
     } else if (kind == CLASS_API) {
-      return type.raw.translatePackageName('ceylon') + sep + type.simpleName;
+      return type.raw.translatePackageName2('ceylon') + sep + type.simpleName;
     } else if (kind == CLASS_ENUM) {
       if (type.gen) {
-        return type.translatePackageName('ceylon') + sep + type.simpleName;
+        return type.translatePackageName2('ceylon') + sep + type.simpleName;
       } else {
         return 'ceylon.language' + sep + 'String';
       }
@@ -307,7 +307,7 @@
         return 'ceylon.language' + sep + 'Byte';
       }
     } else if (kind == CLASS_DATA_OBJECT) {
-      return type.translatePackageName('ceylon') + sep + type.simpleName;
+      return type.translatePackageName2('ceylon') + sep + type.simpleName;
     } else if (kind == CLASS_JSON_OBJECT) {
       return 'ceylon.json' + sep + 'Object';
     } else if (kind == CLASS_JSON_ARRAY) {
@@ -497,13 +497,13 @@ import ceylon.language.DocAnnotation$annotation$;\n
 	@if{importedType.kind == CLASS_DATA_OBJECT}
 	@else{importedType.kind == CLASS_API}
 		@if{!ifacePackageName.equals(importedType.packageName)}
-			import @{importedType.translateName("ceylon")};\n
+			import @{importedType.translateName2("ceylon")};\n
 		@end{}
 	@else{importedType.kind == CLASS_ENUM && importedType.gen}
 		@if{!ifacePackageName.equals(importedType.packageName)}
-			import @{importedType.translateName("ceylon")};\n
+			import @{importedType.translateName2("ceylon")};\n
 			@foreach{value:importedType.values}
-			import @{importedType.translateName("ceylon")};\n
+			import @{importedType.translateName2("ceylon")};\n
 			@end{}
 		@end{}
 	@else{}

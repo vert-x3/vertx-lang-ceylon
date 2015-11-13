@@ -1,4 +1,4 @@
-import io.vertx.ceylon.codegen.testmodel {
+import io.vertx.ceylon.testmodel {
   DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, TestDataObject, \iLAURA, \iBOB, \iMIKE, \iLELAND
 }
 import io.vertx.codegen.testmodel {

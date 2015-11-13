@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -43,7 +43,7 @@ public interface AbstractHandlerUserType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0);
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0);
 
   @Ignore
   public class Impl implements AbstractHandlerUserType {
@@ -67,8 +67,8 @@ public interface AbstractHandlerUserType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0) {
-    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0) {
+    io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
     }
   }

@@ -1,0 +1,1 @@
+shared package com.acme.ceylon.acme;

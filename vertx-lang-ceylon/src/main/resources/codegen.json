@@ -2,23 +2,23 @@
   "name": "Ceylon",
   "generators": [ {
     "kind": "class",
-    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.java'",
+    "fileName": "'ceylon/' + module.translateQualifiedName2(fqn, 'ceylon').replace('.', '/') + '.java'",
     "templateFileName": "vertx-ceylon/template/ceylon-class.templ"
   },{
     "kind": "class",
-    "fileName": "model.staticMethods.size() > 0 ? ('ceylon/' + model.type.translatePackageName('ceylon').replace('.', '/') + '/' + CASE_CAMEL.to(CASE_LOWER_CAMEL, model.type.simpleName) + '_.java') : null",
+    "fileName": "model.staticMethods.size() > 0 ? ('ceylon/' + model.type.translatePackageName2('ceylon').replace('.', '/') + '/' + CASE_CAMEL.to(CASE_LOWER_CAMEL, model.type.simpleName) + '_.java') : null",
     "templateFileName": "vertx-ceylon/template/ceylon-object.templ"
   }, {
     "kind": "enum",
-    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "fileName": "'ceylon/' + module.translateQualifiedName2(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-enum.templ"
   }, {
     "kind": "package",
-    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '/package.ceylon'",
+    "fileName": "'ceylon/' + module.translateQualifiedName2(fqn, 'ceylon').replace('.', '/') + '/package.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-package.templ"
   }, {
     "kind": "dataObject",
-    "fileName": "'ceylon/' + module.translateQualifiedName(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
+    "fileName": "'ceylon/' + module.translateQualifiedName2(fqn, 'ceylon').replace('.', '/') + '.ceylon'",
     "templateFileName": "vertx-ceylon/template/ceylon-dataobject.templ"
   }
   ]

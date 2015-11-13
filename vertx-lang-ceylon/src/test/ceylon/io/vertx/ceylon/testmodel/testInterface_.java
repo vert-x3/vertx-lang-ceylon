@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -27,18 +27,18 @@ public class testInterface_ {
   private static final testInterface_ instance = new testInterface_();
 
   @Ignore
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::testInterface")
+  @TypeInfo("io.vertx.ceylon.testmodel::testInterface")
   public static testInterface_ get_() {
     return instance;
   }
 
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::RefedInterface1")
+  @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
   public static RefedInterface1 staticFactoryMethod(
     final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(foo);
-    RefedInterface1 ret = io.vertx.ceylon.codegen.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(io.vertx.codegen.testmodel.TestInterface.staticFactoryMethod(arg_0));
+    RefedInterface1 ret = io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(io.vertx.codegen.testmodel.TestInterface.staticFactoryMethod(arg_0));
     return ret;
   }
 

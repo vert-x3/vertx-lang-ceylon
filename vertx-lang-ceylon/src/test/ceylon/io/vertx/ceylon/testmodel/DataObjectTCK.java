@@ -1,4 +1,4 @@
-package io.vertx.ceylon.codegen.testmodel;
+package io.vertx.ceylon.testmodel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -52,46 +52,46 @@ public class DataObjectTCK implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithValues")
-  public io.vertx.ceylon.codegen.testmodel.DataObjectWithValues getDataObjectWithValues() {
-    io.vertx.ceylon.codegen.testmodel.DataObjectWithValues ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithValues_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithValues());
+  @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues")
+  public io.vertx.ceylon.testmodel.DataObjectWithValues getDataObjectWithValues() {
+    io.vertx.ceylon.testmodel.DataObjectWithValues ret = io.vertx.ceylon.testmodel.dataObjectWithValues_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithValues());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithValues(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithValues") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithValues dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithValues dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithValues arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithValues(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithValues(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithLists")
-  public io.vertx.ceylon.codegen.testmodel.DataObjectWithLists getDataObjectWithLists() {
-    io.vertx.ceylon.codegen.testmodel.DataObjectWithLists ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());
+  @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists")
+  public io.vertx.ceylon.testmodel.DataObjectWithLists getDataObjectWithLists() {
+    io.vertx.ceylon.testmodel.DataObjectWithLists ret = io.vertx.ceylon.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithLists(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithLists") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithLists dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithLists dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithLists arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithLists(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithLists(arg_0);
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithMaps")
-  public io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps getDataObjectWithMaps() {
-    io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps ret = io.vertx.ceylon.codegen.testmodel.dataObjectWithMaps_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithMaps());
+  @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps")
+  public io.vertx.ceylon.testmodel.DataObjectWithMaps getDataObjectWithMaps() {
+    io.vertx.ceylon.testmodel.DataObjectWithMaps ret = io.vertx.ceylon.testmodel.dataObjectWithMaps_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithMaps());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithMaps(
-    final @TypeInfo("io.vertx.ceylon.codegen.testmodel::DataObjectWithMaps") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.codegen.testmodel.DataObjectWithMaps dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithMaps dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithMaps arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithMaps(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithMaps(arg_0);
   }

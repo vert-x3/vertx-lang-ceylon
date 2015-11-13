@@ -1,4 +1,4 @@
-import io.vertx.ceylon.codegen.testmodel {
+import io.vertx.ceylon.testmodel {
   TestInterface, NullableTCK, RefedInterface1, RefedInterface2, TestDataObject,
   Factory, factory, testInterface, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
   GenericRefedInterface, TestGenEnum, \iMIKE, \iBOB, \iLELAND

@@ -66,7 +66,7 @@
 @end{}
 
 @comment{"Generate the imports"}
-package @{type.translatePackageName('ceylon')};\n
+package @{type.translatePackageName2('ceylon')};\n
 
 \n
 @includeNamed{'genImports'}
@@ -78,7 +78,7 @@ package @{type.translatePackageName('ceylon')};\n
 @Ceylon(major = 8)\n
 @DocAnnotation$annotation$(description = "todo")\n
 public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams}
-@if{concreteSuperType != null} extends @{concreteSuperType.translateName('ceylon')}@end{}
+@if{concreteSuperType != null} extends @{concreteSuperType.translateName2('ceylon')}@end{}
 @if{concrete} implements ReifiedType@end{}
 @if{abstractSuperTypes.size() > 0}
 	@if{concrete}@if{abstractSuperTypes.size() > 0}, @end{}@else{} extends@end{}
