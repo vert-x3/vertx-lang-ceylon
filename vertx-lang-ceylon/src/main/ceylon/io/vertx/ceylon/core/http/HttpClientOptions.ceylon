@@ -1,8 +1,12 @@
 import io.vertx.ceylon.core.net {
   JksOptions,
+  jksOptions_=jksOptions,
   PemKeyCertOptions,
+  pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
+  pemTrustOptions_=pemTrustOptions,
   PfxOptions,
+  pfxOptions_=pfxOptions,
   ClientOptionsBase
 }
 import ceylon.json {
@@ -114,6 +118,69 @@ shared class HttpClientOptions(
 }
 
 shared object httpClientOptions {
+
+  shared HttpClientOptions fromJson(JsonObject json) {
+    Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
+    {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    String? defaultHost = json.getStringOrNull("defaultHost");
+    Integer? defaultPort = json.getIntegerOrNull("defaultPort");
+    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
+    JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
+    Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
+    PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
+    Boolean? pipelining = json.getBooleanOrNull("pipelining");
+    HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
+    Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Integer? soLinger = json.getIntegerOrNull("soLinger");
+    Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
+    Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    Boolean? trustAll = json.getBooleanOrNull("trustAll");
+    JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? tryUseCompression = json.getBooleanOrNull("tryUseCompression");
+    Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
+    Boolean? verifyHost = json.getBooleanOrNull("verifyHost");
+    return HttpClientOptions {
+      connectTimeout = connectTimeout;
+      crlPaths = crlPaths;
+      defaultHost = defaultHost;
+      defaultPort = defaultPort;
+      enabledCipherSuites = enabledCipherSuites;
+      idleTimeout = idleTimeout;
+      keepAlive = keepAlive;
+      keyStoreOptions = keyStoreOptions;
+      maxPoolSize = maxPoolSize;
+      maxWebsocketFrameSize = maxWebsocketFrameSize;
+      pemKeyCertOptions = pemKeyCertOptions;
+      pemTrustOptions = pemTrustOptions;
+      pfxKeyCertOptions = pfxKeyCertOptions;
+      pfxTrustOptions = pfxTrustOptions;
+      pipelining = pipelining;
+      protocolVersion = protocolVersion;
+      receiveBufferSize = receiveBufferSize;
+      reuseAddress = reuseAddress;
+      sendBufferSize = sendBufferSize;
+      soLinger = soLinger;
+      ssl = ssl;
+      tcpKeepAlive = tcpKeepAlive;
+      tcpNoDelay = tcpNoDelay;
+      trafficClass = trafficClass;
+      trustAll = trustAll;
+      trustStoreOptions = trustStoreOptions;
+      tryUseCompression = tryUseCompression;
+      usePooledBuffers = usePooledBuffers;
+      verifyHost = verifyHost;
+    };
+  }
 
   shared object toJava extends Converter<HttpClientOptions, HttpClientOptions_>() {
     shared actual HttpClientOptions_ convert(HttpClientOptions src) {

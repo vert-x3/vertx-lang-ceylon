@@ -1,7 +1,7 @@
 @includeNamed{'/vertx-java/template/common-lib.templ'}
 @includeNamed{'ceylon-common.templ'}
 
-@code{packageName=type.translatePackageName2('ceylon')}
+@code{packageName=type.translatePackageName(TRANSLATOR_COMPOSITE)}
 @code{objectName=CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)}
 @code{indent='  '}
 
@@ -18,7 +18,7 @@ public class @{objectName}_ {\n
   private static final @{objectName}_ instance = new @{objectName}_();\n
 \n
   @Ignore\n
-  @TypeInfo("@{type.translatePackageName2('ceylon')}::@{objectName}")\n
+  @TypeInfo("@{type.translatePackageName(TRANSLATOR_COMPOSITE)}::@{objectName}")\n
   public static @{objectName}_ get_() {\n
     return instance;\n
   }\n

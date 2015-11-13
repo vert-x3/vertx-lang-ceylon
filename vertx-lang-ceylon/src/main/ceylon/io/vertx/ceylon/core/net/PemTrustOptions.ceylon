@@ -33,6 +33,13 @@ shared class PemTrustOptions(
 
 shared object pemTrustOptions {
 
+  shared PemTrustOptions fromJson(JsonObject json) {
+    {String*}? certPaths = json.getArrayOrNull("certPaths")?.strings;
+    return PemTrustOptions {
+      certPaths = certPaths;
+    };
+  }
+
   shared object toJava extends Converter<PemTrustOptions, PemTrustOptions_>() {
     shared actual PemTrustOptions_ convert(PemTrustOptions src) {
       // Todo : make optimized version without json

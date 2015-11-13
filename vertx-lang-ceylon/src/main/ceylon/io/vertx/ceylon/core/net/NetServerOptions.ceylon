@@ -1,8 +1,12 @@
 import io.vertx.ceylon.core.net {
   JksOptions,
+  jksOptions_=jksOptions,
   PemKeyCertOptions,
+  pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
+  pemTrustOptions_=pemTrustOptions,
   PfxOptions,
+  pfxOptions_=pfxOptions,
   TCPSSLOptions
 }
 import ceylon.json {
@@ -94,6 +98,57 @@ shared class NetServerOptions(
 }
 
 shared object netServerOptions {
+
+  shared NetServerOptions fromJson(JsonObject json) {
+    Integer? acceptBacklog = json.getIntegerOrNull("acceptBacklog");
+    ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
+    Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
+    {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    String? host = json.getStringOrNull("host");
+    Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
+    PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
+    Integer? port = json.getIntegerOrNull("port");
+    Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Integer? soLinger = json.getIntegerOrNull("soLinger");
+    Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
+    Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
+    return NetServerOptions {
+      acceptBacklog = acceptBacklog;
+      clientAuth = clientAuth;
+      clientAuthRequired = clientAuthRequired;
+      crlPaths = crlPaths;
+      enabledCipherSuites = enabledCipherSuites;
+      host = host;
+      idleTimeout = idleTimeout;
+      keyStoreOptions = keyStoreOptions;
+      pemKeyCertOptions = pemKeyCertOptions;
+      pemTrustOptions = pemTrustOptions;
+      pfxKeyCertOptions = pfxKeyCertOptions;
+      pfxTrustOptions = pfxTrustOptions;
+      port = port;
+      receiveBufferSize = receiveBufferSize;
+      reuseAddress = reuseAddress;
+      sendBufferSize = sendBufferSize;
+      soLinger = soLinger;
+      ssl = ssl;
+      tcpKeepAlive = tcpKeepAlive;
+      tcpNoDelay = tcpNoDelay;
+      trafficClass = trafficClass;
+      trustStoreOptions = trustStoreOptions;
+      usePooledBuffers = usePooledBuffers;
+    };
+  }
 
   shared object toJava extends Converter<NetServerOptions, NetServerOptions_>() {
     shared actual NetServerOptions_ convert(NetServerOptions src) {

@@ -36,7 +36,14 @@
 \n
 @{indent}public @{ctor}(@foreach{typeParam:type.params}@Ignore TypeDescriptor @{'$reified$' + typeParam.name}, @end{}@{type.name} delegate) {\n
 @if{concreteSuperType != null}
-@{indent}  super(delegate);\n
+@{indent}  super(@if{concreteSuperType.parameterized}
+@foreach{typeArg:concreteSuperType.args}
+@if{typeArg instanceof io.vertx.codegen.type.ClassTypeInfo}
+TypeDescriptor.klass(@{typeArg.name}.class)
+@else{}
+null /* Not implememented */
+@end{}, @end{}
+@end{}delegate);\n
 @end{}
 @if{type.params.size() > 0}
 @{indent}  this.$TypeDescriptor$ = TypeDescriptor.klass(@{type.simpleName}.class@foreach{typeParam:type.params}, @{'$reified$' + typeParam.name}@end{});\n
@@ -66,7 +73,7 @@
 @end{}
 
 @comment{"Generate the imports"}
-package @{type.translatePackageName2('ceylon')};\n
+package @{type.translatePackageName(TRANSLATOR_COMPOSITE)};\n
 
 \n
 @includeNamed{'genImports'}
@@ -78,7 +85,7 @@ package @{type.translatePackageName2('ceylon')};\n
 @Ceylon(major = 8)\n
 @DocAnnotation$annotation$(description = "todo")\n
 public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams}
-@if{concreteSuperType != null} extends @{concreteSuperType.translateName2('ceylon')}@end{}
+@if{concreteSuperType != null} extends @{concreteSuperType.translateName(TRANSLATOR_COMPOSITE)}@end{}
 @if{concrete} implements ReifiedType@end{}
 @if{abstractSuperTypes.size() > 0}
 	@if{concrete}@if{abstractSuperTypes.size() > 0}, @end{}@else{} extends@end{}

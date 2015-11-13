@@ -1,8 +1,12 @@
 import io.vertx.ceylon.core.net {
   JksOptions,
+  jksOptions_=jksOptions,
   PemKeyCertOptions,
+  pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
+  pemTrustOptions_=pemTrustOptions,
   PfxOptions,
+  pfxOptions_=pfxOptions,
   ClientOptionsBase
 }
 import ceylon.json {
@@ -82,6 +86,55 @@ shared class NetClientOptions(
 }
 
 shared object netClientOptions {
+
+  shared NetClientOptions fromJson(JsonObject json) {
+    Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
+    {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
+    PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
+    Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Integer? reconnectAttempts = json.getIntegerOrNull("reconnectAttempts");
+    Integer? reconnectInterval = json.getIntegerOrNull("reconnectInterval");
+    Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Integer? soLinger = json.getIntegerOrNull("soLinger");
+    Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
+    Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    Boolean? trustAll = json.getBooleanOrNull("trustAll");
+    JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
+    return NetClientOptions {
+      connectTimeout = connectTimeout;
+      crlPaths = crlPaths;
+      enabledCipherSuites = enabledCipherSuites;
+      idleTimeout = idleTimeout;
+      keyStoreOptions = keyStoreOptions;
+      pemKeyCertOptions = pemKeyCertOptions;
+      pemTrustOptions = pemTrustOptions;
+      pfxKeyCertOptions = pfxKeyCertOptions;
+      pfxTrustOptions = pfxTrustOptions;
+      receiveBufferSize = receiveBufferSize;
+      reconnectAttempts = reconnectAttempts;
+      reconnectInterval = reconnectInterval;
+      reuseAddress = reuseAddress;
+      sendBufferSize = sendBufferSize;
+      soLinger = soLinger;
+      ssl = ssl;
+      tcpKeepAlive = tcpKeepAlive;
+      tcpNoDelay = tcpNoDelay;
+      trafficClass = trafficClass;
+      trustAll = trustAll;
+      trustStoreOptions = trustStoreOptions;
+      usePooledBuffers = usePooledBuffers;
+    };
+  }
 
   shared object toJava extends Converter<NetClientOptions, NetClientOptions_>() {
     shared actual NetClientOptions_ convert(NetClientOptions src) {

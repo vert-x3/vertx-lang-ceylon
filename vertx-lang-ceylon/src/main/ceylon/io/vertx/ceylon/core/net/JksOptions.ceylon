@@ -38,6 +38,15 @@ shared class JksOptions(
 
 shared object jksOptions {
 
+  shared JksOptions fromJson(JsonObject json) {
+    String? password = json.getStringOrNull("password");
+    String? path = json.getStringOrNull("path");
+    return JksOptions {
+      password = password;
+      path = path;
+    };
+  }
+
   shared object toJava extends Converter<JksOptions, JksOptions_>() {
     shared actual JksOptions_ convert(JksOptions src) {
       // Todo : make optimized version without json

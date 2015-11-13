@@ -53,6 +53,7 @@
 
   <modules>
     <module>vertx-lang-ceylon</module>
+    <module>vertx-stack</module>
   </modules>
 
   <build>

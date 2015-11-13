@@ -36,6 +36,15 @@ shared class DeliveryOptions(
 
 shared object deliveryOptions {
 
+  shared DeliveryOptions fromJson(JsonObject json) {
+    String? codecName = json.getStringOrNull("codecName");
+    Integer? sendTimeout = json.getIntegerOrNull("sendTimeout");
+    return DeliveryOptions {
+      codecName = codecName;
+      sendTimeout = sendTimeout;
+    };
+  }
+
   shared object toJava extends Converter<DeliveryOptions, DeliveryOptions_>() {
     shared actual DeliveryOptions_ convert(DeliveryOptions src) {
       // Todo : make optimized version without json

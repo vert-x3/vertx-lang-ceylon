@@ -134,15 +134,13 @@
       props.add(prop);
     }
     if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
-      addClassImport(propType.translatePackageName2('ceylon'), propType.simpleName, propType.simpleName);
-      if (jsonifiable || propKind == CLASS_ENUM) {
-        var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
-        addClassImport(propType.translatePackageName2('ceylon'), objectName, objectName + '_');
-      }
+      addClassImport(propType.translatePackageName(TRANSLATOR_COMPOSITE), propType.simpleName, propType.simpleName);
+      var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
+      addClassImport(propType.translatePackageName(TRANSLATOR_COMPOSITE), objectName, objectName + '_');
     }
   }
   if (superType != null) {
-    addClassImport(superType.translatePackageName2('ceylon'), superType.simpleName, superType.simpleName);
+    addClassImport(superType.translatePackageName(TRANSLATOR_COMPOSITE), superType.simpleName, superType.simpleName);
   }
   addClassImport(type.packageName, type.simpleName, type.simpleName + "_");
 }
@@ -226,7 +224,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 \n
 shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
 
-@if{isClass && jsonifiable}
+@if{isClass}
 \n
   shared @{type.simpleName} fromJson(JsonObject json) {\n
 	@foreach{prop:props}
@@ -241,6 +239,7 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
 	@end{}
     };\n
   }\n
+	@if{jsonifiable}
 \n
   shared object toCeylon extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
     shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
@@ -249,6 +248,7 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
       return fromJson(json);\n
     }\n
   }\n
+	@end{}
 @end{}
 
 @if{isClass && concrete}

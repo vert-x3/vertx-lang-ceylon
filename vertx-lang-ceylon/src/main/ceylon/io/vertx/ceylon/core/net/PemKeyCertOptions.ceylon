@@ -37,6 +37,15 @@ shared class PemKeyCertOptions(
 
 shared object pemKeyCertOptions {
 
+  shared PemKeyCertOptions fromJson(JsonObject json) {
+    String? certPath = json.getStringOrNull("certPath");
+    String? keyPath = json.getStringOrNull("keyPath");
+    return PemKeyCertOptions {
+      certPath = certPath;
+      keyPath = keyPath;
+    };
+  }
+
   shared object toJava extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
     shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
       // Todo : make optimized version without json

@@ -38,6 +38,15 @@ shared class PfxOptions(
 
 shared object pfxOptions {
 
+  shared PfxOptions fromJson(JsonObject json) {
+    String? password = json.getStringOrNull("password");
+    String? path = json.getStringOrNull("path");
+    return PfxOptions {
+      password = password;
+      path = path;
+    };
+  }
+
   shared object toJava extends Converter<PfxOptions, PfxOptions_>() {
     shared actual PfxOptions_ convert(PfxOptions src) {
       // Todo : make optimized version without json

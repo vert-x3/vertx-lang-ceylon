@@ -12,7 +12,8 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.ceylon.core.metrics {
-  MetricsOptions
+  MetricsOptions,
+  metricsOptions_=metricsOptions
 }
 import ceylon.collection {
   HashMap
@@ -102,6 +103,47 @@ shared class VertxOptions(
 }
 
 shared object vertxOptions {
+
+  shared VertxOptions fromJson(JsonObject json) {
+    Integer? blockedThreadCheckInterval = json.getIntegerOrNull("blockedThreadCheckInterval");
+    String? clusterHost = json.getStringOrNull("clusterHost");
+    Integer? clusterPingInterval = json.getIntegerOrNull("clusterPingInterval");
+    Integer? clusterPingReplyInterval = json.getIntegerOrNull("clusterPingReplyInterval");
+    Integer? clusterPort = json.getIntegerOrNull("clusterPort");
+    String? clusterPublicHost = json.getStringOrNull("clusterPublicHost");
+    Integer? clusterPublicPort = json.getIntegerOrNull("clusterPublicPort");
+    Boolean? clustered = json.getBooleanOrNull("clustered");
+    Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
+    Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
+    String? haGroup = json.getStringOrNull("haGroup");
+    Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
+    Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
+    Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
+    MetricsOptions? metricsOptions = if (exists tmp = json.getObjectOrNull("metricsOptions")) then metricsOptions_.fromJson(tmp) else null;
+    Integer? quorumSize = json.getIntegerOrNull("quorumSize");
+    Integer? warningExceptionTime = json.getIntegerOrNull("warningExceptionTime");
+    Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
+    return VertxOptions {
+      blockedThreadCheckInterval = blockedThreadCheckInterval;
+      clusterHost = clusterHost;
+      clusterPingInterval = clusterPingInterval;
+      clusterPingReplyInterval = clusterPingReplyInterval;
+      clusterPort = clusterPort;
+      clusterPublicHost = clusterPublicHost;
+      clusterPublicPort = clusterPublicPort;
+      clustered = clustered;
+      eventLoopPoolSize = eventLoopPoolSize;
+      haEnabled = haEnabled;
+      haGroup = haGroup;
+      internalBlockingPoolSize = internalBlockingPoolSize;
+      maxEventLoopExecuteTime = maxEventLoopExecuteTime;
+      maxWorkerExecuteTime = maxWorkerExecuteTime;
+      metricsOptions = metricsOptions;
+      quorumSize = quorumSize;
+      warningExceptionTime = warningExceptionTime;
+      workerPoolSize = workerPoolSize;
+    };
+  }
 
   shared object toJava extends Converter<VertxOptions, VertxOptions_>() {
     shared actual VertxOptions_ convert(VertxOptions src) {

@@ -43,4 +43,17 @@ shared class NetworkOptions(
 }
 
 shared object networkOptions {
+
+  shared NetworkOptions fromJson(JsonObject json) {
+    Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    return NetworkOptions {
+      receiveBufferSize = receiveBufferSize;
+      reuseAddress = reuseAddress;
+      sendBufferSize = sendBufferSize;
+      trafficClass = trafficClass;
+    };
+  }
 }

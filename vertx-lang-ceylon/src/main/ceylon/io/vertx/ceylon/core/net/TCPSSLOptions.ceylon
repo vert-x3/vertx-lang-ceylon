@@ -1,8 +1,12 @@
 import io.vertx.ceylon.core.net {
   JksOptions,
+  jksOptions_=jksOptions,
   PemKeyCertOptions,
+  pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
+  pemTrustOptions_=pemTrustOptions,
   PfxOptions,
+  pfxOptions_=pfxOptions,
   NetworkOptions
 }
 import ceylon.json {
@@ -98,4 +102,45 @@ shared class TCPSSLOptions(
 }
 
 shared object tcpsslOptions {
+
+  shared TCPSSLOptions fromJson(JsonObject json) {
+    {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
+    PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
+    PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
+    Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Integer? soLinger = json.getIntegerOrNull("soLinger");
+    Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
+    Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
+    return TCPSSLOptions {
+      crlPaths = crlPaths;
+      enabledCipherSuites = enabledCipherSuites;
+      idleTimeout = idleTimeout;
+      keyStoreOptions = keyStoreOptions;
+      pemKeyCertOptions = pemKeyCertOptions;
+      pemTrustOptions = pemTrustOptions;
+      pfxKeyCertOptions = pfxKeyCertOptions;
+      pfxTrustOptions = pfxTrustOptions;
+      receiveBufferSize = receiveBufferSize;
+      reuseAddress = reuseAddress;
+      sendBufferSize = sendBufferSize;
+      soLinger = soLinger;
+      ssl = ssl;
+      tcpKeepAlive = tcpKeepAlive;
+      tcpNoDelay = tcpNoDelay;
+      trafficClass = trafficClass;
+      trustStoreOptions = trustStoreOptions;
+      usePooledBuffers = usePooledBuffers;
+    };
+  }
 }

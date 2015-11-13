@@ -1,0 +1,184 @@
+= Cheatsheets
+
+[[PermittedOptions]]
+== PermittedOptions
+
+++++
+ Specify a match to allow for inbound and outbound traffic using the
+ link.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[address]]`address`|`String`|
++++
+The exact address the message is being sent to. If you want to allow messages based on
+ an exact address you use this field.
++++
+|[[addressRegex]]`addressRegex`|`String`|
++++
+A regular expression that will be matched against the address. If you want to allow messages
+ based on a regular expression you use this field. If the link value is specified
+ this will be ignored.
++++
+|[[match]]`match`|`Json object`|
++++
+This allows you to allow messages based on their structure. Any fields in the match must exist in the
+ message with the same values for them to be allowed. This currently only works with JSON messages.
++++
+|[[requiredAuthority]]`requiredAuthority`|`String`|
++++
+Declare a specific authority that user must have in order to allow messages
++++
+|===
+
+[[UpdateResult]]
+== UpdateResult
+
+++++
+ Represents the result of an update/insert/delete operation on the database.
+ <p>
+ The number of rows updated is available with link and any generated
+ keys are available with link.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|===
+
+[[ResultSet]]
+== ResultSet
+
+++++
+ Represents the results of a SQL query.
+ <p>
+ It contains a list for the column names of the results, and a list of <code>JsonArray</code> - one for each row of the
+ results.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|===
+
+[[JWTOptions]]
+== JWTOptions
+
+++++
+ Options related to creation of new tokens.
+
+ If any expiresInMinutes, audience, subject, issuer are not provided, there is no default.
+ The jwt generated won't include those properties in the payload.
+
+ Generated JWTs will include an iat claim by default unless noTimestamp is specified.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[algorithm]]`algorithm`|`String`|
++++
+The algorithm to use, it should be one of the alias [HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512]
++++
+|[[audience]]`audience`|`Array of String`|
++++
+The target audience of this token
++++
+|[[audiences]]`audiences`|`Array of String`|
++++
+The target audience of this token
++++
+|[[expiresInMinutes]]`expiresInMinutes`|`Number (long)`|
++++
+The expiration time for the token in minutes
++++
+|[[expiresInSeconds]]`expiresInSeconds`|`Number (long)`|
++++
+The expiration time for the token in seconds
++++
+|[[issuer]]`issuer`|`String`|
++++
+The issuer of this token
++++
+|[[noTimestamp]]`noTimestamp`|`Boolean`|
++++
+Disable the generation of issued at claim
++++
+|[[permissions]]`permissions`|`Array of String`|
++++
+Add a permission to this token.
++++
+|[[subject]]`subject`|`String`|
++++
+The subject of this token
++++
+|===
+
+[[AuthOptions]]
+== AuthOptions
+
+++++
+ A common base object for authentication options.
+ <p>
+ note: this will be moved to vertx-auth project after 3.1
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|===
+
+[[SockJSHandlerOptions]]
+== SockJSHandlerOptions
+
+++++
+ Options for configuring a SockJS handler
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[disabledTransports]]`disabledTransports`|`Array of String`|-
+|[[heartbeatInterval]]`heartbeatInterval`|`Number (long)`|-
+|[[insertJSESSIONID]]`insertJSESSIONID`|`Boolean`|-
+|[[libraryURL]]`libraryURL`|`String`|-
+|[[maxBytesStreaming]]`maxBytesStreaming`|`Number (int)`|-
+|[[sessionTimeout]]`sessionTimeout`|`Number (long)`|-
+|===
+
+[[BridgeOptions]]
+== BridgeOptions
+
+++++
+ Options for configuring the event bus bridge.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[inboundPermitted]]`inboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[inboundPermitteds]]`inboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[maxAddressLength]]`maxAddressLength`|`Number (int)`|-
+|[[maxHandlersPerSocket]]`maxHandlersPerSocket`|`Number (int)`|-
+|[[outboundPermitted]]`outboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[outboundPermitteds]]`outboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[pingTimeout]]`pingTimeout`|`Number (long)`|-
+|[[replyTimeout]]`replyTimeout`|`Number (long)`|-
+|===
+
