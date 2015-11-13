@@ -18,6 +18,7 @@
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
     <stack.version>3.2.0-SNAPSHOT</stack.version>
+    <repo.dir>${project.basedir}/../target/repo</repo.dir>
   </properties>
 
   <dependencies>
@@ -206,7 +207,7 @@
               <goal>import-dependency</goal>
             </goals>
             <configuration>
-              <out>repo</out>
+              <out>${repo.dir}</out>
               <moduleImports>
                 <moduleImport>
                   <dependency>
@@ -394,9 +395,9 @@
             </goals>
             <configuration>
               <userRepos>
-                <user>${project.basedir}/../vertx-lang-ceylon/target/repo</user>
+                <user>${repo.dir}</user>
               </userRepos>
-              <out>repo</out>
+              <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
@@ -418,9 +419,9 @@
             </goals>
             <configuration>
               <userRepos>
-                <user>${project.basedir}/../vertx-lang-ceylon/target/repo</user>
+                <user>${repo.dir}</user>
               </userRepos>
-              <out>repo</out>
+              <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
