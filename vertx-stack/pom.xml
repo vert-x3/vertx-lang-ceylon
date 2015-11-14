@@ -211,6 +211,21 @@
               <moduleImports>
                 <moduleImport>
                   <dependency>
+                    <groupId>com.mchange</groupId>
+                    <artifactId>mchange-commons-java</artifactId>
+                  </dependency>
+                  <descriptor>descriptors/com.mchange.mchange-commons-java.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>com.mchange</groupId>
+                    <artifactId>c3p0</artifactId>
+                  </dependency>
+                  <descriptor>descriptors/com.mchange.c3p0.properties</descriptor>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-sql-common</artifactId>
                   </dependency>
