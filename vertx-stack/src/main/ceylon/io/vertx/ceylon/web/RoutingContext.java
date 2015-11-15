@@ -150,7 +150,7 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String mountPoint() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.mountPoint());
     return ret;
@@ -171,7 +171,7 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.web::Cookie")
+  @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie getCookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -189,7 +189,7 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.web::Cookie")
+  @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie removeCookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
@@ -212,14 +212,14 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getBodyAsString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getBodyAsString());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getBodyAsString(
     final @TypeInfo("ceylon.language::String") @Name("encoding") @DocAnnotation$annotation$(description = "todo") ceylon.language.String encoding) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(encoding);
@@ -228,14 +228,14 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.json::Object")
+  @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object getBodyAsJson() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getBodyAsJson());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer?")
   public Buffer getBody() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.getBody());
     return ret;
@@ -249,21 +249,21 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.web::Session")
+  @TypeInfo("io.vertx.ceylon.web::Session?")
   public Session session() {
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.session());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.auth.common::User")
+  @TypeInfo("io.vertx.ceylon.auth.common::User?")
   public User user() {
     User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.user());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::Throwable")
+  @TypeInfo("ceylon.language::Throwable?")
   public Throwable failure() {
     if (cached_failure != null) {
       return cached_failure;
@@ -285,7 +285,7 @@ public class RoutingContext implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getAcceptableContentType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getAcceptableContentType());
     return ret;
@@ -375,7 +375,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setAcceptableContentType(
-    final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
+    final @TypeInfo("ceylon.language::String?") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(contentType);
     delegate.setAcceptableContentType(arg_0);
   }

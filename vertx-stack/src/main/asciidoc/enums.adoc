@@ -103,3 +103,25 @@ Long-polling using <a hred="https://secure.wikimedia.org/wikipedia/en/wiki/XMLHt
 +++
 |===
 
+[[ShiroAuthRealmType]]
+== ShiroAuthRealmType
+
+++++
+ The type of the Shiro auth realm
+++++
+'''
+
+[cols=">25%,75%"]
+[frame="topbot"]
+|===
+^|Name | Description
+|[[PROPERTIES]]`PROPERTIES`|
++++
+The realm is a Shiro properties auth provider
++++
+|[[LDAP]]`LDAP`|
++++
+The realm is a Shiro LDAP auth provider
++++
+|===
+

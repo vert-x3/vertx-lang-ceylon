@@ -373,7 +373,7 @@ public class Router implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public Router exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("exceptionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> exceptionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("exceptionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> exceptionHandler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = exceptionHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         exceptionHandler.$call$((Object)event);

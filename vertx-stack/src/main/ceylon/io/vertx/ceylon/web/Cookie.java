@@ -77,14 +77,14 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setDomain(
-    final @TypeInfo("ceylon.language::String") @Name("domain") @DocAnnotation$annotation$(description = "todo") ceylon.language.String domain) {
+    final @TypeInfo("ceylon.language::String?") @Name("domain") @DocAnnotation$annotation$(description = "todo") ceylon.language.String domain) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(domain);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setDomain(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getDomain() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDomain());
     return ret;
@@ -93,14 +93,14 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setPath(
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
+    final @TypeInfo("ceylon.language::String?") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setPath(arg_0));
     return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());
     return ret;
@@ -112,7 +112,7 @@ public class Cookie implements ReifiedType {
     final @TypeInfo("ceylon.language::Integer") @Name("maxAge") @DocAnnotation$annotation$(description = "todo") long maxAge) {
     long arg_0 = maxAge;
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setMaxAge(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -130,7 +130,7 @@ public class Cookie implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("httpOnly") @DocAnnotation$annotation$(description = "todo") boolean httpOnly) {
     boolean arg_0 = httpOnly;
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setHttpOnly(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")

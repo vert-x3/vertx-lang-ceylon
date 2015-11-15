@@ -192,14 +192,14 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.web::Session")
+  @TypeInfo("io.vertx.ceylon.web::Session?")
   public Session webSession() {
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.webSession());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = "todo")
-  @TypeInfo("io.vertx.ceylon.auth.common::User")
+  @TypeInfo("io.vertx.ceylon.auth.common::User?")
   public User webUser() {
     User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.webUser());
     return ret;

@@ -68,7 +68,7 @@ public class FormLoginHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String usernameParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(usernameParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setUsernameParam(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -77,7 +77,7 @@ public class FormLoginHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String passwordParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(passwordParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setPasswordParam(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -86,7 +86,7 @@ public class FormLoginHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String returnURLParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(returnURLParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setReturnURLParam(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = "todo")
@@ -95,7 +95,7 @@ public class FormLoginHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL") @DocAnnotation$annotation$(description = "todo") ceylon.language.String directLoggedInOKURL) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(directLoggedInOKURL);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setDirectLoggedInOKURL(arg_0));
-    return ret;
+    return this;
   }
 
 }
