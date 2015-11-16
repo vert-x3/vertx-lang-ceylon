@@ -98,6 +98,50 @@
       <classifier>sources</classifier>
       <version>3.2.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-handlebars</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-handlebars</artifactId>
+      <classifier>sources</classifier>
+      <version>3.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-jade</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-jade</artifactId>
+      <classifier>sources</classifier>
+      <version>3.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-mvel</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-mvel</artifactId>
+      <classifier>sources</classifier>
+      <version>3.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-thymeleaf</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-thymeleaf</artifactId>
+      <classifier>sources</classifier>
+      <version>3.2.0-SNAPSHOT</version>
+    </dependency>
 
     <dependency>
       <groupId>io.vertx</groupId>
@@ -231,6 +275,42 @@
                   <descriptor>descriptors/io.vertx.vertx-web.properties</descriptor>
                   <force>true</force>
                 </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-handlebars</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-handlebars.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-mvel</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-mvel.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-jade</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-jade.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-thymeleafecl</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
               </moduleImports>
             </configuration>
           </execution>
@@ -298,7 +378,7 @@
             </goals>
             <configuration>
               <includeGroupIds>io.vertx</includeGroupIds>
-              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-shiro,vertx-web</includeArtifactIds>
+              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-shiro,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>

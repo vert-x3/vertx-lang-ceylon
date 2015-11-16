@@ -1,0 +1,73 @@
+package io.vertx.ceylon.web.templ;
+
+import com.redhat.ceylon.compiler.java.metadata.Ceylon;
+import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
+import com.redhat.ceylon.compiler.java.metadata.TypeParameter;
+import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
+import com.redhat.ceylon.compiler.java.metadata.Variance;
+import com.redhat.ceylon.compiler.java.metadata.Ignore;
+import com.redhat.ceylon.compiler.java.metadata.Name;
+import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
+import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
+import ceylon.language.Callable;
+import ceylon.language.DocAnnotation$annotation$;
+
+@Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "todo")
+public class MVELTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
+
+  @Ignore
+  public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine>() {
+        public MVELTemplateEngine convert(io.vertx.ext.web.templ.MVELTemplateEngine src) {
+          return new MVELTemplateEngine(src);
+        }
+      };
+    }
+  };
+
+  @Ignore
+  public static final io.vertx.lang.ceylon.Converter<MVELTemplateEngine, io.vertx.ext.web.templ.MVELTemplateEngine> TO_JAVA = new io.vertx.lang.ceylon.Converter<MVELTemplateEngine, io.vertx.ext.web.templ.MVELTemplateEngine>() {
+    public io.vertx.ext.web.templ.MVELTemplateEngine convert(MVELTemplateEngine src) {
+      return src.delegate;
+    }
+  };
+
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MVELTemplateEngine.class);
+  @Ignore private final io.vertx.ext.web.templ.MVELTemplateEngine delegate;
+
+  public MVELTemplateEngine(io.vertx.ext.web.templ.MVELTemplateEngine delegate) {
+    super(delegate);
+    this.delegate = delegate;
+  }
+
+  @Ignore 
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
+
+  @Ignore
+  public Object getDelegate() {
+    return delegate;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
+  public MVELTemplateEngine setExtension(
+    final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "todo") ceylon.language.String extension) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(extension);
+    MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setExtension(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
+  public MVELTemplateEngine setMaxCacheSize(
+    final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "todo") long maxCacheSize) {
+    int arg_0 = (int)maxCacheSize;
+    MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMaxCacheSize(arg_0));
+    return ret;
+  }
+
+}
