@@ -305,7 +305,7 @@
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
-                    <artifactId>vertx-web-templ-thymeleafe</artifactId>
+                    <artifactId>vertx-web-templ-thymeleaf</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
