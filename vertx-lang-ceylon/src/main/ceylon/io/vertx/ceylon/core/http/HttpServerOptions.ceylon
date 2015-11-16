@@ -111,7 +111,7 @@ shared object httpServerOptions {
     Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
     Boolean? compressionSupported = json.getBooleanOrNull("compressionSupported");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
-    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     Boolean? handle100ContinueAutomatically = json.getBooleanOrNull("handle100ContinueAutomatically");
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");

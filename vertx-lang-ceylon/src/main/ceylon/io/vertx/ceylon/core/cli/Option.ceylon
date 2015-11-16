@@ -29,6 +29,7 @@ shared class Option(
   shared Boolean? hidden = null,
   shared String? longName = null,
   shared Boolean? multiValued = null,
+  shared String? name = null,
   shared Boolean? required = null,
   shared String? shortName = null,
   shared Boolean? singleValued = null) satisfies BaseDataObject {
@@ -38,7 +39,7 @@ shared class Option(
       json.put("argName", argName);
     }
     if (exists choices) {
-      json.put("choices", JsonArray(choices));
+      throw Exception("not yet implemented");
     }
     if (exists defaultValue) {
       json.put("defaultValue", defaultValue);
@@ -61,6 +62,9 @@ shared class Option(
     if (exists multiValued) {
       json.put("multiValued", multiValued);
     }
+    if (exists name) {
+      json.put("name", name);
+    }
     if (exists required) {
       json.put("required", required);
     }
@@ -78,7 +82,7 @@ shared object option {
 
   shared Option fromJson(JsonObject json) {
     String? argName = json.getStringOrNull("argName");
-    {String*}? choices = json.getArrayOrNull("choices")?.strings;
+    {String*}? choices = null /* java.lang.String not handled */;
     String? defaultValue = json.getStringOrNull("defaultValue");
     String? description = json.getStringOrNull("description");
     Boolean? flag = json.getBooleanOrNull("flag");
@@ -86,6 +90,7 @@ shared object option {
     Boolean? hidden = json.getBooleanOrNull("hidden");
     String? longName = json.getStringOrNull("longName");
     Boolean? multiValued = json.getBooleanOrNull("multiValued");
+    String? name = json.getStringOrNull("name");
     Boolean? required = json.getBooleanOrNull("required");
     String? shortName = json.getStringOrNull("shortName");
     Boolean? singleValued = json.getBooleanOrNull("singleValued");
@@ -99,6 +104,7 @@ shared object option {
       hidden = hidden;
       longName = longName;
       multiValued = multiValued;
+      name = name;
       required = required;
       shortName = shortName;
       singleValued = singleValued;

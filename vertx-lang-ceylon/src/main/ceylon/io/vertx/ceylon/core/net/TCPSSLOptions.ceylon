@@ -59,7 +59,7 @@ shared class TCPSSLOptions(
       json.put("crlPaths", JsonArray(crlPaths));
     }
     if (exists enabledCipherSuites) {
-      json.put("enabledCipherSuites", JsonArray(enabledCipherSuites));
+      throw Exception("not yet implemented");
     }
     if (exists idleTimeout) {
       json.put("idleTimeout", idleTimeout);
@@ -105,7 +105,7 @@ shared object tcpsslOptions {
 
   shared TCPSSLOptions fromJson(JsonObject json) {
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
-    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;

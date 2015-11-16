@@ -29,7 +29,7 @@ shared class SockJSHandlerOptions(
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists disabledTransports) {
-      json.put("disabledTransports", JsonArray(disabledTransports));
+      throw Exception("not yet implemented");
     }
     if (exists heartbeatInterval) {
       json.put("heartbeatInterval", heartbeatInterval);
@@ -53,7 +53,7 @@ shared class SockJSHandlerOptions(
 shared object sockJSHandlerOptions {
 
   shared SockJSHandlerOptions fromJson(JsonObject json) {
-    {String*}? disabledTransports = json.getArrayOrNull("disabledTransports")?.strings;
+    {String*}? disabledTransports = null /* java.lang.String not handled */;
     Integer? heartbeatInterval = json.getIntegerOrNull("heartbeatInterval");
     Boolean? insertJSESSIONID = json.getBooleanOrNull("insertJSESSIONID");
     String? libraryURL = json.getStringOrNull("libraryURL");

@@ -124,7 +124,7 @@ shared object httpClientOptions {
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     String? defaultHost = json.getStringOrNull("defaultHost");
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
-    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;

@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.streams.WriteStream;
+import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @TypeParameters({
@@ -63,6 +64,33 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  public MessageProducer<T> send(
+    final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.send(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="R",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  public <R> MessageProducer<T> send(final @Ignore TypeDescriptor $reified$R, 
+    final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
+      public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+      }
+    };
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.send(arg_0, arg_1));
     return ret;
   }
 
@@ -124,6 +152,12 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("ceylon.language::Anything")
+  public void close() {
+    delegate.close();
   }
 
 }

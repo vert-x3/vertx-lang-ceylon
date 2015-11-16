@@ -92,7 +92,7 @@ public class SQLConnection implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
-        return io.vertx.ceylon.sql.ResultSet.TO_CEYLON.converter().safeConvert(event);
+        return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
     };
     SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.query(arg_0, arg_1));
@@ -109,7 +109,7 @@ public class SQLConnection implements ReifiedType {
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
-        return io.vertx.ceylon.sql.ResultSet.TO_CEYLON.converter().safeConvert(event);
+        return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
     };
     SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.queryWithParams(arg_0, arg_1, arg_2));
@@ -124,7 +124,7 @@ public class SQLConnection implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.UpdateResult>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
-        return io.vertx.ceylon.sql.UpdateResult.TO_CEYLON.converter().safeConvert(event);
+        return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
       }
     };
     SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.update(arg_0, arg_1));
@@ -141,7 +141,7 @@ public class SQLConnection implements ReifiedType {
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.UpdateResult>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
-        return io.vertx.ceylon.sql.UpdateResult.TO_CEYLON.converter().safeConvert(event);
+        return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
       }
     };
     SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.updateWithParams(arg_0, arg_1, arg_2));

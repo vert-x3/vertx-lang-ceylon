@@ -263,4 +263,30 @@ public class EventBus implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
+  public EventBus addInterceptor(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::SendContext)") @Name("interceptor") @DocAnnotation$annotation$(description = "todo") Callable<?> interceptor) {
+    io.vertx.core.Handler<io.vertx.core.eventbus.SendContext> arg_0 = interceptor == null ? null : new io.vertx.core.Handler<io.vertx.core.eventbus.SendContext>() {
+      public void handle(io.vertx.core.eventbus.SendContext event) {
+        interceptor.$call$((Object)io.vertx.ceylon.core.eventbus.SendContext.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.converter().safeConvert(delegate.addInterceptor(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "todo")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
+  public EventBus removeInterceptor(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::SendContext)") @Name("interceptor") @DocAnnotation$annotation$(description = "todo") Callable<?> interceptor) {
+    io.vertx.core.Handler<io.vertx.core.eventbus.SendContext> arg_0 = interceptor == null ? null : new io.vertx.core.Handler<io.vertx.core.eventbus.SendContext>() {
+      public void handle(io.vertx.core.eventbus.SendContext event) {
+        interceptor.$call$((Object)io.vertx.ceylon.core.eventbus.SendContext.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.converter().safeConvert(delegate.removeInterceptor(arg_0));
+    return ret;
+  }
+
 }

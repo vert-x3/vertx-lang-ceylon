@@ -21,8 +21,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.PemKeyCertOptions */
 shared class PemKeyCertOptions(
   shared String? certPath = null,
-  shared String? keyPath = null) satisfies
-  KeyCertOptions & BaseDataObject {
+  shared String? keyPath = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists certPath) {

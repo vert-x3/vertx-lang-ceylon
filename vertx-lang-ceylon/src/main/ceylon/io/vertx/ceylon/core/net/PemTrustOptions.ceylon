@@ -20,8 +20,7 @@ import io.vertx.core.json {
 }
 /* Generated from io.vertx.core.net.PemTrustOptions */
 shared class PemTrustOptions(
-  shared {String*}? certPaths = null) satisfies
-  TrustOptions & BaseDataObject {
+  shared {String*}? certPaths = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists certPaths) {

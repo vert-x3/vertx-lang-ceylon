@@ -33,7 +33,7 @@
     }
     if (prop.kind.value) {
       return decl;
-    } else if (prop.kind.list) {
+    } else if (prop.kind.list || prop.kind.set) {
       return '{' + decl + '*}';
     } else if (prop.kind.map) {
       return 'Map<String, ' + decl + '>';

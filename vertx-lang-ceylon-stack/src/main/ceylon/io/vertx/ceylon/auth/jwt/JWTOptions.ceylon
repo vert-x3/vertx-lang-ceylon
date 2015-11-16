@@ -25,6 +25,7 @@ shared class JWTOptions(
   shared {String*}? audiences = null,
   shared Integer? expiresInMinutes = null,
   shared Integer? expiresInSeconds = null,
+  shared JsonObject? header = null,
   shared String? issuer = null,
   shared Boolean? noTimestamp = null,
   shared {String*}? permissions = null,
@@ -45,6 +46,9 @@ shared class JWTOptions(
     }
     if (exists expiresInSeconds) {
       json.put("expiresInSeconds", expiresInSeconds);
+    }
+    if (exists header) {
+      json.put("header", header);
     }
     if (exists issuer) {
       json.put("issuer", issuer);
@@ -70,6 +74,7 @@ shared object jwtOptions {
     {String*}? audiences = json.getArrayOrNull("audiences")?.strings;
     Integer? expiresInMinutes = json.getIntegerOrNull("expiresInMinutes");
     Integer? expiresInSeconds = json.getIntegerOrNull("expiresInSeconds");
+    JsonObject? header = json.getObjectOrNull("header");
     String? issuer = json.getStringOrNull("issuer");
     Boolean? noTimestamp = json.getBooleanOrNull("noTimestamp");
     {String*}? permissions = json.getArrayOrNull("permissions")?.strings;
@@ -80,11 +85,20 @@ shared object jwtOptions {
       audiences = audiences;
       expiresInMinutes = expiresInMinutes;
       expiresInSeconds = expiresInSeconds;
+      header = header;
       issuer = issuer;
       noTimestamp = noTimestamp;
       permissions = permissions;
       subject = subject;
     };
+  }
+
+  shared object toCeylon extends Converter<JWTOptions_, JWTOptions>() {
+    shared actual JWTOptions convert(JWTOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
   }
 
   shared object toJava extends Converter<JWTOptions, JWTOptions_>() {

@@ -90,7 +90,7 @@ shared object netClientOptions {
   shared NetClientOptions fromJson(JsonObject json) {
     Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
-    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;

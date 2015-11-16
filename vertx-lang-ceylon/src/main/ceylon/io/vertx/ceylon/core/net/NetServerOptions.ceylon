@@ -104,7 +104,7 @@ shared object netServerOptions {
     ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
     Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
-    {String*}? enabledCipherSuites = json.getArrayOrNull("enabledCipherSuites")?.strings;
+    {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;

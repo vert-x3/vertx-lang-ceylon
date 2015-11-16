@@ -21,9 +21,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.PfxOptions */
 shared class PfxOptions(
   shared String? password = null,
-  shared String? path = null) satisfies
-  KeyCertOptions &
-  TrustOptions & BaseDataObject {
+  shared String? path = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists password) {
