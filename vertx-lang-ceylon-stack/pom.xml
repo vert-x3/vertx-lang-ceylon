@@ -327,14 +327,12 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/ceylon</directory>
-                    <includes>
-                      <include>**/*.ceylon</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/main/ceylon</directory>
+                  <includes>
+                    <include>**/*.ceylon</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
@@ -351,14 +349,12 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/ceylon</directory>
-                    <includes>
-                      <include>**/*.java</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/main/ceylon</directory>
+                  <includes>
+                    <include>**/*.java</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>

@@ -306,29 +306,23 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/lang/ceylon/**</include>
-                    </includes>
-                  </fileset>
-                </source>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/java</directory>
-                    <includes>
-                      <include>io/vertx/lang/ceylon/*.java</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/main/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/lang/ceylon/**</include>
+                  </includes>
+                </fileset>
+                <fileset>
+                  <directory>${basedir}/src/main/java</directory>
+                  <includes>
+                    <include>io/vertx/lang/ceylon/*.java</include>
+                  </includes>
+                </fileset>
               </sources>
               <resources>
-                <resource>
-                  <fileset>
-                    <directory>${basedir}/src/main/resource</directory>
-                  </fileset>
-                </resource>
+                <fileset>
+                  <directory>${basedir}/src/main/resource</directory>
+                </fileset>
               </resources>
             </configuration>
           </execution>
@@ -341,18 +335,16 @@
             <configuration>
               <out>${repo.dir}</out>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/ceylon/core/**/*.ceylon</include>
-                    </includes>
-                    <excludes>
-                      <exclude>io/vertx/ceylon/core/Verticle.ceylon</exclude>
-                      <exclude>io/vertx/ceylon/core/impl/**</exclude>
-                    </excludes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/main/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/ceylon/core/**/*.ceylon</include>
+                  </includes>
+                  <excludes>
+                    <exclude>io/vertx/ceylon/core/Verticle.ceylon</exclude>
+                    <exclude>io/vertx/ceylon/core/impl/**</exclude>
+                  </excludes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
@@ -366,16 +358,14 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/main/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/ceylon/core/**/*.java</include>
-                      <include>io/vertx/ceylon/core/Verticle.ceylon</include>
-                      <include>io/vertx/ceylon/core/impl/**</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/main/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/ceylon/core/**/*.java</include>
+                    <include>io/vertx/ceylon/core/Verticle.ceylon</include>
+                    <include>io/vertx/ceylon/core/impl/**</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
@@ -391,14 +381,12 @@
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/test/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/ceylon/testmodel/**/*.ceylon</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/test/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/ceylon/testmodel/**/*.ceylon</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
@@ -414,14 +402,12 @@
               </userRepos>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/test/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/ceylon/testmodel/**/*.java</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/test/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/ceylon/testmodel/**/*.java</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
@@ -436,23 +422,19 @@
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
               <sources>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/test/ceylon</directory>
-                    <includes>
-                      <include>io/vertx/tests/**</include>
-                      <include>io/vertx/mod2/**</include>
-                    </includes>
-                  </fileset>
-                </source>
-                <source>
-                  <fileset>
-                    <directory>${basedir}/src/test/ceylon</directory>
-                    <includes>
-                      <include>verticles/**</include>
-                    </includes>
-                  </fileset>
-                </source>
+                <fileset>
+                  <directory>${basedir}/src/test/ceylon</directory>
+                  <includes>
+                    <include>io/vertx/tests/**</include>
+                    <include>io/vertx/mod2/**</include>
+                  </includes>
+                </fileset>
+                <fileset>
+                  <directory>${basedir}/src/test/ceylon</directory>
+                  <includes>
+                    <include>verticles/**</include>
+                  </includes>
+                </fileset>
               </sources>
             </configuration>
           </execution>
