@@ -17,7 +17,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " The execution context of a todo_link execution.\n <p>\n When Vert.x provides an event to a handler or calls the start or stop methods of a todo_link,\n the execution is associated with a <code>Context</code>.\n <p>\n Usually a context is an *event-loop context* and is tied to a specific event loop thread. So executions for that\n context always occur on that exact same event loop thread.\n <p>\n In the case of worker verticles and running inline blocking code a worker context will be associated with the execution\n which will use a thread from the worker thread pool.\n <p>\n When a handler is set by a thread associated with a specific context, the Vert.x will guarantee that when that handler\n is executed, that execution will be associated with the same context.\n <p>\n If a handler is set by a thread not associated with a context (i.e. a non Vert.x thread). Then a new context will\n be created for that handler.\n <p>\n In other words, a context is propagated.\n <p>\n This means that when a verticle is deployed, any handlers it sets will be associated with the same context - the context\n of the verticle.\n <p>\n This means (in the case of a standard verticle) that the verticle code will always be executed with the exact same\n thread, so you don't have to worry about multi-threaded acccess to the verticle state and you can code your application\n as single threaded.\n <p>\n This class also allows arbitrary data to be todo_link and todo_link on the context so it can be shared easily\n amongst different handlers of, for example, a verticle instance.\n <p>\n This class also provides todo_link which allows an action to be executed asynchronously using the same context.\n")
 public class Context implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,7 @@ public class Context implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Run the specified action asynchronously on the same context, some time after the current execution has completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void runOnContext(
     final @TypeInfo("ceylon.language::Anything()") @Name("action") @DocAnnotation$annotation$(description = "todo") Callable<?> action) {
@@ -70,7 +70,7 @@ public class Context implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the todo_link or todo_link method, or the todo_link\n method if it failed.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
@@ -93,7 +93,7 @@ public class Context implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Invoke todo_link with order = true.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
@@ -111,42 +111,42 @@ public class Context implements ReifiedType {
     delegate.executeBlocking(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " If the context is associated with a Verticle deployment, this returns the deployment ID of that deployment.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String deploymentID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.deploymentID());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " If the context is associated with a Verticle deployment, this returns the configuration that was specified when\n the verticle was deployed.\n")
   @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object config() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.config());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The process args\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> processArgs() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.processArgs(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current context an event loop context?\n <p>\n NOTE! when running blocking code using todo_link from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return true.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isEventLoopContext() {
     boolean ret = delegate.isEventLoopContext();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current context a worker context?\n <p>\n NOTE! when running blocking code using todo_link from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return false.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isWorkerContext() {
     boolean ret = delegate.isWorkerContext();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current context a multi-threaded worker context?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMultiThreadedWorkerContext() {
     boolean ret = delegate.isMultiThreadedWorkerContext();
@@ -156,7 +156,7 @@ public class Context implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get some data from the context.\n")
   @TypeInfo("T?")
   public <T> T get(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
@@ -165,7 +165,7 @@ public class Context implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put some data in the context.\n <p>\n This can be used to share data between different handlers that share a context\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
@@ -175,7 +175,7 @@ public class Context implements ReifiedType {
     delegate.put(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove some data from the context.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean remove(
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
@@ -184,14 +184,14 @@ public class Context implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The Vertx instance that created the context\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx owner() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.owner());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  the number of instances of the verticle that were deployed in the deployment (if any) related\n to this context\n")
   @TypeInfo("ceylon.language::Integer")
   public long getInstanceCount() {
     long ret = delegate.getInstanceCount();

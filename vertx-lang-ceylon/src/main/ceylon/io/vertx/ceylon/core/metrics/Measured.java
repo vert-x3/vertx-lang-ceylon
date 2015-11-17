@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"mailto:nscavell@redhat.com\">Nick Scavelli</a>\n")
 public interface Measured {
 
   @Ignore
@@ -39,7 +39,7 @@ public interface Measured {
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled();
 
@@ -62,7 +62,7 @@ public interface Measured {
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();

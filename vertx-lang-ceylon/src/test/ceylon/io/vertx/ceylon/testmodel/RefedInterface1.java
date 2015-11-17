@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"http://tfox.org\">Tim Fox</a>\n")
 public class RefedInterface1 implements ReifiedType {
 
   @Ignore
@@ -51,14 +51,12 @@ public class RefedInterface1 implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
   public RefedInterface1 setString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {

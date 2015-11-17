@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.NetSocket;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a client-side HTTP response.\n <p>\n Vert.x provides you with one of these via the handler that was provided when creating the todo_link\n or that was set on the todo_link instance.\n <p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n")
 public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
   @Ignore
@@ -61,14 +61,12 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse resume() {
     HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -81,7 +79,6 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -94,14 +91,12 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse pause() {
     HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -114,21 +109,21 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the status code of the response\n")
   @TypeInfo("ceylon.language::Integer")
   public long statusCode() {
     long ret = delegate.statusCode();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the status message of the response\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String statusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.statusMessage());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the headers\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -139,7 +134,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the first header value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getHeader(
     final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
@@ -148,7 +143,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the first trailer value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getTrailer(
     final @TypeInfo("ceylon.language::String") @Name("trailerName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String trailerName) {
@@ -157,7 +152,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the trailers\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
     if (cached_trailers != null) {
@@ -168,7 +163,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the Set-Cookie headers (including trailers)\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> cookies() {
     if (cached_cookies != null) {
@@ -179,7 +174,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Convenience method for receiving the entire request body in one piece.\n <p>\n This saves you having to manually set a dataHandler and an endHandler and append the chunks of the body until\n the whole body received. Don't use this if your request body is large - you could potentially run out of RAM.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse bodyHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("bodyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> bodyHandler) {
@@ -192,7 +187,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a net socket for the underlying connection of this request.\n <p>\n USE THIS WITH CAUTION! Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol\n <p>\n One valid use-case for calling this is to receive the todo_link after a HTTP CONNECT was issued to the\n remote peer and it responded with a status code of 200.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
     if (cached_netSocket != null) {

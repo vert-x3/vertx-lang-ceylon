@@ -27,7 +27,7 @@ public class recordParser_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newDelimited(
     final @TypeInfo("ceylon.language::String") @Name("delim") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim, 
@@ -42,7 +42,7 @@ public class recordParser_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the <code>Buffer</code> delim.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newDelimited(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim") @DocAnnotation$annotation$(description = "todo") Buffer delim, 
@@ -57,7 +57,7 @@ public class recordParser_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in fixed size mode, and where the record size is specified\n by the <code>size</code> parameter.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public static RecordParser newFixed(
     final @TypeInfo("ceylon.language::Integer") @Name("size") @DocAnnotation$annotation$(description = "todo") long size, 

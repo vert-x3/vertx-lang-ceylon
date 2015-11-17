@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A datagram socket can be used to send todo_link's to remote datagram servers\n and receive todo_links .\n <p>\n Usually you use a datagram socket to send UDP over the wire. UDP is connection-less which means you are not connected\n to the remote peer in a persistent way. Because of this you have to supply the address and port of the remote peer\n when sending data.\n <p>\n You can send data to ipv4 or ipv6 addresses, which also include multicast addresses.\n <p>\n Please consult the documentation for more information on datagram sockets.\n")
 public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,  Measured {
 
   @Ignore
@@ -58,14 +58,14 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write the given todo_link to the todo_link.\n The todo_link will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("packet") @DocAnnotation$annotation$(description = "todo") Buffer packet, 
@@ -84,7 +84,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a todo_link able to send  to the\n todo_link.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream sender(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -95,7 +95,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write the given todo_link to the todo_link using UTF8 encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -114,7 +114,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write the given todo_link to the todo_link using the given encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -135,7 +135,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Closes the todo_link implementation asynchronous\n and notifies the handler once done.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -147,13 +147,13 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     delegate.close(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Closes the todo_link. The close itself is asynchronous.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the todo_link to which\n this todo_link is bound.\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -164,7 +164,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Joins a multicast group and listens for packets send to it.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -179,7 +179,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Joins a multicast group and listens for packets send to it on the given network interface.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -198,7 +198,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Leaves a multicast group and stops listening for packets send to it.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket unlistenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -213,7 +213,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Leaves a multicast group and stops listening for packets send to it on the given network interface.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket unlistenMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -232,7 +232,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Block the given address for the given multicast address and notifies the  once\n the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket blockMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -249,7 +249,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Block the given address for the given multicast address on the given network interface and notifies\n the  once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket blockMulticastGroup(
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
@@ -268,7 +268,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Start listening on the given port and host. The handler will be called when the socket is listening.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -285,21 +285,18 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket pause() {
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket resume() {
     DatagramSocket ret = io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -312,7 +309,6 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -325,7 +321,6 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

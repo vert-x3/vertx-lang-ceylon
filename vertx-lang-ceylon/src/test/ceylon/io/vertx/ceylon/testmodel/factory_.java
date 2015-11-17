@@ -26,7 +26,6 @@ public class factory_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::ConcreteHandlerUserType")
   public static ConcreteHandlerUserType createConcreteHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -39,7 +38,6 @@ public class factory_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::AbstractHandlerUserType")
   public static AbstractHandlerUserType createAbstractHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -52,7 +50,6 @@ public class factory_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::ConcreteHandlerUserTypeExtension")
   public static ConcreteHandlerUserTypeExtension createConcreteHandlerUserTypeExtension(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

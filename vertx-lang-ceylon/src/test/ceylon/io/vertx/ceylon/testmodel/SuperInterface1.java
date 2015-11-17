@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"http://tfox.org\">Tim Fox</a>\n")
 public class SuperInterface1 implements ReifiedType {
 
   @Ignore
@@ -51,7 +51,6 @@ public class SuperInterface1 implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void superMethodWithBasicParams(
     final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 

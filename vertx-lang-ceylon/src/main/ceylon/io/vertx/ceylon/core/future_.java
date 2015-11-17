@@ -30,7 +30,7 @@ public class future_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a future that hasn't completed yet\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> future(final @Ignore TypeDescriptor $reified$T) {
     Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.future());
@@ -40,7 +40,7 @@ public class future_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a succeeded future with a null result\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> succeededFuture(final @Ignore TypeDescriptor $reified$T) {
     Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.succeededFuture());
@@ -50,7 +50,7 @@ public class future_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Created a succeeded future with the specified result.\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> succeededFuture(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "todo") T result) {
@@ -62,7 +62,7 @@ public class future_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a failed future with the specified failure message.\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public static <T> Future<T> failedFuture(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String failureMessage) {

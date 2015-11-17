@@ -29,21 +29,21 @@ public class context_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current thread a worker thread?\n <p>\n NOTE! This is not always the same as calling todo_link. If you are running blocking code\n from an event loop context, then this will return true but todo_link will return false.\n")
   @TypeInfo("ceylon.language::Boolean")
   public static boolean isOnWorkerThread() {
     boolean ret = io.vertx.core.Context.isOnWorkerThread();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current thread an event thread?\n <p>\n NOTE! This is not always the same as calling todo_link. If you are running blocking code\n from an event loop context, then this will return false but todo_link will return true.\n")
   @TypeInfo("ceylon.language::Boolean")
   public static boolean isOnEventLoopThread() {
     boolean ret = io.vertx.core.Context.isOnEventLoopThread();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the current thread a Vert.x thread? That's either a worker thread or an event loop thread\n")
   @TypeInfo("ceylon.language::Boolean")
   public static boolean isOnVertxThread() {
     boolean ret = io.vertx.core.Context.isOnVertxThread();

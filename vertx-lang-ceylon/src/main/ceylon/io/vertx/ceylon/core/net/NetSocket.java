@@ -18,7 +18,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a socket-like interface to a TCP connection on either the\n client or the server side.\n <p>\n Instances of this class are created on the client side by an todo_link\n when a connection to a server is made, or on the server side by a todo_link\n when a server accepts a connection.\n <p>\n It implements both  and  so it can be used with\n todo_link to pump data with flow control.\n")
 public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore
@@ -58,14 +58,13 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -78,7 +77,6 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -91,21 +89,18 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket pause() {
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket resume() {
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -118,7 +113,6 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
@@ -127,7 +121,6 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
@@ -136,7 +129,6 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -149,14 +141,14 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " When a <code>NetSocket</code> is created it automatically registers an event handler with the event bus, the ID of that\n handler is given by <code>writeHandlerID</code>.\n <p>\n Given this ID, a different event loop can send a buffer to that event handler using the event bus and\n that buffer will be received by this instance in its own event loop and written to the underlying connection. This\n allows you to write data to other connections which are owned by different event loops.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String writeHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.writeHandlerID());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write a todo_link to the connection, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
@@ -165,7 +157,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write a todo_link to the connection, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -176,7 +168,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
@@ -185,7 +177,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -196,7 +188,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -209,7 +201,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -224,7 +216,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -241,7 +233,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -260,7 +252,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -271,7 +263,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -282,13 +274,13 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the NetSocket\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a handler that will be called when the NetSocket is closed\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket closeHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -301,7 +293,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Upgrade channel to use SSL/TLS. Be aware that for this to work SSL must be configured.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket upgradeToSsl(
     final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -314,7 +306,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return true if this todo_link is encrypted via SSL/TLS.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSsl() {
     boolean ret = delegate.isSsl();

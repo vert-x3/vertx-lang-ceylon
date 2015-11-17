@@ -28,7 +28,7 @@ public class multiMap_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a multi-map implementation with case insensitive keys, for instance it can be used to hold some HTTP headers.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public static MultiMap caseInsensitiveMultiMap() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(io.vertx.core.MultiMap.caseInsensitiveMultiMap());

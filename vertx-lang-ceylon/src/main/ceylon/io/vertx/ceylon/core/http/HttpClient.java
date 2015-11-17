@@ -16,7 +16,7 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An asynchronous HTTP client.\n <p>\n It allows you to make requests to HTTP servers, and a single client can make requests to any server.\n <p>\n It also allows you to open WebSockets to servers.\n <p>\n The client can also pool HTTP connections.\n <p>\n For pooling to occur, keep-alive must be true on the todo_link (default is true).\n In this case connections will be pooled and re-used if there are pending HTTP requests waiting to get a connection,\n otherwise they will be closed.\n <p>\n This gives the benefits of keep alive when the client is loaded but means we don't keep connections hanging around\n unnecessarily when there would be no benefits anyway.\n <p>\n The client also supports pipe-lining of requests. Pipe-lining means another request is sent on the same connection\n before the response from the preceeding one has returned. Pipe-lining is not appropriate for all requests.\n <p>\n To enable pipe-lining, it must be enabled on the todo_link (default is false).\n <p>\n When pipe-lining is enabled the connection will be automatically closed when all in-flight responses have returned\n and there are no outstanding pending requests to write.\n <p>\n The client is designed to be reused between requests.\n")
 public class HttpClient implements ReifiedType,  Measured {
 
   @Ignore
@@ -54,14 +54,14 @@ public class HttpClient implements ReifiedType,  Measured {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -76,7 +76,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -89,7 +89,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -110,7 +110,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -129,7 +129,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -140,7 +140,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -157,7 +157,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest requestAbs(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -168,7 +168,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest requestAbs(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -185,7 +185,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -198,7 +198,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -209,7 +209,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -228,7 +228,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -245,7 +245,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -254,7 +254,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -269,7 +269,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest getAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -278,7 +278,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest getAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -293,7 +293,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP GET request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient getNow(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -312,7 +312,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP GET request to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient getNow(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -329,7 +329,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP GET request  to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient getNow(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -344,7 +344,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -357,7 +357,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -368,7 +368,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -387,7 +387,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -404,7 +404,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -413,7 +413,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -428,7 +428,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest postAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -437,7 +437,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest postAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -452,7 +452,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -465,7 +465,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -476,7 +476,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -495,7 +495,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -512,7 +512,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -521,7 +521,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -536,7 +536,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest headAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -545,7 +545,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest headAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -560,7 +560,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP HEAD request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient headNow(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -579,7 +579,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP HEAD request to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient headNow(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -596,7 +596,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP HEAD request  to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient headNow(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -611,7 +611,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -624,7 +624,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -635,7 +635,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -654,7 +654,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -671,7 +671,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -680,7 +680,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -695,7 +695,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest optionsAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -704,7 +704,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest optionsAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -719,7 +719,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP OPTIONS request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient optionsNow(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -738,7 +738,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP OPTIONS request to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient optionsNow(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -755,7 +755,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sends an HTTP OPTIONS request  to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient optionsNow(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -770,7 +770,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -783,7 +783,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -794,7 +794,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -813,7 +813,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -830,7 +830,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -839,7 +839,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -854,7 +854,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest putAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -863,7 +863,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest putAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -878,7 +878,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -891,7 +891,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the specified host and default port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -902,7 +902,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -921,7 +921,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the specified host and default port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -938,7 +938,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the default host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -947,7 +947,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the default host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -962,7 +962,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server using an absolute URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest deleteAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI) {
@@ -971,7 +971,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server using an absolute URI, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest deleteAbs(
     final @TypeInfo("ceylon.language::String") @Name("absoluteURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String absoluteURI, 
@@ -986,7 +986,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1005,7 +1005,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1030,7 +1030,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the host and relative request URI and default port\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1047,7 +1047,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the host and relative request URI and default port\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1070,7 +1070,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1091,7 +1091,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1118,7 +1118,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host,relative request UR, and default port and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1137,7 +1137,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host,relative request UR, and default port and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1162,7 +1162,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1185,7 +1185,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1214,7 +1214,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host, relative request URI and default port with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1235,7 +1235,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host, relative request URI and default port with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1262,7 +1262,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1287,7 +1287,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1318,7 +1318,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host, relative request URI and default port, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1341,7 +1341,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified host, relative request URI and default port, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1370,7 +1370,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1385,7 +1385,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1406,7 +1406,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port and the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1423,7 +1423,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port and the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1446,7 +1446,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port, the specified headers and the\n specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1465,7 +1465,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port, the specified headers and the\n specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1490,7 +1490,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port, the specified headers, the\n specified version of WebSockets and the specified sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1511,7 +1511,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Connect a WebSocket at the relative request URI using the default host and port, the specified headers, the\n specified version of WebSockets and the specified sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1538,7 +1538,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1551,7 +1551,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1562,7 +1562,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1577,7 +1577,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1590,7 +1590,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1607,7 +1607,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port and with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1622,7 +1622,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -1641,7 +1641,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
@@ -1658,7 +1658,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port and the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI) {
@@ -1667,7 +1667,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port and the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1678,7 +1678,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port, the specified headers and the\n specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1691,7 +1691,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port, the specified headers, the\n specified version of WebSockets and the specified sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "todo") ceylon.language.String requestURI, 
@@ -1706,7 +1706,7 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the client. Closing will close down any pooled connections.\n Clients should always be closed after use.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

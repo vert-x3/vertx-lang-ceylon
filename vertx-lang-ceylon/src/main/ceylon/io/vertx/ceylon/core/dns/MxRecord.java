@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represent a Mail-Exchange-Record (MX) which was resolved for a domain.\n")
 public class MxRecord implements ReifiedType {
 
   @Ignore
@@ -51,14 +51,14 @@ public class MxRecord implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The priority of the MX record.\n")
   @TypeInfo("ceylon.language::Integer")
   public long priority() {
     long ret = delegate.priority();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The name of the MX record\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.name());

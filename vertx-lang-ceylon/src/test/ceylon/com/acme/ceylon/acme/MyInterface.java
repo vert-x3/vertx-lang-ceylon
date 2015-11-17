@@ -15,7 +15,7 @@ import com.acme.ceylon.acme.sub.SubInterface;
 import io.vertx.ceylon.testmodel.TestInterface;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
 public class MyInterface implements ReifiedType {
 
   @Ignore
@@ -53,14 +53,12 @@ public class MyInterface implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("com.acme.ceylon.acme.sub::SubInterface")
   public SubInterface sub() {
     SubInterface ret = com.acme.ceylon.acme.sub.SubInterface.TO_CEYLON.converter().safeConvert(delegate.sub());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::TestInterface")
   public TestInterface method() {
     TestInterface ret = io.vertx.ceylon.testmodel.TestInterface.TO_CEYLON.converter().safeConvert(delegate.method());

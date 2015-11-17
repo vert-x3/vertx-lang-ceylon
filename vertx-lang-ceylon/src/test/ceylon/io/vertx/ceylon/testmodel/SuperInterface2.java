@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"http://tfox.org\">Tim Fox</a>\n")
 public interface SuperInterface2 {
 
   @Ignore
@@ -39,7 +39,6 @@ public interface SuperInterface2 {
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void otherSuperMethodWithBasicParams(
     final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 
@@ -71,7 +70,6 @@ public interface SuperInterface2 {
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void otherSuperMethodWithBasicParams(
     final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 

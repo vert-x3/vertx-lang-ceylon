@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A todo_link of todo_link, used for\n notifying web socket connections to a todo_link.\n")
 public class ServerWebSocketStream implements ReifiedType,  ReadStream<ServerWebSocket> {
 
   @Ignore
@@ -53,7 +53,6 @@ public class ServerWebSocketStream implements ReifiedType,  ReadStream<ServerWeb
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -66,7 +65,6 @@ public class ServerWebSocketStream implements ReifiedType,  ReadStream<ServerWeb
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -79,21 +77,18 @@ public class ServerWebSocketStream implements ReifiedType,  ReadStream<ServerWeb
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream pause() {
     ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream resume() {
     ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {

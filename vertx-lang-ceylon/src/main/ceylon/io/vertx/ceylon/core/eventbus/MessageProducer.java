@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a stream of message that can be written to.\n <p>\n")
 public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @Ignore
@@ -60,14 +60,14 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Synonym for todo_link.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> send(
     final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message) {
@@ -79,7 +79,6 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @TypeParameters({
     @TypeParameter(value="R",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <R> MessageProducer<T> send(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message, 
@@ -94,7 +93,6 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -107,7 +105,6 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data) {
@@ -116,7 +113,6 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
@@ -125,7 +121,6 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -138,7 +133,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Update the delivery options of this producer.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> deliveryOptions(
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
@@ -147,14 +142,13 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The address to which the producer produces messages.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

@@ -17,7 +17,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Contains a broad set of operations for manipulating files on the file system.\n <p>\n A (potential) blocking and non blocking version of each operation is provided.\n <p>\n The non blocking versions take a handler which is called when the operation completes or an error occurs.\n <p>\n The blocking versions are named <code>xxxBlocking</code> and return the results, or throw exceptions directly.\n In many cases, depending on the operating system and file system some of the potentially blocking operations\n can return quickly, which is why we provide them, but it's highly recommended that you test how long they take to\n return in your particular application before using them on an event loop.\n <p>\n Please consult the documentation for more information on file system support.\n")
 public class FileSystem implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,7 @@ public class FileSystem implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Copy a file from the path <code>from</code> to path <code>to</code>, asynchronously.\n <p>\n The copy will fail if the destination already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem copy(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -72,7 +72,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem copyBlocking(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -83,7 +83,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Copy a file from the path <code>from</code> to path <code>to</code>, asynchronously.\n <p>\n If <code>recursive</code> is <code>true</code> and <code>from</code> represents a directory, then the directory and its contents\n will be copied recursively to the destination <code>to</code>.\n <p>\n The copy will fail if the destination if the destination already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem copyRecursive(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -102,7 +102,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem copyRecursiveBlocking(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -115,7 +115,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Move a file from the path <code>from</code> to path <code>to</code>, asynchronously.\n <p>\n The move will fail if the destination already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem move(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -132,7 +132,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem moveBlocking(
     final @TypeInfo("ceylon.language::String") @Name("from") @DocAnnotation$annotation$(description = "todo") ceylon.language.String from, 
@@ -143,7 +143,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Truncate the file represented by <code>path</code> to length <code>len</code> in bytes, asynchronously.\n <p>\n The operation will fail if the file does not exist or <code>len</code> is less than <code>zero</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem truncate(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -160,7 +160,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem truncateBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -171,7 +171,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Change the permissions on the file represented by <code>path</code> to <code>perms</code>, asynchronously.\n <p>\n The permission String takes the form rwxr-x--- as\n specified <a href=\"http://download.oracle.com/javase/7/docs/api/java/nio/file/attribute/PosixFilePermissions.html\">here</a>.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chmod(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -188,7 +188,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chmodBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -199,7 +199,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Change the permissions on the file represented by <code>path</code> to <code>perms</code>, asynchronously.<p>\n The permission String takes the form rwxr-x--- as\n specified in {<a href=\"http://download.oracle.com/javase/7/docs/api/java/nio/file/attribute/PosixFilePermissions.html\">here</a>}.\n <p>\n If the file is directory then all contents will also have their permissions changed recursively. Any directory permissions will\n be set to <code>dirPerms</code>, whilst any normal file permissions will be set to <code>perms</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chmodRecursive(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -218,7 +218,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chmodRecursiveBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -231,7 +231,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Change the ownership on the file represented by <code>path</code> to <code>user</code> and {code group}, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chown(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -250,7 +250,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of \n\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem chownBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -263,7 +263,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Obtain properties for the file represented by <code>path</code>, asynchronously.\n <p>\n If the file is a link, the link will be followed.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem props(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -278,7 +278,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileProps")
   public FileProps propsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -287,7 +287,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Obtain properties for the link represented by <code>path</code>, asynchronously.\n <p>\n The link will not be followed.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem lprops(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -302,7 +302,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileProps")
   public FileProps lpropsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -311,7 +311,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a hard link on the file system from <code>link</code> to <code>existing</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem link(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -328,7 +328,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem linkBlocking(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -339,7 +339,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a symbolic link on the file system from <code>link</code> to <code>existing</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem symlink(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -356,7 +356,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem symlinkBlocking(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -367,7 +367,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Unlinks the link on the file system represented by the path <code>link</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem unlink(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -382,7 +382,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem unlinkBlocking(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link) {
@@ -391,7 +391,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the path representing the file that the symbolic link specified by <code>link</code> points to, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem readSymlink(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link, 
@@ -406,7 +406,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String readSymlinkBlocking(
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "todo") ceylon.language.String link) {
@@ -415,7 +415,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Deletes the file represented by the specified <code>path</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem delete(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -430,7 +430,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem deleteBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -439,7 +439,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Deletes the file represented by the specified <code>path</code>, asynchronously.\n <p>\n If the path represents a directory and <code>recursive = true</code> then the directory and its contents will be\n deleted recursively.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem deleteRecursive(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -456,7 +456,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem deleteRecursiveBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -467,7 +467,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create the directory represented by <code>path</code>, asynchronously.\n <p>\n The operation will fail if the directory already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdir(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -482,7 +482,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -491,7 +491,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create the directory represented by <code>path</code>, asynchronously.\n <p>\n The new directory will be created with permissions as specified by <code>perms</code>.\n <p>\n The permission String takes the form rwxr-x--- as specified\n in <a href=\"http://download.oracle.com/javase/7/docs/api/java/nio/file/attribute/PosixFilePermissions.html\">here</a>.\n <p>\n The operation will fail if the directory already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdir(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -508,7 +508,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -519,7 +519,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create the directory represented by <code>path</code> and any non existent parents, asynchronously.\n <p>\n The operation will fail if the directory already exists.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirs(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -534,7 +534,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -543,7 +543,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create the directory represented by <code>path</code> and any non existent parents, asynchronously.\n <p>\n The new directory will be created with permissions as specified by <code>perms</code>.\n <p>\n The permission String takes the form rwxr-x--- as specified\n in <a href=\"http://download.oracle.com/javase/7/docs/api/java/nio/file/attribute/PosixFilePermissions.html\">here</a>.\n <p>\n The operation will fail if the directory already exists.<p>\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirs(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -560,7 +560,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem mkdirsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -571,7 +571,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Read the contents of the directory specified by <code>path</code>, asynchronously.\n <p>\n The result is an array of String representing the paths of the files inside the directory.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem readDir(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -586,7 +586,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> readDirBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -595,7 +595,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Read the contents of the directory specified by <code>path</code>, asynchronously.\n <p>\n The parameter <code>filter</code> is a regular expression. If <code>filter</code> is specified then only the paths that\n match  @{filter}will be returned.\n <p>\n The result is an array of String representing the paths of the files inside the directory.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem readDir(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -612,7 +612,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> readDirBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -623,7 +623,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Reads the entire file as represented by the path <code>path</code> as a , asynchronously.\n <p>\n Do not user this method to read very large files or you risk running out of available RAM.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem readFile(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -638,7 +638,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer readFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -647,7 +647,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates the file, and writes the specified <code>Buffer data</code> to the file represented by the path <code>path</code>,\n asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem writeFile(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -664,7 +664,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem writeFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -675,7 +675,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Open the file represented by <code>path</code>, asynchronously.\n <p>\n The file is opened for both reading and writing. If the file does not already exist it will be created.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem open(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -692,7 +692,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile openBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -703,7 +703,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates an empty file with the specified <code>path</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem createFile(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -718,7 +718,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem createFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -727,7 +727,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates an empty file with the specified <code>path</code> and permissions <code>perms</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem createFile(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -744,7 +744,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem createFileBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -755,7 +755,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Determines whether the file as specified by the path <code>path</code> exists, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem exists(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -770,7 +770,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean existsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -779,7 +779,7 @@ public class FileSystem implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns properties of the file-system being used by the specified <code>path</code>, asynchronously.\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem fsProps(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
@@ -794,7 +794,7 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Blocking version of todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystemProps")
   public FileSystemProps fsPropsBlocking(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {

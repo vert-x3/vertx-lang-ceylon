@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
 public class SubInterface implements ReifiedType {
 
   @Ignore
@@ -51,7 +51,6 @@ public class SubInterface implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String reverse(
     final @TypeInfo("ceylon.language::String") @Name("s") @DocAnnotation$annotation$(description = "todo") ceylon.language.String s) {

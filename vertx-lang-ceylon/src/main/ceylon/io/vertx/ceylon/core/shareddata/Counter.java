@@ -15,7 +15,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An asynchronous counter that can be used to across the cluster to maintain a consistent count.\n <p>\n")
 public class Counter implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,7 @@ public class Counter implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the current value of the counter\n")
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -65,7 +65,7 @@ public class Counter implements ReifiedType {
     delegate.get(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Increment the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void incrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -77,7 +77,7 @@ public class Counter implements ReifiedType {
     delegate.incrementAndGet(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Increment the counter atomically and return the value before the increment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getAndIncrement(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -89,7 +89,7 @@ public class Counter implements ReifiedType {
     delegate.getAndIncrement(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Decrement the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void decrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -101,7 +101,7 @@ public class Counter implements ReifiedType {
     delegate.decrementAndGet(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add the value to the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void addAndGet(
     final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "todo") long value, 
@@ -115,7 +115,7 @@ public class Counter implements ReifiedType {
     delegate.addAndGet(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add the value to the counter atomically and return the value before the add\n")
   @TypeInfo("ceylon.language::Anything")
   public void getAndAdd(
     final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "todo") long value, 
@@ -129,7 +129,7 @@ public class Counter implements ReifiedType {
     delegate.getAndAdd(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the counter to the specified value only if the current value is the expectec value. This happens\n atomically.\n")
   @TypeInfo("ceylon.language::Anything")
   public void compareAndSet(
     final @TypeInfo("ceylon.language::Integer") @Name("expected") @DocAnnotation$annotation$(description = "todo") long expected, 

@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A TCP client.\n <p>\n Multiple connections to different servers can be made using the same instance.\n <p>\n This client supports a configurable number of connection attempts and a configurable\n delay between attempts.\n")
 public class NetClient implements ReifiedType,  Measured {
 
   @Ignore
@@ -54,14 +54,14 @@ public class NetClient implements ReifiedType,  Measured {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>port</code> and <code>host</code>.\n <p>\n <code>host</code> can be a valid host name or IP address. The connect is done asynchronously and on success, a\n todo_link instance is supplied via the <code>connectHandler</code> instance\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient connect(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -78,7 +78,7 @@ public class NetClient implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the client.\n <p>\n Any sockets which have not been closed manually will be closed here. The close is asynchronous and may not\n complete until some time after the method has returned.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

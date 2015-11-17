@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a message that is received from the event bus in a handler.\n <p>\n Messages have a todo_link, which can be null, and also todo_link, which can be empty.\n <p>\n If the message was sent specifying a reply handler it will also have a todo_link. In that case the message\n can be replied to using that reply address, or, more simply by just using todo_link.\n <p>\n If you want to notify the sender that processing failed, then todo_link can be called.\n")
 public class Message<T> implements ReifiedType {
 
   @Ignore
@@ -61,21 +61,21 @@ public class Message<T> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The address the message was sent to\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Multi-map of message headers. Can be empty\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.headers());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The body of the message. Can be null.\n")
   @TypeInfo("T?")
   public T body() {
     if (cached_body != null) {
@@ -86,14 +86,14 @@ public class Message<T> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The reply address. Can be null.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String replyAddress() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.replyAddress());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Reply to this message.\n <p>\n If the message was sent specifying a reply handler, that handler will be\n called when it has received a reply. If the message wasn't sent specifying a receipt handler\n this method does nothing.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message) {
@@ -104,7 +104,7 @@ public class Message<T> implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="R",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The same as <code>reply(R message)</code> but you can specify handler for the reply - i.e.\n to receive the reply to the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
@@ -118,7 +118,7 @@ public class Message<T> implements ReifiedType {
     delegate.reply(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Link todo_link but allows you to specify delivery options for the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
@@ -131,7 +131,7 @@ public class Message<T> implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="R",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The same as <code>reply(R message, DeliveryOptions)</code> but you can specify handler for the reply - i.e.\n to receive the reply to the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 
@@ -147,7 +147,7 @@ public class Message<T> implements ReifiedType {
     delegate.reply(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Signal to the sender that processing of this message failed.\n <p>\n If the message was sent specifying a result handler\n the handler will be called with a failure corresponding to the failure code and message specified here.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
     final @TypeInfo("ceylon.language::Integer") @Name("failureCode") @DocAnnotation$annotation$(description = "todo") long failureCode, 

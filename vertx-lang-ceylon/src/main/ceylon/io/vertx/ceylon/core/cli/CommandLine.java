@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " The parser transforms a CLI (a model) into an todo_link. This todo_link\n has stored the argument and option values. Only  instance of parser should create\n objects of this type.\n")
 public class CommandLine implements ReifiedType {
 
   @Ignore
@@ -52,14 +52,14 @@ public class CommandLine implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the model of this command line object.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI cli() {
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.cli());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the ordered list of arguments. Arguments are command line arguments not matching an option.\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> allArguments() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.allArguments(), io.vertx.lang.ceylon.ToCeylon.String);
@@ -69,7 +69,7 @@ public class CommandLine implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the value of an option with the matching name (can be the long name, short name or arg name).\n")
   @TypeInfo("T?")
   public <T> T getOptionValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -81,7 +81,7 @@ public class CommandLine implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the value of an argument with the matching name (arg name).\n")
   @TypeInfo("T?")
   public <T> T getArgumentValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -93,7 +93,7 @@ public class CommandLine implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the value of an argument with the given index.\n")
   @TypeInfo("T?")
   public <T> T getArgumentValue(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
@@ -102,7 +102,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the value of an option marked as a flag.\n <p/>\n Calling this method an a non-flag option throws an todo_link.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isFlagEnabled(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -111,7 +111,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the given option has been assigned in the command line.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isOptionAssigned(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -120,7 +120,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the raw values of the given option. Raw values are simple \"String\", not converted to the option type.\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> getRawValues(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -129,7 +129,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the raw values of the given option. Raw values are simple \"String\", not converted to the option type.\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> getRawValuesForOption(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -138,7 +138,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the raw values of the given argument. Raw values are simple \"String\", not converted to the argument type.\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> getRawValuesForArgument(
     final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("argument") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument argument) {
@@ -147,7 +147,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the raw value of the given option. Raw values are the values as given in the user command line.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getRawValueForOption(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -156,7 +156,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the given option accept more values.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean acceptMoreValues(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -165,7 +165,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the raw value of the given argument. Raw values are the values as given in the user command line.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getRawValueForArgument(
     final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
@@ -174,7 +174,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the given argument has been assigned in the command line.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isArgumentAssigned(
     final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
@@ -183,7 +183,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the given option has been seen in the user command line.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSeenInCommandLine(
     final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
@@ -192,14 +192,14 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the command line is valid, i.e. all constraints from arguments and options have been\n satisfied. This method is used when the parser validation is disabled.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isValid() {
     boolean ret = delegate.isValid();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks whether or not the user has passed a \"help\" option and is asking for help.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isAskingForHelp() {
     boolean ret = delegate.isAskingForHelp();

@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represent a Service-Record (SRV) which was resolved for a domain.\n")
 public class SrvRecord implements ReifiedType {
 
   @Ignore
@@ -51,49 +51,49 @@ public class SrvRecord implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the priority for this service record.\n")
   @TypeInfo("ceylon.language::Integer")
   public long priority() {
     long ret = delegate.priority();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the weight of this service record.\n")
   @TypeInfo("ceylon.language::Integer")
   public long weight() {
     long ret = delegate.weight();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the port the service is running on.\n")
   @TypeInfo("ceylon.language::Integer")
   public long port() {
     long ret = delegate.port();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the name for the server being queried.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.name());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the protocol for the service being queried (i.e. \"_tcp\").\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String protocol() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.protocol());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the service's name (i.e. \"_http\").\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String service() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.service());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the name of the host for the service.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String target() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.target());

@@ -17,7 +17,7 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as todo_link\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n")
 public class LocalMap<K,V> implements ReifiedType {
 
   @Ignore
@@ -60,7 +60,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a value from the map\n")
   @TypeInfo("V?")
   public V get(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
@@ -69,7 +69,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put an entry in the map\n")
   @TypeInfo("V?")
   public V put(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
@@ -80,7 +80,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove an entry from the map\n")
   @TypeInfo("V?")
   public V remove(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
@@ -89,27 +89,27 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Clear all entries in the map\n")
   @TypeInfo("ceylon.language::Anything")
   public void clear() {
     delegate.clear();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the size of the map\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return true if there are zero entries in the map\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isEmpty() {
     boolean ret = delegate.isEmpty();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put the entry only if there is no existing entry for that key\n")
   @TypeInfo("V?")
   public V putIfAbsent(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
@@ -120,7 +120,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove the entry only if there is an entry with the specified key and value\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeIfPresent(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
@@ -131,7 +131,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the specified key and value\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean replaceIfPresent(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
@@ -144,7 +144,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the key\n")
   @TypeInfo("V?")
   public V replace(
     final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
@@ -155,7 +155,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close and release the map\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

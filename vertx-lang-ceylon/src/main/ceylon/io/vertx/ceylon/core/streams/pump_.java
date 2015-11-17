@@ -28,7 +28,7 @@ public class pump_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public static <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
@@ -42,7 +42,7 @@ public class pump_ {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code> and\n <code>writeQueueMaxSize</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public static <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 

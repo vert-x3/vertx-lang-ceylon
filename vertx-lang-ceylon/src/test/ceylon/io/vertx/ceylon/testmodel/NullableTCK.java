@@ -21,7 +21,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " The TCK for @Nullable.\n")
 public class NullableTCK implements ReifiedType {
 
   @Ignore
@@ -59,7 +59,6 @@ public class NullableTCK implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableByteParam(
     final @TypeInfo("ceylon.language::Byte") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Byte param) {
@@ -68,7 +67,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableByteParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -78,7 +76,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableByteParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableByteHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -92,7 +89,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableByteHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -106,7 +102,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableByteHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Byte?")
   public ceylon.language.Byte methodWithNullableByteReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -115,7 +110,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableShortParam(
     final @TypeInfo("ceylon.language::Integer") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Integer param) {
@@ -124,7 +118,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableShortParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -134,7 +127,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableShortParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableShortHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -148,7 +140,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableShortHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -162,7 +153,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableShortHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer?")
   public ceylon.language.Integer methodWithNullableShortReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -171,7 +161,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableIntegerParam(
     final @TypeInfo("ceylon.language::Integer") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Integer param) {
@@ -180,7 +169,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableIntegerParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -190,7 +178,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableIntegerParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableIntegerHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -204,7 +191,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableIntegerHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -218,7 +204,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableIntegerHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer?")
   public ceylon.language.Integer methodWithNullableIntegerReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -227,7 +212,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableLongParam(
     final @TypeInfo("ceylon.language::Integer") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Integer param) {
@@ -236,7 +220,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableLongParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -246,7 +229,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableLongParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableLongHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -260,7 +242,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableLongHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -274,7 +255,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableLongHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Integer?")
   public ceylon.language.Integer methodWithNullableLongReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -283,7 +263,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableFloatParam(
     final @TypeInfo("ceylon.language::Float") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Float param) {
@@ -292,7 +271,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableFloatParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -302,7 +280,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableFloatParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableFloatHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -316,7 +293,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableFloatHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -330,7 +306,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableFloatHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Float?")
   public ceylon.language.Float methodWithNullableFloatReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -339,7 +314,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableDoubleParam(
     final @TypeInfo("ceylon.language::Float") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Float param) {
@@ -348,7 +322,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDoubleParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -358,7 +331,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDoubleParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDoubleHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -372,7 +344,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDoubleHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -386,7 +357,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDoubleHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Float?")
   public ceylon.language.Float methodWithNullableDoubleReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -395,7 +365,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableBooleanParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Boolean param) {
@@ -404,7 +373,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableBooleanParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -414,7 +382,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableBooleanParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableBooleanHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -428,7 +395,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableBooleanHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -442,7 +408,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableBooleanHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean?")
   public ceylon.language.Boolean methodWithNullableBooleanReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -451,7 +416,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableStringParam(
     final @TypeInfo("ceylon.language::String") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.String param) {
@@ -460,7 +424,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableStringParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -470,7 +433,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableStringParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableStringHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -484,7 +446,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableStringHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -498,7 +459,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableStringHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String methodWithNullableStringReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -507,7 +467,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableCharParam(
     final @TypeInfo("ceylon.language::Character") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Character param) {
@@ -516,7 +475,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableCharParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -526,7 +484,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableCharParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableCharHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -540,7 +497,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableCharHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -554,7 +510,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableCharHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Character?")
   public ceylon.language.Character methodWithNullableCharReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -563,7 +518,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableJsonObjectParam(
     final @TypeInfo("ceylon.json::Object") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object param) {
@@ -572,7 +526,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -582,7 +535,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -596,7 +548,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -610,7 +561,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object methodWithNullableJsonObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -619,7 +569,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableJsonArrayParam(
     final @TypeInfo("ceylon.json::Array") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.json.Array param) {
@@ -628,7 +577,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonArrayParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -638,7 +586,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonArrayParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonArrayHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -652,7 +599,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonArrayHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -666,7 +612,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableJsonArrayHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.json::Array?")
   public ceylon.json.Array methodWithNullableJsonArrayReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -675,7 +620,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableApiParam(
     final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("param") @DocAnnotation$annotation$(description = "todo") RefedInterface1 param) {
@@ -684,7 +628,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableApiParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -694,7 +637,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableApiParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableApiHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -708,7 +650,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableApiHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -722,7 +663,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableApiHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1?")
   public RefedInterface1 methodWithNullableApiReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -731,7 +671,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableDataObjectParam(
     final @TypeInfo("io.vertx.ceylon.testmodel::TestDataObject") @Name("param") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.TestDataObject param) {
@@ -740,7 +679,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDataObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -750,7 +688,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDataObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDataObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -764,7 +701,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDataObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -778,7 +714,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableDataObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::TestDataObject?")
   public io.vertx.ceylon.testmodel.TestDataObject methodWithNullableDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -787,7 +722,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableEnumParam(
     final @TypeInfo("ceylon.language::String") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.String param) {
@@ -796,7 +730,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -806,7 +739,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -820,7 +752,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -834,7 +765,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String methodWithNullableEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -843,7 +773,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableGenEnumParam(
     final @TypeInfo("io.vertx.ceylon.testmodel::TestGenEnum") @Name("param") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.TestGenEnum param) {
@@ -852,7 +781,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableGenEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -862,7 +790,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableGenEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableGenEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -876,7 +803,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableGenEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -890,7 +816,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableGenEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::TestGenEnum?")
   public io.vertx.ceylon.testmodel.TestGenEnum methodWithNullableGenEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -902,7 +827,6 @@ public class NullableTCK implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public <T> void methodWithNullableTypeVariableParam(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -915,7 +839,6 @@ public class NullableTCK implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public <T> void methodWithNullableTypeVariableHandler(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -934,7 +857,6 @@ public class NullableTCK implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public <T> void methodWithNullableTypeVariableHandlerAsyncResult(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -953,7 +875,6 @@ public class NullableTCK implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
   public <T> T methodWithNullableTypeVariableReturn(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -964,7 +885,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -974,7 +894,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListByteParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Byte>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Byte> param) {
@@ -983,7 +902,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListByteParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -993,7 +911,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListByteParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListByteHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1007,7 +924,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListByteHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1021,7 +937,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListByteHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Byte>?")
   public ceylon.language.List<ceylon.language.Byte> methodWithNullableListByteReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1030,7 +945,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListShortParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -1039,7 +953,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListShortParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1049,7 +962,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListShortParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListShortHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1063,7 +975,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListShortHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1077,7 +988,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListShortHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer>?")
   public ceylon.language.List<ceylon.language.Integer> methodWithNullableListShortReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1086,7 +996,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListIntegerParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -1095,7 +1004,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListIntegerParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1105,7 +1013,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListIntegerParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListIntegerHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1119,7 +1026,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListIntegerHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1133,7 +1039,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListIntegerHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer>?")
   public ceylon.language.List<ceylon.language.Integer> methodWithNullableListIntegerReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1142,7 +1047,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListLongParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -1151,7 +1055,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListLongParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1161,7 +1064,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListLongParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListLongHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1175,7 +1077,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListLongHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1189,7 +1090,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListLongHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer>?")
   public ceylon.language.List<ceylon.language.Integer> methodWithNullableListLongReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1198,7 +1098,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListFloatParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
@@ -1207,7 +1106,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListFloatParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1217,7 +1115,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListFloatParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListFloatHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1231,7 +1128,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListFloatHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1245,7 +1141,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListFloatHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float>?")
   public ceylon.language.List<ceylon.language.Float> methodWithNullableListFloatReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1254,7 +1149,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListDoubleParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
@@ -1263,7 +1157,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDoubleParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1273,7 +1166,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDoubleParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDoubleHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1287,7 +1179,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDoubleHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1301,7 +1192,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDoubleHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float>?")
   public ceylon.language.List<ceylon.language.Float> methodWithNullableListDoubleReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1310,7 +1200,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListBooleanParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Boolean>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Boolean> param) {
@@ -1319,7 +1208,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListBooleanParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1329,7 +1217,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListBooleanParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListBooleanHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1343,7 +1230,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListBooleanHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1357,7 +1243,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListBooleanHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Boolean>?")
   public ceylon.language.List<ceylon.language.Boolean> methodWithNullableListBooleanReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1366,7 +1251,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListStringParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
@@ -1375,7 +1259,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListStringParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1385,7 +1268,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListStringParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListStringHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1399,7 +1281,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListStringHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1413,7 +1294,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListStringHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>?")
   public ceylon.language.List<ceylon.language.String> methodWithNullableListStringReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1422,7 +1302,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListCharParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Character>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Character> param) {
@@ -1431,7 +1310,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListCharParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1441,7 +1319,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListCharParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListCharHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1455,7 +1332,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListCharHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1469,7 +1345,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListCharHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Character>?")
   public ceylon.language.List<ceylon.language.Character> methodWithNullableListCharReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1478,7 +1353,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListJsonObjectParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Object>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Object> param) {
@@ -1487,7 +1361,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1497,7 +1370,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1511,7 +1383,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1525,7 +1396,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Object>?")
   public ceylon.language.List<ceylon.json.Object> methodWithNullableListJsonObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1534,7 +1404,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListJsonArrayParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Array>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Array> param) {
@@ -1543,7 +1412,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonArrayParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1553,7 +1421,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonArrayParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonArrayHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1567,7 +1434,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonArrayHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1581,7 +1447,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListJsonArrayHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Array>?")
   public ceylon.language.List<ceylon.json.Array> methodWithNullableListJsonArrayReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1590,7 +1455,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListApiParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<RefedInterface1> param) {
@@ -1599,7 +1463,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListApiParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1609,7 +1472,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListApiParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListApiHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1623,7 +1485,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListApiHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1637,7 +1498,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListApiHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1>?")
   public ceylon.language.List<RefedInterface1> methodWithNullableListApiReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1646,7 +1506,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListDataObjectParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> param) {
@@ -1655,7 +1514,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDataObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1665,7 +1523,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDataObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDataObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1679,7 +1536,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDataObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1693,7 +1549,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListDataObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>?")
   public ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> methodWithNullableListDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1702,7 +1557,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListEnumParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
@@ -1711,7 +1565,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1721,7 +1574,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1735,7 +1587,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1749,7 +1600,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String>?")
   public ceylon.language.List<ceylon.language.String> methodWithNullableListEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1758,7 +1608,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableListGenEnumParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.testmodel.TestGenEnum> param) {
@@ -1767,7 +1616,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListGenEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1777,7 +1625,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListGenEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListGenEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1791,7 +1638,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListGenEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableListGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1805,7 +1651,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableListGenEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum>?")
   public ceylon.language.List<io.vertx.ceylon.testmodel.TestGenEnum> methodWithNullableListGenEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1814,7 +1659,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetByteParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Byte>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Byte> param) {
@@ -1823,7 +1667,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetByteParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1833,7 +1676,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetByteParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetByteHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1847,7 +1689,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetByteHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1861,7 +1702,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetByteHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Byte>?")
   public ceylon.language.Set<ceylon.language.Byte> methodWithNullableSetByteReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1870,7 +1710,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetShortParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
@@ -1879,7 +1718,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetShortParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1889,7 +1727,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetShortParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetShortHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1903,7 +1740,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetShortHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1917,7 +1753,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetShortHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Integer>?")
   public ceylon.language.Set<ceylon.language.Integer> methodWithNullableSetShortReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1926,7 +1761,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetIntegerParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
@@ -1935,7 +1769,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetIntegerParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -1945,7 +1778,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetIntegerParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetIntegerHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1959,7 +1791,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetIntegerHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -1973,7 +1804,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetIntegerHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Integer>?")
   public ceylon.language.Set<ceylon.language.Integer> methodWithNullableSetIntegerReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -1982,7 +1812,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetLongParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Integer> param) {
@@ -1991,7 +1820,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetLongParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2001,7 +1829,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetLongParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetLongHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2015,7 +1842,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetLongHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2029,7 +1855,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetLongHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Integer>?")
   public ceylon.language.Set<ceylon.language.Integer> methodWithNullableSetLongReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2038,7 +1863,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetFloatParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Float> param) {
@@ -2047,7 +1871,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetFloatParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2057,7 +1880,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetFloatParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetFloatHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2071,7 +1893,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetFloatHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2085,7 +1906,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetFloatHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Float>?")
   public ceylon.language.Set<ceylon.language.Float> methodWithNullableSetFloatReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2094,7 +1914,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetDoubleParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Float> param) {
@@ -2103,7 +1922,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDoubleParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2113,7 +1931,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDoubleParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDoubleHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2127,7 +1944,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDoubleHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2141,7 +1957,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDoubleHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Float>?")
   public ceylon.language.Set<ceylon.language.Float> methodWithNullableSetDoubleReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2150,7 +1965,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetBooleanParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Boolean>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Boolean> param) {
@@ -2159,7 +1973,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetBooleanParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2169,7 +1982,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetBooleanParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetBooleanHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2183,7 +1995,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetBooleanHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2197,7 +2008,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetBooleanHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Boolean>?")
   public ceylon.language.Set<ceylon.language.Boolean> methodWithNullableSetBooleanReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2206,7 +2016,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetStringParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
@@ -2215,7 +2024,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetStringParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2225,7 +2033,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetStringParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetStringHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2239,7 +2046,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetStringHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2253,7 +2059,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetStringHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>?")
   public ceylon.language.Set<ceylon.language.String> methodWithNullableSetStringReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2262,7 +2067,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetCharParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::Character>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.Character> param) {
@@ -2271,7 +2075,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetCharParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2281,7 +2084,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetCharParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetCharHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2295,7 +2097,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetCharHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2309,7 +2110,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetCharHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::Character>?")
   public ceylon.language.Set<ceylon.language.Character> methodWithNullableSetCharReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2318,7 +2118,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetJsonObjectParam(
     final @TypeInfo("ceylon.language::Set<ceylon.json::Object>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Object> param) {
@@ -2327,7 +2126,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2337,7 +2135,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2351,7 +2148,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2365,7 +2161,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Object>?")
   public ceylon.language.Set<ceylon.json.Object> methodWithNullableSetJsonObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2374,7 +2169,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetJsonArrayParam(
     final @TypeInfo("ceylon.language::Set<ceylon.json::Array>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.json.Array> param) {
@@ -2383,7 +2177,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonArrayParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2393,7 +2186,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonArrayParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonArrayHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2407,7 +2199,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonArrayHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2421,7 +2212,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetJsonArrayHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.json::Array>?")
   public ceylon.language.Set<ceylon.json.Array> methodWithNullableSetJsonArrayReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2430,7 +2220,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetApiParam(
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::RefedInterface1>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<RefedInterface1> param) {
@@ -2439,7 +2228,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetApiParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2449,7 +2237,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetApiParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetApiHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2463,7 +2250,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetApiHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2477,7 +2263,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetApiHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::RefedInterface1>?")
   public ceylon.language.Set<RefedInterface1> methodWithNullableSetApiReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2486,7 +2271,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetDataObjectParam(
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.testmodel.TestDataObject> param) {
@@ -2495,7 +2279,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDataObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2505,7 +2288,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDataObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDataObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2519,7 +2301,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDataObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2533,7 +2314,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetDataObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>?")
   public ceylon.language.Set<io.vertx.ceylon.testmodel.TestDataObject> methodWithNullableSetDataObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2542,7 +2322,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetEnumParam(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> param) {
@@ -2551,7 +2330,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2561,7 +2339,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2575,7 +2352,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2589,7 +2365,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>?")
   public ceylon.language.Set<ceylon.language.String> methodWithNullableSetEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2598,7 +2373,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableSetGenEnumParam(
     final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::TestGenEnum>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<io.vertx.ceylon.testmodel.TestGenEnum> param) {
@@ -2607,7 +2381,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetGenEnumParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2617,7 +2390,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetGenEnumParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetGenEnumHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2631,7 +2403,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetGenEnumHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableSetGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2645,7 +2416,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableSetGenEnumHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::TestGenEnum>?")
   public ceylon.language.Set<io.vertx.ceylon.testmodel.TestGenEnum> methodWithNullableSetGenEnumReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2654,7 +2424,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapByteParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> param) {
@@ -2663,7 +2432,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapByteParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2673,7 +2441,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapByteParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapByteHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2687,7 +2454,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapByteHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2701,7 +2467,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapByteHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> methodWithNullableMapByteReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2710,7 +2475,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapShortParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -2719,7 +2483,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapShortParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2729,7 +2492,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapShortParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapShortHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2743,7 +2505,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapShortHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2757,7 +2518,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapShortHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithNullableMapShortReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2766,7 +2526,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapIntegerParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -2775,7 +2534,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapIntegerParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2785,7 +2543,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapIntegerParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapIntegerHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2799,7 +2556,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapIntegerHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2813,7 +2569,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapIntegerHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithNullableMapIntegerReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2822,7 +2577,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapLongParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -2831,7 +2585,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapLongParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2841,7 +2594,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapLongParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapLongHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2855,7 +2607,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapLongHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2869,7 +2620,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapLongHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithNullableMapLongReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2878,7 +2628,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapFloatParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Float> param) {
@@ -2887,7 +2636,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapFloatParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2897,7 +2645,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapFloatParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapFloatHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2911,7 +2658,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapFloatHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2925,7 +2671,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapFloatHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithNullableMapFloatReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2934,7 +2679,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapDoubleParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Float> param) {
@@ -2943,7 +2687,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapDoubleParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -2953,7 +2696,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapDoubleParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapDoubleHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2967,7 +2709,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapDoubleHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -2981,7 +2722,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapDoubleHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithNullableMapDoubleReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -2990,7 +2730,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapBooleanParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> param) {
@@ -2999,7 +2738,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapBooleanParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3009,7 +2747,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapBooleanParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapBooleanHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3023,7 +2760,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapBooleanHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3037,7 +2773,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapBooleanHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> methodWithNullableMapBooleanReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -3046,7 +2781,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapStringParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.String> param) {
@@ -3055,7 +2789,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapStringParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3065,7 +2798,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapStringParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapStringHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3079,7 +2811,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapStringHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3093,7 +2824,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapStringHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithNullableMapStringReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -3102,7 +2832,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapCharParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Character>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Character> param) {
@@ -3111,7 +2840,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapCharParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3121,7 +2849,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapCharParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapCharHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3135,7 +2862,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapCharHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3149,7 +2875,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapCharHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Character>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Character> methodWithNullableMapCharReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -3158,7 +2883,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapJsonObjectParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Object> param) {
@@ -3167,7 +2891,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonObjectParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3177,7 +2900,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonObjectParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonObjectHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3191,7 +2913,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonObjectHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3205,7 +2926,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonObjectHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithNullableMapJsonObjectReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -3214,7 +2934,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapJsonArrayParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Array> param) {
@@ -3223,7 +2942,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonArrayParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3233,7 +2951,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonArrayParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonArrayHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3247,7 +2964,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonArrayHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull, 
@@ -3261,7 +2977,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapJsonArrayHandlerAsyncResult(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array>?")
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithNullableMapJsonArrayReturn(
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull") @DocAnnotation$annotation$(description = "todo") boolean notNull) {
@@ -3270,7 +2985,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean methodWithNonNullableMapApiParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,io.vertx.ceylon.testmodel::RefedInterface1>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,RefedInterface1> param) {
@@ -3279,7 +2993,6 @@ public class NullableTCK implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableMapApiParam(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -3289,7 +3002,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableMapApiParam(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableByteParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Byte?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Byte> param) {
@@ -3297,7 +3009,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableByteParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableByteHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3309,7 +3020,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableByteHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3321,14 +3031,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableByteHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Byte?>")
   public ceylon.language.List<ceylon.language.Byte> methodWithListNullableByteReturn() {
     ceylon.language.List<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithListNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableShortParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -3336,7 +3044,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableShortParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableShortHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3348,7 +3055,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableShortHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3360,14 +3066,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableShortHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableShortReturn() {
     ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableIntegerParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -3375,7 +3079,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableIntegerParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableIntegerHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3387,7 +3090,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableIntegerHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3399,14 +3101,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableIntegerHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableIntegerReturn() {
     ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableLongParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Integer> param) {
@@ -3414,7 +3114,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableLongParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableLongHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3426,7 +3125,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableLongHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3438,14 +3136,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableLongHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Integer?>")
   public ceylon.language.List<ceylon.language.Integer> methodWithListNullableLongReturn() {
     ceylon.language.List<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithListNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableBooleanParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Boolean?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Boolean> param) {
@@ -3453,7 +3149,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableBooleanParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableBooleanHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3465,7 +3160,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableBooleanHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3477,14 +3171,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableBooleanHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Boolean?>")
   public ceylon.language.List<ceylon.language.Boolean> methodWithListNullableBooleanReturn() {
     ceylon.language.List<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithListNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableFloatParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
@@ -3492,7 +3184,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableFloatParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableFloatHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3504,7 +3195,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableFloatHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3516,14 +3206,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableFloatHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float?>")
   public ceylon.language.List<ceylon.language.Float> methodWithListNullableFloatReturn() {
     ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDoubleParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Float> param) {
@@ -3531,7 +3219,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDoubleParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDoubleHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3543,7 +3230,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDoubleHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3555,14 +3241,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDoubleHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Float?>")
   public ceylon.language.List<ceylon.language.Float> methodWithListNullableDoubleReturn() {
     ceylon.language.List<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithListNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableStringParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
@@ -3570,7 +3254,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableStringParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableStringHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3582,7 +3265,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableStringHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3594,14 +3276,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableStringHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String?>")
   public ceylon.language.List<ceylon.language.String> methodWithListNullableStringReturn() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableCharParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::Character?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.Character> param) {
@@ -3609,7 +3289,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableCharParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableCharHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3621,7 +3300,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableCharHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3633,14 +3311,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableCharHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::Character?>")
   public ceylon.language.List<ceylon.language.Character> methodWithListNullableCharReturn() {
     ceylon.language.List<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithListNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonObjectParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Object?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Object> param) {
@@ -3648,7 +3324,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonObjectParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonObjectHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3660,7 +3335,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonObjectHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3672,14 +3346,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonObjectHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Object?>")
   public ceylon.language.List<ceylon.json.Object> methodWithListNullableJsonObjectReturn() {
     ceylon.language.List<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithListNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonArrayParam(
     final @TypeInfo("ceylon.language::List<ceylon.json::Array?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.json.Array> param) {
@@ -3687,7 +3359,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonArrayParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonArrayHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3699,7 +3370,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonArrayHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3711,14 +3381,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableJsonArrayHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.json::Array?>")
   public ceylon.language.List<ceylon.json.Array> methodWithListNullableJsonArrayReturn() {
     ceylon.language.List<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithListNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableApiParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<RefedInterface1> param) {
@@ -3726,7 +3394,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableApiParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableApiHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3738,7 +3405,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableApiHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3750,14 +3416,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableApiHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1?>")
   public ceylon.language.List<RefedInterface1> methodWithListNullableApiReturn() {
     ceylon.language.List<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithListNullableApiReturn(), io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> param) {
@@ -3765,7 +3429,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDataObjectParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3777,7 +3440,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDataObjectHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3789,14 +3451,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableDataObjectHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject?>")
   public ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> methodWithListNullableDataObjectReturn() {
     ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithListNullableDataObjectReturn(), io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumParam(
     final @TypeInfo("ceylon.language::List<ceylon.language::String?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> param) {
@@ -3804,7 +3464,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableEnumParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3816,7 +3475,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableEnumHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3828,14 +3486,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableEnumHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<ceylon.language::String?>")
   public ceylon.language.List<ceylon.language.String> methodWithListNullableEnumReturn() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableGenEnumParam(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.testmodel.TestGenEnum> param) {
@@ -3843,7 +3499,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableGenEnumParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableGenEnumHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3855,7 +3510,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableGenEnumHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3867,14 +3521,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithListNullableGenEnumHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum?>")
   public ceylon.language.List<io.vertx.ceylon.testmodel.TestGenEnum> methodWithListNullableGenEnumReturn() {
     ceylon.language.List<io.vertx.ceylon.testmodel.TestGenEnum> ret = io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, delegate.methodWithListNullableGenEnumReturn(), io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Byte?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Byte> param) {
@@ -3882,7 +3534,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableByteParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3894,7 +3545,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableByteHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3906,14 +3556,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableByteHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Byte?>")
   public ceylon.language.Collection<ceylon.language.Byte> methodWithSetNullableByteReturn() {
     ceylon.language.Collection<ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithSetNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
@@ -3921,7 +3569,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableShortParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3933,7 +3580,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableShortHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3945,14 +3591,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableShortHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
   public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableShortReturn() {
     ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
@@ -3960,7 +3604,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableIntegerParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3972,7 +3615,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableIntegerHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -3984,14 +3626,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableIntegerHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
   public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableIntegerReturn() {
     ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Integer> param) {
@@ -3999,7 +3639,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableLongParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4011,7 +3650,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableLongHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4023,14 +3661,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableLongHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Integer?>")
   public ceylon.language.Collection<ceylon.language.Integer> methodWithSetNullableLongReturn() {
     ceylon.language.Collection<ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithSetNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Boolean?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Boolean> param) {
@@ -4038,7 +3674,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableBooleanParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4050,7 +3685,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableBooleanHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4062,14 +3696,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableBooleanHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Boolean?>")
   public ceylon.language.Collection<ceylon.language.Boolean> methodWithSetNullableBooleanReturn() {
     ceylon.language.Collection<ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithSetNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Float> param) {
@@ -4077,7 +3709,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableFloatParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4089,7 +3720,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableFloatHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4101,14 +3731,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableFloatHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>")
   public ceylon.language.Collection<ceylon.language.Float> methodWithSetNullableFloatReturn() {
     ceylon.language.Collection<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Float> param) {
@@ -4116,7 +3744,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDoubleParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4128,7 +3755,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDoubleHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4140,14 +3766,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDoubleHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Float?>")
   public ceylon.language.Collection<ceylon.language.Float> methodWithSetNullableDoubleReturn() {
     ceylon.language.Collection<ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Float.$TypeDescriptor$, delegate.methodWithSetNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::String?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.String> param) {
@@ -4155,7 +3779,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableStringParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4167,7 +3790,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableStringHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4179,14 +3801,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableStringHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::String?>")
   public ceylon.language.Collection<ceylon.language.String> methodWithSetNullableStringReturn() {
     ceylon.language.Collection<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::Character?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.Character> param) {
@@ -4194,7 +3814,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableCharParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4206,7 +3825,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableCharHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4218,14 +3836,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableCharHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::Character?>")
   public ceylon.language.Collection<ceylon.language.Character> methodWithSetNullableCharReturn() {
     ceylon.language.Collection<ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Character.$TypeDescriptor$, delegate.methodWithSetNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.json::Object?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.json.Object> param) {
@@ -4233,7 +3849,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonObjectParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4245,7 +3860,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonObjectHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4257,14 +3871,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonObjectHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.json::Object?>")
   public ceylon.language.Collection<ceylon.json.Object> methodWithSetNullableJsonObjectReturn() {
     ceylon.language.Collection<ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.json.Object.$TypeDescriptor$, delegate.methodWithSetNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.json::Array?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.json.Array> param) {
@@ -4272,7 +3884,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonArrayParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4284,7 +3895,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonArrayHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4296,14 +3906,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableJsonArrayHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.json::Array?>")
   public ceylon.language.Collection<ceylon.json.Array> methodWithSetNullableJsonArrayReturn() {
     ceylon.language.Collection<ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.json.Array.$TypeDescriptor$, delegate.methodWithSetNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiParam(
     final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::RefedInterface1?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<RefedInterface1> param) {
@@ -4311,7 +3919,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableApiParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4323,7 +3930,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableApiHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4335,14 +3941,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableApiHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::RefedInterface1?>")
   public ceylon.language.Collection<RefedInterface1> methodWithSetNullableApiReturn() {
     ceylon.language.Collection<RefedInterface1> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, delegate.methodWithSetNullableApiReturn(), io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectParam(
     final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::TestDataObject?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<io.vertx.ceylon.testmodel.TestDataObject> param) {
@@ -4350,7 +3954,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDataObjectParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4362,7 +3965,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDataObjectHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4374,14 +3976,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableDataObjectHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::TestDataObject?>")
   public ceylon.language.Collection<io.vertx.ceylon.testmodel.TestDataObject> methodWithSetNullableDataObjectReturn() {
     ceylon.language.Collection<io.vertx.ceylon.testmodel.TestDataObject> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, delegate.methodWithSetNullableDataObjectReturn(), io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumParam(
     final @TypeInfo("ceylon.language::Collection<ceylon.language::String?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<ceylon.language.String> param) {
@@ -4389,7 +3989,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableEnumParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4401,7 +4000,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableEnumHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4413,14 +4011,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableEnumHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<ceylon.language::String?>")
   public ceylon.language.Collection<ceylon.language.String> methodWithSetNullableEnumReturn() {
     ceylon.language.Collection<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetNullableEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableGenEnumParam(
     final @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::TestGenEnum?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Collection<io.vertx.ceylon.testmodel.TestGenEnum> param) {
@@ -4428,7 +4024,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableGenEnumParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableGenEnumHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Collection<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4440,7 +4035,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableGenEnumHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4452,14 +4046,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithSetNullableGenEnumHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Collection<io.vertx.ceylon.testmodel::TestGenEnum?>")
   public ceylon.language.Collection<io.vertx.ceylon.testmodel.TestGenEnum> methodWithSetNullableGenEnumReturn() {
     ceylon.language.Collection<io.vertx.ceylon.testmodel.TestGenEnum> ret = io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, delegate.methodWithSetNullableGenEnumReturn(), io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableByteParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> param) {
@@ -4467,7 +4059,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableByteParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableByteHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4479,7 +4070,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableByteHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Byte?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4491,14 +4081,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableByteHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Byte?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> methodWithMapNullableByteReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Byte> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Byte.$TypeDescriptor$, delegate.methodWithMapNullableByteReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Byte);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableShortParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -4506,7 +4094,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableShortParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableShortHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4518,7 +4105,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableShortHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4530,14 +4116,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableShortHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapNullableShortReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapNullableShortReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Short);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableIntegerParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -4545,7 +4129,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableIntegerParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableIntegerHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4557,7 +4140,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableIntegerHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4569,14 +4151,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableIntegerHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapNullableIntegerReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapNullableIntegerReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Integer);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableLongParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> param) {
@@ -4584,7 +4164,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableLongParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableLongHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4596,7 +4175,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableLongHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4608,14 +4186,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableLongHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> methodWithMapNullableLongReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Integer> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, delegate.methodWithMapNullableLongReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Long);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableBooleanParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> param) {
@@ -4623,7 +4199,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableBooleanParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableBooleanHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4635,7 +4210,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableBooleanHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4647,14 +4221,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableBooleanHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> methodWithMapNullableBooleanReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Boolean> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Boolean.$TypeDescriptor$, delegate.methodWithMapNullableBooleanReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Boolean);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableFloatParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Float> param) {
@@ -4662,7 +4234,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableFloatParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableFloatHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4674,7 +4245,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableFloatHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4686,14 +4256,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableFloatHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapNullableFloatReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, delegate.methodWithMapNullableFloatReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Float);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableDoubleParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Float> param) {
@@ -4701,7 +4269,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableDoubleParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableDoubleHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4713,7 +4280,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableDoubleHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4725,14 +4291,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableDoubleHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Float> methodWithMapNullableDoubleReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Float> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, delegate.methodWithMapNullableDoubleReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Double);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableStringParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.String> param) {
@@ -4740,7 +4304,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableStringParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableStringHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4752,7 +4315,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableStringHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::String?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4764,14 +4326,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableStringHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapNullableStringReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.methodWithMapNullableStringReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableCharParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Character?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.language.Character> param) {
@@ -4779,7 +4339,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableCharParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableCharHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4791,7 +4350,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableCharHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Character?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4803,14 +4361,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableCharHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::Character?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.Character> methodWithMapNullableCharReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.language.Character> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Character.$TypeDescriptor$, delegate.methodWithMapNullableCharReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Character);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonObjectParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Object> param) {
@@ -4818,7 +4374,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonObjectParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonObjectHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4830,7 +4385,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonObjectHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Object?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4842,14 +4396,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonObjectHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Object?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Object> methodWithMapNullableJsonObjectReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.json.Object> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.json.Object.$TypeDescriptor$, delegate.methodWithMapNullableJsonObjectReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonObject);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonArrayParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,ceylon.json.Array> param) {
@@ -4857,7 +4409,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonArrayParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonArrayHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Map<ceylon.language::String,ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4869,7 +4420,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonArrayHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Array?>)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -4881,14 +4431,12 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableJsonArrayHandlerAsyncResult(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.json::Array?>")
   public ceylon.language.Map<ceylon.language.String,ceylon.json.Array> methodWithMapNullableJsonArrayReturn() {
     ceylon.language.Map<ceylon.language.String,ceylon.json.Array> ret = io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.json.Array.$TypeDescriptor$, delegate.methodWithMapNullableJsonArrayReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonArray);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableApiParam(
     final @TypeInfo("ceylon.language::Map<ceylon.language::String,io.vertx.ceylon.testmodel::RefedInterface1?>") @Name("param") @DocAnnotation$annotation$(description = "todo") ceylon.language.Map<ceylon.language.String,RefedInterface1> param) {
@@ -4896,7 +4444,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithMapNullableApiParam(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableHandler(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 
@@ -4910,7 +4457,6 @@ public class NullableTCK implements ReifiedType {
     delegate.methodWithNullableHandler(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void methodWithNullableHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull") @DocAnnotation$annotation$(description = "todo") boolean expectNull, 

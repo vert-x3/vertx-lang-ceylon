@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An event bus consumer object representing a stream of message to an todo_link address that can\n be read from.\n <p>\n The todo_link or todo_link\n creates a new consumer, the returned consumer is not yet registered against the event bus. Registration\n is effective after the todo_link method is invoked.<p>\n\n The consumer is unregistered from the event bus using the todo_link method or by calling the\n todo_link with a null value..\n")
 public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
   @Ignore
@@ -60,7 +60,6 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -73,7 +72,6 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -86,21 +84,18 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> pause() {
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> resume() {
     MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -113,28 +108,28 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return a read stream for the body of the message stream.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> bodyStream() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.bodyStream());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return true if the current consumer is registered\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isRegistered() {
     boolean ret = delegate.isRegistered();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The address the handler was registered with.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the number of messages this registration will buffer when this stream is paused. The default\n value is <code>0</code>. When a new value is set, buffered messages may be discarded to reach\n the new value.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> setMaxBufferedMessages(
     final @TypeInfo("ceylon.language::Integer") @Name("maxBufferedMessages") @DocAnnotation$annotation$(description = "todo") long maxBufferedMessages) {
@@ -143,14 +138,14 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the maximum number of messages that can be buffered when this stream is paused\n")
   @TypeInfo("ceylon.language::Integer")
   public long getMaxBufferedMessages() {
     long ret = delegate.getMaxBufferedMessages();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Optional method which can be called to indicate when the registration has been propagated across the cluster.\n")
   @TypeInfo("ceylon.language::Anything")
   public void completionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
@@ -162,13 +157,13 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     delegate.completionHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Unregisters the handler which created this registration\n")
   @TypeInfo("ceylon.language::Anything")
   public void unregister() {
     delegate.unregister();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Unregisters the handler which created this registration\n")
   @TypeInfo("ceylon.language::Anything")
   public void unregister(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {

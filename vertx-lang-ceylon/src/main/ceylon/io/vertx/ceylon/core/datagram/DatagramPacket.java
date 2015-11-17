@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A received datagram packet (UDP) which contains the data and information about the sender of the data itself.\n")
 public class DatagramPacket implements ReifiedType {
 
   @Ignore
@@ -53,14 +53,14 @@ public class DatagramPacket implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the todo_link of the sender that sent\n this todo_link.\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress sender() {
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.sender());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the data of the todo_link\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer data() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.data());

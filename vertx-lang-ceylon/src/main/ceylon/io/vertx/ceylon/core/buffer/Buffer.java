@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.shareddata.impl.ClusterSerializable;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Most data is shuffled around inside Vert.x using buffers.\n <p>\n A buffer is a sequence of zero or more bytes that can read from or written to and which expands automatically as\n necessary to accommodate any bytes written to it. You can perhaps think of a buffer as smart byte array.\n <p>\n Please consult the documentation for more information on buffers.\n")
 public class Buffer implements ReifiedType {
 
   @Ignore
@@ -52,7 +52,7 @@ public class Buffer implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a <code>String</code> representation of the Buffer with the encoding specified by <code>enc</code>\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String toString(
     final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
@@ -61,7 +61,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>byte</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Byte")
   public byte getByte(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -70,7 +70,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the unsigned <code>byte</code> at position <code>pos</code> in the Buffer, as a <code>short</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedByte(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -79,7 +79,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>int</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getInt(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -88,7 +88,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedInt(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -97,7 +97,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>long</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getLong(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -106,7 +106,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>double</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Float")
   public double getDouble(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -115,7 +115,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>float</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Float")
   public double getFloat(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -124,7 +124,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the <code>short</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getShort(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -133,7 +133,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the unsigned <code>short</code> at position <code>pos</code> in the Buffer, as an <code>int</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedShort(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
@@ -142,7 +142,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a todo_link starting at position <code>start</code>\n and ending at position <code>end - 1</code>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer getBuffer(
     final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
@@ -153,7 +153,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>\n and ending at position <code>end - 1</code> interpreted as a String in the specified encoding\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString(
     final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
@@ -166,7 +166,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>\n and ending at position <code>end - 1</code> interpreted as a String in UTF-8 encoding\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString(
     final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
@@ -177,7 +177,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>Buffer</code> to the end of this Buffer. The buffer will expand as necessary to accommodate\n any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendBuffer(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff") @DocAnnotation$annotation$(description = "todo") Buffer buff) {
@@ -186,7 +186,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>Buffer</code> starting at the <code>offset</code> using <code>len</code> to the end of this Buffer. The buffer will expand as necessary to accommodate\n any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendBuffer(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff") @DocAnnotation$annotation$(description = "todo") Buffer buff, 
@@ -199,7 +199,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendByte(
     final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b) {
@@ -208,7 +208,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedByte(
     final @TypeInfo("ceylon.language::Integer") @Name("b") @DocAnnotation$annotation$(description = "todo") long b) {
@@ -217,7 +217,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendInt(
     final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
@@ -226,7 +226,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedInt(
     final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
@@ -235,7 +235,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>long</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendLong(
     final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l) {
@@ -244,7 +244,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendShort(
     final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
@@ -253,7 +253,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedShort(
     final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
@@ -262,7 +262,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>float</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendFloat(
     final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f) {
@@ -271,7 +271,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>double</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendDouble(
     final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d) {
@@ -280,7 +280,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>String</code> to the end of the Buffer with the encoding as specified by <code>enc</code>.<p>\n The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.<p>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -291,7 +291,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Appends the specified <code>String str</code> to the end of the Buffer with UTF-8 encoding.<p>\n The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together<p>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendString(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
@@ -300,7 +300,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setByte(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -311,7 +311,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the unsigned <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedByte(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -322,7 +322,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setInt(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -333,7 +333,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the unsigned <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedInt(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -344,7 +344,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setLong(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -355,7 +355,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>double</code> at position <code>pos</code> in the Buffer to the value <code>d</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setDouble(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -366,7 +366,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>float</code> at position <code>pos</code> in the Buffer to the value <code>f</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setFloat(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -377,7 +377,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setShort(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -388,7 +388,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedShort(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -399,7 +399,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setBuffer(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -410,7 +410,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code> on the given <code>offset</code> and <code>len</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setBuffer(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -425,7 +425,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in UTF-8.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setString(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -436,7 +436,7 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in encoding <code>enc</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setString(
     final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
@@ -449,28 +449,28 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the length of the buffer, measured in bytes.\n All positions are indexed from zero.\n")
   @TypeInfo("ceylon.language::Integer")
   public long length() {
     long ret = delegate.length();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a copy of the entire Buffer.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer copy() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.copy());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a slice of this buffer. Modifying the content\n of the returned buffer or this buffer affects each other's content\n while they maintain separate indexes and marks.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer slice() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.slice());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a slice of this buffer. Modifying the content\n of the returned buffer or this buffer affects each other's content\n while they maintain separate indexes and marks.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer slice(
     final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 

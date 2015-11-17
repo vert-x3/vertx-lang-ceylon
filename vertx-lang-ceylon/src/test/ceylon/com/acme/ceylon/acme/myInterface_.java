@@ -27,7 +27,6 @@ public class myInterface_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("com.acme.ceylon.acme::MyInterface")
   public static MyInterface create() {
     MyInterface ret = com.acme.ceylon.acme.MyInterface.TO_CEYLON.converter().safeConvert(com.acme.pkg.MyInterface.create());

@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a TCP server\n")
 public class NetServer implements ReifiedType,  Measured {
 
   @Ignore
@@ -54,21 +54,21 @@ public class NetServer implements ReifiedType,  Measured {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the connect stream for this server. The server can only have at most one handler at any one time.\n As the server accepts TCP or SSL connections it creates an instance of todo_link and passes it to the\n connect stream .\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream connectStream() {
     NetSocketStream ret = io.vertx.ceylon.core.net.NetSocketStream.TO_CEYLON.converter().safeConvert(delegate.connectStream());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Supply a connect handler for this server. The server can only have at most one connect handler at any one time.\n As the server accepts TCP or SSL connections it creates an instance of todo_link and passes it to the\n connect handler.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer connectHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -81,14 +81,14 @@ public class NetServer implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Start listening on the port and host as configured in the todo_link used when\n creating the server.\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen() {
     NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
@@ -101,7 +101,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Start listening on the specified port and host, ignoring post and host configured in the todo_link used when\n creating the server.\n <p>\n Port <code>0</code> can be specified meaning \"choose an random port\".\n <p>\n Host <code>0.0.0.0</code> can be specified meaning \"listen on all available interfaces\".\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -112,7 +112,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -129,7 +129,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Start listening on the specified port and host \"0.0.0.0\", ignoring post and host configured in the\n todo_link used when creating the server.\n <p>\n Port <code>0</code> can be specified meaning \"choose an random port\".\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port) {
@@ -138,7 +138,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -153,13 +153,13 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the server. This will close any currently open connections. The close may not complete until after this\n method has returned.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but supplying a handler that will be notified when close is complete.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
@@ -171,7 +171,7 @@ public class NetServer implements ReifiedType,  Measured {
     delegate.close(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The actual port the server is listening on. This is useful if you bound the server specifying 0 as port number\n signifying an ephemeral port\n")
   @TypeInfo("ceylon.language::Integer")
   public long actualPort() {
     long ret = delegate.actualPort();

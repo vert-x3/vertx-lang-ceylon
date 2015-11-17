@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Base interface for a stream.\n")
 public interface StreamBase {
 
   @Ignore
@@ -40,7 +40,7 @@ public interface StreamBase {
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an exception handler.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
   public StreamBase exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
@@ -64,7 +64,7 @@ public interface StreamBase {
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an exception handler.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
   public StreamBase exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

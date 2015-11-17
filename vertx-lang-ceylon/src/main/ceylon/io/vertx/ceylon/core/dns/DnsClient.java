@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Provides a way to asynchronously lookup information from DNS servers.\n <p>\n Please consult the documentation for more information on DNS clients.\n")
 public class DnsClient implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,7 @@ public class DnsClient implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to lookup the A (ipv4) or AAAA (ipv6) record for the given name. The first found will be used.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient lookup(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -69,7 +69,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to lookup the A (ipv4) record for the given name. The first found will be used.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient lookup4(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -84,7 +84,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to lookup the AAAA (ipv6) record for the given name. The first found will be used.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient lookup6(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -99,7 +99,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve all A (ipv4) records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveA(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -114,7 +114,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve all AAAA (ipv6) records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveAAAA(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -129,7 +129,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the CNAME record for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveCNAME(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -144,7 +144,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the MX records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveMX(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -159,7 +159,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the TXT records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveTXT(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -174,7 +174,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the PTR record for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolvePTR(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -189,7 +189,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the NS records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveNS(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -204,7 +204,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to resolve the SRV records for the given name.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient resolveSRV(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -219,7 +219,7 @@ public class DnsClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Try to do a reverse lookup of an IP address. This is basically the same as doing trying to resolve a PTR record\n but allows you to just pass in the IP address and not a valid ptr query string.\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient reverseLookup(
     final @TypeInfo("ceylon.language::String") @Name("ipaddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String ipaddress, 

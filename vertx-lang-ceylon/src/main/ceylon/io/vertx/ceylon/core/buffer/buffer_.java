@@ -26,14 +26,14 @@ public class buffer_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new, empty buffer.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public static Buffer buffer() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(io.vertx.core.buffer.Buffer.buffer());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new buffer given the initial size hint.\n <p>\n If you know the buffer will require a certain size, providing the hint can prevent unnecessary re-allocations\n as the buffer is written to and resized.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public static Buffer buffer(
     final @TypeInfo("ceylon.language::Integer") @Name("initialSizeHint") @DocAnnotation$annotation$(description = "todo") long initialSizeHint) {
@@ -42,7 +42,7 @@ public class buffer_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new buffer from a string. The string will be UTF-8 encoded into the buffer.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public static Buffer buffer(
     final @TypeInfo("ceylon.language::String") @Name("string") @DocAnnotation$annotation$(description = "todo") ceylon.language.String string) {
@@ -51,7 +51,7 @@ public class buffer_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new buffer from a string and using the specified encoding.\n The string will be encoded into the buffer using the specified encoding.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public static Buffer buffer(
     final @TypeInfo("ceylon.language::String") @Name("string") @DocAnnotation$annotation$(description = "todo") ceylon.language.String string, 

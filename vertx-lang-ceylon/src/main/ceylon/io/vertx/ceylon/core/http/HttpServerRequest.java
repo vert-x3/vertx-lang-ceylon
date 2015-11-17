@@ -19,7 +19,7 @@ import io.vertx.ceylon.core.net.SocketAddress;
 import io.vertx.ceylon.core.net.NetSocket;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a server-side HTTP request.\n <p>\n Instances are created for each request and passed to the user via a handler.\n <p>\n Each instance of this class is associated with a corresponding todo_link instance via\n todo_link.<p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n <p>\n")
 public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
 
   @Ignore
@@ -64,7 +64,6 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -77,7 +76,6 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -90,21 +88,18 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest pause() {
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest resume() {
     HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -117,42 +112,42 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the HTTP version of the request\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpVersion")
   public io.vertx.ceylon.core.http.HttpVersion version() {
     io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.httpVersion_.get_().getToCeylon().safeConvert(delegate.version());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the HTTP method for the request.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
   public io.vertx.ceylon.core.http.HttpMethod method() {
     io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.httpMethod_.get_().getToCeylon().safeConvert(delegate.method());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the URI of the request. This is usually a relative URI\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.uri());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The path part of the uri. For example /somepath/somemorepath/someresource.foo\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String path() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the query part of the uri. For example someparam=32&amp;someotherparam=x\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String query() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.query());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the response. Each instance of this class has an todo_link instance attached to it. This is used\n to send the response back to the client.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
     if (cached_response != null) {
@@ -163,7 +158,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the headers in the request.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -174,7 +169,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the first header value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getHeader(
     final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
@@ -183,7 +178,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the query parameters in the request\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap params() {
     if (cached_params != null) {
@@ -194,7 +189,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the first param value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getParam(
     final @TypeInfo("ceylon.language::String") @Name("paramName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String paramName) {
@@ -203,7 +198,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the remote (client side) address of the request\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -214,7 +209,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the local (server side) address of the server that handles the request\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -225,14 +220,14 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the absolute URI corresponding to the the HTTP request\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String absoluteURI() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.absoluteURI());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Convenience method for receiving the entire request body in one piece.\n <p>\n This saves the user having to manually setting a data and end handler and append the chunks of the body until\n the whole body received. Don't use this if your request body is large - you could potentially run out of RAM.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest bodyHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("bodyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> bodyHandler) {
@@ -245,7 +240,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a net socket for the underlying connection of this request.\n <p>\n USE THIS WITH CAUTION!\n <p>\n Once you have called this method, you must handle writing to the connection yourself using the net socket,\n the server request instance will no longer be usable as normal.\n Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
     if (cached_netSocket != null) {
@@ -256,7 +251,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Call this with true if you are expecting a multi-part body to be submitted in the request.\n This must be called before the body of the request has been received\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest setExpectMultipart(
     final @TypeInfo("ceylon.language::Boolean") @Name("expect") @DocAnnotation$annotation$(description = "todo") boolean expect) {
@@ -265,14 +260,14 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  true if we are expecting a multi-part body for this request. See todo_link.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isExpectMultipart() {
     boolean ret = delegate.isExpectMultipart();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an upload handler. The handler will get notified once a new file upload was received to allow you to deal\n with the file upload.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest uploadHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerFileUpload)?") @Name("uploadHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> uploadHandler) {
@@ -285,7 +280,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a map of all form attributes in the request.\n <p>\n Be aware that the attributes will only be available after the whole body has been received, i.e. after\n the request end handler has been called.\n <p>\n todo_link must be called first before trying to get the form attributes.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap formAttributes() {
     if (cached_formAttributes != null) {
@@ -296,7 +291,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the first form attribute value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getFormAttribute(
     final @TypeInfo("ceylon.language::String") @Name("attributeName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String attributeName) {
@@ -305,14 +300,14 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Upgrade the connection to a WebSocket connection.\n <p>\n This is an alternative way of handling WebSockets and can only be used if no websocket handlers are set on the\n Http server, and can only be used during the upgrade request during the WebSocket handshake.\n")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocket")
   public ServerWebSocket upgrade() {
     ServerWebSocket ret = io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.converter().safeConvert(delegate.upgrade());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Has the request ended? I.e. has the entire request, including the body been read?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isEnded() {
     boolean ret = delegate.isEnded();

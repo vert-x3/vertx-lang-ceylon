@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A todo_link of todo_link, used for\n notifying http request to a todo_link.\n")
 public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpServerRequest> {
 
   @Ignore
@@ -53,7 +53,6 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -66,7 +65,6 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -79,21 +77,18 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream pause() {
     HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream resume() {
     HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {

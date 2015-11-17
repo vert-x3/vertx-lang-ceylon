@@ -83,7 +83,9 @@ package @{type.translatePackageName(TRANSLATOR_COMPOSITE)};\n
 @includeNamed{'genTypeParamsDesc';params=typeParams;indent=''}
 @end{}
 @Ceylon(major = 8)\n
-@DocAnnotation$annotation$(description = "todo")\n
+@if{doc != null}
+@DocAnnotation$annotation$(description = "@{genDoc(doc)}")\n
+@end{}
 public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams}
 @if{concreteSuperType != null} extends @{concreteSuperType.translateName(TRANSLATOR_COMPOSITE)}@end{}
 @if{concrete} implements ReifiedType@end{}

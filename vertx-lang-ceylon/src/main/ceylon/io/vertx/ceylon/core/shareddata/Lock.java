@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An asynchronous exclusive lock which can be obtained from any node in the cluster.\n <p>\n When the lock is obtained, no-one else in the cluster can obtain the lock with the same name until the lock\n is released.\n")
 public class Lock implements ReifiedType {
 
   @Ignore
@@ -51,7 +51,7 @@ public class Lock implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Release the lock. Once the lock is released another will be able to obtain the lock.\n")
   @TypeInfo("ceylon.language::Anything")
   public void release() {
     delegate.release();

@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Pumps data from a todo_link to a todo_link and performs flow control where necessary to\n prevent the write stream buffer from getting overfull.\n <p>\n Instances of this class read items from a todo_link and write them to a todo_link. If data\n can be read faster than it can be written this could result in the write queue of the todo_link growing\n without bound, eventually causing it to exhaust all available RAM.\n <p>\n To prevent this, after each write, instances of this class check whether the write queue of the todo_link is full, and if so, the todo_link is paused, and a <code>drainHandler</code> is set on the\n todo_link.\n <p>\n When the todo_link has processed half of its backlog, the <code>drainHandler</code> will be\n called, which results in the pump resuming the todo_link.\n <p>\n This class can be used to pump from any todo_link to any todo_link,\n e.g. from an todo_link to an todo_link,\n or from todo_link to a todo_link.\n <p>\n Please see the documentation for more information.\n")
 public class Pump implements ReifiedType {
 
   @Ignore
@@ -51,7 +51,7 @@ public class Pump implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the write queue max size to <code>maxSize</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
@@ -60,21 +60,21 @@ public class Pump implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Start the Pump. The Pump can be started and stopped multiple times.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump start() {
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.converter().safeConvert(delegate.start());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Stop the Pump. The Pump can be started and stopped multiple times.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump stop() {
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.converter().safeConvert(delegate.stop());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the total number of items pumped by this pump.\n")
   @TypeInfo("ceylon.language::Integer")
   public long numberPumped() {
     long ret = delegate.numberPumped();

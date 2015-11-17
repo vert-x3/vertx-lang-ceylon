@@ -18,7 +18,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a server-side HTTP response.\n <p>\n An instance of this is created and associated to every instance of\n todo_link that.\n <p>\n It allows the developer to control the HTTP response that is sent back to the\n client for a particular HTTP request.\n <p>\n It contains methods that allow HTTP headers and trailers to be set, and for a body to be written out to the response.\n <p>\n It also allows files to be streamed by the kernel directly from disk to the\n outgoing HTTP connection, bypassing user space altogether (where supported by\n the underlying operating system). This is a very efficient way of\n serving files from the server since buffers do not have to be read one by one\n from the file and written to the outgoing socket.\n <p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n")
 public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
   @Ignore
@@ -58,14 +58,13 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -78,7 +77,6 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
@@ -87,7 +85,6 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
@@ -96,7 +93,6 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -109,14 +105,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the HTTP status code of the response. The default is <code>200</code> representing <code>OK</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getStatusCode() {
     long ret = delegate.getStatusCode();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the status code. If the status message hasn't been explicitly set, a default status message corresponding\n to the code will be looked-up and used.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse setStatusCode(
     final @TypeInfo("ceylon.language::Integer") @Name("statusCode") @DocAnnotation$annotation$(description = "todo") long statusCode) {
@@ -125,14 +121,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the HTTP status message of the response. If this is not specified a default value will be used depending on what\n todo_link has been set to.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getStatusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getStatusMessage());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the status message\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse setStatusMessage(
     final @TypeInfo("ceylon.language::String") @Name("statusMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String statusMessage) {
@@ -141,7 +137,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " If <code>chunked</code> is <code>true</code>, this response will use HTTP chunked encoding, and each call to write to the body\n will correspond to a new HTTP chunk sent on the wire.\n <p>\n If chunked encoding is used the HTTP header <code>Transfer-Encoding</code> with a value of <code>Chunked</code> will be\n automatically inserted in the response.\n <p>\n If <code>chunked</code> is <code>false</code>, this response will not use HTTP chunked encoding, and therefore the total size\n of any data that is written in the respone body must be set in the <code>Content-Length</code> header <b>before</b> any\n data is written out.\n <p>\n An HTTP chunked response is typically used when you do not know the total size of the request body up front.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse setChunked(
     final @TypeInfo("ceylon.language::Boolean") @Name("chunked") @DocAnnotation$annotation$(description = "todo") boolean chunked) {
@@ -150,14 +146,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return is the response chunked?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isChunked() {
     boolean ret = delegate.isChunked();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The HTTP headers\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -168,7 +164,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put an HTTP header\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse putHeader(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -179,7 +175,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The HTTP trailers\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
     if (cached_trailers != null) {
@@ -190,7 +186,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put an HTTP trailer\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse putTrailer(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -201,7 +197,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a close handler for the response. This will be called if the underlying connection closes before the response\n is complete.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse closeHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -214,7 +210,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write a todo_link to the response body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -225,7 +221,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Write a todo_link to the response body, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -234,14 +230,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Used to write an interim 100 Continue response to signify that the client should send the rest of the request.\n Must only be used if the request contains an \"Expect:100-Continue\" header\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse writeContinue() {
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeContinue());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but writes a String in UTF-8 encoding before ending the response.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -249,7 +245,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but writes a String with the specified encoding before ending the response.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -259,7 +255,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link but writes some data to the response body before ending. If the response is not chunked and\n no other data has been written then the @code{Content-Length} header will be automatically set.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("chunk") @DocAnnotation$annotation$(description = "todo") Buffer chunk) {
@@ -267,13 +263,13 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Ends the response. If no data has been written to the response body,\n the actual response won't get written until this method gets called.\n <p>\n Once the response has ended, it cannot be used any more.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end() {
     delegate.end();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link using offset @code{0} which means starting from the beginning of the file.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
@@ -282,7 +278,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Same as todo_link using length @code{Long.MAX_VALUE} which means until the end of the\n file.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -293,7 +289,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Ask the OS to stream a file as specified by <code>filename</code> directly\n from disk to the outgoing connection, bypassing userspace altogether\n (where supported by the underlying operating system.\n This is a very efficient way to serve files.<p>\n The actual serve is asynchronous and may not complete until some time after this method has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -306,7 +302,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -321,7 +317,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -338,7 +334,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but providing a handler which will be notified once the file has been\n completely written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -357,34 +353,34 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the underlying TCP connection corresponding to the request.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return has the response already ended?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean ended() {
     boolean ret = delegate.ended();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return has the underlying TCP connection corresponding to the request already been closed?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean closed() {
     boolean ret = delegate.closed();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return have the headers for the response already been written?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean headWritten() {
     boolean ret = delegate.headWritten();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Provide a handler that will be called just before the headers are written to the wire.<p>\n This provides a hook allowing you to add any more headers or do any more operations before this occurs.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse headersEndHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -397,7 +393,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Provide a handler that will be called just before the last part of the body is written to the wire\n and the response is ended.<p>\n This provides a hook allowing you to do any more operations before this occurs.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse bodyEndHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

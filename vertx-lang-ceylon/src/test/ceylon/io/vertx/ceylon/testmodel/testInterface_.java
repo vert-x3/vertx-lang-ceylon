@@ -33,7 +33,6 @@ public class testInterface_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
   public static RefedInterface1 staticFactoryMethod(
     final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {

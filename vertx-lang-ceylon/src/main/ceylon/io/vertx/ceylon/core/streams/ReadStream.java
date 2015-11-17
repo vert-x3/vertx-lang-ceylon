@@ -17,7 +17,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a stream of items that can be read from.\n <p>\n Any class that implements this interface can be used by a todo_link to pump data from it\n to a todo_link.\n")
 public interface ReadStream<T> extends StreamBase {
 
   @Ignore
@@ -43,25 +43,25 @@ public interface ReadStream<T> extends StreamBase {
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an exception handler on the read stream.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
     final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Pause the <code>ReadSupport</code>. While it's paused, no data will be sent to the <code>dataHandler</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> pause();
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Resume reading. If the <code>ReadSupport</code> has been paused, reading will recommence on it.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> resume();
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an end handler. Once the stream has ended, and there is no more data to be read, this handler will be called.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler);
@@ -88,7 +88,7 @@ public interface ReadStream<T> extends StreamBase {
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an exception handler on the read stream.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -101,7 +101,7 @@ public interface ReadStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
     final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -114,21 +114,21 @@ public interface ReadStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Pause the <code>ReadSupport</code>. While it's paused, no data will be sent to the <code>dataHandler</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> pause() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.pause());
       return this;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Resume reading. If the <code>ReadSupport</code> has been paused, reading will recommence on it.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> resume() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.resume());
       return this;
     }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set an end handler. Once the stream has ended, and there is no more data to be read, this handler will be called.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {

@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A helper class which allows you to easily parse protocols which are delimited by a sequence of bytes, or fixed\n size records.\n <p>\n Instances of this class take as input todo_link instances containing raw bytes,\n and output records.\n <p>\n For example, if I had a simple ASCII text protocol delimited by '\n' and the input was the following:\n <p>\n <pre>\n buffer1:HELLO\nHOW ARE Y\n buffer2:OU?\nI AM\n buffer3: DOING OK\n buffer4:\n\n </pre>\n Then the output would be:<p>\n <pre>\n buffer1:HELLO\n buffer2:HOW ARE YOU?\n buffer3:I AM DOING OK\n </pre>\n Instances of this class can be changed between delimited mode and fixed size record mode on the fly as\n individual records are read, this allows you to parse protocols where, for example, the first 5 records might\n all be fixed size (of potentially different sizes), followed by some delimited records, followed by more fixed\n size records.\n <p>\n Instances of this class can't currently be used for protocols where the text is encoded with something other than\n a 1-1 byte-char mapping.\n <p>\n Please see the documentation for more information.\n")
 public class RecordParser implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,6 @@ public class RecordParser implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setOutput(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") @DocAnnotation$annotation$(description = "todo") Callable<?> output) {
@@ -65,7 +64,7 @@ public class RecordParser implements ReifiedType {
     delegate.setOutput(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Flip the parser into delimited mode, and where the delimiter can be represented\n by the String <code>delim</code> encoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n This method can be called multiple times with different values of delim while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
     final @TypeInfo("ceylon.language::String") @Name("delim") @DocAnnotation$annotation$(description = "todo") ceylon.language.String delim) {
@@ -73,7 +72,7 @@ public class RecordParser implements ReifiedType {
     delegate.delimitedMode(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Flip the parser into delimited mode, and where the delimiter can be represented\n by the delimiter <code>delim</code>.\n <p>\n This method can be called multiple times with different values of delim while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim") @DocAnnotation$annotation$(description = "todo") Buffer delim) {
@@ -81,7 +80,7 @@ public class RecordParser implements ReifiedType {
     delegate.delimitedMode(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Flip the parser into fixed size mode, where the record size is specified by <code>size</code> in bytes.\n <p>\n This method can be called multiple times with different values of size while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fixedSizeMode(
     final @TypeInfo("ceylon.language::Integer") @Name("size") @DocAnnotation$annotation$(description = "todo") long size) {
@@ -89,7 +88,7 @@ public class RecordParser implements ReifiedType {
     delegate.fixedSizeMode(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " This method is called to provide the parser with data.\n")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "todo") Buffer buffer) {

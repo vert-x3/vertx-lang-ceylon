@@ -18,7 +18,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents the result of an action that may, or may not, have occurred yet.\n <p>\n")
 public class Future<T> implements ReifiedType {
 
   @Ignore
@@ -59,14 +59,14 @@ public class Future<T> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Has the future completed?\n <p>\n It's completed if it's either succeeded or failed.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isComplete() {
     boolean ret = delegate.isComplete();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a handler for the result.\n <p>\n If the future has already been completed it will be called immediately. Otherwise it will be called when the\n future is completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -78,7 +78,7 @@ public class Future<T> implements ReifiedType {
     delegate.setHandler(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the result. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void complete(
     final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "todo") T result) {
@@ -86,13 +86,13 @@ public class Future<T> implements ReifiedType {
     delegate.complete(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a null result. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void complete() {
     delegate.complete();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
     final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String failureMessage) {

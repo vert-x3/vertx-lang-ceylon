@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = "\n An asynchronous map.\n")
 public class AsyncMap<K,V> implements ReifiedType {
 
   @Ignore
@@ -62,7 +62,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a value from the map, asynchronously.\n")
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -76,7 +76,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.get(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put a value in the map, asynchronously.\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -92,7 +92,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.put(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but specifying a timeout. If the value cannot be put within the timeout a\n failure will be passed to the handler\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -110,7 +110,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.put(arg_0, arg_1, arg_2, arg_3);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put the entry only if there is no entry with the key already present. If key already present then the existing\n value will be returned to the handler, otherwise null.\n")
   @TypeInfo("ceylon.language::Anything")
   public void putIfAbsent(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -126,7 +126,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.putIfAbsent(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Link todo_link but specifying a timeout. If the value cannot be put within the timeout a\n failure will be passed to the handler\n")
   @TypeInfo("ceylon.language::Anything")
   public void putIfAbsent(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -144,7 +144,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.putIfAbsent(arg_0, arg_1, arg_2, arg_3);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove a value from the map, asynchronously.\n")
   @TypeInfo("ceylon.language::Anything")
   public void remove(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -158,7 +158,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.remove(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove a value from the map, only if entry already exists with same value.\n")
   @TypeInfo("ceylon.language::Anything")
   public void removeIfPresent(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -174,7 +174,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.removeIfPresent(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Replace the entry only if it is currently mapped to some value\n")
   @TypeInfo("ceylon.language::Anything")
   public void replace(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -190,7 +190,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.replace(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Replace the entry only if it is currently mapped to a specific value\n")
   @TypeInfo("ceylon.language::Anything")
   public void replaceIfPresent(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "todo") K k, 
@@ -208,7 +208,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.replaceIfPresent(arg_0, arg_1, arg_2, arg_3);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Clear all entries in the map\n")
   @TypeInfo("ceylon.language::Anything")
   public void clear(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -220,7 +220,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.clear(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Provide the number of entries in the map\n")
   @TypeInfo("ceylon.language::Anything")
   public void size(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {

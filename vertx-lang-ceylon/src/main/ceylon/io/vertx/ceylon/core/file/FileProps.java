@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents properties of a file on the file system.\n <p>\n")
 public class FileProps implements ReifiedType {
 
   @Ignore
@@ -51,56 +51,56 @@ public class FileProps implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The date the file was created\n")
   @TypeInfo("ceylon.language::Integer")
   public long creationTime() {
     long ret = delegate.creationTime();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The date the file was last accessed\n")
   @TypeInfo("ceylon.language::Integer")
   public long lastAccessTime() {
     long ret = delegate.lastAccessTime();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The date the file was last modified\n")
   @TypeInfo("ceylon.language::Integer")
   public long lastModifiedTime() {
     long ret = delegate.lastModifiedTime();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the file a directory?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isDirectory() {
     boolean ret = delegate.isDirectory();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the file some other type? (I.e. not a directory, regular file or symbolic link)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isOther() {
     boolean ret = delegate.isOther();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the file a regular file?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isRegularFile() {
     boolean ret = delegate.isRegularFile();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the file a symbolic link?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSymbolicLink() {
     boolean ret = delegate.isSymbolicLink();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The size of the file, in bytes\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();

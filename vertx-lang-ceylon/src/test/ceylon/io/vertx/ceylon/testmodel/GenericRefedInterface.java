@@ -16,7 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
 public class GenericRefedInterface<T> implements ReifiedType {
 
   @Ignore
@@ -57,7 +57,6 @@ public class GenericRefedInterface<T> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setValue(
     final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value) {
@@ -65,7 +64,6 @@ public class GenericRefedInterface<T> implements ReifiedType {
     delegate.setValue(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("T?")
   public T getValue() {
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getValue());

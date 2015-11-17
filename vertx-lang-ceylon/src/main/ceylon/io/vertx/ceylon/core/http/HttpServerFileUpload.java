@@ -16,7 +16,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents an file upload from an HTML FORM.\n")
 public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
   @Ignore
@@ -54,7 +54,6 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -67,7 +66,6 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -80,7 +78,6 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -93,21 +90,19 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload pause() {
     HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload resume() {
     HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Stream the content of this upload to the given file on storage.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload streamToFileSystem(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
@@ -116,49 +111,49 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the filename which was used when upload the file.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String filename() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.filename());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the name of the attribute\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.name());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  the content type for the upload\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentType());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the contentTransferEncoding for the upload\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentTransferEncoding() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentTransferEncoding());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the charset for the upload\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String charset() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.charset());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The size of the upload may not be available until it is all read.\n Check todo_link to determine this\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return true if the size of the upload can be retrieved via todo_link.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSizeAvailable() {
     boolean ret = delegate.isSizeAvailable();

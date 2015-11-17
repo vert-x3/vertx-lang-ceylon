@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An HTTP and WebSockets server.\n <p>\n You receive HTTP requests by providing a todo_link. As requests arrive on the server the handler\n will be called with the requests.\n <p>\n You receive WebSockets by providing a todo_link. As WebSocket connections arrive on the server, the\n WebSocket is passed to the handler.\n")
 public class HttpServer implements ReifiedType,  Measured {
 
   @Ignore
@@ -54,21 +54,21 @@ public class HttpServer implements ReifiedType,  Measured {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the request stream for the server. As HTTP requests are received by the server,\n instances of todo_link will be created and passed to the stream .\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream requestStream() {
     HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.converter().safeConvert(delegate.requestStream());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the request handler for the server to <code>requestHandler</code>. As HTTP requests are received by the server,\n instances of todo_link will be created and passed to this handler.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer requestHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -81,14 +81,14 @@ public class HttpServer implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the websocket stream for the server. If a websocket connect handshake is successful a\n new todo_link instance will be created and passed to the stream .\n")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream websocketStream() {
     ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the websocket handler for the server to <code>wsHandler</code>. If a websocket connect handshake is successful a\n new todo_link instance will be created and passed to the handler.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer websocketHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -101,14 +101,14 @@ public class HttpServer implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified in the\n todo_link that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen() {
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.listen());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified here,\n ignoring any value set in the todo_link that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -119,7 +119,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but supplying a handler that will be called when the server is actually\n listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -136,7 +136,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but the server will listen on host \"0.0.0.0\" and port specified here ignoring\n any value in the todo_link that was used when creating the server.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port) {
@@ -145,7 +145,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but supplying a handler that will be called when the server is actually listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -160,7 +160,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but supplying a handler that will be called when the server is actually listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
@@ -173,13 +173,13 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the server. Any open HTTP connections will be closed.\n <p>\n The close happens asynchronously and the server may not be closed until some time after the call has returned.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but supplying a handler that will be called when the server is actually closed (or has failed).\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {

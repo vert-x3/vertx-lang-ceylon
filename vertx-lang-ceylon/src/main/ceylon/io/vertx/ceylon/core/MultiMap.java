@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " This class represents a MultiMap of String keys to a List of String values.\n <p>\n It's useful in Vert.x to represent things in Vert.x like HTTP headers and HTTP parameters which allow\n multiple values for keys.\n")
 public class MultiMap implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,7 @@ public class MultiMap implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the value of with the specified name.  If there are\n more than one values for the specified name, the first value is returned.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String get(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -63,7 +63,7 @@ public class MultiMap implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the values with the specified name\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> getAll(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -72,7 +72,7 @@ public class MultiMap implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Checks to see if there is a value with the specified name\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean contains(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -81,21 +81,21 @@ public class MultiMap implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return true if empty\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isEmpty() {
     boolean ret = delegate.isEmpty();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets a immutable todo_link of all names\n")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> names() {
     ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.names(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Adds a new value with the specified name and value.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap add(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -106,7 +106,7 @@ public class MultiMap implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Adds all the entries from another MultiMap to this one\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap addAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
@@ -115,7 +115,7 @@ public class MultiMap implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets a value under the specified name.\n <p>\n If there is an existing header with the same name, it is removed.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap set(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -126,7 +126,7 @@ public class MultiMap implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Cleans this instance.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap setAll(
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map") @DocAnnotation$annotation$(description = "todo") MultiMap map) {
@@ -135,7 +135,7 @@ public class MultiMap implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Removes the value with the given name\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap remove(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -144,14 +144,14 @@ public class MultiMap implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Removes all\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap clear() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.clear());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the number of keys.\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();

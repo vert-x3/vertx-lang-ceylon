@@ -15,7 +15,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Shared data allows you to share data safely between different parts of your application in a safe way.\n <p>\n Shared data provides:\n <ul>\n   <li>Cluster wide maps which can be accessed from any node of the cluster</li>\n   <li>Cluster wide locks which can be used to give exclusive access to resources across the cluster</li>\n   <li>Cluster wide counters used to maintain counts consistently across the cluster</li>\n   <li>Local maps for sharing data safely in the same Vert.x instance</li>\n </ul>\n <p>\n Please see the documentation for more information.\n")
 public class SharedData implements ReifiedType {
 
   @Ignore
@@ -57,7 +57,7 @@ public class SharedData implements ReifiedType {
     @TypeParameter(value="K",variance=Variance.NONE),
     @TypeParameter(value="V",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the cluster wide map with the specified name. The map is accessible to all nodes in the cluster and data\n put into the map from any node is visible to to any other node.\n")
   @TypeInfo("ceylon.language::Anything")
   public <K,V> void getClusterWideMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -71,7 +71,7 @@ public class SharedData implements ReifiedType {
     delegate.getClusterWideMap(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a cluster wide lock with the specified name. The lock will be passed to the handler when it is available.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLock(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -85,7 +85,7 @@ public class SharedData implements ReifiedType {
     delegate.getLock(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but specifying a timeout. If the lock is not obtained within the timeout\n a failure will be sent to the handler\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLockWithTimeout(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -101,7 +101,7 @@ public class SharedData implements ReifiedType {
     delegate.getLockWithTimeout(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get a cluster wide counter. The counter will be passed to the handler.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getCounter(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -119,7 +119,7 @@ public class SharedData implements ReifiedType {
     @TypeParameter(value="K",variance=Variance.NONE),
     @TypeParameter(value="V",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return a <code>LocalMap</code> with the specific <code>name</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<K,V>")
   public <K,V> LocalMap<K,V> getLocalMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {

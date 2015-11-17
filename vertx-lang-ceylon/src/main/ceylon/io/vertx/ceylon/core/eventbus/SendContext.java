@@ -16,7 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = "\n Encapsulates a message being sent from Vert.x. Used with event bus interceptors\n")
 public class SendContext<T> implements ReifiedType {
 
   @Ignore
@@ -57,20 +57,20 @@ public class SendContext<T> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  The message being sent\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::Message<T>")
   public Message<T> message() {
     Message<T> ret = io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(delegate.message());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Call the next interceptor\n")
   @TypeInfo("ceylon.language::Anything")
   public void next() {
     delegate.next();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean send() {
     boolean ret = delegate.send();

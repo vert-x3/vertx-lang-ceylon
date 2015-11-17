@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " todo:\n - Buffer support\n")
 public class DataObjectTCK implements ReifiedType {
 
   @Ignore
@@ -51,14 +51,12 @@ public class DataObjectTCK implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues")
   public io.vertx.ceylon.testmodel.DataObjectWithValues getDataObjectWithValues() {
     io.vertx.ceylon.testmodel.DataObjectWithValues ret = io.vertx.ceylon.testmodel.dataObjectWithValues_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithValues());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithValues(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithValues dataObject) {
@@ -66,14 +64,12 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithValues(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists")
   public io.vertx.ceylon.testmodel.DataObjectWithLists getDataObjectWithLists() {
     io.vertx.ceylon.testmodel.DataObjectWithLists ret = io.vertx.ceylon.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithLists(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithLists dataObject) {
@@ -81,14 +77,12 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithLists(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps")
   public io.vertx.ceylon.testmodel.DataObjectWithMaps getDataObjectWithMaps() {
     io.vertx.ceylon.testmodel.DataObjectWithMaps ret = io.vertx.ceylon.testmodel.dataObjectWithMaps_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithMaps());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void setDataObjectWithMaps(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps") @Name("dataObject") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.testmodel.DataObjectWithMaps dataObject) {

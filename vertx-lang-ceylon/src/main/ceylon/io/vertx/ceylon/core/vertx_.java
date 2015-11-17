@@ -38,14 +38,14 @@ public class vertx_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates a non clustered instance using default options.\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates a non clustered instance using the specified options\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public static Vertx vertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
@@ -54,7 +54,7 @@ public class vertx_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates a clustered instance using the specified options.\n <p>\n The instance is created asynchronously and the resultHandler is called with the result when it is ready.\n")
   @TypeInfo("ceylon.language::Anything")
   public static void clusteredVertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
@@ -68,7 +68,7 @@ public class vertx_ {
     io.vertx.core.Vertx.clusteredVertx(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Gets the current context\n")
   @TypeInfo("io.vertx.ceylon.core::Context?")
   public static Context currentContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.currentContext());

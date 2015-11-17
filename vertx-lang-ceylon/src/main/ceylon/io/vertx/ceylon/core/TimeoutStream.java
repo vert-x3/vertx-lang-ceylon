@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A timeout stream is triggered by a timer, the todo_link will be call when the timer is fired,\n it can be once or several times depending on the nature of the timer related to this stream. The\n  will be called after the timer handler has been called.\n <p>\n Pausing the timer inhibits the timer shots until the stream is resumed. Setting a null handler callback cancels\n the timer.\n")
 public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.Integer> {
 
   @Ignore
@@ -53,7 +53,6 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -66,7 +65,6 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream handler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -79,21 +77,18 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream pause() {
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream resume() {
     TimeoutStream ret = io.vertx.ceylon.core.TimeoutStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream endHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -106,7 +101,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Cancels the timeout. Note this has the same effect as calling todo_link with a null\n argument.\n")
   @TypeInfo("ceylon.language::Anything")
   public void cancel() {
     delegate.cancel();

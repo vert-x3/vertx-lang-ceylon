@@ -26,7 +26,7 @@ public class cli_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Creates an instance of todo_link using the default implementation.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public static CLI create(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {

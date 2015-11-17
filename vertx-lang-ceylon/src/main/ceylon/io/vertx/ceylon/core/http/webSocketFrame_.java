@@ -26,7 +26,7 @@ public class webSocketFrame_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a binary WebSocket frame.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame binaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data, 
@@ -37,7 +37,7 @@ public class webSocketFrame_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a text WebSocket frame.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame textFrame(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -48,7 +48,7 @@ public class webSocketFrame_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a continuation frame\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public static WebSocketFrame continuationFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data, 
