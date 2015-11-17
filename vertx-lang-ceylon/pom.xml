@@ -371,6 +371,23 @@
           </execution>
 
           <execution>
+            <id>doc</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>doc</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/src/main/ceylon</source>
+              </sources>
+              <out>${repo.dir}</out>
+              <modules>
+                <module>io.vertx.ceylon.core</module>
+              </modules>
+            </configuration>
+          </execution>
+
+          <execution>
             <id>test.codegen.ceylon</id>
             <phase>test-compile</phase>
             <goals>
