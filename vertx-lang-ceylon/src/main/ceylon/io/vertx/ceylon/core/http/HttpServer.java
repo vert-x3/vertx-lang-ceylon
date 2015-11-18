@@ -101,14 +101,14 @@ public class HttpServer implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified in the\n [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
+  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified in the\n `io.vertx.core.http.HttpServerOptions` that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen() {
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.listen());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified here,\n ignoring any value set in the [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
+  @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified here,\n ignoring any value set in the `io.vertx.core.http.HttpServerOptions` that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port, 
@@ -136,7 +136,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but the server will listen on host \"0.0.0.0\" and port specified here ignoring\n any value in the [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but the server will listen on host \"0.0.0.0\" and port specified here ignoring\n any value in the `io.vertx.core.http.HttpServerOptions` that was used when creating the server.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port) {

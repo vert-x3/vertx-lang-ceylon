@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Interface defining a command-line interface (in other words a command such as 'run', 'ls'...).\n This interface is polyglot to ease reuse such as in Vert.x Shell.\n <p/>\n A command line interface has a name, and defines a set of options and arguments. Options are key-value pair such\n as <code>-foo=bar</code> or <code>-flag</code>. The supported formats depend on the used parser. Arguments are unlike\n options raw values. Options are defined using\n [Option](../cli/Option.type.html), while argument are defined using [Argument](../cli/Argument.type.html).\n <p/>\n Command line interfaces also define a summary and a description. These attributes are used in the usage generation\n . To disable the help generation, set the <code>hidden</code> attribute to <code>true</code>.\n <p/>\n Command Line Interface object does not contains \"value\", it's a model. It must be evaluated by a\n parser that returns a [CommandLine](../cli/CommandLine.type.html) object containing the argument and option values.\n")
+@DocAnnotation$annotation$(description = " Interface defining a command-line interface (in other words a command such as 'run', 'ls'...).\n This interface is polyglot to ease reuse such as in Vert.x Shell.\n <p/>\n A command line interface has a name, and defines a set of options and arguments. Options are key-value pair such\n as <code>-foo=bar</code> or <code>-flag</code>. The supported formats depend on the used parser. Arguments are unlike\n options raw values. Options are defined using\n `io.vertx.core.cli.Option`, while argument are defined using `io.vertx.core.cli.Argument`.\n <p/>\n Command line interfaces also define a summary and a description. These attributes are used in the usage generation\n . To disable the help generation, set the <code>hidden</code> attribute to <code>true</code>.\n <p/>\n Command Line Interface object does not contains \"value\", it's a model. It must be evaluated by a\n parser that returns a [CommandLine](../cli/CommandLine.type.html) object containing the argument and option values.\n")
 public class CLI implements ReifiedType {
 
   @Ignore
@@ -203,7 +203,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an [Option](../cli/Option.type.html) based on its name (short name, long name or argument name).\n")
+  @DocAnnotation$annotation$(description = " Gets an `io.vertx.core.cli.Option` based on its name (short name, long name or argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Option?")
   public io.vertx.ceylon.core.cli.Option getOption(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name, must not be <code>null</code>\n") ceylon.language.String name) {
@@ -212,7 +212,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its name (argument name).\n")
+  @DocAnnotation$annotation$(description = " Gets an `io.vertx.core.cli.Argument` based on its name (argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the argument, must not be <code>null</code>\n") ceylon.language.String name) {
@@ -221,7 +221,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its index.\n")
+  @DocAnnotation$annotation$(description = " Gets an `io.vertx.core.cli.Argument` based on its index.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the index, must be positive or zero.\n") long index) {

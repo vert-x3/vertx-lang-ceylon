@@ -441,7 +441,7 @@
     var label = link.label.trim();
     var rawType = link.targetType.raw;
     if (rawType.module != null) {
-      if (type.kind == CLASS_API) {
+      if (rawType.kind == CLASS_API) {
         var elt = link.targetElement;
         var eltKind = elt.getKind().name();
         if (type.module.name == rawType.module.name) {
