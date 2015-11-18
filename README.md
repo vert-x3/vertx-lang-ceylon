@@ -6,16 +6,15 @@ vertx-lang-ceylon
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
 - should we convert enums to lower cases ?
 - link to other modules
+- Promise support 
 
 ## todo list
 
 - generate data object converter in java to have @GenIgnore
 - don't share the underlying vertx module
-- fix reified generic problem (Message<String> reply)
 - consider converting enum members to lower cases to be more ceylonic
 - consider using ceylon.promise for Handler<AsyncResult<T>> ending methods
-- verticle factory
-- documentation generation
+- general documentation generation
 
 ## CI
 
