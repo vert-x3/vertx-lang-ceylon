@@ -16,11 +16,18 @@ import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
+@Ceylon(major = 8)
 @Name("jwtAuthHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class jwtAuthHandler_ {
+public class jwtAuthHandler_ implements ReifiedType {
 
   private static final jwtAuthHandler_ instance = new jwtAuthHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(jwtAuthHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::jwtAuthHandler")
@@ -31,7 +38,7 @@ public class jwtAuthHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
-  public static JWTAuthHandler create(
+  public JWTAuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     JWTAuthHandler ret = io.vertx.ceylon.web.handler.JWTAuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.JWTAuthHandler.create(arg_0));
@@ -40,7 +47,7 @@ public class jwtAuthHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
-  public static JWTAuthHandler create(
+  public JWTAuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
     final @TypeInfo("ceylon.language::String") @Name("skip") @DocAnnotation$annotation$(description = "todo") ceylon.language.String skip) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);

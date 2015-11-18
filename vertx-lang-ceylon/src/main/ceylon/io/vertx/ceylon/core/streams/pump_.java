@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("pump")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class pump_ {
+public class pump_ implements ReifiedType {
 
   private static final pump_ instance = new pump_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(pump_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core.streams::pump")
@@ -30,7 +37,7 @@ public class pump_ {
   })
   @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
-  public static <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
+  public <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
     final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
@@ -44,7 +51,7 @@ public class pump_ {
   })
   @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code> and\n <code>writeQueueMaxSize</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
-  public static <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
+  public <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "todo") ReadStream<T> rs, 
     final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "todo") WriteStream<T> ws, 
     final @TypeInfo("ceylon.language::Integer") @Name("writeQueueMaxSize") @DocAnnotation$annotation$(description = "todo") long writeQueueMaxSize) {

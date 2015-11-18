@@ -17,11 +17,18 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("jdbcClient")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class jdbcClient_ {
+public class jdbcClient_ implements ReifiedType {
 
   private static final jdbcClient_ instance = new jdbcClient_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(jdbcClient_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.jdbc::jdbcClient")
@@ -32,7 +39,7 @@ public class jdbcClient_ {
 
   @DocAnnotation$annotation$(description = " Create a JDBC client which maintains its own data source.\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
-  public static JDBCClient createNonShared(
+  public JDBCClient createNonShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("ceylon.json::Object") @Name("config") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
@@ -43,7 +50,7 @@ public class jdbcClient_ {
 
   @DocAnnotation$annotation$(description = " Create a JDBC client which shares its data source with any other JDBC clients created with the same\n data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
-  public static JDBCClient createShared(
+  public JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("ceylon.json::Object") @Name("config") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object config, 
     final @TypeInfo("ceylon.language::String") @Name("dataSourceName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String dataSourceName) {
@@ -56,7 +63,7 @@ public class jdbcClient_ {
 
   @DocAnnotation$annotation$(description = " Like [createShared](JDBCClient.type.html#createShared) but with the default data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
-  public static JDBCClient createShared(
+  public JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("ceylon.json::Object") @Name("config") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);

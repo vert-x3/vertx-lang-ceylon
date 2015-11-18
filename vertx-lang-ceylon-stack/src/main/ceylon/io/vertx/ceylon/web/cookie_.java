@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("cookie")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class cookie_ {
+public class cookie_ implements ReifiedType {
 
   private static final cookie_ instance = new cookie_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(cookie_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web::cookie")
@@ -27,7 +34,7 @@ public class cookie_ {
 
   @DocAnnotation$annotation$(description = " Create a new cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
-  public static Cookie cookie(
+  public Cookie cookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);

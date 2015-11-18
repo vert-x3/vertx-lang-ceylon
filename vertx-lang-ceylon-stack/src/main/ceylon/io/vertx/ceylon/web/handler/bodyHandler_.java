@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("bodyHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class bodyHandler_ {
+public class bodyHandler_ implements ReifiedType {
 
   private static final bodyHandler_ instance = new bodyHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(bodyHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::bodyHandler")
@@ -29,7 +36,7 @@ public class bodyHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a body handler with defaults\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
-  public static BodyHandler create() {
+  public BodyHandler create() {
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BodyHandler.create());
     return ret;
   }

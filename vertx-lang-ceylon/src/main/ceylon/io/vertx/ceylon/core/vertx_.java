@@ -25,11 +25,18 @@ import io.vertx.ceylon.core.file.FileSystem;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.http.HttpClient;
 
+@Ceylon(major = 8)
 @Name("vertx")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class vertx_ {
+public class vertx_ implements ReifiedType {
 
   private static final vertx_ instance = new vertx_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(vertx_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core::vertx")
@@ -40,14 +47,14 @@ public class vertx_ {
 
   @DocAnnotation$annotation$(description = " Creates a non clustered instance using default options.\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
-  public static Vertx vertx() {
+  public Vertx vertx() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Creates a non clustered instance using the specified options\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
-  public static Vertx vertx(
+  public Vertx vertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx(arg_0));
@@ -56,7 +63,7 @@ public class vertx_ {
 
   @DocAnnotation$annotation$(description = " Creates a clustered instance using the specified options.\n <p>\n The instance is created asynchronously and the resultHandler is called with the result when it is ready.\n")
   @TypeInfo("ceylon.language::Anything")
-  public static void clusteredVertx(
+  public void clusteredVertx(
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.VertxOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
@@ -70,7 +77,7 @@ public class vertx_ {
 
   @DocAnnotation$annotation$(description = " Gets the current context\n")
   @TypeInfo("io.vertx.ceylon.core::Context?")
-  public static Context currentContext() {
+  public Context currentContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.currentContext());
     return ret;
   }

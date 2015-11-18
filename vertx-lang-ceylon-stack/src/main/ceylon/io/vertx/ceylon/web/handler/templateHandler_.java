@@ -15,11 +15,18 @@ import io.vertx.ceylon.web.templ.TemplateEngine;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("templateHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class templateHandler_ {
+public class templateHandler_ implements ReifiedType {
 
   private static final templateHandler_ instance = new templateHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(templateHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::templateHandler")
@@ -30,7 +37,7 @@ public class templateHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
-  public static TemplateHandler create(
+  public TemplateHandler create(
     final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine) {
     io.vertx.ext.web.templ.TemplateEngine arg_0 = io.vertx.ceylon.web.templ.TemplateEngine.TO_JAVA.safeConvert(engine);
     TemplateHandler ret = io.vertx.ceylon.web.handler.TemplateHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.TemplateHandler.create(arg_0));
@@ -39,7 +46,7 @@ public class templateHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
-  public static TemplateHandler create(
+  public TemplateHandler create(
     final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine, 
     final @TypeInfo("ceylon.language::String") @Name("templateDirectory") @DocAnnotation$annotation$(description = "todo") ceylon.language.String templateDirectory, 
     final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {

@@ -16,11 +16,18 @@ import io.vertx.ceylon.web.Router;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("sockJSHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class sockJSHandler_ {
+public class sockJSHandler_ implements ReifiedType {
 
   private static final sockJSHandler_ instance = new sockJSHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(sockJSHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::sockJSHandler")
@@ -31,7 +38,7 @@ public class sockJSHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
-  public static SockJSHandler create(
+  public SockJSHandler create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     SockJSHandler ret = io.vertx.ceylon.web.handler.sockjs.SockJSHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.sockjs.SockJSHandler.create(arg_0));
@@ -40,7 +47,7 @@ public class sockJSHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
-  public static SockJSHandler create(
+  public SockJSHandler create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandlerOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.web.handler.sockjs.SockJSHandlerOptions options) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
@@ -51,7 +58,7 @@ public class sockJSHandler_ {
 
   @DocAnnotation$annotation$(description = " Install SockJS test applications on a router - used when running the SockJS test suite\n")
   @TypeInfo("ceylon.language::Anything")
-  public static void installTestApplications(
+  public void installTestApplications(
     final @TypeInfo("io.vertx.ceylon.web::Router") @Name("router") @DocAnnotation$annotation$(description = "todo") Router router, 
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
     io.vertx.ext.web.Router arg_0 = io.vertx.ceylon.web.Router.TO_JAVA.safeConvert(router);

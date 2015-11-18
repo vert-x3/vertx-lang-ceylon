@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("staticHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class staticHandler_ {
+public class staticHandler_ implements ReifiedType {
 
   private static final staticHandler_ instance = new staticHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(staticHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::staticHandler")
@@ -29,14 +36,14 @@ public class staticHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
-  public static StaticHandler create() {
+  public StaticHandler create() {
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.StaticHandler.create());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a handler, specifying web-root\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
-  public static StaticHandler create(
+  public StaticHandler create(
     final @TypeInfo("ceylon.language::String") @Name("root") @DocAnnotation$annotation$(description = "todo") ceylon.language.String root) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(root);
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.StaticHandler.create(arg_0));

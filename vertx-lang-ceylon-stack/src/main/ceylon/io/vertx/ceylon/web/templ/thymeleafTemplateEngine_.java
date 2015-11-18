@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("thymeleafTemplateEngine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class thymeleafTemplateEngine_ {
+public class thymeleafTemplateEngine_ implements ReifiedType {
 
   private static final thymeleafTemplateEngine_ instance = new thymeleafTemplateEngine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(thymeleafTemplateEngine_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.templ::thymeleafTemplateEngine")
@@ -27,7 +34,7 @@ public class thymeleafTemplateEngine_ {
 
   @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
-  public static ThymeleafTemplateEngine create() {
+  public ThymeleafTemplateEngine create() {
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.ThymeleafTemplateEngine.create());
     return ret;
   }

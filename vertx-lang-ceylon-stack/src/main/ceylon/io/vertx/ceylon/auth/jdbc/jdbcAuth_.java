@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.jdbc.JDBCClient;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
+@Ceylon(major = 8)
 @Name("jdbcAuth")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class jdbcAuth_ {
+public class jdbcAuth_ implements ReifiedType {
 
   private static final jdbcAuth_ instance = new jdbcAuth_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(jdbcAuth_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.auth.jdbc::jdbcAuth")
@@ -29,7 +36,7 @@ public class jdbcAuth_ {
 
   @DocAnnotation$annotation$(description = " Create a JDBC auth provider implementation\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
-  public static JDBCAuth create(
+  public JDBCAuth create(
     final @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient") @Name("client") @DocAnnotation$annotation$(description = "todo") JDBCClient client) {
     io.vertx.ext.jdbc.JDBCClient arg_0 = io.vertx.ceylon.jdbc.JDBCClient.TO_JAVA.safeConvert(client);
     JDBCAuth ret = io.vertx.ceylon.auth.jdbc.JDBCAuth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.jdbc.JDBCAuth.create(arg_0));

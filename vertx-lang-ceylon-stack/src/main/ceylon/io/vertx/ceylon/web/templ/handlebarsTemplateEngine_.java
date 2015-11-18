@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("handlebarsTemplateEngine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class handlebarsTemplateEngine_ {
+public class handlebarsTemplateEngine_ implements ReifiedType {
 
   private static final handlebarsTemplateEngine_ instance = new handlebarsTemplateEngine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(handlebarsTemplateEngine_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.templ::handlebarsTemplateEngine")
@@ -27,7 +34,7 @@ public class handlebarsTemplateEngine_ {
 
   @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::HandlebarsTemplateEngine")
-  public static HandlebarsTemplateEngine create() {
+  public HandlebarsTemplateEngine create() {
     HandlebarsTemplateEngine ret = io.vertx.ceylon.web.templ.HandlebarsTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.HandlebarsTemplateEngine.create());
     return ret;
   }

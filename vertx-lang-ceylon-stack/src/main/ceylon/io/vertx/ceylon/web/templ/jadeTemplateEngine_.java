@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("jadeTemplateEngine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class jadeTemplateEngine_ {
+public class jadeTemplateEngine_ implements ReifiedType {
 
   private static final jadeTemplateEngine_ instance = new jadeTemplateEngine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(jadeTemplateEngine_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.templ::jadeTemplateEngine")
@@ -27,7 +34,7 @@ public class jadeTemplateEngine_ {
 
   @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::JadeTemplateEngine")
-  public static JadeTemplateEngine create() {
+  public JadeTemplateEngine create() {
     JadeTemplateEngine ret = io.vertx.ceylon.web.templ.JadeTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.JadeTemplateEngine.create());
     return ret;
   }

@@ -26,11 +26,18 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("router")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class router_ {
+public class router_ implements ReifiedType {
 
   private static final router_ instance = new router_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(router_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web::router")
@@ -41,7 +48,7 @@ public class router_ {
 
   @DocAnnotation$annotation$(description = " Create a router\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
-  public static Router router(
+  public Router router(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     Router ret = io.vertx.ceylon.web.Router.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Router.router(arg_0));

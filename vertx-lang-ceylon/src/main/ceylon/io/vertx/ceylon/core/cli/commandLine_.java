@@ -13,11 +13,18 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
+@Ceylon(major = 8)
 @Name("commandLine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class commandLine_ {
+public class commandLine_ implements ReifiedType {
 
   private static final commandLine_ instance = new commandLine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(commandLine_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core.cli::commandLine")
@@ -28,7 +35,7 @@ public class commandLine_ {
 
   @DocAnnotation$annotation$(description = " Creates a command line object from the [CLI](../cli/CLI.type.html). This object is intended to be used by\n the parser to set the argument and option values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
-  public static CommandLine create(
+  public CommandLine create(
     final @TypeInfo("io.vertx.ceylon.core.cli::CLI") @Name("cli") @DocAnnotation$annotation$(description = "todo") CLI cli) {
     io.vertx.core.cli.CLI arg_0 = io.vertx.ceylon.core.cli.CLI.TO_JAVA.safeConvert(cli);
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.converter().safeConvert(io.vertx.core.cli.CommandLine.create(arg_0));

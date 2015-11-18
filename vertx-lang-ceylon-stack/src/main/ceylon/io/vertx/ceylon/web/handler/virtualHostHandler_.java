@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("virtualHostHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class virtualHostHandler_ {
+public class virtualHostHandler_ implements ReifiedType {
 
   private static final virtualHostHandler_ instance = new virtualHostHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(virtualHostHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::virtualHostHandler")
@@ -29,7 +36,7 @@ public class virtualHostHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::VirtualHostHandler")
-  public static VirtualHostHandler create(
+  public VirtualHostHandler create(
     final @TypeInfo("ceylon.language::String") @Name("hostname") @DocAnnotation$annotation$(description = "todo") ceylon.language.String hostname, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(hostname);

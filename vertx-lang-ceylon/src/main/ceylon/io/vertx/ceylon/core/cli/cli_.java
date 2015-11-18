@@ -13,11 +13,18 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
+@Ceylon(major = 8)
 @Name("cli")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class cli_ {
+public class cli_ implements ReifiedType {
 
   private static final cli_ instance = new cli_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(cli_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core.cli::cli")
@@ -28,7 +35,7 @@ public class cli_ {
 
   @DocAnnotation$annotation$(description = " Creates an instance of [CLI](../cli/CLI.type.html) using the default implementation.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
-  public static CLI create(
+  public CLI create(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(io.vertx.core.cli.CLI.create(arg_0));

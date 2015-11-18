@@ -15,11 +15,18 @@ import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
+@Ceylon(major = 8)
 @Name("shiroAuth")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class shiroAuth_ {
+public class shiroAuth_ implements ReifiedType {
 
   private static final shiroAuth_ instance = new shiroAuth_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(shiroAuth_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.auth.shiro::shiroAuth")
@@ -30,7 +37,7 @@ public class shiroAuth_ {
 
   @DocAnnotation$annotation$(description = " Create a Shiro auth provider\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
-  public static ShiroAuth create(
+  public ShiroAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuthRealmType") @Name("realmType") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.auth.shiro.ShiroAuthRealmType realmType, 
     final @TypeInfo("ceylon.json::Object") @Name("config") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object config) {
@@ -43,7 +50,7 @@ public class shiroAuth_ {
 
   @DocAnnotation$annotation$(description = " Create a Shiro auth provider\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
-  public static ShiroAuth create(
+  public ShiroAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
     final @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuthOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.auth.shiro.ShiroAuthOptions options) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);

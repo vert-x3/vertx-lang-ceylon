@@ -13,11 +13,18 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 
+@Ceylon(major = 8)
 @Name("webSocketFrame")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class webSocketFrame_ {
+public class webSocketFrame_ implements ReifiedType {
 
   private static final webSocketFrame_ instance = new webSocketFrame_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(webSocketFrame_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core.http::webSocketFrame")
@@ -28,7 +35,7 @@ public class webSocketFrame_ {
 
   @DocAnnotation$annotation$(description = " Create a binary WebSocket frame.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
-  public static WebSocketFrame binaryFrame(
+  public WebSocketFrame binaryFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data, 
     final @TypeInfo("ceylon.language::Boolean") @Name("isFinal") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
@@ -39,7 +46,7 @@ public class webSocketFrame_ {
 
   @DocAnnotation$annotation$(description = " Create a text WebSocket frame.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
-  public static WebSocketFrame textFrame(
+  public WebSocketFrame textFrame(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
     final @TypeInfo("ceylon.language::Boolean") @Name("isFinal") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
@@ -50,7 +57,7 @@ public class webSocketFrame_ {
 
   @DocAnnotation$annotation$(description = " Create a continuation frame\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
-  public static WebSocketFrame continuationFrame(
+  public WebSocketFrame continuationFrame(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data, 
     final @TypeInfo("ceylon.language::Boolean") @Name("isFinal") @DocAnnotation$annotation$(description = "todo") boolean isFinal) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);

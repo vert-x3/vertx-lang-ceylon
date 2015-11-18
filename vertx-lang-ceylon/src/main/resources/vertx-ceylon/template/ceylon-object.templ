@@ -11,11 +11,18 @@ package @{packageName};\n
 @includeNamed{'genImports'}
 \n
 
+@Ceylon(major = 8)\n
 @Name("@{objectName}")\n
 @com.redhat.ceylon.compiler.java.metadata.Object\n
-public class @{objectName}_ {\n
+public class @{objectName}_ implements ReifiedType {\n
 \n
   private static final @{objectName}_ instance = new @{objectName}_();\n
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(@{objectName}_.class);\n
+\n
+  @Ignore\n
+  public TypeDescriptor $getType$() {\n
+    return $TypeDescriptor$;\n
+  }\n
 \n
   @Ignore\n
   @TypeInfo("@{type.translatePackageName(TRANSLATOR_COMPOSITE)}::@{objectName}")\n

@@ -12,11 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
+@Ceylon(major = 8)
 @Name("locale")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class locale_ {
+public class locale_ implements ReifiedType {
 
   private static final locale_ instance = new locale_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(locale_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web::locale")
@@ -26,13 +33,13 @@ public class locale_ {
 
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
-  public static Locale create() {
+  public Locale create() {
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Locale.create());
     return ret;
   }
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
-  public static Locale create(
+  public Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(language);
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Locale.create(arg_0));
@@ -40,7 +47,7 @@ public class locale_ {
   }
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
-  public static Locale create(
+  public Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language, 
     final @TypeInfo("ceylon.language::String") @Name("country") @DocAnnotation$annotation$(description = "todo") ceylon.language.String country) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(language);
@@ -50,7 +57,7 @@ public class locale_ {
   }
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
-  public static Locale create(
+  public Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language, 
     final @TypeInfo("ceylon.language::String") @Name("country") @DocAnnotation$annotation$(description = "todo") ceylon.language.String country, 
     final @TypeInfo("ceylon.language::String") @Name("variant") @DocAnnotation$annotation$(description = "todo") ceylon.language.String variant) {

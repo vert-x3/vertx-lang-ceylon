@@ -15,11 +15,18 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
+@Ceylon(major = 8)
 @Name("multiMap")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class multiMap_ {
+public class multiMap_ implements ReifiedType {
 
   private static final multiMap_ instance = new multiMap_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(multiMap_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.core::multiMap")
@@ -30,7 +37,7 @@ public class multiMap_ {
 
   @DocAnnotation$annotation$(description = " Create a multi-map implementation with case insensitive keys, for instance it can be used to hold some HTTP headers.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
-  public static MultiMap caseInsensitiveMultiMap() {
+  public MultiMap caseInsensitiveMultiMap() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(io.vertx.core.MultiMap.caseInsensitiveMultiMap());
     return ret;
   }

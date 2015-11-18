@@ -20,11 +20,18 @@ import io.vertx.core.json.JsonArray;
 import java.util.List;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("testInterface")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class testInterface_ {
+public class testInterface_ implements ReifiedType {
 
   private static final testInterface_ instance = new testInterface_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(testInterface_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.testmodel::testInterface")
@@ -34,7 +41,7 @@ public class testInterface_ {
 
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
-  public static RefedInterface1 staticFactoryMethod(
+  public RefedInterface1 staticFactoryMethod(
     final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(foo);
     RefedInterface1 ret = io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(io.vertx.codegen.testmodel.TestInterface.staticFactoryMethod(arg_0));

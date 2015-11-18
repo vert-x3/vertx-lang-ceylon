@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import com.acme.ceylon.acme.sub.SubInterface;
 import io.vertx.ceylon.testmodel.TestInterface;
 
+@Ceylon(major = 8)
 @Name("myInterface")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class myInterface_ {
+public class myInterface_ implements ReifiedType {
 
   private static final myInterface_ instance = new myInterface_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(myInterface_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("com.acme.ceylon.acme::myInterface")
@@ -28,7 +35,7 @@ public class myInterface_ {
 
 
   @TypeInfo("com.acme.ceylon.acme::MyInterface")
-  public static MyInterface create() {
+  public MyInterface create() {
     MyInterface ret = com.acme.ceylon.acme.MyInterface.TO_CEYLON.converter().safeConvert(com.acme.pkg.MyInterface.create());
     return ret;
   }

@@ -15,11 +15,18 @@ import io.vertx.ceylon.web.sstore.SessionStore;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("sessionHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class sessionHandler_ {
+public class sessionHandler_ implements ReifiedType {
 
   private static final sessionHandler_ instance = new sessionHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(sessionHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::sessionHandler")
@@ -30,7 +37,7 @@ public class sessionHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a session handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
-  public static SessionHandler create(
+  public SessionHandler create(
     final @TypeInfo("io.vertx.ceylon.web.sstore::SessionStore") @Name("sessionStore") @DocAnnotation$annotation$(description = "todo") SessionStore sessionStore) {
     io.vertx.ext.web.sstore.SessionStore arg_0 = io.vertx.ceylon.web.sstore.SessionStore.TO_JAVA.safeConvert(sessionStore);
     SessionHandler ret = io.vertx.ceylon.web.handler.SessionHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.SessionHandler.create(arg_0));

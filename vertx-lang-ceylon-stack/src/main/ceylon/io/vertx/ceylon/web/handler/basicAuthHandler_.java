@@ -15,11 +15,18 @@ import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
+@Ceylon(major = 8)
 @Name("basicAuthHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class basicAuthHandler_ {
+public class basicAuthHandler_ implements ReifiedType {
 
   private static final basicAuthHandler_ instance = new basicAuthHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(basicAuthHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::basicAuthHandler")
@@ -30,7 +37,7 @@ public class basicAuthHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a basic auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
-  public static AuthHandler create(
+  public AuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BasicAuthHandler.create(arg_0));
@@ -39,7 +46,7 @@ public class basicAuthHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a basic auth handler, specifying realm\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
-  public static AuthHandler create(
+  public AuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
     final @TypeInfo("ceylon.language::String") @Name("realm") @DocAnnotation$annotation$(description = "todo") ceylon.language.String realm) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);

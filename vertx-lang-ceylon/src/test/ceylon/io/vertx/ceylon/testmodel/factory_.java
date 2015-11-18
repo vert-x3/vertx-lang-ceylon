@@ -13,11 +13,18 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("factory")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class factory_ {
+public class factory_ implements ReifiedType {
 
   private static final factory_ instance = new factory_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(factory_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.testmodel::factory")
@@ -27,7 +34,7 @@ public class factory_ {
 
 
   @TypeInfo("io.vertx.ceylon.testmodel::ConcreteHandlerUserType")
-  public static ConcreteHandlerUserType createConcreteHandlerUserType(
+  public ConcreteHandlerUserType createConcreteHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
       public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {
@@ -39,7 +46,7 @@ public class factory_ {
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::AbstractHandlerUserType")
-  public static AbstractHandlerUserType createAbstractHandlerUserType(
+  public AbstractHandlerUserType createAbstractHandlerUserType(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
       public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {
@@ -51,7 +58,7 @@ public class factory_ {
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::ConcreteHandlerUserTypeExtension")
-  public static ConcreteHandlerUserTypeExtension createConcreteHandlerUserTypeExtension(
+  public ConcreteHandlerUserTypeExtension createConcreteHandlerUserTypeExtension(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
       public void handle(io.vertx.codegen.testmodel.RefedInterface1 event) {

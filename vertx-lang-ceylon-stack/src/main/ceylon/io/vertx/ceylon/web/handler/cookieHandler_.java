@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("cookieHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class cookieHandler_ {
+public class cookieHandler_ implements ReifiedType {
 
   private static final cookieHandler_ instance = new cookieHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(cookieHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::cookieHandler")
@@ -29,7 +36,7 @@ public class cookieHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a cookie handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CookieHandler")
-  public static CookieHandler create() {
+  public CookieHandler create() {
     CookieHandler ret = io.vertx.ceylon.web.handler.CookieHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CookieHandler.create());
     return ret;
   }

@@ -25,11 +25,18 @@ import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("corsHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class corsHandler_ {
+public class corsHandler_ implements ReifiedType {
 
   private static final corsHandler_ instance = new corsHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(corsHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::corsHandler")
@@ -40,7 +47,7 @@ public class corsHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a CORS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
-  public static CorsHandler create(
+  public CorsHandler create(
     final @TypeInfo("ceylon.language::String") @Name("allowedOriginPattern") @DocAnnotation$annotation$(description = "todo") ceylon.language.String allowedOriginPattern) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(allowedOriginPattern);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CorsHandler.create(arg_0));

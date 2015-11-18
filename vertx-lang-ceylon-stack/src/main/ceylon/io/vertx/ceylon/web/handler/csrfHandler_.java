@@ -14,11 +14,18 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
+@Ceylon(major = 8)
 @Name("csrfHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class csrfHandler_ {
+public class csrfHandler_ implements ReifiedType {
 
   private static final csrfHandler_ instance = new csrfHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(csrfHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::csrfHandler")
@@ -29,7 +36,7 @@ public class csrfHandler_ {
 
   @DocAnnotation$annotation$(description = " Instantiate a new CSRFHandlerImpl with a secret\n <p>\n <pre>\n CSRFHandler.create(\"s3cr37\")\n </pre>\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CSRFHandler")
-  public static CSRFHandler create(
+  public CSRFHandler create(
     final @TypeInfo("ceylon.language::String") @Name("secret") @DocAnnotation$annotation$(description = "todo") ceylon.language.String secret) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(secret);
     CSRFHandler ret = io.vertx.ceylon.web.handler.CSRFHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CSRFHandler.create(arg_0));

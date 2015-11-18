@@ -15,11 +15,18 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
+@Ceylon(major = 8)
 @Name("formLoginHandler")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class formLoginHandler_ {
+public class formLoginHandler_ implements ReifiedType {
 
   private static final formLoginHandler_ instance = new formLoginHandler_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(formLoginHandler_.class);
+
+  @Ignore
+  public TypeDescriptor $getType$() {
+    return $TypeDescriptor$;
+  }
 
   @Ignore
   @TypeInfo("io.vertx.ceylon.web.handler::formLoginHandler")
@@ -30,7 +37,7 @@ public class formLoginHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
-  public static FormLoginHandler create(
+  public FormLoginHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.FormLoginHandler.create(arg_0));
@@ -39,7 +46,7 @@ public class formLoginHandler_ {
 
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
-  public static FormLoginHandler create(
+  public FormLoginHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
     final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String usernameParam, 
     final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String passwordParam, 
