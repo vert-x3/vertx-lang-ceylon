@@ -36,7 +36,7 @@ public class cli_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Creates an instance of [CLI](../cli/CLI.type.html) using the default implementation.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI create(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the CLI (must not be <code>null</code>)\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(io.vertx.core.cli.CLI.create(arg_0));
     return ret;

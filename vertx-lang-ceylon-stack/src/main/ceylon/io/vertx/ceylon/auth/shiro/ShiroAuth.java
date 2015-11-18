@@ -58,7 +58,7 @@ public class ShiroAuth extends io.vertx.ceylon.auth.common.AuthProvider implemen
   @DocAnnotation$annotation$(description = " Set the role prefix to distinguish from permissions when checking for isPermitted requests.\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
   public ShiroAuth setRolePrefix(
-    final @TypeInfo("ceylon.language::String") @Name("rolePrefix") @DocAnnotation$annotation$(description = "todo") ceylon.language.String rolePrefix) {
+    final @TypeInfo("ceylon.language::String") @Name("rolePrefix") @DocAnnotation$annotation$(description = "a Prefix e.g.: \"role:\"\n") ceylon.language.String rolePrefix) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(rolePrefix);
     ShiroAuth ret = io.vertx.ceylon.auth.shiro.ShiroAuth.TO_CEYLON.converter().safeConvert(delegate.setRolePrefix(arg_0));
     return ret;

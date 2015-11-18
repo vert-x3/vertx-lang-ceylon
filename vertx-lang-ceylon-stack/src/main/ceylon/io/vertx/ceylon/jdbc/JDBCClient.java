@@ -59,7 +59,7 @@ public class JDBCClient implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a connection that can be used to perform SQL operations on. It's important to remember\n to close the connection when you are done, so it is returned to the pool.\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public JDBCClient getConnection(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLConnection)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLConnection)") @Name("handler") @DocAnnotation$annotation$(description = "the handler which is called when the <code>JdbcConnection</code> object is ready for use.\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLConnection>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.SQLConnection>(handler) {
       public Object toCeylon(io.vertx.ext.sql.SQLConnection event) {
         return io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(event);

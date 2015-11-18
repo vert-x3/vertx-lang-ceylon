@@ -67,7 +67,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -79,7 +79,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -103,7 +103,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket endHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("endHandler")  Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -115,7 +115,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     SockJSSocket ret = io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -123,7 +123,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
     int arg_0 = (int)maxSize;
     SockJSSocket ret = io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -131,7 +131,7 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
 
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket drainHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();

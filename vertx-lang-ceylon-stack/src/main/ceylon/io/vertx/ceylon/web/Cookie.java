@@ -68,7 +68,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the value of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setValue(
-    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
+    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "The value to set\n") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setValue(arg_0));
     return this;
@@ -77,7 +77,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the domain of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setDomain(
-    final @TypeInfo("ceylon.language::String?") @Name("domain") @DocAnnotation$annotation$(description = "todo") ceylon.language.String domain) {
+    final @TypeInfo("ceylon.language::String?") @Name("domain") @DocAnnotation$annotation$(description = "The domain to use\n") ceylon.language.String domain) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(domain);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setDomain(arg_0));
     return this;
@@ -93,7 +93,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the path of this cookie.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setPath(
-    final @TypeInfo("ceylon.language::String?") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
+    final @TypeInfo("ceylon.language::String?") @Name("path") @DocAnnotation$annotation$(description = "The path to use for this cookie\n") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setPath(arg_0));
     return this;
@@ -109,7 +109,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the maximum age of this cookie in seconds.\n If an age of <code>0</code> is specified, this cookie will be\n automatically removed by browser because it will expire immediately.\n If `java.lang.Long` is specified, this cookie will be removed when the\n browser is closed.\n If you don't set this the cookie will be a session cookie and be removed when the browser is closed.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setMaxAge(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxAge") @DocAnnotation$annotation$(description = "todo") long maxAge) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxAge") @DocAnnotation$annotation$(description = "The maximum age of this cookie in seconds\n") long maxAge) {
     long arg_0 = maxAge;
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setMaxAge(arg_0));
     return this;
@@ -118,7 +118,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the security getStatus of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setSecure(
-    final @TypeInfo("ceylon.language::Boolean") @Name("secure") @DocAnnotation$annotation$(description = "todo") boolean secure) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("secure") @DocAnnotation$annotation$(description = "True if this cookie is to be secure, otherwise false\n") boolean secure) {
     boolean arg_0 = secure;
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setSecure(arg_0));
     return this;
@@ -127,7 +127,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Determines if this cookie is HTTP only.\n If set to true, this cookie cannot be accessed by a client\n side script. However, this works only if the browser supports it.\n For for information, please look\n <a href=\"http://www.owasp.org/index.php/HTTPOnly\">here</a>.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setHttpOnly(
-    final @TypeInfo("ceylon.language::Boolean") @Name("httpOnly") @DocAnnotation$annotation$(description = "todo") boolean httpOnly) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("httpOnly") @DocAnnotation$annotation$(description = "True if the cookie is HTTP only, otherwise false.\n") boolean httpOnly) {
     boolean arg_0 = httpOnly;
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.setHttpOnly(arg_0));
     return this;
@@ -150,7 +150,7 @@ public class Cookie implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the cookie as being changed. Changed will be true for a cookie just created, false by default if just\n read from the request\n")
   @TypeInfo("ceylon.language::Anything")
   public void setChanged(
-    final @TypeInfo("ceylon.language::Boolean") @Name("changed") @DocAnnotation$annotation$(description = "todo") boolean changed) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("changed") @DocAnnotation$annotation$(description = "true if changed\n") boolean changed) {
     boolean arg_0 = changed;
     delegate.setChanged(arg_0);
   }

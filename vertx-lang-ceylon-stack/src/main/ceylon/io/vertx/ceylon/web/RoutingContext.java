@@ -106,7 +106,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Fail the context with the specified status code.\n <p>\n This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers\n match a default failure response will be sent.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
-    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") @DocAnnotation$annotation$(description = "todo") long statusCode) {
+    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") @DocAnnotation$annotation$(description = "the HTTP status code\n") long statusCode) {
     int arg_0 = (int)statusCode;
     delegate.fail(arg_0);
   }
@@ -114,7 +114,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Fail the context with the specified throwable.\n <p>\n This will cause the router to route the context to any matching failure handlers for the request. If no failure handlers\n match a default failure response with status code 500 will be sent.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
-    final @TypeInfo("ceylon.language::Throwable") @Name("throwable") @DocAnnotation$annotation$(description = "todo") Throwable throwable) {
+    final @TypeInfo("ceylon.language::Throwable") @Name("throwable") @DocAnnotation$annotation$(description = "a throwable representing the failure\n") Throwable throwable) {
     java.lang.Throwable arg_0 = null;
     delegate.fail(arg_0);
   }
@@ -122,8 +122,8 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Put some arbitrary data in the context. This will be available in any handlers that receive the context.\n")
   @TypeInfo("io.vertx.ceylon.web::RoutingContext")
   public RoutingContext put(
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("obj") @DocAnnotation$annotation$(description = "todo") Object obj) {
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key for the data\n") ceylon.language.String key, 
+    final @TypeInfo("ceylon.language::Object?") @Name("obj") @DocAnnotation$annotation$(description = "the data\n") Object obj) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(obj);
     RoutingContext ret = io.vertx.ceylon.web.RoutingContext.TO_CEYLON.converter().safeConvert(delegate.put(arg_0, arg_1));
@@ -136,7 +136,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get some data from the context. The data is available in any handlers that receive the context.\n")
   @TypeInfo("T?")
   public <T> T get(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key for the data\n") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
@@ -173,7 +173,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the cookie with the specified name. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie getCookie(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the cookie name\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.getCookie(arg_0));
     return ret;
@@ -182,7 +182,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a cookie. This will be sent back to the client in the response. The context must have first been routed\n to a [CookieHandler](../handler/CookieHandler.type.html) for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::RoutingContext")
   public RoutingContext addCookie(
-    final @TypeInfo("io.vertx.ceylon.web::Cookie") @Name("cookie") @DocAnnotation$annotation$(description = "todo") Cookie cookie) {
+    final @TypeInfo("io.vertx.ceylon.web::Cookie") @Name("cookie") @DocAnnotation$annotation$(description = "the cookie\n") Cookie cookie) {
     io.vertx.ext.web.Cookie arg_0 = io.vertx.ceylon.web.Cookie.TO_JAVA.safeConvert(cookie);
     RoutingContext ret = io.vertx.ceylon.web.RoutingContext.TO_CEYLON.converter().safeConvert(delegate.addCookie(arg_0));
     return this;
@@ -191,7 +191,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove a cookie. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie removeCookie(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.removeCookie(arg_0));
     return ret;
@@ -221,7 +221,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the entire HTTP request body as a string, assuming the specified encoding. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getBodyAsString(
-    final @TypeInfo("ceylon.language::String") @Name("encoding") @DocAnnotation$annotation$(description = "todo") ceylon.language.String encoding) {
+    final @TypeInfo("ceylon.language::String") @Name("encoding") @DocAnnotation$annotation$(description = "the encoding, e.g. \"UTF-16\"\n") ceylon.language.String encoding) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(encoding);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getBodyAsString(arg_0));
     return ret;
@@ -294,7 +294,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a handler that will be called just before headers are written to the response. This gives you a hook where\n you can write any extra headers before the response has been written when it will be too late.\n")
   @TypeInfo("ceylon.language::Integer")
   public long addHeadersEndHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -307,7 +307,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove a headers end handler\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeHeadersEndHandler(
-    final @TypeInfo("ceylon.language::Integer") @Name("handlerID") @DocAnnotation$annotation$(description = "todo") long handlerID) {
+    final @TypeInfo("ceylon.language::Integer") @Name("handlerID") @DocAnnotation$annotation$(description = "the id as returned from [addHeadersEndHandler](RoutingContext.type.html#addHeadersEndHandler).\n") long handlerID) {
     int arg_0 = (int)handlerID;
     boolean ret = delegate.removeHeadersEndHandler(arg_0);
     return ret;
@@ -316,7 +316,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a handler that will be called just before the response body has been completely written.\n This gives you a hook where you can write any extra data to the response before it has ended when it will be too late.\n")
   @TypeInfo("ceylon.language::Integer")
   public long addBodyEndHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -329,7 +329,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove a body end handler\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeBodyEndHandler(
-    final @TypeInfo("ceylon.language::Integer") @Name("handlerID") @DocAnnotation$annotation$(description = "todo") long handlerID) {
+    final @TypeInfo("ceylon.language::Integer") @Name("handlerID") @DocAnnotation$annotation$(description = "the id as returned from [addBodyEndHandler](RoutingContext.type.html#addBodyEndHandler).\n") long handlerID) {
     int arg_0 = (int)handlerID;
     boolean ret = delegate.removeBodyEndHandler(arg_0);
     return ret;
@@ -345,7 +345,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the body. Used by the [BodyHandler](../handler/BodyHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setBody(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("body") @DocAnnotation$annotation$(description = "todo") Buffer body) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("body") @DocAnnotation$annotation$(description = "the body\n") Buffer body) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(body);
     delegate.setBody(arg_0);
   }
@@ -353,7 +353,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the session. Used by the [SessionHandler](../handler/SessionHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setSession(
-    final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "todo") Session session) {
+    final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "the session\n") Session session) {
     io.vertx.ext.web.Session arg_0 = io.vertx.ceylon.web.Session.TO_JAVA.safeConvert(session);
     delegate.setSession(arg_0);
   }
@@ -361,7 +361,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the user. Usually used by auth handlers to inject a User. You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setUser(
-    final @TypeInfo("io.vertx.ceylon.auth.common::User") @Name("user") @DocAnnotation$annotation$(description = "todo") User user) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::User") @Name("user") @DocAnnotation$annotation$(description = "the user\n") User user) {
     io.vertx.ext.auth.User arg_0 = io.vertx.ceylon.auth.common.User.TO_JAVA.safeConvert(user);
     delegate.setUser(arg_0);
   }
@@ -375,7 +375,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the acceptable content type. Used by\n")
   @TypeInfo("ceylon.language::Anything")
   public void setAcceptableContentType(
-    final @TypeInfo("ceylon.language::String?") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
+    final @TypeInfo("ceylon.language::String?") @Name("contentType") @DocAnnotation$annotation$(description = "the content type\n") ceylon.language.String contentType) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(contentType);
     delegate.setAcceptableContentType(arg_0);
   }
@@ -383,7 +383,7 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Restarts the current router with a new path and reusing the original method. All path parameters are then parsed\n and available on the params list.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reroute(
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
+    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the new http path.\n") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     delegate.reroute(arg_0);
   }
@@ -391,8 +391,8 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = " Restarts the current router with a new method and path. All path parameters are then parsed and available on the\n params list.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reroute(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "the new http request\n") io.vertx.ceylon.core.http.HttpMethod method, 
+    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the new http path.\n") ceylon.language.String path) {
     io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     delegate.reroute(arg_0, arg_1);

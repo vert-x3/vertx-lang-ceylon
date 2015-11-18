@@ -38,7 +38,7 @@ public class basicAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a basic auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BasicAuthHandler.create(arg_0));
     return ret;
@@ -47,8 +47,8 @@ public class basicAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a basic auth handler, specifying realm\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("realm") @DocAnnotation$annotation$(description = "todo") ceylon.language.String realm) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("realm") @DocAnnotation$annotation$(description = "the realm to use\n") ceylon.language.String realm) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(realm);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BasicAuthHandler.create(arg_0, arg_1));

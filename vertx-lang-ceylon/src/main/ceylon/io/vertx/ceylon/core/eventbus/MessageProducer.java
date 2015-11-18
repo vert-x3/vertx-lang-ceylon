@@ -70,7 +70,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @DocAnnotation$annotation$(description = " Synonym for [write](../eventbus/MessageProducer.type.html#write).\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> send(
-    final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message) {
+    final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "the message to send\n") T message) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.send(arg_0));
     return ret;
@@ -81,8 +81,8 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   })
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <R> MessageProducer<T> send(final @Ignore TypeDescriptor $reified$R, 
-    final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> replyHandler) {
+    final @TypeInfo("T?") @Name("message")  T message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler")  Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
@@ -95,7 +95,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -107,7 +107,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> write(
-    final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data) {
+    final @TypeInfo("T?") @Name("data")  T data) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(data);
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.write(arg_0));
     return this;
@@ -115,7 +115,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
     int arg_0 = (int)maxSize;
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -123,7 +123,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -136,7 +136,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @DocAnnotation$annotation$(description = " Update the delivery options of this producer.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> deliveryOptions(
-    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "the new options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     io.vertx.core.eventbus.DeliveryOptions arg_0 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.deliveryOptions(arg_0));
     return this;

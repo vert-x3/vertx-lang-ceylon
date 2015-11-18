@@ -44,8 +44,8 @@ public class errorHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public ErrorHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String errorTemplateName, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("displayExceptionDetails") @DocAnnotation$annotation$(description = "todo") boolean displayExceptionDetails) {
+    final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "the error template name - will be looked up from the classpath\n") ceylon.language.String errorTemplateName, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("displayExceptionDetails") @DocAnnotation$annotation$(description = "true if exception details should be displayed\n") boolean displayExceptionDetails) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(errorTemplateName);
     boolean arg_1 = displayExceptionDetails;
     ErrorHandler ret = io.vertx.ceylon.web.handler.ErrorHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.ErrorHandler.create(arg_0, arg_1));
@@ -55,7 +55,7 @@ public class errorHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public ErrorHandler create(
-    final @TypeInfo("ceylon.language::Boolean") @Name("displayExceptionDetails") @DocAnnotation$annotation$(description = "todo") boolean displayExceptionDetails) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("displayExceptionDetails") @DocAnnotation$annotation$(description = "true if exception details should be displayed\n") boolean displayExceptionDetails) {
     boolean arg_0 = displayExceptionDetails;
     ErrorHandler ret = io.vertx.ceylon.web.handler.ErrorHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.ErrorHandler.create(arg_0));
     return ret;
@@ -64,7 +64,7 @@ public class errorHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public ErrorHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String errorTemplateName) {
+    final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "the error template name - will be looked up from the classpath\n") ceylon.language.String errorTemplateName) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(errorTemplateName);
     ErrorHandler ret = io.vertx.ceylon.web.handler.ErrorHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.ErrorHandler.create(arg_0));
     return ret;

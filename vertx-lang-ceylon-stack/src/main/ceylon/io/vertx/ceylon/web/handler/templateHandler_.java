@@ -38,7 +38,7 @@ public class templateHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
   public TemplateHandler create(
-    final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine) {
+    final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "the template engine\n") TemplateEngine engine) {
     io.vertx.ext.web.templ.TemplateEngine arg_0 = io.vertx.ceylon.web.templ.TemplateEngine.TO_JAVA.safeConvert(engine);
     TemplateHandler ret = io.vertx.ceylon.web.handler.TemplateHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.TemplateHandler.create(arg_0));
     return ret;
@@ -47,9 +47,9 @@ public class templateHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
   public TemplateHandler create(
-    final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine, 
-    final @TypeInfo("ceylon.language::String") @Name("templateDirectory") @DocAnnotation$annotation$(description = "todo") ceylon.language.String templateDirectory, 
-    final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
+    final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "the template engine\n") TemplateEngine engine, 
+    final @TypeInfo("ceylon.language::String") @Name("templateDirectory") @DocAnnotation$annotation$(description = "the template directory where templates will be looked for\n") ceylon.language.String templateDirectory, 
+    final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "the content type header to be used in the response\n") ceylon.language.String contentType) {
     io.vertx.ext.web.templ.TemplateEngine arg_0 = io.vertx.ceylon.web.templ.TemplateEngine.TO_JAVA.safeConvert(engine);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(templateDirectory);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(contentType);

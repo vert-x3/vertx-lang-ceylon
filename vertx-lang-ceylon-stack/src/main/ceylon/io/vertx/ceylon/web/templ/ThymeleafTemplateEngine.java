@@ -55,7 +55,7 @@ public class ThymeleafTemplateEngine extends io.vertx.ceylon.web.templ.TemplateE
   @DocAnnotation$annotation$(description = " Set the mode for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
   public ThymeleafTemplateEngine setMode(
-    final @TypeInfo("ceylon.language::String") @Name("mode") @DocAnnotation$annotation$(description = "todo") ceylon.language.String mode) {
+    final @TypeInfo("ceylon.language::String") @Name("mode") @DocAnnotation$annotation$(description = "the mode\n") ceylon.language.String mode) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(mode);
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMode(arg_0));
     return ret;

@@ -54,7 +54,7 @@ public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.testmodel.
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RefedInterface1 arg0) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0")  RefedInterface1 arg0) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }

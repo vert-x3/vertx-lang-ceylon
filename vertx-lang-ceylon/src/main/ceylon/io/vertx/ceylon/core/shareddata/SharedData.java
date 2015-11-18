@@ -60,8 +60,8 @@ public class SharedData implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the cluster wide map with the specified name. The map is accessible to all nodes in the cluster and data\n put into the map from any node is visible to to any other node.\n")
   @TypeInfo("ceylon.language::Anything")
   public <K,V> void getClusterWideMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the map will be returned asynchronously in this handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) {
@@ -74,8 +74,8 @@ public class SharedData implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get a cluster wide lock with the specified name. The lock will be passed to the handler when it is available.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLock(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the lock\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.Lock event) {
@@ -88,9 +88,9 @@ public class SharedData implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [getLock](../shareddata/SharedData.type.html#getLock) but specifying a timeout. If the lock is not obtained within the timeout\n a failure will be sent to the handler\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLockWithTimeout(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the lock\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "the timeout in ms\n") long timeout, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     long arg_1 = timeout;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) {
@@ -104,8 +104,8 @@ public class SharedData implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get a cluster wide counter. The counter will be passed to the handler.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getCounter(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Counter)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the counter.\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Counter)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Counter>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Counter>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.Counter event) {
@@ -122,7 +122,7 @@ public class SharedData implements ReifiedType {
   @DocAnnotation$annotation$(description = " Return a <code>LocalMap</code> with the specific <code>name</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<K,V>")
   public <K,V> LocalMap<K,V> getLocalMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     LocalMap<K,V> ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.converter($reified$K, $reified$V).safeConvert(delegate.getLocalMap(arg_0));
     return ret;

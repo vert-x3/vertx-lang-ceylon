@@ -63,7 +63,7 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get a value from the map\n")
   @TypeInfo("V?")
   public V get(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
@@ -72,8 +72,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Put an entry in the map\n")
   @TypeInfo("V?")
   public V put(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "the value\n") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.put(arg_0, arg_1));
@@ -83,7 +83,7 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove an entry from the map\n")
   @TypeInfo("V?")
   public V remove(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
     return ret;
@@ -112,8 +112,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Put the entry only if there is no existing entry for that key\n")
   @TypeInfo("V?")
   public V putIfAbsent(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "the value\n") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.putIfAbsent(arg_0, arg_1));
@@ -123,8 +123,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove the entry only if there is an entry with the specified key and value\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeIfPresent(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "the value\n") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     boolean ret = delegate.removeIfPresent(arg_0, arg_1);
@@ -134,9 +134,9 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the specified key and value\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean replaceIfPresent(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V?") @Name("oldValue") @DocAnnotation$annotation$(description = "todo") V oldValue, 
-    final @TypeInfo("V?") @Name("newValue") @DocAnnotation$annotation$(description = "todo") V newValue) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key, 
+    final @TypeInfo("V?") @Name("oldValue") @DocAnnotation$annotation$(description = "the old value\n") V oldValue, 
+    final @TypeInfo("V?") @Name("newValue") @DocAnnotation$annotation$(description = "the new value\n") V newValue) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(oldValue);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.ToJava.object(newValue);
@@ -147,8 +147,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the key\n")
   @TypeInfo("V?")
   public V replace(
-    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "todo") K key, 
-    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "todo") V value) {
+    final @TypeInfo("K?") @Name("key") @DocAnnotation$annotation$(description = "the key\n") K key, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "the new value\n") V value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     V ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.replace(arg_0, arg_1));

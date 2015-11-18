@@ -37,7 +37,7 @@ public class csrfHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Instantiate a new CSRFHandlerImpl with a secret\n <p>\n <pre>\n CSRFHandler.create(\"s3cr37\")\n </pre>\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CSRFHandler")
   public CSRFHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("secret") @DocAnnotation$annotation$(description = "todo") ceylon.language.String secret) {
+    final @TypeInfo("ceylon.language::String") @Name("secret") @DocAnnotation$annotation$(description = "server secret to sign the token.\n") ceylon.language.String secret) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(secret);
     CSRFHandler ret = io.vertx.ceylon.web.handler.CSRFHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CSRFHandler.create(arg_0));
     return ret;

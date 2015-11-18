@@ -59,7 +59,7 @@ public class GenericRefedInterface<T> implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void setValue(
-    final @TypeInfo("T?") @Name("value") @DocAnnotation$annotation$(description = "todo") T value) {
+    final @TypeInfo("T?") @Name("value")  T value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.setValue(arg_0);
   }

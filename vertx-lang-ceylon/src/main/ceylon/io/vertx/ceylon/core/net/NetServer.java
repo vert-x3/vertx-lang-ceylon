@@ -71,7 +71,7 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Supply a connect handler for this server. The server can only have at most one connect handler at any one time.\n As the server accepts TCP or SSL connections it creates an instance of [NetSocket](../net/NetSocket.type.html) and passes it to the\n connect handler.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer connectHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.net.NetSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.net.NetSocket>() {
       public void handle(io.vertx.core.net.NetSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "handler that will be notified when listening or failed\n") Callable<?> listenHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_0 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
         return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(event);
@@ -104,8 +104,8 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Start listening on the specified port and host, ignoring post and host configured in the [NetServerOptions](../net/NetServerOptions.type.html) used when\n creating the server.\n <p>\n Port <code>0</code> can be specified meaning \"choose an random port\".\n <p>\n Host <code>0.0.0.0</code> can be specified meaning \"listen on all available interfaces\".\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port")  long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host")  ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1));
@@ -115,9 +115,9 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host to listen on\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "handler that will be notified when listening or failed\n") Callable<?> listenHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
@@ -132,7 +132,7 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Start listening on the specified port and host \"0.0.0.0\", ignoring post and host configured in the\n [NetServerOptions](../net/NetServerOptions.type.html) used when creating the server.\n <p>\n Port <code>0</code> can be specified meaning \"choose an random port\".\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port")  long port) {
     int arg_0 = (int)port;
     NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0));
     return this;
@@ -141,8 +141,8 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "handler that will be notified when listening or failed\n") Callable<?> listenHandler) {
     int arg_0 = (int)port;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.net.NetServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.net.NetServer event) {
@@ -162,7 +162,7 @@ public class NetServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Like [close](../net/NetServer.type.html#close) but supplying a handler that will be notified when close is complete.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;

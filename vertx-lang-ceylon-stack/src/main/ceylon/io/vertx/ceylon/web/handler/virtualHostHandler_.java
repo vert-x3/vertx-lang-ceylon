@@ -37,8 +37,8 @@ public class virtualHostHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::VirtualHostHandler")
   public VirtualHostHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("hostname") @DocAnnotation$annotation$(description = "todo") ceylon.language.String hostname, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("hostname")  ceylon.language.String hostname, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("handler")  Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(hostname);
     io.vertx.core.Handler<io.vertx.ext.web.RoutingContext> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.ext.web.RoutingContext>() {
       public void handle(io.vertx.ext.web.RoutingContext event) {

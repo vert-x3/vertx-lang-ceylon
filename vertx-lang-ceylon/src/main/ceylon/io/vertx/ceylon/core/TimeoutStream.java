@@ -55,7 +55,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
 
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
 
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream handler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Integer)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Long> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Long>() {
       public void handle(java.lang.Long event) {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event));
@@ -91,7 +91,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
 
   @TypeInfo("io.vertx.ceylon.core::TimeoutStream")
   public TimeoutStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

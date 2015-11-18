@@ -38,7 +38,7 @@ public class redirectAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.RedirectAuthHandler.create(arg_0));
     return ret;
@@ -47,8 +47,8 @@ public class redirectAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("loginRedirectURL") @DocAnnotation$annotation$(description = "todo") ceylon.language.String loginRedirectURL) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("loginRedirectURL") @DocAnnotation$annotation$(description = "the url to redirect the user to\n") ceylon.language.String loginRedirectURL) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(loginRedirectURL);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.RedirectAuthHandler.create(arg_0, arg_1));
@@ -58,9 +58,9 @@ public class redirectAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("loginRedirectURL") @DocAnnotation$annotation$(description = "todo") ceylon.language.String loginRedirectURL, 
-    final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String returnURLParam) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("loginRedirectURL") @DocAnnotation$annotation$(description = "the url to redirect the user to\n") ceylon.language.String loginRedirectURL, 
+    final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "the name of param used to store return url information in session\n") ceylon.language.String returnURLParam) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(loginRedirectURL);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(returnURLParam);

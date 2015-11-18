@@ -69,7 +69,7 @@ public class Future<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set a handler for the result.\n <p>\n If the future has already been completed it will be called immediately. Otherwise it will be called when the\n future is completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "the Handler that will be called with the result\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
@@ -81,7 +81,7 @@ public class Future<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the result. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void complete(
-    final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "todo") T result) {
+    final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "the result\n") T result) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(result);
     delegate.complete(arg_0);
   }
@@ -95,7 +95,7 @@ public class Future<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
-    final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String failureMessage) {
+    final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "the failure message\n") ceylon.language.String failureMessage) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(failureMessage);
     delegate.fail(arg_0);
   }

@@ -57,7 +57,7 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new session\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session createSession(
-    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {
+    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "- the session timeout, in ms\n") long timeout) {
     long arg_0 = timeout;
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.createSession(arg_0));
     return ret;
@@ -66,8 +66,8 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void get(
-    final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "todo") ceylon.language.String id, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.web::Session)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "the unique ID of the session\n") ceylon.language.String id, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.web::Session)") @Name("resultHandler") @DocAnnotation$annotation$(description = "will be called with a result holding the session, or a failure\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(id);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.web.Session>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.web.Session>(resultHandler) {
       public Object toCeylon(io.vertx.ext.web.Session event) {
@@ -80,8 +80,8 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Delete the session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void delete(
-    final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "todo") ceylon.language.String id, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "the unique ID of the session\n") ceylon.language.String id, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "will be called with a result true/false, or a failure\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(id);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
@@ -94,8 +94,8 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
-    final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "todo") Session session, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "the session\n") Session session, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "will be called with a result true/false, or a failure\n") Callable<?> resultHandler) {
     io.vertx.ext.web.Session arg_0 = io.vertx.ceylon.web.Session.TO_JAVA.safeConvert(session);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
@@ -108,7 +108,7 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove all sessions from the store\n")
   @TypeInfo("ceylon.language::Anything")
   public void clear(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "will be called with a result true/false, or a failure\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
@@ -120,7 +120,7 @@ public class SessionStore implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the number of sessions in the store\n")
   @TypeInfo("ceylon.language::Anything")
   public void size(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "will be called with the number, or a failure\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Integer>(resultHandler) {
       public Object toCeylon(java.lang.Integer event) {
         return io.vertx.lang.ceylon.ToCeylon.Integer.safeConvert(event);

@@ -54,7 +54,7 @@ public class Pump implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the write queue max size to <code>maxSize</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public Pump setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "the max size\n") long maxSize) {
     int arg_0 = (int)maxSize;
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;

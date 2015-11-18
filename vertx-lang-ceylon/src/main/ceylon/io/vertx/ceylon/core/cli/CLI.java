@@ -55,7 +55,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new [CommandLine](../cli/CommandLine.type.html) containing extracting values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "the arguments\n") ceylon.language.List<ceylon.language.String> arguments) {
     java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(arguments, io.vertx.lang.ceylon.ToJava.String);
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.converter().safeConvert(delegate.parse(arg_0));
     return ret;
@@ -64,8 +64,8 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new [CommandLine](../cli/CommandLine.type.html) containing extracting values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("validate") @DocAnnotation$annotation$(description = "todo") boolean validate) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "the arguments\n") ceylon.language.List<ceylon.language.String> arguments, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("validate") @DocAnnotation$annotation$(description = "enable / disable parsing validation\n") boolean validate) {
     java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(arguments, io.vertx.lang.ceylon.ToJava.String);
     boolean arg_1 = validate;
     CommandLine ret = io.vertx.ceylon.core.cli.CommandLine.TO_CEYLON.converter().safeConvert(delegate.parse(arg_0, arg_1));
@@ -82,7 +82,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the name of the CLI.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setName(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setName(arg_0));
     return this;
@@ -97,7 +97,7 @@ public class CLI implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setDescription(
-    final @TypeInfo("ceylon.language::String") @Name("desc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String desc) {
+    final @TypeInfo("ceylon.language::String") @Name("desc")  ceylon.language.String desc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(desc);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setDescription(arg_0));
     return this;
@@ -113,7 +113,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the summary of the CLI.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setSummary(
-    final @TypeInfo("ceylon.language::String") @Name("summary") @DocAnnotation$annotation$(description = "todo") ceylon.language.String summary) {
+    final @TypeInfo("ceylon.language::String") @Name("summary") @DocAnnotation$annotation$(description = "the summary\n") ceylon.language.String summary) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(summary);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setSummary(arg_0));
     return this;
@@ -129,7 +129,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets whether or not the current instance of [CLI](../cli/CLI.type.html) must be hidden. Hidden CLI are not listed when\n displaying usages / help messages. In other words, hidden commands are for power user.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setHidden(
-    final @TypeInfo("ceylon.language::Boolean") @Name("hidden") @DocAnnotation$annotation$(description = "todo") boolean hidden) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("hidden") @DocAnnotation$annotation$(description = "enables or disables the hidden aspect of the CI\n") boolean hidden) {
     boolean arg_0 = hidden;
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setHidden(arg_0));
     return this;
@@ -145,7 +145,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds an option.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOption(
-    final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Option option) {
+    final @TypeInfo("io.vertx.ceylon.core.cli::Option") @Name("option") @DocAnnotation$annotation$(description = "the option, must not be <code>null</code>.\n") io.vertx.ceylon.core.cli.Option option) {
     io.vertx.core.cli.Option arg_0 = option == null ? null : new io.vertx.core.cli.Option(io.vertx.lang.ceylon.ToJava.JsonObject.convert(option.toJson()));
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.addOption(arg_0));
     return this;
@@ -154,7 +154,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds a set of options. Unlike [setOptions](../cli/CLI.type.html#setOptions)}, this method does not remove the existing options.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOptions(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "the options, must not be <code>null</code>\n") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
     java.util.List<io.vertx.core.cli.Option> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(options, io.vertx.ceylon.core.cli.option_.get_().getToJava());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.addOptions(arg_0));
     return this;
@@ -163,7 +163,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the list of arguments.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setOptions(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "the list of options, must not be <code>null</code>\n") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
     java.util.List<io.vertx.core.cli.Option> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(options, io.vertx.ceylon.core.cli.option_.get_().getToJava());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setOptions(arg_0));
     return this;
@@ -179,7 +179,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds an argument.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArgument(
-    final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.cli.Argument arg) {
+    final @TypeInfo("io.vertx.ceylon.core.cli::Argument") @Name("arg") @DocAnnotation$annotation$(description = "the argument, must not be <code>null</code>\n") io.vertx.ceylon.core.cli.Argument arg) {
     io.vertx.core.cli.Argument arg_0 = arg == null ? null : new io.vertx.core.cli.Argument(io.vertx.lang.ceylon.ToJava.JsonObject.convert(arg.toJson()));
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.addArgument(arg_0));
     return this;
@@ -188,7 +188,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds a set of arguments. Unlike [setArguments](../cli/CLI.type.html#setArguments), this method does not remove the existing arguments.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArguments(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "the arguments, must not be <code>null</code>\n") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
     java.util.List<io.vertx.core.cli.Argument> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(args, io.vertx.ceylon.core.cli.argument_.get_().getToJava());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.addArguments(arg_0));
     return this;
@@ -197,7 +197,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the list of arguments.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setArguments(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "the list of arguments, must not be <code>null</code>\n") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
     java.util.List<io.vertx.core.cli.Argument> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(args, io.vertx.ceylon.core.cli.argument_.get_().getToJava());
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.setArguments(arg_0));
     return this;
@@ -206,7 +206,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Gets an [Option](../cli/Option.type.html) based on its name (short name, long name or argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Option?")
   public io.vertx.ceylon.core.cli.Option getOption(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name, must not be <code>null</code>\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.ceylon.core.cli.Option ret = io.vertx.ceylon.core.cli.option_.get_().getToCeylon().safeConvert(delegate.getOption(arg_0));
     return ret;
@@ -215,7 +215,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its name (argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the argument, must not be <code>null</code>\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.ceylon.core.cli.Argument ret = io.vertx.ceylon.core.cli.argument_.get_().getToCeylon().safeConvert(delegate.getArgument(arg_0));
     return ret;
@@ -224,7 +224,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its index.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
-    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the index, must be positive or zero.\n") long index) {
     int arg_0 = (int)index;
     io.vertx.ceylon.core.cli.Argument ret = io.vertx.ceylon.core.cli.argument_.get_().getToCeylon().safeConvert(delegate.getArgument(arg_0));
     return ret;
@@ -233,7 +233,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Removes an option identified by its name. This method does nothing if the option cannot be found.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI removeOption(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the option name\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.removeOption(arg_0));
     return this;
@@ -242,7 +242,7 @@ public class CLI implements ReifiedType {
   @DocAnnotation$annotation$(description = " Removes an argument identified by its index. This method does nothing if the argument cannot be found.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI removeArgument(
-    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the argument index\n") long index) {
     int arg_0 = (int)index;
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.removeArgument(arg_0));
     return this;

@@ -41,15 +41,15 @@ public interface SuperInterface2 {
 
   @TypeInfo("ceylon.language::Anything")
   public void otherSuperMethodWithBasicParams(
-    final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s, 
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i, 
-    final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l, 
-    final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f, 
-    final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("bool") @DocAnnotation$annotation$(description = "todo") boolean bool, 
-    final @TypeInfo("ceylon.language::Character") @Name("ch") @DocAnnotation$annotation$(description = "todo") int ch, 
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
+    final @TypeInfo("ceylon.language::Byte") @Name("b")  byte b, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l, 
+    final @TypeInfo("ceylon.language::Float") @Name("f")  double f, 
+    final @TypeInfo("ceylon.language::Float") @Name("d")  double d, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("bool")  boolean bool, 
+    final @TypeInfo("ceylon.language::Character") @Name("ch")  int ch, 
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str);
 
   @Ignore
   public class Impl implements SuperInterface2 {
@@ -72,15 +72,15 @@ public interface SuperInterface2 {
 
   @TypeInfo("ceylon.language::Anything")
   public void otherSuperMethodWithBasicParams(
-    final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b, 
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s, 
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i, 
-    final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l, 
-    final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f, 
-    final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("bool") @DocAnnotation$annotation$(description = "todo") boolean bool, 
-    final @TypeInfo("ceylon.language::Character") @Name("ch") @DocAnnotation$annotation$(description = "todo") int ch, 
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::Byte") @Name("b")  byte b, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l, 
+    final @TypeInfo("ceylon.language::Float") @Name("f")  double f, 
+    final @TypeInfo("ceylon.language::Float") @Name("d")  double d, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("bool")  boolean bool, 
+    final @TypeInfo("ceylon.language::Character") @Name("ch")  int ch, 
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
     byte arg_0 = b;
     short arg_1 = (short)s;
     int arg_2 = (int)i;

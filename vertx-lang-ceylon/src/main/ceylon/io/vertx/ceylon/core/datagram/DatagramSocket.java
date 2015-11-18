@@ -68,10 +68,10 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Write the given [Buffer](../buffer/Buffer.type.html) to the [SocketAddress](../net/SocketAddress.type.html).\n The [Handler](Handler.type.html) will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("packet") @DocAnnotation$annotation$(description = "todo") Buffer packet, 
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("packet") @DocAnnotation$annotation$(description = "the [Buffer](../buffer/Buffer.type.html) to write\n") Buffer packet, 
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the [Handler](Handler.type.html) to notify once the write completes.\n") Callable<?> handler) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(packet);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
@@ -87,8 +87,8 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Returns a [PacketWritestream](../datagram/PacketWritestream.type.html) able to send  to the\n [SocketAddress](../net/SocketAddress.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream sender(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port of the remote peer\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.sender(arg_0, arg_1));
@@ -98,10 +98,10 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using UTF8 encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `java.lang.String` to write\n") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the [Handler](Handler.type.html) to notify once the write completes.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
@@ -117,11 +117,11 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using the given encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc, 
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `java.lang.String` to write\n") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "the charset used for encoding\n") ceylon.language.String enc, 
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the [Handler](Handler.type.html) to notify once the write completes.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     int arg_2 = (int)port;
@@ -138,7 +138,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Closes the [DatagramSocket](../datagram/DatagramSocket.type.html) implementation asynchronous\n and notifies the handler once done.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once complete\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
@@ -167,8 +167,8 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Joins a multicast group and listens for packets send to it.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listenMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to join\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "then handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
@@ -182,10 +182,10 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Joins a multicast group and listens for packets send to it on the given network interface.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listenMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "todo") ceylon.language.String networkInterface, 
-    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to join\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "the network interface on which to listen for packets.\n") ceylon.language.String networkInterface, 
+    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "the address of the source for which we will listen for multicast packets\n") ceylon.language.String source, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "then handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
@@ -201,8 +201,8 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Leaves a multicast group and stops listening for packets send to it.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket unlistenMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to leave\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "then handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
@@ -216,10 +216,10 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Leaves a multicast group and stops listening for packets send to it on the given network interface.\n The  is notified once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket unlistenMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "todo") ceylon.language.String networkInterface, 
-    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "todo") ceylon.language.String source, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to join\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "the network interface on which to listen for packets.\n") ceylon.language.String networkInterface, 
+    final @TypeInfo("ceylon.language::String?") @Name("source") @DocAnnotation$annotation$(description = "the address of the source for which we will listen for multicast packets\n") ceylon.language.String source, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
@@ -235,9 +235,9 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Block the given address for the given multicast address and notifies the  once\n the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket blockMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::String") @Name("sourceToBlock") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sourceToBlock, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address for which you want to block the source address\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::String") @Name("sourceToBlock") @DocAnnotation$annotation$(description = "the source address which should be blocked. You will not receive an multicast packets for it anymore.\n") ceylon.language.String sourceToBlock, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
@@ -252,10 +252,10 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Block the given address for the given multicast address on the given network interface and notifies\n the  once the operation completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket blockMulticastGroup(
-    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "todo") ceylon.language.String multicastAddress, 
-    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "todo") ceylon.language.String networkInterface, 
-    final @TypeInfo("ceylon.language::String") @Name("sourceToBlock") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sourceToBlock, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address for which you want to block the source address\n") ceylon.language.String multicastAddress, 
+    final @TypeInfo("ceylon.language::String") @Name("networkInterface") @DocAnnotation$annotation$(description = "the network interface on which the blocking should occur.\n") ceylon.language.String networkInterface, 
+    final @TypeInfo("ceylon.language::String") @Name("sourceToBlock") @DocAnnotation$annotation$(description = "the source address which should be blocked. You will not receive an multicast packets for it anymore.\n") ceylon.language.String sourceToBlock, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
@@ -271,9 +271,9 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @DocAnnotation$annotation$(description = " Start listening on the given port and host. The handler will be called when the socket is listening.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket listen(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "todo") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host to listen on\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler will be called when listening\n") Callable<?> handler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
@@ -299,7 +299,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
 
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -311,7 +311,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
 
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.datagram::DatagramPacket)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.datagram.DatagramPacket>() {
       public void handle(io.vertx.core.datagram.DatagramPacket event) {
         handler.$call$((Object)io.vertx.ceylon.core.datagram.DatagramPacket.TO_CEYLON.converter().safeConvert(event));
@@ -323,7 +323,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
 
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);

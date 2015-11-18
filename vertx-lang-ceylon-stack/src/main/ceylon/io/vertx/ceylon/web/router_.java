@@ -49,7 +49,7 @@ public class router_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a router\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public Router router(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     Router ret = io.vertx.ceylon.web.Router.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Router.router(arg_0));
     return ret;

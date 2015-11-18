@@ -55,7 +55,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a <code>String</code> representation of the Buffer with the encoding specified by <code>enc</code>\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String toString(
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.toString(arg_0));
     return ret;
@@ -64,7 +64,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>byte</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Byte")
   public byte getByte(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     byte ret = delegate.getByte(arg_0);
     return ret;
@@ -73,7 +73,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the unsigned <code>byte</code> at position <code>pos</code> in the Buffer, as a <code>short</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedByte(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getUnsignedByte(arg_0);
     return ret;
@@ -82,7 +82,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>int</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getInt(arg_0);
     return ret;
@@ -91,7 +91,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getUnsignedInt(arg_0);
     return ret;
@@ -100,7 +100,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>long</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getLong(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getLong(arg_0);
     return ret;
@@ -109,7 +109,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>double</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Float")
   public double getDouble(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     double ret = delegate.getDouble(arg_0);
     return ret;
@@ -118,7 +118,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>float</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Float")
   public double getFloat(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     double ret = delegate.getFloat(arg_0);
     return ret;
@@ -127,7 +127,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the <code>short</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getShort(arg_0);
     return ret;
@@ -136,7 +136,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the unsigned <code>short</code> at position <code>pos</code> in the Buffer, as an <code>int</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getUnsignedShort(arg_0);
     return ret;
@@ -145,8 +145,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a [Buffer](../buffer/Buffer.type.html) starting at position <code>start</code>\n and ending at position <code>end - 1</code>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer getBuffer(
-    final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
-    final @TypeInfo("ceylon.language::Integer") @Name("end") @DocAnnotation$annotation$(description = "todo") long end) {
+    final @TypeInfo("ceylon.language::Integer") @Name("start")  long start, 
+    final @TypeInfo("ceylon.language::Integer") @Name("end")  long end) {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.getBuffer(arg_0, arg_1));
@@ -156,9 +156,9 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>\n and ending at position <code>end - 1</code> interpreted as a String in the specified encoding\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString(
-    final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
-    final @TypeInfo("ceylon.language::Integer") @Name("end") @DocAnnotation$annotation$(description = "todo") long end, 
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::Integer") @Name("start")  long start, 
+    final @TypeInfo("ceylon.language::Integer") @Name("end")  long end, 
+    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
@@ -169,8 +169,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a <code>String</code> starting at position <code>start</code>\n and ending at position <code>end - 1</code> interpreted as a String in UTF-8 encoding\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getString(
-    final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
-    final @TypeInfo("ceylon.language::Integer") @Name("end") @DocAnnotation$annotation$(description = "todo") long end) {
+    final @TypeInfo("ceylon.language::Integer") @Name("start")  long start, 
+    final @TypeInfo("ceylon.language::Integer") @Name("end")  long end) {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString(arg_0, arg_1));
@@ -180,7 +180,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>Buffer</code> to the end of this Buffer. The buffer will expand as necessary to accommodate\n any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendBuffer(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff") @DocAnnotation$annotation$(description = "todo") Buffer buff) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff")  Buffer buff) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buff);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendBuffer(arg_0));
     return this;
@@ -189,9 +189,9 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>Buffer</code> starting at the <code>offset</code> using <code>len</code> to the end of this Buffer. The buffer will expand as necessary to accommodate\n any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendBuffer(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff") @DocAnnotation$annotation$(description = "todo") Buffer buff, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "todo") long offset, 
-    final @TypeInfo("ceylon.language::Integer") @Name("len") @DocAnnotation$annotation$(description = "todo") long len) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buff")  Buffer buff, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")  long offset, 
+    final @TypeInfo("ceylon.language::Integer") @Name("len")  long len) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buff);
     int arg_1 = (int)offset;
     int arg_2 = (int)len;
@@ -202,7 +202,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendByte(
-    final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b) {
+    final @TypeInfo("ceylon.language::Byte") @Name("b")  byte b) {
     byte arg_0 = b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendByte(arg_0));
     return this;
@@ -211,7 +211,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>byte</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedByte(
-    final @TypeInfo("ceylon.language::Integer") @Name("b") @DocAnnotation$annotation$(description = "todo") long b) {
+    final @TypeInfo("ceylon.language::Integer") @Name("b")  long b) {
     short arg_0 = (short)b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedByte(arg_0));
     return this;
@@ -220,7 +220,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
     int arg_0 = (int)i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendInt(arg_0));
     return this;
@@ -229,7 +229,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
     long arg_0 = i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedInt(arg_0));
     return this;
@@ -238,7 +238,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>long</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendLong(
-    final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l) {
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l) {
     long arg_0 = l;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendLong(arg_0));
     return this;
@@ -247,7 +247,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
     short arg_0 = (short)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendShort(arg_0));
     return this;
@@ -256,7 +256,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
     int arg_0 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedShort(arg_0));
     return this;
@@ -265,7 +265,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>float</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendFloat(
-    final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f) {
+    final @TypeInfo("ceylon.language::Float") @Name("f")  double f) {
     float arg_0 = (float)f;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendFloat(arg_0));
     return this;
@@ -274,7 +274,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>double</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendDouble(
-    final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d) {
+    final @TypeInfo("ceylon.language::Float") @Name("d")  double d) {
     double arg_0 = d;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendDouble(arg_0));
     return this;
@@ -283,8 +283,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>String</code> to the end of the Buffer with the encoding as specified by <code>enc</code>.<p>\n The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.<p>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendString(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendString(arg_0, arg_1));
@@ -294,7 +294,7 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Appends the specified <code>String str</code> to the end of the Buffer with UTF-8 encoding.<p>\n The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together<p>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendString(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendString(arg_0));
     return this;
@@ -303,8 +303,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setByte(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Byte") @Name("b") @DocAnnotation$annotation$(description = "todo") byte b) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Byte") @Name("b")  byte b) {
     int arg_0 = (int)pos;
     byte arg_1 = b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setByte(arg_0, arg_1));
@@ -314,8 +314,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the unsigned <code>byte</code> at position <code>pos</code> in the Buffer to the value <code>b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedByte(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("b") @DocAnnotation$annotation$(description = "todo") long b) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("b")  long b) {
     int arg_0 = (int)pos;
     short arg_1 = (short)b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedByte(arg_0, arg_1));
@@ -325,8 +325,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
     int arg_0 = (int)pos;
     int arg_1 = (int)i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setInt(arg_0, arg_1));
@@ -336,8 +336,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the unsigned <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("i") @DocAnnotation$annotation$(description = "todo") long i) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
     int arg_0 = (int)pos;
     long arg_1 = i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedInt(arg_0, arg_1));
@@ -347,8 +347,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setLong(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("l") @DocAnnotation$annotation$(description = "todo") long l) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l) {
     int arg_0 = (int)pos;
     long arg_1 = l;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setLong(arg_0, arg_1));
@@ -358,8 +358,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>double</code> at position <code>pos</code> in the Buffer to the value <code>d</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setDouble(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Float") @Name("d") @DocAnnotation$annotation$(description = "todo") double d) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Float") @Name("d")  double d) {
     int arg_0 = (int)pos;
     double arg_1 = d;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setDouble(arg_0, arg_1));
@@ -369,8 +369,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>float</code> at position <code>pos</code> in the Buffer to the value <code>f</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setFloat(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Float") @Name("f") @DocAnnotation$annotation$(description = "todo") double f) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Float") @Name("f")  double f) {
     int arg_0 = (int)pos;
     float arg_1 = (float)f;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setFloat(arg_0, arg_1));
@@ -380,8 +380,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
     int arg_0 = (int)pos;
     short arg_1 = (short)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setShort(arg_0, arg_1));
@@ -391,8 +391,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedShort(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::Integer") @Name("s") @DocAnnotation$annotation$(description = "todo") long s) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
     int arg_0 = (int)pos;
     int arg_1 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedShort(arg_0, arg_1));
@@ -402,8 +402,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setBuffer(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("b") @DocAnnotation$annotation$(description = "todo") Buffer b) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("b")  Buffer b) {
     int arg_0 = (int)pos;
     io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(b);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setBuffer(arg_0, arg_1));
@@ -413,10 +413,10 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the bytes represented by the <code>Buffer b</code> on the given <code>offset</code> and <code>len</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setBuffer(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("b") @DocAnnotation$annotation$(description = "todo") Buffer b, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "todo") long offset, 
-    final @TypeInfo("ceylon.language::Integer") @Name("len") @DocAnnotation$annotation$(description = "todo") long len) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("b")  Buffer b, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")  long offset, 
+    final @TypeInfo("ceylon.language::Integer") @Name("len")  long len) {
     int arg_0 = (int)pos;
     io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(b);
     int arg_2 = (int)offset;
@@ -428,8 +428,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in UTF-8.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setString(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
     int arg_0 = (int)pos;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0, arg_1));
@@ -439,9 +439,9 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets the bytes at position <code>pos</code> in the Buffer to the value of <code>str</code> encoded in encoding <code>enc</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setString(
-    final @TypeInfo("ceylon.language::Integer") @Name("pos") @DocAnnotation$annotation$(description = "todo") long pos, 
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "todo") ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
     int arg_0 = (int)pos;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
@@ -473,8 +473,8 @@ public class Buffer implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns a slice of this buffer. Modifying the content\n of the returned buffer or this buffer affects each other's content\n while they maintain separate indexes and marks.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer slice(
-    final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 
-    final @TypeInfo("ceylon.language::Integer") @Name("end") @DocAnnotation$annotation$(description = "todo") long end) {
+    final @TypeInfo("ceylon.language::Integer") @Name("start")  long start, 
+    final @TypeInfo("ceylon.language::Integer") @Name("end")  long end) {
     int arg_0 = (int)start;
     int arg_1 = (int)end;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.slice(arg_0, arg_1));

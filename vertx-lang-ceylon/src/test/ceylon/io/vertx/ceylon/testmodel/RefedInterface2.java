@@ -44,7 +44,7 @@ public interface RefedInterface2 {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str);
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str);
 
   @Ignore
   public class Impl implements RefedInterface2 {
@@ -73,7 +73,7 @@ public interface RefedInterface2 {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     RefedInterface2 ret = io.vertx.ceylon.testmodel.RefedInterface2.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
       return this;

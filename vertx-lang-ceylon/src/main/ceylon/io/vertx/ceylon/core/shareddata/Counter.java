@@ -56,7 +56,7 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get the current value of the counter\n")
   @TypeInfo("ceylon.language::Anything")
   public void get(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
@@ -68,7 +68,7 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Increment the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void incrementAndGet(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
@@ -80,7 +80,7 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Increment the counter atomically and return the value before the increment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getAndIncrement(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
@@ -92,7 +92,7 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Decrement the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void decrementAndGet(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
@@ -104,8 +104,8 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add the value to the counter atomically and return the new count\n")
   @TypeInfo("ceylon.language::Anything")
   public void addAndGet(
-    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "todo") long value, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "the value to add\n") long value, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     long arg_0 = value;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
@@ -118,8 +118,8 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add the value to the counter atomically and return the value before the add\n")
   @TypeInfo("ceylon.language::Anything")
   public void getAndAdd(
-    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "todo") long value, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "the value to add\n") long value, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     long arg_0 = value;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
@@ -132,9 +132,9 @@ public class Counter implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the counter to the specified value only if the current value is the expectec value. This happens\n atomically.\n")
   @TypeInfo("ceylon.language::Anything")
   public void compareAndSet(
-    final @TypeInfo("ceylon.language::Integer") @Name("expected") @DocAnnotation$annotation$(description = "todo") long expected, 
-    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "todo") long value, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("expected") @DocAnnotation$annotation$(description = "the expected value\n") long expected, 
+    final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "the new value\n") long value, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler will be passed true on success\n") Callable<?> resultHandler) {
     long arg_0 = expected;
     long arg_1 = value;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {

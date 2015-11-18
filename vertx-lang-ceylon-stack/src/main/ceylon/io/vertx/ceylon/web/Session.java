@@ -61,8 +61,8 @@ public class Session implements ReifiedType {
   @DocAnnotation$annotation$(description = " Put some data in a session\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session put(
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("obj") @DocAnnotation$annotation$(description = "todo") Object obj) {
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key for the data\n") ceylon.language.String key, 
+    final @TypeInfo("ceylon.language::Object?") @Name("obj") @DocAnnotation$annotation$(description = "the data\n") Object obj) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(obj);
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.put(arg_0, arg_1));
@@ -75,7 +75,7 @@ public class Session implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get some data from the session\n")
   @TypeInfo("T?")
   public <T> T get(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
@@ -87,7 +87,7 @@ public class Session implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove some data from the session\n")
   @TypeInfo("T?")
   public <T> T remove(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
     return ret;

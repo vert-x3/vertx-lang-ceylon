@@ -55,7 +55,7 @@ public class MVELTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine
   @DocAnnotation$annotation$(description = " Set the extension for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
   public MVELTemplateEngine setExtension(
-    final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "todo") ceylon.language.String extension) {
+    final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "the extension\n") ceylon.language.String extension) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(extension);
     MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setExtension(arg_0));
     return ret;
@@ -64,7 +64,7 @@ public class MVELTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine
   @DocAnnotation$annotation$(description = " Set the max cache size for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
   public MVELTemplateEngine setMaxCacheSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "todo") long maxCacheSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "the maxCacheSize\n") long maxCacheSize) {
     int arg_0 = (int)maxCacheSize;
     MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMaxCacheSize(arg_0));
     return ret;

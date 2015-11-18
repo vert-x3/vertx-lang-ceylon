@@ -44,7 +44,7 @@ public class timeoutHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TimeoutHandler")
   public TimeoutHandler create(
-    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {
+    final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "the timeout, in ms\n") long timeout) {
     long arg_0 = timeout;
     TimeoutHandler ret = io.vertx.ceylon.web.handler.TimeoutHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.TimeoutHandler.create(arg_0));
     return ret;

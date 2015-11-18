@@ -42,7 +42,7 @@ public class testInterface_ implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
   public RefedInterface1 staticFactoryMethod(
-    final @TypeInfo("ceylon.language::String") @Name("foo") @DocAnnotation$annotation$(description = "todo") ceylon.language.String foo) {
+    final @TypeInfo("ceylon.language::String") @Name("foo")  ceylon.language.String foo) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(foo);
     RefedInterface1 ret = io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(io.vertx.codegen.testmodel.TestInterface.staticFactoryMethod(arg_0));
     return ret;

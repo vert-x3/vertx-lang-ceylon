@@ -44,7 +44,7 @@ public class faviconHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler attempting to load favicon file from the specified path\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FaviconHandler")
   public FaviconHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
+    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the path\n") ceylon.language.String path) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     FaviconHandler ret = io.vertx.ceylon.web.handler.FaviconHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.FaviconHandler.create(arg_0));
     return ret;
@@ -53,8 +53,8 @@ public class faviconHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler attempting to load favicon file from the specified path, and with the specified max cache time\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FaviconHandler")
   public FaviconHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path, 
-    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "todo") long maxAgeSeconds) {
+    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the path\n") ceylon.language.String path, 
+    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "max how long the file will be cached by browser, in seconds\n") long maxAgeSeconds) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     long arg_1 = maxAgeSeconds;
     FaviconHandler ret = io.vertx.ceylon.web.handler.FaviconHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.FaviconHandler.create(arg_0, arg_1));
@@ -64,7 +64,7 @@ public class faviconHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler with the specified max cache time\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FaviconHandler")
   public FaviconHandler create(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "todo") long maxAgeSeconds) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "max how long the file will be cached by browser, in seconds\n") long maxAgeSeconds) {
     long arg_0 = maxAgeSeconds;
     FaviconHandler ret = io.vertx.ceylon.web.handler.FaviconHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.FaviconHandler.create(arg_0));
     return ret;

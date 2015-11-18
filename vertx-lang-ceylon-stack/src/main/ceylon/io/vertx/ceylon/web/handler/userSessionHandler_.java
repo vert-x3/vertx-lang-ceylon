@@ -38,7 +38,7 @@ public class userSessionHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::UserSessionHandler")
   public UserSessionHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "The auth provider to use\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     UserSessionHandler ret = io.vertx.ceylon.web.handler.UserSessionHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.UserSessionHandler.create(arg_0));
     return ret;

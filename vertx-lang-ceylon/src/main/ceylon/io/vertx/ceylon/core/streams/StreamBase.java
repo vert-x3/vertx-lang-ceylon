@@ -43,7 +43,7 @@ public interface StreamBase {
   @DocAnnotation$annotation$(description = " Set an exception handler.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
   public StreamBase exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
 
   @Ignore
   public class Impl implements StreamBase {
@@ -67,7 +67,7 @@ public interface StreamBase {
   @DocAnnotation$annotation$(description = " Set an exception handler.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::StreamBase")
   public StreamBase exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);

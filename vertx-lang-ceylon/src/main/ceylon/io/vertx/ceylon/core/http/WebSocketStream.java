@@ -55,7 +55,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)?") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

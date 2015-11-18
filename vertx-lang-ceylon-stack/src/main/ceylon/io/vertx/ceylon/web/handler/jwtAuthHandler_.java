@@ -39,7 +39,7 @@ public class jwtAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public JWTAuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     JWTAuthHandler ret = io.vertx.ceylon.web.handler.JWTAuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.JWTAuthHandler.create(arg_0));
     return ret;
@@ -48,8 +48,8 @@ public class jwtAuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public JWTAuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("skip") @DocAnnotation$annotation$(description = "todo") ceylon.language.String skip) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use.\n") AuthProvider authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("skip")  ceylon.language.String skip) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(skip);
     JWTAuthHandler ret = io.vertx.ceylon.web.handler.JWTAuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.JWTAuthHandler.create(arg_0, arg_1));

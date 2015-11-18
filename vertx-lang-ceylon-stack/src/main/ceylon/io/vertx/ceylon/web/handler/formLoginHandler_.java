@@ -38,7 +38,7 @@ public class formLoginHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.FormLoginHandler.create(arg_0));
     return ret;
@@ -47,11 +47,11 @@ public class formLoginHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String usernameParam, 
-    final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String passwordParam, 
-    final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String returnURLParam, 
-    final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL") @DocAnnotation$annotation$(description = "todo") ceylon.language.String directLoggedInOKURL) {
+    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth service to use\n") AuthProvider authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "the value of the form attribute which will contain the username\n") ceylon.language.String usernameParam, 
+    final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "the value of the form attribute which will contain the password\n") ceylon.language.String passwordParam, 
+    final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "the value of the session attribute which will contain the return url\n") ceylon.language.String returnURLParam, 
+    final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL") @DocAnnotation$annotation$(description = "a url to redirect to if the user logs in directly at the url of the form login handler without being redirected here first\n") ceylon.language.String directLoggedInOKURL) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(usernameParam);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(passwordParam);
