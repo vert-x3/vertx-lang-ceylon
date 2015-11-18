@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A todo_link of todo_link, used for notifying\n socket connections to a todo_link.\n")
+@DocAnnotation$annotation$(description = " A [ReadStream](../streams/ReadStream.type.html) of [NetSocket](../net/NetSocket.type.html), used for notifying\n socket connections to a [NetServer](../net/NetServer.type.html).\n")
 public class NetSocketStream implements ReifiedType,  ReadStream<NetSocket> {
 
   @Ignore

@@ -19,7 +19,7 @@ import io.vertx.ceylon.core.net.SocketAddress;
 import io.vertx.ceylon.core.net.NetSocket;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a server-side HTTP request.\n <p>\n Instances are created for each request and passed to the user via a handler.\n <p>\n Each instance of this class is associated with a corresponding todo_link instance via\n todo_link.<p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n <p>\n")
+@DocAnnotation$annotation$(description = " Represents a server-side HTTP request.\n <p>\n Instances are created for each request and passed to the user via a handler.\n <p>\n Each instance of this class is associated with a corresponding [HttpServerResponse](../http/HttpServerResponse.type.html) instance via\n [HttpServerRequest](../http/HttpServerRequest.type.html).<p>\n It implements [ReadStream](../streams/ReadStream.type.html) so it can be used with\n [Pump](../streams/Pump.type.html) to pump data with flow control.\n <p>\n")
 public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
 
   @Ignore
@@ -147,7 +147,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the response. Each instance of this class has an todo_link instance attached to it. This is used\n to send the response back to the client.\n")
+  @DocAnnotation$annotation$(description = " @return the response. Each instance of this class has an [HttpServerResponse](../http/HttpServerResponse.type.html) instance attached to it. This is used\n to send the response back to the client.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
     if (cached_response != null) {
@@ -260,7 +260,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return  true if we are expecting a multi-part body for this request. See todo_link.\n")
+  @DocAnnotation$annotation$(description = " @return  true if we are expecting a multi-part body for this request. See [HttpServerRequest](../http/HttpServerRequest.type.html).\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isExpectMultipart() {
     boolean ret = delegate.isExpectMultipart();
@@ -280,7 +280,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Returns a map of all form attributes in the request.\n <p>\n Be aware that the attributes will only be available after the whole body has been received, i.e. after\n the request end handler has been called.\n <p>\n todo_link must be called first before trying to get the form attributes.\n")
+  @DocAnnotation$annotation$(description = " Returns a map of all form attributes in the request.\n <p>\n Be aware that the attributes will only be available after the whole body has been received, i.e. after\n the request end handler has been called.\n <p>\n [HttpServerRequest](../http/HttpServerRequest.type.html) must be called first before trying to get the form attributes.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap formAttributes() {
     if (cached_formAttributes != null) {

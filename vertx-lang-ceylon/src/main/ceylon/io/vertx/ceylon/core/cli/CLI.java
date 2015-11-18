@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Interface defining a command-line interface (in other words a command such as 'run', 'ls'...).\n This interface is polyglot to ease reuse such as in Vert.x Shell.\n <p/>\n A command line interface has a name, and defines a set of options and arguments. Options are key-value pair such\n as <code>-foo=bar</code> or <code>-flag</code>. The supported formats depend on the used parser. Arguments are unlike\n options raw values. Options are defined using\n todo_link, while argument are defined using todo_link.\n <p/>\n Command line interfaces also define a summary and a description. These attributes are used in the usage generation\n . To disable the help generation, set the <code>hidden</code> attribute to <code>true</code>.\n <p/>\n Command Line Interface object does not contains \"value\", it's a model. It must be evaluated by a\n parser that returns a todo_link object containing the argument and option values.\n")
+@DocAnnotation$annotation$(description = " Interface defining a command-line interface (in other words a command such as 'run', 'ls'...).\n This interface is polyglot to ease reuse such as in Vert.x Shell.\n <p/>\n A command line interface has a name, and defines a set of options and arguments. Options are key-value pair such\n as <code>-foo=bar</code> or <code>-flag</code>. The supported formats depend on the used parser. Arguments are unlike\n options raw values. Options are defined using\n [Option](../cli/Option.type.html), while argument are defined using [Argument](../cli/Argument.type.html).\n <p/>\n Command line interfaces also define a summary and a description. These attributes are used in the usage generation\n . To disable the help generation, set the <code>hidden</code> attribute to <code>true</code>.\n <p/>\n Command Line Interface object does not contains \"value\", it's a model. It must be evaluated by a\n parser that returns a [CommandLine](../cli/CommandLine.type.html) object containing the argument and option values.\n")
 public class CLI implements ReifiedType {
 
   @Ignore
@@ -52,7 +52,7 @@ public class CLI implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new todo_link containing extracting values.\n")
+  @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new [CommandLine](../cli/CommandLine.type.html) containing extracting values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments) {
@@ -61,7 +61,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new todo_link containing extracting values.\n")
+  @DocAnnotation$annotation$(description = " Parses the user command line interface and create a new [CommandLine](../cli/CommandLine.type.html) containing extracting values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public CommandLine parse(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("arguments") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> arguments, 
@@ -119,14 +119,14 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Checks whether or not the current todo_link instance is hidden.\n")
+  @DocAnnotation$annotation$(description = " Checks whether or not the current [CLI](../cli/CLI.type.html) instance is hidden.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isHidden() {
     boolean ret = delegate.isHidden();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Sets whether or not the current instance of todo_link must be hidden. Hidden CLI are not listed when\n displaying usages / help messages. In other words, hidden commands are for power user.\n")
+  @DocAnnotation$annotation$(description = " Sets whether or not the current instance of [CLI](../cli/CLI.type.html) must be hidden. Hidden CLI are not listed when\n displaying usages / help messages. In other words, hidden commands are for power user.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI setHidden(
     final @TypeInfo("ceylon.language::Boolean") @Name("hidden") @DocAnnotation$annotation$(description = "todo") boolean hidden) {
@@ -151,7 +151,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Adds a set of options. Unlike todo_link}, this method does not remove the existing options.\n The given list is appended to the existing list.\n")
+  @DocAnnotation$annotation$(description = " Adds a set of options. Unlike [CLI](../cli/CLI.type.html)}, this method does not remove the existing options.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOptions(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
@@ -185,7 +185,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Adds a set of arguments. Unlike todo_link, this method does not remove the existing arguments.\n The given list is appended to the existing list.\n")
+  @DocAnnotation$annotation$(description = " Adds a set of arguments. Unlike [CLI](../cli/CLI.type.html), this method does not remove the existing arguments.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArguments(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {
@@ -203,7 +203,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an todo_link based on its name (short name, long name or argument name).\n")
+  @DocAnnotation$annotation$(description = " Gets an [Option](../cli/Option.type.html) based on its name (short name, long name or argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Option?")
   public io.vertx.ceylon.core.cli.Option getOption(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -212,7 +212,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an todo_link based on its name (argument name).\n")
+  @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its name (argument name).\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -221,7 +221,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets an todo_link based on its index.\n")
+  @DocAnnotation$annotation$(description = " Gets an [Argument](../cli/Argument.type.html) based on its index.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::Argument?")
   public io.vertx.ceylon.core.cli.Argument getArgument(
     final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "todo") long index) {

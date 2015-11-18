@@ -18,7 +18,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a socket-like interface to a TCP connection on either the\n client or the server side.\n <p>\n Instances of this class are created on the client side by an todo_link\n when a connection to a server is made, or on the server side by a todo_link\n when a server accepts a connection.\n <p>\n It implements both  and  so it can be used with\n todo_link to pump data with flow control.\n")
+@DocAnnotation$annotation$(description = " Represents a socket-like interface to a TCP connection on either the\n client or the server side.\n <p>\n Instances of this class are created on the client side by an [NetClient](../net/NetClient.type.html)\n when a connection to a server is made, or on the server side by a [NetServer](../net/NetServer.type.html)\n when a server accepts a connection.\n <p>\n It implements both  and  so it can be used with\n [Pump](../streams/Pump.type.html) to pump data with flow control.\n")
 public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore
@@ -58,7 +58,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [NetSocket](../net/NetSocket.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -148,7 +148,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link to the connection, encoded in UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the connection, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
@@ -157,7 +157,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link to the connection, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the connection, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -201,7 +201,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -216,7 +216,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -233,7 +233,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -306,7 +306,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if this todo_link is encrypted via SSL/TLS.\n")
+  @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSsl() {
     boolean ret = delegate.isSsl();

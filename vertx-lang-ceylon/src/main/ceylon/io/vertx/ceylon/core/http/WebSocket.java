@@ -56,7 +56,7 @@ public class WebSocket implements ReifiedType,  WebSocketBase {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WebSocket](../http/WebSocket.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();

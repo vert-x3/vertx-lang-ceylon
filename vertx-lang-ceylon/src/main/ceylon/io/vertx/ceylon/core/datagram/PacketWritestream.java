@@ -16,7 +16,7 @@ import io.vertx.ceylon.core.streams.WriteStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A todo_link for sending packets to a todo_link.\n The stream  is called when the write fails.\n")
+@DocAnnotation$annotation$(description = " A [WriteStream](../streams/WriteStream.type.html) for sending packets to a [SocketAddress](../net/SocketAddress.type.html).\n The stream  is called when the write fails.\n")
 public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   @Ignore
@@ -54,7 +54,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [PacketWritestream](../datagram/PacketWritestream.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();

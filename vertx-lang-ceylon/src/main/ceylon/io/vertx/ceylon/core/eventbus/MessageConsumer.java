@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " An event bus consumer object representing a stream of message to an todo_link address that can\n be read from.\n <p>\n The todo_link or todo_link\n creates a new consumer, the returned consumer is not yet registered against the event bus. Registration\n is effective after the todo_link method is invoked.<p>\n\n The consumer is unregistered from the event bus using the todo_link method or by calling the\n todo_link with a null value..\n")
+@DocAnnotation$annotation$(description = " An event bus consumer object representing a stream of message to an [EventBus](../eventbus/EventBus.type.html) address that can\n be read from.\n <p>\n The [EventBus](../eventbus/EventBus.type.html) or [EventBus](../eventbus/EventBus.type.html)\n creates a new consumer, the returned consumer is not yet registered against the event bus. Registration\n is effective after the [MessageConsumer](../eventbus/MessageConsumer.type.html) method is invoked.<p>\n\n The consumer is unregistered from the event bus using the [MessageConsumer](../eventbus/MessageConsumer.type.html) method or by calling the\n [MessageConsumer](../eventbus/MessageConsumer.type.html) with a null value..\n")
 public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
   @Ignore

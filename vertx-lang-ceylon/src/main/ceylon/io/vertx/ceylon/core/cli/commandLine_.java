@@ -26,7 +26,7 @@ public class commandLine_ {
   }
 
 
-  @DocAnnotation$annotation$(description = " Creates a command line object from the todo_link. This object is intended to be used by\n the parser to set the argument and option values.\n")
+  @DocAnnotation$annotation$(description = " Creates a command line object from the [CLI](../cli/CLI.type.html). This object is intended to be used by\n the parser to set the argument and option values.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CommandLine")
   public static CommandLine create(
     final @TypeInfo("io.vertx.ceylon.core.cli::CLI") @Name("cli") @DocAnnotation$annotation$(description = "todo") CLI cli) {

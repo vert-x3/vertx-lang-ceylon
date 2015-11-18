@@ -106,7 +106,7 @@ public class Cookie implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Sets the maximum age of this cookie in seconds.\n If an age of <code>0</code> is specified, this cookie will be\n automatically removed by browser because it will expire immediately.\n If todo_link is specified, this cookie will be removed when the\n browser is closed.\n If you don't set this the cookie will be a session cookie and be removed when the browser is closed.\n")
+  @DocAnnotation$annotation$(description = " Sets the maximum age of this cookie in seconds.\n If an age of <code>0</code> is specified, this cookie will be\n automatically removed by browser because it will expire immediately.\n If todo_link(java.lang.Long) is specified, this cookie will be removed when the\n browser is closed.\n If you don't set this the cookie will be a session cookie and be removed when the browser is closed.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setMaxAge(
     final @TypeInfo("ceylon.language::Integer") @Name("maxAge") @DocAnnotation$annotation$(description = "todo") long maxAge) {

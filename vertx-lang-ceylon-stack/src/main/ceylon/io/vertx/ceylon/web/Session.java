@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a browser session.\n <p>\n Sessions persist between HTTP requests for a single browser session. They are deleted when the browser is closed, or\n they time-out. Session cookies are used to maintain sessions using a secure UUID.\n <p>\n Sessions can be used to maintain data for a browser session, e.g. a shopping basket.\n <p>\n The context must have first been routed to a todo_link\n for sessions to be available.\n")
+@DocAnnotation$annotation$(description = " Represents a browser session.\n <p>\n Sessions persist between HTTP requests for a single browser session. They are deleted when the browser is closed, or\n they time-out. Session cookies are used to maintain sessions using a secure UUID.\n <p>\n Sessions can be used to maintain data for a browser session, e.g. a shopping basket.\n <p>\n The context must have first been routed to a [SessionHandler](../handler/SessionHandler.type.html)\n for sessions to be available.\n")
 public class Session implements ReifiedType {
 
   @Ignore

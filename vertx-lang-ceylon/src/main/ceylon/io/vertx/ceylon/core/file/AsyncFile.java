@@ -18,7 +18,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a file on the file-system which can be read from, or written to asynchronously.\n <p>\n This class also implements todo_link and\n todo_link. This allows the data to be pumped to and from\n other streams, e.g. an todo_link instance,\n using the todo_link class\n")
+@DocAnnotation$annotation$(description = " Represents a file on the file-system which can be read from, or written to asynchronously.\n <p>\n This class also implements [ReadStream](../streams/ReadStream.type.html) and\n [WriteStream](../streams/WriteStream.type.html). This allows the data to be pumped to and from\n other streams, e.g. an [HttpClientRequest](../http/HttpClientRequest.type.html) instance,\n using the [Pump](../streams/Pump.type.html) class\n")
 public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore
@@ -56,7 +56,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [AsyncFile](../file/AsyncFile.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -157,7 +157,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     delegate.close(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link to the file at position <code>position</code> in the file, asynchronously.\n <p>\n If <code>position</code> lies outside of the current size\n of the file, the file will be enlarged to encompass it.\n <p>\n When multiple writes are invoked on the same file\n there are no guarantees as to order in which those writes actually occur\n <p>\n The handler will be called when the write is complete, or if an error occurs.\n")
+  @DocAnnotation$annotation$(description = " Write a [Buffer](../buffer/Buffer.type.html) to the file at position <code>position</code> in the file, asynchronously.\n <p>\n If <code>position</code> lies outside of the current size\n of the file, the file will be enlarged to encompass it.\n <p>\n When multiple writes are invoked on the same file\n there are no guarantees as to order in which those writes actually occur\n <p>\n The handler will be called when the write is complete, or if an error occurs.\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "todo") Buffer buffer, 
@@ -202,7 +202,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but the handler will be called when the flush is complete or if an error occurs\n")
+  @DocAnnotation$annotation$(description = " Same as [AsyncFile](../file/AsyncFile.type.html) but the handler will be called when the flush is complete or if an error occurs\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile flush(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -215,7 +215,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Sets the position from which data will be read from when using the file as a todo_link.\n")
+  @DocAnnotation$annotation$(description = " Sets the position from which data will be read from when using the file as a [ReadStream](../streams/ReadStream.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setReadPos(
     final @TypeInfo("ceylon.language::Integer") @Name("readPos") @DocAnnotation$annotation$(description = "todo") long readPos) {
@@ -224,7 +224,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Sets the position from which data will be written when using the file as a todo_link.\n")
+  @DocAnnotation$annotation$(description = " Sets the position from which data will be written when using the file as a [WriteStream](../streams/WriteStream.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setWritePos(
     final @TypeInfo("ceylon.language::Integer") @Name("writePos") @DocAnnotation$annotation$(description = "todo") long writePos) {

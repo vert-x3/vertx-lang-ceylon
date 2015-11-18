@@ -61,7 +61,7 @@ public class NetClient implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>port</code> and <code>host</code>.\n <p>\n <code>host</code> can be a valid host name or IP address. The connect is done asynchronously and on success, a\n todo_link instance is supplied via the <code>connectHandler</code> instance\n")
+  @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>port</code> and <code>host</code>.\n <p>\n <code>host</code> can be a valid host name or IP address. The connect is done asynchronously and on success, a\n [NetSocket](../net/NetSocket.type.html) instance is supplied via the <code>connectHandler</code> instance\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient connect(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 

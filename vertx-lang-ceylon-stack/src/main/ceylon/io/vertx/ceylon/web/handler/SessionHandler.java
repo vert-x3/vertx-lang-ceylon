@@ -16,7 +16,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A handler that maintains a todo_link for each browser session.\n <p>\n It looks up the session for each request based on a session cookie which contains a session ID. It stores the session\n when the response is ended in the session store.\n <p>\n The session is available on the routing context with .\n <p>\n The session handler requires a todo_link to be on the routing chain before it.\n")
+@DocAnnotation$annotation$(description = " A handler that maintains a [Session](Session.type.html) for each browser session.\n <p>\n It looks up the session for each request based on a session cookie which contains a session ID. It stores the session\n when the response is ended in the session store.\n <p>\n The session is available on the routing context with .\n <p>\n The session handler requires a [CookieHandler](../handler/CookieHandler.type.html) to be on the routing chain before it.\n")
 public class SessionHandler implements ReifiedType {
 
   @Ignore

@@ -18,7 +18,7 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a client-side HTTP request.\n <p>\n Instances are created by an todo_link instance, via one of the methods corresponding to the\n specific HTTP methods, or the generic request methods. On creation the request will not have been written to the\n wire.\n <p>\n Once a request has been obtained, headers can be set on it, and data can be written to its body if required. Once\n you are ready to send the request, one of the todo_link methods should be called.\n <p>\n Nothing is actually sent until the request has been internally assigned an HTTP connection.\n <p>\n The todo_link instance will return an instance of this class immediately, even if there are no HTTP\n connections available in the pool. Any requests sent before a connection is assigned will be queued\n internally and actually sent when an HTTP connection becomes available from the pool.\n <p>\n The headers of the request are queued for writing either when the todo_link method is called, or, when the first\n part of the body is written, whichever occurs first.\n <p>\n This class supports both chunked and non-chunked HTTP.\n <p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n <p>\n An example of using this class is as follows:\n <p>\n")
+@DocAnnotation$annotation$(description = " Represents a client-side HTTP request.\n <p>\n Instances are created by an [HttpClient](../http/HttpClient.type.html) instance, via one of the methods corresponding to the\n specific HTTP methods, or the generic request methods. On creation the request will not have been written to the\n wire.\n <p>\n Once a request has been obtained, headers can be set on it, and data can be written to its body if required. Once\n you are ready to send the request, one of the [HttpClientRequest](../http/HttpClientRequest.type.html) methods should be called.\n <p>\n Nothing is actually sent until the request has been internally assigned an HTTP connection.\n <p>\n The [HttpClient](../http/HttpClient.type.html) instance will return an instance of this class immediately, even if there are no HTTP\n connections available in the pool. Any requests sent before a connection is assigned will be queued\n internally and actually sent when an HTTP connection becomes available from the pool.\n <p>\n The headers of the request are queued for writing either when the [HttpClientRequest](../http/HttpClientRequest.type.html) method is called, or, when the first\n part of the body is written, whichever occurs first.\n <p>\n This class supports both chunked and non-chunked HTTP.\n <p>\n It implements [WriteStream](../streams/WriteStream.type.html) so it can be used with\n [Pump](../streams/Pump.type.html) to pump data with flow control.\n <p>\n An example of using this class is as follows:\n <p>\n")
 public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  ReadStream<HttpClientResponse> {
 
   @Ignore
@@ -57,7 +57,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [HttpClientRequest](../http/HttpClientRequest.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -193,7 +193,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link to the request body, encoded as UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the request body, encoded as UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -202,7 +202,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link to the request body, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the request body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -213,7 +213,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " If you send an HTTP request with the header <code>Expect</code> set to the value <code>100-continue</code>\n and the server responds with an interim HTTP response with a status code of <code>100</code> and a continue handler\n has been set using this method, then the <code>handler</code> will be called.\n <p>\n You can then continue to write data to the request body and later end it. This is normally used in conjunction with\n the todo_link method to force the request header to be written before the request has ended.\n")
+  @DocAnnotation$annotation$(description = " If you send an HTTP request with the header <code>Expect</code> set to the value <code>100-continue</code>\n and the server responds with an interim HTTP response with a status code of <code>100</code> and a continue handler\n has been set using this method, then the <code>handler</code> will be called.\n <p>\n You can then continue to write data to the request body and later end it. This is normally used in conjunction with\n the [HttpClientRequest](../http/HttpClientRequest.type.html) method to force the request header to be written before the request has ended.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest continueHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -226,14 +226,14 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Forces the head of the request to be written before todo_link is called on the request or any data is\n written to it.\n <p>\n This is normally used to implement HTTP 100-continue handling, see  for\n more information.\n")
+  @DocAnnotation$annotation$(description = " Forces the head of the request to be written before [HttpClientRequest](../http/HttpClientRequest.type.html) is called on the request or any data is\n written to it.\n <p>\n This is normally used to implement HTTP 100-continue handling, see  for\n more information.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest sendHead() {
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.sendHead());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but writes a String in UTF-8 encoding\n")
+  @DocAnnotation$annotation$(description = " Same as [HttpClientRequest](../http/HttpClientRequest.type.html) but writes a String in UTF-8 encoding\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -241,7 +241,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.end(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but writes a String with the specified encoding\n")
+  @DocAnnotation$annotation$(description = " Same as [HttpClientRequest](../http/HttpClientRequest.type.html) but writes a String with the specified encoding\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -251,7 +251,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.end(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Same as todo_link but writes some data to the request body before ending. If the request is not chunked and\n no other data has been written then the <code>Content-Length</code> header will be automatically set\n")
+  @DocAnnotation$annotation$(description = " Same as [HttpClientRequest](../http/HttpClientRequest.type.html) but writes some data to the request body before ending. If the request is not chunked and\n no other data has been written then the <code>Content-Length</code> header will be automatically set\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("chunk") @DocAnnotation$annotation$(description = "todo") Buffer chunk) {
@@ -259,13 +259,13 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.end(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Ends the request. If no data has been written to the request body, and todo_link has not been called then\n the actual request won't get written until this method gets called.\n <p>\n Once the request has ended, it cannot be used any more,\n")
+  @DocAnnotation$annotation$(description = " Ends the request. If no data has been written to the request body, and [HttpClientRequest](../http/HttpClientRequest.type.html) has not been called then\n the actual request won't get written until this method gets called.\n <p>\n Once the request has ended, it cannot be used any more,\n")
   @TypeInfo("ceylon.language::Anything")
   public void end() {
     delegate.end();
   }
 
-  @DocAnnotation$annotation$(description = " Set's the amount of time after which if a response is not received todo_link\n will be sent to the exception handler of this request.\n <p>\n  Calling this method more than once\n has the effect of canceling any existing timeout and starting the timeout from scratch.\n")
+  @DocAnnotation$annotation$(description = " Set's the amount of time after which if a response is not received todo_link(java.util.concurrent.TimeoutException)\n will be sent to the exception handler of this request.\n <p>\n  Calling this method more than once\n has the effect of canceling any existing timeout and starting the timeout from scratch.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setTimeout(
     final @TypeInfo("ceylon.language::Integer") @Name("timeoutMs") @DocAnnotation$annotation$(description = "todo") long timeoutMs) {

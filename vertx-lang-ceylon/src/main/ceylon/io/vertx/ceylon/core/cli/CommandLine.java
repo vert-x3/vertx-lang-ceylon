@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " The parser transforms a CLI (a model) into an todo_link. This todo_link\n has stored the argument and option values. Only  instance of parser should create\n objects of this type.\n")
+@DocAnnotation$annotation$(description = " The parser transforms a CLI (a model) into an [CommandLine](../cli/CommandLine.type.html). This [CommandLine](../cli/CommandLine.type.html)\n has stored the argument and option values. Only  instance of parser should create\n objects of this type.\n")
 public class CommandLine implements ReifiedType {
 
   @Ignore
@@ -102,7 +102,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets the value of an option marked as a flag.\n <p/>\n Calling this method an a non-flag option throws an todo_link.\n")
+  @DocAnnotation$annotation$(description = " Gets the value of an option marked as a flag.\n <p/>\n Calling this method an a non-flag option throws an todo_link(java.lang.IllegalStateException).\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isFlagEnabled(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {

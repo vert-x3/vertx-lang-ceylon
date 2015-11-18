@@ -16,7 +16,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Handler that handles login from a form on a custom login page.\n <p>\n Used in conjunction with the todo_link.\n")
+@DocAnnotation$annotation$(description = " Handler that handles login from a form on a custom login page.\n <p>\n Used in conjunction with the [RedirectAuthHandler](../handler/RedirectAuthHandler.type.html).\n")
 public class FormLoginHandler implements ReifiedType {
 
   @Ignore

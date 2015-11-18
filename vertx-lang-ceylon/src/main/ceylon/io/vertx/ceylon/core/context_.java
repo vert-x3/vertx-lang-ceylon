@@ -29,14 +29,14 @@ public class context_ {
   }
 
 
-  @DocAnnotation$annotation$(description = " Is the current thread a worker thread?\n <p>\n NOTE! This is not always the same as calling todo_link. If you are running blocking code\n from an event loop context, then this will return true but todo_link will return false.\n")
+  @DocAnnotation$annotation$(description = " Is the current thread a worker thread?\n <p>\n NOTE! This is not always the same as calling [Context](Context.type.html). If you are running blocking code\n from an event loop context, then this will return true but [Context](Context.type.html) will return false.\n")
   @TypeInfo("ceylon.language::Boolean")
   public static boolean isOnWorkerThread() {
     boolean ret = io.vertx.core.Context.isOnWorkerThread();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Is the current thread an event thread?\n <p>\n NOTE! This is not always the same as calling todo_link. If you are running blocking code\n from an event loop context, then this will return false but todo_link will return true.\n")
+  @DocAnnotation$annotation$(description = " Is the current thread an event thread?\n <p>\n NOTE! This is not always the same as calling [Context](Context.type.html). If you are running blocking code\n from an event loop context, then this will return false but [Context](Context.type.html) will return true.\n")
   @TypeInfo("ceylon.language::Boolean")
   public static boolean isOnEventLoopThread() {
     boolean ret = io.vertx.core.Context.isOnEventLoopThread();

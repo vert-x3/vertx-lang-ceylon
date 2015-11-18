@@ -85,7 +85,7 @@ public class SharedData implements ReifiedType {
     delegate.getLock(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but specifying a timeout. If the lock is not obtained within the timeout\n a failure will be sent to the handler\n")
+  @DocAnnotation$annotation$(description = " Like [SharedData](../shareddata/SharedData.type.html) but specifying a timeout. If the lock is not obtained within the timeout\n a failure will be sent to the handler\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLockWithTimeout(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 

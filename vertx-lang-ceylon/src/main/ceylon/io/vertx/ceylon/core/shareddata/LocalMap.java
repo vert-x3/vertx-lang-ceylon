@@ -17,7 +17,7 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as todo_link\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n")
+@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as [Buffer](../buffer/Buffer.type.html)\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n")
 public class LocalMap<K,V> implements ReifiedType {
 
   @Ignore

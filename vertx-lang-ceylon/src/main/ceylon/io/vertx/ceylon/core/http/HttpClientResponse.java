@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.NetSocket;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a client-side HTTP response.\n <p>\n Vert.x provides you with one of these via the handler that was provided when creating the todo_link\n or that was set on the todo_link instance.\n <p>\n It implements todo_link so it can be used with\n todo_link to pump data with flow control.\n")
+@DocAnnotation$annotation$(description = " Represents a client-side HTTP response.\n <p>\n Vert.x provides you with one of these via the handler that was provided when creating the [HttpClientRequest](../http/HttpClientRequest.type.html)\n or that was set on the [HttpClientRequest](../http/HttpClientRequest.type.html) instance.\n <p>\n It implements [ReadStream](../streams/ReadStream.type.html) so it can be used with\n [Pump](../streams/Pump.type.html) to pump data with flow control.\n")
 public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
   @Ignore
@@ -187,7 +187,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Get a net socket for the underlying connection of this request.\n <p>\n USE THIS WITH CAUTION! Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol\n <p>\n One valid use-case for calling this is to receive the todo_link after a HTTP CONNECT was issued to the\n remote peer and it responded with a status code of 200.\n")
+  @DocAnnotation$annotation$(description = " Get a net socket for the underlying connection of this request.\n <p>\n USE THIS WITH CAUTION! Writing to the socket directly if you don't know what you're doing can easily break the HTTP protocol\n <p>\n One valid use-case for calling this is to receive the [NetSocket](../net/NetSocket.type.html) after a HTTP CONNECT was issued to the\n remote peer and it responded with a status code of 200.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket netSocket() {
     if (cached_netSocket != null) {

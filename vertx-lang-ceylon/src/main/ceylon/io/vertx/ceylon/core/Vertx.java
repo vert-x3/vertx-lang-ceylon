@@ -26,7 +26,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.http.HttpClient;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " The entry point into the Vert.x Core API.\n <p>\n You use an instance of this class for functionality including:\n <ul>\n   <li>Creating TCP clients and servers</li>\n   <li>Creating HTTP clients and servers</li>\n   <li>Creating DNS clients</li>\n   <li>Creating Datagram sockets</li>\n   <li>Setting and cancelling periodic and one-shot timers</li>\n   <li>Getting a reference to the event bus API</li>\n   <li>Getting a reference to the file system API</li>\n   <li>Getting a reference to the shared data API</li>\n   <li>Deploying and undeploying verticles</li>\n </ul>\n <p>\n Most functionality in Vert.x core is fairly low level.\n <p>\n To create an instance of this class you can use the static factory methods: todo_link,\n todo_link and todo_link.\n <p>\n Please see the user manual for more detailed usage information.\n")
+@DocAnnotation$annotation$(description = " The entry point into the Vert.x Core API.\n <p>\n You use an instance of this class for functionality including:\n <ul>\n   <li>Creating TCP clients and servers</li>\n   <li>Creating HTTP clients and servers</li>\n   <li>Creating DNS clients</li>\n   <li>Creating Datagram sockets</li>\n   <li>Setting and cancelling periodic and one-shot timers</li>\n   <li>Getting a reference to the event bus API</li>\n   <li>Getting a reference to the file system API</li>\n   <li>Getting a reference to the shared data API</li>\n   <li>Deploying and undeploying verticles</li>\n </ul>\n <p>\n Most functionality in Vert.x core is fairly low level.\n <p>\n To create an instance of this class you can use the static factory methods: [Vertx](Vertx.type.html),\n [Vertx](Vertx.type.html) and [Vertx](Vertx.type.html).\n <p>\n Please see the user manual for more detailed usage information.\n")
 public class Vertx implements ReifiedType,  Measured {
 
   @Ignore
@@ -280,7 +280,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but the completionHandler will be called when the close is complete\n")
+  @DocAnnotation$annotation$(description = " Like [Vertx](Vertx.type.html) but the completionHandler will be called when the close is complete\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {
@@ -300,7 +300,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.deployVerticle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but the completionHandler will be notified when the deployment is complete.\n <p>\n If the deployment is successful the result will contain a String representing the unique deployment ID of the\n deployment.\n <p>\n This deployment ID can subsequently be used to undeploy the verticle.\n")
+  @DocAnnotation$annotation$(description = " Like [Vertx](Vertx.type.html) but the completionHandler will be notified when the deployment is complete.\n <p>\n If the deployment is successful the result will contain a String representing the unique deployment ID of the\n deployment.\n <p>\n This deployment ID can subsequently be used to undeploy the verticle.\n")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -314,7 +314,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.deployVerticle(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but todo_link are provided to configure the\n deployment.\n")
+  @DocAnnotation$annotation$(description = " Like [Vertx](Vertx.type.html) but [DeploymentOptions](DeploymentOptions.type.html) are provided to configure the\n deployment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -324,7 +324,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.deployVerticle(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but todo_link are provided to configure the\n deployment.\n")
+  @DocAnnotation$annotation$(description = " Like [Vertx](Vertx.type.html) but [DeploymentOptions](DeploymentOptions.type.html) are provided to configure the\n deployment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 
@@ -348,7 +348,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.undeploy(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but the completionHandler will be notified when the undeployment is complete.\n")
+  @DocAnnotation$annotation$(description = " Like [#undeploy(String)](Vertx.type.html) but the completionHandler will be notified when the undeployment is complete.\n")
   @TypeInfo("ceylon.language::Anything")
   public void undeploy(
     final @TypeInfo("ceylon.language::String") @Name("deploymentID") @DocAnnotation$annotation$(description = "todo") ceylon.language.String deploymentID, 
@@ -379,7 +379,7 @@ public class Vertx implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the todo_link or todo_link method, or the todo_link\n method if it failed.\n")
+  @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the [Future](Future.type.html) or [Future](Future.type.html) method, or the [Future](Future.type.html)\n method if it failed.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
@@ -402,7 +402,7 @@ public class Vertx implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like todo_link called with ordered = true.\n")
+  @DocAnnotation$annotation$(description = " Like [Vertx](Vertx.type.html) called with ordered = true.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 

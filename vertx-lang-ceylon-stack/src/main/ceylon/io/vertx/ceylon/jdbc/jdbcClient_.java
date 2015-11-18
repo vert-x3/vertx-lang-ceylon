@@ -54,7 +54,7 @@ public class jdbcClient_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Like todo_link but with the default data source name\n")
+  @DocAnnotation$annotation$(description = " Like [JDBCClient](JDBCClient.type.html) but with the default data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public static JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 

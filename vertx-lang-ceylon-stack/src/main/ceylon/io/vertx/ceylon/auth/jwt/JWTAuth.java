@@ -16,7 +16,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Factory interface for creating JWT based todo_link instances.\n")
+@DocAnnotation$annotation$(description = " Factory interface for creating JWT based todo_link(io.vertx.ext.auth.AuthProvider) instances.\n")
 public class JWTAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore

@@ -17,7 +17,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a stream of items that can be read from.\n <p>\n Any class that implements this interface can be used by a todo_link to pump data from it\n to a todo_link.\n")
+@DocAnnotation$annotation$(description = " Represents a stream of items that can be read from.\n <p>\n Any class that implements this interface can be used by a [Pump](../streams/Pump.type.html) to pump data from it\n to a [WriteStream](../streams/WriteStream.type.html).\n")
 public interface ReadStream<T> extends StreamBase {
 
   @Ignore

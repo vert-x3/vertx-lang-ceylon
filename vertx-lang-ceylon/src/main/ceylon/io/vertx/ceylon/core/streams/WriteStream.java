@@ -17,7 +17,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "\n Represents a stream of data that can be written to.\n <p>\n Any class that implements this interface can be used by a todo_link to pump data from a <code>ReadStream</code>\n to it.\n")
+@DocAnnotation$annotation$(description = "\n Represents a stream of data that can be written to.\n <p>\n Any class that implements this interface can be used by a [Pump](../streams/Pump.type.html) to pump data from a <code>ReadStream</code>\n to it.\n")
 public interface WriteStream<T> extends StreamBase {
 
   @Ignore
@@ -48,7 +48,7 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
-  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the todo_link method before writing. This is done automatically if using a todo_link.\n")
+  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [WriteStream](../streams/WriteStream.type.html) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data);
@@ -58,11 +58,11 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize);
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WriteStream](../streams/WriteStream.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
 
-  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See todo_link for an example of this being used.\n")
+  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See [Pump](../streams/Pump.type.html) for an example of this being used.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
@@ -102,7 +102,7 @@ public interface WriteStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the todo_link method before writing. This is done automatically if using a todo_link.\n")
+  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [WriteStream](../streams/WriteStream.type.html) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data) {
@@ -120,14 +120,14 @@ public interface WriteStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WriteStream](../streams/WriteStream.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
       return ret;
     }
 
-  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See todo_link for an example of this being used.\n")
+  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See [Pump](../streams/Pump.type.html) for an example of this being used.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

@@ -16,7 +16,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Base interface for auth handlers.\n <p>\n An auth handler allows your application to provide authentication/authorisation support.\n <p>\n Auth handler requires a todo_link to be on the routing chain before it.\n")
+@DocAnnotation$annotation$(description = " Base interface for auth handlers.\n <p>\n An auth handler allows your application to provide authentication/authorisation support.\n <p>\n Auth handler requires a [SessionHandler](../handler/SessionHandler.type.html) to be on the routing chain before it.\n")
 public interface AuthHandler {
 
   @Ignore

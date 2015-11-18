@@ -437,7 +437,49 @@
    * renderDocToHtml function when it needs to render tag links.
    */
   def renderLinkToHtml(link) {
-    return "todo_link";
+
+    var rawType = link.targetType.raw;
+    if (rawType.module != null) {
+
+      var label = link.label.trim();
+      if (type.kind == CLASS_API) {
+        var elt = link.targetElement;
+        var eltKind = elt.getKind().name();
+
+        if (label.length() == 0) {
+          label = rawType.simpleName;
+        }
+
+        if (type.module.name == rawType.module.name) {
+          var from = CASE_QUALIFIED.parse(rawType.name.substring(type.module.packageName.length() + 1)).size() - 1;
+          var to = CASE_QUALIFIED.parse(rawType.name.substring(rawType.module.packageName.length() + 1));
+          var link = new java.lang.StringBuilder();
+          while (from-- > 0) {
+            link.append('../');
+          }
+          for (atom : to) {
+            link.append(atom).append('/');
+          }
+          link.length = link.length() - 1;
+          link.append('.type.html');
+          return '[' + label +'](' + link.toString() + ')';
+        }
+
+        /*
+        if (eltKind == "METHOD") {
+          ret += "#" + elt.getSimpleName().toString();
+        }
+        */
+        /*
+        if (label.length() > 0) {
+          ret += " " + label;
+        }
+        ret += "}";
+        */
+      }
+    }
+
+    return 'todo_link(' + rawType.name + ')';
   }
 
   def genDoc(doc) {

@@ -15,7 +15,7 @@ import io.vertx.ceylon.jdbc.JDBCClient;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Factory interface for creating todo_link instances that use the Vert.x JDBC client\n")
+@DocAnnotation$annotation$(description = " Factory interface for creating todo_link(io.vertx.ext.auth.AuthProvider) instances that use the Vert.x JDBC client\n")
 public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore

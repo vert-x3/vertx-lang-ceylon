@@ -21,7 +21,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "\n You interact with SockJS clients through instances of SockJS socket.\n <p>\n The API is very similar to todo_link.\n It implements both  and \n so it can be used with\n todo_link to pump data with flow control.<p>\n")
+@DocAnnotation$annotation$(description = "\n You interact with SockJS clients through instances of SockJS socket.\n <p>\n The API is very similar to todo_link(io.vertx.core.http.WebSocket).\n It implements both  and \n so it can be used with\n todo_link(io.vertx.core.streams.Pump) to pump data with flow control.<p>\n")
 public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore

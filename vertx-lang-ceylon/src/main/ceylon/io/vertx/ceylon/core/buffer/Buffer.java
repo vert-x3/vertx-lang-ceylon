@@ -142,7 +142,7 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a todo_link starting at position <code>start</code>\n and ending at position <code>end - 1</code>\n")
+  @DocAnnotation$annotation$(description = " Returns a copy of a sub-sequence the Buffer as a [Buffer](../buffer/Buffer.type.html) starting at position <code>start</code>\n and ending at position <code>end - 1</code>\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer getBuffer(
     final @TypeInfo("ceylon.language::Integer") @Name("start") @DocAnnotation$annotation$(description = "todo") long start, 

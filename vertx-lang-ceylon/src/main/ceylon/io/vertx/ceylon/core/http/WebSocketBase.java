@@ -18,7 +18,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Base WebSocket implementation.\n <p>\n It implements both  and  so it can be used with\n todo_link to pump data with flow control.\n")
+@DocAnnotation$annotation$(description = " Base WebSocket implementation.\n <p>\n It implements both  and  so it can be used with\n [Pump](../streams/Pump.type.html) to pump data with flow control.\n")
 public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore
@@ -44,7 +44,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WebSocketBase](../http/WebSocketBase.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
 
@@ -149,7 +149,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using todo_link\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WebSocketBase](../http/WebSocketBase.type.html)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();

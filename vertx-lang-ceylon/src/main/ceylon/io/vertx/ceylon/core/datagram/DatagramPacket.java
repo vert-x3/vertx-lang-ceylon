@@ -53,14 +53,14 @@ public class DatagramPacket implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " Returns the todo_link of the sender that sent\n this todo_link.\n")
+  @DocAnnotation$annotation$(description = " Returns the [SocketAddress](../net/SocketAddress.type.html) of the sender that sent\n this [DatagramPacket](../datagram/DatagramPacket.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress sender() {
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.sender());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Returns the data of the todo_link\n")
+  @DocAnnotation$annotation$(description = " Returns the data of the [DatagramPacket](../datagram/DatagramPacket.type.html)\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer data() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.data());

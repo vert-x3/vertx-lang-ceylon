@@ -32,7 +32,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n todo_link of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the todo_link, cookies and body for the request, given the correct handlers\n in the application.\n")
+@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n [Router](Router.type.html) of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the [Session](Session.type.html), cookies and body for the request, given the correct handlers\n in the application.\n")
 public class RoutingContext implements ReifiedType {
 
   @Ignore
@@ -142,7 +142,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the Vert.x instance associated to the initiating todo_link for this context\n")
+  @DocAnnotation$annotation$(description = " @return the Vert.x instance associated to the initiating [Router](Router.type.html) for this context\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx vertx() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.vertx());
@@ -170,7 +170,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Get the cookie with the specified name. The context must have first been routed to a todo_link\n for this to work.\n")
+  @DocAnnotation$annotation$(description = " Get the cookie with the specified name. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie getCookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -179,7 +179,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Add a cookie. This will be sent back to the client in the response. The context must have first been routed\n to a todo_link for this to work.\n")
+  @DocAnnotation$annotation$(description = " Add a cookie. This will be sent back to the client in the response. The context must have first been routed\n to a [CookieHandler](../handler/CookieHandler.type.html) for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::RoutingContext")
   public RoutingContext addCookie(
     final @TypeInfo("io.vertx.ceylon.web::Cookie") @Name("cookie") @DocAnnotation$annotation$(description = "todo") Cookie cookie) {
@@ -188,7 +188,7 @@ public class RoutingContext implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Remove a cookie. The context must have first been routed to a todo_link\n for this to work.\n")
+  @DocAnnotation$annotation$(description = " Remove a cookie. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie removeCookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {
@@ -197,28 +197,28 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the number of cookies. The context must have first been routed to a todo_link\n for this to work.\n")
+  @DocAnnotation$annotation$(description = " @return the number of cookies. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
   @TypeInfo("ceylon.language::Integer")
   public long cookieCount() {
     long ret = delegate.cookieCount();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return a set of all the cookies. The context must have first been routed to a todo_link\n for this to be populated.\n")
+  @DocAnnotation$annotation$(description = " @return a set of all the cookies. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to be populated.\n")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.web::Cookie>")
   public ceylon.language.Set<Cookie> cookies() {
     ceylon.language.Set<Cookie> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.web.Cookie.$TypeDescriptor$, delegate.cookies(), io.vertx.ceylon.web.Cookie.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return  the entire HTTP request body as a string, assuming UTF-8 encoding. The context must have first been routed to a\n todo_link for this to be populated.\n")
+  @DocAnnotation$annotation$(description = " @return  the entire HTTP request body as a string, assuming UTF-8 encoding. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getBodyAsString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getBodyAsString());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Get the entire HTTP request body as a string, assuming the specified encoding. The context must have first been routed to a\n todo_link for this to be populated.\n")
+  @DocAnnotation$annotation$(description = " Get the entire HTTP request body as a string, assuming the specified encoding. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getBodyAsString(
     final @TypeInfo("ceylon.language::String") @Name("encoding") @DocAnnotation$annotation$(description = "todo") ceylon.language.String encoding) {
@@ -227,28 +227,28 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n todo_link for this to be populated.\n")
+  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object getBodyAsJson() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getBodyAsJson());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n todo_link for this to be populated.\n")
+  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer?")
   public Buffer getBody() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.getBody());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return a set of fileuploads (if any) for the request. The context must have first been routed to a\n todo_link for this to work.\n")
+  @DocAnnotation$annotation$(description = " @return a set of fileuploads (if any) for the request. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to work.\n")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.web::FileUpload>")
   public ceylon.language.Set<FileUpload> fileUploads() {
     ceylon.language.Set<FileUpload> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.web.FileUpload.$TypeDescriptor$, delegate.fileUploads(), io.vertx.ceylon.web.FileUpload.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Get the session. The context must have first been routed to a todo_link\n for this to be populated.\n Sessions live for a browser session, and are maintained by session cookies.\n")
+  @DocAnnotation$annotation$(description = " Get the session. The context must have first been routed to a [SessionHandler](../handler/SessionHandler.type.html)\n for this to be populated.\n Sessions live for a browser session, and are maintained by session cookies.\n")
   @TypeInfo("io.vertx.ceylon.web::Session?")
   public Session session() {
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.session());
@@ -262,7 +262,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n todo_link then this will return that throwable. It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
+  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [RoutingContext](RoutingContext.type.html) then this will return that throwable. It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
   @TypeInfo("ceylon.language::Throwable?")
   public Throwable failure() {
     if (cached_failure != null) {
@@ -273,7 +273,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n todo_link  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
+  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [RoutingContext](RoutingContext.type.html)  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
   @TypeInfo("ceylon.language::Integer")
   public long statusCode() {
     if (cached_statusCode != null) {
@@ -342,7 +342,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Set the body. Used by the todo_link. You will not normally call this method.\n")
+  @DocAnnotation$annotation$(description = " Set the body. Used by the [BodyHandler](../handler/BodyHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setBody(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("body") @DocAnnotation$annotation$(description = "todo") Buffer body) {
@@ -350,7 +350,7 @@ public class RoutingContext implements ReifiedType {
     delegate.setBody(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Set the session. Used by the todo_link. You will not normally call this method.\n")
+  @DocAnnotation$annotation$(description = " Set the session. Used by the [SessionHandler](../handler/SessionHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setSession(
     final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "todo") Session session) {
