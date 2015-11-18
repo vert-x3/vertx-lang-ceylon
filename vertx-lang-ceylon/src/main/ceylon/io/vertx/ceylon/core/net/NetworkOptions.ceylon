@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.NetworkOptions */
+" @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
 shared class NetworkOptions(
   shared Integer? receiveBufferSize = null,
   shared Boolean? reuseAddress = null,

@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.auth.jwt.JWTOptions */
+" Options related to creation of new tokens.\n\n If any expiresInMinutes, audience, subject, issuer are not provided, there is no default.\n The jwt generated won't include those properties in the payload.\n\n Generated JWTs will include an iat claim by default unless noTimestamp is specified.\n"
 shared class JWTOptions(
   shared String? algorithm = null,
   shared {String*}? audience = null,

@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.web.handler.sockjs.SockJSHandlerOptions */
+" Options for configuring a SockJS handler\n"
 shared class SockJSHandlerOptions(
   shared {String*}? disabledTransports = null,
   shared Integer? heartbeatInterval = null,

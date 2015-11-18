@@ -23,6 +23,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.web.handler.sockjs.BridgeOptions */
+" Options for configuring the event bus bridge.\n"
 shared class BridgeOptions(
   shared {PermittedOptions*}? inboundPermitted = null,
   shared {PermittedOptions*}? inboundPermitteds = null,

@@ -22,6 +22,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
+" Options used to configure a datagram socket.\n"
 shared class DatagramSocketOptions(
   shared Boolean? broadcast = null,
   shared Boolean? ipV6 = null,

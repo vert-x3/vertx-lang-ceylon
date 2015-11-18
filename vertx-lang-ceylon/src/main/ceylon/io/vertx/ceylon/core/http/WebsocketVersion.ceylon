@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { WebsocketVersion_=WebsocketVersion }
 
+" Represents the WebSocket version\n"
 shared abstract class WebsocketVersion(shared String name) of \iV00 | \iV07 | \iV08 | \iV13 {
 }
 

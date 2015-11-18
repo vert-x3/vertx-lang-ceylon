@@ -30,6 +30,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.ClientOptionsBase */
+" Base class for Client options\n"
 shared class ClientOptionsBase(
   shared Integer? connectTimeout = null,
   {String*}? crlPaths = null,

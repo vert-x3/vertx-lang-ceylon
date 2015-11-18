@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { HttpMethod_=HttpMethod }
 
+" Represents an HTTP method\n"
 shared abstract class HttpMethod(shared String name) of \iOPTIONS | \iGET | \iHEAD | \iPOST | \iPUT | \iDELETE | \iTRACE | \iCONNECT | \iPATCH {
 }
 

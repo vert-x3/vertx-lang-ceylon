@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.codegen.testmodel { TestGenEnum_=TestGenEnum }
 
+" @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
 shared abstract class TestGenEnum(shared String name) of \iLAURA | \iBOB | \iMIKE | \iLELAND {
 }
 

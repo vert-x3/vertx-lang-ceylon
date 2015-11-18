@@ -30,6 +30,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.TCPSSLOptions */
+" Base class. TCP and SSL related options\n"
 shared class TCPSSLOptions(
   shared {String*}? crlPaths = null,
   shared {String*}? enabledCipherSuites = null,

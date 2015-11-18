@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.ext.auth.shiro { ShiroAuthRealmType_=ShiroAuthRealmType }
 
+" The type of the Shiro auth realm\n"
 shared abstract class ShiroAuthRealmType(shared String name) of \iPROPERTIES | \iLDAP {
 }
 

@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.sql.ResultSet */
+" Represents the results of a SQL query.\n <p>\n It contains a list for the column names of the results, and a list of <code>JsonArray</code> - one for each row of the\n results.\n"
 shared class ResultSet(
   shared {String*}? columnNames = null,
   shared Integer? numColumns = null,

@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.dns { DnsResponseCode_=DnsResponseCode }
 
+" Represents the possible response codes a server may send after receiving a\n query. A response code of 0 indicates no error.\n\n"
 shared abstract class DnsResponseCode(shared String name) of \iNOERROR | \iFORMERROR | \iSERVFAIL | \iNXDOMAIN | \iNOTIMPL | \iREFUSED | \iYXDOMAIN | \iYXRRSET | \iNXRRSET | \iNOTAUTH | \iNOTZONE | \iBADVERS | \iBADSIG | \iBADKEY | \iBADTIME {
 }
 

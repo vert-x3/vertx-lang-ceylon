@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.ext.web.handler.sockjs { BridgeEventType_=BridgeEventType }
 
+" Bridge Event Types.\n"
 shared abstract class BridgeEventType(shared String name) of \iSOCKET_CREATED | \iSOCKET_CLOSED | \iSEND | \iPUBLISH | \iRECEIVE | \iREGISTER | \iUNREGISTER {
 }
 

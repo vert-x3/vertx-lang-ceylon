@@ -26,6 +26,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.auth.shiro.ShiroAuthOptions */
+" Shiro auth configuration options, see Vert.x Auth Shiro component and/or Apache Shiro project.\n"
 shared class ShiroAuthOptions(
   shared JsonObject? config = null,
   shared ShiroAuthRealmType? type = null) extends AuthOptions() satisfies BaseDataObject {

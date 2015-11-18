@@ -149,6 +149,9 @@
 @includeNamed{'genImports'}
 
 /* Generated from @{type.name} */\n
+@if{doc != null}
+"@{genDoc(doc)}"\n
+@end{}
 shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@foreach{prop:props}
 \n  @if{prop.declared}shared @end{}@{genPropTypeDecl(prop)}? @{toCeylonIdentifier(prop.name)} = null

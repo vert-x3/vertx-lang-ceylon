@@ -34,6 +34,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.NetServerOptions */
+" Options for configuring a [NetServer](../net/NetServer.type.html).\n"
 shared class NetServerOptions(
   shared Integer? acceptBacklog = null,
   shared ClientAuth? clientAuth = null,

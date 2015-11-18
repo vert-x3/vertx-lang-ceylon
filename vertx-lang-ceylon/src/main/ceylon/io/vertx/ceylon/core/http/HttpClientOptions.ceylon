@@ -34,6 +34,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.http.HttpClientOptions */
+" Options describing how an [HttpClient](../http/HttpClient.type.html) will make connections.\n"
 shared class HttpClientOptions(
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,

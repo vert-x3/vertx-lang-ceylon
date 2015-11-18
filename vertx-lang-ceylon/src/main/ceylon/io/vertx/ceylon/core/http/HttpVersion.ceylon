@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { HttpVersion_=HttpVersion }
 
+" Represents the version of the HTTP protocol.\n"
 shared abstract class HttpVersion(shared String name) of \iHTTP_1_0 | \iHTTP_1_1 {
 }
 

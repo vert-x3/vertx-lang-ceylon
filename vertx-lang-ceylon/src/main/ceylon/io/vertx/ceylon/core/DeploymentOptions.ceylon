@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.DeploymentOptions */
+" Options for configuring a verticle deployment.\n <p>\n"
 shared class DeploymentOptions(
   shared JsonObject? config = null,
   shared {String*}? extraClasspath = null,

@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { ClientAuth_=ClientAuth }
 
+" Configures the engine to require/request client authentication. Following are the options :\n <p>\n NONE - No client authentication is requested or required.\n <p>\n REQUEST - Accept authentication if presented by client. If this option is set and the client chooses\n      not to provide authentication information about itself, the negotiations will continue.\n <p>\n REQUIRED - Require client to present authentication, if not presented then negotiations will be declined.\n <p>\n Created by manishk on 10/2/2015.\n"
 shared abstract class ClientAuth(shared String name) of \iNONE | \iREQUEST | \iREQUIRED {
 }
 

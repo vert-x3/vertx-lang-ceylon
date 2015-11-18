@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.cli.Argument */
+" Defines a command line argument. Unlike options, argument don't have names and are identified using an index. The\n first index is 0 (because we are in the computer world).\n"
 shared class Argument(
   shared String? argName = null,
   shared String? defaultValue = null,

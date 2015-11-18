@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.sql.UpdateResult */
+" Represents the result of an update/insert/delete operation on the database.\n <p>\n The number of rows updated is available with [getUpdated](UpdateResult.type.html#getUpdated) and any generated\n keys are available with [getKeys](UpdateResult.type.html#getKeys).\n"
 shared class UpdateResult(
   shared JsonArray? keys = null,
   shared Integer? updated = null) satisfies BaseDataObject {

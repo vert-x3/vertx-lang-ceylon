@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.eventbus { ReplyFailure_=ReplyFailure }
 
+" Represents the type of reply failure\n"
 shared abstract class ReplyFailure(shared String name) of \iTIMEOUT | \iNO_HANDLERS | \iRECIPIENT_FAILURE {
 }
 

@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.ext.web.handler { LoggerFormat_=LoggerFormat }
 
+" The possible out of the box formats.\n"
 shared abstract class LoggerFormat(shared String name) of \iDEFAULT | \iSHORT | \iTINY {
 }
 

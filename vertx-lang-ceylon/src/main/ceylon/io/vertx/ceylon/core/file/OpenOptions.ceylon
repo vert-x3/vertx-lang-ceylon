@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.file.OpenOptions */
+" Describes how an [AsyncFile](../file/AsyncFile.type.html) should be opened.\n"
 shared class OpenOptions(
   shared Boolean? create = null,
   shared Boolean? createNew = null,

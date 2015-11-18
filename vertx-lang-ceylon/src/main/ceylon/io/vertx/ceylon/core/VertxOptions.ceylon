@@ -23,6 +23,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.VertxOptions */
+" Instances of this class are used to configure [Vertx](Vertx.type.html) instances.\n"
 shared class VertxOptions(
   shared Integer? blockedThreadCheckInterval = null,
   shared String? clusterHost = null,

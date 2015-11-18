@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.web.handler.sockjs.PermittedOptions */
+" Specify a match to allow for inbound and outbound traffic using the\n [BridgeOptions](../../handler/sockjs/BridgeOptions.type.html).\n"
 shared class PermittedOptions(
   shared String? address = null,
   shared String? addressRegex = null,

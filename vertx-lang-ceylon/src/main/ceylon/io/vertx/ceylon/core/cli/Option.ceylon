@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.cli.Option */
+" Models command line options. Options are values passed to a command line interface using -x or --x. Supported\n syntaxes depend on the parser.\n <p/>\n Short name is generally used with a single dash, while long name requires a double-dash.\n"
 shared class Option(
   shared String? argName = null,
   shared {String*}? choices = null,

@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.TestDataObject */
+" @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
 shared class TestDataObject(
   shared Integer? bar = null,
   shared String? foo = null,

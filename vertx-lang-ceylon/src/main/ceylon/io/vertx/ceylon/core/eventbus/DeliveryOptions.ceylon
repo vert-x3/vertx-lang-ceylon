@@ -19,6 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.eventbus.DeliveryOptions */
+" Delivery options are used to configure message delivery.\n <p>\n Delivery options allow to configure delivery timeout and message codec name, and to provide any headers\n that you wish to send with the message.\n"
 shared class DeliveryOptions(
   shared String? codecName = null,
   shared Integer? sendTimeout = null) satisfies BaseDataObject {

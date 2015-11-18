@@ -30,6 +30,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.NetClientOptions */
+" Options for configuring a [NetClient](../net/NetClient.type.html).\n"
 shared class NetClientOptions(
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,

@@ -14,6 +14,9 @@ import io.vertx.lang.ceylon { Converter }\n
 import @{type.packageName} { @{type.simpleName}_=@{type.simpleName} }\n
 
 \n
+@if{doc != null}
+"@{genDoc(doc)}"\n
+@end{}
 shared abstract class @{type.simpleName}(shared String name) of @foreach{value:values}@{asValidMember(value.identifier)}@end{' | '} {\n
 }\n
 

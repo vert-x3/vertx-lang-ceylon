@@ -34,6 +34,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.http.HttpServerOptions */
+" Represents options used by an [HttpServer](../http/HttpServer.type.html) instance\n"
 shared class HttpServerOptions(
   Integer? acceptBacklog = null,
   ClientAuth? clientAuth = null,

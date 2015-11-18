@@ -1,6 +1,7 @@
 import io.vertx.lang.ceylon { Converter }
 import io.vertx.ext.web.handler.sockjs { Transport_=Transport }
 
+" The available SockJS transports\n"
 shared abstract class Transport(shared String name) of \iWEBSOCKET | \iEVENT_SOURCE | \iHTML_FILE | \iJSON_P | \iXHR {
 }
 
