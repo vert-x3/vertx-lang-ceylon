@@ -60,7 +60,7 @@ public class User implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.common::User")
   public User isAuthorised(
     final @TypeInfo("ceylon.language::String") @Name("authority") @DocAnnotation$annotation$(description = "the authority - what this really means is determined by the specific implementation. It might represent a permission to access a resource e.g. `printers:printer34` or it might represent authority to a role in a roles based model, e.g. `role:admin`.\n") ceylon.language.String authority, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called with an `io.vertx.core.AsyncResult` containing the value `true` if the they has the authority or `false` otherwise.\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called with an _async result_ containing the value `true` if the they has the authority or `false` otherwise.\n") Callable<?> resultHandler) {
     if (cached_isAuthorised != null) {
       return cached_isAuthorised;
     }

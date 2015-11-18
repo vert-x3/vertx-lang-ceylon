@@ -475,9 +475,11 @@
         }
       }
     } else if (rawType.kind == CLASS_HANDLER) {
-      label = 'handler';
+      return '_handler_';
     } else if (rawType.kind == CLASS_STRING) {
-      label = 'String';
+      return '`String`';
+    } else if (rawType.kind == CLASS_ASYNC_RESULT) {
+      return '_async result_';
     }
     if (uri != null) {
       return '[' + label + '](' + uri + ')';
