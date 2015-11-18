@@ -437,9 +437,10 @@
    * renderDocToHtml function when it needs to render tag links.
    */
   def renderLinkToHtml(link) {
+    var uri = null;
+    var label = link.label.trim();
     var rawType = link.targetType.raw;
     if (rawType.module != null) {
-      var label = link.label.trim();
       if (type.kind == CLASS_API) {
         var elt = link.targetElement;
         var eltKind = elt.getKind().name();
@@ -449,37 +450,40 @@
           if (eltKind == 'METHOD' && elt.modifiers.contains(javax.lang.model.element.Modifier.STATIC)) {
             to.set(to.size() - 1, CASE_CAMEL.to(CASE_LOWER_CAMEL, to.get(to.size() - 1)));
           }
-          var link = new java.lang.StringBuilder();
+          var uri = new java.lang.StringBuilder();
           while (from-- > 0) {
-            link.append('../');
+            uri.append('../');
           }
           for (atom : to) {
-            link.append(atom).append('/');
+            uri.append(atom).append('/');
           }
-          link.length = link.length() - 1;
-          link.append('.type.html');
+          uri.length = uri.length() - 1;
+          uri.append('.type.html');
           if (eltKind == 'METHOD') {
-            link.append('#').append(elt.getSimpleName());
-            if (label.length() == 0) {
+            uri.append('#').append(elt.getSimpleName());
+            if (label.empty) {
               label = elt.getSimpleName().toString();
             }
           } else {
-            if (label.length() == 0) {
+            if (label.empty) {
               label = rawType.simpleName;
             }
           }
-          return '[' + label +'](' + link.toString() + ')';
-        }
-        if (label.length() > 0) {
-          return '`' + label + '`';
+          uri = uri.toString();
         } else {
-          if (eltKind == 'METHOD') {
-            return '`' + elt.getSimpleName().toString() + '`';
+          if (label.empty && eltKind == 'METHOD') {
+            label = elt.getSimpleName().toString();
           }
         }
       }
     }
-    return '`' + rawType.name + '`';
+    if (uri != null) {
+      return '[' + label + '](' + uri + ')';
+    } else if (label.empty) {
+      return '`' + rawType.name + '`';
+    } else {
+      return '`' + label + '`';
+    }
   }
 
   def genDoc(doc) {
