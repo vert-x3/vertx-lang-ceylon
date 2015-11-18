@@ -61,7 +61,7 @@ public class jdbcClient_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Like [createShared](JDBCClient.type.html#createShared) but with the default data source name\n")
+  @DocAnnotation$annotation$(description = " Like [createShared](jdbcClient.type.html#createShared) but with the default data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 

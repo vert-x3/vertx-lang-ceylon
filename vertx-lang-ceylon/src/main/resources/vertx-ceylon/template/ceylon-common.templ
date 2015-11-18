@@ -446,6 +446,9 @@
         if (type.module.name == rawType.module.name) {
           var from = CASE_QUALIFIED.parse(rawType.name.substring(type.module.packageName.length() + 1)).size() - 1;
           var to = CASE_QUALIFIED.parse(rawType.name.substring(rawType.module.packageName.length() + 1));
+          if (eltKind == 'METHOD' && elt.modifiers.contains(javax.lang.model.element.Modifier.STATIC)) {
+            to.set(to.size() - 1, CASE_CAMEL.to(CASE_LOWER_CAMEL, to.get(to.size() - 1)));
+          }
           var link = new java.lang.StringBuilder();
           while (from-- > 0) {
             link.append('../');
@@ -456,7 +459,6 @@
           link.length = link.length() - 1;
           link.append('.type.html');
           if (eltKind == 'METHOD') {
-            /* Static method ???? */
             link.append('#').append(elt.getSimpleName());
             if (label.length() == 0) {
               label = elt.getSimpleName().toString();
