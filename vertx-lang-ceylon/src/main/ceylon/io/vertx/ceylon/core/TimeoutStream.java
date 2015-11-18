@@ -101,7 +101,7 @@ public class TimeoutStream implements ReifiedType,  ReadStream<ceylon.language.I
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Cancels the timeout. Note this has the same effect as calling [TimeoutStream](TimeoutStream.type.html) with a null\n argument.\n")
+  @DocAnnotation$annotation$(description = " Cancels the timeout. Note this has the same effect as calling [handler](TimeoutStream.type.html#handler) with a null\n argument.\n")
   @TypeInfo("ceylon.language::Anything")
   public void cancel() {
     delegate.cancel();

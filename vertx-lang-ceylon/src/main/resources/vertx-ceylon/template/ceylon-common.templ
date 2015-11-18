@@ -437,19 +437,12 @@
    * renderDocToHtml function when it needs to render tag links.
    */
   def renderLinkToHtml(link) {
-
     var rawType = link.targetType.raw;
     if (rawType.module != null) {
-
       var label = link.label.trim();
       if (type.kind == CLASS_API) {
         var elt = link.targetElement;
         var eltKind = elt.getKind().name();
-
-        if (label.length() == 0) {
-          label = rawType.simpleName;
-        }
-
         if (type.module.name == rawType.module.name) {
           var from = CASE_QUALIFIED.parse(rawType.name.substring(type.module.packageName.length() + 1)).size() - 1;
           var to = CASE_QUALIFIED.parse(rawType.name.substring(rawType.module.packageName.length() + 1));
@@ -462,24 +455,29 @@
           }
           link.length = link.length() - 1;
           link.append('.type.html');
+          if (eltKind == 'METHOD') {
+            /* Static method ???? */
+            link.append('#').append(elt.getSimpleName());
+            if (label.length() == 0) {
+              label = elt.getSimpleName().toString();
+            }
+          } else {
+            if (label.length() == 0) {
+              label = rawType.simpleName;
+            }
+          }
           return '[' + label +'](' + link.toString() + ')';
         }
-
-        /*
-        if (eltKind == "METHOD") {
-          ret += "#" + elt.getSimpleName().toString();
-        }
-        */
-        /*
         if (label.length() > 0) {
-          ret += " " + label;
+          return '`' + label + '`';
+        } else {
+          if (eltKind == 'METHOD') {
+            return '`' + elt.getSimpleName().toString() + '`';
+          }
         }
-        ret += "}";
-        */
       }
     }
-
-    return 'todo_link(' + rawType.name + ')';
+    return '`' + rawType.name + '`';
   }
 
   def genDoc(doc) {

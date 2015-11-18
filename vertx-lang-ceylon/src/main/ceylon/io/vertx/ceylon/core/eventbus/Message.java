@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a message that is received from the event bus in a handler.\n <p>\n Messages have a [Message](../eventbus/Message.type.html), which can be null, and also [Message](../eventbus/Message.type.html), which can be empty.\n <p>\n If the message was sent specifying a reply handler it will also have a [Message](../eventbus/Message.type.html). In that case the message\n can be replied to using that reply address, or, more simply by just using [Message](../eventbus/Message.type.html).\n <p>\n If you want to notify the sender that processing failed, then [Message](../eventbus/Message.type.html) can be called.\n")
+@DocAnnotation$annotation$(description = " Represents a message that is received from the event bus in a handler.\n <p>\n Messages have a [body](../eventbus/Message.type.html#body), which can be null, and also [headers](../eventbus/Message.type.html#headers), which can be empty.\n <p>\n If the message was sent specifying a reply handler it will also have a [replyAddress](../eventbus/Message.type.html#replyAddress). In that case the message\n can be replied to using that reply address, or, more simply by just using [reply](../eventbus/Message.type.html#reply).\n <p>\n If you want to notify the sender that processing failed, then [fail](../eventbus/Message.type.html#fail) can be called.\n")
 public class Message<T> implements ReifiedType {
 
   @Ignore
@@ -118,7 +118,7 @@ public class Message<T> implements ReifiedType {
     delegate.reply(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Link [Message](../eventbus/Message.type.html) but allows you to specify delivery options for the reply.\n")
+  @DocAnnotation$annotation$(description = " Link [reply](../eventbus/Message.type.html#reply) but allows you to specify delivery options for the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(
     final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "todo") Object message, 

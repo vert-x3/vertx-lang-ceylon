@@ -17,7 +17,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " The execution context of a [Handler](Handler.type.html) execution.\n <p>\n When Vert.x provides an event to a handler or calls the start or stop methods of a [Verticle](Verticle.type.html),\n the execution is associated with a <code>Context</code>.\n <p>\n Usually a context is an *event-loop context* and is tied to a specific event loop thread. So executions for that\n context always occur on that exact same event loop thread.\n <p>\n In the case of worker verticles and running inline blocking code a worker context will be associated with the execution\n which will use a thread from the worker thread pool.\n <p>\n When a handler is set by a thread associated with a specific context, the Vert.x will guarantee that when that handler\n is executed, that execution will be associated with the same context.\n <p>\n If a handler is set by a thread not associated with a context (i.e. a non Vert.x thread). Then a new context will\n be created for that handler.\n <p>\n In other words, a context is propagated.\n <p>\n This means that when a verticle is deployed, any handlers it sets will be associated with the same context - the context\n of the verticle.\n <p>\n This means (in the case of a standard verticle) that the verticle code will always be executed with the exact same\n thread, so you don't have to worry about multi-threaded acccess to the verticle state and you can code your application\n as single threaded.\n <p>\n This class also allows arbitrary data to be [Context](Context.type.html) and [Context](Context.type.html) on the context so it can be shared easily\n amongst different handlers of, for example, a verticle instance.\n <p>\n This class also provides [Context](Context.type.html) which allows an action to be executed asynchronously using the same context.\n")
+@DocAnnotation$annotation$(description = " The execution context of a [Handler](Handler.type.html) execution.\n <p>\n When Vert.x provides an event to a handler or calls the start or stop methods of a [Verticle](Verticle.type.html),\n the execution is associated with a <code>Context</code>.\n <p>\n Usually a context is an *event-loop context* and is tied to a specific event loop thread. So executions for that\n context always occur on that exact same event loop thread.\n <p>\n In the case of worker verticles and running inline blocking code a worker context will be associated with the execution\n which will use a thread from the worker thread pool.\n <p>\n When a handler is set by a thread associated with a specific context, the Vert.x will guarantee that when that handler\n is executed, that execution will be associated with the same context.\n <p>\n If a handler is set by a thread not associated with a context (i.e. a non Vert.x thread). Then a new context will\n be created for that handler.\n <p>\n In other words, a context is propagated.\n <p>\n This means that when a verticle is deployed, any handlers it sets will be associated with the same context - the context\n of the verticle.\n <p>\n This means (in the case of a standard verticle) that the verticle code will always be executed with the exact same\n thread, so you don't have to worry about multi-threaded acccess to the verticle state and you can code your application\n as single threaded.\n <p>\n This class also allows arbitrary data to be [put](Context.type.html#put) and [get](Context.type.html#get) on the context so it can be shared easily\n amongst different handlers of, for example, a verticle instance.\n <p>\n This class also provides [runOnContext](Context.type.html#runOnContext) which allows an action to be executed asynchronously using the same context.\n")
 public class Context implements ReifiedType {
 
   @Ignore
@@ -70,7 +70,7 @@ public class Context implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the [Future](Future.type.html) or [Future](Future.type.html) method, or the [Future](Future.type.html)\n method if it failed.\n")
+  @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the [complete](Future.type.html#complete) or [complete](Future.type.html#complete) method, or the [fail](Future.type.html#fail)\n method if it failed.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
@@ -93,7 +93,7 @@ public class Context implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Invoke [Context](Context.type.html) with order = true.\n")
+  @DocAnnotation$annotation$(description = " Invoke [executeBlocking](Context.type.html#executeBlocking) with order = true.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> blockingCodeHandler, 
@@ -132,14 +132,14 @@ public class Context implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Is the current context an event loop context?\n <p>\n NOTE! when running blocking code using [Vertx](Vertx.type.html) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return true.\n")
+  @DocAnnotation$annotation$(description = " Is the current context an event loop context?\n <p>\n NOTE! when running blocking code using [executeBlocking](Vertx.type.html#executeBlocking) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return true.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isEventLoopContext() {
     boolean ret = delegate.isEventLoopContext();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Is the current context a worker context?\n <p>\n NOTE! when running blocking code using [Vertx](Vertx.type.html) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return false.\n")
+  @DocAnnotation$annotation$(description = " Is the current context a worker context?\n <p>\n NOTE! when running blocking code using [executeBlocking](Vertx.type.html#executeBlocking) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return false.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isWorkerContext() {
     boolean ret = delegate.isWorkerContext();

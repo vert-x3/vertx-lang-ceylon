@@ -88,7 +88,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [NetServer](../net/NetServer.type.html) but providing a handler that will be notified when the server is listening, or fails.\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
@@ -112,7 +112,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [NetServer](../net/NetServer.type.html) but providing a handler that will be notified when the server is listening, or fails.\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -138,7 +138,7 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [NetServer](../net/NetServer.type.html) but providing a handler that will be notified when the server is listening, or fails.\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetServer")
   public NetServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -159,7 +159,7 @@ public class NetServer implements ReifiedType,  Measured {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " Like [NetServer](../net/NetServer.type.html) but supplying a handler that will be notified when close is complete.\n")
+  @DocAnnotation$annotation$(description = " Like [close](../net/NetServer.type.html#close) but supplying a handler that will be notified when close is complete.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {

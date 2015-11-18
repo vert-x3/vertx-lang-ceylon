@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " An HTTP and WebSockets server.\n <p>\n You receive HTTP requests by providing a [HttpServer](../http/HttpServer.type.html). As requests arrive on the server the handler\n will be called with the requests.\n <p>\n You receive WebSockets by providing a [HttpServer](../http/HttpServer.type.html). As WebSocket connections arrive on the server, the\n WebSocket is passed to the handler.\n")
+@DocAnnotation$annotation$(description = " An HTTP and WebSockets server.\n <p>\n You receive HTTP requests by providing a [requestHandler](../http/HttpServer.type.html#requestHandler). As requests arrive on the server the handler\n will be called with the requests.\n <p>\n You receive WebSockets by providing a [websocketHandler](../http/HttpServer.type.html#websocketHandler). As WebSocket connections arrive on the server, the\n WebSocket is passed to the handler.\n")
 public class HttpServer implements ReifiedType,  Measured {
 
   @Ignore
@@ -119,7 +119,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServer](../http/HttpServer.type.html) but supplying a handler that will be called when the server is actually\n listening (or has failed).\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but supplying a handler that will be called when the server is actually\n listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -136,7 +136,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServer](../http/HttpServer.type.html) but the server will listen on host \"0.0.0.0\" and port specified here ignoring\n any value in the [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but the server will listen on host \"0.0.0.0\" and port specified here ignoring\n any value in the [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port) {
@@ -145,7 +145,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServer](../http/HttpServer.type.html) but supplying a handler that will be called when the server is actually listening (or has failed).\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but supplying a handler that will be called when the server is actually listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "todo") long port, 
@@ -160,7 +160,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServer](../http/HttpServer.type.html) but supplying a handler that will be called when the server is actually listening (or has failed).\n")
+  @DocAnnotation$annotation$(description = " Like [listen](../http/HttpServer.type.html#listen) but supplying a handler that will be called when the server is actually listening (or has failed).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> listenHandler) {
@@ -179,7 +179,7 @@ public class HttpServer implements ReifiedType,  Measured {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServer](../http/HttpServer.type.html) but supplying a handler that will be called when the server is actually closed (or has failed).\n")
+  @DocAnnotation$annotation$(description = " Like [close](../http/HttpServer.type.html#close) but supplying a handler that will be called when the server is actually closed (or has failed).\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> completionHandler) {

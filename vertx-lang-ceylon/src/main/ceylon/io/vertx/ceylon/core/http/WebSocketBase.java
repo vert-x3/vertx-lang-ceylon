@@ -44,7 +44,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WebSocketBase](../http/WebSocketBase.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/WebSocketBase.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
 
@@ -149,7 +149,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WebSocketBase](../http/WebSocketBase.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/WebSocketBase.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();

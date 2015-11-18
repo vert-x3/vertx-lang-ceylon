@@ -88,7 +88,7 @@ public class MultiMap implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets a immutable todo_link(java.util.Set) of all names\n")
+  @DocAnnotation$annotation$(description = " Gets a immutable `java.util.Set` of all names\n")
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> names() {
     ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.names(), io.vertx.lang.ceylon.ToCeylon.String);

@@ -95,7 +95,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write the given todo_link(java.lang.String) to the [SocketAddress](../net/SocketAddress.type.html) using UTF8 encoding.\n The  will be notified once the write completes.\n")
+  @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using UTF8 encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -114,7 +114,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write the given todo_link(java.lang.String) to the [SocketAddress](../net/SocketAddress.type.html) using the given encoding.\n The  will be notified once the write completes.\n")
+  @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using the given encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 

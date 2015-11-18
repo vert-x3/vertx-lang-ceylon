@@ -17,7 +17,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a server side WebSocket.\n <p>\n Instances of this class are passed into a [HttpServer](../http/HttpServer.type.html) or provided\n when a WebSocket handshake is manually [HttpServerRequest](../http/HttpServerRequest.type.html)ed.\n")
+@DocAnnotation$annotation$(description = " Represents a server side WebSocket.\n <p>\n Instances of this class are passed into a [websocketHandler](../http/HttpServer.type.html#websocketHandler) or provided\n when a WebSocket handshake is manually [upgrade](../http/HttpServerRequest.type.html#upgrade)ed.\n")
 public class ServerWebSocket implements ReifiedType,  WebSocketBase {
 
   @Ignore
@@ -58,7 +58,7 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [ServerWebSocket](../http/ServerWebSocket.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/ServerWebSocket.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();

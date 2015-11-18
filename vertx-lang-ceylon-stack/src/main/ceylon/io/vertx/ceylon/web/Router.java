@@ -27,7 +27,7 @@ import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A router receives request from an todo_link(io.vertx.core.http.HttpServer) and routes it to the first matching\n [Route](Route.type.html) that it contains. A router can contain many routes.\n <p>\n Routers are also used for routing failures.\n")
+@DocAnnotation$annotation$(description = " A router receives request from an `io.vertx.core.http.HttpServer` and routes it to the first matching\n [Route](Route.type.html) that it contains. A router can contain many routes.\n <p>\n Routers are also used for routing failures.\n")
 public class Router implements ReifiedType {
 
   @Ignore
@@ -65,7 +65,7 @@ public class Router implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This method is used to provide a request to the router. Usually you take request from the\n todo_link(io.vertx.core.http.HttpServer) and pass it to this method. The\n router then routes it to matching routes.\n")
+  @DocAnnotation$annotation$(description = " This method is used to provide a request to the router. Usually you take request from the\n `requestHandler` and pass it to this method. The\n router then routes it to matching routes.\n")
   @TypeInfo("ceylon.language::Anything")
   public void accept(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest") @Name("request") @DocAnnotation$annotation$(description = "todo") HttpServerRequest request) {

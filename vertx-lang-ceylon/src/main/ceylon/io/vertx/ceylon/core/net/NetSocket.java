@@ -58,7 +58,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [NetSocket](../net/NetSocket.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../net/NetSocket.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -148,7 +148,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the connection, encoded in UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the connection, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str) {
@@ -157,7 +157,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the connection, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the connection, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "todo") ceylon.language.String str, 
@@ -201,7 +201,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -216,7 +216,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -233,7 +233,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [NetSocket](../net/NetSocket.type.html) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
+  @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 

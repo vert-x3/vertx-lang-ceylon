@@ -102,7 +102,7 @@ public class CommandLine implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets the value of an option marked as a flag.\n <p/>\n Calling this method an a non-flag option throws an todo_link(java.lang.IllegalStateException).\n")
+  @DocAnnotation$annotation$(description = " Gets the value of an option marked as a flag.\n <p/>\n Calling this method an a non-flag option throws an `java.lang.IllegalStateException`.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isFlagEnabled(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name) {

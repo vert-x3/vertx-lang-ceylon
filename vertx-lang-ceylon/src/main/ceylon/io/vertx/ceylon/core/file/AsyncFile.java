@@ -56,7 +56,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [AsyncFile](../file/AsyncFile.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../file/AsyncFile.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -202,7 +202,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [AsyncFile](../file/AsyncFile.type.html) but the handler will be called when the flush is complete or if an error occurs\n")
+  @DocAnnotation$annotation$(description = " Same as [flush](../file/AsyncFile.type.html#flush) but the handler will be called when the flush is complete or if an error occurs\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile flush(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

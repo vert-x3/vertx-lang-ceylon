@@ -60,14 +60,14 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [MessageProducer](../eventbus/MessageProducer.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../eventbus/MessageProducer.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Synonym for [MessageProducer](../eventbus/MessageProducer.type.html).\n")
+  @DocAnnotation$annotation$(description = " Synonym for [write](../eventbus/MessageProducer.type.html#write).\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> send(
     final @TypeInfo("T?") @Name("message") @DocAnnotation$annotation$(description = "todo") T message) {

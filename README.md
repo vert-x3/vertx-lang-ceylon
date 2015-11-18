@@ -1,6 +1,11 @@
 vertx-lang-ceylon
 ========
 
+## Open issues
+
+- generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
+- should we convert enums to lower cases ?
+
 ## todo list
 
 - generate data object converter in java to have @GenIgnore

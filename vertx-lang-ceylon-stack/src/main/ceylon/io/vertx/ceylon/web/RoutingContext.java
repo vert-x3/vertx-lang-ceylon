@@ -32,7 +32,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n [Router](Router.type.html) of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the [Session](Session.type.html), cookies and body for the request, given the correct handlers\n in the application.\n")
+@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n [accept](Router.type.html#accept) of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the [Session](Session.type.html), cookies and body for the request, given the correct handlers\n in the application.\n")
 public class RoutingContext implements ReifiedType {
 
   @Ignore
@@ -262,7 +262,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [RoutingContext](RoutingContext.type.html) then this will return that throwable. It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
+  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [fail](RoutingContext.type.html#fail) then this will return that throwable. It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
   @TypeInfo("ceylon.language::Throwable?")
   public Throwable failure() {
     if (cached_failure != null) {
@@ -273,7 +273,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [RoutingContext](RoutingContext.type.html)  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
+  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [fail](RoutingContext.type.html#fail)  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
   @TypeInfo("ceylon.language::Integer")
   public long statusCode() {
     if (cached_statusCode != null) {

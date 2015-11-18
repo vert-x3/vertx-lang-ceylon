@@ -75,7 +75,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying a <code>replyHandler</code> that will be called if the recipient\n subsequently replies to the message.\n")
+  @DocAnnotation$annotation$(description = " Like [send](../eventbus/EventBus.type.html#send) but specifying a <code>replyHandler</code> that will be called if the recipient\n subsequently replies to the message.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public <T> EventBus send(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -92,7 +92,7 @@ public class EventBus implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying <code>options</code> that can be used to configure the delivery.\n")
+  @DocAnnotation$annotation$(description = " Like [send](../eventbus/EventBus.type.html#send) but specifying <code>options</code> that can be used to configure the delivery.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus send(
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -108,7 +108,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying a <code>replyHandler</code> that will be called if the recipient\n subsequently replies to the message.\n")
+  @DocAnnotation$annotation$(description = " Like [send](../eventbus/EventBus.type.html#send) but specifying a <code>replyHandler</code> that will be called if the recipient\n subsequently replies to the message.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public <T> EventBus send(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -138,7 +138,7 @@ public class EventBus implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying <code>options</code> that can be used to configure the delivery.\n")
+  @DocAnnotation$annotation$(description = " Like [publish](../eventbus/EventBus.type.html#publish) but specifying <code>options</code> that can be used to configure the delivery.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::EventBus")
   public EventBus publish(
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -154,7 +154,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Create a message consumer against the specified address.\n <p>\n The returned consumer is not yet registered\n at the address, registration will be effective when [MessageConsumer](../eventbus/MessageConsumer.type.html)\n is called.\n")
+  @DocAnnotation$annotation$(description = " Create a message consumer against the specified address.\n <p>\n The returned consumer is not yet registered\n at the address, registration will be effective when [handler](../eventbus/MessageConsumer.type.html#handler)\n is called.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public <T> MessageConsumer<T> consumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
@@ -184,7 +184,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but the address won't be propagated across the cluster.\n")
+  @DocAnnotation$annotation$(description = " Like [consumer](../eventbus/EventBus.type.html#consumer) but the address won't be propagated across the cluster.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public <T> MessageConsumer<T> localConsumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
@@ -196,7 +196,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but the address won't be propagated across the cluster.\n")
+  @DocAnnotation$annotation$(description = " Like [consumer](../eventbus/EventBus.type.html#consumer) but the address won't be propagated across the cluster.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public <T> MessageConsumer<T> localConsumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -214,7 +214,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Create a message sender against the specified address.\n <p>\n The returned sender will invoke the [EventBus](../eventbus/EventBus.type.html)\n method when the stream [WriteStream](../streams/WriteStream.type.html) method is called with the sender\n address and the provided data.\n")
+  @DocAnnotation$annotation$(description = " Create a message sender against the specified address.\n <p>\n The returned sender will invoke the [send](../eventbus/EventBus.type.html#send)\n method when the stream [write](../streams/WriteStream.type.html#write) method is called with the sender\n address and the provided data.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> sender(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
@@ -226,7 +226,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
+  @DocAnnotation$annotation$(description = " Like [sender](../eventbus/EventBus.type.html#sender) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> sender(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 
@@ -240,7 +240,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Create a message publisher against the specified address.\n <p>\n The returned publisher will invoke the [EventBus](../eventbus/EventBus.type.html)\n method when the stream [WriteStream](../streams/WriteStream.type.html) method is called with the publisher\n address and the provided data.\n")
+  @DocAnnotation$annotation$(description = " Create a message publisher against the specified address.\n <p>\n The returned publisher will invoke the [publish](../eventbus/EventBus.type.html#publish)\n method when the stream [write](../streams/WriteStream.type.html#write) method is called with the publisher\n address and the provided data.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> publisher(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address) {
@@ -252,7 +252,7 @@ public class EventBus implements ReifiedType,  Measured {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Like [EventBus](../eventbus/EventBus.type.html) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
+  @DocAnnotation$annotation$(description = " Like [publisher](../eventbus/EventBus.type.html#publisher) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <T> MessageProducer<T> publisher(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address") @DocAnnotation$annotation$(description = "todo") ceylon.language.String address, 

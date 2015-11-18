@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " An event bus consumer object representing a stream of message to an [EventBus](../eventbus/EventBus.type.html) address that can\n be read from.\n <p>\n The [EventBus](../eventbus/EventBus.type.html) or [EventBus](../eventbus/EventBus.type.html)\n creates a new consumer, the returned consumer is not yet registered against the event bus. Registration\n is effective after the [MessageConsumer](../eventbus/MessageConsumer.type.html) method is invoked.<p>\n\n The consumer is unregistered from the event bus using the [MessageConsumer](../eventbus/MessageConsumer.type.html) method or by calling the\n [MessageConsumer](../eventbus/MessageConsumer.type.html) with a null value..\n")
+@DocAnnotation$annotation$(description = " An event bus consumer object representing a stream of message to an [EventBus](../eventbus/EventBus.type.html) address that can\n be read from.\n <p>\n The [consumer](../eventbus/EventBus.type.html#consumer) or [localConsumer](../eventbus/EventBus.type.html#localConsumer)\n creates a new consumer, the returned consumer is not yet registered against the event bus. Registration\n is effective after the [handler](../eventbus/MessageConsumer.type.html#handler) method is invoked.<p>\n\n The consumer is unregistered from the event bus using the [unregister](../eventbus/MessageConsumer.type.html#unregister) method or by calling the\n [handler](../eventbus/MessageConsumer.type.html#handler) with a null value..\n")
 public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> {
 
   @Ignore

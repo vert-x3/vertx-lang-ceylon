@@ -151,7 +151,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Adds a set of options. Unlike [CLI](../cli/CLI.type.html)}, this method does not remove the existing options.\n The given list is appended to the existing list.\n")
+  @DocAnnotation$annotation$(description = " Adds a set of options. Unlike [setOptions](../cli/CLI.type.html#setOptions)}, this method does not remove the existing options.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addOptions(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>") @Name("options") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Option> options) {
@@ -185,7 +185,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Adds a set of arguments. Unlike [CLI](../cli/CLI.type.html), this method does not remove the existing arguments.\n The given list is appended to the existing list.\n")
+  @DocAnnotation$annotation$(description = " Adds a set of arguments. Unlike [setArguments](../cli/CLI.type.html#setArguments), this method does not remove the existing arguments.\n The given list is appended to the existing list.\n")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI addArguments(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>") @Name("args") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<io.vertx.ceylon.core.cli.Argument> args) {

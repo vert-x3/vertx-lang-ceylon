@@ -84,7 +84,7 @@ public class SockJSHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [SockJSHandler](../../handler/sockjs/SockJSHandler.type.html) but specifying a handler\n that will receive bridge events.\n")
+  @DocAnnotation$annotation$(description = " Like [bridge](../../handler/sockjs/SockJSHandler.type.html#bridge) but specifying a handler\n that will receive bridge events.\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler bridge(
     final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions, 

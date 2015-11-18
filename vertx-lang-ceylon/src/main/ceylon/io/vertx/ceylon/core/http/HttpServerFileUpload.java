@@ -146,14 +146,14 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " The size of the upload may not be available until it is all read.\n Check [HttpServerFileUpload](../http/HttpServerFileUpload.type.html) to determine this\n")
+  @DocAnnotation$annotation$(description = " The size of the upload may not be available until it is all read.\n Check [isSizeAvailable](../http/HttpServerFileUpload.type.html#isSizeAvailable) to determine this\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if the size of the upload can be retrieved via [HttpServerFileUpload](../http/HttpServerFileUpload.type.html).\n")
+  @DocAnnotation$annotation$(description = " @return true if the size of the upload can be retrieved via [size](../http/HttpServerFileUpload.type.html#size).\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isSizeAvailable() {
     boolean ret = delegate.isSizeAvailable();

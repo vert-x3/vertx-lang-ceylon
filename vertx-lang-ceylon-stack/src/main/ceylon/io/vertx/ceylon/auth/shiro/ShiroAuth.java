@@ -16,7 +16,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Factory interface for creating Apache Shiro based todo_link(io.vertx.ext.auth.AuthProvider) instances.\n")
+@DocAnnotation$annotation$(description = " Factory interface for creating Apache Shiro based `io.vertx.ext.auth.AuthProvider` instances.\n")
 public class ShiroAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore

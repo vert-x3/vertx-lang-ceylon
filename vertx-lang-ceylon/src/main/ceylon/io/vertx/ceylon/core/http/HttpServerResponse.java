@@ -58,7 +58,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [HttpServerResponse](../http/HttpServerResponse.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/HttpServerResponse.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
@@ -121,7 +121,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP status message of the response. If this is not specified a default value will be used depending on what\n [HttpServerResponse](../http/HttpServerResponse.type.html) has been set to.\n")
+  @DocAnnotation$annotation$(description = " @return the HTTP status message of the response. If this is not specified a default value will be used depending on what\n [setStatusCode](../http/HttpServerResponse.type.html#setStatusCode) has been set to.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getStatusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getStatusMessage());
@@ -210,7 +210,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the response body, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the response body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -221,7 +221,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a todo_link(java.lang.String) to the response body, encoded in UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the response body, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -237,7 +237,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [HttpServerResponse](../http/HttpServerResponse.type.html) but writes a String in UTF-8 encoding before ending the response.\n")
+  @DocAnnotation$annotation$(description = " Same as [end](../http/HttpServerResponse.type.html#end) but writes a String in UTF-8 encoding before ending the response.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk) {
@@ -245,7 +245,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " Same as [HttpServerResponse](../http/HttpServerResponse.type.html) but writes a String with the specified encoding before ending the response.\n")
+  @DocAnnotation$annotation$(description = " Same as [end](../http/HttpServerResponse.type.html#end) but writes a String with the specified encoding before ending the response.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "todo") ceylon.language.String chunk, 
@@ -255,7 +255,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Same as [HttpServerResponse](../http/HttpServerResponse.type.html) but writes some data to the response body before ending. If the response is not chunked and\n no other data has been written then the @code{Content-Length} header will be automatically set.\n")
+  @DocAnnotation$annotation$(description = " Same as [end](../http/HttpServerResponse.type.html#end) but writes some data to the response body before ending. If the response is not chunked and\n no other data has been written then the @code{Content-Length} header will be automatically set.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("chunk") @DocAnnotation$annotation$(description = "todo") Buffer chunk) {
@@ -269,7 +269,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.end();
   }
 
-  @DocAnnotation$annotation$(description = " Same as [HttpServerResponse](../http/HttpServerResponse.type.html) using offset @code{0} which means starting from the beginning of the file.\n")
+  @DocAnnotation$annotation$(description = " Same as [sendFile](../http/HttpServerResponse.type.html#sendFile) using offset @code{0} which means starting from the beginning of the file.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename) {
@@ -278,7 +278,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [HttpServerResponse](../http/HttpServerResponse.type.html) using length @code{Long.MAX_VALUE} which means until the end of the\n file.\n")
+  @DocAnnotation$annotation$(description = " Same as [sendFile](../http/HttpServerResponse.type.html#sendFile) using length @code{Long.MAX_VALUE} which means until the end of the\n file.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -302,7 +302,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServerResponse](../http/HttpServerResponse.type.html) but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
+  @DocAnnotation$annotation$(description = " Like [sendFile](../http/HttpServerResponse.type.html#sendFile) but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -317,7 +317,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServerResponse](../http/HttpServerResponse.type.html) but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
+  @DocAnnotation$annotation$(description = " Like [sendFile](../http/HttpServerResponse.type.html#sendFile) but providing a handler which will be notified once the file has been completely\n written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 
@@ -334,7 +334,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [HttpServerResponse](../http/HttpServerResponse.type.html) but providing a handler which will be notified once the file has been\n completely written to the wire.\n")
+  @DocAnnotation$annotation$(description = " Like [sendFile](../http/HttpServerResponse.type.html#sendFile) but providing a handler which will be notified once the file has been\n completely written to the wire.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse sendFile(
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "todo") ceylon.language.String filename, 

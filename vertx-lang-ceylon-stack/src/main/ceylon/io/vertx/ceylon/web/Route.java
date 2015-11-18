@@ -136,7 +136,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [Route](Route.type.html) called with ordered = true\n")
+  @DocAnnotation$annotation$(description = " Like [blockingHandler](Route.type.html#blockingHandler) called with ordered = true\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route blockingHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> requestHandler) {
@@ -149,7 +149,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Specify a blocking request handler for the route.\n This method works just like [Route](Route.type.html) excepted that it will run the blocking handler on a worker thread\n so that it won't block the event loop. Note that it's safe to call context.next() from the\n blocking handler as it will be executed on the event loop context (and not on the worker thread.\n\n If the blocking handler is ordered it means that any blocking handlers for the same context are never executed\n concurrently but always in the order they were called. The default value of ordered is true. If you do not want this\n behaviour and don't mind if your blocking handlers are executed in parallel you can set ordered to false.\n")
+  @DocAnnotation$annotation$(description = " Specify a blocking request handler for the route.\n This method works just like [handler](Route.type.html#handler) excepted that it will run the blocking handler on a worker thread\n so that it won't block the event loop. Note that it's safe to call context.next() from the\n blocking handler as it will be executed on the event loop context (and not on the worker thread.\n\n If the blocking handler is ordered it means that any blocking handlers for the same context are never executed\n concurrently but always in the order they were called. The default value of ordered is true. If you do not want this\n behaviour and don't mind if your blocking handlers are executed in parallel you can set ordered to false.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route blockingHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> requestHandler, 

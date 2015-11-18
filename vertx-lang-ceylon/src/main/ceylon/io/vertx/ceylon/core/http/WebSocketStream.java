@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A stream for [HttpClient](../http/HttpClient.type.html) WebSocket connection.\n <p>\n When the connection attempt is successful, the stream handler is called back with the [WebSocket](../http/WebSocket.type.html)\n argument, immediately followed by a call to the end handler. When the connection attempt fails, the exception handler is invoked.\n <p>\n The connection occurs when the [WebSocketStream](../http/WebSocketStream.type.html) method is called with a non null handler, the other handlers should be\n set before setting the handler.\n")
+@DocAnnotation$annotation$(description = " A stream for [HttpClient](../http/HttpClient.type.html) WebSocket connection.\n <p>\n When the connection attempt is successful, the stream handler is called back with the [WebSocket](../http/WebSocket.type.html)\n argument, immediately followed by a call to the end handler. When the connection attempt fails, the exception handler is invoked.\n <p>\n The connection occurs when the [handler](../http/WebSocketStream.type.html#handler) method is called with a non null handler, the other handlers should be\n set before setting the handler.\n")
 public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @Ignore

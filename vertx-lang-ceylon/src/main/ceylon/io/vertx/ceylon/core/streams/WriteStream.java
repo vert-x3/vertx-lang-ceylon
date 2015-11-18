@@ -48,7 +48,7 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler);
 
-  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [WriteStream](../streams/WriteStream.type.html) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
+  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [writeQueueFull](../streams/WriteStream.type.html#writeQueueFull) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data);
@@ -58,7 +58,7 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize);
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WriteStream](../streams/WriteStream.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../streams/WriteStream.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
 
@@ -102,7 +102,7 @@ public interface WriteStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [WriteStream](../streams/WriteStream.type.html) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
+  @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [writeQueueFull](../streams/WriteStream.type.html#writeQueueFull) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "todo") T data) {
@@ -120,7 +120,7 @@ public interface WriteStream<T> extends StreamBase {
       return this;
     }
 
-  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [WriteStream](../streams/WriteStream.type.html)\n")
+  @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../streams/WriteStream.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
