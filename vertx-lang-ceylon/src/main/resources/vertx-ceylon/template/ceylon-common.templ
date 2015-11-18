@@ -480,6 +480,12 @@
       return '`String`';
     } else if (rawType.kind == CLASS_ASYNC_RESULT) {
       return '_async result_';
+    } else if (rawType.kind == CLASS_SET) {
+      return '`Set`'
+    } else if (rawType.kind == CLASS_LIST) {
+      return '`List`'
+    } else if (rawType.kind == CLASS_MAP) {
+      return '`Map`'
     }
     if (uri != null) {
       return '[' + label + '](' + uri + ')';
