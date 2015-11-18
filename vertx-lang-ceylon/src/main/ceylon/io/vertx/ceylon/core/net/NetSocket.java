@@ -148,7 +148,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the connection, encoded in UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the connection, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str) {
@@ -157,7 +157,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the connection, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the connection, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
     final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str, 

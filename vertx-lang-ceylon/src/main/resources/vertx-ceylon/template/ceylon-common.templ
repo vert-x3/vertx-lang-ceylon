@@ -440,42 +440,44 @@
     var uri = null;
     var label = link.label.trim();
     var rawType = link.targetType.raw;
-    if (rawType.module != null) {
-      if (rawType.kind == CLASS_API) {
-        var elt = link.targetElement;
-        var eltKind = elt.getKind().name();
-        if (type.module.name == rawType.module.name) {
-          var from = CASE_QUALIFIED.parse(rawType.name.substring(type.module.packageName.length() + 1)).size() - 1;
-          var to = CASE_QUALIFIED.parse(rawType.name.substring(rawType.module.packageName.length() + 1));
-          if (eltKind == 'METHOD' && elt.modifiers.contains(javax.lang.model.element.Modifier.STATIC)) {
-            to.set(to.size() - 1, CASE_CAMEL.to(CASE_LOWER_CAMEL, to.get(to.size() - 1)));
-          }
-          var uri = new java.lang.StringBuilder();
-          while (from-- > 0) {
-            uri.append('../');
-          }
-          for (atom : to) {
-            uri.append(atom).append('/');
-          }
-          uri.length = uri.length() - 1;
-          uri.append('.type.html');
-          if (eltKind == 'METHOD') {
-            uri.append('#').append(elt.getSimpleName());
-            if (label.empty) {
-              label = elt.getSimpleName().toString();
-            }
-          } else {
-            if (label.empty) {
-              label = rawType.simpleName;
-            }
-          }
-          uri = uri.toString();
-        } else {
-          if (label.empty && eltKind == 'METHOD') {
+    if (rawType.kind == CLASS_API) {
+      var elt = link.targetElement;
+      var eltKind = elt.getKind().name();
+      if (type.module.name == rawType.module.name) {
+        var from = CASE_QUALIFIED.parse(rawType.name.substring(type.module.packageName.length() + 1)).size() - 1;
+        var to = CASE_QUALIFIED.parse(rawType.name.substring(rawType.module.packageName.length() + 1));
+        if (eltKind == 'METHOD' && elt.modifiers.contains(javax.lang.model.element.Modifier.STATIC)) {
+          to.set(to.size() - 1, CASE_CAMEL.to(CASE_LOWER_CAMEL, to.get(to.size() - 1)));
+        }
+        var uri = new java.lang.StringBuilder();
+        while (from-- > 0) {
+          uri.append('../');
+        }
+        for (atom : to) {
+          uri.append(atom).append('/');
+        }
+        uri.length = uri.length() - 1;
+        uri.append('.type.html');
+        if (eltKind == 'METHOD') {
+          uri.append('#').append(elt.getSimpleName());
+          if (label.empty) {
             label = elt.getSimpleName().toString();
           }
+        } else {
+          if (label.empty) {
+            label = rawType.simpleName;
+          }
+        }
+        uri = uri.toString();
+      } else {
+        if (label.empty && eltKind == 'METHOD') {
+          label = elt.getSimpleName().toString();
         }
       }
+    } else if (rawType.kind == CLASS_HANDLER) {
+      label = 'handler';
+    } else if (rawType.kind == CLASS_STRING) {
+      label = 'String';
     }
     if (uri != null) {
       return '[' + label + '](' + uri + ')';

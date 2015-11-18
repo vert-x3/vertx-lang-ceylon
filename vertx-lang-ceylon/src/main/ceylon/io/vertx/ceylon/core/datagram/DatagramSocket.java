@@ -65,13 +65,13 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write the given [Buffer](../buffer/Buffer.type.html) to the [SocketAddress](../net/SocketAddress.type.html).\n The `io.vertx.core.Handler` will be notified once the write completes.\n")
+  @DocAnnotation$annotation$(description = " Write the given [Buffer](../buffer/Buffer.type.html) to the [SocketAddress](../net/SocketAddress.type.html).\n The `handler` will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("packet") @DocAnnotation$annotation$(description = "the [Buffer](../buffer/Buffer.type.html) to write\n") Buffer packet, 
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `io.vertx.core.Handler` to notify once the write completes.\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `handler` to notify once the write completes.\n") Callable<?> handler) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(packet);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
@@ -95,13 +95,13 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using UTF8 encoding.\n The  will be notified once the write completes.\n")
+  @DocAnnotation$annotation$(description = " Write the given `String` to the [SocketAddress](../net/SocketAddress.type.html) using UTF8 encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `java.lang.String` to write\n") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `String` to write\n") ceylon.language.String str, 
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `io.vertx.core.Handler` to notify once the write completes.\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `handler` to notify once the write completes.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
@@ -114,14 +114,14 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write the given `java.lang.String` to the [SocketAddress](../net/SocketAddress.type.html) using the given encoding.\n The  will be notified once the write completes.\n")
+  @DocAnnotation$annotation$(description = " Write the given `String` to the [SocketAddress](../net/SocketAddress.type.html) using the given encoding.\n The  will be notified once the write completes.\n")
   @TypeInfo("io.vertx.ceylon.core.datagram::DatagramSocket")
   public DatagramSocket send(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `java.lang.String` to write\n") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the `String` to write\n") ceylon.language.String str, 
     final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "the charset used for encoding\n") ceylon.language.String enc, 
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the host port of the remote peer\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `io.vertx.core.Handler` to notify once the write completes.\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the `handler` to notify once the write completes.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     int arg_2 = (int)port;

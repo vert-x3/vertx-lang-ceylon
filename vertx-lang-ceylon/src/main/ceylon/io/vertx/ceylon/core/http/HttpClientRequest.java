@@ -193,7 +193,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the request body, encoded as UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the request body, encoded as UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
     final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk) {
@@ -202,7 +202,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the request body, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the request body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
     final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk, 

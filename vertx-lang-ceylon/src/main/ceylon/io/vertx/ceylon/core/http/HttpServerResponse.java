@@ -210,7 +210,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the response body, encoded using the encoding <code>enc</code>.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the response body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String chunk, 
@@ -221,7 +221,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Write a `java.lang.String` to the response body, encoded in UTF-8.\n")
+  @DocAnnotation$annotation$(description = " Write a `String` to the response body, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse write(
     final @TypeInfo("ceylon.language::String") @Name("chunk") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String chunk) {
