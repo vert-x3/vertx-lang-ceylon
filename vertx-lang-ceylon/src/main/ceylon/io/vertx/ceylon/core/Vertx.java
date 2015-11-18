@@ -314,7 +314,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.deployVerticle(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Like [deployVerticle](Vertx.type.html#deployVerticle) but `io.vertx.core.DeploymentOptions` are provided to configure the\n deployment.\n")
+  @DocAnnotation$annotation$(description = " Like [deployVerticle](Vertx.type.html#deployVerticle) but [DeploymentOptions](DeploymentOptions.type.html) are provided to configure the\n deployment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name\n") ceylon.language.String name, 
@@ -324,7 +324,7 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.deployVerticle(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Like [deployVerticle](Vertx.type.html#deployVerticle) but `io.vertx.core.DeploymentOptions` are provided to configure the\n deployment.\n")
+  @DocAnnotation$annotation$(description = " Like [deployVerticle](Vertx.type.html#deployVerticle) but [DeploymentOptions](DeploymentOptions.type.html) are provided to configure the\n deployment.\n")
   @TypeInfo("ceylon.language::Anything")
   public void deployVerticle(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name\n") ceylon.language.String name, 

@@ -440,7 +440,7 @@
     var uri = null;
     var label = link.label.trim();
     var rawType = link.targetType.raw;
-    if (rawType.kind == CLASS_API) {
+    if (rawType.kind == CLASS_API || rawType.kind == CLASS_DATA_OBJECT || (rawType.kind == CLASS_ENUM && rawType.gen)) {
       var elt = link.targetElement;
       var eltKind = elt.getKind().name();
       if (type.module.name == rawType.module.name) {
