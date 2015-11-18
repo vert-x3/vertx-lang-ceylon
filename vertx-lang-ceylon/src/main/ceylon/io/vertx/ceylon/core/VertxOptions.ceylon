@@ -25,23 +25,41 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.VertxOptions */
 " Instances of this class are used to configure [Vertx](Vertx.type.html) instances.\n"
 shared class VertxOptions(
+  " Get the value of blocked thread check period, in ms.\n <p>\n This setting determines how often Vert.x will check whether event loop threads are executing for too long.\n"
   shared Integer? blockedThreadCheckInterval = null,
+  " Get the host name to be used for clustering.\n"
   shared String? clusterHost = null,
+  " Get the value of cluster ping interval, in ms.\n <p>\n Nodes in the cluster ping each other at this interval to determine whether they are still running.\n"
   shared Integer? clusterPingInterval = null,
+  " Get the value of cluster ping reply interval, in ms.\n <p>\n After sending a ping, if a pong is not received in this time, the node will be considered dead.\n"
   shared Integer? clusterPingReplyInterval = null,
+  " Get the port to be used for clustering\n"
   shared Integer? clusterPort = null,
+  " Get the public facing hostname to be used when clustering.\n"
   shared String? clusterPublicHost = null,
+  " Get the public facing port to be used when clustering.\n"
   shared Integer? clusterPublicPort = null,
+  " Is the Vert.x instance clustered?\n"
   shared Boolean? clustered = null,
+  " Get the number of event loop threads to be used by the Vert.x instance.\n"
   shared Integer? eventLoopPoolSize = null,
+  " Will HA be enabled on the Vert.x instance?\n"
   shared Boolean? haEnabled = null,
+  " Get the HA group to be used when HA is enabled.\n"
   shared String? haGroup = null,
+  " Get the value of internal blocking pool size.\n <p>\n Vert.x maintains a pool for internal blocking operations\n"
   shared Integer? internalBlockingPoolSize = null,
+  " Get the value of max event loop execute time, in ns.\n <p>\n Vert.x will automatically log a warning if it detects that event loop threads haven't returned within this time.\n <p>\n This can be used to detect where the user is blocking an event loop thread, contrary to the Golden Rule of the\n holy Event Loop.\n"
   shared Integer? maxEventLoopExecuteTime = null,
+  " Get the value of max worker execute time, in ns.\n <p>\n Vert.x will automatically log a warning if it detects that worker threads haven't returned within this time.\n <p>\n This can be used to detect where the user is blocking a worker thread for too long. Although worker threads\n can be blocked longer than event loop threads, they shouldn't be blocked for long periods of time.\n"
   shared Integer? maxWorkerExecuteTime = null,
+  " @return the metrics options\n"
   shared MetricsOptions? metricsOptions = null,
+  " Get the quorum size to be used when HA is enabled.\n"
   shared Integer? quorumSize = null,
+  " Get the threshold value above this, the blocked warning contains a stack trace.\n"
   shared Integer? warningExceptionTime = null,
+  " Get the maximum number of worker threads to be used by the Vert.x instance.\n <p>\n Worker threads are used for running blocking code and worker verticles.\n"
   shared Integer? workerPoolSize = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

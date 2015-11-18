@@ -21,13 +21,21 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.DeploymentOptions */
 " Options for configuring a verticle deployment.\n <p>\n"
 shared class DeploymentOptions(
+  " Get the JSON configuration that will be passed to the verticle(s) when deployed.\n"
   shared JsonObject? config = null,
+  " Get any extra classpath to be used when deploying the verticle.\n <p>\n Ignored if no isolation group is set.\n"
   shared {String*}? extraClasspath = null,
+  " Will the verticle(s) be deployed as HA (highly available) ?\n"
   shared Boolean? ha = null,
+  " Get the number of instances that should be deployed.\n"
   shared Integer? instances = null,
+  " Get the list of isolated class names, the names can be a Java class fully qualified name such as\n 'com.mycompany.myproject.engine.MyClass' or a wildcard matching such as `com.mycompany.myproject.*`.\n"
   shared {String*}? isolatedClasses = null,
+  " Get the isolation group that will be used when deploying the verticle(s)\n"
   shared String? isolationGroup = null,
+  " Should the verticle(s) be deployed as a multi-threaded worker verticle?\n <p>\n Ignored if [isWorker](DeploymentOptions.type.html#isWorker) is not true.\n"
   shared Boolean? multiThreaded = null,
+  " Should the verticle(s) be deployed as a worker verticle?\n"
   shared Boolean? worker = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

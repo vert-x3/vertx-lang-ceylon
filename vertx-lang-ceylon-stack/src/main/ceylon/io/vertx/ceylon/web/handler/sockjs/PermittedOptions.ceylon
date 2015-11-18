@@ -21,9 +21,13 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.web.handler.sockjs.PermittedOptions */
 " Specify a match to allow for inbound and outbound traffic using the\n [BridgeOptions](../../handler/sockjs/BridgeOptions.type.html).\n"
 shared class PermittedOptions(
+  " The exact address the message is being sent to. If you want to allow messages based on\n an exact address you use this field.\n"
   shared String? address = null,
+  " A regular expression that will be matched against the address. If you want to allow messages\n based on a regular expression you use this field. If the [setAddress](../../handler/sockjs/PermittedOptions.type.html#setAddress) value is specified\n this will be ignored.\n"
   shared String? addressRegex = null,
+  " This allows you to allow messages based on their structure. Any fields in the match must exist in the\n message with the same values for them to be allowed. This currently only works with JSON messages.\n"
   shared JsonObject? match = null,
+  " Declare a specific authority that user must have in order to allow messages\n"
   shared String? requiredAuthority = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

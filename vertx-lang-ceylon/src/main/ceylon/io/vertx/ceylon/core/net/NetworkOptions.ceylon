@@ -21,9 +21,13 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.NetworkOptions */
 " @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
 shared class NetworkOptions(
+  " Return the TCP receive buffer size, in bytes\n"
   shared Integer? receiveBufferSize = null,
+  " @return  the value of reuse address\n"
   shared Boolean? reuseAddress = null,
+  " Return the TCP send buffer size, in bytes.\n"
   shared Integer? sendBufferSize = null,
+  " @return  the value of traffic class\n"
   shared Integer? trafficClass = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

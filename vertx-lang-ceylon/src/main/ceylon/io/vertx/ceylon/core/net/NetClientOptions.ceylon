@@ -42,7 +42,9 @@ shared class NetClientOptions(
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
   Integer? receiveBufferSize = null,
+  " @return  the value of reconnect attempts\n"
   shared Integer? reconnectAttempts = null,
+  " @return  the value of reconnect interval\n"
   shared Integer? reconnectInterval = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,

@@ -5,8 +5,11 @@ import io.vertx.core.eventbus { ReplyFailure_=ReplyFailure }
 shared abstract class ReplyFailure(shared String name) of \iTIMEOUT | \iNO_HANDLERS | \iRECIPIENT_FAILURE {
 }
 
+" The message send failed because no reply was received before the timeout time.\n"
 shared object \iTIMEOUT extends ReplyFailure("TIMEOUT") {}
+" The message send failed because no handlers were available to handle the message.\n"
 shared object \iNO_HANDLERS extends ReplyFailure("NO_HANDLERS") {}
+" The message send failed because the recipient actively sent back a failure (rejected the message)\n"
 shared object \iRECIPIENT_FAILURE extends ReplyFailure("RECIPIENT_FAILURE") {}
 
 shared object replyFailure {

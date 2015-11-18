@@ -154,6 +154,10 @@
 @end{}
 shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@foreach{prop:props}
+	@if{prop.declared && prop.doc != null}
+\n
+  "@{genDoc(prop.doc)}"
+	@end{}
 \n  @if{prop.declared}shared @end{}@{genPropTypeDecl(prop)}? @{toCeylonIdentifier(prop.name)} = null
 	@end{','})@if{superType != null} extends @{superType.simpleName}(
 	@code{var prev = '\n'}

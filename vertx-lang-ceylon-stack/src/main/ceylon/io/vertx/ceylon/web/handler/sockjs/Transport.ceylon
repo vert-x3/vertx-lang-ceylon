@@ -5,10 +5,15 @@ import io.vertx.ext.web.handler.sockjs { Transport_=Transport }
 shared abstract class Transport(shared String name) of \iWEBSOCKET | \iEVENT_SOURCE | \iHTML_FILE | \iJSON_P | \iXHR {
 }
 
+" <a href=\"http://www.rfc-editor.org/rfc/rfc6455.txt\">rfc 6455</a>\n"
 shared object \iWEBSOCKET extends Transport("WEBSOCKET") {}
+" <a href=\"http://dev.w3.org/html5/eventsource/\">Event source</a>\n"
 shared object \iEVENT_SOURCE extends Transport("EVENT_SOURCE") {}
+" <a href=\"http://cometdaily.com/2007/11/18/ie-activexhtmlfile-transport-part-ii/\">HtmlFile</a>.\n"
 shared object \iHTML_FILE extends Transport("HTML_FILE") {}
+" Slow and old fashioned <a hred=\"https://developer.mozilla.org/en/DOM/window.postMessage\">JSONP polling</a>.\n This transport will show \"busy indicator\" (aka: \"spinning wheel\") when sending data.\n"
 shared object \iJSON_P extends Transport("JSON_P") {}
+" Long-polling using <a hred=\"https://secure.wikimedia.org/wikipedia/en/wiki/XMLHttpRequest#Cross-domain_requests\">cross domain XHR</a>\n"
 shared object \iXHR extends Transport("XHR") {}
 
 shared object transport {

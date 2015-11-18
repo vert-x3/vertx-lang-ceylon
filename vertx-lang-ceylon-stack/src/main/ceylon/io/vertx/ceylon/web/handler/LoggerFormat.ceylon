@@ -5,8 +5,11 @@ import io.vertx.ext.web.handler { LoggerFormat_=LoggerFormat }
 shared abstract class LoggerFormat(shared String name) of \iDEFAULT | \iSHORT | \iTINY {
 }
 
+" <i>remote-client</i> - - [<i>timestamp</i>] \"<i>method</i> <i>uri</i> <i>version</i>\" <i>status</i> <i>content-length</i> \"<i>referrer</i>\" \"<i>user-agent</i>\"\n"
 shared object \iDEFAULT extends LoggerFormat("DEFAULT") {}
+" <i>remote-client</i> - <i>method</i> <i>uri</i> <i>version</i> <i>status</i> <i>content-length</i> <i>duration</i> ms\n"
 shared object \iSHORT extends LoggerFormat("SHORT") {}
+" <i>method</i> <i>uri</i> <i>status</i> - <i>content-length</i> <i>duration</i>\n"
 shared object \iTINY extends LoggerFormat("TINY") {}
 
 shared object loggerFormat {

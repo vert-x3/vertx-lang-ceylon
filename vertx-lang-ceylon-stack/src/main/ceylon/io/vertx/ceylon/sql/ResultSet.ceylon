@@ -21,10 +21,15 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.sql.ResultSet */
 " Represents the results of a SQL query.\n <p>\n It contains a list for the column names of the results, and a list of <code>JsonArray</code> - one for each row of the\n results.\n"
 shared class ResultSet(
+  " Get the column names\n"
   shared {String*}? columnNames = null,
+  " Return the number of columns in the result set\n"
   shared Integer? numColumns = null,
+  " Return the number of rows in the result set\n"
   shared Integer? numRows = null,
+  " Get the results\n"
   shared {JsonArray*}? results = null,
+  " Get the rows - each row represented as a JsonObject where the keys are the column names and the values are\n the column values.\n <p>\n Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will\n overwrite the other if using this method. If that's the case use [getResults](ResultSet.type.html#getResults) instead.\n"
   shared {JsonObject*}? rows = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

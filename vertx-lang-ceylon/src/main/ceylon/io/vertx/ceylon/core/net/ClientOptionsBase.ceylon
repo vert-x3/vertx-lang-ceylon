@@ -32,6 +32,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.ClientOptionsBase */
 " Base class for Client options\n"
 shared class ClientOptionsBase(
+  " @return the value of connect timeout\n"
   shared Integer? connectTimeout = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
@@ -49,6 +50,7 @@ shared class ClientOptionsBase(
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
+  ""
   shared Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
   Boolean? usePooledBuffers = null) extends TCPSSLOptions(

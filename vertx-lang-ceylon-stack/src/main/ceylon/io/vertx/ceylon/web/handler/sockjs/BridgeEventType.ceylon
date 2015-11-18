@@ -5,12 +5,19 @@ import io.vertx.ext.web.handler.sockjs { BridgeEventType_=BridgeEventType }
 shared abstract class BridgeEventType(shared String name) of \iSOCKET_CREATED | \iSOCKET_CLOSED | \iSEND | \iPUBLISH | \iRECEIVE | \iREGISTER | \iUNREGISTER {
 }
 
+" This event will occur when a new SockJS socket is created.\n"
 shared object \iSOCKET_CREATED extends BridgeEventType("SOCKET_CREATED") {}
+" This event will occur when a SockJS socket is closed.\n"
 shared object \iSOCKET_CLOSED extends BridgeEventType("SOCKET_CLOSED") {}
+" This event will occur when a message is attempted to be sent from the client to the server.\n"
 shared object \iSEND extends BridgeEventType("SEND") {}
+" This event will occur when a message is attempted to be published from the client to the server.\n"
 shared object \iPUBLISH extends BridgeEventType("PUBLISH") {}
+" This event will occur when a message is attempted to be delivered from the server to the client.\n"
 shared object \iRECEIVE extends BridgeEventType("RECEIVE") {}
+" This event will occur when a client attempts to register a handler.\n"
 shared object \iREGISTER extends BridgeEventType("REGISTER") {}
+" This event will occur when a client attempts to unregister a handler.\n"
 shared object \iUNREGISTER extends BridgeEventType("UNREGISTER") {}
 
 shared object bridgeEventType {

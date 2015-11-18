@@ -5,7 +5,9 @@ import io.vertx.ext.auth.shiro { ShiroAuthRealmType_=ShiroAuthRealmType }
 shared abstract class ShiroAuthRealmType(shared String name) of \iPROPERTIES | \iLDAP {
 }
 
+" The realm is a Shiro properties auth provider\n"
 shared object \iPROPERTIES extends ShiroAuthRealmType("PROPERTIES") {}
+" The realm is a Shiro LDAP auth provider\n"
 shared object \iLDAP extends ShiroAuthRealmType("LDAP") {}
 
 shared object shiroAuthRealmType {

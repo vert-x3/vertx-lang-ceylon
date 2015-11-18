@@ -5,20 +5,35 @@ import io.vertx.core.dns { DnsResponseCode_=DnsResponseCode }
 shared abstract class DnsResponseCode(shared String name) of \iNOERROR | \iFORMERROR | \iSERVFAIL | \iNXDOMAIN | \iNOTIMPL | \iREFUSED | \iYXDOMAIN | \iYXRRSET | \iNXRRSET | \iNOTAUTH | \iNOTZONE | \iBADVERS | \iBADSIG | \iBADKEY | \iBADTIME {
 }
 
+" ID 0, no error\n"
 shared object \iNOERROR extends DnsResponseCode("NOERROR") {}
+" ID 1, format error\n"
 shared object \iFORMERROR extends DnsResponseCode("FORMERROR") {}
+" ID 2, server failure\n"
 shared object \iSERVFAIL extends DnsResponseCode("SERVFAIL") {}
+" ID 3, name error\n"
 shared object \iNXDOMAIN extends DnsResponseCode("NXDOMAIN") {}
+" ID 4, not implemented\n"
 shared object \iNOTIMPL extends DnsResponseCode("NOTIMPL") {}
+" ID 5, operation refused\n"
 shared object \iREFUSED extends DnsResponseCode("REFUSED") {}
+" ID 6, domain name should not exist\n"
 shared object \iYXDOMAIN extends DnsResponseCode("YXDOMAIN") {}
+" ID 7, resource record set should not exist\n"
 shared object \iYXRRSET extends DnsResponseCode("YXRRSET") {}
+" ID 8, rrset does not exist\n"
 shared object \iNXRRSET extends DnsResponseCode("NXRRSET") {}
+" ID 9, not authoritative for zone\n"
 shared object \iNOTAUTH extends DnsResponseCode("NOTAUTH") {}
+" ID 10, name not in zone\n"
 shared object \iNOTZONE extends DnsResponseCode("NOTZONE") {}
+" ID 11, bad extension mechanism for version\n"
 shared object \iBADVERS extends DnsResponseCode("BADVERS") {}
+" ID 12, bad signature\n"
 shared object \iBADSIG extends DnsResponseCode("BADSIG") {}
+" ID 13, bad key\n"
 shared object \iBADKEY extends DnsResponseCode("BADKEY") {}
+" ID 14, bad timestamp\n"
 shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
 
 shared object dnsResponseCode {

@@ -21,12 +21,19 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.cli.Argument */
 " Defines a command line argument. Unlike options, argument don't have names and are identified using an index. The\n first index is 0 (because we are in the computer world).\n"
 shared class Argument(
+  " @return the arg name, <code>null</code> if not defined.\n"
   shared String? argName = null,
+  " @return the argument default value, <code>null</code> if not specified.\n"
   shared String? defaultValue = null,
+  " @return the description, <code>null</code> if not defined.\n"
   shared String? description = null,
+  " @return whether or not the current [Argument](../cli/Argument.type.html) is hidden.\n"
   shared Boolean? hidden = null,
+  " @return the argument index.\n"
   shared Integer? index = null,
+  " @return whether or not the argument can receive several values.\n"
   shared Boolean? multiValued = null,
+  " @return whether or not the current [Argument](../cli/Argument.type.html) is required.\n"
   shared Boolean? required = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

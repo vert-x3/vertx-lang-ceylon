@@ -32,23 +32,37 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.TCPSSLOptions */
 " Base class. TCP and SSL related options\n"
 shared class TCPSSLOptions(
+  ""
   shared {String*}? crlPaths = null,
+  ""
   shared {String*}? enabledCipherSuites = null,
+  " @return  the idle timeout, in seconds\n"
   shared Integer? idleTimeout = null,
+  " Set the key/cert options in jks format, aka Java keystore.\n"
   shared JksOptions? keyStoreOptions = null,
+  " Set the key/cert store options in pem format.\n"
   shared PemKeyCertOptions? pemKeyCertOptions = null,
+  " Set the trust options in pem format\n"
   shared PemTrustOptions? pemTrustOptions = null,
+  " Set the key/cert options in pfx format.\n"
   shared PfxOptions? pfxKeyCertOptions = null,
+  " Set the trust options in pfx format\n"
   shared PfxOptions? pfxTrustOptions = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
+  ""
   shared Integer? soLinger = null,
+  ""
   shared Boolean? ssl = null,
+  " @return is TCP keep alive enabled?\n"
   shared Boolean? tcpKeepAlive = null,
+  " @return TCP no delay enabled ?\n"
   shared Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
+  " Set the trust options in jks format, aka Java trustore\n"
   shared JksOptions? trustStoreOptions = null,
+  " @return are Netty pooled buffers enabled?\n\n"
   shared Boolean? usePooledBuffers = null) extends NetworkOptions(
   receiveBufferSize,
   reuseAddress,

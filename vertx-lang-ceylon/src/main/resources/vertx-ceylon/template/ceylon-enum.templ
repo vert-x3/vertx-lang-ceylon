@@ -22,6 +22,9 @@ shared abstract class @{type.simpleName}(shared String name) of @foreach{value:v
 
 \n
 @foreach{value : values}
+@if{value.doc != null}
+"@{genDoc(value.doc)}"\n
+@end{}
 shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{value.identifier}") {}\n
 @end{}
 

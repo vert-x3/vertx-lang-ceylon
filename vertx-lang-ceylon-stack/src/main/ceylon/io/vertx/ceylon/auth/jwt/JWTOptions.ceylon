@@ -21,15 +21,24 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.jwt.JWTOptions */
 " Options related to creation of new tokens.\n\n If any expiresInMinutes, audience, subject, issuer are not provided, there is no default.\n The jwt generated won't include those properties in the payload.\n\n Generated JWTs will include an iat claim by default unless noTimestamp is specified.\n"
 shared class JWTOptions(
+  " The algorithm to use, it should be one of the alias [HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512]\n"
   shared String? algorithm = null,
+  " The target audience of this token\n"
   shared {String*}? audience = null,
+  " The target audience of this token\n"
   shared {String*}? audiences = null,
+  " The expiration time for the token in minutes\n"
   shared Integer? expiresInMinutes = null,
+  " The expiration time for the token in seconds\n"
   shared Integer? expiresInSeconds = null,
   shared JsonObject? header = null,
+  " The issuer of this token\n"
   shared String? issuer = null,
+  " Disable the generation of issued at claim\n"
   shared Boolean? noTimestamp = null,
+  " The permissions of this token.\n"
   shared {String*}? permissions = null,
+  " The subject of this token\n"
   shared String? subject = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
