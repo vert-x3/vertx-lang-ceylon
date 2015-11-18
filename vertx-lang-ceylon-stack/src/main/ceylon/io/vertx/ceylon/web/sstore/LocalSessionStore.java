@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A session store which is only available on a single node.\n <p>\n Can be used when sticky sessions are being used.\n")
 public class LocalSessionStore extends io.vertx.ceylon.web.sstore.SessionStore implements ReifiedType {
 
   @Ignore

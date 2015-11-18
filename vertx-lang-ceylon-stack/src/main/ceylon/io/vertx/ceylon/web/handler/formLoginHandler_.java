@@ -28,7 +28,7 @@ public class formLoginHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public static FormLoginHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
@@ -37,7 +37,7 @@ public class formLoginHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public static FormLoginHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 

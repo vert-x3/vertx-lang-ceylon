@@ -17,7 +17,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An auth handler that provides JWT Authentication support.\n")
 public class JWTAuthHandler implements ReifiedType,  AuthHandler {
 
   @Ignore
@@ -55,7 +55,6 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -63,7 +62,7 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a required authority for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthority(
     final @TypeInfo("ceylon.language::String") @Name("authority") @DocAnnotation$annotation$(description = "todo") ceylon.language.String authority) {
@@ -72,7 +71,7 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a set of required authorities for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthorities(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("authorities") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> authorities) {
@@ -81,7 +80,7 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the audience list\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public JWTAuthHandler setAudience(
     final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("audience") @DocAnnotation$annotation$(description = "todo") ceylon.language.List<ceylon.language.String> audience) {
@@ -90,7 +89,7 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the issuer\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public JWTAuthHandler setIssuer(
     final @TypeInfo("ceylon.language::String") @Name("issuer") @DocAnnotation$annotation$(description = "todo") ceylon.language.String issuer) {
@@ -99,7 +98,7 @@ public class JWTAuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether expiration is ignored\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public JWTAuthHandler setIgnoreExpiration(
     final @TypeInfo("ceylon.language::Boolean") @Name("ignoreExpiration") @DocAnnotation$annotation$(description = "todo") boolean ignoreExpiration) {

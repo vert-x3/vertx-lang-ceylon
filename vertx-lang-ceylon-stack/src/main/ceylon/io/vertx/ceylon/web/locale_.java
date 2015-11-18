@@ -25,14 +25,12 @@ public class locale_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public static Locale create() {
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Locale.create());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public static Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language) {
@@ -41,7 +39,6 @@ public class locale_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public static Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language, 
@@ -52,7 +49,6 @@ public class locale_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public static Locale create(
     final @TypeInfo("ceylon.language::String") @Name("language") @DocAnnotation$annotation$(description = "todo") ceylon.language.String language, 

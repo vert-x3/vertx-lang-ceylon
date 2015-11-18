@@ -26,7 +26,7 @@ public class localSessionStore_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public static LocalSessionStore create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
@@ -35,7 +35,7 @@ public class localSessionStore_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public static LocalSessionStore create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
@@ -46,7 +46,7 @@ public class localSessionStore_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public static LocalSessionStore create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 

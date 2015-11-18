@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents an authenticates User and contains operations to authorise the user.\n <p>\n Please consult the documentation for a detailed explanation.\n")
 public class User implements ReifiedType {
 
   @Ignore
@@ -56,7 +56,7 @@ public class User implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Is the user authorised to\n")
   @TypeInfo("io.vertx.ceylon.auth.common::User")
   public User isAuthorised(
     final @TypeInfo("ceylon.language::String") @Name("authority") @DocAnnotation$annotation$(description = "todo") ceylon.language.String authority, 
@@ -74,7 +74,7 @@ public class User implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " The User object will cache any authorities that it knows it has to avoid hitting the\n underlying auth provider each time.  Use this method if you want to clear this cache.\n")
   @TypeInfo("io.vertx.ceylon.auth.common::User")
   public User clearCache() {
     if (cached_clearCache != null) {
@@ -84,14 +84,14 @@ public class User implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the underlying principal for the User. What this actually returns depends on the implementation.\n For a simple user/password based auth, it's likely to contain a JSON object with the following structure:\n <pre>\n   {\n     \"username\", \"tim\"\n   }\n </pre>\n")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object principal() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.principal());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the auth provider for the User. This is typically used to reattach a detached User with an AuthProvider, e.g.\n after it has been deserialized.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setAuthProvider(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {

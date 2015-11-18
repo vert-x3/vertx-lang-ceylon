@@ -26,7 +26,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A handler which implements server side http://www.w3.org/TR/cors/[CORS] support for Vert.x-Web.\n")
 public class CorsHandler implements ReifiedType {
 
   @Ignore
@@ -64,7 +64,6 @@ public class CorsHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -72,7 +71,7 @@ public class CorsHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add an allowed method\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedMethod(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method) {
@@ -81,7 +80,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add an allowed header\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedHeader(
     final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
@@ -90,7 +89,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a set of allowed headers\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedHeaders(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> headerNames) {
@@ -99,7 +98,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add an exposed header\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler exposedHeader(
     final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String headerName) {
@@ -108,7 +107,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a set of exposed headers\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler exposedHeaders(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> headerNames) {
@@ -117,7 +116,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether credentials are allowed\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowCredentials(
     final @TypeInfo("ceylon.language::Boolean") @Name("allow") @DocAnnotation$annotation$(description = "todo") boolean allow) {
@@ -126,7 +125,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set how long the browser should cache the information\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler maxAgeSeconds(
     final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "todo") long maxAgeSeconds) {

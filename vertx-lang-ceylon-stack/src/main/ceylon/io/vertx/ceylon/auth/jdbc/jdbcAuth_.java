@@ -27,7 +27,7 @@ public class jdbcAuth_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JDBC auth provider implementation\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public static JDBCAuth create(
     final @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient") @Name("client") @DocAnnotation$annotation$(description = "todo") JDBCClient client) {

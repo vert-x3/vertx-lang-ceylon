@@ -27,14 +27,14 @@ public class errorHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an error handler using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public static ErrorHandler create() {
     ErrorHandler ret = io.vertx.ceylon.web.handler.ErrorHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.ErrorHandler.create());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public static ErrorHandler create(
     final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String errorTemplateName, 
@@ -45,7 +45,7 @@ public class errorHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public static ErrorHandler create(
     final @TypeInfo("ceylon.language::Boolean") @Name("displayExceptionDetails") @DocAnnotation$annotation$(description = "todo") boolean displayExceptionDetails) {
@@ -54,7 +54,7 @@ public class errorHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create an error handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ErrorHandler")
   public static ErrorHandler create(
     final @TypeInfo("ceylon.language::String") @Name("errorTemplateName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String errorTemplateName) {

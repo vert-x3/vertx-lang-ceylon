@@ -16,7 +16,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A handler that maintains a todo_link for each browser session.\n <p>\n It looks up the session for each request based on a session cookie which contains a session ID. It stores the session\n when the response is ended in the session store.\n <p>\n The session is available on the routing context with .\n <p>\n The session handler requires a todo_link to be on the routing chain before it.\n")
 public class SessionHandler implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,6 @@ public class SessionHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -62,7 +61,7 @@ public class SessionHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the session timeout\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler setSessionTimeout(
     final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {
@@ -71,7 +70,7 @@ public class SessionHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether a nagging log warning should be written if the session handler is accessed over HTTP, not\n HTTPS\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler setNagHttps(
     final @TypeInfo("ceylon.language::Boolean") @Name("nag") @DocAnnotation$annotation$(description = "todo") boolean nag) {
@@ -80,7 +79,7 @@ public class SessionHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets whether the 'secure' flag should be set for the session cookie. When set this flag instructs browsers to only\n send the cookie over HTTPS. Note that this will probably stop your sessions working if used without HTTPS (e.g. in development).\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler setCookieSecureFlag(
     final @TypeInfo("ceylon.language::Boolean") @Name("secure") @DocAnnotation$annotation$(description = "todo") boolean secure) {
@@ -89,7 +88,7 @@ public class SessionHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets whether the 'HttpOnly' flag should be set for the session cookie. When set this flag instructs browsers to\n prevent Javascript access to the the cookie. Used as a line of defence against the most common XSS attacks.\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler setCookieHttpOnlyFlag(
     final @TypeInfo("ceylon.language::Boolean") @Name("httpOnly") @DocAnnotation$annotation$(description = "todo") boolean httpOnly) {
@@ -98,7 +97,7 @@ public class SessionHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the session cookie name\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler setSessionCookieName(
     final @TypeInfo("ceylon.language::String") @Name("sessionCookieName") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sessionCookieName) {

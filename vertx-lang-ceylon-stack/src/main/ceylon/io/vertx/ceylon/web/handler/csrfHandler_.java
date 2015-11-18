@@ -27,7 +27,7 @@ public class csrfHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Instantiate a new CSRFHandlerImpl with a secret\n <p>\n <pre>\n CSRFHandler.create(\"s3cr37\")\n </pre>\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CSRFHandler")
   public static CSRFHandler create(
     final @TypeInfo("ceylon.language::String") @Name("secret") @DocAnnotation$annotation$(description = "todo") ceylon.language.String secret) {

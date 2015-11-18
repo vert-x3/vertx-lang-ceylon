@@ -38,7 +38,7 @@ public class corsHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a CORS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public static CorsHandler create(
     final @TypeInfo("ceylon.language::String") @Name("allowedOriginPattern") @DocAnnotation$annotation$(description = "todo") ceylon.language.String allowedOriginPattern) {

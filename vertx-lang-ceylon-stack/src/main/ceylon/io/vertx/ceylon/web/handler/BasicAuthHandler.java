@@ -16,7 +16,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An auth handler that provides HTTP Basic Authentication support.\n")
 public class BasicAuthHandler implements ReifiedType,  AuthHandler {
 
   @Ignore
@@ -54,7 +54,6 @@ public class BasicAuthHandler implements ReifiedType,  AuthHandler {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -62,7 +61,7 @@ public class BasicAuthHandler implements ReifiedType,  AuthHandler {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a required authority for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthority(
     final @TypeInfo("ceylon.language::String") @Name("authority") @DocAnnotation$annotation$(description = "todo") ceylon.language.String authority) {
@@ -71,7 +70,7 @@ public class BasicAuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a set of required authorities for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthorities(
     final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("authorities") @DocAnnotation$annotation$(description = "todo") ceylon.language.Set<ceylon.language.String> authorities) {

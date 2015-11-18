@@ -15,7 +15,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A handler which logs request information to the Vert.x logger.\n")
 public class LoggerHandler implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,6 @@ public class LoggerHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {

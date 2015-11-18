@@ -27,7 +27,7 @@ public class bodyHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a body handler with defaults\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public static BodyHandler create() {
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BodyHandler.create());

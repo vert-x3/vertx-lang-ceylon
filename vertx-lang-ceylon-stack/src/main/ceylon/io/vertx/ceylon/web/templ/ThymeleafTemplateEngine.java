@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A template engine that uses the Thymeleaf library.\n")
 public class ThymeleafTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
 
   @Ignore
@@ -52,7 +52,7 @@ public class ThymeleafTemplateEngine extends io.vertx.ceylon.web.templ.TemplateE
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the mode for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
   public ThymeleafTemplateEngine setMode(
     final @TypeInfo("ceylon.language::String") @Name("mode") @DocAnnotation$annotation$(description = "todo") ceylon.language.String mode) {

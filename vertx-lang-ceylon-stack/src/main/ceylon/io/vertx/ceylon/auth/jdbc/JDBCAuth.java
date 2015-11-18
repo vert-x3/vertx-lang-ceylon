@@ -15,7 +15,7 @@ import io.vertx.ceylon.jdbc.JDBCClient;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Factory interface for creating todo_link instances that use the Vert.x JDBC client\n")
 public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,7 @@ public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implement
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the authentication query to use. Use this if you want to override the default authentication query.\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth setAuthenticationQuery(
     final @TypeInfo("ceylon.language::String") @Name("authenticationQuery") @DocAnnotation$annotation$(description = "todo") ceylon.language.String authenticationQuery) {
@@ -63,7 +63,7 @@ public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implement
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the roles query to use. Use this if you want to override the default roles query.\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth setRolesQuery(
     final @TypeInfo("ceylon.language::String") @Name("rolesQuery") @DocAnnotation$annotation$(description = "todo") ceylon.language.String rolesQuery) {
@@ -72,7 +72,7 @@ public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implement
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the permissions query to use. Use this if you want to override the default permissions query.\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth setPermissionsQuery(
     final @TypeInfo("ceylon.language::String") @Name("permissionsQuery") @DocAnnotation$annotation$(description = "todo") ceylon.language.String permissionsQuery) {
@@ -81,7 +81,7 @@ public class JDBCAuth extends io.vertx.ceylon.auth.common.AuthProvider implement
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the role prefix to distinguish from permissions when checking for isPermitted requests.\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth setRolePrefix(
     final @TypeInfo("ceylon.language::String") @Name("rolePrefix") @DocAnnotation$annotation$(description = "todo") ceylon.language.String rolePrefix) {

@@ -25,7 +25,7 @@ public class handlebarsTemplateEngine_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::HandlebarsTemplateEngine")
   public static HandlebarsTemplateEngine create() {
     HandlebarsTemplateEngine ret = io.vertx.ceylon.web.templ.HandlebarsTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.HandlebarsTemplateEngine.create());

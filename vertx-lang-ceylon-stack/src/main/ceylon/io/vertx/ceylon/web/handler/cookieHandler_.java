@@ -27,7 +27,7 @@ public class cookieHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a cookie handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CookieHandler")
   public static CookieHandler create() {
     CookieHandler ret = io.vertx.ceylon.web.handler.CookieHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CookieHandler.create());

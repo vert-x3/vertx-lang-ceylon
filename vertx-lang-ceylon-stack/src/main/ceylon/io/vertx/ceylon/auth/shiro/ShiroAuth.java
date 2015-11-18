@@ -16,7 +16,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Factory interface for creating Apache Shiro based todo_link instances.\n")
 public class ShiroAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,7 @@ public class ShiroAuth extends io.vertx.ceylon.auth.common.AuthProvider implemen
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the role prefix to distinguish from permissions when checking for isPermitted requests.\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
   public ShiroAuth setRolePrefix(
     final @TypeInfo("ceylon.language::String") @Name("rolePrefix") @DocAnnotation$annotation$(description = "todo") ceylon.language.String rolePrefix) {

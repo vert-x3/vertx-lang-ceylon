@@ -30,7 +30,7 @@ public class jdbcClient_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JDBC client which maintains its own data source.\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public static JDBCClient createNonShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
@@ -41,7 +41,7 @@ public class jdbcClient_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JDBC client which shares its data source with any other JDBC clients created with the same\n data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public static JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
@@ -54,7 +54,7 @@ public class jdbcClient_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but with the default data source name\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public static JDBCClient createShared(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 

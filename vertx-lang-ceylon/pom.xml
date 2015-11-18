@@ -306,23 +306,23 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/main/ceylon</directory>
                   <includes>
                     <include>io/vertx/lang/ceylon/**</include>
                   </includes>
-                </fileset>
-                <fileset>
+                </source>
+                <source>
                   <directory>${basedir}/src/main/java</directory>
                   <includes>
                     <include>io/vertx/lang/ceylon/*.java</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
               <resources>
-                <fileset>
+                <resource>
                   <directory>${basedir}/src/main/resource</directory>
-                </fileset>
+                </resource>
               </resources>
             </configuration>
           </execution>
@@ -335,7 +335,7 @@
             <configuration>
               <out>${repo.dir}</out>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/main/ceylon</directory>
                   <includes>
                     <include>io/vertx/ceylon/core/**/*.ceylon</include>
@@ -344,7 +344,7 @@
                     <exclude>io/vertx/ceylon/core/Verticle.ceylon</exclude>
                     <exclude>io/vertx/ceylon/core/impl/**</exclude>
                   </excludes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>
@@ -358,14 +358,14 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/main/ceylon</directory>
                   <includes>
                     <include>io/vertx/ceylon/core/**/*.java</include>
                     <include>io/vertx/ceylon/core/Verticle.ceylon</include>
                     <include>io/vertx/ceylon/core/impl/**</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>
@@ -398,12 +398,12 @@
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/test/ceylon</directory>
                   <includes>
                     <include>io/vertx/ceylon/testmodel/**/*.ceylon</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>
@@ -419,12 +419,12 @@
               </userRepos>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/test/ceylon</directory>
                   <includes>
                     <include>io/vertx/ceylon/testmodel/**/*.java</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>
@@ -439,19 +439,19 @@
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/test/ceylon</directory>
                   <includes>
                     <include>io/vertx/tests/**</include>
                     <include>io/vertx/mod2/**</include>
                   </includes>
-                </fileset>
-                <fileset>
+                </source>
+                <source>
                   <directory>${basedir}/src/test/ceylon</directory>
                   <includes>
                     <include>verticles/**</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>

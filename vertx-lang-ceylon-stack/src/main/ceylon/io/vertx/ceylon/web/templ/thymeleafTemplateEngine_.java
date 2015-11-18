@@ -25,7 +25,7 @@ public class thymeleafTemplateEngine_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
   public static ThymeleafTemplateEngine create() {
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.ThymeleafTemplateEngine.create());

@@ -28,7 +28,7 @@ public class userSessionHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::UserSessionHandler")
   public static UserSessionHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {

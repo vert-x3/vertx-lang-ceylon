@@ -15,7 +15,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A handler which gathers the entire request body and sets it on the .\n <p>\n It also handles HTTP file uploads and can be used to limit body sizes.\n")
 public class BodyHandler implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,6 @@ public class BodyHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -61,7 +60,7 @@ public class BodyHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the maximum body size -1 means unlimited\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setBodyLimit(
     final @TypeInfo("ceylon.language::Integer") @Name("bodyLimit") @DocAnnotation$annotation$(description = "todo") long bodyLimit) {
@@ -70,7 +69,7 @@ public class BodyHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the uploads directory to use\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setUploadsDirectory(
     final @TypeInfo("ceylon.language::String") @Name("uploadsDirectory") @DocAnnotation$annotation$(description = "todo") ceylon.language.String uploadsDirectory) {
@@ -79,7 +78,7 @@ public class BodyHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether form attributes will be added to the request parameters\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setMergeFormAttributes(
     final @TypeInfo("ceylon.language::Boolean") @Name("mergeFormAttributes") @DocAnnotation$annotation$(description = "todo") boolean mergeFormAttributes) {

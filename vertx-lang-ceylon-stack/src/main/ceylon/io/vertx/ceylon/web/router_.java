@@ -39,7 +39,7 @@ public class router_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a router\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public static Router router(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {

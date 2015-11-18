@@ -17,7 +17,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = "\n A handler that allows you to handle SockJS connections from clients.\n <p>\n We currently support version 0.3.3 of the SockJS protocol, which can be found in\n <a href=\"https://github.com/sockjs/sockjs-protocol/tree/v0.3.3\">this tag:</a>\n")
 public class SockJSHandler implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,6 @@ public class SockJSHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -63,7 +62,7 @@ public class SockJSHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set a SockJS socket handler. This handler will be called with a SockJS socket whenever a SockJS connection\n is made from a client\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler socketHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web.handler.sockjs::SockJSSocket)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -76,7 +75,7 @@ public class SockJSHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Bridge the SockJS handler to the Vert.x event bus. This basically installs a built-in SockJS socket handler\n which takes SockJS traffic and bridges it to the event bus, thus allowing you to extend the server-side\n Vert.x event bus to browsers\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler bridge(
     final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions) {
@@ -85,7 +84,7 @@ public class SockJSHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link but specifying a handler\n that will receive bridge events.\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler bridge(
     final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions, 

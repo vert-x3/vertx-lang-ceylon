@@ -27,14 +27,14 @@ public class staticHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public static StaticHandler create() {
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.StaticHandler.create());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler, specifying web-root\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public static StaticHandler create(
     final @TypeInfo("ceylon.language::String") @Name("root") @DocAnnotation$annotation$(description = "todo") ceylon.language.String root) {

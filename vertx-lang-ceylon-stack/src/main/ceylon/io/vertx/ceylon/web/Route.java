@@ -24,7 +24,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A route is a holder for a set of criteria which determine whether an HTTP request or failure should be routed\n to a handler.\n")
 public class Route implements ReifiedType {
 
   @Ignore
@@ -62,7 +62,7 @@ public class Route implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add an HTTP method for this route. By default a route will match all HTTP methods. If any are specified then the route\n will only match any of the specified methods\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route method(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method) {
@@ -71,7 +71,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the path prefix for this route. If set then this route will only match request URI paths which start with this\n path prefix. Only a single path or path regex can be set for a route.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route path(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -80,7 +80,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the path prefix as a regular expression. If set then this route will only match request URI paths, the beginning\n of which match the regex. Only a single path or path regex can be set for a route.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route pathRegex(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -89,7 +89,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a content type produced by this route. Used for content based routing.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route produces(
     final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
@@ -98,7 +98,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a content type consumed by this route. Used for content based routing.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route consumes(
     final @TypeInfo("ceylon.language::String") @Name("contentType") @DocAnnotation$annotation$(description = "todo") ceylon.language.String contentType) {
@@ -107,7 +107,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify the order for this route. The router tests routes in that order.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route order(
     final @TypeInfo("ceylon.language::Integer") @Name("order") @DocAnnotation$annotation$(description = "todo") long order) {
@@ -116,14 +116,14 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify this is the last route for the router.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route last() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.last());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify a request handler for the route. The router routes requests to handlers depending on whether the various\n criteria such as method, path, etc match. There can be only one request handler for a route. If you set this more\n than once it will overwrite the previous handler.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> requestHandler) {
@@ -136,7 +136,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Like todo_link called with ordered = true\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route blockingHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> requestHandler) {
@@ -149,7 +149,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify a blocking request handler for the route.\n This method works just like todo_link excepted that it will run the blocking handler on a worker thread\n so that it won't block the event loop. Note that it's safe to call context.next() from the\n blocking handler as it will be executed on the event loop context (and not on the worker thread.\n\n If the blocking handler is ordered it means that any blocking handlers for the same context are never executed\n concurrently but always in the order they were called. The default value of ordered is true. If you do not want this\n behaviour and don't mind if your blocking handlers are executed in parallel you can set ordered to false.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route blockingHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> requestHandler, 
@@ -164,7 +164,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify a failure handler for the route. The router routes failures to failurehandlers depending on whether the various\n criteria such as method, path, etc match. There can be only one failure handler for a route. If you set this more\n than once it will overwrite the previous handler.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route failureHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("failureHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> failureHandler) {
@@ -177,28 +177,28 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove this route from the router\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route remove() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.remove());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Disable this route. While disabled the router will not route any requests or failures to it.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route disable() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.disable());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Enable this route.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route enable() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.enable());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " If true then the normalised request path will be used when routing (e.g. removing duplicate /)\n Default is true\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route useNormalisedPath(
     final @TypeInfo("ceylon.language::Boolean") @Name("useNormalisedPath") @DocAnnotation$annotation$(description = "todo") boolean useNormalisedPath) {
@@ -207,7 +207,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the path prefix (if any) for this route\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());

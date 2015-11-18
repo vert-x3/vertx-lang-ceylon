@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A template engine that uses the Handlebars library.\n")
 public class HandlebarsTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
 
   @Ignore
@@ -52,7 +52,7 @@ public class HandlebarsTemplateEngine extends io.vertx.ceylon.web.templ.Template
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the extension for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::HandlebarsTemplateEngine")
   public HandlebarsTemplateEngine setExtension(
     final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "todo") ceylon.language.String extension) {
@@ -61,7 +61,7 @@ public class HandlebarsTemplateEngine extends io.vertx.ceylon.web.templ.Template
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the max cache size for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::HandlebarsTemplateEngine")
   public HandlebarsTemplateEngine setMaxCacheSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "todo") long maxCacheSize) {

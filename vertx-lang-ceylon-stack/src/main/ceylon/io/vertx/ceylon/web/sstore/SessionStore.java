@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A session store is used to store sessions for an Vert.x-Web web app\n")
 public class SessionStore implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,7 @@ public class SessionStore implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new session\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session createSession(
     final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {
@@ -63,7 +63,7 @@ public class SessionStore implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "todo") ceylon.language.String id, 
@@ -77,7 +77,7 @@ public class SessionStore implements ReifiedType {
     delegate.get(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Delete the session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void delete(
     final @TypeInfo("ceylon.language::String") @Name("id") @DocAnnotation$annotation$(description = "todo") ceylon.language.String id, 
@@ -91,7 +91,7 @@ public class SessionStore implements ReifiedType {
     delegate.delete(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a session with the specified ID\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
     final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "todo") Session session, 
@@ -105,7 +105,7 @@ public class SessionStore implements ReifiedType {
     delegate.put(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove all sessions from the store\n")
   @TypeInfo("ceylon.language::Anything")
   public void clear(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -117,7 +117,7 @@ public class SessionStore implements ReifiedType {
     delegate.clear(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the number of sessions in the store\n")
   @TypeInfo("ceylon.language::Anything")
   public void size(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> resultHandler) {
@@ -129,7 +129,7 @@ public class SessionStore implements ReifiedType {
     delegate.size(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the store\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

@@ -27,14 +27,14 @@ public class loggerHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler with default format\n")
   @TypeInfo("io.vertx.ceylon.web.handler::LoggerHandler")
   public static LoggerHandler create() {
     LoggerHandler ret = io.vertx.ceylon.web.handler.LoggerHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.LoggerHandler.create());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler with he specified format\n")
   @TypeInfo("io.vertx.ceylon.web.handler::LoggerHandler")
   public static LoggerHandler create(
     final @TypeInfo("io.vertx.ceylon.web.handler::LoggerFormat") @Name("format") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.web.handler.LoggerFormat format) {
@@ -43,7 +43,7 @@ public class loggerHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler with he specified format\n")
   @TypeInfo("io.vertx.ceylon.web.handler::LoggerHandler")
   public static LoggerHandler create(
     final @TypeInfo("ceylon.language::Boolean") @Name("immediate") @DocAnnotation$annotation$(description = "todo") boolean immediate, 

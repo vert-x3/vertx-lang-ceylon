@@ -15,7 +15,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.core.Future;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents an event that occurs on the event bus bridge.\n <p>\n Please consult the documentation for a full explanation.\n")
 public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> implements ReifiedType {
 
   @Ignore
@@ -57,7 +57,7 @@ public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> 
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  the type of the event\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeEventType")
   public io.vertx.ceylon.web.handler.sockjs.BridgeEventType type() {
     if (cached_type != null) {
@@ -68,7 +68,7 @@ public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is\n no message involved.\n")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object rawMessage() {
     if (cached_rawMessage != null) {
@@ -79,7 +79,7 @@ public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get the SockJSSocket instance corresponding to the event\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket socket() {
     if (cached_socket != null) {

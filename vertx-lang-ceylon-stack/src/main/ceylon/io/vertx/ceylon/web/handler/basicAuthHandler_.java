@@ -28,7 +28,7 @@ public class basicAuthHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a basic auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public static AuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
@@ -37,7 +37,7 @@ public class basicAuthHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a basic auth handler, specifying realm\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public static AuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 

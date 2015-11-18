@@ -15,7 +15,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Handler which adds a header `x-response-time` in the response of matching requests containing the time taken\n in ms to process the request.\n")
 public class ResponseTimeHandler implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,6 @@ public class ResponseTimeHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {

@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a connection to a SQL database\n")
 public class SQLConnection implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,7 @@ public class SQLConnection implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the auto commit flag for this connection. True by default.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection setAutoCommit(
     final @TypeInfo("ceylon.language::Boolean") @Name("autoCommit") @DocAnnotation$annotation$(description = "todo") boolean autoCommit, 
@@ -69,7 +69,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Executes the given SQL statement\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection execute(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sql, 
@@ -84,7 +84,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection query(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sql, 
@@ -99,7 +99,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> prepared statement which returns the results of the query.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection queryWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sql, 
@@ -116,7 +116,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Executes the given SQL statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection update(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sql, 
@@ -131,7 +131,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Executes the given prepared statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement with the given parameters\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection updateWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "todo") ceylon.language.String sql, 
@@ -148,7 +148,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Closes the connection. Important to always close the connection when you are done so it's returned to the pool.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -160,13 +160,13 @@ public class SQLConnection implements ReifiedType {
     delegate.close(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Closes the connection. Important to always close the connection when you are done so it's returned to the pool.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Commits all changes made since the previous commit/rollback.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection commit(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -179,7 +179,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Rolls back all changes made since the previous commit/rollback.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection rollback(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {

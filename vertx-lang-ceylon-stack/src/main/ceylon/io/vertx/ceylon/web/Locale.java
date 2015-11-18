@@ -13,7 +13,6 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
 public class Locale implements ReifiedType {
 
   @Ignore
@@ -51,21 +50,21 @@ public class Locale implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the language as reported by the HTTP client.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String language() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.language());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the country as reported by the HTTP client.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String country() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.country());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns the variant as reported by the HTTP client.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String variant() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.variant());

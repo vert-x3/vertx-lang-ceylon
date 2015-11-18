@@ -28,7 +28,7 @@ public class templateHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
   public static TemplateHandler create(
     final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine) {
@@ -37,7 +37,7 @@ public class templateHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
   public static TemplateHandler create(
     final @TypeInfo("io.vertx.ceylon.web.templ::TemplateEngine") @Name("engine") @DocAnnotation$annotation$(description = "todo") TemplateEngine engine, 

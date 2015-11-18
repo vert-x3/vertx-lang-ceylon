@@ -25,7 +25,7 @@ public class jadeTemplateEngine_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
   @TypeInfo("io.vertx.ceylon.web.templ::JadeTemplateEngine")
   public static JadeTemplateEngine create() {
     JadeTemplateEngine ret = io.vertx.ceylon.web.templ.JadeTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.JadeTemplateEngine.create());

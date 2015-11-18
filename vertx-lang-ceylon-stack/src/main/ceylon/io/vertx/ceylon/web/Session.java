@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents a browser session.\n <p>\n Sessions persist between HTTP requests for a single browser session. They are deleted when the browser is closed, or\n they time-out. Session cookies are used to maintain sessions using a secure UUID.\n <p>\n Sessions can be used to maintain data for a browser session, e.g. a shopping basket.\n <p>\n The context must have first been routed to a todo_link\n for sessions to be available.\n")
 public class Session implements ReifiedType {
 
   @Ignore
@@ -51,14 +51,14 @@ public class Session implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return The unique ID of the session. This is generated using a random secure UUID.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String id() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.id());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Put some data in a session\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session put(
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key, 
@@ -72,7 +72,7 @@ public class Session implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Get some data from the session\n")
   @TypeInfo("T?")
   public <T> T get(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
@@ -84,7 +84,7 @@ public class Session implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove some data from the session\n")
   @TypeInfo("T?")
   public <T> T remove(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "todo") ceylon.language.String key) {
@@ -93,34 +93,34 @@ public class Session implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the time the session was last accessed\n")
   @TypeInfo("ceylon.language::Integer")
   public long lastAccessed() {
     long ret = delegate.lastAccessed();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Destroy the session\n")
   @TypeInfo("ceylon.language::Anything")
   public void destroy() {
     delegate.destroy();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return has the session been destroyed?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isDestroyed() {
     boolean ret = delegate.isDestroyed();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the amount of time in ms, after which the session will expire, if not accessed.\n")
   @TypeInfo("ceylon.language::Integer")
   public long timeout() {
     long ret = delegate.timeout();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Mark the session as being accessed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void setAccessed() {
     delegate.setAccessed();

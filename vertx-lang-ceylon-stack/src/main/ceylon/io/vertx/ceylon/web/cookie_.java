@@ -25,7 +25,7 @@ public class cookie_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a new cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public static Cookie cookie(
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "todo") ceylon.language.String name, 

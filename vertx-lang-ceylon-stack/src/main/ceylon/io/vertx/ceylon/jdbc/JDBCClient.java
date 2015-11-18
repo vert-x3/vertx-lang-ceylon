@@ -18,7 +18,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " An asynchronous client interface for interacting with a JDBC compliant database\n")
 public class JDBCClient implements ReifiedType {
 
   @Ignore
@@ -56,7 +56,7 @@ public class JDBCClient implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Returns a connection that can be used to perform SQL operations on. It's important to remember\n to close the connection when you are done, so it is returned to the pool.\n")
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public JDBCClient getConnection(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLConnection)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -69,7 +69,7 @@ public class JDBCClient implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close the client\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();

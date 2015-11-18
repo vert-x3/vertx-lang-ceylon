@@ -28,7 +28,7 @@ public class jwtAuth_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JWT auth provider\n")
   @TypeInfo("io.vertx.ceylon.auth.jwt::JWTAuth")
   public static JWTAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 

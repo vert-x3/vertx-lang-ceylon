@@ -15,7 +15,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A handler for serving static resources from the file system or classpath.\n")
 public class StaticHandler implements ReifiedType {
 
   @Ignore
@@ -53,7 +53,6 @@ public class StaticHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -61,7 +60,7 @@ public class StaticHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the web root\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setWebRoot(
     final @TypeInfo("ceylon.language::String") @Name("webRoot") @DocAnnotation$annotation$(description = "todo") ceylon.language.String webRoot) {
@@ -70,7 +69,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether files are read-only and will never change\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setFilesReadOnly(
     final @TypeInfo("ceylon.language::Boolean") @Name("readOnly") @DocAnnotation$annotation$(description = "todo") boolean readOnly) {
@@ -79,7 +78,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set value for max age in caching headers\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setMaxAgeSeconds(
     final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "todo") long maxAgeSeconds) {
@@ -88,7 +87,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether cache header handling is enabled\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setCachingEnabled(
     final @TypeInfo("ceylon.language::Boolean") @Name("enabled") @DocAnnotation$annotation$(description = "todo") boolean enabled) {
@@ -97,7 +96,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether directory listing is enabled\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setDirectoryListing(
     final @TypeInfo("ceylon.language::Boolean") @Name("directoryListing") @DocAnnotation$annotation$(description = "todo") boolean directoryListing) {
@@ -106,7 +105,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether hidden files should be served\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setIncludeHidden(
     final @TypeInfo("ceylon.language::Boolean") @Name("includeHidden") @DocAnnotation$annotation$(description = "todo") boolean includeHidden) {
@@ -115,7 +114,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the server cache entry timeout when caching is enabled\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setCacheEntryTimeout(
     final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {
@@ -124,7 +123,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the index page\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setIndexPage(
     final @TypeInfo("ceylon.language::String") @Name("indexPage") @DocAnnotation$annotation$(description = "todo") ceylon.language.String indexPage) {
@@ -133,7 +132,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the max cache size, when caching is enabled\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setMaxCacheSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "todo") long maxCacheSize) {
@@ -142,7 +141,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether async filesystem access should always be used\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setAlwaysAsyncFS(
     final @TypeInfo("ceylon.language::Boolean") @Name("alwaysAsyncFS") @DocAnnotation$annotation$(description = "todo") boolean alwaysAsyncFS) {
@@ -151,7 +150,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether async/sync filesystem tuning should enabled\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setEnableFSTuning(
     final @TypeInfo("ceylon.language::Boolean") @Name("enableFSTuning") @DocAnnotation$annotation$(description = "todo") boolean enableFSTuning) {
@@ -160,7 +159,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the max serve time in ns, above which serves are considered slow\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setMaxAvgServeTimeNs(
     final @TypeInfo("ceylon.language::Integer") @Name("maxAvgServeTimeNanoSeconds") @DocAnnotation$annotation$(description = "todo") long maxAvgServeTimeNanoSeconds) {
@@ -169,7 +168,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the directory template to be used when directory listing\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setDirectoryTemplate(
     final @TypeInfo("ceylon.language::String") @Name("directoryTemplate") @DocAnnotation$annotation$(description = "todo") ceylon.language.String directoryTemplate) {
@@ -178,7 +177,7 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set whether range requests (resumable downloads; media streaming) should be enabled.\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setEnableRangeSupport(
     final @TypeInfo("ceylon.language::Boolean") @Name("enableRangeSupport") @DocAnnotation$annotation$(description = "todo") boolean enableRangeSupport) {

@@ -21,7 +21,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = "\n You interact with SockJS clients through instances of SockJS socket.\n <p>\n The API is very similar to todo_link.\n It implements both  and \n so it can be used with\n todo_link to pump data with flow control.<p>\n")
 public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream<Buffer> {
 
   @Ignore
@@ -59,14 +59,12 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -79,7 +77,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -92,21 +89,18 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket pause() {
     SockJSSocket ret = io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket resume() {
     SockJSSocket ret = io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket endHandler(
     final @TypeInfo("ceylon.language::Anything()") @Name("endHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> endHandler) {
@@ -119,7 +113,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "todo") Buffer data) {
@@ -128,7 +121,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "todo") long maxSize) {
@@ -137,7 +129,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket drainHandler(
     final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "todo") Callable<?> handler) {
@@ -150,55 +141,55 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " When a <code>SockJSSocket</code> is created it automatically registers an event handler with the event bus, the ID of that\n handler is given by <code>writeHandlerID</code>.\n <p>\n Given this ID, a different event loop can send a buffer to that event handler using the event bus and\n that buffer will be received by this instance in its own event loop and written to the underlying socket. This\n allows you to write data to other sockets which are owned by different event loops.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String writeHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.writeHandlerID());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Close it\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the remote address for this socket\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.remoteAddress());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the local address for this socket\n")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the headers corresponding to the last request for this socket or the websocket handshake\n Any cookie headers will be removed for security reasons\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.headers());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Return the URI corresponding to the last request for this socket or the websocket handshake\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.uri());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the Vert.x-Web session corresponding to this socket\n")
   @TypeInfo("io.vertx.ceylon.web::Session?")
   public Session webSession() {
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.webSession());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = "  @return the Vert.x-Web user corresponding to this socket\n")
   @TypeInfo("io.vertx.ceylon.auth.common::User?")
   public User webUser() {
     User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.webUser());

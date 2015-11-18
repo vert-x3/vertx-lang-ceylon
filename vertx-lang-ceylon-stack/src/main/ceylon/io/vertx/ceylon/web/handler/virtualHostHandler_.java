@@ -27,7 +27,7 @@ public class virtualHostHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::VirtualHostHandler")
   public static VirtualHostHandler create(
     final @TypeInfo("ceylon.language::String") @Name("hostname") @DocAnnotation$annotation$(description = "todo") ceylon.language.String hostname, 

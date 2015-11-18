@@ -27,14 +27,14 @@ public class timeoutHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TimeoutHandler")
   public static TimeoutHandler create() {
     TimeoutHandler ret = io.vertx.ceylon.web.handler.TimeoutHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.TimeoutHandler.create());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::TimeoutHandler")
   public static TimeoutHandler create(
     final @TypeInfo("ceylon.language::Integer") @Name("timeout") @DocAnnotation$annotation$(description = "todo") long timeout) {

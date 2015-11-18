@@ -28,7 +28,7 @@ public class sessionHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a session handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public static SessionHandler create(
     final @TypeInfo("io.vertx.ceylon.web.sstore::SessionStore") @Name("sessionStore") @DocAnnotation$annotation$(description = "todo") SessionStore sessionStore) {

@@ -16,7 +16,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = "\n This handler should be used if you want to store the User object in the Session so it's available between\n different requests, without you having re-authenticate each time.\n\n It requires that the session handler is already present on previous matching routes.\n\n It requires an Auth provider so, if the user is deserialized from a clustered session it knows which Auth provider\n to associate the session with.\n")
 public class UserSessionHandler implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,6 @@ public class UserSessionHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {

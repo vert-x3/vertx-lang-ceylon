@@ -16,7 +16,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Factory interface for creating JWT based todo_link instances.\n")
 public class JWTAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,7 @@ public class JWTAuth extends io.vertx.ceylon.auth.common.AuthProvider implements
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Generate a new JWT token.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String generateToken(
     final @TypeInfo("ceylon.json::Object") @Name("claims") @DocAnnotation$annotation$(description = "todo") ceylon.json.Object claims, 

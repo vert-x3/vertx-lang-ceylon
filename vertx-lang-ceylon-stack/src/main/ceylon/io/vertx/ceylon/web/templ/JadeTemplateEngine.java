@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A template engine that uses Jade.\n")
 public class JadeTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
 
   @Ignore
@@ -52,7 +52,7 @@ public class JadeTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the extension for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::JadeTemplateEngine")
   public JadeTemplateEngine setExtension(
     final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "todo") ceylon.language.String extension) {
@@ -61,7 +61,7 @@ public class JadeTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the max cache size for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::JadeTemplateEngine")
   public JadeTemplateEngine setMaxCacheSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "todo") long maxCacheSize) {

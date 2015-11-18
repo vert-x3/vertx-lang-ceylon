@@ -327,12 +327,12 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/main/ceylon</directory>
                   <includes>
                     <include>**/*.ceylon</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
             </configuration>
           </execution>
@@ -349,13 +349,35 @@
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
               <sources>
-                <fileset>
+                <source>
                   <directory>${basedir}/src/main/ceylon</directory>
                   <includes>
                     <include>**/*.java</include>
                   </includes>
-                </fileset>
+                </source>
               </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>doc</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>doc</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/src/main/ceylon</source>
+              </sources>
+              <out>${repo.dir}</out>
+              <modules>
+                <module>io.vertx.ceylon.auth.common</module>
+                <module>io.vertx.ceylon.auth.jdbc</module>
+                <module>io.vertx.ceylon.auth.jwt</module>
+                <module>io.vertx.ceylon.auth.shiro</module>
+                <module>io.vertx.ceylon.sql</module>
+                <module>io.vertx.ceylon.jdbc</module>
+                <module>io.vertx.ceylon.web</module>
+              </modules>
             </configuration>
           </execution>
         </executions>

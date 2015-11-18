@@ -16,7 +16,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Handler that handles login from a form on a custom login page.\n <p>\n Used in conjunction with the todo_link.\n")
 public class FormLoginHandler implements ReifiedType {
 
   @Ignore
@@ -54,7 +54,6 @@ public class FormLoginHandler implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") @DocAnnotation$annotation$(description = "todo") RoutingContext arg0) {
@@ -62,7 +61,7 @@ public class FormLoginHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the name of the form param used to submit the username\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setUsernameParam(
     final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String usernameParam) {
@@ -71,7 +70,7 @@ public class FormLoginHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the name of the form param used to submit the password\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setPasswordParam(
     final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String passwordParam) {
@@ -80,7 +79,7 @@ public class FormLoginHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the name of the session attrioute used to specify the return url\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setReturnURLParam(
     final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "todo") ceylon.language.String returnURLParam) {
@@ -89,7 +88,7 @@ public class FormLoginHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the url to redirect to if the user logs in directly at the url of the form login handler\n without being redirected here first\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setDirectLoggedInOKURL(
     final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL") @DocAnnotation$annotation$(description = "todo") ceylon.language.String directLoggedInOKURL) {

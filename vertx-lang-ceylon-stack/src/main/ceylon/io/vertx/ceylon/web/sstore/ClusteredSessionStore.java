@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A session store which stores sessions in a distributed map so they are available across the cluster.\n")
 public class ClusteredSessionStore extends io.vertx.ceylon.web.sstore.SessionStore implements ReifiedType {
 
   @Ignore

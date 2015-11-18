@@ -27,7 +27,7 @@ import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A router receives request from an todo_link and routes it to the first matching\n todo_link that it contains. A router can contain many routes.\n <p>\n Routers are also used for routing failures.\n")
 public class Router implements ReifiedType {
 
   @Ignore
@@ -65,7 +65,7 @@ public class Router implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " This method is used to provide a request to the router. Usually you take request from the\n todo_link and pass it to this method. The\n router then routes it to matching routes.\n")
   @TypeInfo("ceylon.language::Anything")
   public void accept(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest") @Name("request") @DocAnnotation$annotation$(description = "todo") HttpServerRequest request) {
@@ -73,14 +73,14 @@ public class Router implements ReifiedType {
     delegate.accept(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route with no matching criteria, i.e. it matches all requests or failures.\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route route() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.route());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches the specified HTTP method and path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route route(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -91,7 +91,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route route(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -100,7 +100,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches the specified HTTP method and path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route routeWithRegex(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "todo") io.vertx.ceylon.core.http.HttpMethod method, 
@@ -111,7 +111,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route routeWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -120,14 +120,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP GET request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route get() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.get());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP GET request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route get(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -136,7 +136,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP GET request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route getWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -145,14 +145,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP HEAD request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route head() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.head());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP HEAD request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route head(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -161,7 +161,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP HEAD request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route headWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -170,14 +170,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP OPTIONS request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route options() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.options());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP OPTIONS request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route options(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -186,7 +186,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP OPTIONS request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route optionsWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -195,14 +195,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP PUT request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route put() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.put());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP PUT request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route put(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -211,7 +211,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP PUT request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route putWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -220,14 +220,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP POST request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route post() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.post());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP POST request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route post(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -236,7 +236,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP POST request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route postWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -245,14 +245,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP DELETE request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route delete() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.delete());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP DELETE request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route delete(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -261,7 +261,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP DELETE request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route deleteWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -270,14 +270,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP TRACE request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route trace() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.trace());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP TRACE request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route trace(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -286,7 +286,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP TRACE request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route traceWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -295,14 +295,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP CONNECT request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route connect() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.connect());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP CONNECT request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route connect(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -311,7 +311,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP CONNECT request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route connectWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -320,14 +320,14 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches any HTTP PATCH request\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route patch() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.patch());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP PATCH request and the specified path\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route patch(
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -336,7 +336,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Add a route that matches a HTTP PATCH request and the specified path regex\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route patchWithRegex(
     final @TypeInfo("ceylon.language::String") @Name("regex") @DocAnnotation$annotation$(description = "todo") ceylon.language.String regex) {
@@ -345,21 +345,21 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return a list of all the routes on this router\n")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.web::Route>")
   public ceylon.language.List<Route> getRoutes() {
     ceylon.language.List<Route> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.web.Route.$TypeDescriptor$, delegate.getRoutes(), io.vertx.ceylon.web.Route.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Remove all the routes from this router\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public Router clear() {
     Router ret = io.vertx.ceylon.web.Router.TO_CEYLON.converter().safeConvert(delegate.clear());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Mount a sub router on this router\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public Router mountSubRouter(
     final @TypeInfo("ceylon.language::String") @Name("mountPoint") @DocAnnotation$annotation$(description = "todo") ceylon.language.String mountPoint, 
@@ -370,7 +370,7 @@ public class Router implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Specify a handler for any unhandled exceptions on this router. The handler will be called for exceptions thrown\n from handlers. This does not affect the normal failure routing logic.\n")
   @TypeInfo("io.vertx.ceylon.web::Router")
   public Router exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("exceptionHandler") @DocAnnotation$annotation$(description = "todo") Callable<?> exceptionHandler) {
@@ -383,7 +383,7 @@ public class Router implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Used to route a context to the router. Used for sub-routers. You wouldn't normally call this method directly.\n")
   @TypeInfo("ceylon.language::Anything")
   public void handleContext(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context") @DocAnnotation$annotation$(description = "todo") RoutingContext context) {
@@ -391,7 +391,7 @@ public class Router implements ReifiedType {
     delegate.handleContext(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Used to route a failure to the router. Used for sub-routers. You wouldn't normally call this method directly.\n")
   @TypeInfo("ceylon.language::Anything")
   public void handleFailure(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context") @DocAnnotation$annotation$(description = "todo") RoutingContext context) {

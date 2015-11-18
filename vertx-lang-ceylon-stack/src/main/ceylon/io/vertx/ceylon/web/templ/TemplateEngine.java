@@ -17,7 +17,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " A template engine uses a specific template and the data in a routing context to render a resource into a buffer.\n <p>\n Concrete implementations exist for several well-known template engines.\n")
 public class TemplateEngine implements ReifiedType {
 
   @Ignore
@@ -55,7 +55,7 @@ public class TemplateEngine implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Render\n")
   @TypeInfo("ceylon.language::Anything")
   public void render(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context") @DocAnnotation$annotation$(description = "todo") RoutingContext context, 

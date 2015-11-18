@@ -29,7 +29,7 @@ public class sockJSHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public static SockJSHandler create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx) {
@@ -38,7 +38,7 @@ public class sockJSHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public static SockJSHandler create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
@@ -49,7 +49,7 @@ public class sockJSHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Install SockJS test applications on a router - used when running the SockJS test suite\n")
   @TypeInfo("ceylon.language::Anything")
   public static void installTestApplications(
     final @TypeInfo("io.vertx.ceylon.web::Router") @Name("router") @DocAnnotation$annotation$(description = "todo") Router router, 

@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "todo")
+@DocAnnotation$annotation$(description = " Represents an HTTP Cookie.\n <p>\n All cookies must have a name and a value and can optionally have other fields set such as path, domain, etc.\n <p>\n (Derived from io.netty.handler.codec.http.Cookie)\n")
 public class Cookie implements ReifiedType {
 
   @Ignore
@@ -51,21 +51,21 @@ public class Cookie implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the name of this cookie\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getName());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return the value of this cookie\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String getValue() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getValue());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the value of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setValue(
     final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "todo") ceylon.language.String value) {
@@ -74,7 +74,7 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the domain of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setDomain(
     final @TypeInfo("ceylon.language::String?") @Name("domain") @DocAnnotation$annotation$(description = "todo") ceylon.language.String domain) {
@@ -83,14 +83,14 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " @return  the domain for the cookie\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getDomain() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDomain());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the path of this cookie.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setPath(
     final @TypeInfo("ceylon.language::String?") @Name("path") @DocAnnotation$annotation$(description = "todo") ceylon.language.String path) {
@@ -99,14 +99,14 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the maximum age of this cookie in seconds.\n If an age of <code>0</code> is specified, this cookie will be\n automatically removed by browser because it will expire immediately.\n If todo_link is specified, this cookie will be removed when the\n browser is closed.\n If you don't set this the cookie will be a session cookie and be removed when the browser is closed.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setMaxAge(
     final @TypeInfo("ceylon.language::Integer") @Name("maxAge") @DocAnnotation$annotation$(description = "todo") long maxAge) {
@@ -115,7 +115,7 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Sets the security getStatus of this cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setSecure(
     final @TypeInfo("ceylon.language::Boolean") @Name("secure") @DocAnnotation$annotation$(description = "todo") boolean secure) {
@@ -124,7 +124,7 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Determines if this cookie is HTTP only.\n If set to true, this cookie cannot be accessed by a client\n side script. However, this works only if the browser supports it.\n For for information, please look\n <a href=\"http://www.owasp.org/index.php/HTTPOnly\">here</a>.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie setHttpOnly(
     final @TypeInfo("ceylon.language::Boolean") @Name("httpOnly") @DocAnnotation$annotation$(description = "todo") boolean httpOnly) {
@@ -133,21 +133,21 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Encode the cookie to a string. This is what is used in the Set-Cookie header\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String encode() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.encode());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Has the cookie been changed? Changed cookies will be saved out in the response and sent to the browser.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isChanged() {
     boolean ret = delegate.isChanged();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Set the cookie as being changed. Changed will be true for a cookie just created, false by default if just\n read from the request\n")
   @TypeInfo("ceylon.language::Anything")
   public void setChanged(
     final @TypeInfo("ceylon.language::Boolean") @Name("changed") @DocAnnotation$annotation$(description = "todo") boolean changed) {

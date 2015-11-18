@@ -27,7 +27,7 @@ public class responseTimeHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::ResponseTimeHandler")
   public static ResponseTimeHandler create() {
     ResponseTimeHandler ret = io.vertx.ceylon.web.handler.ResponseTimeHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.ResponseTimeHandler.create());

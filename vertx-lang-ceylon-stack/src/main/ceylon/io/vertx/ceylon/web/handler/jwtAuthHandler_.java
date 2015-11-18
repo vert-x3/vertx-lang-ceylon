@@ -29,7 +29,7 @@ public class jwtAuthHandler_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public static JWTAuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider) {
@@ -38,7 +38,7 @@ public class jwtAuthHandler_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::JWTAuthHandler")
   public static JWTAuthHandler create(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "todo") AuthProvider authProvider, 

@@ -28,7 +28,7 @@ public class shiroAuth_ {
   }
 
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a Shiro auth provider\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
   public static ShiroAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
@@ -41,7 +41,7 @@ public class shiroAuth_ {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "todo")
+  @DocAnnotation$annotation$(description = " Create a Shiro auth provider\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
   public static ShiroAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "todo") Vertx vertx, 
