@@ -5,6 +5,7 @@ vertx-lang-ceylon
 
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
 - should we convert enums to lower cases ?
+- link to other modules
 
 ## todo list
 
