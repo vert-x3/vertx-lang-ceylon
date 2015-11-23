@@ -36,15 +36,15 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.NetServerOptions */
 " Options for configuring a [NetServer](../net/NetServer.type.html).\n"
 shared class NetServerOptions(
-  " @return the value of accept backlog\n"
+  " Set the accept back log\n"
   shared Integer? acceptBacklog = null,
   " Set whether client auth is required\n"
   shared ClientAuth? clientAuth = null,
-  ""
+  " Set whether client auth is required\n"
   shared Boolean? clientAuthRequired = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
-  ""
+  " Set the host\n"
   shared String? host = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
@@ -52,7 +52,7 @@ shared class NetServerOptions(
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
-  ""
+  " Set the port\n"
   shared Integer? port = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,

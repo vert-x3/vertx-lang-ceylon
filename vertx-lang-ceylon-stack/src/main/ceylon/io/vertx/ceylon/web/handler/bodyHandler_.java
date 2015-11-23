@@ -41,4 +41,13 @@ public class bodyHandler_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a body handler and use the given upload directory.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
+  public BodyHandler create(
+    final @TypeInfo("ceylon.language::String") @Name("uploadDirectory") @DocAnnotation$annotation$(description = "the uploads directory\n") ceylon.language.String uploadDirectory) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(uploadDirectory);
+    BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.BodyHandler.create(arg_0));
+    return ret;
+  }
+
 }

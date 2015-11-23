@@ -24,15 +24,15 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 " Options used to configure a datagram socket.\n"
 shared class DatagramSocketOptions(
-  " @return true if the socket receive broadcast packets?\n"
+  " Set if the socket can receive broadcast packets\n"
   shared Boolean? broadcast = null,
-  " @return  true if IP v6 be used?\n"
+  " Set if IP v6 should be used\n"
   shared Boolean? ipV6 = null,
-  " @return true if loopback mode is disabled\n\n"
+  " Set if loopback mode is disabled\n"
   shared Boolean? loopbackModeDisabled = null,
-  " Get the multicast network interface address\n"
+  " Set the multicast network interface address\n"
   shared String? multicastNetworkInterface = null,
-  " @return the multicast ttl value\n"
+  " Set the multicast ttl value\n"
   shared Integer? multicastTimeToLive = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,

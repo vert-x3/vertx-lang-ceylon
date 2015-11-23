@@ -38,26 +38,26 @@ import io.vertx.core.json {
 shared class HttpClientOptions(
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
-  " Get the default host name to be used by this client in requests if none is provided when making the request.\n"
+  " Set the default host name to be used by this client in requests if none is provided when making the request.\n"
   shared String? defaultHost = null,
-  " Get the default port to be used by this client in requests if none is provided when making the request.\n"
+  " Set the default port to be used by this client in requests if none is provided when making the request.\n"
   shared Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   Integer? idleTimeout = null,
-  " Is keep alive enabled on the client?\n"
+  " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
-  " Get the maximum pool size for connections\n"
+  " Set the maximum pool size for connections\n"
   shared Integer? maxPoolSize = null,
-  " Get the maximum websocket framesize to use\n"
+  " Set the max websocket frame size\n"
   shared Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
-  " Is pipe-lining enabled on the client\n"
+  " Set whether pipe-lining is enabled on the client\n"
   shared Boolean? pipelining = null,
-  " Get the protocol version.\n"
+  " Set the protocol version.\n"
   shared HttpVersion? protocolVersion = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
@@ -69,10 +69,10 @@ shared class HttpClientOptions(
   Integer? trafficClass = null,
   Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
-  " Is compression enabled on the client?\n"
+  " Set whether compression is enabled\n"
   shared Boolean? tryUseCompression = null,
   Boolean? usePooledBuffers = null,
-  " Is hostname verification (for SSL/TLS) enabled?\n"
+  " Set whether hostname verification is enabled\n"
   shared Boolean? verifyHost = null) extends ClientOptionsBase(
   connectTimeout,
   crlPaths,

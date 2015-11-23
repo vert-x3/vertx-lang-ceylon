@@ -39,16 +39,16 @@ shared class HttpServerOptions(
   Integer? acceptBacklog = null,
   ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
-  " @return true if the server supports compression\n"
+  " Set whether the server supports compression\n"
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
-  " @return whether 100 Continue should be handled automatically\n"
+  " Set whether 100 Continue should be handled automatically\n"
   shared Boolean? handle100ContinueAutomatically = null,
   String? host = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
-  " @return  the maximum websocket framesize\n"
+  " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
@@ -65,7 +65,7 @@ shared class HttpServerOptions(
   Integer? trafficClass = null,
   JksOptions? trustStoreOptions = null,
   Boolean? usePooledBuffers = null,
-  " @return Get the websocket subprotocols\n"
+  " Set the websocket subprotocols supported by the server.\n"
   shared String? websocketSubProtocols = null) extends NetServerOptions(
   acceptBacklog,
   clientAuth,

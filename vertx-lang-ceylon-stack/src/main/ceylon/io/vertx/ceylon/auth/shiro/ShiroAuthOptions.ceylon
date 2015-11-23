@@ -28,9 +28,9 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.shiro.ShiroAuthOptions */
 " Shiro auth configuration options, see Vert.x Auth Shiro component and/or Apache Shiro project.\n"
 shared class ShiroAuthOptions(
-  " @return the Shiro auth config\n"
+  " Set the Shiro auth config.\n"
   shared JsonObject? config = null,
-  " @return the Shiro realm type\n"
+  " Set the Shiro auth options type.\n"
   shared ShiroAuthRealmType? type = null) extends AuthOptions() satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

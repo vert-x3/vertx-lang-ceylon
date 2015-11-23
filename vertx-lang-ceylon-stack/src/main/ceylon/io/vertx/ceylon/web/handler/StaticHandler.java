@@ -60,6 +60,15 @@ public class StaticHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " Enable/Disable access to the root of the filesystem\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler setAllowRootFileSystemAccess(
+    final @TypeInfo("ceylon.language::Boolean") @Name("allowRootFileSystemAccess") @DocAnnotation$annotation$(description = "whether root access is allowed\n") boolean allowRootFileSystemAccess) {
+    boolean arg_0 = allowRootFileSystemAccess;
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setAllowRootFileSystemAccess(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Set the web root\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler setWebRoot(

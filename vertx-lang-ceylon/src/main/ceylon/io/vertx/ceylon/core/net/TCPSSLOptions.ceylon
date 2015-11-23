@@ -32,11 +32,11 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.TCPSSLOptions */
 " Base class. TCP and SSL related options\n"
 shared class TCPSSLOptions(
-  ""
+  " Add a CRL path\n"
   shared {String*}? crlPaths = null,
-  ""
+  " Add an enabled cipher suite\n"
   shared {String*}? enabledCipherSuites = null,
-  " @return  the idle timeout, in seconds\n"
+  " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
   shared Integer? idleTimeout = null,
   " Set the key/cert options in jks format, aka Java keystore.\n"
   shared JksOptions? keyStoreOptions = null,
@@ -51,18 +51,18 @@ shared class TCPSSLOptions(
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
-  ""
+  " Set whether SO_linger keep alive is enabled\n"
   shared Integer? soLinger = null,
-  ""
+  " Set whether SSL/TLS is enabled\n"
   shared Boolean? ssl = null,
-  " @return is TCP keep alive enabled?\n"
+  " Set whether TCP keep alive is enabled\n"
   shared Boolean? tcpKeepAlive = null,
-  " @return TCP no delay enabled ?\n"
+  " Set whether TCP no delay is enabled\n"
   shared Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
   " Set the trust options in jks format, aka Java trustore\n"
   shared JksOptions? trustStoreOptions = null,
-  " @return are Netty pooled buffers enabled?\n\n"
+  " Set whether Netty pooled buffers are enabled\n"
   shared Boolean? usePooledBuffers = null) extends NetworkOptions(
   receiveBufferSize,
   reuseAddress,

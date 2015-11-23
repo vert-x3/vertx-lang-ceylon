@@ -21,25 +21,25 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.file.OpenOptions */
 " Describes how an [AsyncFile](../file/AsyncFile.type.html) should be opened.\n"
 shared class OpenOptions(
-  " Should the file be created if it does not already exist?\n"
+  " Set whether the file should be created if it does not already exist.\n"
   shared Boolean? create = null,
-  " Should the file be created if and the open fail if it already exists?\n"
+  " Set whether the file should be created and fail if it does exist already.\n"
   shared Boolean? createNew = null,
-  " Should the file be deleted when it's closed, or the JVM is shutdown.\n"
+  " Set whether the file should be deleted when it's closed, or the JVM is shutdown.\n"
   shared Boolean? deleteOnClose = null,
-  " If true then every write to the file's content will be written synchronously to the underlying hardware.\n"
+  " Set whether every write to the file's content  ill be written synchronously to the underlying hardware.\n"
   shared Boolean? dsync = null,
-  " Get the permissions string to be used if creating a file\n"
+  " Set the permissions string\n"
   shared String? perms = null,
-  " Is the file to opened for reading?\n"
+  " Set whether the file is to be opened for reading\n"
   shared Boolean? read = null,
   " Set whether a hint should be provided that the file to created is sparse\n"
   shared Boolean? sparse = null,
-  " If true then every write to the file's content and metadata will be written synchronously to the underlying hardware.\n"
+  " Set whether every write to the file's content and meta-data will be written synchronously to the underlying hardware.\n"
   shared Boolean? sync = null,
-  " If the file exists and is opened for writing should the file be truncated to zero length on open?\n"
+  " Set whether the file should be truncated to zero length on opening if it exists and is opened for write\n"
   shared Boolean? truncateExisting = null,
-  " Is the file to opened for writing?\n"
+  " Set whether the file is to be opened for writing\n"
   shared Boolean? write = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

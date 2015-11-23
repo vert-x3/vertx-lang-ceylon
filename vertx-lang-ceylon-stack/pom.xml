@@ -90,6 +90,16 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-oauth2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-oauth2</artifactId>
+      <classifier>sources</classifier>
+      <version>3.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
     </dependency>
     <dependency>
@@ -270,6 +280,14 @@
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
+                    <artifactId>vertx-auth-oauth2</artifactId>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-auth-oauth2.properties</descriptor>
+                  <!--<force>true</force>-->
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
                     <artifactId>vertx-web</artifactId>
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web.properties</descriptor>
@@ -374,6 +392,7 @@
                 <module>io.vertx.ceylon.auth.jdbc</module>
                 <module>io.vertx.ceylon.auth.jwt</module>
                 <module>io.vertx.ceylon.auth.shiro</module>
+                <module>io.vertx.ceylon.auth.oauth2</module>
                 <module>io.vertx.ceylon.sql</module>
                 <module>io.vertx.ceylon.jdbc</module>
                 <module>io.vertx.ceylon.web</module>
@@ -396,7 +415,7 @@
             </goals>
             <configuration>
               <includeGroupIds>io.vertx</includeGroupIds>
-              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-shiro,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
+              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>

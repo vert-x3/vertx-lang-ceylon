@@ -21,7 +21,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.metrics.MetricsOptions */
 " Vert.x metrics base configuration, this class can be extended by provider implementations to configure\n those specific implementations.\n"
 shared class MetricsOptions(
-  " Will metrics be enabled on the Vert.x instance?\n"
+  " Set whether metrics will be enabled on the Vert.x instance.\n"
   shared Boolean? enabled = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
