@@ -52,6 +52,7 @@
   </dependencies>
 
   <modules>
+    <module>vertx-lang-ceylon-doc</module>
     <module>vertx-lang-ceylon</module>
     <module>vertx-lang-ceylon-stack</module>
   </modules>

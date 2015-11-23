@@ -8,12 +8,8 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${asciidoc.dir}</directory>
-            <outputDirectory>/</outputDirectory>
-        </fileSet>
-        <fileSet>
-            <directory>${project.build.directory}/docs/vertx-core/ruby/yardoc</directory>
-            <outputDirectory>/ruby/yardoc</outputDirectory>
+            <directory>${project.basedir}/src/main/asciidoc/ceylon/vertx-core</directory>
+            <outputDirectory>/ceylon</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

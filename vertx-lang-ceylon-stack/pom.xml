@@ -180,6 +180,17 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-docgen</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-codetrans</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-lang-ceylon-doc</artifactId>
+      <version>3.2.0-SNAPSHOT</version>
+      <optional>true</optional>
+    </dependency>
   </dependencies>
 
   <build>
@@ -419,7 +430,7 @@
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>
-              <includes>io/vertx/**</includes>
+              <includes>io/vertx/**,examples/**</includes>
               <excludes>io/vertx/groovy/**,io/vertx/rxjava/**</excludes>
             </configuration>
           </execution>
@@ -446,9 +457,11 @@
             <configuration>
               <processors>
                 <processor>io.vertx.codegen.CodeGenProcessor</processor>
+                <processor>io.vertx.docgen.DocGenProcessor</processor>
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources</sourceDirectory>
             </configuration>
@@ -458,6 +471,24 @@
         </dependencies>
       </plugin>
 
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>package-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <attach>true</attach>
+              <descriptors>
+                <descriptor>src/main/assembly/docs.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

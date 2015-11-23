@@ -3,10 +3,11 @@ vertx-lang-ceylon
 
 ## Open issues
 
+- make data object member variable
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
 - should we convert enums to lower cases ?
 - link to other modules
-- Promise support 
+- Promise support
 
 ## todo list
 
