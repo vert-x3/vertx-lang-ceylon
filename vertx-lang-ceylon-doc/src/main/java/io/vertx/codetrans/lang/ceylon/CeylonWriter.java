@@ -259,7 +259,7 @@ public class CeylonWriter extends CodeWriter {
     if (resultType.getKind() == ClassKind.VOID) {
       append("!exists ").append(name);
     } else {
-      append("is ").append(resultType.getSimpleName()).append(" ").append("name");
+      append("is ").append(resultType.getSimpleName()).append(" ").append(name);
     }
   }
 
