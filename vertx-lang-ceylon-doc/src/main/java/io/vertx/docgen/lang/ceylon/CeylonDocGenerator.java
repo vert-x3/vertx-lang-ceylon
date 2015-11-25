@@ -3,9 +3,12 @@ package io.vertx.docgen.lang.ceylon;
 import io.vertx.codegen.annotations.ModuleGen;
 import io.vertx.codegen.type.ApiTypeInfo;
 import io.vertx.codegen.type.ClassKind;
+import io.vertx.codegen.type.ClassTypeInfo;
 import io.vertx.codegen.type.EnumTypeInfo;
+import io.vertx.codegen.type.ParameterizedTypeInfo;
 import io.vertx.codegen.type.TypeInfo;
 import io.vertx.codegen.type.TypeMirrorFactory;
+import io.vertx.codegen.type.TypeNameTranslator;
 import io.vertx.codetrans.CodeTranslator;
 import io.vertx.codetrans.lang.ceylon.CeylonLang;
 import io.vertx.docgen.Coordinate;
@@ -15,6 +18,7 @@ import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
@@ -88,38 +92,29 @@ public class CeylonDocGenerator implements DocGenerator {
 
   @Override
   public String resolveTypeLink(TypeElement elt, Coordinate coordinate) {
-    TypeInfo type = null;
+    return resolveTypeLink(elt, coordinate, false);
+  }
+
+  public String resolveTypeLink(TypeElement elt, Coordinate coordinate, boolean toObject) {
+    TypeInfo type;
     try {
-      type = factory.create(elt.asType());
+      type = factory.create(elt.asType()).getRaw();
     } catch (Exception e) {
       System.out.println("Could not resolve doc link for type " + elt.getQualifiedName());
       return null;
     }
-    if (type.getKind() == ClassKind.ENUM && ((EnumTypeInfo) type).isGen()) {
-      String baselink;
-      if (coordinate == null) {
-        baselink = "../";
+    if (type.getKind() == ClassKind.API || (type.getKind() == ClassKind.ENUM && ((EnumTypeInfo) type).isGen()) || type.getKind() == ClassKind.DATA_OBJECT) {
+      ClassTypeInfo classType = (ClassTypeInfo) type;
+      String moduleName = classType.getModuleName();
+      if (moduleName.equals("vertx")) {
+        moduleName = "vertx-core";
+      }
+      String s = "../../ceylondoc/" + moduleName + "/" + classType.getPackageName().substring(classType.getModule().getPackageName().length()).replace('.', '/') + "/";
+      if (toObject) {
+        return s + TypeNameTranslator.composite("ceylon").translate(classType.getModule(), classType.getSimpleName()) + ".object.html";
       } else {
-        baselink = "../../" + coordinate.getArtifactId() + "/";
+        return s + classType.getSimpleName() + ".type.html";
       }
-      return baselink + "enums.html#" + elt.getSimpleName().toString();
-    }
-    if (type.getKind() == ClassKind.DATA_OBJECT) {
-      String baselink;
-      if (coordinate == null) {
-        baselink = "../";
-      } else {
-        baselink = "../../" + coordinate.getArtifactId() + "/";
-      }
-      return baselink + "dataobjects.html#" + elt.getSimpleName().toString();
-    }
-    if (type.getKind() == ClassKind.API) {
-      String baselink = "";
-      if (coordinate != null) {
-        baselink = "../../" + coordinate.getArtifactId() + "/groovy/";
-      }
-      ApiTypeInfo api = (ApiTypeInfo) type.getRaw();
-      return baselink + "groovydoc/" + api.translateName("groovy").replace('.', '/') + ".html";
     }
     return null;
   }
@@ -127,7 +122,8 @@ public class CeylonDocGenerator implements DocGenerator {
   @Override
   public String resolveMethodLink(ExecutableElement elt, Coordinate coordinate) {
     TypeElement typeElt = (TypeElement) elt.getEnclosingElement();
-    String link = resolveTypeLink(typeElt, coordinate);
+    boolean toObject = elt.getModifiers().contains(Modifier.STATIC);
+    String link = resolveTypeLink(typeElt, coordinate, toObject);
     if (link != null) {
       if (link.contains("cheatsheet")) {
         link = link + '#' + java.beans.Introspector.decapitalize(elt.getSimpleName().toString().substring(3));

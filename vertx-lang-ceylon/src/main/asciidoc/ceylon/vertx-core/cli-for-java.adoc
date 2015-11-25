@@ -1,14 +1,14 @@
 === Typed options and arguments
 
-The described `link:../dataobjects.html#Option[Option]` and `link:../dataobjects.html#Argument[Argument]` classes are _untyped_,
+The described `link:../../ceylondoc/vertx-core//cli/Option.type.html[Option]` and `link:../../ceylondoc/vertx-core//cli/Argument.type.html[Argument]` classes are _untyped_,
 meaning that the only get String values.
 
 `TypedOption` and `TypedArgument` let you specify a _type_, so the
 (String) raw value is converted to the specified type.
 
 Instead of
-`link:../dataobjects.html#Option[Option]` and `link:../dataobjects.html#Argument[Argument]`, use `TypedOption`
-and `TypedArgument` in the `link:groovydoc/io/vertx/groovy/core/cli/CLI.html[CLI]` definition:
+`link:../../ceylondoc/vertx-core//cli/Option.type.html[Option]` and `link:../../ceylondoc/vertx-core//cli/Argument.type.html[Argument]`, use `TypedOption`
+and `TypedArgument` in the `link:../../ceylondoc/vertx-core//cli/CLI.type.html[CLI]` definition:
 
 [source,java]
 ----
@@ -98,7 +98,7 @@ public class AnnotatedCli {
 }
 ----
 
-Once annotated, you can define the `link:groovydoc/io/vertx/groovy/core/cli/CLI.html[CLI]` and inject the values using:
+Once annotated, you can define the `link:../../ceylondoc/vertx-core//cli/CLI.type.html[CLI]` and inject the values using:
 
 [source,java]
 ----

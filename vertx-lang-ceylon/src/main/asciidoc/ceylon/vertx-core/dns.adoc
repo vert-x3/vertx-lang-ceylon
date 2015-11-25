@@ -28,7 +28,7 @@ To lookup the A / AAAA record for "vertx.io" you would typically use it like:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.lookup("vertx.io", (String|Throwable ar) => {
-  if (is String name) {
+  if (is String ar) {
     print(ar);
   } else {
     print("Failed to resolve entry``ar``");
@@ -48,7 +48,7 @@ To lookup the A record for "vertx.io" you would typically use it like:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.lookup4("vertx.io", (String|Throwable ar) => {
-  if (is String name) {
+  if (is String ar) {
     print(ar);
   } else {
     print("Failed to resolve entry``ar``");
@@ -68,7 +68,7 @@ To lookup the A record for "vertx.io" you would typically use it like:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.lookup6("vertx.io", (String|Throwable ar) => {
-  if (is String name) {
+  if (is String ar) {
     print(ar);
   } else {
     print("Failed to resolve entry``ar``");
@@ -88,7 +88,7 @@ To lookup all the A records for "vertx.io" you would typically do:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveA("vertx.io", (List<String>|Throwable ar) => {
-  if (is List<String> name) {
+  if (is List<String> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -111,7 +111,7 @@ To lookup all the AAAAA records for "vertx.io" you would typically do:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveAAAA("vertx.io", (List<String>|Throwable ar) => {
-  if (is List<String> name) {
+  if (is List<String> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -134,7 +134,7 @@ To lookup all the CNAME records for "vertx.io" you would typically do:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveCNAME("vertx.io", (List<String>|Throwable ar) => {
-  if (is List<String> name) {
+  if (is List<String> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -157,7 +157,7 @@ To lookup all the MX records for "vertx.io" you would typically do:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveMX("vertx.io", (List<MxRecord>|Throwable ar) => {
-  if (is List<MxRecord> name) {
+  if (is List<MxRecord> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -169,10 +169,10 @@ client.resolveMX("vertx.io", (List<MxRecord>|Throwable ar) => {
 
 ----
 
-Be aware that the List will contain the `link:groovydoc/io/vertx/groovy/core/dns/MxRecord.html[MxRecord]` sorted by the priority of them, which
+Be aware that the List will contain the `link:../../ceylondoc/vertx-core//dns/MxRecord.type.html[MxRecord]` sorted by the priority of them, which
 means MX records with smaller priority coming first in the List.
 
-The `link:groovydoc/io/vertx/groovy/core/dns/MxRecord.html[MxRecord]` allows you to access the priority and the name of the MX record by offer methods for it like:
+The `link:../../ceylondoc/vertx-core//dns/MxRecord.type.html[MxRecord]` allows you to access the priority and the name of the MX record by offer methods for it like:
 
 [source,ceylon]
 ----
@@ -191,7 +191,7 @@ To resolve all the TXT records for "vertx.io" you could use something along thes
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveTXT("vertx.io", (List<String>|Throwable ar) => {
-  if (is List<String> name) {
+  if (is List<String> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -214,7 +214,7 @@ To resolve all the NS records for "vertx.io" you could use something along these
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveNS("vertx.io", (List<String>|Throwable ar) => {
-  if (is List<String> name) {
+  if (is List<String> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -237,7 +237,7 @@ To lookup all the SRV records for "vertx.io" you would typically do:
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolveSRV("vertx.io", (List<SrvRecord>|Throwable ar) => {
-  if (is List<SrvRecord> name) {
+  if (is List<SrvRecord> ar) {
     value records = ar;
     for (record in records) {
       print(record);
@@ -252,7 +252,7 @@ client.resolveSRV("vertx.io", (List<SrvRecord>|Throwable ar) => {
 Be aware that the List will contain the SrvRecords sorted by the priority of them, which means SrvRecords
 with smaller priority coming first in the List.
 
-The `link:groovydoc/io/vertx/groovy/core/dns/SrvRecord.html[SrvRecord]` allows you to access all informations contained in the SRV record itself:
+The `link:../../ceylondoc/vertx-core//dns/SrvRecord.type.html[SrvRecord]` allows you to access all informations contained in the SRV record itself:
 
 [source,ceylon]
 ----
@@ -278,7 +278,7 @@ To resolve the PTR record for the ipaddress 10.0.0.1 you would use the PTR notio
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.resolvePTR("1.0.0.10.in-addr.arpa", (String|Throwable ar) => {
-  if (is String name) {
+  if (is String ar) {
     value record = ar;
     print(record);
   } else {
@@ -299,7 +299,7 @@ To do a reverse lookup for the ipaddress 10.0.0.1 do something similar like this
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
 client.reverseLookup("10.0.0.1", (String|Throwable ar) => {
-  if (is String name) {
+  if (is String ar) {
     value record = ar;
     print(record);
   } else {
