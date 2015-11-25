@@ -3,7 +3,6 @@ vertx-lang-ceylon
 
 ## Open issues
 
-- resolve doc links to correct location
 - make data object member variable
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
 - link to other modules
@@ -13,9 +12,7 @@ vertx-lang-ceylon
 
 - generate data object converter in java to have @GenIgnore
 - don't share the underlying vertx module
-- consider converting enum members to lower cases to be more ceylonic
 - consider using ceylon.promise for Handler<AsyncResult<T>> ending methods
-- general documentation generation
 
 ## CI
 
