@@ -24,15 +24,15 @@ vertx-lang-ceylon
 
 ## Documentation
 
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-core/ceylon/index.html[Vert.x Core]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-common/ceylon/index.html[Vert.x Auth Common]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-jdbc/ceylon/index.html[Vert.x Auth JDBC]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-jwt/ceylon/index.html[Vert.x Auth JWT]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-oauth2/ceylon/index.html[Vert.x Auth OAuth2]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-shiro/ceylon/index.html[Vert.x Auth Shiro]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-sql-common/ceylon/index.html[Vert.x SQL Common]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-jdbc-client/ceylon/index.html[Vert.x JDBC Client]
-- https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-web/ceylon/index.html[Vert.x Web]
+- [Vert.x Core](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-core/ceylon/index.html)
+- [Vert.x Auth Common](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-common/ceylon/index.html)
+- [Vert.x Auth JDBC](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-jdbc/ceylon/index.html)
+- [Vert.x Auth JWT](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-jwt/ceylon/index.html)
+- [Vert.x Auth OAuth2](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-oauth2/ceylon/index.html)
+- [Vert.x Auth Shiro](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-auth-shiro/ceylon/index.html)
+- [Vert.x SQL Common](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-sql-common/ceylon/index.html)
+- [Vert.x JDBC Client](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-jdbc-client/ceylon/index.html)
+- [Vert.x Web](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-web/ceylon/index.html)
 
 ## Build
 
