@@ -30,6 +30,10 @@ vertx-lang-ceylon
 - [Vert.x JDBC Client](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-jdbc-client/ceylon/index.html)
 - [Vert.x Web](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-stack/ws/stack-docs/target/html/vertx-web/ceylon/index.html)
 
+## Examples
+
+Examples for [Vert.x / Ceylon](https://github.com/vietj/ceylon-vertx-examples)
+
 ## Build
 
 ### Generate the Ceylon/Java sources and copy the jar dependencies in target/jars
