@@ -6,7 +6,6 @@ vertx-lang-ceylon
 - resolve doc links to correct location
 - make data object member variable
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
-- should we convert enums to lower cases ?
 - link to other modules
 - Promise support
 

@@ -20,13 +20,63 @@ import io.vertx.codetrans.expression.Member;
 import io.vertx.codetrans.statement.StatementModel;
 import io.vertx.codetrans.statement.TryCatchModel;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
  */
 public class CeylonWriter extends CodeWriter {
+
+  private static final Set<String> KEYWORDS = new HashSet<>(Arrays.asList(
+      "abstracts",
+      "alias",
+      "assembly",
+      "assert",
+      "assign",
+      "break",
+      "case",
+      "catch",
+      "class",
+      "continue",
+      "dynamic",
+      "else",
+      "exists",
+      "extends",
+      "finally",
+      "for",
+      "function",
+      "given",
+      "if",
+      "import",
+      "in",
+      "interface",
+      "is",
+      "let",
+      "module",
+      "new",
+      "nonempty",
+      "object",
+      "of",
+      "out",
+      "outer",
+      "package",
+      "return",
+      "satisfies",
+      "super",
+      "switch",
+      "then",
+      "this",
+      "throw",
+      "try",
+      "value",
+      "void",
+      "void",
+      "while"
+  ));
 
   public CeylonWriter(CeylonCodeBuilder builder) {
     super(builder);
@@ -310,8 +360,9 @@ public class CeylonWriter extends CodeWriter {
 
   @Override
   public void renderEnumConstant(EnumTypeInfo type, String constant) {
-    if (Character.isUpperCase(constant.charAt(0))) {
-      append("\\i");
+    constant = constant.toLowerCase();
+    if (KEYWORDS.contains(constant)) {
+      constant = "\\i" + constant;
     }
     append(constant);
   }

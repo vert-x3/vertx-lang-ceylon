@@ -1,5 +1,5 @@
 import io.vertx.ceylon.testmodel {
-  DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, TestDataObject, \iLAURA, \iBOB, \iMIKE, \iLELAND
+  DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, TestDataObject, laura, bob, mike, leland
 }
 import io.vertx.codegen.testmodel {
   DataObjectTCKImpl
@@ -34,7 +34,7 @@ shared test void testReadDataObjectWithValues() {
   assertEquals(JsonObject{"foo"->"eek","bar"->"wibble"}, dataObject.jsonObjectValue);
   assertEquals(JsonArray{"eek","wibble"}, dataObject.jsonArrayValue);
   assertEquals("TIM", dataObject.enumValue);
-  assertEquals(\iMIKE, dataObject.genEnumValue);
+  assertEquals(mike, dataObject.genEnumValue);
   assertEquals("1", dataObject.dataObjectValue?.foo);
   assertEquals(1, dataObject.dataObjectValue?.bar);
   assertEquals(1.1, dataObject.dataObjectValue?.wibble);
@@ -58,7 +58,7 @@ shared test void testWriteDataObjectWithValues() {
     jsonObjectValue = JsonObject{"foo"->"eek","bar"->"wibble"};
     jsonArrayValue = JsonArray{"eek","wibble"};
     enumValue = "TIM";
-    genEnumValue = \iMIKE;
+    genEnumValue = mike;
     dataObjectValue = TestDataObject { foo="1"; bar=1; wibble=1.1; };
   };
   dataObjectTCK.dataObjectWithValues = dataObject;
@@ -91,7 +91,7 @@ shared test void testReadDataObjectWithLists() {
   assert(exists enumValues = dataObject.enumValues);
   assertEquals(ArrayList{"TIM", "JULIEN"}, ArrayList{*enumValues});
   assert(exists genEnumValues = dataObject.genEnumValues);
-  assertEquals(ArrayList{\iBOB, \iLAURA}, ArrayList{*genEnumValues});
+  assertEquals(ArrayList{bob, laura}, ArrayList{*genEnumValues});
 }
 
 shared test void testWriteDataObjectWithLists() {
@@ -107,7 +107,7 @@ shared test void testWriteDataObjectWithLists() {
     stringValues = { "stringValues1", "stringValues2", "stringValues3" };
     dataObjectValues = { TestDataObject { foo="1"; bar=1; wibble=1.1; }, TestDataObject { foo="2"; bar=2; wibble=2.2; } };
     enumValues = { "TIM", "JULIEN" };
-    genEnumValues = { \iBOB, \iLAURA };
+    genEnumValues = { bob, laura };
   };
   dataObjectTCK.dataObjectWithLists = dataObject;
 }
@@ -128,7 +128,7 @@ shared test void testReadDataObjectWithMaps() {
   assertEquals(2, dataObject.dataObjectValues?.get("2")?.bar);
   assertEquals(2.2, dataObject.dataObjectValues?.get("2")?.wibble);
   assertEquals(HashMap{"1"->"TIM","2"->"JULIEN"}, dataObject.enumValues);
-  assertEquals(HashMap{"1"->\iBOB,"2"->\iLAURA}, dataObject.genEnumValues);
+  assertEquals(HashMap{"1"->bob,"2"->laura}, dataObject.genEnumValues);
 }
 
 shared test void testWriteDataObjectWithMaps() {
@@ -144,7 +144,7 @@ shared test void testWriteDataObjectWithMaps() {
     jsonArrayValues = HashMap { "1"->JsonArray{"foo"}, "2"->JsonArray{"bar"} };
     dataObjectValues = HashMap { "1"-> TestDataObject { foo="1"; bar=1; wibble=1.1; },"2" -> TestDataObject { foo="2"; bar=2; wibble=2.2; } };
     enumValues = HashMap { "1"->"TIM", "2"->"JULIEN" };
-    genEnumValues = HashMap { "1"->\iBOB, "2"->\iLAURA };
+    genEnumValues = HashMap { "1"->bob, "2"->laura };
   };
   dataObjectTCK.dataObjectWithMaps = dataObject;
 }

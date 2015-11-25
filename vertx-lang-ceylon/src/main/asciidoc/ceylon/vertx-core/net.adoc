@@ -527,7 +527,7 @@ The password for the trust store should also be provided:
 ----
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   trustStoreOptions = JksOptions {
     path = "/path/to/your/truststore.jks";
     password = "password-of-your-truststore";
@@ -544,7 +544,7 @@ Alternatively you can read the trust store yourself as a buffer and provide that
 value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.jks");
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   trustStoreOptions = JksOptions {
     value = myTrustStoreAsABuffer;
     password = "password-of-your-truststore";
@@ -561,7 +561,7 @@ extension can also be loaded in a similar fashion than JKS trust stores:
 ----
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   pfxTrustOptions = PfxOptions {
     path = "/path/to/your/truststore.pfx";
     password = "password-of-your-truststore";
@@ -578,7 +578,7 @@ Buffer configuration is also supported:
 value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.pfx");
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   pfxTrustOptions = PfxOptions {
     value = myTrustStoreAsABuffer;
     password = "password-of-your-truststore";
@@ -594,7 +594,7 @@ Another way of providing server certificate authority using a list `.pem` files.
 ----
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   pemTrustOptions = PemTrustOptions {
     certPaths = {"/path/to/your/server-ca.pem" };
   };
@@ -610,7 +610,7 @@ Buffer configuration is also supported:
 value myCaAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/server-ca.pfx");
 value options = NetServerOptions {
   ssl = true;
-  clientAuth = \iREQUIRED;
+  clientAuth = required;
   pemTrustOptions = PemTrustOptions {
     certValues = {myCaAsABuffer };
   };

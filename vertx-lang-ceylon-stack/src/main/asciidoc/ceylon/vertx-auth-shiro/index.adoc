@@ -39,7 +39,7 @@ value config = JsonObject {
   properties_path = "classpath:test-auth.properties";
 };
 
-value provider = shiroAuth.create(vertx, \iPROPERTIES, config);
+value provider = shiroAuth.create(vertx, properties, config);
 
 
 ----

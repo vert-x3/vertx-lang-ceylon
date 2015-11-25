@@ -1,12 +1,15 @@
 @includeNamed{'ceylon-common.templ'}
 
 @code{
-  def asValidMember(name) {
+  def toJavaEnumMember(name) {
     if (Character.isLowerCase(name.charAt(0))) {
       return name;
     } else {
       return '\\i' + name;
     }
+  }
+  def toCeylonEnumMember(name) {
+    return toCeylonIdentifier(name.toLowerCase());
   }
 }
 
@@ -17,7 +20,7 @@ import @{type.packageName} { @{type.simpleName}_=@{type.simpleName} }\n
 @if{doc != null}
 "@{genDoc(doc)}"\n
 @end{}
-shared abstract class @{type.simpleName}(shared String name) of @foreach{value:values}@{asValidMember(value.identifier)}@end{' | '} {\n
+shared abstract class @{type.simpleName}(shared String name) of @foreach{value:values}@{toCeylonEnumMember(value.identifier)}@end{' | '} {\n
 }\n
 
 \n
@@ -25,7 +28,7 @@ shared abstract class @{type.simpleName}(shared String name) of @foreach{value:v
 @if{value.doc != null}
 "@{genDoc(value.doc)}"\n
 @end{}
-shared object @{asValidMember(value.identifier)} extends @{type.simpleName}("@{value.identifier}") {}\n
+shared object @{toCeylonEnumMember(value.identifier)} extends @{type.simpleName}("@{value.identifier}") {}\n
 @end{}
 
 \n
@@ -36,7 +39,7 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
       switch (val)
 @foreach{value:values}
 \n
-      case(@{asValidMember(value.identifier)}) { return "@{value.identifier}"; }
+      case(@{toCeylonEnumMember(value.identifier)}) { return "@{value.identifier}"; }
 @end{}
 \n
   }\n
@@ -46,7 +49,7 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
       switch (val)
 @foreach{value:values}
 \n
-      case("@{value.identifier}") { return @{asValidMember(value.identifier)}; }
+      case("@{value.identifier}") { return @{toCeylonEnumMember(value.identifier)}; }
 @end{}
 \n
       else {\n
@@ -60,7 +63,7 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
       switch (src)
 @foreach{value:values}
 \n
-      case(@{asValidMember(value.identifier)}) { return @{type.simpleName}_.@{asValidMember(value.identifier)}; }
+      case(@{toCeylonEnumMember(value.identifier)}) { return @{type.simpleName}_.@{toJavaEnumMember(value.identifier)}; }
 @end{}
 \n
     }\n
@@ -70,8 +73,8 @@ shared object @{CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName)} {\n
   shared object toCeylon extends Converter<@{type.simpleName}_, @{type.simpleName}>() {\n
     shared actual @{type.simpleName} convert(@{type.simpleName}_ src) {\n
 @foreach{value:values}
-      if (src == @{type.simpleName}_.@{asValidMember(value.identifier)}) {\n
-        return @{asValidMember(value.identifier)};\n
+      if (src == @{type.simpleName}_.@{toJavaEnumMember(value.identifier)}) {\n
+        return @{toCeylonEnumMember(value.identifier)};\n
       }\n
 @end{}
       throw Exception("Invalid enum value");\n

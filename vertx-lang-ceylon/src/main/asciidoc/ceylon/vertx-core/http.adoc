@@ -624,7 +624,7 @@ at any one time:
 ----
 vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
   value response = request.response();
-  if (request.method() == \iPUT) {
+  if (request.method() == put) {
     response.setChunked(true);
     pump.pump(request, response).start();
     request.endHandler((Void v) => {
@@ -761,11 +761,11 @@ the HTTP method at run-time:
 ----
 value client = vertx.createHttpClient();
 
-client.request(\iGET, "some-uri", (HttpClientResponse response) => {
+client.request(get, "some-uri", (HttpClientResponse response) => {
   print("Received response with status code ``response.statusCode()``");
 }).end();
 
-client.request(\iPOST, "foo-uri", (HttpClientResponse response) => {
+client.request(post, "foo-uri", (HttpClientResponse response) => {
   print("Received response with status code ``response.statusCode()``");
 }).end("some-data");
 

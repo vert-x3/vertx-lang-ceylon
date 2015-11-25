@@ -1,7 +1,7 @@
 import io.vertx.ceylon.testmodel {
   TestInterface, NullableTCK, RefedInterface1, RefedInterface2, TestDataObject,
   Factory, factory, testInterface, AbstractHandlerUserType, ConcreteHandlerUserType, ConcreteHandlerUserTypeExtension,
-  GenericRefedInterface, TestGenEnum, \iMIKE, \iBOB, \iLELAND
+  GenericRefedInterface, TestGenEnum, mike, bob, leland
 }
 import io.vertx.codegen.testmodel {
   TestInterfaceImpl, RefedInterface1Impl, NullableTCKImpl
@@ -1037,7 +1037,7 @@ shared test void testMethodWithEnumParam() {
 }
 
 shared test void testMethodWithGenEnumParam() {
-  value ret = obj.methodWithGenEnumParam("cabbages", \iMIKE);
+  value ret = obj.methodWithGenEnumParam("cabbages", mike);
   assertEquals(ret, "cabbagesMIKE");
 }
 
@@ -1048,7 +1048,7 @@ shared test void testMethodWithEnumReturn() {
 
 shared test void testMethodWithGenEnumReturn() {
   value ret = obj.methodWithGenEnumReturn("BOB");
-  assertEquals(ret, \iBOB);
+  assertEquals(ret, bob);
 }
 
 shared test void testNullableByte() => testNullable(67.byte, nullableTCK.methodWithNullableByteParam, nullableTCK.methodWithNullableByteHandler, nullableTCK.methodWithNullableByteHandlerAsyncResult, nullableTCK.methodWithNullableByteReturn);
@@ -1065,7 +1065,7 @@ shared test void testNullableJsonArray() => testNullable(JsonArray { "one","two"
 shared test void testNullableApi() => testNullable(RefedInterface1(RefedInterface1Impl().setString("lovely_dae")), nullableTCK.methodWithNullableApiParam, nullableTCK.methodWithNullableApiHandler, nullableTCK.methodWithNullableApiHandlerAsyncResult, nullableTCK.methodWithNullableApiReturn, assertRefedInterface1Equals);
 shared test void testNullableDataObject() => testNullable(TestDataObject { foo="foo_value"; bar=12345; wibble=3.5; }, nullableTCK.methodWithNullableDataObjectParam, nullableTCK.methodWithNullableDataObjectHandler, nullableTCK.methodWithNullableDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableDataObjectReturn, assertTestDataObjectEquals);
 shared test void testNullableEnum() => testNullable("TIM", nullableTCK.methodWithNullableEnumParam, nullableTCK.methodWithNullableEnumHandler, nullableTCK.methodWithNullableEnumHandlerAsyncResult, nullableTCK.methodWithNullableEnumReturn);
-shared test void testNullableGenEnum() => testNullable(\iMIKE, nullableTCK.methodWithNullableGenEnumParam, nullableTCK.methodWithNullableGenEnumHandler, nullableTCK.methodWithNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableGenEnumReturn);
+shared test void testNullableGenEnum() => testNullable(mike, nullableTCK.methodWithNullableGenEnumParam, nullableTCK.methodWithNullableGenEnumHandler, nullableTCK.methodWithNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableGenEnumReturn);
 
 shared void testNullable<T>(
     T expected,
@@ -1151,7 +1151,7 @@ shared test void testNullableListJsonArray() => testNullableList(ArrayList { Jso
 shared test void testNullableListApi() => testNullableList(ArrayList { RefedInterface1(RefedInterface1Impl().setString("refed_is_here")) }, nullableTCK.methodWithNullableListApiParam, nullableTCK.methodWithNullableListApiHandler, nullableTCK.methodWithNullableListApiHandlerAsyncResult, nullableTCK.methodWithNullableListApiReturn, assertRefedInterface1Equals);
 shared test void testNullableListDataObject() => testNullableList(ArrayList { TestDataObject { foo="foo_value"; bar=12345; wibble=5.6; } }, nullableTCK.methodWithNullableListDataObjectParam, nullableTCK.methodWithNullableListDataObjectHandler, nullableTCK.methodWithNullableListDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableListDataObjectReturn, assertTestDataObjectEquals);
 shared test void testNullableListEnum() => testNullableList(ArrayList { "TIM", "JULIEN" }, nullableTCK.methodWithNullableListEnumParam, nullableTCK.methodWithNullableListEnumHandler, nullableTCK.methodWithNullableListEnumHandlerAsyncResult, nullableTCK.methodWithNullableListEnumReturn);
-shared test void testNullableListGenEnum() => testNullableList(ArrayList { \iBOB, \iLELAND }, nullableTCK.methodWithNullableListGenEnumParam, nullableTCK.methodWithNullableListGenEnumHandler, nullableTCK.methodWithNullableListGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableListGenEnumReturn);
+shared test void testNullableListGenEnum() => testNullableList(ArrayList { bob, leland }, nullableTCK.methodWithNullableListGenEnumParam, nullableTCK.methodWithNullableListGenEnumHandler, nullableTCK.methodWithNullableListGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableListGenEnumReturn);
 
 shared void testNullableList<T>(
     List<T> expected,
@@ -1210,7 +1210,7 @@ shared test void testNullableSetJsonArray() => testNullableSet(HashSet { JsonArr
 shared test void testNullableSetApi() => testNullableSet(HashSet { RefedInterface1(RefedInterface1Impl().setString("refed_is_here")) }, nullableTCK.methodWithNullableSetApiParam, nullableTCK.methodWithNullableSetApiHandler, nullableTCK.methodWithNullableSetApiHandlerAsyncResult, nullableTCK.methodWithNullableSetApiReturn, assertRefedInterface1Equals);
 shared test void testNullableSetDataObject() => testNullableSet(HashSet { TestDataObject { foo="foo_value"; bar=12345; wibble=5.6; } }, nullableTCK.methodWithNullableSetDataObjectParam, nullableTCK.methodWithNullableSetDataObjectHandler, nullableTCK.methodWithNullableSetDataObjectHandlerAsyncResult, nullableTCK.methodWithNullableSetDataObjectReturn, assertTestDataObjectEquals);
 shared test void testNullableSetEnum() => testNullableSet(HashSet { "TIM", "JULIEN" }, nullableTCK.methodWithNullableSetEnumParam, nullableTCK.methodWithNullableSetEnumHandler, nullableTCK.methodWithNullableSetEnumHandlerAsyncResult, nullableTCK.methodWithNullableSetEnumReturn);
-shared test void testNullableSetGenEnum() => testNullableSet(HashSet { \iBOB, \iLELAND }, nullableTCK.methodWithNullableSetGenEnumParam, nullableTCK.methodWithNullableSetGenEnumHandler, nullableTCK.methodWithNullableSetGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableSetGenEnumReturn);
+shared test void testNullableSetGenEnum() => testNullableSet(HashSet { bob, leland }, nullableTCK.methodWithNullableSetGenEnumParam, nullableTCK.methodWithNullableSetGenEnumHandler, nullableTCK.methodWithNullableSetGenEnumHandlerAsyncResult, nullableTCK.methodWithNullableSetGenEnumReturn);
 
 shared void testNullableSet<T>(
     Set<T> expected,
@@ -1355,7 +1355,7 @@ shared test void testListNullableJsonObject() => testListNullable(ArrayList { Js
 shared test void testListNullableJsonArray() => testListNullable(ArrayList { JsonArray { "foo","bar" }, null, JsonArray { "juu" } }, nullableTCK.methodWithListNullableJsonArrayParam, nullableTCK.methodWithListNullableJsonArrayHandler, nullableTCK.methodWithListNullableJsonArrayHandlerAsyncResult, nullableTCK.methodWithListNullableJsonArrayReturn);
 shared test void testListNullableApi() => testListNullable(ArrayList { RefedInterface1(RefedInterface1Impl().setString("first")), null, RefedInterface1(RefedInterface1Impl().setString("third")) }, nullableTCK.methodWithListNullableApiParam, nullableTCK.methodWithListNullableApiHandler, nullableTCK.methodWithListNullableApiHandlerAsyncResult, nullableTCK.methodWithListNullableApiReturn, assertRefedInterface1Equals);
 shared test void testListNullableDataObject() => testListNullable(ArrayList { TestDataObject { foo="first"; bar=1; wibble=1.1; }, null, TestDataObject { foo="third"; bar=3; wibble=3.3; } }, nullableTCK.methodWithListNullableDataObjectParam, nullableTCK.methodWithListNullableDataObjectHandler, nullableTCK.methodWithListNullableDataObjectHandlerAsyncResult, nullableTCK.methodWithListNullableDataObjectReturn, assertTestDataObjectEquals);
-shared test void testListNullableGenEnum() => testListNullable(ArrayList { \iBOB, null, \iLELAND }, nullableTCK.methodWithListNullableGenEnumParam, nullableTCK.methodWithListNullableGenEnumHandler, nullableTCK.methodWithListNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithListNullableGenEnumReturn);
+shared test void testListNullableGenEnum() => testListNullable(ArrayList { bob, null, leland }, nullableTCK.methodWithListNullableGenEnumParam, nullableTCK.methodWithListNullableGenEnumHandler, nullableTCK.methodWithListNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithListNullableGenEnumReturn);
 
 shared void testListNullable<T>(
     List<T?> expected,
@@ -1405,7 +1405,7 @@ shared test void testSetNullableJsonObject() => testSetNullable(ArrayList { Json
 shared test void testSetNullableJsonArray() => testSetNullable(ArrayList { JsonArray { "foo","bar" }, null, JsonArray { "juu" } }, nullableTCK.methodWithSetNullableJsonArrayParam, nullableTCK.methodWithSetNullableJsonArrayHandler, nullableTCK.methodWithSetNullableJsonArrayHandlerAsyncResult, nullableTCK.methodWithSetNullableJsonArrayReturn);
 shared test void testSetNullableApi() => testSetNullable(ArrayList { RefedInterface1(RefedInterface1Impl().setString("first")), null, RefedInterface1(RefedInterface1Impl().setString("third")) }, nullableTCK.methodWithSetNullableApiParam, nullableTCK.methodWithSetNullableApiHandler, nullableTCK.methodWithSetNullableApiHandlerAsyncResult, nullableTCK.methodWithSetNullableApiReturn, assertRefedInterface1Equals);
 shared test void testSetNullableDataObject() => testSetNullable(ArrayList { TestDataObject { foo="first"; bar=1; wibble=1.1; }, null, TestDataObject { foo="third"; bar=3; wibble=3.3; } }, nullableTCK.methodWithSetNullableDataObjectParam, nullableTCK.methodWithSetNullableDataObjectHandler, nullableTCK.methodWithSetNullableDataObjectHandlerAsyncResult, nullableTCK.methodWithSetNullableDataObjectReturn, assertTestDataObjectEquals);
-shared test void testSetNullableGenEnum() => testSetNullable(ArrayList { \iBOB, null, \iLELAND }, nullableTCK.methodWithSetNullableGenEnumParam, nullableTCK.methodWithSetNullableGenEnumHandler, nullableTCK.methodWithSetNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithSetNullableGenEnumReturn);
+shared test void testSetNullableGenEnum() => testSetNullable(ArrayList { bob, null, leland }, nullableTCK.methodWithSetNullableGenEnumParam, nullableTCK.methodWithSetNullableGenEnumHandler, nullableTCK.methodWithSetNullableGenEnumHandlerAsyncResult, nullableTCK.methodWithSetNullableGenEnumReturn);
 
 shared void testSetNullable<T>(
     List<T?> expected,

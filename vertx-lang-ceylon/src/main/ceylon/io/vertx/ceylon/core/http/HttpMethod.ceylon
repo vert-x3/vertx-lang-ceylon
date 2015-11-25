@@ -2,45 +2,45 @@ import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { HttpMethod_=HttpMethod }
 
 " Represents an HTTP method\n"
-shared abstract class HttpMethod(shared String name) of \iOPTIONS | \iGET | \iHEAD | \iPOST | \iPUT | \iDELETE | \iTRACE | \iCONNECT | \iPATCH {
+shared abstract class HttpMethod(shared String name) of options | get | head | post | put | delete | trace | connect | patch {
 }
 
-shared object \iOPTIONS extends HttpMethod("OPTIONS") {}
-shared object \iGET extends HttpMethod("GET") {}
-shared object \iHEAD extends HttpMethod("HEAD") {}
-shared object \iPOST extends HttpMethod("POST") {}
-shared object \iPUT extends HttpMethod("PUT") {}
-shared object \iDELETE extends HttpMethod("DELETE") {}
-shared object \iTRACE extends HttpMethod("TRACE") {}
-shared object \iCONNECT extends HttpMethod("CONNECT") {}
-shared object \iPATCH extends HttpMethod("PATCH") {}
+shared object options extends HttpMethod("OPTIONS") {}
+shared object get extends HttpMethod("GET") {}
+shared object head extends HttpMethod("HEAD") {}
+shared object post extends HttpMethod("POST") {}
+shared object put extends HttpMethod("PUT") {}
+shared object delete extends HttpMethod("DELETE") {}
+shared object trace extends HttpMethod("TRACE") {}
+shared object connect extends HttpMethod("CONNECT") {}
+shared object patch extends HttpMethod("PATCH") {}
 
 shared object httpMethod {
 
   shared String toString(HttpMethod val) {
       switch (val)
-      case(\iOPTIONS) { return "OPTIONS"; }
-      case(\iGET) { return "GET"; }
-      case(\iHEAD) { return "HEAD"; }
-      case(\iPOST) { return "POST"; }
-      case(\iPUT) { return "PUT"; }
-      case(\iDELETE) { return "DELETE"; }
-      case(\iTRACE) { return "TRACE"; }
-      case(\iCONNECT) { return "CONNECT"; }
-      case(\iPATCH) { return "PATCH"; }
+      case(options) { return "OPTIONS"; }
+      case(get) { return "GET"; }
+      case(head) { return "HEAD"; }
+      case(post) { return "POST"; }
+      case(put) { return "PUT"; }
+      case(delete) { return "DELETE"; }
+      case(trace) { return "TRACE"; }
+      case(connect) { return "CONNECT"; }
+      case(patch) { return "PATCH"; }
   }
 
   shared HttpMethod fromString(String val) {
       switch (val)
-      case("OPTIONS") { return \iOPTIONS; }
-      case("GET") { return \iGET; }
-      case("HEAD") { return \iHEAD; }
-      case("POST") { return \iPOST; }
-      case("PUT") { return \iPUT; }
-      case("DELETE") { return \iDELETE; }
-      case("TRACE") { return \iTRACE; }
-      case("CONNECT") { return \iCONNECT; }
-      case("PATCH") { return \iPATCH; }
+      case("OPTIONS") { return options; }
+      case("GET") { return get; }
+      case("HEAD") { return head; }
+      case("POST") { return post; }
+      case("PUT") { return put; }
+      case("DELETE") { return delete; }
+      case("TRACE") { return trace; }
+      case("CONNECT") { return connect; }
+      case("PATCH") { return patch; }
       else {
         throw Exception("Invalid HttpMethod value ``val``");
       }
@@ -49,46 +49,46 @@ shared object httpMethod {
   shared object toJava extends Converter<HttpMethod, HttpMethod_>() {
     shared actual HttpMethod_ convert(HttpMethod src) {
       switch (src)
-      case(\iOPTIONS) { return HttpMethod_.\iOPTIONS; }
-      case(\iGET) { return HttpMethod_.\iGET; }
-      case(\iHEAD) { return HttpMethod_.\iHEAD; }
-      case(\iPOST) { return HttpMethod_.\iPOST; }
-      case(\iPUT) { return HttpMethod_.\iPUT; }
-      case(\iDELETE) { return HttpMethod_.\iDELETE; }
-      case(\iTRACE) { return HttpMethod_.\iTRACE; }
-      case(\iCONNECT) { return HttpMethod_.\iCONNECT; }
-      case(\iPATCH) { return HttpMethod_.\iPATCH; }
+      case(options) { return HttpMethod_.\iOPTIONS; }
+      case(get) { return HttpMethod_.\iGET; }
+      case(head) { return HttpMethod_.\iHEAD; }
+      case(post) { return HttpMethod_.\iPOST; }
+      case(put) { return HttpMethod_.\iPUT; }
+      case(delete) { return HttpMethod_.\iDELETE; }
+      case(trace) { return HttpMethod_.\iTRACE; }
+      case(connect) { return HttpMethod_.\iCONNECT; }
+      case(patch) { return HttpMethod_.\iPATCH; }
     }
   }
 
   shared object toCeylon extends Converter<HttpMethod_, HttpMethod>() {
     shared actual HttpMethod convert(HttpMethod_ src) {
       if (src == HttpMethod_.\iOPTIONS) {
-        return \iOPTIONS;
+        return options;
       }
       if (src == HttpMethod_.\iGET) {
-        return \iGET;
+        return get;
       }
       if (src == HttpMethod_.\iHEAD) {
-        return \iHEAD;
+        return head;
       }
       if (src == HttpMethod_.\iPOST) {
-        return \iPOST;
+        return post;
       }
       if (src == HttpMethod_.\iPUT) {
-        return \iPUT;
+        return put;
       }
       if (src == HttpMethod_.\iDELETE) {
-        return \iDELETE;
+        return delete;
       }
       if (src == HttpMethod_.\iTRACE) {
-        return \iTRACE;
+        return trace;
       }
       if (src == HttpMethod_.\iCONNECT) {
-        return \iCONNECT;
+        return connect;
       }
       if (src == HttpMethod_.\iPATCH) {
-        return \iPATCH;
+        return patch;
       }
       throw Exception("Invalid enum value");
     }

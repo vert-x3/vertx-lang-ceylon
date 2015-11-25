@@ -1,11 +1,9 @@
 package io.vertx.docgen.lang.ceylon;
 
 import io.vertx.codegen.annotations.ModuleGen;
-import io.vertx.codegen.type.ApiTypeInfo;
 import io.vertx.codegen.type.ClassKind;
 import io.vertx.codegen.type.ClassTypeInfo;
 import io.vertx.codegen.type.EnumTypeInfo;
-import io.vertx.codegen.type.ParameterizedTypeInfo;
 import io.vertx.codegen.type.TypeInfo;
 import io.vertx.codegen.type.TypeMirrorFactory;
 import io.vertx.codegen.type.TypeNameTranslator;

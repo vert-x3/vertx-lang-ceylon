@@ -2,78 +2,78 @@ import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.dns { DnsResponseCode_=DnsResponseCode }
 
 " Represents the possible response codes a server may send after receiving a\n query. A response code of 0 indicates no error.\n\n"
-shared abstract class DnsResponseCode(shared String name) of \iNOERROR | \iFORMERROR | \iSERVFAIL | \iNXDOMAIN | \iNOTIMPL | \iREFUSED | \iYXDOMAIN | \iYXRRSET | \iNXRRSET | \iNOTAUTH | \iNOTZONE | \iBADVERS | \iBADSIG | \iBADKEY | \iBADTIME {
+shared abstract class DnsResponseCode(shared String name) of noerror | formerror | servfail | nxdomain | notimpl | refused | yxdomain | yxrrset | nxrrset | notauth | notzone | badvers | badsig | badkey | badtime {
 }
 
 " ID 0, no error\n"
-shared object \iNOERROR extends DnsResponseCode("NOERROR") {}
+shared object noerror extends DnsResponseCode("NOERROR") {}
 " ID 1, format error\n"
-shared object \iFORMERROR extends DnsResponseCode("FORMERROR") {}
+shared object formerror extends DnsResponseCode("FORMERROR") {}
 " ID 2, server failure\n"
-shared object \iSERVFAIL extends DnsResponseCode("SERVFAIL") {}
+shared object servfail extends DnsResponseCode("SERVFAIL") {}
 " ID 3, name error\n"
-shared object \iNXDOMAIN extends DnsResponseCode("NXDOMAIN") {}
+shared object nxdomain extends DnsResponseCode("NXDOMAIN") {}
 " ID 4, not implemented\n"
-shared object \iNOTIMPL extends DnsResponseCode("NOTIMPL") {}
+shared object notimpl extends DnsResponseCode("NOTIMPL") {}
 " ID 5, operation refused\n"
-shared object \iREFUSED extends DnsResponseCode("REFUSED") {}
+shared object refused extends DnsResponseCode("REFUSED") {}
 " ID 6, domain name should not exist\n"
-shared object \iYXDOMAIN extends DnsResponseCode("YXDOMAIN") {}
+shared object yxdomain extends DnsResponseCode("YXDOMAIN") {}
 " ID 7, resource record set should not exist\n"
-shared object \iYXRRSET extends DnsResponseCode("YXRRSET") {}
+shared object yxrrset extends DnsResponseCode("YXRRSET") {}
 " ID 8, rrset does not exist\n"
-shared object \iNXRRSET extends DnsResponseCode("NXRRSET") {}
+shared object nxrrset extends DnsResponseCode("NXRRSET") {}
 " ID 9, not authoritative for zone\n"
-shared object \iNOTAUTH extends DnsResponseCode("NOTAUTH") {}
+shared object notauth extends DnsResponseCode("NOTAUTH") {}
 " ID 10, name not in zone\n"
-shared object \iNOTZONE extends DnsResponseCode("NOTZONE") {}
+shared object notzone extends DnsResponseCode("NOTZONE") {}
 " ID 11, bad extension mechanism for version\n"
-shared object \iBADVERS extends DnsResponseCode("BADVERS") {}
+shared object badvers extends DnsResponseCode("BADVERS") {}
 " ID 12, bad signature\n"
-shared object \iBADSIG extends DnsResponseCode("BADSIG") {}
+shared object badsig extends DnsResponseCode("BADSIG") {}
 " ID 13, bad key\n"
-shared object \iBADKEY extends DnsResponseCode("BADKEY") {}
+shared object badkey extends DnsResponseCode("BADKEY") {}
 " ID 14, bad timestamp\n"
-shared object \iBADTIME extends DnsResponseCode("BADTIME") {}
+shared object badtime extends DnsResponseCode("BADTIME") {}
 
 shared object dnsResponseCode {
 
   shared String toString(DnsResponseCode val) {
       switch (val)
-      case(\iNOERROR) { return "NOERROR"; }
-      case(\iFORMERROR) { return "FORMERROR"; }
-      case(\iSERVFAIL) { return "SERVFAIL"; }
-      case(\iNXDOMAIN) { return "NXDOMAIN"; }
-      case(\iNOTIMPL) { return "NOTIMPL"; }
-      case(\iREFUSED) { return "REFUSED"; }
-      case(\iYXDOMAIN) { return "YXDOMAIN"; }
-      case(\iYXRRSET) { return "YXRRSET"; }
-      case(\iNXRRSET) { return "NXRRSET"; }
-      case(\iNOTAUTH) { return "NOTAUTH"; }
-      case(\iNOTZONE) { return "NOTZONE"; }
-      case(\iBADVERS) { return "BADVERS"; }
-      case(\iBADSIG) { return "BADSIG"; }
-      case(\iBADKEY) { return "BADKEY"; }
-      case(\iBADTIME) { return "BADTIME"; }
+      case(noerror) { return "NOERROR"; }
+      case(formerror) { return "FORMERROR"; }
+      case(servfail) { return "SERVFAIL"; }
+      case(nxdomain) { return "NXDOMAIN"; }
+      case(notimpl) { return "NOTIMPL"; }
+      case(refused) { return "REFUSED"; }
+      case(yxdomain) { return "YXDOMAIN"; }
+      case(yxrrset) { return "YXRRSET"; }
+      case(nxrrset) { return "NXRRSET"; }
+      case(notauth) { return "NOTAUTH"; }
+      case(notzone) { return "NOTZONE"; }
+      case(badvers) { return "BADVERS"; }
+      case(badsig) { return "BADSIG"; }
+      case(badkey) { return "BADKEY"; }
+      case(badtime) { return "BADTIME"; }
   }
 
   shared DnsResponseCode fromString(String val) {
       switch (val)
-      case("NOERROR") { return \iNOERROR; }
-      case("FORMERROR") { return \iFORMERROR; }
-      case("SERVFAIL") { return \iSERVFAIL; }
-      case("NXDOMAIN") { return \iNXDOMAIN; }
-      case("NOTIMPL") { return \iNOTIMPL; }
-      case("REFUSED") { return \iREFUSED; }
-      case("YXDOMAIN") { return \iYXDOMAIN; }
-      case("YXRRSET") { return \iYXRRSET; }
-      case("NXRRSET") { return \iNXRRSET; }
-      case("NOTAUTH") { return \iNOTAUTH; }
-      case("NOTZONE") { return \iNOTZONE; }
-      case("BADVERS") { return \iBADVERS; }
-      case("BADSIG") { return \iBADSIG; }
-      case("BADKEY") { return \iBADKEY; }
-      case("BADTIME") { return \iBADTIME; }
+      case("NOERROR") { return noerror; }
+      case("FORMERROR") { return formerror; }
+      case("SERVFAIL") { return servfail; }
+      case("NXDOMAIN") { return nxdomain; }
+      case("NOTIMPL") { return notimpl; }
+      case("REFUSED") { return refused; }
+      case("YXDOMAIN") { return yxdomain; }
+      case("YXRRSET") { return yxrrset; }
+      case("NXRRSET") { return nxrrset; }
+      case("NOTAUTH") { return notauth; }
+      case("NOTZONE") { return notzone; }
+      case("BADVERS") { return badvers; }
+      case("BADSIG") { return badsig; }
+      case("BADKEY") { return badkey; }
+      case("BADTIME") { return badtime; }
       else {
         throw Exception("Invalid DnsResponseCode value ``val``");
       }
@@ -82,70 +82,70 @@ shared object dnsResponseCode {
   shared object toJava extends Converter<DnsResponseCode, DnsResponseCode_>() {
     shared actual DnsResponseCode_ convert(DnsResponseCode src) {
       switch (src)
-      case(\iNOERROR) { return DnsResponseCode_.\iNOERROR; }
-      case(\iFORMERROR) { return DnsResponseCode_.\iFORMERROR; }
-      case(\iSERVFAIL) { return DnsResponseCode_.\iSERVFAIL; }
-      case(\iNXDOMAIN) { return DnsResponseCode_.\iNXDOMAIN; }
-      case(\iNOTIMPL) { return DnsResponseCode_.\iNOTIMPL; }
-      case(\iREFUSED) { return DnsResponseCode_.\iREFUSED; }
-      case(\iYXDOMAIN) { return DnsResponseCode_.\iYXDOMAIN; }
-      case(\iYXRRSET) { return DnsResponseCode_.\iYXRRSET; }
-      case(\iNXRRSET) { return DnsResponseCode_.\iNXRRSET; }
-      case(\iNOTAUTH) { return DnsResponseCode_.\iNOTAUTH; }
-      case(\iNOTZONE) { return DnsResponseCode_.\iNOTZONE; }
-      case(\iBADVERS) { return DnsResponseCode_.\iBADVERS; }
-      case(\iBADSIG) { return DnsResponseCode_.\iBADSIG; }
-      case(\iBADKEY) { return DnsResponseCode_.\iBADKEY; }
-      case(\iBADTIME) { return DnsResponseCode_.\iBADTIME; }
+      case(noerror) { return DnsResponseCode_.\iNOERROR; }
+      case(formerror) { return DnsResponseCode_.\iFORMERROR; }
+      case(servfail) { return DnsResponseCode_.\iSERVFAIL; }
+      case(nxdomain) { return DnsResponseCode_.\iNXDOMAIN; }
+      case(notimpl) { return DnsResponseCode_.\iNOTIMPL; }
+      case(refused) { return DnsResponseCode_.\iREFUSED; }
+      case(yxdomain) { return DnsResponseCode_.\iYXDOMAIN; }
+      case(yxrrset) { return DnsResponseCode_.\iYXRRSET; }
+      case(nxrrset) { return DnsResponseCode_.\iNXRRSET; }
+      case(notauth) { return DnsResponseCode_.\iNOTAUTH; }
+      case(notzone) { return DnsResponseCode_.\iNOTZONE; }
+      case(badvers) { return DnsResponseCode_.\iBADVERS; }
+      case(badsig) { return DnsResponseCode_.\iBADSIG; }
+      case(badkey) { return DnsResponseCode_.\iBADKEY; }
+      case(badtime) { return DnsResponseCode_.\iBADTIME; }
     }
   }
 
   shared object toCeylon extends Converter<DnsResponseCode_, DnsResponseCode>() {
     shared actual DnsResponseCode convert(DnsResponseCode_ src) {
       if (src == DnsResponseCode_.\iNOERROR) {
-        return \iNOERROR;
+        return noerror;
       }
       if (src == DnsResponseCode_.\iFORMERROR) {
-        return \iFORMERROR;
+        return formerror;
       }
       if (src == DnsResponseCode_.\iSERVFAIL) {
-        return \iSERVFAIL;
+        return servfail;
       }
       if (src == DnsResponseCode_.\iNXDOMAIN) {
-        return \iNXDOMAIN;
+        return nxdomain;
       }
       if (src == DnsResponseCode_.\iNOTIMPL) {
-        return \iNOTIMPL;
+        return notimpl;
       }
       if (src == DnsResponseCode_.\iREFUSED) {
-        return \iREFUSED;
+        return refused;
       }
       if (src == DnsResponseCode_.\iYXDOMAIN) {
-        return \iYXDOMAIN;
+        return yxdomain;
       }
       if (src == DnsResponseCode_.\iYXRRSET) {
-        return \iYXRRSET;
+        return yxrrset;
       }
       if (src == DnsResponseCode_.\iNXRRSET) {
-        return \iNXRRSET;
+        return nxrrset;
       }
       if (src == DnsResponseCode_.\iNOTAUTH) {
-        return \iNOTAUTH;
+        return notauth;
       }
       if (src == DnsResponseCode_.\iNOTZONE) {
-        return \iNOTZONE;
+        return notzone;
       }
       if (src == DnsResponseCode_.\iBADVERS) {
-        return \iBADVERS;
+        return badvers;
       }
       if (src == DnsResponseCode_.\iBADSIG) {
-        return \iBADSIG;
+        return badsig;
       }
       if (src == DnsResponseCode_.\iBADKEY) {
-        return \iBADKEY;
+        return badkey;
       }
       if (src == DnsResponseCode_.\iBADTIME) {
-        return \iBADTIME;
+        return badtime;
       }
       throw Exception("Invalid enum value");
     }

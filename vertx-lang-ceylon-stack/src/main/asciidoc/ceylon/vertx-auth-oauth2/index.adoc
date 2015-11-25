@@ -72,7 +72,7 @@ An example on how to use this provider and authenticate with GitHub can be imple
 [source,ceylon]
 ----
 
-value oauth2 = oAuth2Auth.create(vertx, \iAUTH_CODE, JsonObject {
+value oauth2 = oAuth2Auth.create(vertx, auth_code, JsonObject {
   clientID = "YOUR_CLIENT_ID";
   clientSecret = "YOUR_CLIENT_SECRET";
   site = "https://github.com/login";
@@ -128,7 +128,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iAUTH_CODE, credentials);
+value oauth2 = oAuth2Auth.create(vertx, auth_code, credentials);
 
 // Authorization oauth2 URI
 value authorization_uri = oauth2.authorizeURL(JsonObject {
@@ -168,7 +168,7 @@ need a fast way to test your application.
 ----
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iPASSWORD);
+value oauth2 = oAuth2Auth.create(vertx, password);
 
 value tokenConfig = JsonObject {
   username = "username";
@@ -184,7 +184,7 @@ oauth2.getToken(tokenConfig, (AccessToken|Throwable res) => {
     // Get the access token object (the authorization code is given from the previous step).
     value token = res;
 
-    oauth2.api(\iGET, "/users", JsonObject {
+    oauth2.api(get, "/users", JsonObject {
       access_token = token.principal()get("access_token";
     }, (JsonObject|Throwable res2) => {
       // the user object should be returned here...
@@ -210,7 +210,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 value tokenConfig = JsonObject();
 
@@ -281,7 +281,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 
@@ -300,7 +300,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 
@@ -319,7 +319,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 
@@ -338,7 +338,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 
@@ -357,7 +357,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 
@@ -376,7 +376,7 @@ value credentials = JsonObject {
 
 
 // Initialize the OAuth2 Library
-value oauth2 = oAuth2Auth.create(vertx, \iCLIENT, credentials);
+value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
 <a href="mailto:plopes@redhat.com">Paulo Lopes</a>

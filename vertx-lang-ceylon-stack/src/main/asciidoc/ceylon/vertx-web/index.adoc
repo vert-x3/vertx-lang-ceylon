@@ -353,7 +353,7 @@ Here's an example
 [source,ceylon]
 ----
 
-value route = router.route(\iPOST, "/catalogue/products/:productype/:productid/");
+value route = router.route(post, "/catalogue/products/:productype/:productid/");
 
 route.handler((RoutingContext routingContext) => {
 
@@ -451,7 +451,7 @@ If you want a route to only match for a specific HTTP method you can use `link:.
 [source,ceylon]
 ----
 
-value route = router.route().method(\iPOST);
+value route = router.route().method(post);
 
 route.handler((RoutingContext routingContext) => {
 
@@ -467,7 +467,7 @@ Or you can specify this with a path when creating the route:
 [source,ceylon]
 ----
 
-value route = router.route(\iPOST, "/some/path/");
+value route = router.route(post, "/some/path/");
 
 route.handler((RoutingContext routingContext) => {
 
@@ -516,7 +516,7 @@ multiple times:
 [source,ceylon]
 ----
 
-value route = router.route().method(\iPOST).method(\iPUT);
+value route = router.route().method(post).method(put);
 
 route.handler((RoutingContext routingContext) => {
 
@@ -806,7 +806,7 @@ You can combine all the above routing criteria in many different ways, for examp
 [source,ceylon]
 ----
 
-value route = router.route(\iPUT, "myapi/orders").consumes("application/json").produces("application/json");
+value route = router.route(put, "myapi/orders").consumes("application/json").produces("application/json");
 
 route.handler((RoutingContext routingContext) => {
 
@@ -1791,7 +1791,7 @@ Here's an example:
 ----
 
 // Will only accept GET requests from origin "vertx.io"
-router.route().handler(corsHandler.create("vertx\\.io").allowedMethod(\iGET));
+router.route().handler(corsHandler.create("vertx\\.io").allowedMethod(get));
 
 router.route().handler((RoutingContext routingContext) => {
 
@@ -2462,7 +2462,7 @@ value options = BridgeOptions {
 };
 
 sockJSHandler.bridge(options, (BridgeEvent be) => {
-  if (be.type() == \iPUBLISH || be.type() == \iRECEIVE) {
+  if (be.type() == publish || be.type() == receive) {
     if (be.rawMessage()get("body" == "armadillos") {
       // Reject it
       be.complete(false);
@@ -2497,7 +2497,7 @@ value options = BridgeOptions {
 };
 
 sockJSHandler.bridge(options, (BridgeEvent be) => {
-  if (be.type() == \iPUBLISH || be.type() == \iSEND) {
+  if (be.type() == publish || be.type() == send) {
     // Add some headers
     value headers = JsonObject {
       header1 = "val";
@@ -2560,7 +2560,7 @@ authCode flow. An example of using it to protect some resouce and authenticate w
 ----
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to github
-value authProvider = oAuth2Auth.create(vertx, \iAUTH_CODE, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://github.com/login";
@@ -2595,7 +2595,7 @@ example, if you are planning to use Google Auth you implement it as:
 ----
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to Google
-value authProvider = oAuth2Auth.create(vertx, \iAUTH_CODE, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://accounts.google.com";
@@ -2638,7 +2638,7 @@ If you're looking to integrate with LinkedIn then your config should be:
 ----
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to LinkedIn
-value authProvider = oAuth2Auth.create(vertx, \iAUTH_CODE, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://www.linkedin.com";
