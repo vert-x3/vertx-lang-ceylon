@@ -14,14 +14,59 @@
     return type.name == 'java.lang.Boolean' || type.name == 'boolean';
   }
 
+  def isCeylonKeyword(identifier) {
+    return identifier == 'abstracts'
+      || identifier == 'abstracts'
+      || identifier == 'alias'
+      || identifier == 'assembly'
+      || identifier == 'assert'
+      || identifier == 'assign'
+      || identifier == 'break'
+      || identifier == 'case'
+      || identifier == 'catch'
+      || identifier == 'class'
+      || identifier == 'continue'
+      || identifier == 'dynamic'
+      || identifier == 'else'
+      || identifier == 'exists'
+      || identifier == 'extends'
+      || identifier == 'finally'
+      || identifier == 'for'
+      || identifier == 'function'
+      || identifier == 'given'
+      || identifier == 'if'
+      || identifier == 'import'
+      || identifier == 'in'
+      || identifier == 'interface'
+      || identifier == 'is'
+      || identifier == 'let'
+      || identifier == 'module'
+      || identifier == 'new'
+      || identifier == 'nonempty'
+      || identifier == 'object'
+      || identifier == 'of'
+      || identifier == 'out'
+      || identifier == 'outer'
+      || identifier == 'package'
+      || identifier == 'return'
+      || identifier == 'satisfies'
+      || identifier == 'super'
+      || identifier == 'switch'
+      || identifier == 'then'
+      || identifier == 'this'
+      || identifier == 'throw'
+      || identifier == 'try'
+      || identifier == 'value'
+      || identifier == 'void'
+      || identifier == 'void'
+      || identifier == 'while';
+  }
+
   def toCeylonIdentifier(s) {
-    if (s == 'value') {
-      return '\\ivalue';
-    } else if (s == 'exists') {
-       return '\\iexists';
-    } else {
-      return s;
+    if (isCeylonKeyword(s)) {
+      s = '\\i' + s;
     }
+    return s;
   }
 
   def genConvParam(type, expr) {
