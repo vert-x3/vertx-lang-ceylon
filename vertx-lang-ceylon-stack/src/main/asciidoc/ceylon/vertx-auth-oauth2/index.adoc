@@ -20,7 +20,7 @@ dependency to the _dependencies_ section of your build descriptor:
 
 [source,groovy,subs="+attributes"]
 ----
-compile ${maven.groupId}:${maven.artifactId}:${maven.version}
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
 ----
 
 OAuth2 lets users grant the access to the desired resources to third party applications, giving them the possibility
@@ -379,4 +379,3 @@ value credentials = JsonObject {
 value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 ----
-<a href="mailto:plopes@redhat.com">Paulo Lopes</a>
