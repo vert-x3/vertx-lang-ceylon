@@ -31,7 +31,8 @@ shared class ShiroAuthOptions(
   " Set the Shiro auth config.\n"
   shared JsonObject? config = null,
   " Set the Shiro auth options type.\n"
-  shared ShiroAuthRealmType? type = null) extends AuthOptions() satisfies BaseDataObject {
+  shared ShiroAuthRealmType? type = null) satisfies
+  AuthOptions & BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists config) {

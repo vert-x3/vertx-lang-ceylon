@@ -27,6 +27,8 @@ shared class ResultSet(
   shared Integer? numColumns = null,
   " Return the number of rows in the result set\n"
   shared Integer? numRows = null,
+  " Get the registered outputs\n"
+  shared JsonArray? output = null,
   " Get the results\n"
   shared {JsonArray*}? results = null,
   " Get the rows - each row represented as a JsonObject where the keys are the column names and the values are\n the column values.\n <p>\n Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will\n overwrite the other if using this method. If that's the case use [getResults](ResultSet.type.html#getResults) instead.\n"
@@ -41,6 +43,9 @@ shared class ResultSet(
     }
     if (exists numRows) {
       json.put("numRows", numRows);
+    }
+    if (exists output) {
+      json.put("output", output);
     }
     if (exists results) {
       json.put("results", JsonArray(results));
@@ -58,12 +63,14 @@ shared object resultSet {
     {String*}? columnNames = json.getArrayOrNull("columnNames")?.strings;
     Integer? numColumns = json.getIntegerOrNull("numColumns");
     Integer? numRows = json.getIntegerOrNull("numRows");
+    JsonArray? output = json.getArrayOrNull("output");
     {JsonArray*}? results = json.getArrayOrNull("results")?.arrays;
     {JsonObject*}? rows = json.getArrayOrNull("rows")?.objects;
     return ResultSet {
       columnNames = columnNames;
       numColumns = numColumns;
       numRows = numRows;
+      output = output;
       results = results;
       rows = rows;
     };

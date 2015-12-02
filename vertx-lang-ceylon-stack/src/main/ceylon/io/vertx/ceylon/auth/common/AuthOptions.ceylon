@@ -19,8 +19,8 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.ext.auth.AuthOptions */
-" A common base object for authentication options.\n <p>\n note: this will be moved to vertx-auth project after 3.1\n"
-shared class AuthOptions() satisfies BaseDataObject {
+" A common base object for authentication options.<p>\n"
+shared interface AuthOptions satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     return json;
@@ -28,9 +28,4 @@ shared class AuthOptions() satisfies BaseDataObject {
 }
 
 shared object authOptions {
-
-  shared AuthOptions fromJson(JsonObject json) {
-    return AuthOptions {
-    };
-  }
 }

@@ -54,6 +54,13 @@ public class SessionStore implements ReifiedType {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " The retry timeout value in milli seconds used by the session handler when it retrieves a value from the store.<p/>\n\n A non positive value means there is no retry at all.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long retryTimeout() {
+    long ret = delegate.retryTimeout();
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a new session\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session createSession(

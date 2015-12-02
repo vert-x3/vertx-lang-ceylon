@@ -60,6 +60,48 @@ Get the number of rows updated
 +++
 |===
 
+[[JDBCAuthOptions]]
+== JDBCAuthOptions
+
+++++
+ Options configuring JDBC authentication.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[authenticationQuery]]`authenticationQuery`|`String`|
++++
+Set the authentication query to use. Use this if you want to override the default authentication query.
++++
+|[[config]]`config`|`Json object`|
++++
+The configuration of the JDBC client: refer to the Vert.x JDBC Client configuration.
++++
+|[[datasourceName]]`datasourceName`|`String`|
++++
+Set the data source name to use, only use in shared mode.
++++
+|[[permissionsQuery]]`permissionsQuery`|`String`|
++++
+Set the permissions query to use. Use this if you want to override the default permissions query.
++++
+|[[rolesPrefix]]`rolesPrefix`|`String`|
++++
+Set the role prefix to distinguish from permissions when checking for isPermitted requests.
++++
+|[[rolesQuery]]`rolesQuery`|`String`|
++++
+Set the roles query to use. Use this if you want to override the default roles query.
++++
+|[[shared]]`shared`|`Boolean`|
++++
+Set whether the JDBC client is shared or non shared.
++++
+|===
+
 [[ResultSet]]
 == ResultSet
 
@@ -86,6 +128,10 @@ Return the number of columns in the result set
 |[[numRows]]`numRows`|`Number (int)`|
 +++
 Return the number of rows in the result set
++++
+|[[output]]`output`|`Json array`|
++++
+Get the registered outputs
 +++
 |[[results]]`results`|`Array of Json array`|
 +++
@@ -161,9 +207,7 @@ The subject of this token
 == AuthOptions
 
 ++++
- A common base object for authentication options.
- <p>
- note: this will be moved to vertx-auth project after 3.1
+ A common base object for authentication options.<p>
 ++++
 '''
 
