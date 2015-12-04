@@ -60,6 +60,20 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " Ends the stream.\n <p>\n Once the stream has ended, it cannot be used any more.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end() {
+    delegate.end();
+  }
+
+  @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end(
+    final @TypeInfo("T?") @Name("t")  T t) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(t);
+    delegate.end(arg_0);
+  }
+
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../eventbus/MessageProducer.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {

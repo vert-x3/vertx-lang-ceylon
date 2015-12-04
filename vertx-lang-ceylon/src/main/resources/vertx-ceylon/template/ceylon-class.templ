@@ -64,9 +64,15 @@ null /* Not implememented */
 @{indent}}\n
 
 @foreach{method:instanceMethods}\n
-@includeNamed{'genMethodDecl'} {\n
-@includeNamed{'genMethodBody'}
-@{indent}}\n
+	@if{method.name == 'toString' && method.params.empty}
+  public java.lang.String toString() {\n
+    return delegate.toString();\n
+  }\n
+	@else{}
+		@includeNamed{'genMethodDecl'} {\n
+		@includeNamed{'genMethodBody'}
+		@{indent}}\n
+	@end{}
 @end{}
 
 @end{}

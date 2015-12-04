@@ -44,12 +44,12 @@ public class clusteredSessionStore_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a session store\n")
+  @DocAnnotation$annotation$(description = " Create a session store.<p/>\n\n The retry timeout value, configures how long the session handler will retry to get a session from the store\n when it is not found.\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::ClusteredSessionStore")
   public ClusteredSessionStore create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
     final @TypeInfo("ceylon.language::String") @Name("sessionMapName") @DocAnnotation$annotation$(description = "the session map name\n") ceylon.language.String sessionMapName, 
-    final @TypeInfo("ceylon.language::Integer") @Name("retryTimeout")  long retryTimeout) {
+    final @TypeInfo("ceylon.language::Integer") @Name("retryTimeout") @DocAnnotation$annotation$(description = "the store retry timeout, in ms\n") long retryTimeout) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sessionMapName);
     long arg_2 = retryTimeout;
@@ -66,11 +66,11 @@ public class clusteredSessionStore_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a session store\n")
+  @DocAnnotation$annotation$(description = " Create a session store.<p/>\n\n The retry timeout value, configures how long the session handler will retry to get a session from the store\n when it is not found.\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::ClusteredSessionStore")
   public ClusteredSessionStore create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::Integer") @Name("retryTimeout")  long retryTimeout) {
+    final @TypeInfo("ceylon.language::Integer") @Name("retryTimeout") @DocAnnotation$annotation$(description = "the store retry timeout, in ms\n") long retryTimeout) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     long arg_1 = retryTimeout;
     ClusteredSessionStore ret = io.vertx.ceylon.web.sstore.ClusteredSessionStore.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.sstore.ClusteredSessionStore.create(arg_0, arg_1));

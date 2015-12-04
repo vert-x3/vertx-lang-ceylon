@@ -11,7 +11,9 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.shareddata.impl.ClusterSerializable;
+import io.vertx.core.json.JsonObject;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Most data is shuffled around inside Vert.x using buffers.\n <p>\n A buffer is a sequence of zero or more bytes that can read from or written to and which expands automatically as\n necessary to accommodate any bytes written to it. You can perhaps think of a buffer as smart byte array.\n <p>\n Please consult the documentation for more information on buffers.\n")
@@ -52,12 +54,30 @@ public class Buffer implements ReifiedType {
     return delegate;
   }
 
+  public java.lang.String toString() {
+    return delegate.toString();
+  }
+
   @DocAnnotation$annotation$(description = " Returns a <code>String</code> representation of the Buffer with the encoding specified by <code>enc</code>\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String toString(
     final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.toString(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns a Json object representation of the Buffer\n")
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object toJsonObject() {
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.toJsonObject());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns a Json array representation of the Buffer\n")
+  @TypeInfo("ceylon.json::Array")
+  public ceylon.json.Array toJsonArray() {
+    ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(delegate.toJsonArray());
     return ret;
   }
 
