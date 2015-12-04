@@ -56,14 +56,6 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " Same as [end](../file/AsyncFile.type.html#end) but writes some data to the stream before ending.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
-    delegate.end(arg_0);
-  }
-
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../file/AsyncFile.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
@@ -145,12 +137,6 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     };
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
-  }
-
-  @DocAnnotation$annotation$(description = " Close the file, see [close](../file/AsyncFile.type.html#close).\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end() {
-    delegate.end();
   }
 
   @DocAnnotation$annotation$(description = " Close the file. The actual close happens asynchronously.\n")

@@ -53,15 +53,6 @@ public interface WriteStream<T> extends StreamBase {
   public WriteStream<T> write(
     final @TypeInfo("T?") @Name("data") @DocAnnotation$annotation$(description = "the data to write\n") T data);
 
-  @DocAnnotation$annotation$(description = " Ends the stream.\n <p>\n Once the stream has ended, it cannot be used any more.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end();
-
-  @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end(
-    final @TypeInfo("T?") @Name("t")  T t);
-
   @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> bytes in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> setWriteQueueMaxSize(
@@ -118,20 +109,6 @@ public interface WriteStream<T> extends StreamBase {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(data);
     WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.write(arg_0));
       return this;
-    }
-
-  @DocAnnotation$annotation$(description = " Ends the stream.\n <p>\n Once the stream has ended, it cannot be used any more.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end() {
-    delegate.end();
-    }
-
-  @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void end(
-    final @TypeInfo("T?") @Name("t")  T t) {
-    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(t);
-    delegate.end(arg_0);
     }
 
   @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> bytes in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n")

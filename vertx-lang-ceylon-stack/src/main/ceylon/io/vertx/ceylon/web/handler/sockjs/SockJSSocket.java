@@ -59,18 +59,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return delegate;
   }
 
-  @TypeInfo("ceylon.language::Anything")
-  public void end() {
-    delegate.end();
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
-    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
-    delegate.end(arg_0);
-  }
-
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
     boolean ret = delegate.writeQueueFull();
