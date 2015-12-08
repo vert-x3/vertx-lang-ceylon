@@ -19,24 +19,27 @@
  *
  * Configuration in the form of JSON can be passed to a verticle at deployment time:
  *
- * [source,ruby]
+ * [source]
  * ----
- * config = {
- *  'name' => "tim",
- *  'directory' => "/blah"
- * }
- * options = {
- *  'config' => config
- * }
- * vertx.deploy_verticle("MyOrderProcessorVerticle.rb", options)
+ * value config = JsonObject {
+ *   "name"->"Tim",
+ *   "directory"->"blah"
+ * };
+ * value options = DeploymentOptions {
+ *   config = config;
+ * };
+ *
+ * vertx.deployVerticle("otherVerticle.java", options);
  * ----
  *
- * This configuration is then available via the {@link io.vertx.core.Context} object. The configuration is returned as a
- * _Hash_ object so you can retrieve data as follows:
+ * NOTE: we suppose `ceylon.json::Object` is aliased to `JsonObject`
  *
- * [source,ruby]
+ * This configuration is then available via the `io.vertx.ceylon.core::Context` object. The configuration is returned as a
+ * `JsonObject` object so you can retrieve data as follows:
+ *
+ * [source]
  * ----
- * puts $vertx.get_or_create_context().config()["name"]
+ * print("``vertx.getOrCreateContext().config()?.get("name") else "no config"``")
  * ----
  *
  * === Accessing environment variables in a Verticle
@@ -45,8 +48,8 @@
  *
  * [source,javascript]
  * ----
- * puts Java::JavaLang::System.getProperty("foo")
- * puts Java::JavaLang::System.getenv("HOME")
+ * print("``System.getProperty("foo")``");
+ * print("``System.getenv("HOME")``");
  * ----
  *
  */

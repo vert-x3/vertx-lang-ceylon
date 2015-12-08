@@ -547,7 +547,7 @@
               <sourceDirectory>${project.build.directory}/sources/vertx-core</sourceDirectory>
             </configuration>
           </execution>
-          <!-- Run the annotation processor on codegen and generate the ruby codegen -->
+          <!-- Run the annotation processor on codegen and generate the ceylon codegen -->
           <execution>
             <id>generate-codegen</id>
             <goals>
@@ -560,16 +560,31 @@
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/test</outputDirectory>
-                <io.vertx.ceylon.codegen.testmodel>"io.vertx.vertx-codegen-tck" "3.2.0-SNAPSHOT"</io.vertx.ceylon.codegen.testmodel>
-                <com.acme.ceylon.pkg>"io.vertx.vertx-codegen-tck" "3.2.0-SNAPSHOT"</com.acme.ceylon.pkg>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/codegen</sourceDirectory>
-              <excludes>
-                <exclude>io/vertx/test/lang/ruby/**</exclude>
-              </excludes>
               <additionalSourceDirectories>
                 <additionalSourceDirectory>${project.basedir}/src/test/java</additionalSourceDirectory>
               </additionalSourceDirectories>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-docgen-docoverride</id>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <processors>
+                <processor>io.vertx.docgen.DocGenProcessor</processor>
+              </processors>
+              <optionMap>
+                <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
+                <maven.groupId>${project.groupId}</maven.groupId>
+                <maven.artifactId>${project.artifactId}</maven.artifactId>
+                <maven.version>${project.version}</maven.version>
+              </optionMap>
+              <sourceDirectory>${project.basedir}/src/main/docoverride</sourceDirectory>
             </configuration>
           </execution>
         </executions>

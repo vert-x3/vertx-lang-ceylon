@@ -23,6 +23,7 @@ Examples for [Vert.x / Ceylon](https://github.com/vietj/ceylon-vertx-examples)
 
 ## Open issues
 
+- DeliveryOptions headers not available
 - make data object member variable
 - generated doc does not support overloading : it shows a single method and sometimes the return type can be _unknown_
 - link to other modules

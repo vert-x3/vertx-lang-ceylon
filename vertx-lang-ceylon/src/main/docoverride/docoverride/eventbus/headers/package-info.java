@@ -14,31 +14,8 @@
  *  You may elect to redistribute this code under either of these licenses.
  */
 /**
- * ==== Setting headers on messages
  *
- * Messages sent over the event bus can also contain headers. This can be specified by providing a `headers` object
- * inside the {@link io.vertx.core.eventbus.DeliveryOptions} object when sending or publishing:
- *
- * [source,ruby]
- * ----
- * options = {
- *  headers: {
- *    'some-header' => 'some-value'
- *  }
- * }
- * vertx.event_bus().send("news.uk.sport", "Yay! Someone kicked a ball", options)
- * ----
- *
- * On the other side, the consumer can retrieve the message header as follows:
- *
- * [source, ruby]
- * ----
- * eb = $vertx.event_bus()
- * eb.consumer("news.uk.sport") { |message|
- *  puts message.headers().get("some-header")
- * }
- * ----
- *
+ * Message delivery headers are available exclusively with the Java api.
  */
 @Document(fileName = "override/eventbus_headers.adoc")
 package docoverride.eventbus.headers;

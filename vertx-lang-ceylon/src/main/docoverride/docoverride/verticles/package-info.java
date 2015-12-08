@@ -17,34 +17,28 @@
 /**
  * === Writing Verticles
  *
- * Ruby verticles are implemented as simple scripts.
+ * Ceylon verticles are implemented as subclasses of `io.vertx.ceylon.core.Verticle`.
  *
- * Ruby verticles will have the following globals pre-set as a convenience:
+ * The parent verticle class provides the `vertx` attribute to obtain the Vert.x instance:
  *
- * * +$vertx+ - A reference to the Vertx object
- *
- * [source,ruby]
+ * [source]
  * ----
- * # Start a timer
- * $vertx.set_periodic(1000) { puts 'Timer has fired' }
- * ----
- *
- * When the verticle is deployed the body of the script will be executed.
- *
- * Any `vertx_start` function function defined during the body execution will be executed after the
- * execution. The `vertx_start` is executed as any other function and does not expect any argument.
- *
- * Likewise any `vertx_stop` function function defined during the body execution will be executed after the
- * execution. The `vertx_stop` is executed as any other function and does not expect any argument.
- *
- * [source,ruby]
- * ----
- * def vertx_stop future
- *   # Cleanup here
- * end
+ * shared default void start() {
+ *   // Start a timer
+ *   vertx.setPeriodic(1000, (Integer id) => print("Timer has fired"));
+ * }
  * ----
  *
- * To load a verticle as a Ruby gem, this Ruby gem must deployed
+ * When the verticle is deployed the `start` method of the verticle will be executed.
+ *
+ * When the verticle is undeployed the `stop` method of the verticle will be executed.
+ *
+ * [source]
+ * ----
+ * shared actual void stop() {}
+ *   // Cleanup here
+ * }
+ * ----
  *
  * === Asynchronous Verticle start and stop
  *
@@ -61,66 +55,39 @@
  *
  * Here's an example:
  *
- * [source,ruby]
+ * [source]
  * ----
- * def vertx_start_async start_future
- *   # Now deploy some other verticle:
+ * shared actual void startAsync(Future<Anything> startFuture) {
+ *   // Now deploy some other verticle:
  *
- *   $vertx.deploy_verticle("other_verticle.rb") do |res|
- *     if res.succeeded?
- *       start_future.complete
- *     else
- *       start_future.fail
- *     end
- *   end
- * end
+ *   vertx.deployVerticle("otherVerticle.java", (String|Throwable res) {
+ *     if (is String res) {
+ *       startFuture.complete();
+ *     } else {}
+ *       startFuture.fail(res.message);
+ *     }
+ *   });
+ * }
  * ----
  *
  * Similarly, there is an asynchronous version of the stop method too. You use this if you want to do some verticle
  * cleanup that takes some time.
  *
- * [source,ruby]
+ * [source]
  * ----
- * def vertx_stop_async stop_future
- *   obj.do_something_that_takes_time do |res|
- *     if res.succeeded?
- *       stop_future.complete
- *     else
- *       stop_future.fail
- *     end
- *   end
+ * shared actual void stopAsync(Future<Anything> stopFuture) {
+ *   obj.doSomethingThatTakesTime((String|Throwable res) {
+ *     if (is String res) {
+ *       stopFuture.complete();
+ *     } else {}
+ *       stopFuture.fail(res.message);
+ *     }
+ *   });
  * end
  * ----
  *
  * INFO: You don't need to manually undeploy child verticles started by a verticle, in the verticle's stop method. Vert.x
  * will automatically undeploy any child verticles when the parent is undeployed.
- *
- * === Verticle deployment options
- *
- * When deploying a Ruby, verticle it is possible to set a specific _GEM_PATH_ variable for this particular
- * verticle:
- *
- * [source,java]
- * ----
- * DeploymentOptions options = new DeploymentOptions().
- *     setConfig(new JsonObject().put("GEM_PATH", "/path/to/gems"));
- * vertx.deployVerticle("my_verticle.rb", options);
- * ----
- *
- * This can be done also possible in Ruby:
- *
- * [source,ruby]
- * ----
- * options = { :config => { :GEM_PATH => '/path/to/gems' } }
- * $vertx.deploy_verticle('my_verticle.rb', options)
- * ----
- *
- * This option can also be specified for the CLI:
- *
- * ----
- * vertx run my_verticle_rb -conf {\"GEM_PATH\":\"/path/to/gems\"}
- * ----
- *
  */
 @Document(fileName = "override/verticles.adoc")
 package docoverride.verticles;
