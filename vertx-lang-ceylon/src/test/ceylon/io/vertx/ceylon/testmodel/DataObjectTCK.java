@@ -52,39 +52,39 @@ public class DataObjectTCK implements ReifiedType {
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues")
-  public io.vertx.ceylon.testmodel.DataObjectWithValues getDataObjectWithValues() {
+  public io.vertx.ceylon.testmodel.DataObjectWithValues $getDataObjectWithValues() {
     io.vertx.ceylon.testmodel.DataObjectWithValues ret = io.vertx.ceylon.testmodel.dataObjectWithValues_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithValues());
     return ret;
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void setDataObjectWithValues(
+  public void $setDataObjectWithValues(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithValues dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithValues arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithValues(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithValues(arg_0);
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists")
-  public io.vertx.ceylon.testmodel.DataObjectWithLists getDataObjectWithLists() {
+  public io.vertx.ceylon.testmodel.DataObjectWithLists $getDataObjectWithLists() {
     io.vertx.ceylon.testmodel.DataObjectWithLists ret = io.vertx.ceylon.testmodel.dataObjectWithLists_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithLists());
     return ret;
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void setDataObjectWithLists(
+  public void $setDataObjectWithLists(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithLists dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithLists arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithLists(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithLists(arg_0);
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps")
-  public io.vertx.ceylon.testmodel.DataObjectWithMaps getDataObjectWithMaps() {
+  public io.vertx.ceylon.testmodel.DataObjectWithMaps $getDataObjectWithMaps() {
     io.vertx.ceylon.testmodel.DataObjectWithMaps ret = io.vertx.ceylon.testmodel.dataObjectWithMaps_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithMaps());
     return ret;
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void setDataObjectWithMaps(
+  public void $setDataObjectWithMaps(
     final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithMaps dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithMaps arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithMaps(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithMaps(arg_0);

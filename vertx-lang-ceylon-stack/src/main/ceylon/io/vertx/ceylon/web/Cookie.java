@@ -53,14 +53,14 @@ public class Cookie implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return the name of this cookie\n")
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getName() {
+  public ceylon.language.String $getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getName());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " @return the value of this cookie\n")
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getValue() {
+  public ceylon.language.String $getValue() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getValue());
     return ret;
   }
@@ -85,7 +85,7 @@ public class Cookie implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return  the domain for the cookie\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getDomain() {
+  public ceylon.language.String $getDomain() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDomain());
     return ret;
   }
@@ -101,7 +101,7 @@ public class Cookie implements ReifiedType {
 
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getPath() {
+  public ceylon.language.String $getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());
     return ret;
   }
@@ -142,14 +142,14 @@ public class Cookie implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Has the cookie been changed? Changed cookies will be saved out in the response and sent to the browser.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isChanged() {
+  public boolean $isChanged() {
     boolean ret = delegate.isChanged();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Set the cookie as being changed. Changed will be true for a cookie just created, false by default if just\n read from the request\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setChanged(
+  public void $setChanged(
     final @TypeInfo("ceylon.language::Boolean") @Name("changed") @DocAnnotation$annotation$(description = "true if changed\n") boolean changed) {
     boolean arg_0 = changed;
     delegate.setChanged(arg_0);

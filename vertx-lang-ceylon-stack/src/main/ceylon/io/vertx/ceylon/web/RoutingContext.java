@@ -213,7 +213,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return  the entire HTTP request body as a string, assuming UTF-8 encoding. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getBodyAsString() {
+  public ceylon.language.String $getBodyAsString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getBodyAsString());
     return ret;
   }
@@ -229,14 +229,14 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("ceylon.json::Object?")
-  public ceylon.json.Object getBodyAsJson() {
+  public ceylon.json.Object $getBodyAsJson() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getBodyAsJson());
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer?")
-  public Buffer getBody() {
+  public Buffer $getBody() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.getBody());
     return ret;
   }
@@ -286,7 +286,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " If the route specifies produces matches, e.g. produces `text/html` and `text/plain`, and the `accept` header\n matches one or more of these then this returns the most acceptable match.\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getAcceptableContentType() {
+  public ceylon.language.String $getAcceptableContentType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getAcceptableContentType());
     return ret;
   }
@@ -344,7 +344,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Set the body. Used by the [BodyHandler](../handler/BodyHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setBody(
+  public void $setBody(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("body") @DocAnnotation$annotation$(description = "the body\n") Buffer body) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(body);
     delegate.setBody(arg_0);
@@ -352,7 +352,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Set the session. Used by the [SessionHandler](../handler/SessionHandler.type.html). You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setSession(
+  public void $setSession(
     final @TypeInfo("io.vertx.ceylon.web::Session") @Name("session") @DocAnnotation$annotation$(description = "the session\n") Session session) {
     io.vertx.ext.web.Session arg_0 = io.vertx.ceylon.web.Session.TO_JAVA.safeConvert(session);
     delegate.setSession(arg_0);
@@ -360,7 +360,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Set the user. Usually used by auth handlers to inject a User. You will not normally call this method.\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setUser(
+  public void $setUser(
     final @TypeInfo("io.vertx.ceylon.auth.common::User") @Name("user") @DocAnnotation$annotation$(description = "the user\n") User user) {
     io.vertx.ext.auth.User arg_0 = io.vertx.ceylon.auth.common.User.TO_JAVA.safeConvert(user);
     delegate.setUser(arg_0);
@@ -374,7 +374,7 @@ public class RoutingContext implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Set the acceptable content type. Used by\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setAcceptableContentType(
+  public void $setAcceptableContentType(
     final @TypeInfo("ceylon.language::String?") @Name("contentType") @DocAnnotation$annotation$(description = "the content type\n") ceylon.language.String contentType) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(contentType);
     delegate.setAcceptableContentType(arg_0);

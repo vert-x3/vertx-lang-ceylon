@@ -17,7 +17,7 @@ import ceylon.collection {
 DataObjectTCK dataObjectTCK = DataObjectTCK(DataObjectTCKImpl());
 
 shared test void testReadDataObjectWithValues() {
-  value dataObject = dataObjectTCK.dataObjectWithValues;
+  value dataObject = dataObjectTCK.getDataObjectWithValues();
   assertEquals(true, dataObject.booleanValue);
   assertEquals(520, dataObject.shortValue);
   assertEquals(123456, dataObject.intValue);
@@ -61,11 +61,11 @@ shared test void testWriteDataObjectWithValues() {
     genEnumValue = mike;
     dataObjectValue = TestDataObject { foo="1"; bar=1; wibble=1.1; };
   };
-  dataObjectTCK.dataObjectWithValues = dataObject;
+  dataObjectTCK.setDataObjectWithValues(dataObject);
 }
 
 shared test void testReadDataObjectWithLists() {
-  value dataObject = dataObjectTCK.dataObjectWithLists;
+  value dataObject = dataObjectTCK.getDataObjectWithLists();
   assert(exists booleanValues = dataObject.booleanValues);
   assertEquals(ArrayList{true,false,true}, ArrayList{*booleanValues});
   assert(exists shortValues = dataObject.shortValues);
@@ -109,11 +109,11 @@ shared test void testWriteDataObjectWithLists() {
     enumValues = { "TIM", "JULIEN" };
     genEnumValues = { bob, laura };
   };
-  dataObjectTCK.dataObjectWithLists = dataObject;
+  dataObjectTCK.setDataObjectWithLists(dataObject);
 }
 
 shared test void testReadDataObjectWithMaps() {
-  value dataObject = dataObjectTCK.dataObjectWithMaps;
+  value dataObject = dataObjectTCK.getDataObjectWithMaps();
   assertEquals(HashMap{"1"->true,"2"->false}, dataObject.booleanValues);
   assertEquals(HashMap{"1"->520,"2"->1040}, dataObject.shortValues);
   assertEquals(HashMap{"1"->123456,"2"->654321}, dataObject.integerValues);
@@ -146,5 +146,5 @@ shared test void testWriteDataObjectWithMaps() {
     enumValues = HashMap { "1"->"TIM", "2"->"JULIEN" };
     genEnumValues = HashMap { "1"->bob, "2"->laura };
   };
-  dataObjectTCK.dataObjectWithMaps = dataObject;
+  dataObjectTCK.setDataObjectWithMaps(dataObject);
 }

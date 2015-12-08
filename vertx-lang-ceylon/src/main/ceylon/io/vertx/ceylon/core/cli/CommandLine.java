@@ -194,14 +194,14 @@ public class CommandLine implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Checks whether or not the command line is valid, i.e. all constraints from arguments and options have been\n satisfied. This method is used when the parser validation is disabled.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isValid() {
+  public boolean $isValid() {
     boolean ret = delegate.isValid();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Checks whether or not the user has passed a \"help\" option and is asking for help.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isAskingForHelp() {
+  public boolean $isAskingForHelp() {
     boolean ret = delegate.isAskingForHelp();
     return ret;
   }

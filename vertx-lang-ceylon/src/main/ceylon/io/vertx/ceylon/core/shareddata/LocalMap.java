@@ -104,7 +104,7 @@ public class LocalMap<K,V> implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return true if there are zero entries in the map\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isEmpty() {
+  public boolean $isEmpty() {
     boolean ret = delegate.isEmpty();
     return ret;
   }

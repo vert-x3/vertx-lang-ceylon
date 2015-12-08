@@ -58,6 +58,14 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " Same as [end](../http/WebSocketBase.type.html#end) but writes some data to the stream before ending.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
+    delegate.end(arg_0);
+  }
+
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/ServerWebSocket.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
@@ -77,6 +85,12 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
   public ceylon.language.String textHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.textHandlerID());
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Calls [close](../http/WebSocketBase.type.html#close)\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end() {
+    delegate.end();
   }
 
   @DocAnnotation$annotation$(description = " Close the WebSocket.\n")

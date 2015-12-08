@@ -548,6 +548,20 @@
     gen = gen.replace('"', '\\"');
     return gen;
   }
+
+  def genMethodName(method) {
+    var name = method.name;
+    if (method.params.empty && method.returnType.kind != CLASS_VOID && name.startsWith('get') && name.length() > 3 && java.lang.Character.isUpperCase(name.charAt(3))) {
+      return '$' + name;
+    }
+    if (method.params.empty && method.returnType.name == 'boolean' && name.startsWith('is') && name.length() > 2 && java.lang.Character.isUpperCase(name.charAt(2))) {
+      return '$' + name;
+    }
+    if (method.params.size() == 1 && method.returnType.name == 'void' && name.startsWith('set') && name.length() > 3 && java.lang.Character.isUpperCase(name.charAt(3))) {
+      return '$' + name;
+    }
+    return name;
+  }
 }
 
 @declare{'genMethodBody'}
@@ -578,7 +592,7 @@
 @end{}
   @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
   public @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
-@{genJavaInterropTypeDecl(method.returnType)} @{method.name}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && method.params.size() > 0}, @end{}@foreach{param:method.params}
+@{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && method.params.size() > 0}, @end{}@foreach{param:method.params}
 \n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
 

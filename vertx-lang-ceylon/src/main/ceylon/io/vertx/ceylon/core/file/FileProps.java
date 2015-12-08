@@ -74,28 +74,28 @@ public class FileProps implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Is the file a directory?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isDirectory() {
+  public boolean $isDirectory() {
     boolean ret = delegate.isDirectory();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Is the file some other type? (I.e. not a directory, regular file or symbolic link)\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isOther() {
+  public boolean $isOther() {
     boolean ret = delegate.isOther();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Is the file a regular file?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isRegularFile() {
+  public boolean $isRegularFile() {
     boolean ret = delegate.isRegularFile();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Is the file a symbolic link?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isSymbolicLink() {
+  public boolean $isSymbolicLink() {
     boolean ret = delegate.isSymbolicLink();
     return ret;
   }

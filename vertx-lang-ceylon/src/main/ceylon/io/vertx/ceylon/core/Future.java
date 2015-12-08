@@ -61,14 +61,14 @@ public class Future<T> implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Has the future completed?\n <p>\n It's completed if it's either succeeded or failed.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isComplete() {
+  public boolean $isComplete() {
     boolean ret = delegate.isComplete();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Set a handler for the result.\n <p>\n If the future has already been completed it will be called immediately. Otherwise it will be called when the\n future is completed.\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setHandler(
+  public void $setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "the Handler that will be called with the result\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
       public Object toCeylon(java.lang.Object event) {

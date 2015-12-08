@@ -54,7 +54,7 @@ public class RecordParser implements ReifiedType {
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void setOutput(
+  public void $setOutput(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output")  Callable<?> output) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {

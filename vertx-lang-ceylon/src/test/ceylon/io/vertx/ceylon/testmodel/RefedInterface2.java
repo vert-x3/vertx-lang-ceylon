@@ -40,7 +40,7 @@ public interface RefedInterface2 {
   Object getDelegate();
 
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getString();
+  public ceylon.language.String $getString();
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
@@ -66,7 +66,7 @@ public interface RefedInterface2 {
     }
 
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getString() {
+  public ceylon.language.String $getString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString());
       return ret;
     }

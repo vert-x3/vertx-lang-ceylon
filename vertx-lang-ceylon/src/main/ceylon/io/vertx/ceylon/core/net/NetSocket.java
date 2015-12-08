@@ -58,6 +58,14 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " Same as [end](../net/NetSocket.type.html#end) but writes some data to the stream before ending.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
+    delegate.end(arg_0);
+  }
+
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../net/NetSocket.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull() {
@@ -274,6 +282,12 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Calls [close](../net/NetSocket.type.html#close)\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end() {
+    delegate.end();
+  }
+
   @DocAnnotation$annotation$(description = " Close the NetSocket\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
@@ -308,7 +322,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isSsl() {
+  public boolean $isSsl() {
     boolean ret = delegate.isSsl();
     return ret;
   }

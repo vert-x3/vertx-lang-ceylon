@@ -74,7 +74,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return the CLI name.\n")
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getName() {
+  public ceylon.language.String $getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getName());
     return ret;
   }
@@ -90,7 +90,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return the CLI description.\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getDescription() {
+  public ceylon.language.String $getDescription() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDescription());
     return ret;
   }
@@ -105,7 +105,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return the CLI summary.\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getSummary() {
+  public ceylon.language.String $getSummary() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getSummary());
     return ret;
   }
@@ -121,7 +121,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Checks whether or not the current [CLI](../cli/CLI.type.html) instance is hidden.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isHidden() {
+  public boolean $isHidden() {
     boolean ret = delegate.isHidden();
     return ret;
   }
@@ -137,7 +137,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Gets the list of options.\n")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Option>")
-  public ceylon.language.List<io.vertx.ceylon.core.cli.Option> getOptions() {
+  public ceylon.language.List<io.vertx.ceylon.core.cli.Option> $getOptions() {
     ceylon.language.List<io.vertx.ceylon.core.cli.Option> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.cli.Option.$TypeDescriptor$, delegate.getOptions(), io.vertx.ceylon.core.cli.option_.get_().getToCeylon());
     return ret;
   }
@@ -171,7 +171,7 @@ public class CLI implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Gets the list of defined arguments.\n")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.core.cli::Argument>")
-  public ceylon.language.List<io.vertx.ceylon.core.cli.Argument> getArguments() {
+  public ceylon.language.List<io.vertx.ceylon.core.cli.Argument> $getArguments() {
     ceylon.language.List<io.vertx.ceylon.core.cli.Argument> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.cli.Argument.$TypeDescriptor$, delegate.getArguments(), io.vertx.ceylon.core.cli.argument_.get_().getToCeylon());
     return ret;
   }

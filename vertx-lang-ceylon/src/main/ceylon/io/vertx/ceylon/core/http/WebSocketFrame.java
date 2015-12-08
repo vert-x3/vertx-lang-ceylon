@@ -56,21 +56,21 @@ public class WebSocketFrame implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return true if it's a text frame\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isText() {
+  public boolean $isText() {
     boolean ret = delegate.isText();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " @return true if it's a binary frame\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isBinary() {
+  public boolean $isBinary() {
     boolean ret = delegate.isBinary();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " @return true if it's a continuation frame\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isContinuation() {
+  public boolean $isContinuation() {
     boolean ret = delegate.isContinuation();
     return ret;
   }
@@ -99,7 +99,7 @@ public class WebSocketFrame implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return true if this is the final frame.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isFinal() {
+  public boolean $isFinal() {
     boolean ret = delegate.isFinal();
     return ret;
   }

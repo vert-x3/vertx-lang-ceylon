@@ -47,6 +47,8 @@ shared class HttpClientOptions(
   " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
+  " Set the maximum HTTP chunk size\n"
+  shared Integer? maxChunkSize = null,
   " Set the maximum pool size for connections\n"
   shared Integer? maxPoolSize = null,
   " Set the max websocket frame size\n"
@@ -105,6 +107,9 @@ shared class HttpClientOptions(
     if (exists keepAlive) {
       json.put("keepAlive", keepAlive);
     }
+    if (exists maxChunkSize) {
+      json.put("maxChunkSize", maxChunkSize);
+    }
     if (exists maxPoolSize) {
       json.put("maxPoolSize", maxPoolSize);
     }
@@ -138,6 +143,7 @@ shared object httpClientOptions {
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -168,6 +174,7 @@ shared object httpClientOptions {
       idleTimeout = idleTimeout;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
       pemKeyCertOptions = pemKeyCertOptions;

@@ -107,7 +107,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " @return the HTTP status code of the response. The default is <code>200</code> representing <code>OK</code>.\n")
   @TypeInfo("ceylon.language::Integer")
-  public long getStatusCode() {
+  public long $getStatusCode() {
     long ret = delegate.getStatusCode();
     return ret;
   }
@@ -123,7 +123,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " @return the HTTP status message of the response. If this is not specified a default value will be used depending on what\n [setStatusCode](../http/HttpServerResponse.type.html#setStatusCode) has been set to.\n")
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getStatusMessage() {
+  public ceylon.language.String $getStatusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getStatusMessage());
     return ret;
   }
@@ -148,7 +148,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " @return is the response chunked?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isChunked() {
+  public boolean $isChunked() {
     boolean ret = delegate.isChunked();
     return ret;
   }

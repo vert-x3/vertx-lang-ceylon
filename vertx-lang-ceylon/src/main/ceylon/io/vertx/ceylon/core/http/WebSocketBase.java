@@ -44,6 +44,11 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @Ignore
   Object getDelegate();
 
+  @DocAnnotation$annotation$(description = " Same as [end](../http/WebSocketBase.type.html#end) but writes some data to the stream before ending.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t);
+
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/WebSocketBase.type.html#setWriteQueueMaxSize)\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
@@ -116,6 +121,10 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   public WebSocketBase frameHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
 
+  @DocAnnotation$annotation$(description = " Calls [close](../http/WebSocketBase.type.html#close)\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end();
+
   @DocAnnotation$annotation$(description = " Close the WebSocket.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close();
@@ -147,6 +156,14 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
     @Ignore
     public Object getDelegate() {
       return delegate;
+    }
+
+  @DocAnnotation$annotation$(description = " Same as [end](../http/WebSocketBase.type.html#end) but writes some data to the stream before ending.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
+    delegate.end(arg_0);
     }
 
   @DocAnnotation$annotation$(description = " This will return <code>true</code> if there are more bytes in the write queue than the value set using [setWriteQueueMaxSize](../http/WebSocketBase.type.html#setWriteQueueMaxSize)\n")
@@ -306,6 +323,12 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
     };
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.frameHandler(arg_0));
       return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Calls [close](../http/WebSocketBase.type.html#close)\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end() {
+    delegate.end();
     }
 
   @DocAnnotation$annotation$(description = " Close the WebSocket.\n")

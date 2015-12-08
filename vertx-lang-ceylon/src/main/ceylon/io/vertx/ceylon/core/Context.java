@@ -134,21 +134,21 @@ public class Context implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Is the current context an event loop context?\n <p>\n NOTE! when running blocking code using [executeBlocking](Vertx.type.html#executeBlocking) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return true.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isEventLoopContext() {
+  public boolean $isEventLoopContext() {
     boolean ret = delegate.isEventLoopContext();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Is the current context a worker context?\n <p>\n NOTE! when running blocking code using [executeBlocking](Vertx.type.html#executeBlocking) from a\n standard (not worker) verticle, the context will still an event loop context and this \n will return false.\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isWorkerContext() {
+  public boolean $isWorkerContext() {
     boolean ret = delegate.isWorkerContext();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Is the current context a multi-threaded worker context?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isMultiThreadedWorkerContext() {
+  public boolean $isMultiThreadedWorkerContext() {
     boolean ret = delegate.isMultiThreadedWorkerContext();
     return ret;
   }
@@ -193,7 +193,7 @@ public class Context implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return  the number of instances of the verticle that were deployed in the deployment (if any) related\n to this context\n")
   @TypeInfo("ceylon.language::Integer")
-  public long getInstanceCount() {
+  public long $getInstanceCount() {
     long ret = delegate.getInstanceCount();
     return ret;
   }

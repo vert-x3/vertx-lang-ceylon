@@ -48,6 +48,8 @@ shared class HttpServerOptions(
   String? host = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
+  " Set the maximum HTTP chunk size\n"
+  shared Integer? maxChunkSize = null,
   " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -98,6 +100,9 @@ shared class HttpServerOptions(
     if (exists handle100ContinueAutomatically) {
       json.put("handle100ContinueAutomatically", handle100ContinueAutomatically);
     }
+    if (exists maxChunkSize) {
+      json.put("maxChunkSize", maxChunkSize);
+    }
     if (exists maxWebsocketFrameSize) {
       json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
     }
@@ -121,6 +126,7 @@ shared object httpServerOptions {
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
@@ -149,6 +155,7 @@ shared object httpServerOptions {
       host = host;
       idleTimeout = idleTimeout;
       keyStoreOptions = keyStoreOptions;
+      maxChunkSize = maxChunkSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;

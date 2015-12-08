@@ -69,14 +69,14 @@ public class Vertx implements ReifiedType,  Measured {
 
   @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isMetricsEnabled() {
+  public boolean $isMetricsEnabled() {
     boolean ret = delegate.isMetricsEnabled();
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Gets the current context, or creates one if there isn't one\n")
   @TypeInfo("io.vertx.ceylon.core::Context")
-  public Context getOrCreateContext() {
+  public Context $getOrCreateContext() {
     Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(delegate.getOrCreateContext());
     return ret;
   }
@@ -371,7 +371,7 @@ public class Vertx implements ReifiedType,  Measured {
 
   @DocAnnotation$annotation$(description = " Is this Vert.x instance clustered?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isClustered() {
+  public boolean $isClustered() {
     boolean ret = delegate.isClustered();
     return ret;
   }

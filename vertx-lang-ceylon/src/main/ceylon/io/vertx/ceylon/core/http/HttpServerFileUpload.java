@@ -155,7 +155,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " @return true if the size of the upload can be retrieved via [size](../http/HttpServerFileUpload.type.html#size).\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isSizeAvailable() {
+  public boolean $isSizeAvailable() {
     boolean ret = delegate.isSizeAvailable();
     return ret;
   }

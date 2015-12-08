@@ -108,7 +108,7 @@ public class Session implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return has the session been destroyed?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isDestroyed() {
+  public boolean $isDestroyed() {
     boolean ret = delegate.isDestroyed();
     return ret;
   }

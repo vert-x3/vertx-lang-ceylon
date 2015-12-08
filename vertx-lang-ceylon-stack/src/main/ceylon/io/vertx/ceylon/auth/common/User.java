@@ -93,7 +93,7 @@ public class User implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Set the auth provider for the User. This is typically used to reattach a detached User with an AuthProvider, e.g.\n after it has been deserialized.\n")
   @TypeInfo("ceylon.language::Anything")
-  public void setAuthProvider(
+  public void $setAuthProvider(
     final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the AuthProvider - this must be the same type of AuthProvider that originally created the User\n") AuthProvider authProvider) {
     io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
     delegate.setAuthProvider(arg_0);

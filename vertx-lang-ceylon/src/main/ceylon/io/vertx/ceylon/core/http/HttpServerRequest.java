@@ -262,7 +262,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " @return  true if we are expecting a multi-part body for this request. See [setExpectMultipart](../http/HttpServerRequest.type.html#setExpectMultipart).\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isExpectMultipart() {
+  public boolean $isExpectMultipart() {
     boolean ret = delegate.isExpectMultipart();
     return ret;
   }
@@ -309,7 +309,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " Has the request ended? I.e. has the entire request, including the body been read?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isEnded() {
+  public boolean $isEnded() {
     boolean ret = delegate.isEnded();
     return ret;
   }

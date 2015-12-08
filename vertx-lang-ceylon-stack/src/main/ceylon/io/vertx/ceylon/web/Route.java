@@ -209,7 +209,7 @@ public class Route implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return the path prefix (if any) for this route\n")
   @TypeInfo("ceylon.language::String?")
-  public ceylon.language.String getPath() {
+  public ceylon.language.String $getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());
     return ret;
   }

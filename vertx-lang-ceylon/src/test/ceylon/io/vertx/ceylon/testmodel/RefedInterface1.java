@@ -52,7 +52,7 @@ public class RefedInterface1 implements ReifiedType {
   }
 
   @TypeInfo("ceylon.language::String")
-  public ceylon.language.String getString() {
+  public ceylon.language.String $getString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getString());
     return ret;
   }

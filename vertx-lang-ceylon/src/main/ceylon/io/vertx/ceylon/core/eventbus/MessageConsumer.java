@@ -117,7 +117,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
 
   @DocAnnotation$annotation$(description = " @return true if the current consumer is registered\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isRegistered() {
+  public boolean $isRegistered() {
     boolean ret = delegate.isRegistered();
     return ret;
   }
@@ -140,7 +140,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
 
   @DocAnnotation$annotation$(description = " @return the maximum number of messages that can be buffered when this stream is paused\n")
   @TypeInfo("ceylon.language::Integer")
-  public long getMaxBufferedMessages() {
+  public long $getMaxBufferedMessages() {
     long ret = delegate.getMaxBufferedMessages();
     return ret;
   }

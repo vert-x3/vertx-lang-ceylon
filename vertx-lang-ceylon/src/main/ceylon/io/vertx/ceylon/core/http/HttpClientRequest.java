@@ -152,7 +152,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @DocAnnotation$annotation$(description = " @return Is the request chunked?\n")
   @TypeInfo("ceylon.language::Boolean")
-  public boolean isChunked() {
+  public boolean $isChunked() {
     boolean ret = delegate.isChunked();
     return ret;
   }
