@@ -256,6 +256,7 @@
                     <artifactId>vertx-auth-jdbc</artifactId>
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-jdbc.properties</descriptor>
+                  <force>true</force>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
