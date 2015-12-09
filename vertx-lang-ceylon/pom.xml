@@ -473,7 +473,7 @@
                 <userRepo>${repo.dir}</userRepo>
                 <userRepo>modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/1.0.0-SNAPSHOT</module>
+              <module>io.vertx.tests/3.2.0-SNAPSHOT</module>
             </configuration>
           </execution>
 

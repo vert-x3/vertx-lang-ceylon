@@ -92,7 +92,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
 
             //
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0-SNAPSHOT");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.0-SNAPSHOT");
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
           } else {
             module.instances++;
@@ -106,7 +106,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
           if (module == null) {
             String moduleVersion = moduleSpec.getVersion();
             runnerOptions.addExtraModule(moduleName, moduleVersion);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "1.0.0-SNAPSHOT");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.0-SNAPSHOT");
             modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
           } else {
             module.instances++;
