@@ -71,3 +71,84 @@ end
 
 INFO: You don't need to manually undeploy child verticles started by a verticle, in the verticle's stop method. Vert.x
 will automatically undeploy any child verticles when the parent is undeployed.
+
+=== Running Ceylon Verticles
+
+The Vert.x Ceylon language allows to embed Vert.x in Ceylon or run Ceylon verticles from command line.
+
+Ceylon can embed Vert.x and start it:
+
+[source]
+----
+import io.vertx.ceylon.core {
+  vertx
+}
+import io.vertx.ceylon.core.http { ... }
+
+shared void run() {
+
+  value vertx_ = vertx.vertx();
+  value server = vertx_.createHttpServer();
+
+  server.requestHandler((HttpServerRequest req) =>
+    req.response().
+        putHeader("Content-Type", "text/html").
+        end("<html><body><h1>Hello World</h1></body></html>")
+  );
+
+  server.listen(8080, (HttpServer|Throwable result) => switch(result)
+    case (is HttpServer) { print("Server started") }
+    else { result.printStackTrace() }
+  );
+}
+----
+
+Vert.x can also deploy Ceylon Verticles from command line or from other languages:
+
+. Run the ceylon module my.module/1.0.0
+[source]
+----
+% vertx run ceylon:my.module/1.0.0
+----
+
+The module will be looked up according to the ceylon repository http://ceylon-lang.org/documentation/1.0/reference/tool/config/#_repositories_section[configuration].
+
+The same can be done from Java:
+
+[source,java]
+----
+vertx.deployVerticle("ceylon:my.module/1.0.0");
+----
+
+The module is introspected to find the Verticle, if there are several verticles, one will be picked up.
+
+The Ceylon Vert.x language can also compile sources on the fly before running the module:
+
+. Compile and run the ceylon module
+[source]
+----
+% vertx run ceylon:/path/to/my/module
+----
+
+The _/path/to/my/module_ points to a Ceylon module, i.e the directory contains the `module.ceylon` file
+and all other ceylon sources.
+
+=== Ceylon runtime configuration
+
+JVM system properties can be set to control the behavior of Ceylon:
+
+.Verbose output
+[source]
+----
+% vertx run ceylon:my.module/1.0.0 -Dceylon.verbose=all
+----
+
+The `ceylon.verbose` system property is equivalent to the `--verbose` option of _ceylon_ tool.
+
+.User repo configuration
+[source]
+----
+% vertx run ceylon:my.module/1.0.0 -Dceylon.rep=/path/to/modules
+----
+
+The `ceylon.rep` system property is equivalen to the `--rep` option of _ceylon_ tool.

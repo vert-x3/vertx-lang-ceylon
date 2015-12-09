@@ -29,13 +29,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
   static void applySystemConfig(Options options) {
     String verbose = System.getProperty(CEYLON_VERBOSE_PROP);
     if (verbose != null) {
-      if (verbose.equalsIgnoreCase("true")) {
-        options.setVerbose(true);
-      } else if (verbose.equalsIgnoreCase("false")) {
-        options.setVerbose(false);
-      } else {
-        options.setVerboseCategory(verbose);
-      }
+      options.setVerboseCategory(verbose);
     }
     String rep = System.getProperty(CEYLON_REP_PROP);
     if (rep != null) {
