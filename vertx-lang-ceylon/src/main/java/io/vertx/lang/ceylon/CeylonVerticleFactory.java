@@ -10,6 +10,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +23,27 @@ import java.util.regex.Pattern;
  */
 public class CeylonVerticleFactory implements VerticleFactory {
 
-//  private static final Pattern pattern = Pattern.compile("([\\p{Alpha}.]+)/([\\p{Alnum}.-]+)");
+  public static final String CEYLON_VERBOSE_PROP = "ceylon.verbose";
+  public static final String CEYLON_REP_PROP = "ceylon.rep";
+
+  static void applySystemConfig(Options options) {
+    String verbose = System.getProperty(CEYLON_VERBOSE_PROP);
+    if (verbose != null) {
+      if (verbose.equalsIgnoreCase("true")) {
+        options.setVerbose(true);
+      } else if (verbose.equalsIgnoreCase("false")) {
+        options.setVerbose(false);
+      } else {
+        options.setVerboseCategory(verbose);
+      }
+    }
+    String rep = System.getProperty(CEYLON_REP_PROP);
+    if (rep != null) {
+      List<String> userRepositories = Arrays.asList(rep.split("\\s*,\\s*"));
+      options.setUserRepositories(userRepositories);
+    }
+  }
+
   private final Map<String, Module> modules = new HashMap<>();
 
   @Override
@@ -31,7 +52,6 @@ public class CeylonVerticleFactory implements VerticleFactory {
   }
 
   public CeylonVerticleFactory() {
-    System.out.println("");
   }
 
   @Override
@@ -89,8 +109,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
             scan(sources, moduleRoot);
             List<ModuleInfo> compiledModules = compileModules(sourcePath, sources);
             ModuleInfo compiledModule = compiledModules.get(0);
-
-            //
+            applySystemConfig(runnerOptions);
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
             JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.0-SNAPSHOT");
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
@@ -106,6 +125,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
           if (module == null) {
             String moduleVersion = moduleSpec.getVersion();
             runnerOptions.addExtraModule(moduleName, moduleVersion);
+            applySystemConfig(runnerOptions);
             JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.0-SNAPSHOT");
             modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
           } else {
@@ -137,8 +157,9 @@ public class CeylonVerticleFactory implements VerticleFactory {
     options.setSourcePath(Collections.singletonList(sourcePath));
 
     options.setTarget("8");
-    options.setVerbose(false);
     options.setFiles(sources);
+
+    applySystemConfig(options);
 
     final List<ModuleInfo> modules = new ArrayList<>();
     com.redhat.ceylon.compiler.java.runtime.tools.Compiler compiler = new JavaCompilerImpl();
