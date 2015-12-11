@@ -17,7 +17,6 @@
   <properties>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
-    <stack.version>3.2.0-SNAPSHOT</stack.version>
     <repo.dir>${project.basedir}/../target/repo</repo.dir>
   </properties>
 
@@ -36,7 +35,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-sql-common</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -46,7 +45,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-jdbc-client</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -56,7 +55,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-common</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -66,7 +65,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-jdbc</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -76,7 +75,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-jwt</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -86,7 +85,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-shiro</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -96,7 +95,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-oauth2</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -106,7 +105,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -117,7 +116,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-templ-handlebars</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -128,7 +127,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-templ-jade</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -139,7 +138,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-templ-mvel</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -150,7 +149,7 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-templ-thymeleaf</artifactId>
       <classifier>sources</classifier>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
     </dependency>
 
     <dependency>
@@ -188,7 +187,7 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-lang-ceylon-doc</artifactId>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
       <optional>true</optional>
     </dependency>
   </dependencies>

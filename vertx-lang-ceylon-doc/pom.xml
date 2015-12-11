@@ -17,7 +17,6 @@
   <properties>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
-    <stack.version>3.2.0-SNAPSHOT</stack.version>
     <repo.dir>${project.basedir}/../target/repo</repo.dir>
   </properties>
 

@@ -51,6 +51,8 @@ shared class HttpClientOptions(
   shared Integer? maxChunkSize = null,
   " Set the maximum pool size for connections\n"
   shared Integer? maxPoolSize = null,
+  " Set the maximum requests allowed in the wait queue, any requests beyond the max size will result in\n a ConnectionPoolTooBusyException.  If the value is set to a negative number then the queue will be unbounded.\n"
+  shared Integer? maxWaitQueueSize = null,
   " Set the max websocket frame size\n"
   shared Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -113,6 +115,9 @@ shared class HttpClientOptions(
     if (exists maxPoolSize) {
       json.put("maxPoolSize", maxPoolSize);
     }
+    if (exists maxWaitQueueSize) {
+      json.put("maxWaitQueueSize", maxWaitQueueSize);
+    }
     if (exists maxWebsocketFrameSize) {
       json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
     }
@@ -145,6 +150,7 @@ shared object httpClientOptions {
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
+    Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
@@ -176,6 +182,7 @@ shared object httpClientOptions {
       keyStoreOptions = keyStoreOptions;
       maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;
+      maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;

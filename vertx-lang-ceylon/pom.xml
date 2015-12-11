@@ -17,7 +17,6 @@
   <properties>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
     <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
-    <stack.version>3.2.0-SNAPSHOT</stack.version>
     <repo.dir>${project.basedir}/../target/repo</repo.dir>
   </properties>
 
@@ -46,7 +45,7 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-lang-ceylon-doc</artifactId>
-      <version>3.2.0-SNAPSHOT</version>
+      <version>${stack.version}</version>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -594,26 +593,27 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
           </dependency>
+          <!-- Get rid of stack.version later -->
           <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
-            <version>3.2.0-SNAPSHOT</version>
+            <version>${stack.version}</version>
           </dependency>
           <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-codegen</artifactId>
-            <version>3.2.0-SNAPSHOT</version>
+            <version>${stack.version}</version>
           </dependency>
           <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-codegen</artifactId>
             <classifier>tck</classifier>
-            <version>3.2.0-SNAPSHOT</version>
+            <version>${stack.version}</version>
           </dependency>
           <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-unit</artifactId>
-            <version>3.2.0-SNAPSHOT</version>
+            <version>${stack.version}</version>
           </dependency>
         </dependencies>
       </plugin>

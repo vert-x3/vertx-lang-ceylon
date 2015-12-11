@@ -265,7 +265,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.end();
   }
 
-  @DocAnnotation$annotation$(description = " Set's the amount of time after which if a response is not received `java.util.concurrent.TimeoutException`\n will be sent to the exception handler of this request.\n <p>\n  Calling this method more than once\n has the effect of canceling any existing timeout and starting the timeout from scratch.\n")
+  @DocAnnotation$annotation$(description = " Set's the amount of time after which if the request does not return any data within the timeout period an\n `java.util.concurrent.TimeoutException` will be passed to the exception handler (if provided) and\n the request will be closed.\n <p>\n Calling this method more than once has the effect of canceling any existing timeout and starting\n the timeout from scratch.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setTimeout(
     final @TypeInfo("ceylon.language::Integer") @Name("timeoutMs") @DocAnnotation$annotation$(description = "The quantity of time in milliseconds.\n") long timeoutMs) {

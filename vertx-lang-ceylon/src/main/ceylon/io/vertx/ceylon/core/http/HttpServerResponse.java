@@ -406,4 +406,11 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " @return the total number of bytes written for the body of the response.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long bytesWritten() {
+    long ret = delegate.bytesWritten();
+    return ret;
+  }
+
 }
