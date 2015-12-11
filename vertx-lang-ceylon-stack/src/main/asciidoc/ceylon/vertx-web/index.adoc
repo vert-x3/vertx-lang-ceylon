@@ -65,26 +65,11 @@ We'll discuss all these features in this manual.
 
 == Using Vert.x Web
 
-To use vert.x web, add the following dependency to the _dependencies_ section of your build descriptor:
-
-* Maven (in your `pom.xml`):
+To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
 
 [source,xml,subs="+attributes"]
 ----
-<dependency>
-  <groupId>${maven.groupId}</groupId>
-  <artifactId>${maven.artifactId}</artifactId>
-  <version>${maven.version}</version>
-</dependency>
-----
-
-* Gradle (in your `build.gradle` file):
-
-[source,groovy,subs="+attributes"]
-----
-dependencies {
-  compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
-}
+shared import io.vertx.ceylon.web "3.2.1";
 ----
 
 
@@ -2335,25 +2320,11 @@ the prefix `eventbus` we will connect there.
 
 You can't actually do anything with the connection until it is opened. When it is open the `onopen` handler will be called.
 
-You can retrieve the client library using a dependency manager:
-
-* Maven (in your `pom.xml`):
+To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
 
 [source,xml,subs="+attributes"]
 ----
-<dependency>
-  <groupId>${maven.groupId}</groupId>
-  <artifactId>${maven.artifactId}</artifactId>
-  <version>${maven.version}</version>
-  <classifier>client</classifier>
-</dependency>
-----
-
-* Gradle (in your `build.gradle` file):
-
-[source,groovy,subs="+attributes"]
-----
-compile ${maven.groupId}:${maven.artifactId}:${maven.version}:client
+shared import io.vertx.ceylon.web "3.2.1";
 ----
 
 The library is also available on https://www.npmjs.com/package/vertx3-eventbus-client[NPM] and on

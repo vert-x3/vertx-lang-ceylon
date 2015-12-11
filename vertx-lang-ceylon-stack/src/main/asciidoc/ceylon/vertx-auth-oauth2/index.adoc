@@ -2,25 +2,11 @@
 
 This component contains an out of the box OAuth2 implementation.
 
-To use this project, add the following
-dependency to the _dependencies_ section of your build descriptor:
-
-* Maven (in your `pom.xml`):
+To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
 
 [source,xml,subs="+attributes"]
 ----
-<dependency>
-  <groupId>${maven.groupId}</groupId>
-  <artifactId>${maven.artifactId}</artifactId>
-  <version>${maven.version}</version>
-</dependency>
-----
-
-* Gradle (in your `build.gradle` file):
-
-[source,groovy,subs="+attributes"]
-----
-compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
+shared import io.vertx.ceylon.auth.oauth2 "3.2.1";
 ----
 
 OAuth2 lets users grant the access to the desired resources to third party applications, giving them the possibility
