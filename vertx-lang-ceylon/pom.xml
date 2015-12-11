@@ -155,7 +155,7 @@
       <plugin>
         <groupId>org.ceylon-lang</groupId>
         <artifactId>ceylon-maven-plugin</artifactId>
-        <version>1.2.0-beta1</version>
+        <version>1.2.0</version>
         <executions>
 
           <execution>
