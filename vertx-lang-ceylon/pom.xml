@@ -238,6 +238,7 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen.properties</descriptor>
+                  <version>3.2.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -246,6 +247,7 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
+                  <version>3.2.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -254,6 +256,7 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
+                  <version>3.2.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -262,6 +265,7 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
+                  <version>3.2.0</version>
                 </moduleImport>
               </moduleImports>
             </configuration>
@@ -296,6 +300,7 @@
                   <force>true</force>
                   <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
                   <name>io.vertx.vertx-codegen-tck</name>
+                  <version>3.2.0</version>
                 </moduleImport>
               </moduleImports>
             </configuration>
@@ -472,7 +477,7 @@
                 <userRepo>${repo.dir}</userRepo>
                 <userRepo>modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/3.2.0-SNAPSHOT</module>
+              <module>io.vertx.tests/3.2.0</module>
             </configuration>
           </execution>
 
