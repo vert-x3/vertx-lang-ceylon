@@ -171,21 +171,24 @@
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-core</artifactId>
                   </dependency>
-                  <descriptor>descriptors/com.fasterxml.jackson.core.jackson-core.properties</descriptor>
+                  <name>com.fasterxml.jackson.core</name>
+                  <descriptor>descriptors/com.fasterxml.jackson.core.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-annotations</artifactId>
                   </dependency>
-                  <descriptor>descriptors/com.fasterxml.jackson.core.jackson-annotations.properties</descriptor>
+                  <name>com.fasterxml.jackson.annotations</name>
+                  <descriptor>descriptors/com.fasterxml.jackson.annotations.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-databind</artifactId>
                   </dependency>
-                  <descriptor>descriptors/com.fasterxml.jackson.core.jackson-databind.properties</descriptor>
+                  <name>com.fasterxml.jackson.databind</name>
+                  <descriptor>descriptors/com.fasterxml.jackson.databind.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>

@@ -60,11 +60,6 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void end() {
-    delegate.end();
-  }
-
-  @TypeInfo("ceylon.language::Anything")
   public void end(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
@@ -158,6 +153,12 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
   public ceylon.language.String writeHandlerID() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.writeHandlerID());
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Call [end](../../handler/sockjs/SockJSSocket.type.html#end).\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void end() {
+    delegate.end();
   }
 
   @DocAnnotation$annotation$(description = " Close it\n")
