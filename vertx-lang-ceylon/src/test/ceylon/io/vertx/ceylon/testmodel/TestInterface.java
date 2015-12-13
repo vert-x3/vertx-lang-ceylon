@@ -1863,7 +1863,7 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithThrowableParam(
     final @TypeInfo("ceylon.language::Throwable") @Name("t")  Throwable t) {
-    java.lang.Throwable arg_0 = null;
+    java.lang.Throwable arg_0 = t;
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.methodWithThrowableParam(arg_0));
     return ret;
   }

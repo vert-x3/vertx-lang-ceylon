@@ -1051,6 +1051,16 @@ shared test void testMethodWithGenEnumReturn() {
   assertEquals(ret, bob);
 }
 
+shared test void testMethodWithThrowableReturn() {
+  value ret = obj.methodWithThrowableReturn("wibble");
+  assertEquals("wibble", ret.message);
+}
+
+shared test void testMethodWithThrowableParam() {
+  value ret = obj.methodWithThrowableParam(Exception("eek"));
+  assertEquals("eek", ret);
+}
+
 shared test void testNullableByte() => testNullable(67.byte, nullableTCK.methodWithNullableByteParam, nullableTCK.methodWithNullableByteHandler, nullableTCK.methodWithNullableByteHandlerAsyncResult, nullableTCK.methodWithNullableByteReturn);
 shared test void testNullableShort() => testNullable(1024, nullableTCK.methodWithNullableShortParam, nullableTCK.methodWithNullableShortHandler, nullableTCK.methodWithNullableShortHandlerAsyncResult, nullableTCK.methodWithNullableShortReturn);
 shared test void testNullableInteger() => testNullable(1234567, nullableTCK.methodWithNullableIntegerParam, nullableTCK.methodWithNullableIntegerHandler, nullableTCK.methodWithNullableIntegerHandlerAsyncResult, nullableTCK.methodWithNullableIntegerReturn);

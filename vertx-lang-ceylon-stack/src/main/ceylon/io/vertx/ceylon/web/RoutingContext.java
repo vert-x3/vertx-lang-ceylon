@@ -115,7 +115,7 @@ public class RoutingContext implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void fail(
     final @TypeInfo("ceylon.language::Throwable") @Name("throwable") @DocAnnotation$annotation$(description = "a throwable representing the failure\n") Throwable throwable) {
-    java.lang.Throwable arg_0 = null;
+    java.lang.Throwable arg_0 = throwable;
     delegate.fail(arg_0);
   }
 

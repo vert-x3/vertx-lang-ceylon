@@ -129,6 +129,8 @@
       if (valConverter != null) {
         return 'io.vertx.lang.ceylon.ToJava.convertMap' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, ' + valConverter + ')';
       }
+    } else if (kind == CLASS_THROWABLE) {
+        return expr;
     }
     return 'null';
   }
