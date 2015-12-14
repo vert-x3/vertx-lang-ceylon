@@ -259,7 +259,7 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
-                  <version>3.2.0</version>
+                  <version>3.5.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
