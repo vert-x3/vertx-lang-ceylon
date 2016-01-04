@@ -2,11 +2,25 @@
 
 This component contains an out of the box OAuth2 implementation.
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+To use this project, add the following
+dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.oauth2 "3.2.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
 ----
 
 OAuth2 lets users grant the access to the desired resources to third party applications, giving them the possibility
@@ -57,6 +71,10 @@ An example on how to use this provider and authenticate with GitHub can be imple
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code } 
+
+...
+
 
 value oauth2 = oAuth2Auth.create(vertx, auth_code, JsonObject {
   clientID = "YOUR_CLIENT_ID";
@@ -85,7 +103,7 @@ value code = "xxxxxxxxxxxxxxxxxxxxxxxx";
 oauth2.getToken(JsonObject {
   code = code;
   redirect_uri = "http://localhost:8080/callback";
-}, (AccessToken|Throwable res) => {
+}, (AccessToken|Throwable res) {
   if (is Throwable name) {
     // error, the code provided is not valid
   } else {
@@ -104,6 +122,10 @@ access token.
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code } 
+
+...
+
 
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
@@ -133,7 +155,7 @@ value tokenConfig = JsonObject {
 
 // Callbacks
 // Save the access token
-oauth2.getToken(tokenConfig, (AccessToken|Throwable res) => {
+oauth2.getToken(tokenConfig, (AccessToken|Throwable res) {
   if (is Throwable name) {
     print("Access Token Error: ``res.getMessage()``");
   } else {
@@ -152,6 +174,11 @@ need a fast way to test your application.
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, password } 
+import io.vertx.ceylon.core.http { get } 
+
+...
+
 
 // Initialize the OAuth2 Library
 value oauth2 = oAuth2Auth.create(vertx, password);
@@ -163,7 +190,7 @@ value tokenConfig = JsonObject {
 
 // Callbacks
 // Save the access token
-oauth2.getToken(tokenConfig, (AccessToken|Throwable res) => {
+oauth2.getToken(tokenConfig, (AccessToken|Throwable res) {
   if (is Throwable name) {
     print("Access Token Error: ``res.getMessage()``");
   } else {
@@ -172,7 +199,7 @@ oauth2.getToken(tokenConfig, (AccessToken|Throwable res) => {
 
     oauth2.api(get, "/users", JsonObject {
       access_token = token.principal()get("access_token";
-    }, (JsonObject|Throwable res2) => {
+    }, (JsonObject|Throwable res2) {
       // the user object should be returned here...
     });
   };
@@ -186,6 +213,10 @@ This flow is suitable when client is requesting access to the protected resource
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
@@ -202,7 +233,7 @@ value tokenConfig = JsonObject();
 
 // Callbacks
 // Save the access token
-oauth2.getToken(tokenConfig, (AccessToken|Throwable res) => {
+oauth2.getToken(tokenConfig, (AccessToken|Throwable res) {
   if (is Throwable name) {
     print("Access Token Error: ``res.getMessage()``");
   } else {
@@ -223,7 +254,7 @@ to refresh the access token when it is expired.
 // Check if the token is expired. If expired it is refreshed.
 if (token.expired()) {
   // Callbacks
-  token.refresh((Throwable? res) => {
+  token.refresh((Throwable? res) {
     if (!exists res) {
       // success
     } else {
@@ -239,11 +270,11 @@ When you've done with the token or you want to log out, you can revoke the acces
 [source,ceylon]
 ----
 // Revoke only the access token
-token.revoke("access_token", (Throwable? res) => {
+token.revoke("access_token", (Throwable? res) {
   // Session ended. But the refresh_token is still valid.
 
   // Revoke the refresh_token
-  token.revoke("refresh_token", (Throwable? res1) => {
+  token.revoke("refresh_token", (Throwable? res1) {
     print("token revoked.");
   });
 });
@@ -256,6 +287,10 @@ token.revoke("access_token", (Throwable? res) => {
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";
@@ -275,6 +310,10 @@ value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";
@@ -294,6 +333,10 @@ value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";
@@ -313,6 +356,10 @@ value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";
@@ -332,6 +379,10 @@ value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";
@@ -351,6 +402,10 @@ value oauth2 = oAuth2Auth.create(vertx, client, credentials);
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, client } 
+
+...
+
 // Set the client credentials and the OAuth2 server
 value credentials = JsonObject {
   clientID = "CLIENT_ID";

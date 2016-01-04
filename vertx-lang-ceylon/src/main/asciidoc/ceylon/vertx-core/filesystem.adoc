@@ -248,7 +248,7 @@ vertx.fileSystem().open("target/classes/les_miserables.txt", OpenOptions(), (Asy
   if (is AsyncFile result) {
     value file = result;
     pump.pump(file, output).start();
-    file.endHandler((Void r) {
+    file.endHandler(() {
       print("Copy done");
     });
   } else {

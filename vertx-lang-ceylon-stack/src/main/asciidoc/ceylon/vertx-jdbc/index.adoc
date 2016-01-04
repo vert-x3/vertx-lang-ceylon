@@ -5,11 +5,24 @@ application.
 
 The client API is represented with the interface `link:../../ceylondoc/vertx-jdbc//JDBCClient.type.html[JDBCClient]`.
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+To use this project, add the following dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.jdbc "3.2.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
 ----
 
 == Creating a the client
@@ -27,6 +40,10 @@ You do this as follows:
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.jdbc { jdbcClient } 
+
+...
+
 
 value client = jdbcClient.createShared(vertx, config);
 
@@ -44,6 +61,10 @@ You can create a client specifying a data source name as follows
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.jdbc { jdbcClient } 
+
+...
+
 
 
 value client = jdbcClient.createShared(vertx, config, "MyDataSource");
@@ -71,6 +92,10 @@ In that case you can use `link:../../ceylondoc/vertx-jdbc//JDBCClient.object.htm
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.jdbc { jdbcClient } 
+
+...
+
 
 value client = jdbcClient.createNonShared(vertx, config);
 
@@ -86,6 +111,10 @@ If you already have a pre-existing data source, you can also create the client d
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.jdbc { jdbcClient } 
+
+...
+
 
 value client = jdbcClient.create(vertx, dataSource);
 
@@ -112,12 +141,12 @@ This will return the connection in the handler when one is ready from the pool.
 
 // Now do stuff with it:
 
-client.getConnection((SQLConnection|Throwable res) => {
+client.getConnection((SQLConnection|Throwable res) {
   if (is SQLConnection res) {
 
     value connection = res;
 
-    connection.query("SELECT * FROM some_table", (ResultSet|Throwable res2) => {
+    connection.query("SELECT * FROM some_table", (ResultSet|Throwable res2) {
       if (is ResultSet res2) {
 
         value rs = res2;
@@ -176,6 +205,10 @@ Here's an example of configuring a service:
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.jdbc { jdbcClient } 
+
+...
+
 
 value config = JsonObject {
   url = "jdbc:hsqldb:mem:test?shutdown=true";

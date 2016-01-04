@@ -5,11 +5,24 @@ your Vert.x applications and can be backed by different providers.
 
 Vert.x auth is also used by vertx-web to handle its authentication and authorisation.
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+To use this project, add the following dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.common "3.2.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile ${maven.groupId}:${maven.artifactId}:${maven.version}
 ----
 
 == Basic concepts
@@ -58,7 +71,7 @@ value authInfo = JsonObject {
   password = "mypassword";
 };
 
-authProvider.authenticate(authInfo, (User|Throwable res) => {
+authProvider.authenticate(authInfo, (User|Throwable res) {
   if (is User res) {
 
     value user = res;
@@ -85,7 +98,7 @@ Here's an example of authorising a user:
 [source,java]
 ----
 
-user.isAuthorised("printers:printer1234", (Boolean|Throwable res) => {
+user.isAuthorised("printers:printer1234", (Boolean|Throwable res) {
   if (is Boolean res) {
 
     value hasAuthority = res;

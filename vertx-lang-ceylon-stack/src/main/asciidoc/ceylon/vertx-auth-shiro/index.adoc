@@ -2,11 +2,25 @@
 
 This is an auth provider implementation that uses http://shiro.apache.org/[Apache Shiro].
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+To use this
+project, add the following dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.shiro "3.2.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
 ----
 
 We provide out of the box support for properties and LDAP based auth using Shiro, and you can also plugin in any
@@ -20,6 +34,10 @@ Here's an example of creating a Shiro auth provider by specifying the type:
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.auth.shiro { shiroAuth, properties } 
+
+...
+
 
 value config = JsonObject {
   properties_path = "classpath:test-auth.properties";
@@ -43,7 +61,7 @@ value authInfo = JsonObject {
   password = "sausages";
 };
 
-authProvider.authenticate(authInfo, (User|Throwable res) => {
+authProvider.authenticate(authInfo, (User|Throwable res) {
   if (is User res) {
     value user = res;
   } else {
@@ -65,7 +83,7 @@ If validating if a user has a particular permission simply pass the permission i
 [source,java]
 ----
 
-user.isAuthorised("newsletter:edit:13", (Boolean|Throwable res) => {
+user.isAuthorised("newsletter:edit:13", (Boolean|Throwable res) {
   if (is Boolean res) {
     value hasPermission = res;
   } else {
@@ -80,7 +98,7 @@ If validating that a user has a particular _role_ then you should prefix the arg
 [source,java]
 ----
 
-user.isAuthorised("role:manager", (Boolean|Throwable res) => {
+user.isAuthorised("role:manager", (Boolean|Throwable res) {
   if (is Boolean res) {
     value hasRole = res;
   } else {
@@ -164,6 +182,10 @@ This is done as follows:
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.auth.shiro { shiroAuth } 
+
+...
+
 
 value provider = shiroAuth.create(vertx, realm);
 

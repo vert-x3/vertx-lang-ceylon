@@ -152,9 +152,7 @@ sd.getLock("mylock", (Lock|Throwable res) {
 
     // 5 seconds later we release the lock so someone else can get it
 
-    vertx.setTimer(5000, (Long tid) {
-      lock.release()
-    });
+    vertx.setTimer(5000, (Integer tid) => lock.release());
 
   } else {
     // Something went wrong

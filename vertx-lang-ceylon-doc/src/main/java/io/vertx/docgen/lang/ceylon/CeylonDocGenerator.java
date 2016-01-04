@@ -84,7 +84,7 @@ public class CeylonDocGenerator implements DocGenerator {
       return translator.translate(elt, lang);
     } catch (Exception e) {
       System.out.println("Cannot generate " + elt.getEnclosingElement().getSimpleName() + "#" + elt.getSimpleName() + " : " + e.getMessage());
-      return "Code not translatable";
+      return "Code not translatable : " + e.getMessage();
     }
   }
 

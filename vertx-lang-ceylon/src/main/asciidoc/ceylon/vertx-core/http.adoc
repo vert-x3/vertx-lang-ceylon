@@ -259,7 +259,7 @@ request.handler((Buffer buffer) {
   totalBuffer.appendBuffer(buffer);
 });
 
-request.endHandler((Void v) {
+request.endHandler(() {
   print("Full body received, length = ``totalBuffer.length()``");
 });
 
@@ -305,7 +305,7 @@ once the entire body has been read:
 
 server.requestHandler((HttpServerRequest request) {
   request.setExpectMultipart(true);
-  request.endHandler((Void v) {
+  request.endHandler(() {
     // The body has now been fully read, so retrieve the form attributes
     value formAttributes = request.formAttributes();
   });
@@ -626,7 +626,22 @@ at any one time:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { put } 
+import io.vertx.ceylon.core.streams { pump } 
+
+...
+
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
+  value response = request.response();
+  if (request.method() == put) {
+    response.setChunked(true);
+    pump.pump(request, response).start();
+    request.endHandler(() => response.end());
+  } else {
+    response.setStatusCode(400).end();
+  };
+}).listen(8080);
+
 ----
 
 === HTTP Compression
@@ -751,7 +766,20 @@ the HTTP method at run-time:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { get, post } 
+
+...
+
+value client = vertx.createHttpClient();
+
+client.request(get, "some-uri", (HttpClientResponse response) {
+  print("Received response with status code ``response.statusCode()``");
+}).end();
+
+client.request(post, "foo-uri", (HttpClientResponse response) {
+  print("Received response with status code ``response.statusCode()``");
+}).end("some-data");
+
 ----
 
 ==== Writing request bodies
@@ -1028,9 +1056,7 @@ import io.vertx.ceylon.core.streams { pump_ = pump }
 
 request.setChunked(true);
 value pump = pump_.pump(file, request);
-file.endHandler((Void v) {
-  request.end()
-});
+file.endHandler(() => request.end());
 pump.start();
 
 
@@ -1126,7 +1152,7 @@ client.getNow("some-uri", (HttpClientResponse response) {
     totalBuffer.appendBuffer(buffer);
   });
 
-  response.endHandler((Void v) {
+  response.endHandler(() {
     // Now all the body has been read
     print("Total response body length is ``totalBuffer.length()``");
   });
@@ -1193,7 +1219,7 @@ value request = client.put("some-uri", (HttpClientResponse response) {
 
 request.putHeader("Expect", "100-Continue");
 
-request.continueHandler((Void v) {
+request.continueHandler(() {
   // OK to send rest of body
   request.write("Some data");
   request.write("Some more data");
@@ -1303,7 +1329,7 @@ receiving a request it calls the server handlers following a round robin strateg
 Let's now imagine a client such as:
 [source,ceylon]
 ----
-vertx.setPeriodic(100, (Long l) {
+vertx.setPeriodic(100, (Integer l) {
   vertx.createHttpClient().getNow(8080, "localhost", "/", (HttpClientResponse resp) {
     resp.bodyHandler((Buffer body) {
       print(body.toString("ISO-8859-1"));

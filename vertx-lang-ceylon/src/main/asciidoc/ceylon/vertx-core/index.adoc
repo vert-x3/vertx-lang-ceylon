@@ -137,7 +137,7 @@ would do:
 
 [source,ceylon]
 ----
-vertx.setPeriodic(1000, (Long id) {
+vertx.setPeriodic(1000, (Integer id) {
   // This handler will get called every second
   print("timer fired!");
 });
@@ -661,7 +661,7 @@ you submit a task that will be eventually run in the same context, but later:
 
 [source, ceylon]
 ----
-vertx.getOrCreateContext().runOnContext((Void v) {
+vertx.getOrCreateContext().runOnContext(() {
   print("This will be executed asynchronously in the same context");
 });
 
@@ -675,7 +675,7 @@ store and retrieve data shared in the context. For instance, it lets you pass da
 ----
 value context = vertx.getOrCreateContext();
 context.put("data", "hello");
-context.runOnContext((Void v) {
+context.runOnContext(() {
   value hello = context.get("data");
 });
 
@@ -700,7 +700,7 @@ To set a timer to fire once you use `link:../../ceylondoc/vertx-core//Vertx.type
 
 [source,ceylon]
 ----
-value timerID = vertx.setTimer(1000, (Long id) {
+value timerID = vertx.setTimer(1000, (Integer id) {
   print("And one second later this is printed");
 });
 
@@ -728,7 +728,7 @@ finished, you can set the next timer.
 
 [source,ceylon]
 ----
-value timerID = vertx.setPeriodic(1000, (Long id) {
+value timerID = vertx.setPeriodic(1000, (Integer id) {
   print("And every second this is printed");
 });
 

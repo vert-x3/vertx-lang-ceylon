@@ -8,7 +8,6 @@ import io.vertx.codegen.type.ClassTypeInfo;
 import io.vertx.codegen.type.EnumTypeInfo;
 import io.vertx.codegen.type.ParameterizedTypeInfo;
 import io.vertx.codegen.type.TypeInfo;
-import io.vertx.codetrans.CodeBuilder;
 import io.vertx.codetrans.CodeModel;
 import io.vertx.codetrans.CodeWriter;
 import io.vertx.codetrans.MethodSignature;
@@ -332,34 +331,86 @@ public class CeylonWriter extends CodeWriter {
     append(name);
   }
 
+  /**
+   * Render the appropriate type declaration in Ceylon.
+   *
+   * @param type the type info
+   * @return the rendered type
+   */
+  private String renderTypeDeclaration(TypeInfo type) {
+    switch (type.getKind()) {
+      case VOID:
+        return null;
+      case ASYNC_RESULT:
+        TypeInfo resultType = ((ParameterizedTypeInfo) type).getArg(0);
+        if (resultType.getKind() == ClassKind.VOID) {
+          return "Throwable?";
+        } else {
+          return renderTypeDeclaration(resultType) + "|Throwable";
+        }
+      case API:
+      case DATA_OBJECT:
+      case THROWABLE:
+      case OBJECT:
+        return type.getSimpleName();
+      case STRING:
+        return "String";
+      case JSON_OBJECT:
+        return "JsonObject";
+      case JSON_ARRAY:
+        return "JsonArray";
+      case PRIMITIVE:
+      case BOXED_PRIMITIVE:
+        switch (type.getSimpleName()) {
+          case "Boolean":
+          case "boolean":
+            return "Boolean";
+          case "Long":
+          case "long":
+          case "Integer":
+          case "int":
+            return "Integer";
+          case "Float":
+          case "float":
+          case "Double":
+          case "double":
+            return "Float";
+          default:
+            return "TODO: " + type.getName();
+        }
+      case LIST:
+        return "List<" + renderTypeDeclaration(((ParameterizedTypeInfo)type).getArg(0)) + ">";
+      default:
+        return "TODO: " + type.getName() + " " + type.getKind();
+    }
+  }
+
   @Override
   public void renderLambda(LambdaExpressionTree.BodyKind bodyKind, List<TypeInfo> parameterTypes, List<String> parameterNames, CodeModel body) {
     append("(");
     for (int i = 0; i < parameterNames.size(); i++) {
+      String decl = renderTypeDeclaration(parameterTypes.get(i));
+      if (decl == null) {
+        continue;
+      }
       if (i > 0) {
         append(", ");
       }
-      TypeInfo parameterType = parameterTypes.get(i);
-      if (parameterType.getKind() == ClassKind.ASYNC_RESULT) {
-        TypeInfo resultType = ((ParameterizedTypeInfo) parameterType).getArg(0);
-        if (resultType.getKind() == ClassKind.VOID) {
-          append("Throwable?");
-        } else {
-          append(resultType.getSimpleName()).append("|Throwable");
-        }
-      } else {
-        append(parameterType.getSimpleName());
-      }
+      append(decl);
       append(" ").append(parameterNames.get(i));
     }
-    append(") {\n");
+    append(") ");
+    if (bodyKind == LambdaExpressionTree.BodyKind.EXPRESSION) {
+      append("=> ");
+    } else {
+      append("{\n");
+    }
     indent();
     body.render(this);
-    if (bodyKind == LambdaExpressionTree.BodyKind.EXPRESSION) {
-      append("\n");
-    }
     unindent();
-    append("}");
+    if (bodyKind == LambdaExpressionTree.BodyKind.STATEMENT) {
+      append("}");
+    }
   }
 
   @Override

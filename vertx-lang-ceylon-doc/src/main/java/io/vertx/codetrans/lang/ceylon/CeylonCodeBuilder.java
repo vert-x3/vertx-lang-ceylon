@@ -22,10 +22,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
@@ -33,6 +35,7 @@ import java.util.Set;
 public class CeylonCodeBuilder implements CodeBuilder {
 
   Set<String> variables = new HashSet<>();
+  Map<EnumTypeInfo, Set<String>> enumTypes = new LinkedHashMap<>();
   Set<ApiTypeInfo> functionTypes = new LinkedHashSet<>();
 
   @Override
@@ -75,9 +78,9 @@ public class CeylonCodeBuilder implements CodeBuilder {
     CeylonImports ceylonImports = new CeylonImports();
 
     //
-    for (ApiTypeInfo importedType : functionTypes) {
+    for (ApiTypeInfo functionType : functionTypes) {
       String pkg;
-      String fqn = importedType.translateName("ceylon");
+      String fqn = functionType.translateName("ceylon");
       int index = fqn.lastIndexOf('.');
       pkg = fqn.substring(0, index);
       String simpleName = Case.CAMEL.to(Case.LOWER_CAMEL, fqn.substring(index + 1));
@@ -87,6 +90,15 @@ public class CeylonCodeBuilder implements CodeBuilder {
         ceylonImports.add(pkg, simpleName);
       }
     }
+
+    //
+    enumTypes.forEach((enumType, values) -> {
+      String pkg;
+      String fqn = enumType.translateName("ceylon");
+      int index = fqn.lastIndexOf('.');
+      pkg = fqn.substring(0, index);
+      ceylonImports.add(pkg, values.stream().map(String::toLowerCase).collect(Collectors.toList()));
+    });
 
     //
     ceylonImports.print(writer);
@@ -144,8 +156,13 @@ public class CeylonCodeBuilder implements CodeBuilder {
 
   @Override
   public EnumExpressionModel enumType(EnumTypeInfo type) {
-//    return CodeBuilder.super.enumType(type);
-    throw new UnsupportedOperationException("Not yet used");
+    return new EnumExpressionModel(this, type) {
+      @Override
+      public ExpressionModel onField(String identifier) {
+        enumTypes.computeIfAbsent(type, a -> new LinkedHashSet<>()).add(identifier);
+        return super.onField(identifier);
+      }
+    };
   }
 
   @Override

@@ -100,7 +100,7 @@ server.connectHandler((NetSocket sock) {
     sock.write(buffer);
     if (sock.writeQueueFull()) {
       sock.pause();
-      sock.drainHandler((Void done) {
+      sock.drainHandler(() {
         sock.resume();
       });
     };

@@ -14,6 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.http.HttpServerRequest;
 import io.vertx.ceylon.core.Vertx;
 import java.util.Set;
+import io.vertx.core.json.JsonArray;
 import java.util.List;
 import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.core.buffer.Buffer;
@@ -231,6 +232,13 @@ public class RoutingContext implements ReifiedType {
   @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object $getBodyAsJson() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getBodyAsJson());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
+  @TypeInfo("ceylon.json::Array?")
+  public ceylon.json.Array $getBodyAsJsonArray() {
+    ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(delegate.getBodyAsJsonArray());
     return ret;
   }
 

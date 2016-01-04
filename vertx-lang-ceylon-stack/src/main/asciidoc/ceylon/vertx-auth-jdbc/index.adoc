@@ -3,11 +3,25 @@
 We provide an implementation of `link:../../ceylondoc/vertx-auth-common//AuthProvider.type.html[AuthProvider]` which uses the Vert.x `link:../../ceylondoc/vertx-jdbc//JDBCClient.type.html[JDBCClient]`
 to perform authentication and authorisation against any JDBC compliant database.
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+To use this project,
+add the following dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.jdbc "3.2.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}'
 ----
 
 To create an instance you first need an instance of `link:../../ceylondoc/vertx-jdbc//JDBCClient.type.html[JDBCClient]`. To learn how to create one
@@ -17,8 +31,13 @@ Once you've got one of those you can create a `link:../../ceylondoc/vertx-auth-j
 
 [source,java]
 ----
+import io.vertx.ceylon.ext.auth.jdbc { jdbcAuth } 
+import io.vertx.ceylon.ext.jdbc { jdbcClient_ = jdbcClient } 
 
-value jdbcClient = jdbcClient.createShared(vertx, jdbcClientConfig);
+...
+
+
+value jdbcClient = jdbcClient_.createShared(vertx, jdbcClientConfig);
 
 value authProvider = jdbcAuth.create(jdbcClient);
 
@@ -55,7 +74,7 @@ value authInfo = JsonObject {
   password = "sausages";
 };
 
-authProvider.authenticate(authInfo, (User|Throwable res) => {
+authProvider.authenticate(authInfo, (User|Throwable res) {
   if (is User res) {
     value user = res;
   } else {
@@ -77,7 +96,7 @@ If validating if a user has a particular permission simply pass the permission i
 [source,java]
 ----
 
-user.isAuthorised("commit_code", (Boolean|Throwable res) => {
+user.isAuthorised("commit_code", (Boolean|Throwable res) {
   if (is Boolean res) {
     value hasPermission = res;
   } else {
@@ -93,7 +112,7 @@ If validating that a user has a particular _role_ then you should prefix the arg
 [source,java]
 ----
 
-user.isAuthorised("role:manager", (Boolean|Throwable res) => {
+user.isAuthorised("role:manager", (Boolean|Throwable res) {
   if (is Boolean res) {
     value hasRole = res;
   } else {

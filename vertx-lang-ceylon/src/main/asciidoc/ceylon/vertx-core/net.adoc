@@ -170,7 +170,7 @@ on it:
 [source,ceylon]
 ----
 
-socket.closeHandler((Void v) {
+socket.closeHandler(() {
   print("The socket has been closed");
 });
 
@@ -529,14 +529,41 @@ The password for the trust store should also be provided:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  trustStoreOptions = JksOptions {
+    path = "/path/to/your/truststore.jks";
+    password = "password-of-your-truststore";
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 Alternatively you can read the trust store yourself as a buffer and provide that directly:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.jks");
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  trustStoreOptions = JksOptions {
+    value = myTrustStoreAsABuffer;
+    password = "password-of-your-truststore";
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 Certificate authority in PKCS#12 format (http://en.wikipedia.org/wiki/PKCS_12), usually with the `.pfx`  or the `.p12`
@@ -544,28 +571,80 @@ extension can also be loaded in a similar fashion than JKS trust stores:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  pfxTrustOptions = PfxOptions {
+    path = "/path/to/your/truststore.pfx";
+    password = "password-of-your-truststore";
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 Buffer configuration is also supported:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.pfx");
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  pfxTrustOptions = PfxOptions {
+    value = myTrustStoreAsABuffer;
+    password = "password-of-your-truststore";
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 Another way of providing server certificate authority using a list `.pem` files.
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  pemTrustOptions = PemTrustOptions {
+    certPaths = {"/path/to/your/server-ca.pem" };
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 Buffer configuration is also supported:
 
 [source,ceylon]
 ----
-Code not translatable
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value myCaAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/server-ca.pfx");
+value options = NetServerOptions {
+  ssl = true;
+  clientAuth = required;
+  pemTrustOptions = PemTrustOptions {
+    certValues = {myCaAsABuffer };
+  };
+};
+value server = vertx.createNetServer(options);
+
 ----
 
 ==== Enabling SSL/TLS on the client
