@@ -66,7 +66,7 @@ For example:
 ----
 
 value server = vertx.createNetServer();
-server.listen(1234, "localhost", (NetServer|Throwable res) => {
+server.listen(1234, "localhost", (NetServer|Throwable res) {
   if (is NetServer res) {
     print("Server is now listening!");
   } else {
@@ -86,7 +86,7 @@ To find out the real port the server is listening on you can call `link:../../ce
 ----
 
 value server = vertx.createNetServer();
-server.listen(0, "localhost", (NetServer|Throwable res) => {
+server.listen(0, "localhost", (NetServer|Throwable res) {
   if (is NetServer res) {
     print("Server is now listening on actual port: ``server.actualPort()``");
   } else {
@@ -104,7 +104,7 @@ To be notified when a connection is made you need to set a `link:../../ceylondoc
 ----
 
 value server = vertx.createNetServer();
-server.connectHandler((NetSocket socket) => {
+server.connectHandler((NetSocket socket) {
   // Handle the connection in here
 });
 
@@ -127,8 +127,8 @@ the socket.
 ----
 
 value server = vertx.createNetServer();
-server.connectHandler((NetSocket socket) => {
-  socket.handler((Buffer buffer) => {
+server.connectHandler((NetSocket socket) {
+  socket.handler((Buffer buffer) {
     print("I received some bytes: ``buffer.length()``");
   });
 });
@@ -141,9 +141,13 @@ You write to a socket using one of `link:../../ceylondoc/vertx-core//net/NetSock
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 
 // Write a buffer
-value buffer = buffer.buffer().appendFloat(12.34).appendInt(123);
+value buffer = buffer_.buffer().appendFloat(12.34).appendInt(123);
 socket.write(buffer);
 
 // Write a string in UTF-8 encoding
@@ -166,7 +170,7 @@ on it:
 [source,ceylon]
 ----
 
-socket.closeHandler((Void v) => {
+socket.closeHandler((Void v) {
   print("The socket has been closed");
 });
 
@@ -234,7 +238,7 @@ This handler will then be called when the close has fully completed.
 [source,ceylon]
 ----
 
-server.close((Throwable? res) => {
+server.close((Throwable? res) {
   if (!exists res) {
     print("Server is now closed");
   } else {
@@ -268,8 +272,8 @@ You can instantiate more instances programmatically in your code:
 variable value i = 0;
 while (i < 10) {
   value server = vertx.createNetServer();
-  server.connectHandler((NetSocket socket) => {
-    socket.handler((Buffer buffer) => {
+  server.connectHandler((NetSocket socket) {
+    socket.handler((Buffer buffer) {
       // Just echo back the data
       socket.write(buffer);
     });
@@ -351,7 +355,7 @@ value options = NetClientOptions {
   connectTimeout = 10000;
 };
 value client = vertx.createNetClient(options);
-client.connect(4321, "localhost", (NetSocket|Throwable res) => {
+client.connect(4321, "localhost", (NetSocket|Throwable res) {
   if (is NetSocket res) {
     print("Connected!");
     value socket = res;
@@ -525,33 +529,14 @@ The password for the trust store should also be provided:
 
 [source,ceylon]
 ----
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  trustStoreOptions = JksOptions {
-    path = "/path/to/your/truststore.jks";
-    password = "password-of-your-truststore";
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 Alternatively you can read the trust store yourself as a buffer and provide that directly:
 
 [source,ceylon]
 ----
-value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.jks");
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  trustStoreOptions = JksOptions {
-    value = myTrustStoreAsABuffer;
-    password = "password-of-your-truststore";
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 Certificate authority in PKCS#12 format (http://en.wikipedia.org/wiki/PKCS_12), usually with the `.pfx`  or the `.p12`
@@ -559,64 +544,28 @@ extension can also be loaded in a similar fashion than JKS trust stores:
 
 [source,ceylon]
 ----
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  pfxTrustOptions = PfxOptions {
-    path = "/path/to/your/truststore.pfx";
-    password = "password-of-your-truststore";
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 Buffer configuration is also supported:
 
 [source,ceylon]
 ----
-value myTrustStoreAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/truststore.pfx");
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  pfxTrustOptions = PfxOptions {
-    value = myTrustStoreAsABuffer;
-    password = "password-of-your-truststore";
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 Another way of providing server certificate authority using a list `.pem` files.
 
 [source,ceylon]
 ----
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  pemTrustOptions = PemTrustOptions {
-    certPaths = {"/path/to/your/server-ca.pem" };
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 Buffer configuration is also supported:
 
 [source,ceylon]
 ----
-value myCaAsABuffer = vertx.fileSystem().readFileBlocking("/path/to/your/server-ca.pfx");
-value options = NetServerOptions {
-  ssl = true;
-  clientAuth = required;
-  pemTrustOptions = PemTrustOptions {
-    certValues = {myCaAsABuffer };
-  };
-};
-value server = vertx.createNetServer(options);
-
+Code not translatable
 ----
 
 ==== Enabling SSL/TLS on the client

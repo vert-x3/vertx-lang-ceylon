@@ -14,7 +14,7 @@ Here's an example of an asynchronous copy of a file:
 value fs = vertx.fileSystem();
 
 // Copy file from foo.txt to bar.txt
-fs.copy("foo.txt", "bar.txt", (Throwable? res) => {
+fs.copy("foo.txt", "bar.txt", (Throwable? res) {
   if (!exists res) {
     // Copied ok!
   } else {
@@ -46,10 +46,15 @@ Let's see a couple of examples using asynchronous methods:
 
 [source,ceylon]
 ----
-value vertx = vertx.vertx();
+import io.vertx.ceylon.core.buffer { buffer } 
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value vertx = vertx_.vertx();
 
 // Read a file
-vertx.fileSystem().readFile("target/classes/readme.txt", (Buffer|Throwable result) => {
+vertx.fileSystem().readFile("target/classes/readme.txt", (Buffer|Throwable result) {
   if (is Buffer result) {
     print(result);
   } else {
@@ -58,7 +63,7 @@ vertx.fileSystem().readFile("target/classes/readme.txt", (Buffer|Throwable resul
 });
 
 // Copy a file
-vertx.fileSystem().copy("target/classes/readme.txt", "target/classes/readme2.txt", (Throwable? result) => {
+vertx.fileSystem().copy("target/classes/readme.txt", "target/classes/readme2.txt", (Throwable? result) {
   if (!exists result) {
     print("File copied");
   } else {
@@ -67,7 +72,7 @@ vertx.fileSystem().copy("target/classes/readme.txt", "target/classes/readme2.txt
 });
 
 // Write a file
-vertx.fileSystem().writeFile("target/classes/hello.txt", buffer.buffer("Hello"), (Throwable? result) => {
+vertx.fileSystem().writeFile("target/classes/hello.txt", buffer.buffer("Hello"), (Throwable? result) {
   if (!exists result) {
     print("File written");
   } else {
@@ -76,9 +81,9 @@ vertx.fileSystem().writeFile("target/classes/hello.txt", buffer.buffer("Hello"),
 });
 
 // Check existence and delete
-vertx.fileSystem().exists("target/classes/junk.txt", (Boolean|Throwable result) => {
+vertx.fileSystem().exists("target/classes/junk.txt", (Boolean|Throwable result) {
   if (is Boolean result && result) {
-    vertx.fileSystem().delete("target/classes/junk.txt", (Throwable? r) => {
+    vertx.fileSystem().delete("target/classes/junk.txt", (Throwable? r) {
       print("File deleted");
     });
   } else {
@@ -97,7 +102,7 @@ You open an `link:../../ceylondoc/vertx-core//file/AsyncFile.type.html[AsyncFile
 [source,ceylon]
 ----
 value options = OpenOptions();
-fileSystem.open("myfile.txt", options, (AsyncFile|Throwable res) => {
+fileSystem.open("myfile.txt", options, (AsyncFile|Throwable res) {
   if (is AsyncFile res) {
     value file = res;
   } else {
@@ -128,14 +133,19 @@ Here is an example of random access writes:
 
 [source,ceylon]
 ----
-value vertx = vertx.vertx();
-vertx.fileSystem().open("target/classes/hello.txt", OpenOptions(), (AsyncFile|Throwable result) => {
+import io.vertx.ceylon.core.buffer { buffer } 
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value vertx = vertx_.vertx();
+vertx.fileSystem().open("target/classes/hello.txt", OpenOptions(), (AsyncFile|Throwable result) {
   if (is AsyncFile result) {
     value file = result;
     value buff = buffer.buffer("foo");
     variable value i = 0;
     while (i < 5) {
-      file.write(buff, buff.length() * i, (Throwable? ar) => {
+      file.write(buff, buff.length() * i, (Throwable? ar) {
         if (!exists ar) {
           print("Written ok!");
           // etc
@@ -169,14 +179,19 @@ Here's an example of random access reads:
 
 [source,ceylon]
 ----
-value vertx = vertx.vertx();
-vertx.fileSystem().open("target/classes/les_miserables.txt", OpenOptions(), (AsyncFile|Throwable result) => {
+import io.vertx.ceylon.core.buffer { buffer } 
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value vertx = vertx_.vertx();
+vertx.fileSystem().open("target/classes/les_miserables.txt", OpenOptions(), (AsyncFile|Throwable result) {
   if (is AsyncFile result) {
     value file = result;
     value buff = buffer.buffer(1000);
     variable value i = 0;
     while (i < 10) {
-      file.read(buff, i * 100, i * 100, 100, (Buffer|Throwable ar) => {
+      file.read(buff, i * 100, i * 100, 100, (Buffer|Throwable ar) {
         if (is Buffer ar) {
           print("Read ok!");
         } else {
@@ -221,14 +236,19 @@ copy the content to another `AsyncFile`:
 
 [source,ceylon]
 ----
-value vertx = vertx.vertx();
+import io.vertx.ceylon.core { vertx_ = vertx } 
+import io.vertx.ceylon.core.streams { pump } 
+
+...
+
+value vertx = vertx_.vertx();
 value output = vertx.fileSystem().openBlocking("target/classes/plagiary.txt", OpenOptions());
 
-vertx.fileSystem().open("target/classes/les_miserables.txt", OpenOptions(), (AsyncFile|Throwable result) => {
+vertx.fileSystem().open("target/classes/les_miserables.txt", OpenOptions(), (AsyncFile|Throwable result) {
   if (is AsyncFile result) {
     value file = result;
     pump.pump(file, output).start();
-    file.endHandler((Void r) => {
+    file.endHandler((Void r) {
       print("Copy done");
     });
   } else {

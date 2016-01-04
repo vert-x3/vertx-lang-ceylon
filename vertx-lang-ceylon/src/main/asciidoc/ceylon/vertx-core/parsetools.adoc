@@ -28,7 +28,12 @@ Let's see the associated code:
 
 [source, ceylon]
 ----
-value parser = recordParser.newDelimited("\n", (Buffer h) => {
+import io.vertx.ceylon.core.buffer { buffer } 
+import io.vertx.ceylon.core.parsetools { recordParser } 
+
+...
+
+value parser = recordParser.newDelimited("\n", (Buffer h) {
   print(h.toString());
 });
 
@@ -43,7 +48,11 @@ You can also produce fixed sized chunks as follows:
 
 [source, ceylon]
 ----
-recordParser.newFixed(4, (Buffer h) => {
+import io.vertx.ceylon.core.parsetools { recordParser } 
+
+...
+
+recordParser.newFixed(4, (Buffer h) {
   print(h.toString());
 });
 

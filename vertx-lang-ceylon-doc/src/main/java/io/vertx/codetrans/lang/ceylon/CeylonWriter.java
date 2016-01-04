@@ -8,6 +8,7 @@ import io.vertx.codegen.type.ClassTypeInfo;
 import io.vertx.codegen.type.EnumTypeInfo;
 import io.vertx.codegen.type.ParameterizedTypeInfo;
 import io.vertx.codegen.type.TypeInfo;
+import io.vertx.codetrans.CodeBuilder;
 import io.vertx.codetrans.CodeModel;
 import io.vertx.codetrans.CodeWriter;
 import io.vertx.codetrans.MethodSignature;
@@ -78,8 +79,11 @@ public class CeylonWriter extends CodeWriter {
       "while"
   ));
 
+  private CeylonCodeBuilder builder;
+
   public CeylonWriter(CeylonCodeBuilder builder) {
     super(builder);
+    this.builder = builder;
   }
 
   @Override
@@ -348,7 +352,7 @@ public class CeylonWriter extends CodeWriter {
       }
       append(" ").append(parameterNames.get(i));
     }
-    append(") => {\n");
+    append(") {\n");
     indent();
     body.render(this);
     if (bodyKind == LambdaExpressionTree.BodyKind.EXPRESSION) {
@@ -376,16 +380,17 @@ public class CeylonWriter extends CodeWriter {
 
   @Override
   public void renderMethodInvocation(ExpressionModel expression, TypeInfo receiverType, MethodSignature method, TypeInfo returnType, List<ExpressionModel> argumentModels, List<TypeInfo> argumentTypes) {
-
-
-
     if (expression instanceof ApiTypeModel) {
-      ApiTypeModel abc = (ApiTypeModel) expression;
-      expression = new ApiTypeModel(builder, abc.getType()) {
+      ApiTypeModel apiTypeModel = (ApiTypeModel) expression;
+      expression = new ApiTypeModel(builder, apiTypeModel.getType()) {
         @Override
         public void render(CodeWriter writer) {
-          String obj = Case.CAMEL.to(Case.LOWER_CAMEL, abc.getType().getSimpleName());
-          writer.append(obj);
+          String name = Case.CAMEL.to(Case.LOWER_CAMEL, apiTypeModel.getType().getSimpleName());
+          CeylonCodeBuilder builder = (CeylonCodeBuilder) writer.getBuilder();
+          if (builder.variables.contains(name)) {
+            name += "_";
+          }
+          writer.append(name);
         }
       };
     }

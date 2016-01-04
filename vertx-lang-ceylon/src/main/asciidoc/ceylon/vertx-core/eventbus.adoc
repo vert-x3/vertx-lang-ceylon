@@ -115,7 +115,7 @@ Here's an example:
 ----
 value eb = vertx.eventBus();
 
-eb.consumer("news.uk.sport", (Message<Object> message) => {
+eb.consumer("news.uk.sport", (Message<Object> message) {
   print("I have received a message: ``message.body()``");
 });
 
@@ -135,7 +135,7 @@ to return a +MessageConsumer+ with no handler set, and then set the handler on t
 value eb = vertx.eventBus();
 
 value consumer = eb.consumer("news.uk.sport");
-consumer.handler((Message<String> message) => {
+consumer.handler((Message<String> message) {
   print("I have received a message: ``message.body()``");
 });
 
@@ -149,7 +149,7 @@ on the +MessageConsumer+ object.
 
 [source,ceylon]
 ----
-consumer.completionHandler((Throwable? res) => {
+consumer.completionHandler((Throwable? res) {
   if (!exists res) {
     print("The handler registration has reached all nodes");
   } else {
@@ -168,7 +168,7 @@ be notified when this is complete use `link:../../ceylondoc/vertx-core//eventbus
 
 [source,ceylon]
 ----
-consumer.unregister((Throwable? res) => {
+consumer.unregister((Throwable? res) {
   if (!exists res) {
     print("The handler un-registration has reached all nodes");
   } else {
@@ -236,7 +236,7 @@ The receiver:
 [source,ceylon]
 ----
 value consumer = eventBus.consumer("news.uk.sport");
-consumer.handler((Message<String> message) => {
+consumer.handler((Message<String> message) {
   print("I have received a message: ``message.body()``");
   message.reply("how interesting!");
 });
@@ -247,7 +247,7 @@ The sender:
 
 [source,ceylon]
 ----
-eventBus.send("news.uk.sport", "Yay! Someone kicked a ball across a patch of grass", (Message<Object>|Throwable ar) => {
+eventBus.send("news.uk.sport", "Yay! Someone kicked a ball across a patch of grass", (Message<Object>|Throwable ar) {
   if (is Message<Object> ar) {
     print("Received reply: ``ar.body()``");
   };
@@ -300,8 +300,12 @@ instance as clustered;
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
 value options = VertxOptions();
-vertx.clusteredVertx(options, (Vertx|Throwable res) => {
+vertx_.clusteredVertx(options, (Vertx|Throwable res) {
   if (is Vertx res) {
     value vertx = res;
     value eventBus = vertx.eventBus();

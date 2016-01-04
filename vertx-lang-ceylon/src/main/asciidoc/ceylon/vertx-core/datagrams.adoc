@@ -49,14 +49,18 @@ Sending packets is as easy as shown here:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 value socket = vertx.createDatagramSocket(DatagramSocketOptions());
-value buffer = buffer.buffer("content");
+value buffer = buffer_.buffer("content");
 // Send a Buffer
-socket.send(buffer, 1234, "10.0.0.1", (DatagramSocket|Throwable asyncResult) => {
+socket.send(buffer, 1234, "10.0.0.1", (DatagramSocket|Throwable asyncResult) {
   print("Send succeeded? ``is DatagramSocket asyncResult``");
 });
 // Send a String
-socket.send("A string used as content", 1234, "10.0.0.1", (DatagramSocket|Throwable asyncResult) => {
+socket.send("A string used as content", 1234, "10.0.0.1", (DatagramSocket|Throwable asyncResult) {
   print("Send succeeded? ``is DatagramSocket asyncResult``");
 });
 
@@ -82,9 +86,9 @@ So to listen on a specific address and port you would do something like shown he
 [source,ceylon]
 ----
 value socket = vertx.createDatagramSocket(DatagramSocketOptions());
-socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) => {
+socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) {
   if (is DatagramSocket asyncResult) {
-    socket.handler((DatagramPacket packet) => {
+    socket.handler((DatagramPacket packet) {
       // Do something with the packet
     });
   } else {
@@ -116,10 +120,14 @@ This is show here:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 value socket = vertx.createDatagramSocket(DatagramSocketOptions());
-value buffer = buffer.buffer("content");
+value buffer = buffer_.buffer("content");
 // Send a Buffer to a multicast address
-socket.send(buffer, 1234, "230.0.0.1", (DatagramSocket|Throwable asyncResult) => {
+socket.send(buffer, 1234, "230.0.0.1", (DatagramSocket|Throwable asyncResult) {
   print("Send succeeded? ``is DatagramSocket asyncResult``");
 });
 
@@ -148,14 +156,14 @@ would do something like shown here:
 [source,ceylon]
 ----
 value socket = vertx.createDatagramSocket(DatagramSocketOptions());
-socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) => {
+socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) {
   if (is DatagramSocket asyncResult) {
-    socket.handler((DatagramPacket packet) => {
+    socket.handler((DatagramPacket packet) {
       // Do something with the packet
     });
 
     // join the multicast group
-    socket.listenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult2) => {
+    socket.listenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult2) {
       print("Listen succeeded? ``is DatagramSocket asyncResult2``");
     });
   } else {
@@ -176,20 +184,20 @@ This is shown here:
 [source,ceylon]
 ----
 value socket = vertx.createDatagramSocket(DatagramSocketOptions());
-socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) => {
+socket.listen(1234, "0.0.0.0", (DatagramSocket|Throwable asyncResult) {
   if (is DatagramSocket asyncResult) {
-    socket.handler((DatagramPacket packet) => {
+    socket.handler((DatagramPacket packet) {
       // Do something with the packet
     });
 
     // join the multicast group
-    socket.listenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult2) => {
+    socket.listenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult2) {
       if (is DatagramSocket asyncResult2) {
         // will now receive packets for group
 
         // do some work
 
-        socket.unlistenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult3) => {
+        socket.unlistenMulticastGroup("230.0.0.1", (DatagramSocket|Throwable asyncResult3) {
           print("Unlisten succeeded? ``is DatagramSocket asyncResult3``");
         });
       } else {
@@ -222,7 +230,7 @@ value socket = vertx.createDatagramSocket(DatagramSocketOptions());
 // Some code
 
 // This would block packets which are send from 10.0.0.2
-socket.blockMulticastGroup("230.0.0.1", "10.0.0.2", (DatagramSocket|Throwable asyncResult) => {
+socket.blockMulticastGroup("230.0.0.1", "10.0.0.2", (DatagramSocket|Throwable asyncResult) {
   print("block succeeded? ``is DatagramSocket asyncResult``");
 });
 

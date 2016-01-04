@@ -32,8 +32,8 @@ value server = vertx.createNetServer(NetServerOptions {
   port = 1234;
   host = "localhost";
 });
-server.connectHandler((NetSocket sock) => {
-  sock.handler((Buffer buffer) => {
+server.connectHandler((NetSocket sock) {
+  sock.handler((Buffer buffer) {
     // Write the data straight back
     sock.write(buffer);
   });
@@ -55,8 +55,8 @@ value server = vertx.createNetServer(NetServerOptions {
   port = 1234;
   host = "localhost";
 });
-server.connectHandler((NetSocket sock) => {
-  sock.handler((Buffer buffer) => {
+server.connectHandler((NetSocket sock) {
+  sock.handler((Buffer buffer) {
     if (!sock.writeQueueFull()) {
       sock.write(buffer);
     };
@@ -75,8 +75,8 @@ value server = vertx.createNetServer(NetServerOptions {
   port = 1234;
   host = "localhost";
 });
-server.connectHandler((NetSocket sock) => {
-  sock.handler((Buffer buffer) => {
+server.connectHandler((NetSocket sock) {
+  sock.handler((Buffer buffer) {
     sock.write(buffer);
     if (sock.writeQueueFull()) {
       sock.pause();
@@ -95,12 +95,12 @@ value server = vertx.createNetServer(NetServerOptions {
   port = 1234;
   host = "localhost";
 });
-server.connectHandler((NetSocket sock) => {
-  sock.handler((Buffer buffer) => {
+server.connectHandler((NetSocket sock) {
+  sock.handler((Buffer buffer) {
     sock.write(buffer);
     if (sock.writeQueueFull()) {
       sock.pause();
-      sock.drainHandler((Void done) => {
+      sock.drainHandler((Void done) {
         sock.resume();
       });
     };
@@ -119,11 +119,15 @@ You just feed it the `ReadStream` plus the `WriteStream` then start it:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.streams { pump } 
+
+...
+
 value server = vertx.createNetServer(NetServerOptions {
   port = 1234;
   host = "localhost";
 });
-server.connectHandler((NetSocket sock) => {
+server.connectHandler((NetSocket sock) {
   pump.pump(sock, sock).start();
 }).listen();
 

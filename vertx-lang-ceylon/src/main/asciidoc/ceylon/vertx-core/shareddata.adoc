@@ -22,6 +22,10 @@ Here's an example of using a shared local map:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 
 value sd = vertx.sharedData();
 
@@ -63,7 +67,7 @@ Getting the map is asynchronous and the result is returned to you in the handler
 
 value sd = vertx.sharedData();
 
-sd.getClusterWideMap("mymap", (AsyncMap<String,String>|Throwable res) => {
+sd.getClusterWideMap("mymap", (AsyncMap<String,String>|Throwable res) {
   if (is AsyncMap<String,String> res) {
     value map = res;
   } else {
@@ -83,7 +87,7 @@ The actual put is asynchronous and the handler is notified once it is complete:
 [source,ceylon]
 ----
 
-map.put("foo", "bar", (Throwable? resPut) => {
+map.put("foo", "bar", (Throwable? resPut) {
   if (!exists resPut) {
     // Successfully put the value
   } else {
@@ -103,7 +107,7 @@ The actual get is asynchronous and the handler is notified with the result some 
 [source,ceylon]
 ----
 
-map.get("foo", (String|Throwable resGet) => {
+map.get("foo", (String|Throwable resGet) {
   if (is String resGet) {
     // Successfully got the value
     value val = resGet;
@@ -141,14 +145,14 @@ another caller can obtain it.
 
 [source,ceylon]
 ----
-sd.getLock("mylock", (Lock|Throwable res) => {
+sd.getLock("mylock", (Lock|Throwable res) {
   if (is Lock res) {
     // Got the lock!
     value lock = res;
 
     // 5 seconds later we release the lock so someone else can get it
 
-    vertx.setTimer(5000, (Long tid) => {
+    vertx.setTimer(5000, (Long tid) {
       lock.release()
     });
 
@@ -164,7 +168,7 @@ with a failure:
 
 [source,ceylon]
 ----
-sd.getLockWithTimeout("mylock", 10000, (Lock|Throwable res) => {
+sd.getLockWithTimeout("mylock", 10000, (Lock|Throwable res) {
   if (is Lock res) {
     // Got the lock!
     value lock = res;
@@ -186,7 +190,7 @@ You obtain an instance with `link:../../ceylondoc/vertx-core//shareddata/SharedD
 
 [source,ceylon]
 ----
-sd.getCounter("mycounter", (Counter|Throwable res) => {
+sd.getCounter("mycounter", (Counter|Throwable res) {
   if (is Counter res) {
     value counter = res;
   } else {

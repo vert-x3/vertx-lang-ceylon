@@ -18,6 +18,10 @@ Create a new empty buffer:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer();
 
 ----
@@ -26,6 +30,10 @@ Create a buffer from a String. The String will be encoded in the buffer using UT
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer("some string");
 
 ----
@@ -34,6 +42,10 @@ Create a buffer from a String: The String will be encoded using the specified en
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer("some string", "UTF-16");
 
 ----
@@ -48,6 +60,10 @@ Note that buffers created this way *are empty*. It does not create a buffer fill
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer(10000);
 
 ----
@@ -67,6 +83,10 @@ The return value of the `appendXXX` methods is the buffer itself, so these can b
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer();
 
 buff.appendInt(123).appendString("hello\n");
@@ -85,6 +105,10 @@ The buffer will always expand as necessary to accommodate the data.
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer();
 
 buff.setInt(1000, 123);
@@ -99,6 +123,10 @@ The first argument to these methods is an index in the buffer from where to get 
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer();
 variable value i = 0;
 while (i < buff.length()) {
@@ -117,6 +145,10 @@ In the following example, value 200 is set at specified position with just one b
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 value buff = buffer.buffer(128);
 value pos = 15;
 buff.setUnsignedByte(pos, 200);

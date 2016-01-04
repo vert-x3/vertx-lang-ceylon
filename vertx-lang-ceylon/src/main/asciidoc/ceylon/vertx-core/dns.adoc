@@ -27,7 +27,7 @@ To lookup the A / AAAA record for "vertx.io" you would typically use it like:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.lookup("vertx.io", (String|Throwable ar) => {
+client.lookup("vertx.io", (String|Throwable ar) {
   if (is String ar) {
     print(ar);
   } else {
@@ -47,7 +47,7 @@ To lookup the A record for "vertx.io" you would typically use it like:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.lookup4("vertx.io", (String|Throwable ar) => {
+client.lookup4("vertx.io", (String|Throwable ar) {
   if (is String ar) {
     print(ar);
   } else {
@@ -67,7 +67,7 @@ To lookup the A record for "vertx.io" you would typically use it like:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.lookup6("vertx.io", (String|Throwable ar) => {
+client.lookup6("vertx.io", (String|Throwable ar) {
   if (is String ar) {
     print(ar);
   } else {
@@ -87,7 +87,7 @@ To lookup all the A records for "vertx.io" you would typically do:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveA("vertx.io", (List<String>|Throwable ar) => {
+client.resolveA("vertx.io", (List<String>|Throwable ar) {
   if (is List<String> ar) {
     value records = ar;
     for (record in records) {
@@ -110,7 +110,7 @@ To lookup all the AAAAA records for "vertx.io" you would typically do:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveAAAA("vertx.io", (List<String>|Throwable ar) => {
+client.resolveAAAA("vertx.io", (List<String>|Throwable ar) {
   if (is List<String> ar) {
     value records = ar;
     for (record in records) {
@@ -133,7 +133,7 @@ To lookup all the CNAME records for "vertx.io" you would typically do:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveCNAME("vertx.io", (List<String>|Throwable ar) => {
+client.resolveCNAME("vertx.io", (List<String>|Throwable ar) {
   if (is List<String> ar) {
     value records = ar;
     for (record in records) {
@@ -156,7 +156,7 @@ To lookup all the MX records for "vertx.io" you would typically do:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveMX("vertx.io", (List<MxRecord>|Throwable ar) => {
+client.resolveMX("vertx.io", (List<MxRecord>|Throwable ar) {
   if (is List<MxRecord> ar) {
     value records = ar;
     for (record in records) {
@@ -190,7 +190,7 @@ To resolve all the TXT records for "vertx.io" you could use something along thes
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveTXT("vertx.io", (List<String>|Throwable ar) => {
+client.resolveTXT("vertx.io", (List<String>|Throwable ar) {
   if (is List<String> ar) {
     value records = ar;
     for (record in records) {
@@ -213,7 +213,7 @@ To resolve all the NS records for "vertx.io" you could use something along these
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveNS("vertx.io", (List<String>|Throwable ar) => {
+client.resolveNS("vertx.io", (List<String>|Throwable ar) {
   if (is List<String> ar) {
     value records = ar;
     for (record in records) {
@@ -236,7 +236,7 @@ To lookup all the SRV records for "vertx.io" you would typically do:
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolveSRV("vertx.io", (List<SrvRecord>|Throwable ar) => {
+client.resolveSRV("vertx.io", (List<SrvRecord>|Throwable ar) {
   if (is List<SrvRecord> ar) {
     value records = ar;
     for (record in records) {
@@ -277,7 +277,7 @@ To resolve the PTR record for the ipaddress 10.0.0.1 you would use the PTR notio
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.resolvePTR("1.0.0.10.in-addr.arpa", (String|Throwable ar) => {
+client.resolvePTR("1.0.0.10.in-addr.arpa", (String|Throwable ar) {
   if (is String ar) {
     value record = ar;
     print(record);
@@ -298,7 +298,7 @@ To do a reverse lookup for the ipaddress 10.0.0.1 do something similar like this
 [source,ceylon]
 ----
 value client = vertx.createDnsClient(53, "10.0.0.1");
-client.reverseLookup("10.0.0.1", (String|Throwable ar) => {
+client.reverseLookup("10.0.0.1", (String|Throwable ar) {
   if (is String ar) {
     value record = ar;
     print(record);

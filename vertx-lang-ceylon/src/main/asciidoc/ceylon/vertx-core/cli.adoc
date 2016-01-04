@@ -29,7 +29,11 @@ describe options and arguments:
 
 [source,ceylon]
 ----
-value cli = cli.create("copy").setSummary("A command line interface to copy files.").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("copy").setSummary("A command line interface to copy files.").addOption(Option {
   longName = "directory";
   shortName = "R";
   description = "enables directory support";
@@ -64,7 +68,11 @@ configure the option to receive several values using `link:../../ceylondoc/vertx
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").setSummary("A command line interface illustrating the options valuation.").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").setSummary("A command line interface illustrating the options valuation.").addOption(Option {
   longName = "flag";
   shortName = "f";
   flag = true;
@@ -87,7 +95,11 @@ the parsing:
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").addOption(Option {
   longName = "mandatory";
   required = true;
   description = "a mandatory option";
@@ -100,7 +112,11 @@ the command line:
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").addOption(Option {
   longName = "optional";
   defaultValue = "hello";
   description = "an optional option with a default value";
@@ -115,7 +131,11 @@ If the option value is contrained to a fixed set, you can set the different acce
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").addOption(Option {
   longName = "color";
   defaultValue = "green";
   choices = {"blue" , "red" , "green" };
@@ -136,7 +156,11 @@ index `0`:
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").addArgument(Argument {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").addArgument(Argument {
   index = 0;
   description = "the first argument";
   argName = "arg1";
@@ -152,7 +176,11 @@ If you don't set the argument indexes, it computes it automatically by using the
 
 [source,ceylon]
 ----
-value cli = cli.create("some-name").addArgument(Argument {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("some-name").addArgument(Argument {
   description = "the first argument";
   argName = "arg1";
 }).addArgument(Argument {
@@ -180,7 +208,11 @@ Once your `link:../../ceylondoc/vertx-core//cli/CLI.type.html[CLI]` instance is 
 
 [source,ceylon]
 ----
-value cli = cli.create("copy").setSummary("A command line interface to copy files.").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("copy").setSummary("A command line interface to copy files.").addOption(Option {
   longName = "directory";
   shortName = "R";
   description = "enables directory support";
@@ -253,7 +285,11 @@ won't failed, but give you the opportunity to check if the user asks for help:
 
 [source,ceylon]
 ----
-value cli = cli.create("test").addOption(Option {
+import io.vertx.ceylon.core.cli { cli_ = cli } 
+
+...
+
+value cli = cli_.create("test").addOption(Option {
   longName = "help";
   shortName = "h";
   flag = true;

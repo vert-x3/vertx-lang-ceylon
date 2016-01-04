@@ -66,7 +66,7 @@ For example:
 ----
 
 value server = vertx.createHttpServer();
-server.listen(8080, "myhost.com", (HttpServer|Throwable res) => {
+server.listen(8080, "myhost.com", (HttpServer|Throwable res) {
   if (is HttpServer res) {
     print("Server is now listening!");
   } else {
@@ -84,7 +84,7 @@ To be notified when a request arrives you need to set a `link:../../ceylondoc/ve
 ----
 
 value server = vertx.createHttpServer();
-server.requestHandler((HttpServerRequest request) => {
+server.requestHandler((HttpServerRequest request) {
   // Handle the request in here
 });
 
@@ -112,7 +112,7 @@ Here's a simple example of a server handling a request and replying with "hello 
 [source,ceylon]
 ----
 
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
   request.response().end("Hello world");
 }).listen(8080);
 
@@ -232,7 +232,7 @@ this will get called every time a chunk of the request body arrives. Here's an e
 [source,ceylon]
 ----
 
-request.handler((Buffer buffer) => {
+request.handler((Buffer buffer) {
   print("I have received a chunk of the body of length ``buffer.length()``");
 });
 
@@ -246,16 +246,20 @@ the aggregation yourself as follows:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 
 // Create an empty buffer
 value totalBuffer = buffer.buffer();
 
-request.handler((Buffer buffer) => {
+request.handler((Buffer buffer) {
   print("I have received a chunk of the body of length ``buffer.length()``");
   totalBuffer.appendBuffer(buffer);
 });
 
-request.endHandler((Void v) => {
+request.endHandler((Void v) {
   print("Full body received, length = ``totalBuffer.length()``");
 });
 
@@ -267,7 +271,7 @@ for you. The body handler is called once when all the body has been received:
 [source,ceylon]
 ----
 
-request.bodyHandler((Buffer totalBuffer) => {
+request.bodyHandler((Buffer totalBuffer) {
   print("Full body received, length = ``totalBuffer.length()``");
 });
 
@@ -299,9 +303,9 @@ once the entire body has been read:
 [source,ceylon]
 ----
 
-server.requestHandler((HttpServerRequest request) => {
+server.requestHandler((HttpServerRequest request) {
   request.setExpectMultipart(true);
-  request.endHandler((Void v) => {
+  request.endHandler((Void v) {
     // The body has now been fully read, so retrieve the form attributes
     value formAttributes = request.formAttributes();
   });
@@ -324,9 +328,9 @@ The object passed into the handler is a `link:../../ceylondoc/vertx-core//http/H
 [source,ceylon]
 ----
 
-server.requestHandler((HttpServerRequest request) => {
+server.requestHandler((HttpServerRequest request) {
   request.setExpectMultipart(true);
-  request.uploadHandler((HttpServerFileUpload upload) => {
+  request.uploadHandler((HttpServerFileUpload upload) {
     print("Got a file upload ``upload.name()``");
   });
 });
@@ -339,8 +343,8 @@ exhaustion, instead, the upload data is received in chunks:
 [source,ceylon]
 ----
 
-request.uploadHandler((HttpServerFileUpload upload) => {
-  upload.handler((Buffer chunk) => {
+request.uploadHandler((HttpServerFileUpload upload) {
+  upload.handler((Buffer chunk) {
     print("Received a chunk of the upload of length ``chunk.length()``");
   });
 });
@@ -356,7 +360,7 @@ If you just want to upload the file to disk somewhere you can use `link:../../ce
 [source,ceylon]
 ----
 
-request.uploadHandler((HttpServerFileUpload upload) => {
+request.uploadHandler((HttpServerFileUpload upload) {
   upload.streamToFileSystem("myuploads_directory/``upload.filename()``");
 });
 
@@ -546,7 +550,7 @@ Here's a very simple web server that serves files from the file system using sen
 
 [source,ceylon]
 ----
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
   value file = "";
   if (request.path() == "/") {
     file = "index.html";
@@ -572,7 +576,7 @@ When there is a need to serve just a segment of a file, say starting from a give
 
 [source,ceylon]
 ----
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
   value offset = 0;
   try {
     offset = Long.parseLong(request.getParam("start"));
@@ -597,7 +601,7 @@ case you can just do:
 
 [source,ceylon]
 ----
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
   value offset = 0;
   try {
     offset = Long.parseLong(request.getParam("start"));
@@ -622,19 +626,7 @@ at any one time:
 
 [source,ceylon]
 ----
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
-  value response = request.response();
-  if (request.method() == put) {
-    response.setChunked(true);
-    pump.pump(request, response).start();
-    request.endHandler((Void v) => {
-      response.end()
-    });
-  } else {
-    response.setStatusCode(400).end();
-  };
-}).listen(8080);
-
+Code not translatable
 ----
 
 === HTTP Compression
@@ -696,7 +688,7 @@ value options = HttpClientOptions {
 };
 // Can also set default port if you want...
 value client = vertx.createHttpClient(options);
-client.getNow("/some-uri", (HttpClientResponse response) => {
+client.getNow("/some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
@@ -710,12 +702,12 @@ simply specify the host/port when doing the request.
 value client = vertx.createHttpClient();
 
 // Specify both port and host name
-client.getNow(8080, "myserver.mycompany.com", "/some-uri", (HttpClientResponse response) => {
+client.getNow(8080, "myserver.mycompany.com", "/some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
 // This time use the default port 80 but specify the host name
-client.getNow("foo.othercompany.com", "/other-uri", (HttpClientResponse response) => {
+client.getNow("foo.othercompany.com", "/other-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
@@ -739,12 +731,12 @@ called with the http response when it comes back.
 value client = vertx.createHttpClient();
 
 // Send a GET request
-client.getNow("/some-uri", (HttpClientResponse response) => {
+client.getNow("/some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
 // Send a GET request
-client.headNow("/other-uri", (HttpClientResponse response) => {
+client.headNow("/other-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
@@ -759,16 +751,7 @@ the HTTP method at run-time:
 
 [source,ceylon]
 ----
-value client = vertx.createHttpClient();
-
-client.request(get, "some-uri", (HttpClientResponse response) => {
-  print("Received response with status code ``response.statusCode()``");
-}).end();
-
-client.request(post, "foo-uri", (HttpClientResponse response) => {
-  print("Received response with status code ``response.statusCode()``");
-}).end("some-data");
-
+Code not translatable
 ----
 
 ==== Writing request bodies
@@ -788,7 +771,7 @@ m
 ----
 value client = vertx.createHttpClient();
 
-value request = client.post("some-uri", (HttpClientResponse response) => {
+value request = client.post("some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
@@ -802,13 +785,13 @@ request.end();
 
 // Or fluently:
 
-client.post("some-uri", (HttpClientResponse response) => {
+client.post("some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 }).putHeader("content-length", "1000").putHeader("content-type", "text/plain").write(body).end();
 
 // Or event more simply:
 
-client.post("some-uri", (HttpClientResponse response) => {
+client.post("some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 }).putHeader("content-type", "text/plain").end(body);
 
@@ -819,6 +802,10 @@ Methods exist to write strings in UTF-8 encoding and in any specific encoding an
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 
 // Write string encoded in UTF-8
 request.write("some data");
@@ -827,7 +814,7 @@ request.write("some data");
 request.write("some other data", "UTF-16");
 
 // Write a buffer
-value buffer = buffer.buffer();
+value buffer = buffer_.buffer();
 buffer.appendInt(123).appendLong(245);
 request.write(buffer);
 
@@ -839,12 +826,16 @@ single call to the `end` function.
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 
 // Write string and end the request (send it) in a single call
 request.end("some simple data");
 
 // Write buffer and end the request (send it) in a single call
-value buffer = buffer.buffer().appendDouble(12.34).appendLong(432);
+value buffer = buffer_.buffer().appendDouble(12.34).appendLong(432);
 request.end(buffer);
 
 
@@ -919,11 +910,15 @@ before calling `end` with no arguments
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 // End the request with a string
 request.end("some-data");
 
 // End it with a buffer
-value buffer = buffer.buffer().appendFloat(12.3).appendInt(321);
+value buffer = buffer_.buffer().appendFloat(12.3).appendInt(321);
 request.end(buffer);
 
 ----
@@ -970,10 +965,10 @@ You can handle exceptions corresponding to a request by setting an exception han
 [source,ceylon]
 ----
 
-value request = client.post("some-uri", (HttpClientResponse response) => {
+value request = client.post("some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
-request.exceptionHandler((Throwable e) => {
+request.exceptionHandler((Throwable e) {
   print("Received exception: ``e.getMessage()``");
   e.printStackTrace();
 });
@@ -985,7 +980,7 @@ This does not handle non _2xx_ response that need to be handled in the
 
 [source, ceylon]
 ----
-value request = client.post("some-uri", (HttpClientResponse response) => {
+value request = client.post("some-uri", (HttpClientResponse response) {
   if (response.statusCode() == 200) {
     print("Everything fine");
     return;
@@ -1011,7 +1006,7 @@ not provide a handler when the request is created and set it later on the reques
 ----
 
 value request = client.post("some-uri");
-request.handler((HttpClientResponse response) => {
+request.handler((HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
@@ -1026,10 +1021,14 @@ For, example, you could pump a file on disk to a http request body as follows:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.streams { pump_ = pump } 
+
+...
+
 
 request.setChunked(true);
-value pump = pump.pump(file, request);
-file.endHandler((Void v) => {
+value pump = pump_.pump(file, request);
+file.endHandler((Void v) {
   request.end()
 });
 pump.start();
@@ -1048,7 +1047,7 @@ and `link:../../ceylondoc/vertx-core//http/HttpClientResponse.type.html#statusMe
 [source,ceylon]
 ----
 
-client.getNow("some-uri", (HttpClientResponse response) => {
+client.getNow("some-uri", (HttpClientResponse response) {
   // the status code - e.g. 200 or 404
   print("Status code is ``response.statusCode()``");
 
@@ -1097,9 +1096,9 @@ a `link:../../ceylondoc/vertx-core//buffer/Buffer.type.html[Buffer]` representin
 [source,ceylon]
 ----
 
-client.getNow("some-uri", (HttpClientResponse response) => {
+client.getNow("some-uri", (HttpClientResponse response) {
 
-  response.handler((Buffer buffer) => {
+  response.handler((Buffer buffer) {
     print("Received a part of the response body: ``buffer``");
   });
 });
@@ -1111,19 +1110,23 @@ either aggregate it yourself:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
 
-client.getNow("some-uri", (HttpClientResponse response) => {
+...
+
+
+client.getNow("some-uri", (HttpClientResponse response) {
 
   // Create an empty buffer
   value totalBuffer = buffer.buffer();
 
-  response.handler((Buffer buffer) => {
+  response.handler((Buffer buffer) {
     print("Received a part of the response body: ``buffer.length()``");
 
     totalBuffer.appendBuffer(buffer);
   });
 
-  response.endHandler((Void v) => {
+  response.endHandler((Void v) {
     // Now all the body has been read
     print("Total response body length is ``totalBuffer.length()``");
   });
@@ -1137,9 +1140,9 @@ is called with the entire body when the response has been fully read:
 [source,ceylon]
 ----
 
-client.getNow("some-uri", (HttpClientResponse response) => {
+client.getNow("some-uri", (HttpClientResponse response) {
 
-  response.bodyHandler((Buffer totalBuffer) => {
+  response.bodyHandler((Buffer totalBuffer) {
     // Now all the body has been read
     print("Total response body length is ``totalBuffer.length()``");
   });
@@ -1184,13 +1187,13 @@ Here's an example:
 [source,ceylon]
 ----
 
-value request = client.put("some-uri", (HttpClientResponse response) => {
+value request = client.put("some-uri", (HttpClientResponse response) {
   print("Received response with status code ``response.statusCode()``");
 });
 
 request.putHeader("Expect", "100-Continue");
 
-request.continueHandler((Void v) => {
+request.continueHandler((Void v) {
   // OK to send rest of body
   request.write("Some data");
   request.write("Some more data");
@@ -1284,7 +1287,7 @@ Let's take a verticle creating a HTTP server such as:
 .io.vertx.examples.http.sharing.HttpServerVerticle
 [source,ceylon]
 ----
-vertx.createHttpServer().requestHandler((HttpServerRequest request) => {
+vertx.createHttpServer().requestHandler((HttpServerRequest request) {
   request.response().end("Hello from server ``this``");
 }).listen(8080);
 
@@ -1300,9 +1303,9 @@ receiving a request it calls the server handlers following a round robin strateg
 Let's now imagine a client such as:
 [source,ceylon]
 ----
-vertx.setPeriodic(100, (Long l) => {
-  vertx.createHttpClient().getNow(8080, "localhost", "/", (HttpClientResponse resp) => {
-    resp.bodyHandler((Buffer body) => {
+vertx.setPeriodic(100, (Long l) {
+  vertx.createHttpClient().getNow(8080, "localhost", "/", (HttpClientResponse resp) {
+    resp.bodyHandler((Buffer body) {
       print(body.toString("ISO-8859-1"));
     });
   });
@@ -1353,7 +1356,7 @@ When a WebSocket connection is made to the server, the handler will be called, p
 [source,ceylon]
 ----
 
-server.websocketHandler((ServerWebSocket websocket) => {
+server.websocketHandler((ServerWebSocket websocket) {
   print("Connected!");
 });
 
@@ -1364,7 +1367,7 @@ You can choose to reject the WebSocket by calling `link:../../ceylondoc/vertx-co
 [source,ceylon]
 ----
 
-server.websocketHandler((ServerWebSocket websocket) => {
+server.websocketHandler((ServerWebSocket websocket) {
   if (websocket.path() == "/myapi") {
     websocket.reject();
   } else {
@@ -1382,7 +1385,7 @@ call `link:../../ceylondoc/vertx-core//http/HttpServerRequest.type.html#upgrade(
 [source,ceylon]
 ----
 
-server.requestHandler((HttpServerRequest request) => {
+server.requestHandler((HttpServerRequest request) {
   if (request.path() == "/myapi") {
 
     value websocket = request.upgrade();
@@ -1413,7 +1416,7 @@ The handler will be called with an instance of `link:../../ceylondoc/vertx-core/
 
 [source,ceylon]
 ----
-client.websocket("/some-uri", (WebSocket websocket) => {
+client.websocket("/some-uri", (WebSocket websocket) {
   print("Connected!");
 });
 
@@ -1426,8 +1429,12 @@ If you wish to write a single binary WebSocket message to the WebSocket you can 
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer_ = buffer } 
+
+...
+
 // Write a simple message
-value buffer = buffer.buffer().appendInt(123).appendFloat(1.23);
+value buffer = buffer_.buffer().appendInt(123).appendFloat(1.23);
 
 websocket.writeBinaryMessage(buffer);
 
@@ -1454,6 +1461,10 @@ Here's an example for binary frames:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.http { webSocketFrame } 
+
+...
+
 
 value frame1 = webSocketFrame.binaryFrame(buffer1, false);
 websocket.writeFrame(frame1);
@@ -1476,6 +1487,10 @@ Here's an example:
 
 [source,ceylon]
 ----
+import io.vertx.ceylon.core.buffer { buffer } 
+
+...
+
 
 // Send a websocket messages consisting of a single final text frame:
 
@@ -1501,7 +1516,7 @@ for example:
 [source,ceylon]
 ----
 
-websocket.frameHandler((WebSocketFrame frame) => {
+websocket.frameHandler((WebSocketFrame frame) {
   print("Received a frame of size!");
 });
 
