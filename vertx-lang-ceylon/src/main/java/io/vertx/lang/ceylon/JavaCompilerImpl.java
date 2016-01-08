@@ -9,9 +9,9 @@ import com.redhat.ceylon.compiler.java.runtime.tools.JavaCompilerOptions;
 import com.redhat.ceylon.compiler.java.runtime.tools.impl.NullWriter;
 import com.redhat.ceylon.compiler.java.tools.CeyloncTaskImpl;
 import com.redhat.ceylon.compiler.java.tools.CeyloncTool;
-import com.sun.tools.javac.file.JavacFileManager;
+import com.redhat.ceylon.javax.tools.JavaFileObject;
+import com.redhat.ceylon.langtools.tools.javac.file.JavacFileManager;
 
-import javax.tools.JavaFileObject;
 import java.io.File;
 import java.io.Writer;
 import java.util.ArrayList;
