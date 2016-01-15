@@ -68,7 +68,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "the key\n") K k, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|V?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "- this will be called some time later with the async result.\n") Callable<?> resultHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -84,7 +84,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "- this will be called some time later to signify the value has been put\n") Callable<?> completionHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -102,7 +102,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
     long arg_2 = ttl;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -118,7 +118,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|V?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> completionHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(completionHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -136,7 +136,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
     long arg_2 = ttl;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_3 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_3 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(completionHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -150,7 +150,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "the key\n") K k, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|V?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "- this will be called some time later to signify the value has been removed\n") Callable<?> resultHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -166,7 +166,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "- this will be called some time later to signify the value has been removed\n") Callable<?> resultHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }
@@ -182,7 +182,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|V?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the result handler will be passed the previous value\n") Callable<?> resultHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(v);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -200,7 +200,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(k);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(oldValue);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.ToJava.object(newValue);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }
@@ -212,7 +212,7 @@ public class AsyncMap<K,V> implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void clear(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "called on completion\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -224,7 +224,7 @@ public class AsyncMap<K,V> implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void size(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will receive the number of entries\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Integer>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Integer>(resultHandler) {
       public Object toCeylon(java.lang.Integer event) {
         return io.vertx.lang.ceylon.ToCeylon.Integer.safeConvert(event);
       }

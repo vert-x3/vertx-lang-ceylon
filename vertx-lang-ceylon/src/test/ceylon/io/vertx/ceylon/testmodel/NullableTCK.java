@@ -94,7 +94,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Byte?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Byte>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Byte>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Byte>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Byte>(handler) {
       public Object toCeylon(java.lang.Byte event) {
         return io.vertx.lang.ceylon.ToCeylon.Byte.safeConvert(event);
       }
@@ -145,7 +145,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Short>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Short>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Short>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Short>(handler) {
       public Object toCeylon(java.lang.Short event) {
         return io.vertx.lang.ceylon.ToCeylon.Short.safeConvert(event);
       }
@@ -196,7 +196,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Integer>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Integer>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Integer>(handler) {
       public Object toCeylon(java.lang.Integer event) {
         return io.vertx.lang.ceylon.ToCeylon.Integer.safeConvert(event);
       }
@@ -247,7 +247,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(handler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -298,7 +298,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Float?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Float>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Float>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Float>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Float>(handler) {
       public Object toCeylon(java.lang.Float event) {
         return io.vertx.lang.ceylon.ToCeylon.Float.safeConvert(event);
       }
@@ -349,7 +349,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Float?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Double>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Double>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Double>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Double>(handler) {
       public Object toCeylon(java.lang.Double event) {
         return io.vertx.lang.ceylon.ToCeylon.Double.safeConvert(event);
       }
@@ -400,7 +400,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(handler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }
@@ -451,7 +451,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -502,7 +502,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Character?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Character>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Character>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Character>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Character>(handler) {
       public Object toCeylon(java.lang.Character event) {
         return io.vertx.lang.ceylon.ToCeylon.Character.safeConvert(event);
       }
@@ -553,7 +553,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(handler) {
       public Object toCeylon(io.vertx.core.json.JsonObject event) {
         return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
       }
@@ -604,7 +604,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonArray>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonArray>(handler) {
       public Object toCeylon(io.vertx.core.json.JsonArray event) {
         return io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event);
       }
@@ -655,7 +655,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::RefedInterface1?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.RefedInterface1>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.RefedInterface1>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.RefedInterface1>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.RefedInterface1>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.RefedInterface1 event) {
         return io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(event);
       }
@@ -706,7 +706,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::TestDataObject?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestDataObject>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestDataObject>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.TestDataObject>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.TestDataObject event) {
         return io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon().safeConvert(event);
       }
@@ -757,7 +757,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestEnum>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestEnum>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestEnum>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.TestEnum>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.TestEnum event) {
         return io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration().safeConvert(event);
       }
@@ -808,7 +808,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::TestGenEnum?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestGenEnum>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.codegen.testmodel.TestGenEnum>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.TestGenEnum>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.TestGenEnum>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.TestGenEnum event) {
         return io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon().safeConvert(event);
       }
@@ -864,7 +864,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(handler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -929,7 +929,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Byte>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -980,7 +980,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -1031,7 +1031,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -1082,7 +1082,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -1133,7 +1133,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -1184,7 +1184,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -1235,7 +1235,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Boolean>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -1286,7 +1286,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -1337,7 +1337,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Character>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -1388,7 +1388,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Object>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -1439,7 +1439,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Array>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -1490,7 +1490,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.RefedInterface1> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
       }
@@ -1541,7 +1541,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
       }
@@ -1592,7 +1592,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
@@ -1643,7 +1643,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestGenEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
       }
@@ -1694,7 +1694,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Byte>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -1745,7 +1745,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -1796,7 +1796,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -1847,7 +1847,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -1898,7 +1898,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -1949,7 +1949,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -2000,7 +2000,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Boolean>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -2051,7 +2051,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.String>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -2102,7 +2102,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::Character>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -2153,7 +2153,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -2204,7 +2204,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -2255,7 +2255,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.testmodel::RefedInterface1>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
       }
@@ -2306,7 +2306,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
       }
@@ -2357,7 +2357,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.language::String>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
@@ -2408,7 +2408,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.testmodel::TestGenEnum>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestGenEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
       }
@@ -2459,7 +2459,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Byte>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Byte>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -2510,7 +2510,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Short>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Short>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -2561,7 +2561,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -2612,7 +2612,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Long>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Long>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -2663,7 +2663,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Float>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Float>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -2714,7 +2714,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Double>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Double>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -2765,7 +2765,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Boolean>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -2816,7 +2816,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::String>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.String>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -2867,7 +2867,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Character>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Character>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Character>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -2918,7 +2918,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Object>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -2969,7 +2969,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("notNull")  boolean notNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Array>?)") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = notNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -3023,7 +3023,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Byte?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -3058,7 +3058,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -3093,7 +3093,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -3128,7 +3128,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -3163,7 +3163,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Boolean?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -3198,7 +3198,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -3233,7 +3233,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -3268,7 +3268,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -3303,7 +3303,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Character?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.List<java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -3338,7 +3338,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Object?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -3373,7 +3373,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Array?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -3408,7 +3408,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.RefedInterface1> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
       }
@@ -3443,7 +3443,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
       }
@@ -3478,7 +3478,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
@@ -3513,7 +3513,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithListNullableGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestGenEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertListOfNullable(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
       }
@@ -3548,7 +3548,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Byte?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -3583,7 +3583,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Short>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -3618,7 +3618,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -3653,7 +3653,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Long>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -3688,7 +3688,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Boolean?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -3723,7 +3723,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Float>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -3758,7 +3758,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Double>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -3793,7 +3793,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.String>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -3828,7 +3828,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::Character?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<java.lang.Character>>(handler) {
       public Object toCeylon(java.util.Set<java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -3863,7 +3863,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Object?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -3898,7 +3898,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.json::Array?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -3933,7 +3933,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableApiHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::RefedInterface1?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.RefedInterface1> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.RefedInterface1.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter());
       }
@@ -3968,7 +3968,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableDataObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::TestDataObject?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
       }
@@ -4003,7 +4003,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<ceylon.language::String?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestEnum>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
       }
@@ -4038,7 +4038,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithSetNullableGenEnumHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Collection<io.vertx.ceylon.testmodel::TestGenEnum?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestGenEnum>>(handler) {
       public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestGenEnum> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertSetOfNullable(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon());
       }
@@ -4073,7 +4073,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableByteHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Byte?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Byte>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Byte>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Byte>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Byte> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Byte.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Byte);
       }
@@ -4108,7 +4108,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableShortHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Short>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Short>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Short>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Short> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Short);
       }
@@ -4143,7 +4143,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableIntegerHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Integer>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Integer>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Integer>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Integer> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Integer);
       }
@@ -4178,7 +4178,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableLongHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Integer?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Long>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Long>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Long>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Long> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Long);
       }
@@ -4213,7 +4213,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableBooleanHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Boolean?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Boolean>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Boolean>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Boolean>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Boolean> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Boolean.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Boolean);
       }
@@ -4248,7 +4248,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableFloatHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Float>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Float>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Float>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Float> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Float);
       }
@@ -4283,7 +4283,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableDoubleHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Float?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Double>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Double>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Double>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Double> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Float.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Double);
       }
@@ -4318,7 +4318,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableStringHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::String?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.String>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.String>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -4353,7 +4353,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableCharHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.language::Character?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,java.lang.Character>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,java.lang.Character>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,java.lang.Character>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,java.lang.Character> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.language.Character.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.Character);
       }
@@ -4388,7 +4388,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonObjectHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Object?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,io.vertx.core.json.JsonObject>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,io.vertx.core.json.JsonObject> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonObject);
       }
@@ -4423,7 +4423,7 @@ public class NullableTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void methodWithMapNullableJsonArrayHandlerAsyncResult(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Map<ceylon.language::String,ceylon.json::Array?>)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Map<java.lang.String,io.vertx.core.json.JsonArray>>(handler) {
       public Object toCeylon(java.util.Map<java.lang.String,io.vertx.core.json.JsonArray> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertMapOfNullable(ceylon.language.String.$TypeDescriptor$, ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.JsonArray);
       }
@@ -4462,7 +4462,7 @@ public class NullableTCK implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("expectNull")  boolean expectNull, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)?") @Name("handler")  Callable<?> handler) {
     boolean arg_0 = expectNull;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }

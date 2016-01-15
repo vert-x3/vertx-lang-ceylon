@@ -65,7 +65,7 @@ public class User implements ReifiedType {
       return cached_isAuthorised;
     }
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(authority);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }

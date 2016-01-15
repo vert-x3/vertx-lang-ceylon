@@ -67,7 +67,7 @@ public class vertx_ implements ReifiedType {
     final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "the options to use\n") io.vertx.ceylon.core.VertxOptions options, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the result handler that will receive the result\n") Callable<?> resultHandler) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.Vertx>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.Vertx>(resultHandler) {
       public Object toCeylon(io.vertx.core.Vertx event) {
         return io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(event);
       }

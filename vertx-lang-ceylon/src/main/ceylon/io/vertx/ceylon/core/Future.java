@@ -70,7 +70,7 @@ public class Future<T> implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.core::Future<T>")
   public Future<T> setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "the Handler that will be called with the result\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(handler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }

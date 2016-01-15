@@ -63,7 +63,7 @@ public class TemplateEngine implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called with a result containing the buffer or a failure.\n") Callable<?> handler) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(context);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(templateFileName);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.buffer.Buffer>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.buffer.Buffer>(handler) {
       public Object toCeylon(io.vertx.core.buffer.Buffer event) {
         return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event);
       }

@@ -90,7 +90,7 @@
         var resultType = eventType.args[0];
         var resultKind = resultType.kind;
         var adapterType = resultType.erased;
-        return expr + ' == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<' + adapterType.name + '>(' + expr + ') {\n' +
+        return expr + ' == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<' + adapterType.name + '>(' + expr + ') {\n' +
         '      public Object toCeylon(' + adapterType.name + ' event) {\n' +
         '        return ' + genConvReturn(resultType, 'event') + ';\n' +
         '      }\n' +

@@ -63,7 +63,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -93,7 +93,7 @@ public class FileSystem implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
     boolean arg_2 = recursive;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -123,7 +123,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -151,7 +151,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     long arg_1 = len;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -179,7 +179,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -209,7 +209,7 @@ public class FileSystem implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(dirPerms);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -241,7 +241,7 @@ public class FileSystem implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(user);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(group);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -269,7 +269,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::FileProps)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileProps>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.file.FileProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileProps event) {
         return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(event);
       }
@@ -293,7 +293,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "the path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::FileProps)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileProps>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.file.FileProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileProps event) {
         return io.vertx.ceylon.core.file.FileProps.TO_CEYLON.converter().safeConvert(event);
       }
@@ -319,7 +319,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(existing);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -347,7 +347,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(existing);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -373,7 +373,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "the link\n") ceylon.language.String link, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -397,7 +397,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("link") @DocAnnotation$annotation$(description = "the link\n") ceylon.language.String link, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(link);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -421,7 +421,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -447,7 +447,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     boolean arg_1 = recursive;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -473,7 +473,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -499,7 +499,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -525,7 +525,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -551,7 +551,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -577,7 +577,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -603,7 +603,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filter);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -629,7 +629,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.buffer.Buffer>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.buffer.Buffer>(handler) {
       public Object toCeylon(io.vertx.core.buffer.Buffer event) {
         return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event);
       }
@@ -655,7 +655,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.buffer.Buffer arg_1 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -683,7 +683,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::AsyncFile)") @Name("handler")  Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.file.OpenOptions arg_1 = options == null ? null : new io.vertx.core.file.OpenOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.AsyncFile>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.AsyncFile>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.AsyncFile>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.file.AsyncFile>(handler) {
       public Object toCeylon(io.vertx.core.file.AsyncFile event) {
         return io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(event);
       }
@@ -709,7 +709,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -735,7 +735,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(perms);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -761,7 +761,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to the file\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(handler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }
@@ -785,7 +785,7 @@ public class FileSystem implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "path to anywhere on the filesystem\n") ceylon.language.String path, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.file::FileSystemProps)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileSystemProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.file.FileSystemProps>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.file.FileSystemProps>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.file.FileSystemProps>(handler) {
       public Object toCeylon(io.vertx.core.file.FileSystemProps event) {
         return io.vertx.ceylon.core.file.FileSystemProps.TO_CEYLON.converter().safeConvert(event);
       }

@@ -60,7 +60,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler") @DocAnnotation$annotation$(description = "the _handler_ to notify with the _async result_. The handler will get notified with the resolved address if a record was found. If non was found it will get notifed with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -75,7 +75,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the _async result_. The handler will get notified with the resolved `java.net.Inet4Address` if a record was found. If non was found it will get notifed with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -90,7 +90,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with the resolved `java.net.Inet6Address` if a record was found. If non was found it will get notifed with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -105,7 +105,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the _handler_ to notify with the _async result_. The handler will get notified with a `List` that contains all the resolved `java.net.Inet4Address`es. If none was found an empty `List` will be used. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -120,7 +120,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the _handler_ to notify with the _async result_. The handler will get notified with a `List` that contains all the resolved `java.net.Inet6Address`es. If none was found an empty `List` will be used. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -135,7 +135,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve the CNAME for\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with the resolved `String` if a record was found. If none was found it will get notified with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -150,7 +150,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name for which the MX records should be resolved\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.core.dns::MxRecord>)") @Name("handler") @DocAnnotation$annotation$(description = "the _handler_ to notify with the _async result_. The handler will get notified with a List that contains all resolved [MxRecord](../dns/MxRecord.type.html)s, sorted by their [priority](../dns/MxRecord.type.html#priority). If non was found it will get notified with an empty `List`. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.MxRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.dns.MxRecord>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.MxRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.dns.MxRecord>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.dns.MxRecord> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.dns.MxRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.MxRecord.TO_CEYLON.converter());
       }
@@ -165,7 +165,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name for which the TXT records should be resolved\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with a List that contains all resolved `String`s. If none was found it will get notified with an empty `List`. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -180,7 +180,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name to resolve the PTR for\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with the resolved `String` if a record was found. If none was found it will get notified with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -195,7 +195,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name for which the NS records should be resolved\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::String>)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with a List that contains all resolved `String`s. If none was found it will get notified with an empty `List`. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<java.lang.String>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.String>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.String>>(handler) {
       public Object toCeylon(java.util.List<java.lang.String> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.String);
       }
@@ -210,7 +210,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name for which the SRV records should be resolved\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.core.dns::SrvRecord>)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with a List that contains all resolved [SrvRecord](../dns/SrvRecord.type.html)s. If none was found it will get notified with an empty `List`. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.SrvRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.util.List<io.vertx.core.dns.SrvRecord>>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.dns.SrvRecord>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.dns.SrvRecord>>(handler) {
       public Object toCeylon(java.util.List<io.vertx.core.dns.SrvRecord> event) {
         return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.core.dns.SrvRecord.$TypeDescriptor$, event, io.vertx.ceylon.core.dns.SrvRecord.TO_CEYLON.converter());
       }
@@ -225,7 +225,7 @@ public class DnsClient implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("ipaddress") @DocAnnotation$annotation$(description = "the IP address to resolve the PTR for\n") ceylon.language.String ipaddress, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String?)") @Name("handler") @DocAnnotation$annotation$(description = "the  to notify with the . The handler will get notified with the resolved `String` if a record was found. If none was found it will get notified with <code>null</code>. If an error accours it will get failed.\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(ipaddress);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(handler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }

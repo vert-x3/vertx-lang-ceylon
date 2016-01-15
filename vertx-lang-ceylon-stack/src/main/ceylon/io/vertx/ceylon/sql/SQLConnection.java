@@ -60,7 +60,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::Boolean") @Name("autoCommit") @DocAnnotation$annotation$(description = "the autoCommit flag, true by default.\n") boolean autoCommit, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once this operation completes.\n") Callable<?> resultHandler) {
     boolean arg_0 = autoCommit;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -75,7 +75,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "the SQL to execute. For example <code>CREATE TABLE IF EXISTS table ...</code>\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once this operation completes.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -90,7 +90,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
@@ -107,7 +107,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
@@ -122,7 +122,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "the SQL to execute. For example <code>INSERT INTO table ...</code>\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.UpdateResult>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.UpdateResult>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
         return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
       }
@@ -139,7 +139,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.UpdateResult>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.UpdateResult>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
         return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
       }
@@ -154,7 +154,7 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "the SQL to execute. For example <code>{call getEmpName (?, ?)}</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
@@ -173,7 +173,7 @@ public class SQLConnection implements ReifiedType {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
     io.vertx.core.json.JsonArray arg_2 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(outputs);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.ResultSet>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.ResultSet>(resultHandler) {
       public Object toCeylon(io.vertx.ext.sql.ResultSet event) {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
@@ -186,7 +186,7 @@ public class SQLConnection implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler called when this operation completes.\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -204,7 +204,7 @@ public class SQLConnection implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection commit(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler called when this operation completes.\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -217,7 +217,7 @@ public class SQLConnection implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection rollback(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler called when this operation completes.\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }

@@ -6,11 +6,11 @@ import ceylon.language.Callable;
 import ceylon.language.Throwable;
 import ceylon.language.Exception;
 
-public abstract class AsyncResultAdapter<T> implements Handler<AsyncResult<T>> {
+public abstract class CallableAsyncResultHandler<T> implements Handler<AsyncResult<T>> {
 
   private final Callable<?> callback;
 
-  public AsyncResultAdapter(Callable<?> callback) {
+  public CallableAsyncResultHandler(Callable<?> callback) {
     this.callback = callback;
   }
 

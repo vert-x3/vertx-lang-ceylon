@@ -57,7 +57,7 @@ public class CompositeFuture extends io.vertx.ceylon.core.Future<io.vertx.ceylon
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public CompositeFuture setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::CompositeFuture)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.CompositeFuture>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.CompositeFuture>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.CompositeFuture>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.CompositeFuture>(handler) {
       public Object toCeylon(io.vertx.core.CompositeFuture event) {
         return io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(event);
       }

@@ -83,7 +83,7 @@ public class OAuth2Auth extends io.vertx.ceylon.auth.common.AuthProvider impleme
     final @TypeInfo("ceylon.json::Object") @Name("params") @DocAnnotation$annotation$(description = "- JSON with the options, each flow requires different options.\n") ceylon.json.Object params, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler") @DocAnnotation$annotation$(description = "- The handler returning the results.\n") Callable<?> handler) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
       public Object toCeylon(io.vertx.ext.auth.oauth2.AccessToken event) {
         return io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(event);
       }
@@ -101,7 +101,7 @@ public class OAuth2Auth extends io.vertx.ceylon.auth.common.AuthProvider impleme
     io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.json.JsonObject>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(handler) {
       public Object toCeylon(io.vertx.core.json.JsonObject event) {
         return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
       }

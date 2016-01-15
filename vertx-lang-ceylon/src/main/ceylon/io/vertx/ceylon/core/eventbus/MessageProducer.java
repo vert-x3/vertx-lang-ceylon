@@ -92,7 +92,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     final @TypeInfo("T?") @Name("message")  T message, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler")  Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
         return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
       }

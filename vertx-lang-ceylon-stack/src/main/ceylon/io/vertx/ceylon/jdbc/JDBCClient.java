@@ -60,7 +60,7 @@ public class JDBCClient implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
   public JDBCClient getConnection(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLConnection)") @Name("handler") @DocAnnotation$annotation$(description = "the handler which is called when the <code>JdbcConnection</code> object is ready for use.\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLConnection>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.sql.SQLConnection>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLConnection>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.SQLConnection>(handler) {
       public Object toCeylon(io.vertx.ext.sql.SQLConnection event) {
         return io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(event);
       }

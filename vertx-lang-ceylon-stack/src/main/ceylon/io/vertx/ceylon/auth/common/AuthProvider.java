@@ -60,7 +60,7 @@ public class AuthProvider implements ReifiedType {
     final @TypeInfo("ceylon.json::Object") @Name("authInfo") @DocAnnotation$annotation$(description = "The auth information\n") ceylon.json.Object authInfo, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.common::User)") @Name("resultHandler") @DocAnnotation$annotation$(description = "The result handler\n") Callable<?> resultHandler) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(authInfo);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.User>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.ext.auth.User>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.User>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.User>(resultHandler) {
       public Object toCeylon(io.vertx.ext.auth.User event) {
         return io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(event);
       }

@@ -83,7 +83,7 @@ public class EventBus implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
         return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event);
       }
@@ -118,7 +118,7 @@ public class EventBus implements ReifiedType,  Measured {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = replyHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
         return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event);
       }

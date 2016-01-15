@@ -149,7 +149,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
   @TypeInfo("ceylon.language::Anything")
   public void completionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "the completion handler\n") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -167,7 +167,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
   @TypeInfo("ceylon.language::Anything")
   public void unregister(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "the handler called when the unregister is done. For example in a cluster when all nodes of the event bus have been unregistered.\n") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }

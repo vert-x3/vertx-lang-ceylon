@@ -63,7 +63,7 @@ public class SharedData implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the map will be returned asynchronously in this handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) {
         return io.vertx.ceylon.core.shareddata.AsyncMap.TO_CEYLON.converter($reified$K, $reified$V).safeConvert(event);
       }
@@ -77,7 +77,7 @@ public class SharedData implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the lock\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.Lock>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.Lock event) {
         return io.vertx.ceylon.core.shareddata.Lock.TO_CEYLON.converter().safeConvert(event);
       }
@@ -93,7 +93,7 @@ public class SharedData implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Lock)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     long arg_1 = timeout;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Lock>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Lock>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.Lock>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.Lock event) {
         return io.vertx.ceylon.core.shareddata.Lock.TO_CEYLON.converter().safeConvert(event);
       }
@@ -107,7 +107,7 @@ public class SharedData implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the counter.\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::Counter)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Counter>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.shareddata.Counter>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.Counter>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.Counter>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.Counter event) {
         return io.vertx.ceylon.core.shareddata.Counter.TO_CEYLON.converter().safeConvert(event);
       }

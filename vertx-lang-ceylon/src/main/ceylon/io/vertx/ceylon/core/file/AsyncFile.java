@@ -163,7 +163,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -179,7 +179,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to call when the write is complete\n") Callable<?> handler) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buffer);
     long arg_1 = position;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -200,7 +200,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     int arg_1 = (int)offset;
     long arg_2 = position;
     int arg_3 = (int)length;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_4 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.buffer.Buffer>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_4 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.buffer.Buffer>(handler) {
       public Object toCeylon(io.vertx.core.buffer.Buffer event) {
         return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event);
       }
@@ -220,7 +220,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile flush(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")  Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }

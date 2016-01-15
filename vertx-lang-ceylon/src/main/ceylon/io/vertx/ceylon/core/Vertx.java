@@ -284,7 +284,7 @@ public class Vertx implements ReifiedType,  Measured {
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "The handler will be notified when the close is complete.\n") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -306,7 +306,7 @@ public class Vertx implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The identifier\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @Name("completionHandler") @DocAnnotation$annotation$(description = "a handler which will be notified when the deployment is complete\n") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(completionHandler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -332,7 +332,7 @@ public class Vertx implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)") @Name("completionHandler") @DocAnnotation$annotation$(description = "a handler which will be notified when the deployment is complete\n") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.DeploymentOptions arg_1 = options == null ? null : new io.vertx.core.DeploymentOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.String>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.String>> arg_2 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.String>(completionHandler) {
       public Object toCeylon(java.lang.String event) {
         return io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event);
       }
@@ -354,7 +354,7 @@ public class Vertx implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("deploymentID") @DocAnnotation$annotation$(description = "the deployment ID\n") ceylon.language.String deploymentID, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "a handler which will be notified when the undeployment is complete\n") Callable<?> completionHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(deploymentID);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -391,7 +391,7 @@ public class Vertx implements ReifiedType,  Measured {
       }
     };
     boolean arg_1 = ordered;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -412,7 +412,7 @@ public class Vertx implements ReifiedType,  Measured {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }

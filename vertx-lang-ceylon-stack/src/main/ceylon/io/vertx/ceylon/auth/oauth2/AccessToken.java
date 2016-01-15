@@ -66,7 +66,7 @@ public class AccessToken extends io.vertx.ceylon.auth.common.User implements Rei
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken refresh(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(callback) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -81,7 +81,7 @@ public class AccessToken extends io.vertx.ceylon.auth.common.User implements Rei
     final @TypeInfo("ceylon.language::String") @Name("token_type") @DocAnnotation$annotation$(description = "- A String containing the type of token to revoke. Should be either \"access_token\" or \"refresh_token\".\n") ceylon.language.String token_type, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token_type);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = callback == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(callback) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }

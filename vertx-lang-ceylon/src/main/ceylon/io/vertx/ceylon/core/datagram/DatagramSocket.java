@@ -75,7 +75,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(packet);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -105,7 +105,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     int arg_1 = (int)port;
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -126,7 +126,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     int arg_2 = (int)port;
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_4 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_4 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -139,7 +139,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once complete\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -170,7 +170,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to join\n") ceylon.language.String multicastAddress, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "then handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -189,7 +189,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -204,7 +204,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     final @TypeInfo("ceylon.language::String") @Name("multicastAddress") @DocAnnotation$annotation$(description = "the address of the multicast group to leave\n") ceylon.language.String multicastAddress, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "then handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -223,7 +223,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(source);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -240,7 +240,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to notify once the operation completes\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -259,7 +259,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(multicastAddress);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(networkInterface);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sourceToBlock);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }
@@ -276,7 +276,7 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.datagram::DatagramSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler will be called when listening\n") Callable<?> handler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.datagram.DatagramSocket>(handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.datagram.DatagramSocket>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.datagram.DatagramSocket>(handler) {
       public Object toCeylon(io.vertx.core.datagram.DatagramSocket event) {
         return io.vertx.ceylon.core.datagram.DatagramSocket.TO_CEYLON.converter().safeConvert(event);
       }

@@ -57,7 +57,7 @@ public class Counter implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -69,7 +69,7 @@ public class Counter implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void incrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -81,7 +81,7 @@ public class Counter implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void getAndIncrement(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -93,7 +93,7 @@ public class Counter implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void decrementAndGet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_0 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -107,7 +107,7 @@ public class Counter implements ReifiedType {
     final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "the value to add\n") long value, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     long arg_0 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -121,7 +121,7 @@ public class Counter implements ReifiedType {
     final @TypeInfo("ceylon.language::Integer") @Name("value") @DocAnnotation$annotation$(description = "the value to add\n") long value, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Integer)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler which will be passed the value\n") Callable<?> resultHandler) {
     long arg_0 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Long>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Long>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Long>(resultHandler) {
       public Object toCeylon(java.lang.Long event) {
         return io.vertx.lang.ceylon.ToCeylon.Long.safeConvert(event);
       }
@@ -137,7 +137,7 @@ public class Counter implements ReifiedType {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the handler will be passed true on success\n") Callable<?> resultHandler) {
     long arg_0 = expected;
     long arg_1 = value;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Boolean>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
         return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
       }

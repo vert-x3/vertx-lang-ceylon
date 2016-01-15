@@ -82,7 +82,7 @@ public class Context implements ReifiedType {
       }
     };
     boolean arg_1 = ordered;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
@@ -103,7 +103,7 @@ public class Context implements ReifiedType {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
       }
     };
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }

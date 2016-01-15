@@ -127,7 +127,7 @@ public class HttpServer implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "the listen handler\n") Callable<?> listenHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_2 = listenHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.http.HttpServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.http.HttpServer event) {
         return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(event);
       }
@@ -151,7 +151,7 @@ public class HttpServer implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port to listen on\n") long port, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "the listen handler\n") Callable<?> listenHandler) {
     int arg_0 = (int)port;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.http.HttpServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.http.HttpServer event) {
         return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(event);
       }
@@ -164,7 +164,7 @@ public class HttpServer implements ReifiedType,  Measured {
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer listen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler") @DocAnnotation$annotation$(description = "the listen handler\n") Callable<?> listenHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_0 = listenHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<io.vertx.core.http.HttpServer>(listenHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_0 = listenHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.http.HttpServer>(listenHandler) {
       public Object toCeylon(io.vertx.core.http.HttpServer event) {
         return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(event);
       }
@@ -183,7 +183,7 @@ public class HttpServer implements ReifiedType,  Measured {
   @TypeInfo("ceylon.language::Anything")
   public void close(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("completionHandler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> completionHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(completionHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = completionHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(completionHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }

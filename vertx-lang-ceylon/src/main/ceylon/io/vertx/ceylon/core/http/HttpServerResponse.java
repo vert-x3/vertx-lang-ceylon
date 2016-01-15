@@ -308,7 +308,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "path to the file to serve\n") ceylon.language.String filename, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called on completion\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -325,7 +325,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called on completion\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
@@ -344,7 +344,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     long arg_2 = length;
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Void>(resultHandler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
       }
