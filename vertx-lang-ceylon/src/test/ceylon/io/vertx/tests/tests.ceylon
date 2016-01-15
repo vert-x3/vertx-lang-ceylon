@@ -190,6 +190,29 @@ shared test void testMethodWithHandlerAsyncResultDataObject() {
   assertEquals(t.message, "foobar!");
 }
 
+shared test void testMethodWithHandlerStringReturn() {
+  Anything(String) handler = obj.methodWithHandlerStringReturn("the-result");
+  handler("the-result");
+  variable Boolean failed = false;
+  try {
+    handler("not-expected");
+  } catch (Throwable err) {
+    failed = true;
+  }
+  assertTrue(failed);
+}
+
+shared test void testMethodWithHandlerGenericReturn() {
+  variable Anything result = null;
+  void callback<T>(T? r) {
+    result = r;
+  }
+  obj.methodWithHandlerGenericReturn<String>(callback)("string-result");
+  assertEquals(result, "string-result");
+  obj.methodWithHandlerGenericReturn<TestInterface>(callback)(obj);
+  assertEquals(result, obj);
+}
+
 shared test void testMethodWithHandlerAsyncResultStringReturn() {
   Anything(String|Throwable) succeedingHandler = obj.methodWithHandlerAsyncResultStringReturn("the-result", false);
   succeedingHandler("the-result");
@@ -209,6 +232,17 @@ shared test void testMethodWithHandlerAsyncResultStringReturn() {
     failed = true;
   }
   assertTrue(failed);
+}
+
+shared test void testMethodWithHandlerAsyncResultGenericReturn() {
+  variable Anything result = null;
+  void callback<T>(T?|Throwable r) {
+    result = r;
+  }
+  obj.methodWithHandlerAsyncResultGenericReturn<String>(callback)("string-result");
+  assertEquals(result, "string-result");
+  obj.methodWithHandlerAsyncResultGenericReturn<TestInterface>(callback)(obj);
+  assertEquals(result, obj);
 }
 
 shared test void testMethodWithHandlerListAndSet() {

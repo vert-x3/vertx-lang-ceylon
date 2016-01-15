@@ -129,7 +129,7 @@ public class Future<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " @return an handler completing this future\n")
   @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)")
   public Callable<?> handler() {
-    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(null, delegate.handler());
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.handler());
     return ret;
   }
 

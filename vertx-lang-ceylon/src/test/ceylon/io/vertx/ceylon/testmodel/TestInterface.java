@@ -189,6 +189,29 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
     delegate.methodWithHandlerBasicTypes(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
   }
 
+  @TypeInfo("ceylon.language::Anything(ceylon.language::String)")
+  public Callable<?> methodWithHandlerStringReturn(
+    final @TypeInfo("ceylon.language::String") @Name("expected")  ceylon.language.String expected) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(expected);
+    Callable<?> ret = new io.vertx.lang.ceylon.HandlerCallable(io.vertx.lang.ceylon.ToJava.String, delegate.methodWithHandlerStringReturn(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything(T?)")
+  public <T> Callable<?> methodWithHandlerGenericReturn(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("ceylon.language::Anything(T?)") @Name("handler")  Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
+      public void handle(java.lang.Object event) {
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
+      }
+    };
+    Callable<?> ret = new io.vertx.lang.ceylon.HandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.methodWithHandlerGenericReturn(arg_0));
+    return ret;
+  }
+
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultByte(
     final @TypeInfo("ceylon.language::Boolean") @Name("sendFailure")  boolean sendFailure, 
@@ -326,6 +349,21 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(expected);
     boolean arg_1 = fail;
     Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.String, delegate.methodWithHandlerAsyncResultStringReturn(arg_0, arg_1));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)")
+  public <T> Callable<?> methodWithHandlerAsyncResultGenericReturn(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler")  Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
+      public Object toCeylon(java.lang.Object event) {
+        return io.vertx.lang.ceylon.ToCeylon.object(event);
+      }
+    };
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.methodWithHandlerAsyncResultGenericReturn(arg_0));
     return ret;
   }
 

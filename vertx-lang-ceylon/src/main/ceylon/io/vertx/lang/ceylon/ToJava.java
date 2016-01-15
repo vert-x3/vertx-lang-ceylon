@@ -112,6 +112,12 @@ public class ToJava {
     }
   }
 
+  public static final Converter<java.lang.Object, java.lang.Object> Object = new Converter<java.lang.Object, java.lang.Object>() {
+    public java.lang.Object convert(java.lang.Object src) {
+      return object(src);
+    }
+  };
+
   public static final Converter<ceylon.language.Boolean, java.lang.Boolean> Boolean = new Converter<ceylon.language.Boolean, java.lang.Boolean>() {
     public java.lang.Boolean convert(ceylon.language.Boolean src) {
       return src.booleanValue();

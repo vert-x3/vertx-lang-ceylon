@@ -149,6 +149,8 @@
       } else {
         return 'io.vertx.lang.ceylon.ToJava.enumeration(' + type.name + '.class)';
       }
+    } else if (kind == CLASS_OBJECT) {
+      return "io.vertx.lang.ceylon.ToJava.Object";
     }
     return null;
   }
@@ -210,6 +212,8 @@
         var handlerType = type.args[0];
         if (handlerType.kind == CLASS_ASYNC_RESULT) {
           return 'new io.vertx.lang.ceylon.AsyncResultHandlerCallable(' + genParamConverter(handlerType.args[0]) + ', ' + expr + ')';
+        } else {
+          return 'new io.vertx.lang.ceylon.HandlerCallable(' + genParamConverter(handlerType) + ', ' + expr + ')';
         }
       }
     }
