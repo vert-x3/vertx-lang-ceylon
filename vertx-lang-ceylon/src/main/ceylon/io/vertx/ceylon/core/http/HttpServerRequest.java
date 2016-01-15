@@ -126,6 +126,13 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSSL() {
+    boolean ret = delegate.isSSL();
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " @return the URI of the request. This is usually a relative URI\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {

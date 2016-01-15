@@ -190,6 +190,27 @@ shared test void testMethodWithHandlerAsyncResultDataObject() {
   assertEquals(t.message, "foobar!");
 }
 
+shared test void testMethodWithHandlerAsyncResultStringReturn() {
+  Anything(String|Throwable) succeedingHandler = obj.methodWithHandlerAsyncResultStringReturn("the-result", false);
+  succeedingHandler("the-result");
+  variable Boolean failed = false;
+  try {
+    succeedingHandler("not-expected");
+  } catch (Throwable err) {
+    failed = true;
+  }
+  assertTrue(failed);
+  Anything(String|Throwable) failingHandler = obj.methodWithHandlerAsyncResultStringReturn("an-error", true);
+  failingHandler(Exception("an-error"));
+  failed = false;
+  try {
+    failingHandler("not-expected");
+  } catch (Throwable err) {
+    failed = true;
+  }
+  assertTrue(failed);
+}
+
 shared test void testMethodWithHandlerListAndSet() {
   variable List<String>? arg0 = null;
   variable List<Integer>? arg1 = null;

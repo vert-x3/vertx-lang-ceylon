@@ -50,6 +50,10 @@ shared class HttpServerOptions(
   JksOptions? keyStoreOptions = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
+  " Set the maximum length of all headers\n"
+  shared Integer? maxHeaderSize = null,
+  " Set the maximum length of the initial line (e.g. <code>\"GET / HTTP/1.0\"</code>)\n"
+  shared Integer? maxInitialLineLength = null,
   " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -103,6 +107,12 @@ shared class HttpServerOptions(
     if (exists maxChunkSize) {
       json.put("maxChunkSize", maxChunkSize);
     }
+    if (exists maxHeaderSize) {
+      json.put("maxHeaderSize", maxHeaderSize);
+    }
+    if (exists maxInitialLineLength) {
+      json.put("maxInitialLineLength", maxInitialLineLength);
+    }
     if (exists maxWebsocketFrameSize) {
       json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
     }
@@ -127,6 +137,8 @@ shared object httpServerOptions {
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
+    Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
+    Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
@@ -156,6 +168,8 @@ shared object httpServerOptions {
       idleTimeout = idleTimeout;
       keyStoreOptions = keyStoreOptions;
       maxChunkSize = maxChunkSize;
+      maxHeaderSize = maxHeaderSize;
+      maxInitialLineLength = maxInitialLineLength;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;

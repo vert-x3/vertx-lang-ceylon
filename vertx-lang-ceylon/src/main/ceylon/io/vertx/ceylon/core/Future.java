@@ -67,15 +67,16 @@ public class Future<T> implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = " Set a handler for the result.\n <p>\n If the future has already been completed it will be called immediately. Otherwise it will be called when the\n future is completed.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void $setHandler(
+  @TypeInfo("io.vertx.ceylon.core::Future<T>")
+  public Future<T> setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("handler") @DocAnnotation$annotation$(description = "the Handler that will be called with the result\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.AsyncResultAdapter<java.lang.Object>(handler) {
       public Object toCeylon(java.lang.Object event) {
         return io.vertx.lang.ceylon.ToCeylon.object(event);
       }
     };
-    delegate.setHandler(arg_0);
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(delegate.setHandler(arg_0));
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Set the result. Any handler will be called, if there is one, and the future will be marked as completed.\n")
@@ -95,9 +96,41 @@ public class Future<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
+    final @TypeInfo("ceylon.language::Throwable") @Name("throwable") @DocAnnotation$annotation$(description = "the failure cause\n") Throwable throwable) {
+    java.lang.Throwable arg_0 = throwable;
+    delegate.fail(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = " Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void fail(
     final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "the failure message\n") ceylon.language.String failureMessage) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(failureMessage);
     delegate.fail(arg_0);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Compose this future with another future.\n\n When this future succeeds, the handler will be called with the value.\n\n When this future fails, the failure will be propagated to the <code>next</code> future.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void compose(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("ceylon.language::Anything(T?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("next") @DocAnnotation$annotation$(description = "the next future\n") Future<U> next) {
+    io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
+      public void handle(java.lang.Object event) {
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
+      }
+    };
+    io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(next);
+    delegate.compose(arg_0, arg_1);
+  }
+
+  @DocAnnotation$annotation$(description = " @return an handler completing this future\n")
+  @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)")
+  public Callable<?> handler() {
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(null, delegate.handler());
+    return ret;
   }
 
 }

@@ -206,6 +206,11 @@
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
         return genReturnConverter(type) + '.safeConvert(' + expr + ')';
+      } else if (kind == CLASS_HANDLER) {
+        var handlerType = type.args[0];
+        if (handlerType.kind == CLASS_ASYNC_RESULT) {
+          return 'new io.vertx.lang.ceylon.AsyncResultHandlerCallable(' + genParamConverter(handlerType.args[0]) + ', ' + expr + ')';
+        }
       }
     }
     return 'null';

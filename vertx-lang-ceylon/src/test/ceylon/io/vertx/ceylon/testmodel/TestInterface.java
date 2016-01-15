@@ -319,6 +319,16 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
     delegate.methodWithHandlerAsyncResultDataObject(arg_0, arg_1);
   }
 
+  @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::String)")
+  public Callable<?> methodWithHandlerAsyncResultStringReturn(
+    final @TypeInfo("ceylon.language::String") @Name("expected")  ceylon.language.String expected, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("fail")  boolean fail) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(expected);
+    boolean arg_1 = fail;
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.String, delegate.methodWithHandlerAsyncResultStringReturn(arg_0, arg_1));
+    return ret;
+  }
+
   @TypeInfo("ceylon.language::Anything")
   public void methodWithUserTypes(
     final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("refed")  RefedInterface1 refed) {
