@@ -43,7 +43,7 @@ shared class DatagramSocketOptions(
   sendBufferSize,
   trafficClass) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists broadcast) {
       json.put("broadcast", broadcast);
     }

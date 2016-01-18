@@ -99,7 +99,7 @@ shared class HttpClientOptions(
   trustStoreOptions,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists defaultHost) {
       json.put("defaultHost", defaultHost);
     }
