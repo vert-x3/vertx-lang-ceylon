@@ -11,11 +11,12 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.List;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
+@DocAnnotation$annotation$(description = " The composite future wraps a list of [futures](Future.type.html), it is useful when several futures\n needs to be coordinated.\n")
 public class CompositeFuture extends io.vertx.ceylon.core.Future<io.vertx.ceylon.core.CompositeFuture> implements ReifiedType {
 
   @Ignore
@@ -66,33 +67,37 @@ public class CompositeFuture extends io.vertx.ceylon.core.Future<io.vertx.ceylon
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Returns a cause of a wrapped future\n")
   @TypeInfo("ceylon.language::Throwable")
   public Throwable cause(
-    final @TypeInfo("ceylon.language::Integer") @Name("index")  long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the wrapped future index\n") long index) {
     int arg_0 = (int)index;
     Throwable ret = delegate.cause(arg_0);
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Returns true if a wrapped future is succeeded\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean succeeded(
-    final @TypeInfo("ceylon.language::Integer") @Name("index")  long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the wrapped future index\n") long index) {
     int arg_0 = (int)index;
     boolean ret = delegate.succeeded(arg_0);
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Returns true if a wrapped future is failed\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean failed(
-    final @TypeInfo("ceylon.language::Integer") @Name("index")  long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the wrapped future index\n") long index) {
     int arg_0 = (int)index;
     boolean ret = delegate.failed(arg_0);
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Returns true if a wrapped future is completed\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isComplete(
-    final @TypeInfo("ceylon.language::Integer") @Name("index")  long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the wrapped future index\n") long index) {
     int arg_0 = (int)index;
     boolean ret = delegate.isComplete(arg_0);
     return ret;
@@ -101,14 +106,16 @@ public class CompositeFuture extends io.vertx.ceylon.core.Future<io.vertx.ceylon
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Returns the result of a wrapped future\n")
   @TypeInfo("T?")
   public <T> T result(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::Integer") @Name("index")  long index) {
+    final @TypeInfo("ceylon.language::Integer") @Name("index") @DocAnnotation$annotation$(description = "the wrapped future index\n") long index) {
     int arg_0 = (int)index;
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.result(arg_0));
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " @return the number of wrapped future\n")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();

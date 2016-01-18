@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.List;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
@@ -54,6 +55,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T2",variance=Variance.NONE),
     @TypeParameter(value="T3",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 3 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -72,6 +74,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T3",variance=Variance.NONE),
     @TypeParameter(value="T4",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 4 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -93,6 +96,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T4",variance=Variance.NONE),
     @TypeParameter(value="T5",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 5 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -117,6 +121,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T5",variance=Variance.NONE),
     @TypeParameter(value="T6",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 6 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5,T6> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, final @Ignore TypeDescriptor $reified$T6, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -132,6 +137,15 @@ public class compositeFuture_ implements ReifiedType {
     io.vertx.core.Future<java.lang.Object> arg_4 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f5);
     io.vertx.core.Future<java.lang.Object> arg_5 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f6);
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.all(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with list of futures.\n")
+  @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
+  public CompositeFuture all(
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core::Future>") @Name("futures")  ceylon.language.List<Future> futures) {
+    java.util.List<io.vertx.core.Future> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(futures, io.vertx.ceylon.core.Future.TO_JAVA);
+    CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.all(arg_0));
     return ret;
   }
 
@@ -155,6 +169,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T2",variance=Variance.NONE),
     @TypeParameter(value="T3",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 3 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -173,6 +188,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T3",variance=Variance.NONE),
     @TypeParameter(value="T4",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 4 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -194,6 +210,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T4",variance=Variance.NONE),
     @TypeParameter(value="T5",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 5 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -218,6 +235,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T5",variance=Variance.NONE),
     @TypeParameter(value="T6",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 6 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5,T6> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, final @Ignore TypeDescriptor $reified$T6, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")  Future<T1> f1, 
@@ -233,6 +251,15 @@ public class compositeFuture_ implements ReifiedType {
     io.vertx.core.Future<java.lang.Object> arg_4 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f5);
     io.vertx.core.Future<java.lang.Object> arg_5 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f6);
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.any(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 6 futures.\n")
+  @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
+  public CompositeFuture any(
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core::Future>") @Name("futures")  ceylon.language.List<Future> futures) {
+    java.util.List<io.vertx.core.Future> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(futures, io.vertx.ceylon.core.Future.TO_JAVA);
+    CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.any(arg_0));
     return ret;
   }
 

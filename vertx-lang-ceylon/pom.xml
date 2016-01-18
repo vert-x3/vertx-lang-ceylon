@@ -455,8 +455,8 @@
                 <source>
                   <directory>${basedir}/src/test/ceylon</directory>
                   <includes>
-                    <include>io/vertx/tests/**</include>
-                    <include>io/vertx/mod2/**</include>
+                    <include>io/vertx/tests/**/*.ceylon</include>
+                    <include>io/vertx/tests/**/*.java</include>
                   </includes>
                 </source>
                 <source>

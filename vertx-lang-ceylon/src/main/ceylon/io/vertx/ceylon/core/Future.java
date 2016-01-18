@@ -39,6 +39,7 @@ public class Future<T> implements ReifiedType {
     }
   };
 
+  @Ignore private Callable<?> cached_completer;
   @Ignore private final TypeDescriptor $TypeDescriptor$;
   @Ignore private final TypeDescriptor $reified$T;
   @Ignore private final io.vertx.core.Future delegate;
@@ -128,8 +129,12 @@ public class Future<T> implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " @return an handler completing this future\n")
   @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)")
-  public Callable<?> handler() {
-    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.handler());
+  public Callable<?> completer() {
+    if (cached_completer != null) {
+      return cached_completer;
+    }
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.completer());
+    cached_completer = ret;
     return ret;
   }
 

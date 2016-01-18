@@ -321,10 +321,10 @@ import io.vertx.ceylon.core { future, compositeFuture }
 ...
 
 value httpServerFuture = future.future();
-httpServer.listen(httpServerFuture.handler());
+httpServer.listen(httpServerFuture.completer());
 
 value netServerFuture = future.future();
-netServer.listen(netServerFuture.handler());
+netServer.listen(netServerFuture.completer());
 
 compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFuture|Throwable ar) {
   if (is CompositeFuture ar) {
@@ -336,10 +336,10 @@ compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFutu
 
 ----
 
-The handler returned by `link:../../ceylondoc/vertx-core//Future.type.html#handler()[handler]` completes the future.
+The handler returned by `link:../../ceylondoc/vertx-core//Future.type.html#completer()[completer]` completes the future.
 
 `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures arguments (up to 6) and returns a future that is
-_failed_ when all the futures are and _succeeded_ otherwise:
+_succeeded_ if one of the futures is, and _failed_ otherwise:
 
 [source,ceylon]
 ----
@@ -374,12 +374,12 @@ value fs = vertx.fileSystem();
 value fut1 = future.future();
 value fut2 = future.future();
 
-fs.createFile("/foo", fut1.handler());
+fs.createFile("/foo", fut1.completer());
 fut1.compose(() {
-  fs.writeFile("/foo", buffer.buffer(), fut2.handler());
+  fs.writeFile("/foo", buffer.buffer(), fut2.completer());
 }, fut2);
 fut2.compose(() {
-  fs.move("/foo", "/bar", startFuture.handler());
+  fs.move("/foo", "/bar", startFuture.completer());
 }, startFuture);
 
 ----

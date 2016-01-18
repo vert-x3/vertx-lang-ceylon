@@ -71,7 +71,7 @@ public class HttpServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Set the request handler for the server to <code>requestHandler</code>. As HTTP requests are received by the server,\n instances of [HttpServerRequest](../http/HttpServerRequest.type.html) will be created and passed to this handler.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer requestHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest>() {
       public void handle(io.vertx.core.http.HttpServerRequest event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class HttpServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Set the websocket handler for the server to <code>wsHandler</code>. If a websocket connect handshake is successful a\n new [ServerWebSocket](../http/ServerWebSocket.type.html) instance will be created and passed to the handler.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer websocketHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::ServerWebSocket)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.ServerWebSocket>() {
       public void handle(io.vertx.core.http.ServerWebSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.ServerWebSocket.TO_CEYLON.converter().safeConvert(event));
