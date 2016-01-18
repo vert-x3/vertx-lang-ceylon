@@ -172,7 +172,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@end{' &\n'}
 @end{} @if{abstractSuperTypes.empty}satisfies@else{}&@end{} BaseDataObject {\n
   shared actual default JsonObject toJson() {\n
-    value json = JsonObject();\n
+    value json = @if{superType != null}super.toJson()@else{}JsonObject()@end{};\n
 @foreach{prop:props}
 	@if{prop.declared}
 		@code{propName=toCeylonIdentifier(prop.name)}
