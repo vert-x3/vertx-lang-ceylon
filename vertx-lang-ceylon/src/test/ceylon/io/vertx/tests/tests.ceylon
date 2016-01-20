@@ -15,6 +15,9 @@ import ceylon.json {
 import ceylon.collection {
   HashSet, ArrayList, HashMap
 }
+import io.vertx.ceylon.core.http {
+  HttpServerOptions, httpServerOptions
+}
 
 TestInterface obj = TestInterface(TestInterfaceImpl());
 NullableTCK nullableTCK = NullableTCK(NullableTCKImpl());
@@ -1601,6 +1604,20 @@ shared test void testNullableHandler() {
   }
   nullableTCK.methodWithNullableHandlerAsyncResult(false, b);
   assertEquals(2, count);
+}
+
+"Test that HttpServerOptions properly serialize to and deserialize from json"
+shared test void testHttpServerOptionsJson() {
+  value options = HttpServerOptions {
+    compressionSupported = true;
+    ssl = true;
+    sendBufferSize = 65000;
+  };
+  value json = options.toJson();
+  value actualOptions = httpServerOptions.fromJson(json);
+  assertEquals(actualOptions.compressionSupported, options.compressionSupported);
+  assertEquals(actualOptions.ssl, options.ssl);
+  assertEquals(actualOptions.sendBufferSize, options.sendBufferSize);
 }
 
 void assertTestDataObjectEquals(Anything actual, Anything expected) {

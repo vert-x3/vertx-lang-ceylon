@@ -69,7 +69,7 @@ shared class TCPSSLOptions(
   sendBufferSize,
   trafficClass) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists crlPaths) {
       json.put("crlPaths", JsonArray(crlPaths));
     }

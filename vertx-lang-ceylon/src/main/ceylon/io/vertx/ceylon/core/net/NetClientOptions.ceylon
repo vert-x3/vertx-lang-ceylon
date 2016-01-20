@@ -77,7 +77,7 @@ shared class NetClientOptions(
   trustStoreOptions,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists reconnectAttempts) {
       json.put("reconnectAttempts", reconnectAttempts);
     }

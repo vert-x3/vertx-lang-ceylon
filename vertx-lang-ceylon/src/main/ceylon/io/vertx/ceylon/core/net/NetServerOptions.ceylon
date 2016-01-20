@@ -83,7 +83,7 @@ shared class NetServerOptions(
   trustStoreOptions,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists acceptBacklog) {
       json.put("acceptBacklog", acceptBacklog);
     }

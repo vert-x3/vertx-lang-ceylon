@@ -97,7 +97,7 @@ shared class HttpServerOptions(
   trustStoreOptions,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists compressionSupported) {
       json.put("compressionSupported", compressionSupported);
     }

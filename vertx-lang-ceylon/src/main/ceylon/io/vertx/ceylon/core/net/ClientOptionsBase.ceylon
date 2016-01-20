@@ -73,7 +73,7 @@ shared class ClientOptionsBase(
   trustStoreOptions,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
+    value json = super.toJson();
     if (exists connectTimeout) {
       json.put("connectTimeout", connectTimeout);
     }
