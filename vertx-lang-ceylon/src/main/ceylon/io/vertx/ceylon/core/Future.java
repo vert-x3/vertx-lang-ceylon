@@ -110,6 +110,30 @@ public class Future<T> implements ReifiedType {
     delegate.fail(arg_0);
   }
 
+  @TypeInfo("T?")
+  public T result() {
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.result());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Throwable")
+  public Throwable cause() {
+    Throwable ret = delegate.cause();
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean succeeded() {
+    boolean ret = delegate.succeeded();
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean failed() {
+    boolean ret = delegate.failed();
+    return ret;
+  }
+
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
