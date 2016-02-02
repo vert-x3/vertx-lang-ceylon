@@ -210,6 +210,7 @@
             <configuration>
               <out>${repo.dir}</out>
               <moduleImports>
+<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.mchange</groupId>
@@ -225,6 +226,7 @@
                   </dependency>
                   <descriptor>descriptors/com.mchange.c3p0.properties</descriptor>
                 </moduleImport>
+-->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
@@ -270,6 +272,7 @@
                   <force>true</force>
                   <version>3.2.1</version>
                 </moduleImport>
+<!--
                 <moduleImport>
                   <dependency>
                     <groupId>commons-beanutils</groupId>
@@ -285,6 +288,7 @@
                   </dependency>
                   <descriptor>descriptors/org.apache.shiro.shiro-core.properties</descriptor>
                 </moduleImport>
+-->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
