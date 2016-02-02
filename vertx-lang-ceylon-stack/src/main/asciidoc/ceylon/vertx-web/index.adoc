@@ -2567,7 +2567,7 @@ REGISTER. This event will occur when a client attempts to register a handler.
 UNREGISTER. This event will occur when a client attempts to unregister a handler.
 
 The event enables you to retrieve the type using `link:../../ceylondoc/vertx-web//handler/sockjs/BridgeEvent.type.html#type()[type]` and
-inspect the raw message of the event using `link:../../ceylondoc/vertx-web//handler/sockjs/BridgeEvent.type.html#rawMessage()[rawMessage]`.
+inspect the raw message of the event using `link:../../ceylondoc/vertx-web//handler/sockjs/BridgeEvent.type.html#getRawMessage()[getRawMessage]`.
 
 The raw message is a JSON object with the following structure:
 
@@ -2610,7 +2610,7 @@ value options = BridgeOptions {
 
 sockJSHandler.bridge(options, (BridgeEvent be) {
   if (be.type() == publish || be.type() == receive) {
-    if (be.rawMessage()get("body" == "armadillos") {
+    if (be.getRawMessage()get("body" == "armadillos") {
       // Reject it
       be.complete(false);
       return;
@@ -2655,7 +2655,9 @@ sockJSHandler.bridge(options, (BridgeEvent be) {
       header1 = "val";
       header2 = "val2";
     };
-    be.rawMessage().put("headers", headers);
+    value rawMessage = be.getRawMessage();
+    rawMessage.put("headers", headers);
+    be.setRawMessage(rawMessage);
   };
   be.complete(true);
 });

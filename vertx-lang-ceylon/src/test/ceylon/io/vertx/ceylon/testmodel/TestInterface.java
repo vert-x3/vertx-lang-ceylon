@@ -212,6 +212,14 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
     return ret;
   }
 
+  @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)")
+  public Callable<?> methodWithHandlerVertxGenReturn(
+    final @TypeInfo("ceylon.language::String") @Name("expected")  ceylon.language.String expected) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(expected);
+    Callable<?> ret = new io.vertx.lang.ceylon.HandlerCallable(io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA, delegate.methodWithHandlerVertxGenReturn(arg_0));
+    return ret;
+  }
+
   @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultByte(
     final @TypeInfo("ceylon.language::Boolean") @Name("sendFailure")  boolean sendFailure, 
@@ -364,6 +372,16 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
       }
     };
     Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Object, delegate.methodWithHandlerAsyncResultGenericReturn(arg_0));
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::RefedInterface1)")
+  public Callable<?> methodWithHandlerAsyncResultVertxGenReturn(
+    final @TypeInfo("ceylon.language::String") @Name("expected")  ceylon.language.String expected, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("fail")  boolean fail) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(expected);
+    boolean arg_1 = fail;
+    Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA, delegate.methodWithHandlerAsyncResultVertxGenReturn(arg_0, arg_1));
     return ret;
   }
 

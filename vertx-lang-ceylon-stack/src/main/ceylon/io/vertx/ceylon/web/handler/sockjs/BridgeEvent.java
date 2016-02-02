@@ -68,7 +68,7 @@ public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is\n no message involved.\n")
+  @DocAnnotation$annotation$(description = " Use [getRawMessage](../../handler/sockjs/BridgeEvent.type.html#getRawMessage) instead, will be removed in 3.3\n")
   @TypeInfo("ceylon.json::Object")
   public ceylon.json.Object rawMessage() {
     if (cached_rawMessage != null) {
@@ -77,6 +77,22 @@ public class BridgeEvent extends io.vertx.ceylon.core.Future<java.lang.Boolean> 
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.rawMessage());
     cached_rawMessage = ret;
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is\n no message involved. If the returned message is modified, [setRawMessage](../../handler/sockjs/BridgeEvent.type.html#setRawMessage) should be called with the\n new message.\n")
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object $getRawMessage() {
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getRawMessage());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Get the raw JSON message for the event. This will be null for SOCKET_CREATED or SOCKET_CLOSED events as there is\n no message involved.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeEvent")
+  public BridgeEvent setRawMessage(
+    final @TypeInfo("ceylon.json::Object") @Name("message") @DocAnnotation$annotation$(description = "the raw message\n") ceylon.json.Object message) {
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(message);
+    BridgeEvent ret = io.vertx.ceylon.web.handler.sockjs.BridgeEvent.TO_CEYLON.converter().safeConvert(delegate.setRawMessage(arg_0));
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Get the SockJSSocket instance corresponding to the event\n")
