@@ -110,24 +110,28 @@ public class Future<T> implements ReifiedType {
     delegate.fail(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " The result of the operation. This will be null if the operation failed.\n")
   @TypeInfo("T?")
   public T result() {
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.result());
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " A Throwable describing failure. This will be null if the operation succeeded.\n")
   @TypeInfo("ceylon.language::Throwable")
   public Throwable cause() {
     Throwable ret = delegate.cause();
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Did it succeed?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean succeeded() {
     boolean ret = delegate.succeeded();
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Did it fail?\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean failed() {
     boolean ret = delegate.failed();
