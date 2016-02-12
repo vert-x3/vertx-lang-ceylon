@@ -1,4 +1,4 @@
-module io.vertx.lang.ceylon "3.2.1" {
+module io.vertx.lang.ceylon "3.2.2" {
   shared import "java.base" "7";
   shared import "ceylon.json" "1.2.1";
   shared import "io.vertx.vertx-core" "3.2.1";

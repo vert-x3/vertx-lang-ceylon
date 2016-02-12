@@ -485,7 +485,7 @@
                 <userRepo>${repo.dir}</userRepo>
                 <userRepo>modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/3.2.1</module>
+              <module>io.vertx.tests/3.2.2</module>
             </configuration>
           </execution>
 
