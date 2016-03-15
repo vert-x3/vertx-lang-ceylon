@@ -6,13 +6,13 @@
   <parent>
     <groupId>io.vertx</groupId>
     <artifactId>vertx-lang-ceylon-parent</artifactId>
-    <version>3.2.2-SNAPSHOT</version>
+    <version>3.2.2</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>vertx-lang-ceylon</artifactId>
-  <version>3.2.2-SNAPSHOT</version>
+  <version>3.2.2</version>
 
   <properties>
     <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
@@ -80,7 +80,7 @@
     <dependency>
       <groupId>org.ceylon-lang</groupId>
       <artifactId>ceylon-complete</artifactId>
-      <version>1.2.2-SNAPSHOT</version>
+      <version>1.2.2</version>
     </dependency>
 
     <!-- Test dependencies -->
@@ -155,7 +155,7 @@
       <plugin>
         <groupId>org.ceylon-lang</groupId>
         <artifactId>ceylon-maven-plugin</artifactId>
-        <version>1.2.2-SNAPSHOT</version>
+        <version>1.2.2</version>
         <executions>
 
           <execution>
