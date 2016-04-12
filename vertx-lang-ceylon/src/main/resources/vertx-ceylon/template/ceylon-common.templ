@@ -109,6 +109,26 @@
         '      }\n' +
         '    }';
       }
+    } else if (kind == CLASS_FUNCTION) {
+      var eventType = type.args[0];
+      var eventKind = eventType.kind;
+      var returnClass = genJavaInterropTypeDecl(type.erased.args[1]);
+      if (eventKind == CLASS_VOID) {
+        /* Special case */
+        return expr + ' == null ? null : new ' + type.erased.name + '() {\n' +
+        '      public ' + type.erased.args[1].name + ' apply(' + type.erased.args[0].name + ' arg) {\n' +
+        '        ' + returnClass + ' ret = (' + returnClass + ')' + expr + '.$call$();\n' +
+        '        return ' + genConvParam(type.args[1], 'ret') + ';\n' +
+        '      }\n' +
+        '    }';
+      } else {
+        return expr + ' == null ? null : new ' + type.erased.name + '() {\n' +
+        '      public ' + type.erased.args[1].name + ' apply(' + type.erased.args[0].name + ' arg) {\n' +
+        '        ' + returnClass + ' ret = (' + returnClass + ')' + expr + '.$call$((Object)' + genConvReturn(type.args[0], 'arg') + ');\n' +
+        '        return ' + genConvParam(type.args[1], 'ret') + ';\n' +
+        '      }\n' +
+        '    }';
+      }
     } else if (kind == CLASS_API) {
       return type.raw.translateName(TRANSLATOR_COMPOSITE) + '.TO_JAVA.safeConvert(' + expr + ')';
     } else if (kind == CLASS_OBJECT) {
@@ -406,19 +426,23 @@
       } else {
         decl = 'ceylon.language::Object';
       }
-    } else if (kind == CLASS_HANDLER) {
+    } else if (kind == CLASS_HANDLER || kind == CLASS_FUNCTION) {
+      var decl = 'ceylon.language::Anything';
+      if (kind == CLASS_FUNCTION) {
+        decl = genCeylonTypeDecl(type.args[1], true);
+      }
       var arg = type.args[0];
       if (arg.kind == CLASS_VOID) {
-        decl = 'ceylon.language::Anything()';
+        decl += '()';
       } else if (arg.kind == CLASS_ASYNC_RESULT) {
         var result = arg.args[0];
         if (result.kind == CLASS_VOID) {
-          decl = 'ceylon.language::Anything(ceylon.language::Throwable?)';
+          decl += '(ceylon.language::Throwable?)';
         } else {
-          decl = 'ceylon.language::Anything(ceylon.language::Throwable|' + genCeylonTypeDecl(result, allowNullable) + ')';
+          decl += '(ceylon.language::Throwable|' + genCeylonTypeDecl(result, allowNullable) + ')';
         }
       } else {
-        decl = 'ceylon.language::Anything(' + genCeylonTypeDecl(type.args[0], allowNullable) + ')';
+        decl += '(' + genCeylonTypeDecl(type.args[0], allowNullable) + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
       decl = 'ceylon.language::Throwable';
