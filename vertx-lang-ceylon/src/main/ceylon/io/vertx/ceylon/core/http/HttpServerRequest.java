@@ -47,6 +47,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   @Ignore private SocketAddress cached_localAddress;
   @Ignore private NetSocket cached_netSocket;
   @Ignore private MultiMap cached_formAttributes;
+  @Ignore private HttpConnection cached_connection;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerRequest.class);
   @Ignore private final io.vertx.core.http.HttpServerRequest delegate;
 
@@ -133,6 +134,13 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " @return the scheme of the request\n")
+  @TypeInfo("ceylon.language::String?")
+  public ceylon.language.String scheme() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.scheme());
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " @return the URI of the request. This is usually a relative URI\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
@@ -141,7 +149,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   }
 
   @DocAnnotation$annotation$(description = " @return The path part of the uri. For example /somepath/somemorepath/someresource.foo\n")
-  @TypeInfo("ceylon.language::String")
+  @TypeInfo("ceylon.language::String?")
   public ceylon.language.String path() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
@@ -151,6 +159,13 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String query() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.query());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " @return the request host. For HTTP2 it returns the  pseudo header otherwise it returns the  header\n")
+  @TypeInfo("ceylon.language::String?")
+  public ceylon.language.String host() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.host());
     return ret;
   }
 
@@ -318,6 +333,30 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isEnded() {
     boolean ret = delegate.isEnded();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Set an unknown frame handler. The handler will get notified when the http stream receives an unknown HTTP/2\n frame. HTTP/2 permits extension of the protocol.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
+  public HttpServerRequest unknownFrameHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpFrame)") @Name("handler")  Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.http.HttpFrame> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpFrame>() {
+      public void handle(io.vertx.core.http.HttpFrame event) {
+        handler.$call$((Object)io.vertx.ceylon.core.http.HttpFrame.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpServerRequest ret = io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.converter().safeConvert(delegate.unknownFrameHandler(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " @return the [HttpConnection](../http/HttpConnection.type.html) associated with this request when it is an HTTP/2 connection, null otherwise\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
+  public HttpConnection connection() {
+    if (cached_connection != null) {
+      return cached_connection;
+    }
+    HttpConnection ret = io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(delegate.connection());
+    cached_connection = ret;
     return ret;
   }
 

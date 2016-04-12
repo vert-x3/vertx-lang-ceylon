@@ -23,6 +23,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.Handler;
 

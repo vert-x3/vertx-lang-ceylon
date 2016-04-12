@@ -105,7 +105,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
             ModuleInfo compiledModule = compiledModules.get(0);
             applySystemConfig(runnerOptions);
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.2");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.3.0");
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
           } else {
             module.instances++;
@@ -120,7 +120,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
             String moduleVersion = moduleSpec.getVersion();
             runnerOptions.addExtraModule(moduleName, moduleVersion);
             applySystemConfig(runnerOptions);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.2.2");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.3.0");
             modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
           } else {
             module.instances++;

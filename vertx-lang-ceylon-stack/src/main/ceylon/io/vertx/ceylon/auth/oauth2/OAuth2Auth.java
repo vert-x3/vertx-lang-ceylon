@@ -21,6 +21,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
@@ -108,6 +109,13 @@ public class OAuth2Auth extends io.vertx.ceylon.auth.common.AuthProvider impleme
     };
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.api(arg_0, arg_1, arg_2, arg_3));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns true if this provider supports JWT tokens as the access_token. This is typically true if the provider\n implements the `openid-connect` protocol. This is a plain return from the config option jwtToken, which is false\n by default.\n\n This information is important to validate grants. Since pure OAuth2 should be used for authorization and when a\n token is requested all grants should be declared, in case of openid-connect this is not true. OpenId will issue\n a token and all grants will be encoded on the token itself so the requester does not need to list the required\n grants.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean hasJWTToken() {
+    boolean ret = delegate.hasJWTToken();
+    return ret;
   }
 
 }

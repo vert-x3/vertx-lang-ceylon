@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.Route;
 import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
-import io.vertx.ceylon.auth.common.AuthProvider;
+import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An auth handler that provides OAuth2 Authentication support. This handler is suitable for AuthCode flows.\n")

@@ -6,7 +6,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.shiro "3.2.2";
+shared import io.vertx.ceylon.auth.shiro "3.3.0";
 ----
 
 We provide out of the box support for properties and LDAP based auth using Shiro, and you can also plugin in any

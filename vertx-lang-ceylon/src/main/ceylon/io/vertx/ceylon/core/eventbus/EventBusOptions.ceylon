@@ -25,8 +25,8 @@ import io.vertx.ceylon.core.http {
   ClientAuth,
   clientAuth_=clientAuth
 }
-import io.vertx.core.net {
-  NetServerOptions_=NetServerOptions
+import io.vertx.core.eventbus {
+  EventBusOptions_=EventBusOptions
 }
 import ceylon.collection {
   HashMap
@@ -35,19 +35,29 @@ import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
 }
-/* Generated from io.vertx.core.net.NetServerOptions */
-" Options for configuring a [NetServer](../net/NetServer.type.html).\n"
-shared class NetServerOptions(
-  " Set the accept back log\n"
+/* Generated from io.vertx.core.eventbus.EventBusOptions */
+" Options to configure the event bus.\n"
+shared class EventBusOptions(
+  " Set the accept back log.\n"
   shared Integer? acceptBacklog = null,
   " Set whether client auth is required\n"
   shared ClientAuth? clientAuth = null,
-  " Set whether client auth is required\n"
-  shared Boolean? clientAuthRequired = null,
+  " Set the value of cluster ping interval, in ms.\n"
+  shared Integer? clusterPingInterval = null,
+  " Set the value of cluster ping reply interval, in ms.\n"
+  shared Integer? clusterPingReplyInterval = null,
+  " Set the public facing hostname to be used for clustering.\n Sometimes, e.g. when running on certain clouds, the local address the server listens on for clustering is\n not the same address that other nodes connect to it at, as the OS / cloud infrastructure does some kind of\n proxying. If this is the case you can specify a public hostname which is different from the hostname the\n server listens at.\n <p>\n The default value is null which means use the same as the cluster hostname.\n"
+  shared String? clusterPublicHost = null,
+  " See [setClusterPublicHost](../eventbus/EventBusOptions.type.html#setClusterPublicHost) for an explanation.\n"
+  shared Integer? clusterPublicPort = null,
+  " Sets whether or not the event bus is clustered.\n"
+  shared Boolean? clustered = null,
+  " Sets the connect timeout\n"
+  shared Integer? connectTimeout = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
-  " Set the host\n"
+  " Sets the host.\n"
   shared String? host = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
@@ -55,9 +65,13 @@ shared class NetServerOptions(
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
-  " Set the port\n"
+  " Sets the port.\n"
   shared Integer? port = null,
   Integer? receiveBufferSize = null,
+  " Sets the value of reconnect attempts.\n"
+  shared Integer? reconnectAttempts = null,
+  " Set the reconnect interval.\n"
+  shared Integer? reconnectInterval = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
@@ -66,6 +80,8 @@ shared class NetServerOptions(
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
+  " Set whether all server certificates should be trusted.\n"
+  shared Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
   Boolean? useAlpn = null,
   Boolean? usePooledBuffers = null) extends TCPSSLOptions(
@@ -98,8 +114,23 @@ shared class NetServerOptions(
     if (exists clientAuth) {
       json.put("clientAuth", clientAuth_.toString(clientAuth));
     }
-    if (exists clientAuthRequired) {
-      json.put("clientAuthRequired", clientAuthRequired);
+    if (exists clusterPingInterval) {
+      json.put("clusterPingInterval", clusterPingInterval);
+    }
+    if (exists clusterPingReplyInterval) {
+      json.put("clusterPingReplyInterval", clusterPingReplyInterval);
+    }
+    if (exists clusterPublicHost) {
+      json.put("clusterPublicHost", clusterPublicHost);
+    }
+    if (exists clusterPublicPort) {
+      json.put("clusterPublicPort", clusterPublicPort);
+    }
+    if (exists clustered) {
+      json.put("clustered", clustered);
+    }
+    if (exists connectTimeout) {
+      json.put("connectTimeout", connectTimeout);
     }
     if (exists host) {
       json.put("host", host);
@@ -107,16 +138,30 @@ shared class NetServerOptions(
     if (exists port) {
       json.put("port", port);
     }
+    if (exists reconnectAttempts) {
+      json.put("reconnectAttempts", reconnectAttempts);
+    }
+    if (exists reconnectInterval) {
+      json.put("reconnectInterval", reconnectInterval);
+    }
+    if (exists trustAll) {
+      json.put("trustAll", trustAll);
+    }
     return json;
   }
 }
 
-shared object netServerOptions {
+shared object eventBusOptions {
 
-  shared NetServerOptions fromJson(JsonObject json) {
+  shared EventBusOptions fromJson(JsonObject json) {
     Integer? acceptBacklog = json.getIntegerOrNull("acceptBacklog");
     ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
-    Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
+    Integer? clusterPingInterval = json.getIntegerOrNull("clusterPingInterval");
+    Integer? clusterPingReplyInterval = json.getIntegerOrNull("clusterPingReplyInterval");
+    String? clusterPublicHost = json.getStringOrNull("clusterPublicHost");
+    Integer? clusterPublicPort = json.getIntegerOrNull("clusterPublicPort");
+    Boolean? clustered = json.getBooleanOrNull("clustered");
+    Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
@@ -129,6 +174,8 @@ shared object netServerOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Integer? port = json.getIntegerOrNull("port");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
+    Integer? reconnectAttempts = json.getIntegerOrNull("reconnectAttempts");
+    Integer? reconnectInterval = json.getIntegerOrNull("reconnectInterval");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
@@ -137,13 +184,19 @@ shared object netServerOptions {
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
+    Boolean? trustAll = json.getBooleanOrNull("trustAll");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
-    return NetServerOptions {
+    return EventBusOptions {
       acceptBacklog = acceptBacklog;
       clientAuth = clientAuth;
-      clientAuthRequired = clientAuthRequired;
+      clusterPingInterval = clusterPingInterval;
+      clusterPingReplyInterval = clusterPingReplyInterval;
+      clusterPublicHost = clusterPublicHost;
+      clusterPublicPort = clusterPublicPort;
+      clustered = clustered;
+      connectTimeout = connectTimeout;
       crlPaths = crlPaths;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
@@ -156,6 +209,8 @@ shared object netServerOptions {
       pfxTrustOptions = pfxTrustOptions;
       port = port;
       receiveBufferSize = receiveBufferSize;
+      reconnectAttempts = reconnectAttempts;
+      reconnectInterval = reconnectInterval;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
@@ -164,19 +219,28 @@ shared object netServerOptions {
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;
+      trustAll = trustAll;
       trustStoreOptions = trustStoreOptions;
       useAlpn = useAlpn;
       usePooledBuffers = usePooledBuffers;
     };
   }
 
-  shared object toJava extends Converter<NetServerOptions, NetServerOptions_>() {
-    shared actual NetServerOptions_ convert(NetServerOptions src) {
+  shared object toCeylon extends Converter<EventBusOptions_, EventBusOptions>() {
+    shared actual EventBusOptions convert(EventBusOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
+  shared object toJava extends Converter<EventBusOptions, EventBusOptions_>() {
+    shared actual EventBusOptions_ convert(EventBusOptions src) {
       // Todo : make optimized version without json
       value json = JsonObject_(src.toJson().string);
-      value ret = NetServerOptions_(json);
+      value ret = EventBusOptions_(json);
       return ret;
     }
   }
-  shared JsonObject toJson(NetServerOptions obj) => obj.toJson();
+  shared JsonObject toJson(EventBusOptions obj) => obj.toJson();
 }

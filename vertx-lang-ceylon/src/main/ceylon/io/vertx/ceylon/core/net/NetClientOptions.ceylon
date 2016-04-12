@@ -7,6 +7,8 @@ import io.vertx.ceylon.core.net {
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
+  SSLEngine,
+  sslEngine_=sslEngine,
   ClientOptionsBase
 }
 import ceylon.json {
@@ -35,6 +37,7 @@ shared class NetClientOptions(
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
+  {String*}? enabledSecureTransportProtocols = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -50,15 +53,18 @@ shared class NetClientOptions(
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
+  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
   Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
+  Boolean? useAlpn = null,
   Boolean? usePooledBuffers = null) extends ClientOptionsBase(
   connectTimeout,
   crlPaths,
   enabledCipherSuites,
+  enabledSecureTransportProtocols,
   idleTimeout,
   keyStoreOptions,
   pemKeyCertOptions,
@@ -70,11 +76,13 @@ shared class NetClientOptions(
   sendBufferSize,
   soLinger,
   ssl,
+  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
   trustAll,
   trustStoreOptions,
+  useAlpn,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = super.toJson();
@@ -94,6 +102,7 @@ shared object netClientOptions {
     Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
+    {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -107,16 +116,19 @@ shared object netClientOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     Boolean? trustAll = json.getBooleanOrNull("trustAll");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
     return NetClientOptions {
       connectTimeout = connectTimeout;
       crlPaths = crlPaths;
       enabledCipherSuites = enabledCipherSuites;
+      enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       idleTimeout = idleTimeout;
       keyStoreOptions = keyStoreOptions;
       pemKeyCertOptions = pemKeyCertOptions;
@@ -130,11 +142,13 @@ shared object netClientOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
+      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;
       trustAll = trustAll;
       trustStoreOptions = trustStoreOptions;
+      useAlpn = useAlpn;
       usePooledBuffers = usePooledBuffers;
     };
   }

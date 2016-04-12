@@ -21,6 +21,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)

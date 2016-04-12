@@ -296,7 +296,8 @@
         decl = 'Object';
       }
     } else if (kind == CLASS_HANDLER) {
-      var arg = type.args[0];
+      decl = 'Callable<?>';
+    } else if (kind == CLASS_FUNCTION) {
       decl = 'Callable<?>';
     } else if (kind == CLASS_THROWABLE) {
       decl = 'Throwable';

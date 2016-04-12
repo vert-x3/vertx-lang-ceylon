@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.Route;
 import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
-import io.vertx.ceylon.auth.common.AuthProvider;
+import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
 
 @Ceylon(major = 8)
 @Name("oAuth2AuthHandler")
@@ -36,12 +36,12 @@ public class oAuth2AuthHandler_ implements ReifiedType {
   }
 
 
-  @DocAnnotation$annotation$(description = " Create a JWT auth handler\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2 auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::OAuth2AuthHandler")
   public OAuth2AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.common::AuthProvider") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use\n") AuthProvider authProvider, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use\n") OAuth2Auth authProvider, 
     final @TypeInfo("ceylon.language::String") @Name("uri")  ceylon.language.String uri) {
-    io.vertx.ext.auth.AuthProvider arg_0 = io.vertx.ceylon.auth.common.AuthProvider.TO_JAVA.safeConvert(authProvider);
+    io.vertx.ext.auth.oauth2.OAuth2Auth arg_0 = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(uri);
     OAuth2AuthHandler ret = io.vertx.ceylon.web.handler.OAuth2AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.OAuth2AuthHandler.create(arg_0, arg_1));
     return ret;

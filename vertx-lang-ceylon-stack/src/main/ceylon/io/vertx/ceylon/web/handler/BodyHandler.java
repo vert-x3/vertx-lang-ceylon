@@ -87,4 +87,13 @@ public class BodyHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set whether uploaded files should be removed after handling the request\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
+  public BodyHandler setDeleteUploadedFilesOnEnd(
+    final @TypeInfo("ceylon.language::Boolean") @Name("deleteUploadedFilesOnEnd") @DocAnnotation$annotation$(description = "true if uploaded files should be removed after handling the request\n") boolean deleteUploadedFilesOnEnd) {
+    boolean arg_0 = deleteUploadedFilesOnEnd;
+    BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setDeleteUploadedFilesOnEnd(arg_0));
+    return this;
+  }
+
 }
