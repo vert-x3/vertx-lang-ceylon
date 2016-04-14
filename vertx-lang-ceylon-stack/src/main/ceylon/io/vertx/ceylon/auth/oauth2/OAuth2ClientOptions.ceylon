@@ -1,3 +1,6 @@
+import io.vertx.ext.auth.oauth2 {
+  OAuth2ClientOptions_=OAuth2ClientOptions
+}
 import io.vertx.ceylon.core.net {
   JksOptions,
   jksOptions_=jksOptions,
@@ -8,8 +11,7 @@ import io.vertx.ceylon.core.net {
   PfxOptions,
   pfxOptions_=pfxOptions,
   SSLEngine,
-  sslEngine_=sslEngine,
-  ClientOptionsBase
+  sslEngine_=sslEngine
 }
 import ceylon.json {
   JsonObject=Object,
@@ -25,10 +27,8 @@ import io.vertx.ceylon.core.http {
   HttpVersion,
   httpVersion_=httpVersion,
   Http2Settings,
-  http2Settings_=http2Settings
-}
-import io.vertx.core.http {
-  HttpClientOptions_=HttpClientOptions
+  http2Settings_=http2Settings,
+  HttpClientOptions
 }
 import ceylon.collection {
   HashMap
@@ -37,70 +37,82 @@ import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
 }
-/* Generated from io.vertx.core.http.HttpClientOptions */
-" Options describing how an [HttpClient](../http/HttpClient.type.html) will make connections.\n"
-shared class HttpClientOptions(
-  " Set the list of protocol versions to provide to the server during the Application-Layer Protocol Negotiatiation.\n When the list is empty, the client provides a best effort list according to [setProtocolVersion](../http/HttpClientOptions.type.html#setProtocolVersion):\n\n <ul>\n   <li>: [ \"h2\", \"http/1.1\" ]</li>\n   <li>otherwise: [[getProtocolVersion](../http/HttpClientOptions.type.html#getProtocolVersion)]</li>\n </ul>\n"
-  shared {HttpVersion*}? alpnVersions = null,
+/* Generated from io.vertx.ext.auth.oauth2.OAuth2ClientOptions */
+" Options describing how an OAuth2  will make connections.\n"
+shared class OAuth2ClientOptions(
+  {HttpVersion*}? alpnVersions = null,
+  shared String? authorizationPath = null,
+  shared String? clientID = null,
+  shared String? clientSecret = null,
+  shared String? clientSecretParameterName = null,
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
-  " Set the default host name to be used by this client in requests if none is provided when making the request.\n"
-  shared String? defaultHost = null,
-  " Set the default port to be used by this client in requests if none is provided when making the request.\n"
-  shared Integer? defaultPort = null,
+  String? defaultHost = null,
+  Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
-  " Set to <code>true</code> when an <i>h2c</i> connection is established using an HTTP/1.1 upgrade request, and <code>false</code>\n when an <i>h2c</i> connection is established directly (with prior knowledge).\n"
-  shared Boolean? h2cUpgrade = null,
+  Boolean? h2cUpgrade = null,
+  shared JsonObject? headers = null,
   Integer? idleTimeout = null,
-  " Set the HTTP/2 connection settings immediatly sent by to the server when the client connects.\n"
-  shared Http2Settings? initialSettings = null,
-  " Set whether keep alive is enabled on the client\n"
-  shared Boolean? keepAlive = null,
+  Http2Settings? initialSettings = null,
+  shared Boolean? jwtToken = null,
+  Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
-  " Set the maximum HTTP chunk size\n"
-  shared Integer? maxChunkSize = null,
-  " Set the maximum pool size for connections\n"
-  shared Integer? maxPoolSize = null,
-  " Set the maximum requests allowed in the wait queue, any requests beyond the max size will result in\n a ConnectionPoolTooBusyException.  If the value is set to a negative number then the queue will be unbounded.\n"
-  shared Integer? maxWaitQueueSize = null,
-  " Set the max websocket frame size\n"
-  shared Integer? maxWebsocketFrameSize = null,
+  shared String? logoutPath = null,
+  Integer? maxChunkSize = null,
+  Integer? maxPoolSize = null,
+  Integer? maxWaitQueueSize = null,
+  Integer? maxWebsocketFrameSize = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
-  " Set whether pipe-lining is enabled on the client\n"
-  shared Boolean? pipelining = null,
-  " Set the protocol version.\n"
-  shared HttpVersion? protocolVersion = null,
+  Boolean? pipelining = null,
+  HttpVersion? protocolVersion = null,
+  shared String? publicKey = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  shared String? revocationPath = null,
   Integer? sendBufferSize = null,
+  shared String? site = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
   SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
+  shared String? tokenPath = null,
   Integer? trafficClass = null,
   Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
-  " Set whether compression is enabled\n"
-  shared Boolean? tryUseCompression = null,
+  Boolean? tryUseCompression = null,
   Boolean? useAlpn = null,
+  shared Boolean? useBasicAuthorizationHeader = null,
   Boolean? usePooledBuffers = null,
-  " Set whether hostname verification is enabled\n"
-  shared Boolean? verifyHost = null) extends ClientOptionsBase(
+  shared String? userAgent = null,
+  shared String? userInfoPath = null,
+  Boolean? verifyHost = null) extends HttpClientOptions(
+  alpnVersions,
   connectTimeout,
   crlPaths,
+  defaultHost,
+  defaultPort,
   enabledCipherSuites,
   enabledSecureTransportProtocols,
+  h2cUpgrade,
   idleTimeout,
+  initialSettings,
+  keepAlive,
   keyStoreOptions,
+  maxChunkSize,
+  maxPoolSize,
+  maxWaitQueueSize,
+  maxWebsocketFrameSize,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
   pfxTrustOptions,
+  pipelining,
+  protocolVersion,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
@@ -112,60 +124,66 @@ shared class HttpClientOptions(
   trafficClass,
   trustAll,
   trustStoreOptions,
+  tryUseCompression,
   useAlpn,
-  usePooledBuffers) satisfies BaseDataObject {
+  usePooledBuffers,
+  verifyHost) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = super.toJson();
-    if (exists alpnVersions) {
-      json.put("alpnVersions", JsonArray(alpnVersions.map(httpVersion_.toString)));
+    if (exists authorizationPath) {
+      json.put("authorizationPath", authorizationPath);
     }
-    if (exists defaultHost) {
-      json.put("defaultHost", defaultHost);
+    if (exists clientID) {
+      json.put("clientID", clientID);
     }
-    if (exists defaultPort) {
-      json.put("defaultPort", defaultPort);
+    if (exists clientSecret) {
+      json.put("clientSecret", clientSecret);
     }
-    if (exists h2cUpgrade) {
-      json.put("h2cUpgrade", h2cUpgrade);
+    if (exists clientSecretParameterName) {
+      json.put("clientSecretParameterName", clientSecretParameterName);
     }
-    if (exists initialSettings) {
-      json.put("initialSettings", initialSettings.toJson());
+    if (exists headers) {
+      json.put("headers", headers);
     }
-    if (exists keepAlive) {
-      json.put("keepAlive", keepAlive);
+    if (exists jwtToken) {
+      json.put("jwtToken", jwtToken);
     }
-    if (exists maxChunkSize) {
-      json.put("maxChunkSize", maxChunkSize);
+    if (exists logoutPath) {
+      json.put("logoutPath", logoutPath);
     }
-    if (exists maxPoolSize) {
-      json.put("maxPoolSize", maxPoolSize);
+    if (exists publicKey) {
+      json.put("publicKey", publicKey);
     }
-    if (exists maxWaitQueueSize) {
-      json.put("maxWaitQueueSize", maxWaitQueueSize);
+    if (exists revocationPath) {
+      json.put("revocationPath", revocationPath);
     }
-    if (exists maxWebsocketFrameSize) {
-      json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
+    if (exists site) {
+      json.put("site", site);
     }
-    if (exists pipelining) {
-      json.put("pipelining", pipelining);
+    if (exists tokenPath) {
+      json.put("tokenPath", tokenPath);
     }
-    if (exists protocolVersion) {
-      json.put("protocolVersion", httpVersion_.toString(protocolVersion));
+    if (exists useBasicAuthorizationHeader) {
+      json.put("useBasicAuthorizationHeader", useBasicAuthorizationHeader);
     }
-    if (exists tryUseCompression) {
-      json.put("tryUseCompression", tryUseCompression);
+    if (exists userAgent) {
+      json.put("userAgent", userAgent);
     }
-    if (exists verifyHost) {
-      json.put("verifyHost", verifyHost);
+    if (exists userInfoPath) {
+      json.put("userInfoPath", userInfoPath);
     }
     return json;
   }
 }
 
-shared object httpClientOptions {
+shared object oAuth2ClientOptions {
 
-  shared HttpClientOptions fromJson(JsonObject json) {
+  shared OAuth2ClientOptions fromJson(JsonObject json) {
     {HttpVersion*}? alpnVersions = json.getArrayOrNull("alpnVersions")?.strings?.map(httpVersion_.fromString);
+    String? authorizationPath = json.getStringOrNull("authorizationPath");
+    String? clientID = json.getStringOrNull("clientID");
+    String? clientSecret = json.getStringOrNull("clientSecret");
+    String? clientSecretParameterName = json.getStringOrNull("clientSecretParameterName");
     Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     String? defaultHost = json.getStringOrNull("defaultHost");
@@ -173,10 +191,13 @@ shared object httpClientOptions {
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Boolean? h2cUpgrade = json.getBooleanOrNull("h2cUpgrade");
+    JsonObject? headers = json.getObjectOrNull("headers");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
+    Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    String? logoutPath = json.getStringOrNull("logoutPath");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
@@ -187,23 +208,34 @@ shared object httpClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
+    String? publicKey = json.getStringOrNull("publicKey");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    String? revocationPath = json.getStringOrNull("revocationPath");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    String? site = json.getStringOrNull("site");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
     SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    String? tokenPath = json.getStringOrNull("tokenPath");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     Boolean? trustAll = json.getBooleanOrNull("trustAll");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? tryUseCompression = json.getBooleanOrNull("tryUseCompression");
     Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
+    Boolean? useBasicAuthorizationHeader = json.getBooleanOrNull("useBasicAuthorizationHeader");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
+    String? userAgent = json.getStringOrNull("userAgent");
+    String? userInfoPath = json.getStringOrNull("userInfoPath");
     Boolean? verifyHost = json.getBooleanOrNull("verifyHost");
-    return HttpClientOptions {
+    return OAuth2ClientOptions {
       alpnVersions = alpnVersions;
+      authorizationPath = authorizationPath;
+      clientID = clientID;
+      clientSecret = clientSecret;
+      clientSecretParameterName = clientSecretParameterName;
       connectTimeout = connectTimeout;
       crlPaths = crlPaths;
       defaultHost = defaultHost;
@@ -211,10 +243,13 @@ shared object httpClientOptions {
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       h2cUpgrade = h2cUpgrade;
+      headers = headers;
       idleTimeout = idleTimeout;
       initialSettings = initialSettings;
+      jwtToken = jwtToken;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      logoutPath = logoutPath;
       maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;
       maxWaitQueueSize = maxWaitQueueSize;
@@ -225,31 +260,38 @@ shared object httpClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       protocolVersion = protocolVersion;
+      publicKey = publicKey;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      revocationPath = revocationPath;
       sendBufferSize = sendBufferSize;
+      site = site;
       soLinger = soLinger;
       ssl = ssl;
       sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
+      tokenPath = tokenPath;
       trafficClass = trafficClass;
       trustAll = trustAll;
       trustStoreOptions = trustStoreOptions;
       tryUseCompression = tryUseCompression;
       useAlpn = useAlpn;
+      useBasicAuthorizationHeader = useBasicAuthorizationHeader;
       usePooledBuffers = usePooledBuffers;
+      userAgent = userAgent;
+      userInfoPath = userInfoPath;
       verifyHost = verifyHost;
     };
   }
 
-  shared object toJava extends Converter<HttpClientOptions, HttpClientOptions_>() {
-    shared actual HttpClientOptions_ convert(HttpClientOptions src) {
+  shared object toJava extends Converter<OAuth2ClientOptions, OAuth2ClientOptions_>() {
+    shared actual OAuth2ClientOptions_ convert(OAuth2ClientOptions src) {
       // Todo : make optimized version without json
       value json = JsonObject_(src.toJson().string);
-      value ret = HttpClientOptions_(json);
+      value ret = OAuth2ClientOptions_(json);
       return ret;
     }
   }
-  shared JsonObject toJson(HttpClientOptions obj) => obj.toJson();
+  shared JsonObject toJson(OAuth2ClientOptions obj) => obj.toJson();
 }

@@ -7,6 +7,8 @@ import io.vertx.ceylon.core.net {
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
+  SSLEngine,
+  sslEngine_=sslEngine,
   NetServerOptions
 }
 import ceylon.json {
@@ -20,8 +22,12 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.ceylon.core.http {
+  HttpVersion,
+  httpVersion_=httpVersion,
   ClientAuth,
-  clientAuth_=clientAuth
+  clientAuth_=clientAuth,
+  Http2Settings,
+  http2Settings_=http2Settings
 }
 import io.vertx.core.http {
   HttpServerOptions_=HttpServerOptions
@@ -37,22 +43,27 @@ import io.vertx.core.json {
 " Represents options used by an [HttpServer](../http/HttpServer.type.html) instance\n"
 shared class HttpServerOptions(
   Integer? acceptBacklog = null,
+  " Set the list of protocol versions to provide to the server during the Application-Layer Protocol Negotiatiation.\n"
+  shared {HttpVersion*}? alpnVersions = null,
   ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
   " Set whether the server supports compression\n"
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
+  {String*}? enabledSecureTransportProtocols = null,
   " Set whether 100 Continue should be handled automatically\n"
   shared Boolean? handle100ContinueAutomatically = null,
   String? host = null,
   Integer? idleTimeout = null,
+  " Set the HTTP/2 connection settings immediatly sent by the server when a client connects.\n"
+  shared Http2Settings? initialSettings = null,
   JksOptions? keyStoreOptions = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
-  " Set the maximum length of all headers\n"
+  " Set the maximum length of all headers for HTTP/1.x .\n"
   shared Integer? maxHeaderSize = null,
-  " Set the maximum length of the initial line (e.g. <code>\"GET / HTTP/1.0\"</code>)\n"
+  " Set the maximum length of the initial line for HTTP/1.x (e.g. <code>\"GET / HTTP/1.0\"</code>)\n"
   shared Integer? maxInitialLineLength = null,
   " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
@@ -66,10 +77,12 @@ shared class HttpServerOptions(
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
+  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
   JksOptions? trustStoreOptions = null,
+  Boolean? useAlpn = null,
   Boolean? usePooledBuffers = null,
   " Set the websocket subprotocols supported by the server.\n"
   shared String? websocketSubProtocols = null) extends NetServerOptions(
@@ -78,6 +91,7 @@ shared class HttpServerOptions(
   clientAuthRequired,
   crlPaths,
   enabledCipherSuites,
+  enabledSecureTransportProtocols,
   host,
   idleTimeout,
   keyStoreOptions,
@@ -91,18 +105,26 @@ shared class HttpServerOptions(
   sendBufferSize,
   soLinger,
   ssl,
+  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
   trustStoreOptions,
+  useAlpn,
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = super.toJson();
+    if (exists alpnVersions) {
+      json.put("alpnVersions", JsonArray(alpnVersions.map(httpVersion_.toString)));
+    }
     if (exists compressionSupported) {
       json.put("compressionSupported", compressionSupported);
     }
     if (exists handle100ContinueAutomatically) {
       json.put("handle100ContinueAutomatically", handle100ContinueAutomatically);
+    }
+    if (exists initialSettings) {
+      json.put("initialSettings", initialSettings.toJson());
     }
     if (exists maxChunkSize) {
       json.put("maxChunkSize", maxChunkSize);
@@ -127,14 +149,17 @@ shared object httpServerOptions {
 
   shared HttpServerOptions fromJson(JsonObject json) {
     Integer? acceptBacklog = json.getIntegerOrNull("acceptBacklog");
+    {HttpVersion*}? alpnVersions = json.getArrayOrNull("alpnVersions")?.strings?.map(httpVersion_.fromString);
     ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
     Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
     Boolean? compressionSupported = json.getBooleanOrNull("compressionSupported");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
+    {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Boolean? handle100ContinueAutomatically = json.getBooleanOrNull("handle100ContinueAutomatically");
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
@@ -150,22 +175,27 @@ shared object httpServerOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
     String? websocketSubProtocols = json.getStringOrNull("websocketSubProtocols");
     return HttpServerOptions {
       acceptBacklog = acceptBacklog;
+      alpnVersions = alpnVersions;
       clientAuth = clientAuth;
       clientAuthRequired = clientAuthRequired;
       compressionSupported = compressionSupported;
       crlPaths = crlPaths;
       enabledCipherSuites = enabledCipherSuites;
+      enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       handle100ContinueAutomatically = handle100ContinueAutomatically;
       host = host;
       idleTimeout = idleTimeout;
+      initialSettings = initialSettings;
       keyStoreOptions = keyStoreOptions;
       maxChunkSize = maxChunkSize;
       maxHeaderSize = maxHeaderSize;
@@ -181,10 +211,12 @@ shared object httpServerOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
+      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;
       trustStoreOptions = trustStoreOptions;
+      useAlpn = useAlpn;
       usePooledBuffers = usePooledBuffers;
       websocketSubProtocols = websocketSubProtocols;
     };

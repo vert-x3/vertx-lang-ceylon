@@ -9,7 +9,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.sql "3.2.2";
+shared import io.vertx.ceylon.sql "3.3.0";
 ----
 
 == The SQL Connection

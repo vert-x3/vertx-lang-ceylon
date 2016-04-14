@@ -1,48 +1,10 @@
 = Cheatsheets
 
-[[PermittedOptions]]
-== PermittedOptions
+[[AuthOptions]]
+== AuthOptions
 
 ++++
- Specify a match to allow for inbound and outbound traffic using the
- link.
-++++
-'''
-
-[cols=">25%,^25%,50%"]
-[frame="topbot"]
-|===
-^|Name | Type ^| Description
-|[[address]]`address`|`String`|
-+++
-The exact address the message is being sent to. If you want to allow messages based on
- an exact address you use this field.
-+++
-|[[addressRegex]]`addressRegex`|`String`|
-+++
-A regular expression that will be matched against the address. If you want to allow messages
- based on a regular expression you use this field. If the link value is specified
- this will be ignored.
-+++
-|[[match]]`match`|`Json object`|
-+++
-This allows you to allow messages based on their structure. Any fields in the match must exist in the
- message with the same values for them to be allowed. This currently only works with JSON messages.
-+++
-|[[requiredAuthority]]`requiredAuthority`|`String`|
-+++
-Declare a specific authority that user must have in order to allow messages
-+++
-|===
-
-[[UpdateResult]]
-== UpdateResult
-
-++++
- Represents the result of an update/insert/delete operation on the database.
- <p>
- The number of rows updated is available with link and any generated
- keys are available with link.
+ A common base object for authentication options.<p>
 ++++
 '''
 
@@ -50,14 +12,28 @@ Declare a specific authority that user must have in order to allow messages
 [frame="topbot"]
 |===
 ^|Name | Type ^| Description
-|[[keys]]`keys`|`Json array`|
-+++
-Get any generated keys
-+++
-|[[updated]]`updated`|`Number (int)`|
-+++
-Get the number of rows updated
-+++
+|===
+
+[[BridgeOptions]]
+== BridgeOptions
+
+++++
+ Options for configuring the event bus bridge.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[inboundPermitted]]`inboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[inboundPermitteds]]`inboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[maxAddressLength]]`maxAddressLength`|`Number (int)`|-
+|[[maxHandlersPerSocket]]`maxHandlersPerSocket`|`Number (int)`|-
+|[[outboundPermitted]]`outboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[outboundPermitteds]]`outboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
+|[[pingTimeout]]`pingTimeout`|`Number (long)`|-
+|[[replyTimeout]]`replyTimeout`|`Number (long)`|-
 |===
 
 [[JDBCAuthOptions]]
@@ -99,51 +75,6 @@ Set the roles query to use. Use this if you want to override the default roles q
 |[[shared]]`shared`|`Boolean`|
 +++
 Set whether the JDBC client is shared or non shared.
-+++
-|===
-
-[[ResultSet]]
-== ResultSet
-
-++++
- Represents the results of a SQL query.
- <p>
- It contains a list for the column names of the results, and a list of <code>JsonArray</code> - one for each row of the
- results.
-++++
-'''
-
-[cols=">25%,^25%,50%"]
-[frame="topbot"]
-|===
-^|Name | Type ^| Description
-|[[columnNames]]`columnNames`|`Array of String`|
-+++
-Get the column names
-+++
-|[[numColumns]]`numColumns`|`Number (int)`|
-+++
-Return the number of columns in the result set
-+++
-|[[numRows]]`numRows`|`Number (int)`|
-+++
-Return the number of rows in the result set
-+++
-|[[output]]`output`|`Json array`|
-+++
-Get the registered outputs
-+++
-|[[results]]`results`|`Array of Json array`|
-+++
-Get the results
-+++
-|[[rows]]`rows`|`Array of Json object`|
-+++
-Get the rows - each row represented as a JsonObject where the keys are the column names and the values are
- the column values.
- <p>
- Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will
- overwrite the other if using this method. If that's the case use link instead.
 +++
 |===
 
@@ -203,11 +134,11 @@ The subject of this token
 +++
 |===
 
-[[AuthOptions]]
-== AuthOptions
+[[OAuth2ClientOptions]]
+== OAuth2ClientOptions
 
 ++++
- A common base object for authentication options.<p>
+ Options describing how an OAuth2  will make connections.
 ++++
 '''
 
@@ -215,6 +146,138 @@ The subject of this token
 [frame="topbot"]
 |===
 ^|Name | Type ^| Description
+|[[alpnVersions]]`alpnVersions`|`Array of link:enums.html#HttpVersion[HttpVersion]`|-
+|[[authorizationPath]]`authorizationPath`|`String`|-
+|[[clientID]]`clientID`|`String`|-
+|[[clientSecret]]`clientSecret`|`String`|-
+|[[clientSecretParameterName]]`clientSecretParameterName`|`String`|-
+|[[connectTimeout]]`connectTimeout`|`Number (int)`|-
+|[[crlPaths]]`crlPaths`|`Array of String`|-
+|[[crlValues]]`crlValues`|`Array of Buffer`|-
+|[[defaultHost]]`defaultHost`|`String`|-
+|[[defaultPort]]`defaultPort`|`Number (int)`|-
+|[[enabledCipherSuites]]`enabledCipherSuites`|`Array of String`|-
+|[[enabledSecureTransportProtocols]]`enabledSecureTransportProtocols`|`Array of String`|-
+|[[h2cUpgrade]]`h2cUpgrade`|`Boolean`|-
+|[[headers]]`headers`|`Json object`|-
+|[[idleTimeout]]`idleTimeout`|`Number (int)`|-
+|[[initialSettings]]`initialSettings`|`link:dataobjects.html#Http2Settings[Http2Settings]`|-
+|[[jwtToken]]`jwtToken`|`Boolean`|-
+|[[keepAlive]]`keepAlive`|`Boolean`|-
+|[[keyStoreOptions]]`keyStoreOptions`|`link:dataobjects.html#JksOptions[JksOptions]`|-
+|[[logoutPath]]`logoutPath`|`String`|-
+|[[maxChunkSize]]`maxChunkSize`|`Number (int)`|-
+|[[maxPoolSize]]`maxPoolSize`|`Number (int)`|-
+|[[maxWaitQueueSize]]`maxWaitQueueSize`|`Number (int)`|-
+|[[maxWebsocketFrameSize]]`maxWebsocketFrameSize`|`Number (int)`|-
+|[[pemKeyCertOptions]]`pemKeyCertOptions`|`link:dataobjects.html#PemKeyCertOptions[PemKeyCertOptions]`|-
+|[[pemTrustOptions]]`pemTrustOptions`|`link:dataobjects.html#PemTrustOptions[PemTrustOptions]`|-
+|[[pfxKeyCertOptions]]`pfxKeyCertOptions`|`link:dataobjects.html#PfxOptions[PfxOptions]`|-
+|[[pfxTrustOptions]]`pfxTrustOptions`|`link:dataobjects.html#PfxOptions[PfxOptions]`|-
+|[[pipelining]]`pipelining`|`Boolean`|-
+|[[protocolVersion]]`protocolVersion`|`link:enums.html#HttpVersion[HttpVersion]`|-
+|[[publicKey]]`publicKey`|`String`|-
+|[[receiveBufferSize]]`receiveBufferSize`|`Number (int)`|-
+|[[reuseAddress]]`reuseAddress`|`Boolean`|-
+|[[revocationPath]]`revocationPath`|`String`|-
+|[[sendBufferSize]]`sendBufferSize`|`Number (int)`|-
+|[[site]]`site`|`String`|-
+|[[soLinger]]`soLinger`|`Number (int)`|-
+|[[ssl]]`ssl`|`Boolean`|-
+|[[sslEngine]]`sslEngine`|`link:enums.html#SSLEngine[SSLEngine]`|-
+|[[tcpKeepAlive]]`tcpKeepAlive`|`Boolean`|-
+|[[tcpNoDelay]]`tcpNoDelay`|`Boolean`|-
+|[[tokenPath]]`tokenPath`|`String`|-
+|[[trafficClass]]`trafficClass`|`Number (int)`|-
+|[[trustAll]]`trustAll`|`Boolean`|-
+|[[trustStoreOptions]]`trustStoreOptions`|`link:dataobjects.html#JksOptions[JksOptions]`|-
+|[[tryUseCompression]]`tryUseCompression`|`Boolean`|-
+|[[useAlpn]]`useAlpn`|`Boolean`|-
+|[[useBasicAuthorizationHeader]]`useBasicAuthorizationHeader`|`Boolean`|-
+|[[usePooledBuffers]]`usePooledBuffers`|`Boolean`|-
+|[[userAgent]]`userAgent`|`String`|-
+|[[userInfoPath]]`userInfoPath`|`String`|-
+|[[verifyHost]]`verifyHost`|`Boolean`|-
+|===
+
+[[PermittedOptions]]
+== PermittedOptions
+
+++++
+ Specify a match to allow for inbound and outbound traffic using the
+ link.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[address]]`address`|`String`|
++++
+The exact address the message is being sent to. If you want to allow messages based on
+ an exact address you use this field.
++++
+|[[addressRegex]]`addressRegex`|`String`|
++++
+A regular expression that will be matched against the address. If you want to allow messages
+ based on a regular expression you use this field. If the link value is specified
+ this will be ignored.
++++
+|[[match]]`match`|`Json object`|
++++
+This allows you to allow messages based on their structure. Any fields in the match must exist in the
+ message with the same values for them to be allowed. This currently only works with JSON messages.
++++
+|[[requiredAuthority]]`requiredAuthority`|`String`|
++++
+Declare a specific authority that user must have in order to allow messages
++++
+|===
+
+[[ResultSet]]
+== ResultSet
+
+++++
+ Represents the results of a SQL query.
+ <p>
+ It contains a list for the column names of the results, and a list of <code>JsonArray</code> - one for each row of the
+ results.
+++++
+'''
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[columnNames]]`columnNames`|`Array of String`|
++++
+Get the column names
++++
+|[[numColumns]]`numColumns`|`Number (int)`|
++++
+Return the number of columns in the result set
++++
+|[[numRows]]`numRows`|`Number (int)`|
++++
+Return the number of rows in the result set
++++
+|[[output]]`output`|`Json array`|
++++
+Get the registered outputs
++++
+|[[results]]`results`|`Array of Json array`|
++++
+Get the results
++++
+|[[rows]]`rows`|`Array of Json object`|
++++
+Get the rows - each row represented as a JsonObject where the keys are the column names and the values are
+ the column values.
+ <p>
+ Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will
+ overwrite the other if using this method. If that's the case use link instead.
++++
 |===
 
 [[ShiroAuthOptions]]
@@ -259,11 +322,14 @@ Set the Shiro auth options type.
 |[[sessionTimeout]]`sessionTimeout`|`Number (long)`|-
 |===
 
-[[BridgeOptions]]
-== BridgeOptions
+[[UpdateResult]]
+== UpdateResult
 
 ++++
- Options for configuring the event bus bridge.
+ Represents the result of an update/insert/delete operation on the database.
+ <p>
+ The number of rows updated is available with link and any generated
+ keys are available with link.
 ++++
 '''
 
@@ -271,13 +337,13 @@ Set the Shiro auth options type.
 [frame="topbot"]
 |===
 ^|Name | Type ^| Description
-|[[inboundPermitted]]`inboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
-|[[inboundPermitteds]]`inboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
-|[[maxAddressLength]]`maxAddressLength`|`Number (int)`|-
-|[[maxHandlersPerSocket]]`maxHandlersPerSocket`|`Number (int)`|-
-|[[outboundPermitted]]`outboundPermitted`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
-|[[outboundPermitteds]]`outboundPermitteds`|`Array of link:dataobjects.html#PermittedOptions[PermittedOptions]`|-
-|[[pingTimeout]]`pingTimeout`|`Number (long)`|-
-|[[replyTimeout]]`replyTimeout`|`Number (long)`|-
+|[[keys]]`keys`|`Json array`|
++++
+Get any generated keys
++++
+|[[updated]]`updated`|`Number (int)`|
++++
+Get the number of rows updated
++++
 |===
 

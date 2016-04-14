@@ -2,7 +2,7 @@ import io.vertx.lang.ceylon { Converter }
 import io.vertx.core.http { HttpMethod_=HttpMethod }
 
 " Represents an HTTP method\n"
-shared abstract class HttpMethod(shared String name) of options | get | head | post | put | delete | trace | connect | patch {
+shared abstract class HttpMethod(shared String name) of options | get | head | post | put | delete | trace | connect | patch | unknown {
 }
 
 shared object options extends HttpMethod("OPTIONS") {}
@@ -14,6 +14,7 @@ shared object delete extends HttpMethod("DELETE") {}
 shared object trace extends HttpMethod("TRACE") {}
 shared object connect extends HttpMethod("CONNECT") {}
 shared object patch extends HttpMethod("PATCH") {}
+shared object unknown extends HttpMethod("UNKNOWN") {}
 
 shared object httpMethod {
 
@@ -28,6 +29,7 @@ shared object httpMethod {
       case(trace) { return "TRACE"; }
       case(connect) { return "CONNECT"; }
       case(patch) { return "PATCH"; }
+      case(unknown) { return "UNKNOWN"; }
   }
 
   shared HttpMethod fromString(String val) {
@@ -41,6 +43,7 @@ shared object httpMethod {
       case("TRACE") { return trace; }
       case("CONNECT") { return connect; }
       case("PATCH") { return patch; }
+      case("UNKNOWN") { return unknown; }
       else {
         throw Exception("Invalid HttpMethod value ``val``");
       }
@@ -58,6 +61,7 @@ shared object httpMethod {
       case(trace) { return HttpMethod_.\iTRACE; }
       case(connect) { return HttpMethod_.\iCONNECT; }
       case(patch) { return HttpMethod_.\iPATCH; }
+      case(unknown) { return HttpMethod_.\iUNKNOWN; }
     }
   }
 
@@ -89,6 +93,9 @@ shared object httpMethod {
       }
       if (src == HttpMethod_.\iPATCH) {
         return patch;
+      }
+      if (src == HttpMethod_.\iUNKNOWN) {
+        return unknown;
       }
       throw Exception("Invalid enum value");
     }

@@ -90,4 +90,17 @@ public class AccessToken extends io.vertx.ceylon.auth.common.User implements Rei
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Revoke refresh token and calls the logout endpoint. This is a openid-connect extension and might not be\n available on all providers.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken logout(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.logout(arg_0));
+    return this;
+  }
+
 }

@@ -420,4 +420,17 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.executeBlocking(arg_0, arg_1);
   }
 
+  @DocAnnotation$annotation$(description = " Set a default exception handler for [Context](Context.type.html), set on  at creation.\n")
+  @TypeInfo("io.vertx.ceylon.core::Vertx")
+  public Vertx exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        handler.$call$((Object)event);
+      }
+    };
+    Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
+    return this;
+  }
+
 }

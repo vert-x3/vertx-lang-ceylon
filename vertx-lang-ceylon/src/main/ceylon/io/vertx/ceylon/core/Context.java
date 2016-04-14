@@ -198,4 +198,17 @@ public class Context implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Set an exception handler called when the context runs an action throwing an uncaught throwable.<p/>\n\n When this handler is called, [currentContext](vertx.type.html#currentContext) will return this context.\n")
+  @TypeInfo("io.vertx.ceylon.core::Context")
+  public Context exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        handler.$call$((Object)event);
+      }
+    };
+    Context ret = io.vertx.ceylon.core.Context.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
+    return this;
+  }
+
 }

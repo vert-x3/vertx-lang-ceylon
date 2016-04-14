@@ -37,6 +37,8 @@ public class HttpServer implements ReifiedType,  Measured {
     }
   };
 
+  @Ignore private HttpServerRequestStream cached_requestStream;
+  @Ignore private ServerWebSocketStream cached_websocketStream;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServer.class);
   @Ignore private final io.vertx.core.http.HttpServer delegate;
 
@@ -64,7 +66,11 @@ public class HttpServer implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Return the request stream for the server. As HTTP requests are received by the server,\n instances of [HttpServerRequest](../http/HttpServerRequest.type.html) will be created and passed to the stream .\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream requestStream() {
+    if (cached_requestStream != null) {
+      return cached_requestStream;
+    }
     HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.converter().safeConvert(delegate.requestStream());
+    cached_requestStream = ret;
     return ret;
   }
 
@@ -78,13 +84,30 @@ public class HttpServer implements ReifiedType,  Measured {
       }
     };
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.requestHandler(arg_0));
-    return ret;
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Set a connection handler for the server. The connection handler is called after an HTTP2 connection has\n been negociated.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
+  public HttpServer connectionHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpConnection)") @Name("handler")  Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.http.HttpConnection> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpConnection>() {
+      public void handle(io.vertx.core.http.HttpConnection event) {
+        handler.$call$((Object)io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.connectionHandler(arg_0));
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Return the websocket stream for the server. If a websocket connect handshake is successful a\n new [ServerWebSocket](../http/ServerWebSocket.type.html) instance will be created and passed to the stream .\n")
   @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
   public ServerWebSocketStream websocketStream() {
+    if (cached_websocketStream != null) {
+      return cached_websocketStream;
+    }
     ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream());
+    cached_websocketStream = ret;
     return ret;
   }
 
@@ -98,7 +121,7 @@ public class HttpServer implements ReifiedType,  Measured {
       }
     };
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.websocketHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Tell the server to start listening. The server will listen on the port and host specified in the\n [HttpServerOptions](../http/HttpServerOptions.type.html) that was used when creating the server.\n <p>\n The listen happens asynchronously and the server may not be listening until some time after the call has returned.\n")
@@ -189,6 +212,13 @@ public class HttpServer implements ReifiedType,  Measured {
       }
     };
     delegate.close(arg_0);
+  }
+
+  @DocAnnotation$annotation$(description = " The actual port the server is listening on. This is useful if you bound the server specifying 0 as port number\n signifying an ephemeral port\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long actualPort() {
+    long ret = delegate.actualPort();
+    return ret;
   }
 
 }

@@ -21,6 +21,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
 import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;

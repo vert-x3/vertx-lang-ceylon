@@ -163,7 +163,7 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Calls the given SQL <code>PROCEDURE</code> which returns the result from the procedure.\n")
+  @DocAnnotation$annotation$(description = " Calls the given SQL <code>PROCEDURE</code> which returns the result from the procedure.\n\n The index of params and outputs are important for both arrays, for example when dealing with a prodecure that\n takes the first 2 arguments as input values and the 3 arg as an output then the arrays should be like:\n\n <pre>\n   params = [VALUE1, VALUE2, null]\n   outputs = [null, null, \"VARCHAR\"]\n </pre>\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection callWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql") @DocAnnotation$annotation$(description = "the SQL to execute. For example <code>{call getEmpName (?, ?)}</code>.\n") ceylon.language.String sql, 

@@ -14,7 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
 import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
-import io.vertx.ceylon.auth.common.AuthProvider;
+import io.vertx.ceylon.auth.jwt.JWTAuth;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An auth handler that provides JWT Authentication support.\n")

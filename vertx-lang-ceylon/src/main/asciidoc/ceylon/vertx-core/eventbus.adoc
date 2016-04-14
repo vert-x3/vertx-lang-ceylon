@@ -330,3 +330,85 @@ You can run Vert.x clustered on the command line with
 
 If you're registering event bus handlers from inside verticles, those handlers will be automatically unregistered
 when the verticle is undeployed.
+
+== Configuring the event bus
+
+The event bus can be configured. It is particularly useful when the event bus is clustered. Under the hood
+the event bus uses TCP connections to send and receive message, so the
+`link:../../ceylondoc/vertx-core//eventbus/EventBusOptions.type.html[EventBusOptions]` let you configure all aspects of these TCP connections. As
+the event bus acts as a server and client, the configuration is close to
+`link:../../ceylondoc/vertx-core//net/NetClientOptions.type.html[NetClientOptions]` and `link:../../ceylondoc/vertx-core//net/NetServerOptions.type.html[NetServerOptions]`.
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { vertx_ = vertx } 
+import io.vertx.ceylon.core.http { required } 
+
+...
+
+value options = VertxOptions {
+  eventBusOptions = EventBusOptions {
+    ssl = true;
+    keyStoreOptions = JksOptions {
+      path = "keystore.jks";
+      password = "wibble";
+    };
+    trustStoreOptions = JksOptions {
+      path = "keystore.jks";
+      password = "wibble";
+    };
+    clientAuth = required;
+  };
+};
+
+vertx_.clusteredVertx(options, (Vertx|Throwable res) {
+  if (is Vertx res) {
+    value vertx = res;
+    value eventBus = vertx.eventBus();
+    print("We now have a clustered event bus: ``eventBus``");
+  } else {
+    print("Failed: ``res``");
+  };
+});
+
+----
+
+The previous snippet depicts how you can use SSL connections for the event bus, instead of plain TCP
+connections.
+
+**WARNING**: to enforce the security in clustered mode, you **must** configure the
+cluster manager to use encryption or enforce security. Refer to the documentation of the cluster
+manager for further details.
+
+The event bus configuration needs to be consistent in all the cluster nodes.
+
+The `link:../../ceylondoc/vertx-core//eventbus/EventBusOptions.type.html[EventBusOptions]` also lets you specify whether or not the event bus is
+clustered, the port and host, as you would do with `link:../../ceylondoc/vertx-core//VertxOptions.type.html#setClustered(boolean)[clustered]`,
+ `link:../../ceylondoc/vertx-core//VertxOptions.type.html#getClusterHost()[getClusterHost]` and `link:../../ceylondoc/vertx-core//VertxOptions.type.html#getClusterPort()[getClusterPort]`.
+
+When used in containers, you can also configure the public host and port:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value options = VertxOptions {
+  eventBusOptions = EventBusOptions {
+    clusterPublicHost = "whatever";
+    clusterPublicPort = 1234;
+  };
+};
+
+vertx_.clusteredVertx(options, (Vertx|Throwable res) {
+  if (is Vertx res) {
+    value vertx = res;
+    value eventBus = vertx.eventBus();
+    print("We now have a clustered event bus: ``eventBus``");
+  } else {
+    print("Failed: ``res``");
+  };
+});
+
+----

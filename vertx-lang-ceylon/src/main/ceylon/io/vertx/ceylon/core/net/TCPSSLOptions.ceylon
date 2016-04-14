@@ -7,6 +7,8 @@ import io.vertx.ceylon.core.net {
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
+  SSLEngine,
+  sslEngine_=sslEngine,
   NetworkOptions
 }
 import ceylon.json {
@@ -36,6 +38,8 @@ shared class TCPSSLOptions(
   shared {String*}? crlPaths = null,
   " Add an enabled cipher suite\n"
   shared {String*}? enabledCipherSuites = null,
+  " Add an enabled SSL/TLS protocols\n"
+  shared {String*}? enabledSecureTransportProtocols = null,
   " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
   shared Integer? idleTimeout = null,
   " Set the key/cert options in jks format, aka Java keystore.\n"
@@ -55,6 +59,8 @@ shared class TCPSSLOptions(
   shared Integer? soLinger = null,
   " Set whether SSL/TLS is enabled\n"
   shared Boolean? ssl = null,
+  " Set to use SSL engine implementation to use.\n"
+  shared SSLEngine? sslEngine = null,
   " Set whether TCP keep alive is enabled\n"
   shared Boolean? tcpKeepAlive = null,
   " Set whether TCP no delay is enabled\n"
@@ -62,6 +68,8 @@ shared class TCPSSLOptions(
   Integer? trafficClass = null,
   " Set the trust options in jks format, aka Java trustore\n"
   shared JksOptions? trustStoreOptions = null,
+  " Set the ALPN usage.\n"
+  shared Boolean? useAlpn = null,
   " Set whether Netty pooled buffers are enabled\n"
   shared Boolean? usePooledBuffers = null) extends NetworkOptions(
   receiveBufferSize,
@@ -74,6 +82,9 @@ shared class TCPSSLOptions(
       json.put("crlPaths", JsonArray(crlPaths));
     }
     if (exists enabledCipherSuites) {
+      throw Exception("not yet implemented");
+    }
+    if (exists enabledSecureTransportProtocols) {
       throw Exception("not yet implemented");
     }
     if (exists idleTimeout) {
@@ -100,6 +111,9 @@ shared class TCPSSLOptions(
     if (exists ssl) {
       json.put("ssl", ssl);
     }
+    if (exists sslEngine) {
+      json.put("sslEngine", sslEngine_.toString(sslEngine));
+    }
     if (exists tcpKeepAlive) {
       json.put("tcpKeepAlive", tcpKeepAlive);
     }
@@ -108,6 +122,9 @@ shared class TCPSSLOptions(
     }
     if (exists trustStoreOptions) {
       json.put("trustStoreOptions", trustStoreOptions.toJson());
+    }
+    if (exists useAlpn) {
+      json.put("useAlpn", useAlpn);
     }
     if (exists usePooledBuffers) {
       json.put("usePooledBuffers", usePooledBuffers);
@@ -121,6 +138,7 @@ shared object tcpsslOptions {
   shared TCPSSLOptions fromJson(JsonObject json) {
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
+    {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -132,14 +150,17 @@ shared object tcpsslOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
     return TCPSSLOptions {
       crlPaths = crlPaths;
       enabledCipherSuites = enabledCipherSuites;
+      enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       idleTimeout = idleTimeout;
       keyStoreOptions = keyStoreOptions;
       pemKeyCertOptions = pemKeyCertOptions;
@@ -151,10 +172,12 @@ shared object tcpsslOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
+      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;
       trustStoreOptions = trustStoreOptions;
+      useAlpn = useAlpn;
       usePooledBuffers = usePooledBuffers;
     };
   }

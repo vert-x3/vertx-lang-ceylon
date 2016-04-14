@@ -1,3 +1,7 @@
+import io.vertx.ceylon.core.eventbus {
+  EventBusOptions,
+  eventBusOptions_=eventBusOptions
+}
 import io.vertx.core {
   VertxOptions_=VertxOptions
 }
@@ -41,6 +45,8 @@ shared class VertxOptions(
   shared Integer? clusterPublicPort = null,
   " Set whether or not the Vert.x instance will be clustered.\n"
   shared Boolean? clustered = null,
+  " Sets the event bus configuration to configure the host, port, ssl...\n"
+  shared EventBusOptions? eventBusOptions = null,
   " Set the number of event loop threads to be used by the Vert.x instance.\n"
   shared Integer? eventLoopPoolSize = null,
   " Set whether HA will be enabled on the Vert.x instance.\n"
@@ -87,6 +93,9 @@ shared class VertxOptions(
     if (exists clustered) {
       json.put("clustered", clustered);
     }
+    if (exists eventBusOptions) {
+      json.put("eventBusOptions", eventBusOptions.toJson());
+    }
     if (exists eventLoopPoolSize) {
       json.put("eventLoopPoolSize", eventLoopPoolSize);
     }
@@ -132,6 +141,7 @@ shared object vertxOptions {
     String? clusterPublicHost = json.getStringOrNull("clusterPublicHost");
     Integer? clusterPublicPort = json.getIntegerOrNull("clusterPublicPort");
     Boolean? clustered = json.getBooleanOrNull("clustered");
+    EventBusOptions? eventBusOptions = if (exists tmp = json.getObjectOrNull("eventBusOptions")) then eventBusOptions_.fromJson(tmp) else null;
     Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
     Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
     String? haGroup = json.getStringOrNull("haGroup");
@@ -151,6 +161,7 @@ shared object vertxOptions {
       clusterPublicHost = clusterPublicHost;
       clusterPublicPort = clusterPublicPort;
       clustered = clustered;
+      eventBusOptions = eventBusOptions;
       eventLoopPoolSize = eventLoopPoolSize;
       haEnabled = haEnabled;
       haGroup = haGroup;
