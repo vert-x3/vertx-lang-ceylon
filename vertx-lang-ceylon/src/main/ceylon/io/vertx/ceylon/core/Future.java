@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
+import java.util.function.Function;
 
 @TypeParameters({
   @TypeParameter(value="T",variance=Variance.NONE)
@@ -141,18 +142,65 @@ public class Future<T> implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Compose this future with another future.\n\n When this future succeeds, the handler will be called with the value.\n\n When this future fails, the failure will be propagated to the <code>next</code> future.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public <U> void compose(final @Ignore TypeDescriptor $reified$U, 
+  @DocAnnotation$annotation$(description = " Compose this future with a provided <code>next</code> future.<p>\n\n When this future succeeds, the <code>handler</code> will be called with the completed value, this handler\n should complete the next future.<p>\n\n If the <code>handler</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the <code>next</code> future and the <code>handler</code>\n will not be called.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("ceylon.language::Anything(T?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("next") @DocAnnotation$annotation$(description = "the next future\n") Future<U> next) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("composed") @DocAnnotation$annotation$(description = "the composed future\n") Future<U> composed) {
     io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
       public void handle(java.lang.Object event) {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
       }
     };
-    io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(next);
-    delegate.compose(arg_0, arg_1);
+    io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(composed);
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.compose(arg_0, arg_1));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Compose this future with a <code>mapper</code> function.<p>\n\n When this future succeeds, the <code>mapper</code> will be called with the completed value and this mapper\n returns a future. This returned future completion will trigger the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<U>(T?)") @Name("mapper") @DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Object,io.vertx.core.Future<java.lang.Object>> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Object,io.vertx.core.Future<java.lang.Object>>() {
+      public io.vertx.core.Future<java.lang.Object> apply(java.lang.Object arg) {
+        Future<Object> ret = (Future<Object>)mapper.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(arg));
+        return io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(ret);
+      }
+    };
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.compose(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Apply a <code>mapper</code> function on this future.<p>\n\n When this future succeeds, the <code>mapper</code> will be called with the completed value and this mapper\n returns a value. This value will complete the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  public <U> Future<U> map(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("U?(T?)") @Name("mapper") @DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Object,java.lang.Object> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Object,java.lang.Object>() {
+      public java.lang.Object apply(java.lang.Object arg) {
+        Object ret = (Object)mapper.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(arg));
+        return io.vertx.lang.ceylon.ToJava.object(ret);
+      }
+    };
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.map(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="V",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Map the result of a future to a specific <code>value</code>.<p>\n\n When this future succeeds, this <code>value</code> will complete the future returned by this method call.<p>\n\n When this future fails, the failure will be propagated to the returned future.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<V>")
+  public <V> Future<V> map(final @Ignore TypeDescriptor $reified$V, 
+    final @TypeInfo("V?") @Name("value") @DocAnnotation$annotation$(description = "the value that eventually completes the mapped future\n") V value) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
+    Future<V> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$V).safeConvert(delegate.map(arg_0));
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = " @return an handler completing this future\n")

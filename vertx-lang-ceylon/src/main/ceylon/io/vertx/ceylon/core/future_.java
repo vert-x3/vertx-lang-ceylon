@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
+import java.util.function.Function;
 
 @Ceylon(major = 8)
 @Name("future")

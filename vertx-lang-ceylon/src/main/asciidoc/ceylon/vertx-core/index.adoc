@@ -374,13 +374,18 @@ import io.vertx.ceylon.core { future }
 value fs = vertx.fileSystem();
 
 value fut1 = future.future();
-value fut2 = future.future();
 
 fs.createFile("/foo", fut1.completer());
 fut1.compose(() {
+
+  value fut2 = future.future();
   fs.writeFile("/foo", buffer.buffer(), fut2.completer());
-}, fut2);
-fut2.compose(() {
+
+  // Compose fut1 with fut2
+  return fut2;
+}).compose(() {
+
+  // Compose fut1 with fut2 and fut3
   fs.move("/foo", "/bar", startFuture.completer());
 }, startFuture);
 
