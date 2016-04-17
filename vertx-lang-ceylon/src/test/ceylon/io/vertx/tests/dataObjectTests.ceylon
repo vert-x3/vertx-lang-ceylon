@@ -1,5 +1,6 @@
 import io.vertx.ceylon.testmodel {
-  DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, TestDataObject, laura, bob, mike, leland
+  DataObjectTCK, DataObjectWithLists, DataObjectWithMaps, DataObjectWithValues, 
+  DataObjectWithOnlyJsonObjectConstructor, TestDataObject, laura, bob, mike, leland
 }
 import io.vertx.codegen.testmodel {
   DataObjectTCKImpl
@@ -147,4 +148,11 @@ shared test void testWriteDataObjectWithMaps() {
     genEnumValues = HashMap { "1"->bob, "2"->laura };
   };
   dataObjectTCK.setDataObjectWithMaps(dataObject);
+}
+
+void testMethodWithOnlyJsonObjectConstructorDataObject() {
+  value dataObject = DataObjectWithOnlyJsonObjectConstructor {
+    foo="bar";
+  };
+  dataObjectTCK.methodWithOnlyJsonObjectConstructorDataObject(dataObject);
 }

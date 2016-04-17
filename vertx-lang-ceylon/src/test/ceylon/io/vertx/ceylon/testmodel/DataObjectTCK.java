@@ -90,4 +90,11 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithMaps(arg_0);
   }
 
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithOnlyJsonObjectConstructorDataObject(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithOnlyJsonObjectConstructor") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithOnlyJsonObjectConstructor dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithOnlyJsonObjectConstructor arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithOnlyJsonObjectConstructor(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.methodWithOnlyJsonObjectConstructorDataObject(arg_0);
+  }
+
 }
