@@ -22,6 +22,10 @@ import io.vertx.ceylon.core.metrics {
 import ceylon.collection {
   HashMap
 }
+import io.vertx.ceylon.core.dns {
+  HostnameResolverOptions,
+  hostnameResolverOptions_=hostnameResolverOptions
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
@@ -53,6 +57,8 @@ shared class VertxOptions(
   shared Boolean? haEnabled = null,
   " Set the HA group to be used when HA is enabled.\n"
   shared String? haGroup = null,
+  " Sets the hostname resolver configuration to configure resolving DNS servers, cache TTL, etc...\n"
+  shared HostnameResolverOptions? hostnameResolverOptions = null,
   " Set the value of internal blocking pool size\n"
   shared Integer? internalBlockingPoolSize = null,
   " Sets the value of max event loop execute time, in ns.\n"
@@ -105,6 +111,9 @@ shared class VertxOptions(
     if (exists haGroup) {
       json.put("haGroup", haGroup);
     }
+    if (exists hostnameResolverOptions) {
+      json.put("hostnameResolverOptions", hostnameResolverOptions.toJson());
+    }
     if (exists internalBlockingPoolSize) {
       json.put("internalBlockingPoolSize", internalBlockingPoolSize);
     }
@@ -145,6 +154,7 @@ shared object vertxOptions {
     Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
     Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
     String? haGroup = json.getStringOrNull("haGroup");
+    HostnameResolverOptions? hostnameResolverOptions = if (exists tmp = json.getObjectOrNull("hostnameResolverOptions")) then hostnameResolverOptions_.fromJson(tmp) else null;
     Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
     Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
     Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
@@ -165,6 +175,7 @@ shared object vertxOptions {
       eventLoopPoolSize = eventLoopPoolSize;
       haEnabled = haEnabled;
       haGroup = haGroup;
+      hostnameResolverOptions = hostnameResolverOptions;
       internalBlockingPoolSize = internalBlockingPoolSize;
       maxEventLoopExecuteTime = maxEventLoopExecuteTime;
       maxWorkerExecuteTime = maxWorkerExecuteTime;

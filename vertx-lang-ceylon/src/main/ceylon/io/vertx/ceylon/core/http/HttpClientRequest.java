@@ -165,6 +165,22 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " @return the raw value of the method this request sends\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String $getRawMethod() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getRawMethod());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Set the value the method to send when the method  is used.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest setRawMethod(
+    final @TypeInfo("ceylon.language::String") @Name("method") @DocAnnotation$annotation$(description = "the raw method\n") ceylon.language.String method) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(method);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setRawMethod(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " @return The URI of the request.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {

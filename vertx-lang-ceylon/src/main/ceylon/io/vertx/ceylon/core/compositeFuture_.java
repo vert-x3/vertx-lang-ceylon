@@ -140,7 +140,7 @@ public class compositeFuture_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with a list of futures.\n")
+  @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with a list of futures.<p>\n\n When the list is empty, the returned future will be already completed.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public CompositeFuture all(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core::Future>") @Name("futures")  ceylon.language.List<Future> futures) {
@@ -254,7 +254,7 @@ public class compositeFuture_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with a list of futures.\n")
+  @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with a list of futures.<p>\n\n When the list is empty, the returned future will be already completed.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public CompositeFuture any(
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.core::Future>") @Name("futures")  ceylon.language.List<Future> futures) {

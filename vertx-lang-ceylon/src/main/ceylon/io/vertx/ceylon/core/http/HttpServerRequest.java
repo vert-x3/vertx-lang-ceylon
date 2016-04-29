@@ -127,6 +127,13 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " @return the HTTP method as sent by the client\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String rawMethod() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.rawMethod());
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isSSL() {

@@ -38,6 +38,8 @@ shared class NetClientOptions(
   {String*}? crlPaths = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
+  " Set the hostname verification algorithm interval\n To disable hostname verification, set hostnameVerificationAlgorithm to an empty String\n"
+  shared String? hostnameVerificationAlgorithm = null,
   Integer? idleTimeout = null,
   JksOptions? keyStoreOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -86,6 +88,9 @@ shared class NetClientOptions(
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = super.toJson();
+    if (exists hostnameVerificationAlgorithm) {
+      json.put("hostnameVerificationAlgorithm", hostnameVerificationAlgorithm);
+    }
     if (exists reconnectAttempts) {
       json.put("reconnectAttempts", reconnectAttempts);
     }
@@ -103,6 +108,7 @@ shared object netClientOptions {
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
+    String? hostnameVerificationAlgorithm = json.getStringOrNull("hostnameVerificationAlgorithm");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -129,6 +135,7 @@ shared object netClientOptions {
       crlPaths = crlPaths;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
+      hostnameVerificationAlgorithm = hostnameVerificationAlgorithm;
       idleTimeout = idleTimeout;
       keyStoreOptions = keyStoreOptions;
       pemKeyCertOptions = pemKeyCertOptions;

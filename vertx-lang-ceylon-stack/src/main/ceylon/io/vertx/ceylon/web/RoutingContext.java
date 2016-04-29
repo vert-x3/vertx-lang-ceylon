@@ -282,7 +282,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [fail](RoutingContext.type.html#fail)  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n")
+  @DocAnnotation$annotation$(description = " If the context is being routed to failure handlers after a failure has been triggered by calling\n [fail](RoutingContext.type.html#fail)  then this will return that status code.  It can be used by failure handlers to render a response,\n e.g. create a failure response page.\n\n When the status code has not been set yet (it is undefined) its value will be -1.\n")
   @TypeInfo("ceylon.language::Integer")
   public long statusCode() {
     if (cached_statusCode != null) {
