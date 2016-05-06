@@ -33,10 +33,16 @@ shared class DeploymentOptions(
   shared {String*}? isolatedClasses = null,
   " Set the isolation group that will be used when deploying the verticle(s)\n"
   shared String? isolationGroup = null,
+  " Sets the value of max worker execute time, in ns.\n"
+  shared Integer? maxWorkerExecuteTime = null,
   " Set whether the verticle(s) should be deployed as a multi-threaded worker verticle\n"
   shared Boolean? multiThreaded = null,
   " Set whether the verticle(s) should be deployed as a worker verticle\n"
-  shared Boolean? worker = null) satisfies BaseDataObject {
+  shared Boolean? worker = null,
+  " Set the worker pool name to use for this verticle. When no name is set, the Vert.x\n worker pool will be used, when a name is set, the verticle will use a named worker pool.\n"
+  shared String? workerPoolName = null,
+  " Set the maximum number of worker threads to be used by the Vert.x instance.\n"
+  shared Integer? workerPoolSize = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists config) {
@@ -57,11 +63,20 @@ shared class DeploymentOptions(
     if (exists isolationGroup) {
       json.put("isolationGroup", isolationGroup);
     }
+    if (exists maxWorkerExecuteTime) {
+      json.put("maxWorkerExecuteTime", maxWorkerExecuteTime);
+    }
     if (exists multiThreaded) {
       json.put("multiThreaded", multiThreaded);
     }
     if (exists worker) {
       json.put("worker", worker);
+    }
+    if (exists workerPoolName) {
+      json.put("workerPoolName", workerPoolName);
+    }
+    if (exists workerPoolSize) {
+      json.put("workerPoolSize", workerPoolSize);
     }
     return json;
   }
@@ -76,8 +91,11 @@ shared object deploymentOptions {
     Integer? instances = json.getIntegerOrNull("instances");
     {String*}? isolatedClasses = json.getArrayOrNull("isolatedClasses")?.strings;
     String? isolationGroup = json.getStringOrNull("isolationGroup");
+    Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
     Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
     Boolean? worker = json.getBooleanOrNull("worker");
+    String? workerPoolName = json.getStringOrNull("workerPoolName");
+    Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
     return DeploymentOptions {
       config = config;
       extraClasspath = extraClasspath;
@@ -85,8 +103,11 @@ shared object deploymentOptions {
       instances = instances;
       isolatedClasses = isolatedClasses;
       isolationGroup = isolationGroup;
+      maxWorkerExecuteTime = maxWorkerExecuteTime;
       multiThreaded = multiThreaded;
       worker = worker;
+      workerPoolName = workerPoolName;
+      workerPoolSize = workerPoolSize;
     };
   }
 

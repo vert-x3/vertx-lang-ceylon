@@ -30,6 +30,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
+import java.util.Map;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.Handler;
 
@@ -422,6 +423,22 @@ public class RoutingContext implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public Locale preferredLocale() {
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(delegate.preferredLocale());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns a map of named parameters as defined in path declaration with their actual values\n")
+  @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
+  public ceylon.language.Map<ceylon.language.String,ceylon.language.String> pathParams() {
+    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.pathParams(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets the value of a single path parameter\n")
+  @TypeInfo("ceylon.language::String?")
+  public ceylon.language.String pathParam(
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of parameter as defined in path declaration\n") ceylon.language.String name) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.pathParam(arg_0));
     return ret;
   }
 

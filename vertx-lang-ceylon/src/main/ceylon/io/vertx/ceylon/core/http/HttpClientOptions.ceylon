@@ -40,7 +40,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.http.HttpClientOptions */
 " Options describing how an [HttpClient](../http/HttpClient.type.html) will make connections.\n"
 shared class HttpClientOptions(
-  " Set the list of protocol versions to provide to the server during the Application-Layer Protocol Negotiatiation.\n When the list is empty, the client provides a best effort list according to [setProtocolVersion](../http/HttpClientOptions.type.html#setProtocolVersion):\n\n <ul>\n   <li>: [ \"h2\", \"http/1.1\" ]</li>\n   <li>otherwise: [[getProtocolVersion](../http/HttpClientOptions.type.html#getProtocolVersion)]</li>\n </ul>\n"
+  " Set the list of protocol versions to provide to the server during the Application-Layer Protocol Negotiation.\n When the list is empty, the client provides a best effort list according to [setProtocolVersion](../http/HttpClientOptions.type.html#setProtocolVersion):\n\n <ul>\n   <li>: [ \"h2\", \"http/1.1\" ]</li>\n   <li>otherwise: [[getProtocolVersion](../http/HttpClientOptions.type.html#getProtocolVersion)]</li>\n </ul>\n"
   shared {HttpVersion*}? alpnVersions = null,
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
@@ -53,7 +53,7 @@ shared class HttpClientOptions(
   " Set to <code>true</code> when an <i>h2c</i> connection is established using an HTTP/1.1 upgrade request, and <code>false</code>\n when an <i>h2c</i> connection is established directly (with prior knowledge).\n"
   shared Boolean? h2cUpgrade = null,
   Integer? idleTimeout = null,
-  " Set the HTTP/2 connection settings immediatly sent by to the server when the client connects.\n"
+  " Set the HTTP/2 connection settings immediately sent by to the server when the client connects.\n"
   shared Http2Settings? initialSettings = null,
   " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
@@ -74,6 +74,14 @@ shared class HttpClientOptions(
   shared Boolean? pipelining = null,
   " Set the protocol version.\n"
   shared HttpVersion? protocolVersion = null,
+  " Set proxy hostname for ssl connections via CONNECT proxy (e.g. Squid).\n"
+  shared String? proxyHost = null,
+  " Set proxy password for ssl connections\n"
+  shared String? proxyPassword = null,
+  " Set proxy port for ssl connections\n"
+  shared Integer? proxyPort = null,
+  " Set proxy username for ssl connections\n"
+  shared String? proxyUsername = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
@@ -152,6 +160,18 @@ shared class HttpClientOptions(
     if (exists protocolVersion) {
       json.put("protocolVersion", httpVersion_.toString(protocolVersion));
     }
+    if (exists proxyHost) {
+      json.put("proxyHost", proxyHost);
+    }
+    if (exists proxyPassword) {
+      json.put("proxyPassword", proxyPassword);
+    }
+    if (exists proxyPort) {
+      json.put("proxyPort", proxyPort);
+    }
+    if (exists proxyUsername) {
+      json.put("proxyUsername", proxyUsername);
+    }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);
     }
@@ -187,6 +207,10 @@ shared object httpClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
+    String? proxyHost = json.getStringOrNull("proxyHost");
+    String? proxyPassword = json.getStringOrNull("proxyPassword");
+    Integer? proxyPort = json.getIntegerOrNull("proxyPort");
+    String? proxyUsername = json.getStringOrNull("proxyUsername");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
@@ -225,6 +249,10 @@ shared object httpClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       protocolVersion = protocolVersion;
+      proxyHost = proxyHost;
+      proxyPassword = proxyPassword;
+      proxyPort = proxyPort;
+      proxyUsername = proxyUsername;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;

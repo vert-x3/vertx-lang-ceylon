@@ -420,6 +420,39 @@ public class Vertx implements ReifiedType,  Measured {
     delegate.executeBlocking(arg_0, arg_1);
   }
 
+  @DocAnnotation$annotation$(description = " Like [createWorkerExecutor](Vertx.type.html#createWorkerExecutor) but with the [setWorkerPoolSize](VertxOptions.type.html#setWorkerPoolSize) <code>poolSize</code>.\n")
+  @TypeInfo("io.vertx.ceylon.core::WorkerExecutor")
+  public WorkerExecutor createWorkerExecutor(
+    final @TypeInfo("ceylon.language::String") @Name("name")  ceylon.language.String name) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    WorkerExecutor ret = io.vertx.ceylon.core.WorkerExecutor.TO_CEYLON.converter().safeConvert(delegate.createWorkerExecutor(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [createWorkerExecutor](Vertx.type.html#createWorkerExecutor) but with the [setMaxWorkerExecuteTime](VertxOptions.type.html#setMaxWorkerExecuteTime) <code>maxExecuteTime</code>.\n")
+  @TypeInfo("io.vertx.ceylon.core::WorkerExecutor")
+  public WorkerExecutor createWorkerExecutor(
+    final @TypeInfo("ceylon.language::String") @Name("name")  ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Integer") @Name("poolSize")  long poolSize) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    int arg_1 = (int)poolSize;
+    WorkerExecutor ret = io.vertx.ceylon.core.WorkerExecutor.TO_CEYLON.converter().safeConvert(delegate.createWorkerExecutor(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a named worker executor, the executor should be closed when it's not needed anymore to release\n resources.<p/>\n\n This method can be called mutiple times with the same <code>name</code>. Executors with the same name will share\n the same worker pool. The worker pool size and max execute time are set when the worker pool is created and\n won't change after.<p>\n\n The worker pool is released when all the [WorkerExecutor](WorkerExecutor.type.html) sharing the same name are closed.\n")
+  @TypeInfo("io.vertx.ceylon.core::WorkerExecutor")
+  public WorkerExecutor createWorkerExecutor(
+    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the worker executor\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Integer") @Name("poolSize") @DocAnnotation$annotation$(description = "the size of the pool\n") long poolSize, 
+    final @TypeInfo("ceylon.language::Integer") @Name("maxExecuteTime") @DocAnnotation$annotation$(description = "the value of max worker execute time, in ms\n") long maxExecuteTime) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    int arg_1 = (int)poolSize;
+    long arg_2 = maxExecuteTime;
+    WorkerExecutor ret = io.vertx.ceylon.core.WorkerExecutor.TO_CEYLON.converter().safeConvert(delegate.createWorkerExecutor(arg_0, arg_1, arg_2));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Set a default exception handler for [Context](Context.type.html), set on  at creation.\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx exceptionHandler(

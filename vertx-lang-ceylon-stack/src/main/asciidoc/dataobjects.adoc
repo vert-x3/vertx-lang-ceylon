@@ -176,6 +176,10 @@ The subject of this token
 |[[pfxTrustOptions]]`pfxTrustOptions`|`link:dataobjects.html#PfxOptions[PfxOptions]`|-
 |[[pipelining]]`pipelining`|`Boolean`|-
 |[[protocolVersion]]`protocolVersion`|`link:enums.html#HttpVersion[HttpVersion]`|-
+|[[proxyHost]]`proxyHost`|`String`|-
+|[[proxyPassword]]`proxyPassword`|`String`|-
+|[[proxyPort]]`proxyPort`|`Number (int)`|-
+|[[proxyUsername]]`proxyUsername`|`String`|-
 |[[publicKey]]`publicKey`|`String`|-
 |[[receiveBufferSize]]`receiveBufferSize`|`Number (int)`|-
 |[[reuseAddress]]`reuseAddress`|`Boolean`|-

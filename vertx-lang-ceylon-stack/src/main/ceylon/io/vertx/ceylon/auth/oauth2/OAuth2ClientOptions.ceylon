@@ -69,6 +69,10 @@ shared class OAuth2ClientOptions(
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
   HttpVersion? protocolVersion = null,
+  String? proxyHost = null,
+  String? proxyPassword = null,
+  Integer? proxyPort = null,
+  String? proxyUsername = null,
   shared String? publicKey = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
@@ -113,6 +117,10 @@ shared class OAuth2ClientOptions(
   pfxTrustOptions,
   pipelining,
   protocolVersion,
+  proxyHost,
+  proxyPassword,
+  proxyPort,
+  proxyUsername,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
@@ -208,6 +216,10 @@ shared object oAuth2ClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
+    String? proxyHost = json.getStringOrNull("proxyHost");
+    String? proxyPassword = json.getStringOrNull("proxyPassword");
+    Integer? proxyPort = json.getIntegerOrNull("proxyPort");
+    String? proxyUsername = json.getStringOrNull("proxyUsername");
     String? publicKey = json.getStringOrNull("publicKey");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
@@ -260,6 +272,10 @@ shared object oAuth2ClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       protocolVersion = protocolVersion;
+      proxyHost = proxyHost;
+      proxyPassword = proxyPassword;
+      proxyPort = proxyPort;
+      proxyUsername = proxyUsername;
       publicKey = publicKey;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;

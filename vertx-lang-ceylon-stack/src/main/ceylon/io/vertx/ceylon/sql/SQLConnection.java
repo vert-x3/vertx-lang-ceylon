@@ -226,4 +226,13 @@ public class SQLConnection implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Sets a connection wide query timeout.\n\n It can be over written at any time and becomes active on the next query call.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection setQueryTimeout(
+    final @TypeInfo("ceylon.language::Integer") @Name("timeoutInSeconds") @DocAnnotation$annotation$(description = "the max amount of seconds the query can take to execute.\n") long timeoutInSeconds) {
+    int arg_0 = (int)timeoutInSeconds;
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.setQueryTimeout(arg_0));
+    return this;
+  }
+
 }

@@ -514,6 +514,8 @@
               <includeArtifactIds>vertx-core</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
+              <includes>io/vertx/core/**/*.java,examples/**/*.java</includes>
+              <excludes>**/impl/**/*.java,**/logging/**/*.java</excludes>
               <outputDirectory>${project.build.directory}/sources/vertx-core</outputDirectory>
             </configuration>
           </execution>
