@@ -21,6 +21,8 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.NetworkOptions */
 " @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
 shared class NetworkOptions(
+  " Set to true to enabled network activity logging: Netty's pipeline is configured for logging on Netty's logger.\n"
+  shared Boolean? logActivity = null,
   " Set the TCP receive buffer size\n"
   shared Integer? receiveBufferSize = null,
   " Set the value of reuse address\n"
@@ -31,6 +33,9 @@ shared class NetworkOptions(
   shared Integer? trafficClass = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
+    if (exists logActivity) {
+      json.put("logActivity", logActivity);
+    }
     if (exists receiveBufferSize) {
       json.put("receiveBufferSize", receiveBufferSize);
     }
@@ -50,11 +55,13 @@ shared class NetworkOptions(
 shared object networkOptions {
 
   shared NetworkOptions fromJson(JsonObject json) {
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     return NetworkOptions {
+      logActivity = logActivity;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;

@@ -2,16 +2,20 @@ import io.vertx.ext.auth.oauth2 {
   OAuth2ClientOptions_=OAuth2ClientOptions
 }
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine
+  ProxyOptions,
+  proxyOptions_=proxyOptions
 }
 import ceylon.json {
   JsonObject=Object,
@@ -51,28 +55,33 @@ shared class OAuth2ClientOptions(
   Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
-  Boolean? h2cUpgrade = null,
   shared JsonObject? headers = null,
+  Boolean? http2ClearTextUpgrade = null,
+  Integer? http2ConnectionWindowSize = null,
+  Integer? http2MaxPoolSize = null,
+  Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
   Http2Settings? initialSettings = null,
+  JdkSSLEngineOptions? jdkSslEngineOptions = null,
   shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
   shared String? logoutPath = null,
   Integer? maxChunkSize = null,
   Integer? maxPoolSize = null,
   Integer? maxWaitQueueSize = null,
   Integer? maxWebsocketFrameSize = null,
+  String? metricsName = null,
+  OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
+  Integer? pipeliningLimit = null,
   HttpVersion? protocolVersion = null,
-  String? proxyHost = null,
-  String? proxyPassword = null,
-  Integer? proxyPort = null,
-  String? proxyUsername = null,
+  ProxyOptions? proxyOptions = null,
   shared String? publicKey = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
@@ -81,7 +90,6 @@ shared class OAuth2ClientOptions(
   shared String? site = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
-  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   shared String? tokenPath = null,
@@ -102,31 +110,35 @@ shared class OAuth2ClientOptions(
   defaultPort,
   enabledCipherSuites,
   enabledSecureTransportProtocols,
-  h2cUpgrade,
+  http2ClearTextUpgrade,
+  http2ConnectionWindowSize,
+  http2MaxPoolSize,
+  http2MultiplexingLimit,
   idleTimeout,
   initialSettings,
+  jdkSslEngineOptions,
   keepAlive,
   keyStoreOptions,
+  logActivity,
   maxChunkSize,
   maxPoolSize,
   maxWaitQueueSize,
   maxWebsocketFrameSize,
+  metricsName,
+  openSslEngineOptions,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
   pfxTrustOptions,
   pipelining,
+  pipeliningLimit,
   protocolVersion,
-  proxyHost,
-  proxyPassword,
-  proxyPort,
-  proxyUsername,
+  proxyOptions,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
   soLinger,
   ssl,
-  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
@@ -198,28 +210,33 @@ shared object oAuth2ClientOptions {
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
-    Boolean? h2cUpgrade = json.getBooleanOrNull("h2cUpgrade");
     JsonObject? headers = json.getObjectOrNull("headers");
+    Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
+    Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
+    Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
+    Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
     String? logoutPath = json.getStringOrNull("logoutPath");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    String? metricsName = json.getStringOrNull("metricsName");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
+    Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
-    String? proxyHost = json.getStringOrNull("proxyHost");
-    String? proxyPassword = json.getStringOrNull("proxyPassword");
-    Integer? proxyPort = json.getIntegerOrNull("proxyPort");
-    String? proxyUsername = json.getStringOrNull("proxyUsername");
+    ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     String? publicKey = json.getStringOrNull("publicKey");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
@@ -228,7 +245,6 @@ shared object oAuth2ClientOptions {
     String? site = json.getStringOrNull("site");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     String? tokenPath = json.getStringOrNull("tokenPath");
@@ -254,28 +270,33 @@ shared object oAuth2ClientOptions {
       defaultPort = defaultPort;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
-      h2cUpgrade = h2cUpgrade;
       headers = headers;
+      http2ClearTextUpgrade = http2ClearTextUpgrade;
+      http2ConnectionWindowSize = http2ConnectionWindowSize;
+      http2MaxPoolSize = http2MaxPoolSize;
+      http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
       initialSettings = initialSettings;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       jwtToken = jwtToken;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
       logoutPath = logoutPath;
       maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      metricsName = metricsName;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
+      pipeliningLimit = pipeliningLimit;
       protocolVersion = protocolVersion;
-      proxyHost = proxyHost;
-      proxyPassword = proxyPassword;
-      proxyPort = proxyPort;
-      proxyUsername = proxyUsername;
+      proxyOptions = proxyOptions;
       publicKey = publicKey;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
@@ -284,7 +305,6 @@ shared object oAuth2ClientOptions {
       site = site;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       tokenPath = tokenPath;

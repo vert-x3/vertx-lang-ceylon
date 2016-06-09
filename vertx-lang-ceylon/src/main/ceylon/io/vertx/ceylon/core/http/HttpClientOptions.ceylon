@@ -1,14 +1,18 @@
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine,
+  ProxyOptions,
+  proxyOptions_=proxyOptions,
   ClientOptionsBase
 }
 import ceylon.json {
@@ -51,13 +55,21 @@ shared class HttpClientOptions(
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
   " Set to <code>true</code> when an <i>h2c</i> connection is established using an HTTP/1.1 upgrade request, and <code>false</code>\n when an <i>h2c</i> connection is established directly (with prior knowledge).\n"
-  shared Boolean? h2cUpgrade = null,
+  shared Boolean? http2ClearTextUpgrade = null,
+  " Set the default HTTP/2 connection window size. It overrides the initial window\n size set by [getInitialWindowSize](../http/Http2Settings.type.html#getInitialWindowSize), so the connection window size\n is greater than for its streams, in order the data throughput.\n <p/>\n A value of <code>-1</code> reuses the initial window size setting.\n"
+  shared Integer? http2ConnectionWindowSize = null,
+  " Set the maximum pool size for HTTP/2 connections\n"
+  shared Integer? http2MaxPoolSize = null,
+  " Set a client limit of the number concurrent streams for each HTTP/2 connection, this limits the number\n of streams the client can create for a connection. The effective number of streams for a\n connection is the min of this value and the server's initial settings.\n <p/>\n Setting the value to <code>-1</code> means to use the value sent by the server's initial settings.\n <code>-1</code> is the default value.\n"
+  shared Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
   " Set the HTTP/2 connection settings immediately sent by to the server when the client connects.\n"
   shared Http2Settings? initialSettings = null,
+  JdkSSLEngineOptions? jdkSslEngineOptions = null,
   " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
   " Set the maximum pool size for connections\n"
@@ -66,28 +78,24 @@ shared class HttpClientOptions(
   shared Integer? maxWaitQueueSize = null,
   " Set the max websocket frame size\n"
   shared Integer? maxWebsocketFrameSize = null,
+  String? metricsName = null,
+  OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
   " Set whether pipe-lining is enabled on the client\n"
   shared Boolean? pipelining = null,
+  " Set the limit of pending requests a pipe-lined HTTP/1 connection can send.\n"
+  shared Integer? pipeliningLimit = null,
   " Set the protocol version.\n"
   shared HttpVersion? protocolVersion = null,
-  " Set proxy hostname for ssl connections via CONNECT proxy (e.g. Squid).\n"
-  shared String? proxyHost = null,
-  " Set proxy password for ssl connections\n"
-  shared String? proxyPassword = null,
-  " Set proxy port for ssl connections\n"
-  shared Integer? proxyPort = null,
-  " Set proxy username for ssl connections\n"
-  shared String? proxyUsername = null,
+  ProxyOptions? proxyOptions = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
-  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
@@ -104,17 +112,21 @@ shared class HttpClientOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  jdkSslEngineOptions,
   keyStoreOptions,
+  logActivity,
+  metricsName,
+  openSslEngineOptions,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
   pfxTrustOptions,
+  proxyOptions,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
   soLinger,
   ssl,
-  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
@@ -133,8 +145,17 @@ shared class HttpClientOptions(
     if (exists defaultPort) {
       json.put("defaultPort", defaultPort);
     }
-    if (exists h2cUpgrade) {
-      json.put("h2cUpgrade", h2cUpgrade);
+    if (exists http2ClearTextUpgrade) {
+      json.put("http2ClearTextUpgrade", http2ClearTextUpgrade);
+    }
+    if (exists http2ConnectionWindowSize) {
+      json.put("http2ConnectionWindowSize", http2ConnectionWindowSize);
+    }
+    if (exists http2MaxPoolSize) {
+      json.put("http2MaxPoolSize", http2MaxPoolSize);
+    }
+    if (exists http2MultiplexingLimit) {
+      json.put("http2MultiplexingLimit", http2MultiplexingLimit);
     }
     if (exists initialSettings) {
       json.put("initialSettings", initialSettings.toJson());
@@ -157,20 +178,11 @@ shared class HttpClientOptions(
     if (exists pipelining) {
       json.put("pipelining", pipelining);
     }
+    if (exists pipeliningLimit) {
+      json.put("pipeliningLimit", pipeliningLimit);
+    }
     if (exists protocolVersion) {
       json.put("protocolVersion", httpVersion_.toString(protocolVersion));
-    }
-    if (exists proxyHost) {
-      json.put("proxyHost", proxyHost);
-    }
-    if (exists proxyPassword) {
-      json.put("proxyPassword", proxyPassword);
-    }
-    if (exists proxyPort) {
-      json.put("proxyPort", proxyPort);
-    }
-    if (exists proxyUsername) {
-      json.put("proxyUsername", proxyUsername);
     }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);
@@ -192,31 +204,35 @@ shared object httpClientOptions {
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
-    Boolean? h2cUpgrade = json.getBooleanOrNull("h2cUpgrade");
+    Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
+    Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
+    Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
+    Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    String? metricsName = json.getStringOrNull("metricsName");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
+    Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
-    String? proxyHost = json.getStringOrNull("proxyHost");
-    String? proxyPassword = json.getStringOrNull("proxyPassword");
-    Integer? proxyPort = json.getIntegerOrNull("proxyPort");
-    String? proxyUsername = json.getStringOrNull("proxyUsername");
+    ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
@@ -234,31 +250,35 @@ shared object httpClientOptions {
       defaultPort = defaultPort;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
-      h2cUpgrade = h2cUpgrade;
+      http2ClearTextUpgrade = http2ClearTextUpgrade;
+      http2ConnectionWindowSize = http2ConnectionWindowSize;
+      http2MaxPoolSize = http2MaxPoolSize;
+      http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
       initialSettings = initialSettings;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
       maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      metricsName = metricsName;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
+      pipeliningLimit = pipeliningLimit;
       protocolVersion = protocolVersion;
-      proxyHost = proxyHost;
-      proxyPassword = proxyPassword;
-      proxyPort = proxyPort;
-      proxyUsername = proxyUsername;
+      proxyOptions = proxyOptions;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;

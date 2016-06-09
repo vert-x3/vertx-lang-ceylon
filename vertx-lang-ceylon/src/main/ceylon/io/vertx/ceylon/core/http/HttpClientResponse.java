@@ -194,16 +194,16 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set an unknown frame handler. The handler will get notified when the http stream receives an unknown HTTP/2\n frame. HTTP/2 permits extension of the protocol.\n")
+  @DocAnnotation$annotation$(description = " Set an custom frame handler. The handler will get notified when the http stream receives an custom HTTP/2\n frame. HTTP/2 permits extension of the protocol.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
-  public HttpClientResponse unknownFrameHandler(
+  public HttpClientResponse customFrameHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpFrame)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpFrame> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpFrame>() {
       public void handle(io.vertx.core.http.HttpFrame event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpFrame.TO_CEYLON.converter().safeConvert(event));
       }
     };
-    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(delegate.unknownFrameHandler(arg_0));
+    HttpClientResponse ret = io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(delegate.customFrameHandler(arg_0));
     return this;
   }
 

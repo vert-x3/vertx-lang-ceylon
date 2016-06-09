@@ -1,14 +1,16 @@
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine,
   TCPSSLOptions
 }
 import ceylon.json {
@@ -50,7 +52,10 @@ shared class NetServerOptions(
   " Set the host\n"
   shared String? host = null,
   Integer? idleTimeout = null,
+  JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
+  OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
@@ -62,7 +67,6 @@ shared class NetServerOptions(
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
-  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
@@ -73,7 +77,10 @@ shared class NetServerOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  jdkSslEngineOptions,
   keyStoreOptions,
+  logActivity,
+  openSslEngineOptions,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
@@ -83,7 +90,6 @@ shared class NetServerOptions(
   sendBufferSize,
   soLinger,
   ssl,
-  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
@@ -122,7 +128,10 @@ shared object netServerOptions {
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
@@ -133,7 +142,6 @@ shared object netServerOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
@@ -149,7 +157,10 @@ shared object netServerOptions {
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       host = host;
       idleTimeout = idleTimeout;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
@@ -160,7 +171,6 @@ shared object netServerOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;

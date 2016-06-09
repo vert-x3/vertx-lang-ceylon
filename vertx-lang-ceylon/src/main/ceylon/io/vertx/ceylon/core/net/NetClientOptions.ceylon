@@ -1,14 +1,18 @@
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine,
+  ProxyOptions,
+  proxyOptions_=proxyOptions,
   ClientOptionsBase
 }
 import ceylon.json {
@@ -41,11 +45,16 @@ shared class NetClientOptions(
   " Set the hostname verification algorithm interval\n To disable hostname verification, set hostnameVerificationAlgorithm to an empty String\n"
   shared String? hostnameVerificationAlgorithm = null,
   Integer? idleTimeout = null,
+  JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
+  String? metricsName = null,
+  OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
   PfxOptions? pfxTrustOptions = null,
+  ProxyOptions? proxyOptions = null,
   Integer? receiveBufferSize = null,
   " Set the value of reconnect attempts\n"
   shared Integer? reconnectAttempts = null,
@@ -55,7 +64,6 @@ shared class NetClientOptions(
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
-  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
@@ -68,17 +76,21 @@ shared class NetClientOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  jdkSslEngineOptions,
   keyStoreOptions,
+  logActivity,
+  metricsName,
+  openSslEngineOptions,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
   pfxTrustOptions,
+  proxyOptions,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
   soLinger,
   ssl,
-  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
@@ -110,11 +122,16 @@ shared object netClientOptions {
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     String? hostnameVerificationAlgorithm = json.getStringOrNull("hostnameVerificationAlgorithm");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
+    String? metricsName = json.getStringOrNull("metricsName");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
+    ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Integer? reconnectAttempts = json.getIntegerOrNull("reconnectAttempts");
     Integer? reconnectInterval = json.getIntegerOrNull("reconnectInterval");
@@ -122,7 +139,6 @@ shared object netClientOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
@@ -137,11 +153,16 @@ shared object netClientOptions {
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       hostnameVerificationAlgorithm = hostnameVerificationAlgorithm;
       idleTimeout = idleTimeout;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
+      metricsName = metricsName;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
       pfxTrustOptions = pfxTrustOptions;
+      proxyOptions = proxyOptions;
       receiveBufferSize = receiveBufferSize;
       reconnectAttempts = reconnectAttempts;
       reconnectInterval = reconnectInterval;
@@ -149,7 +170,6 @@ shared object netClientOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;

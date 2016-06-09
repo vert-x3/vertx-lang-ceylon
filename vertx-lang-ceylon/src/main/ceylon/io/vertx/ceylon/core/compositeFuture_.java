@@ -39,7 +39,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T1",variance=Variance.NONE),
     @TypeParameter(value="T2",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Return a composite future, succeeded when all futures are succeeded, failed when any future is failed.\n")
+  @DocAnnotation$annotation$(description = " Return a composite future, succeeded when all futures are succeeded, failed when any future is failed.\n <p/>\n The returned future fails as soon as one of <code>f1</code> or <code>f2</code> fails.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") @DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
@@ -153,7 +153,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T1",variance=Variance.NONE),
     @TypeParameter(value="T2",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Return a composite future, succeeded when any futures is succeeded, failed when all futures are failed.\n")
+  @DocAnnotation$annotation$(description = " Return a composite future, succeeded when any futures is succeeded, failed when all futures are failed.\n <p/>\n The returned future succeeds as soon as one of <code>f1</code> or <code>f2</code> succeeds.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") @DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 

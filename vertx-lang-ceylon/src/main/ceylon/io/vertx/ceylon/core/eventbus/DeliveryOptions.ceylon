@@ -23,12 +23,17 @@ import io.vertx.core.json {
 shared class DeliveryOptions(
   " Set the codec name.\n"
   shared String? codecName = null,
+  " Add a message header.\n <p>\n Message headers can be sent with any message and will be accessible with [headers](../eventbus/Message.type.html#headers)\n at the recipient.\n"
+  shared Map<String, String>? headers = null,
   " Set the send timeout.\n"
   shared Integer? sendTimeout = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists codecName) {
       json.put("codecName", codecName);
+    }
+    if (exists headers) {
+      json.put("headers", JsonObject(headers));
     }
     if (exists sendTimeout) {
       json.put("sendTimeout", sendTimeout);
@@ -41,9 +46,11 @@ shared object deliveryOptions {
 
   shared DeliveryOptions fromJson(JsonObject json) {
     String? codecName = json.getStringOrNull("codecName");
+    Map<String, String>? headers = if (exists tmp = json.getObjectOrNull("headers")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null;
     Integer? sendTimeout = json.getIntegerOrNull("sendTimeout");
     return DeliveryOptions {
       codecName = codecName;
+      headers = headers;
       sendTimeout = sendTimeout;
     };
   }

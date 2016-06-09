@@ -1,14 +1,16 @@
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine,
   NetworkOptions
 }
 import ceylon.json {
@@ -42,8 +44,11 @@ shared class TCPSSLOptions(
   shared {String*}? enabledSecureTransportProtocols = null,
   " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
   shared Integer? idleTimeout = null,
+  shared JdkSSLEngineOptions? jdkSslEngineOptions = null,
   " Set the key/cert options in jks format, aka Java keystore.\n"
   shared JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
+  shared OpenSSLEngineOptions? openSslEngineOptions = null,
   " Set the key/cert store options in pem format.\n"
   shared PemKeyCertOptions? pemKeyCertOptions = null,
   " Set the trust options in pem format\n"
@@ -59,8 +64,6 @@ shared class TCPSSLOptions(
   shared Integer? soLinger = null,
   " Set whether SSL/TLS is enabled\n"
   shared Boolean? ssl = null,
-  " Set to use SSL engine implementation to use.\n"
-  shared SSLEngine? sslEngine = null,
   " Set whether TCP keep alive is enabled\n"
   shared Boolean? tcpKeepAlive = null,
   " Set whether TCP no delay is enabled\n"
@@ -72,6 +75,7 @@ shared class TCPSSLOptions(
   shared Boolean? useAlpn = null,
   " Set whether Netty pooled buffers are enabled\n"
   shared Boolean? usePooledBuffers = null) extends NetworkOptions(
+  logActivity,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
@@ -90,8 +94,14 @@ shared class TCPSSLOptions(
     if (exists idleTimeout) {
       json.put("idleTimeout", idleTimeout);
     }
+    if (exists jdkSslEngineOptions) {
+      json.put("jdkSslEngineOptions", jdkSslEngineOptions.toJson());
+    }
     if (exists keyStoreOptions) {
       json.put("keyStoreOptions", keyStoreOptions.toJson());
+    }
+    if (exists openSslEngineOptions) {
+      json.put("openSslEngineOptions", openSslEngineOptions.toJson());
     }
     if (exists pemKeyCertOptions) {
       json.put("pemKeyCertOptions", pemKeyCertOptions.toJson());
@@ -110,9 +120,6 @@ shared class TCPSSLOptions(
     }
     if (exists ssl) {
       json.put("ssl", ssl);
-    }
-    if (exists sslEngine) {
-      json.put("sslEngine", sslEngine_.toString(sslEngine));
     }
     if (exists tcpKeepAlive) {
       json.put("tcpKeepAlive", tcpKeepAlive);
@@ -140,7 +147,10 @@ shared object tcpsslOptions {
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
@@ -150,7 +160,6 @@ shared object tcpsslOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
@@ -162,7 +171,10 @@ shared object tcpsslOptions {
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       idleTimeout = idleTimeout;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
@@ -172,7 +184,6 @@ shared object tcpsslOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;

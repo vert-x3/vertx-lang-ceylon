@@ -16,7 +16,7 @@ import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " An asynchronous HTTP client.\n <p>\n It allows you to make requests to HTTP servers, and a single client can make requests to any server.\n <p>\n It also allows you to open WebSockets to servers.\n <p>\n The client can also pool HTTP connections.\n <p>\n For pooling to occur, keep-alive must be true on the [HttpClientOptions](../http/HttpClientOptions.type.html) (default is true).\n In this case connections will be pooled and re-used if there are pending HTTP requests waiting to get a connection,\n otherwise they will be closed.\n <p>\n This gives the benefits of keep alive when the client is loaded but means we don't keep connections hanging around\n unnecessarily when there would be no benefits anyway.\n <p>\n The client also supports pipe-lining of requests. Pipe-lining means another request is sent on the same connection\n before the response from the preceeding one has returned. Pipe-lining is not appropriate for all requests.\n <p>\n To enable pipe-lining, it must be enabled on the [HttpClientOptions](../http/HttpClientOptions.type.html) (default is false).\n <p>\n When pipe-lining is enabled the connection will be automatically closed when all in-flight responses have returned\n and there are no outstanding pending requests to write.\n <p>\n The client is designed to be reused between requests.\n")
+@DocAnnotation$annotation$(description = " An asynchronous HTTP client.\n <p>\n It allows you to make requests to HTTP servers, and a single client can make requests to any server.\n <p>\n It also allows you to open WebSockets to servers.\n <p>\n The client can also pool HTTP connections.\n <p>\n For pooling to occur, keep-alive must be true on the [HttpClientOptions](../http/HttpClientOptions.type.html) (default is true).\n In this case connections will be pooled and re-used if there are pending HTTP requests waiting to get a connection,\n otherwise they will be closed.\n <p>\n This gives the benefits of keep alive when the client is loaded but means we don't keep connections hanging around\n unnecessarily when there would be no benefits anyway.\n <p>\n The client also supports pipe-lining of requests. Pipe-lining means another request is sent on the same connection\n before the response from the preceding one has returned. Pipe-lining is not appropriate for all requests.\n <p>\n To enable pipe-lining, it must be enabled on the [HttpClientOptions](../http/HttpClientOptions.type.html) (default is false).\n <p>\n When pipe-lining is enabled the connection will be automatically closed when all in-flight responses have returned\n and there are no outstanding pending requests to write.\n <p>\n The client is designed to be reused between requests.\n")
 public class HttpClient implements ReifiedType,  Measured {
 
   @Ignore
@@ -1012,7 +1012,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -1053,7 +1053,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
@@ -1099,7 +1099,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -1144,7 +1144,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
@@ -1194,7 +1194,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -1243,7 +1243,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
@@ -1297,7 +1297,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::String") @Name("subProtocols") @DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
@@ -1350,7 +1350,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::String") @Name("subProtocols") @DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
@@ -1390,7 +1390,7 @@ public class HttpClient implements ReifiedType,  Measured {
   public HttpClient websocket(
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
@@ -1429,7 +1429,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI") @DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
@@ -1472,7 +1472,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers") @DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
@@ -1519,7 +1519,7 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version") @DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
     final @TypeInfo("ceylon.language::String") @Name("subProtocols") @DocAnnotation$annotation$(description = "the subprotocols\n") ceylon.language.String subProtocols, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect") @DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocekt connection fails\n") Callable<?> failureHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler") @DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);

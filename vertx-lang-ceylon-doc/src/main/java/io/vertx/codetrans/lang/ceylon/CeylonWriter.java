@@ -197,7 +197,7 @@ public class CeylonWriter extends CodeWriter {
           Member.Single singleMember = (Member.Single) member;
           singleMember.getValue().render(this);
         } else {
-          Member.Array arrayMember = (Member.Array) member;
+          Member.Sequence arrayMember = (Member.Sequence) member;
           renderArrayMembers(arrayMember.getValues());
         }
         append(";\n");
@@ -237,8 +237,8 @@ public class CeylonWriter extends CodeWriter {
         if (member instanceof Member.Single) {
           Member.Single singleMember = (Member.Single) member;
           singleMember.getValue().render(this);
-        } else {
-          Member.Array arrayMember = (Member.Array) member;
+        } else if (member instanceof Member.Sequence) {
+          Member.Sequence arrayMember = (Member.Sequence) member;
           append("{");
           Iterator<ExpressionModel> values = arrayMember.getValues().iterator();
           while (values.hasNext()) {

@@ -512,23 +512,23 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
 
   @DocAnnotation$annotation$(description = " Write an HTTP/2 frame to the response, allowing to extend the HTTP/2 protocol.<p>\n\n The frame is sent immediatly and is not subject to flow control.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
-  public HttpServerResponse writeFrame(
+  public HttpServerResponse writeCustomFrame(
     final @TypeInfo("ceylon.language::Integer") @Name("type") @DocAnnotation$annotation$(description = "the 8-bit frame type\n") long type, 
     final @TypeInfo("ceylon.language::Integer") @Name("flags") @DocAnnotation$annotation$(description = "the 8-bit frame flags\n") long flags, 
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("payload") @DocAnnotation$annotation$(description = "the frame payload\n") Buffer payload) {
     int arg_0 = (int)type;
     int arg_1 = (int)flags;
     io.vertx.core.buffer.Buffer arg_2 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(payload);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeFrame(arg_0, arg_1, arg_2));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeCustomFrame(arg_0, arg_1, arg_2));
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [writeFrame](../http/HttpServerResponse.type.html#writeFrame) but with an [HttpFrame](../http/HttpFrame.type.html).\n")
+  @DocAnnotation$annotation$(description = " Like [writeCustomFrame](../http/HttpServerResponse.type.html#writeCustomFrame) but with an [HttpFrame](../http/HttpFrame.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
-  public HttpServerResponse writeFrame(
+  public HttpServerResponse writeCustomFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpFrame") @Name("frame") @DocAnnotation$annotation$(description = "the frame to write\n") HttpFrame frame) {
     io.vertx.core.http.HttpFrame arg_0 = io.vertx.ceylon.core.http.HttpFrame.TO_JAVA.safeConvert(frame);
-    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeFrame(arg_0));
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.writeCustomFrame(arg_0));
     return this;
   }
 

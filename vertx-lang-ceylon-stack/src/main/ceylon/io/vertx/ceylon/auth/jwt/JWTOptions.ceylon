@@ -32,6 +32,7 @@ shared class JWTOptions(
   " The expiration time for the token in seconds\n"
   shared Integer? expiresInSeconds = null,
   shared JsonObject? header = null,
+  shared Map<String, String>? headers = null,
   " The issuer of this token\n"
   shared String? issuer = null,
   " Disable the generation of issued at claim\n"
@@ -60,6 +61,9 @@ shared class JWTOptions(
     if (exists header) {
       json.put("header", header);
     }
+    if (exists headers) {
+      json.put("headers", JsonObject(headers));
+    }
     if (exists issuer) {
       json.put("issuer", issuer);
     }
@@ -85,6 +89,7 @@ shared object jwtOptions {
     Integer? expiresInMinutes = json.getIntegerOrNull("expiresInMinutes");
     Integer? expiresInSeconds = json.getIntegerOrNull("expiresInSeconds");
     JsonObject? header = json.getObjectOrNull("header");
+    Map<String, String>? headers = if (exists tmp = json.getObjectOrNull("headers")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null;
     String? issuer = json.getStringOrNull("issuer");
     Boolean? noTimestamp = json.getBooleanOrNull("noTimestamp");
     {String*}? permissions = json.getArrayOrNull("permissions")?.strings;
@@ -96,6 +101,7 @@ shared object jwtOptions {
       expiresInMinutes = expiresInMinutes;
       expiresInSeconds = expiresInSeconds;
       header = header;
+      headers = headers;
       issuer = issuer;
       noTimestamp = noTimestamp;
       permissions = permissions;

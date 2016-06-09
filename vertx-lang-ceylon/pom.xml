@@ -25,8 +25,13 @@
       <!-- specify the SLF4J version to match the one used by vert.x -->
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.16</version>
+      <version>1.7.21</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>4.1.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -79,7 +84,7 @@
     <dependency>
       <groupId>org.mvel</groupId>
       <artifactId>mvel2</artifactId>
-      <version>2.2.6.Final</version>
+      <version>2.2.8.Final</version>
       <scope>provided</scope>
     </dependency>
 
@@ -172,7 +177,6 @@
             <configuration>
               <out>${repo.dir}</out>
               <moduleImports>
-<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
@@ -200,48 +204,11 @@
                 <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
-                    <artifactId>netty-common</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/io.netty.netty-common.properties</descriptor>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-buffer</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/io.netty.netty-buffer.properties</descriptor>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-transport</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/io.netty.netty-transport.properties</descriptor>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-codec</artifactId>
+                    <artifactId>netty-all</artifactId>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/io.netty.netty-codec.properties</descriptor>
+                  <descriptor>descriptors/io.netty.netty-all.properties</descriptor>
                 </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-handler</artifactId>
-                  </dependency>
-                  <force>true</force>
-                  <descriptor>descriptors/io.netty.netty-handler.properties</descriptor>
-                </moduleImport>
-                <moduleImport>
-                  <dependency>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-codec-http</artifactId>
-                  </dependency>
-                  <descriptor>descriptors/io.netty.netty-codec-http.properties</descriptor>
-                </moduleImport>
--->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>

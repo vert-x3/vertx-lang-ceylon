@@ -315,7 +315,7 @@ Additional pools can be created for different purposes:
 
 [source,ceylon]
 ----
-value executor = vertx.createWorkerExecutor("my-worker-pool");
+value executor = vertx.createSharedWorkerExecutor("my-worker-pool");
 executor.executeBlocking((Future<Object> future) {
   // Call some blocking API that takes a significant amount of time to return
   value result = someAPI.blockingMethod("hello");
@@ -351,7 +351,7 @@ value poolSize = 10;
 // 2 minutes
 value maxExecuteTime = 120000;
 
-value executor = vertx.createWorkerExecutor("my-worker-pool", poolSize, maxExecuteTime);
+value executor = vertx.createSharedWorkerExecutor("my-worker-pool", poolSize, maxExecuteTime);
 
 ----
 
@@ -941,6 +941,9 @@ to the classpath. The metrics SPI is an advanced feature which allows implemente
 order to gather metrics. For more information on this, please consult the
 `API Documentation`.
 
+You can also specify a metrics factory programmatically if embedding Vert.x using
+`link:../../ceylondoc/vertx-core//metrics/MetricsOptions.type.html#setFactory(io.vertx.core.spi.VertxMetricsFactory)[factory]`.
+
 == OSGi
 
 Vert.x Core is packaged as an OSGi bundle, so can be used in any OSGi R4.2+ environment such as Apache Felix
@@ -1257,7 +1260,7 @@ the Program arguments write: `run your-verticle-fully-qualified-name --redeploy=
 the module explicitly (_Build_ menu -> _Make project_).
 
 To debug your application, create your run configuration as a remote application and configure the debugger
-using `--java-opts`. However, don’t forget to re-plug the debugger after every redeployment as a new process is
+using `--java-opts`. However, don't forget to re-plug the debugger after every redeployment as a new process is
 created every time.
 
 You can also hook your build process in the redeploy cycle:
@@ -1363,12 +1366,12 @@ logger.error("oops!", exception);
 
 ----
 
-== Hostname resolution
+== Host name resolution
 
-Vert.x uses an an hostname resolver for resolving hostname into IP addresses instead of
+Vert.x uses an an address resolver for resolving host name into IP addresses instead of
 the JVM built-in blocking resolver.
 
-An hostname are resolve to an IP address using:
+An host name resolves to an IP address using:
 
 - the _hosts_ file of the operating system
 - otherwise DNS queries against a list of servers
@@ -1385,7 +1388,7 @@ import io.vertx.ceylon.core { vertx_ = vertx }
 ...
 
 value vertx = vertx_.vertx(VertxOptions {
-  hostnameResolverOptions = HostnameResolverOptions {
+  addressResolverOptions = AddressResolverOptions {
     servers = {"192.168.0.1" , "192.168.0.2:40000" };
   };
 });
@@ -1394,6 +1397,22 @@ value vertx = vertx_.vertx(VertxOptions {
 
 The default port of a DNS server is `53`, when a server uses a different port, this port can be set
 using a colon delimiter: `192.168.0.2:40000`.
+
+The resolver can be configured to use an alternative _hosts_ file:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value vertx = vertx_.vertx(VertxOptions {
+  addressResolverOptions = AddressResolverOptions {
+    hostsPath = "/path/to/hosts";
+  };
+});
+
+----
 
 == High Availability and Fail-Over
 
@@ -1656,3 +1675,15 @@ overriding `afterStartingVertx`
 `getDefaultCommand`
 * add / remove commands using `register`
 and `unregister`
+
+=== Launcher and exit code
+
+When you use the `Launcher` class as main class, it uses the following exit code:
+
+* `0` if the process ends smoothly, or if an uncaught error is thrown
+* `1` for general purpose error
+* `11` if Vert.x cannot be initialized
+* `12` if a spawn process cannot be started, found or stopped. This error code is used by the `start` and
+`stop` command
+* `14` if the system configuration is not meeting the system requirement (shc as java not found)
+* `15` if the main verticle cannot be deployed

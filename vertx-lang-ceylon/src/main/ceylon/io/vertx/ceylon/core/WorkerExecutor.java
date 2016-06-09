@@ -11,12 +11,13 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An executor for executing blocking code in Vert.x .<p>\n\n It provides the same <code>executeBlocking</code> operation than [Context](Context.type.html) and\n [Vertx](Vertx.type.html) but on a separate worker pool.<p>\n")
-public class WorkerExecutor implements ReifiedType {
+public class WorkerExecutor implements ReifiedType,  Measured {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.WorkerExecutor, WorkerExecutor> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.core.WorkerExecutor, WorkerExecutor>() {
@@ -51,6 +52,13 @@ public class WorkerExecutor implements ReifiedType {
   @Ignore
   public Object getDelegate() {
     return delegate;
+  }
+
+  @DocAnnotation$annotation$(description = " Whether the metrics are enabled for this measured object\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isMetricsEnabled() {
+    boolean ret = delegate.isMetricsEnabled();
+    return ret;
   }
 
   @TypeParameters({

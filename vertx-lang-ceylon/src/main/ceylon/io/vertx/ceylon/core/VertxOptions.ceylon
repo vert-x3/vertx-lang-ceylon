@@ -23,8 +23,8 @@ import ceylon.collection {
   HashMap
 }
 import io.vertx.ceylon.core.dns {
-  HostnameResolverOptions,
-  hostnameResolverOptions_=hostnameResolverOptions
+  AddressResolverOptions,
+  addressResolverOptions_=addressResolverOptions
 }
 import io.vertx.core.json {
   JsonObject_=JsonObject,
@@ -33,6 +33,8 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.VertxOptions */
 " Instances of this class are used to configure [Vertx](Vertx.type.html) instances.\n"
 shared class VertxOptions(
+  " Sets the address resolver configuration to configure resolving DNS servers, cache TTL, etc...\n"
+  shared AddressResolverOptions? addressResolverOptions = null,
   " Sets the value of blocked thread check period, in ms.\n"
   shared Integer? blockedThreadCheckInterval = null,
   " Set the hostname to be used for clustering.\n"
@@ -57,8 +59,6 @@ shared class VertxOptions(
   shared Boolean? haEnabled = null,
   " Set the HA group to be used when HA is enabled.\n"
   shared String? haGroup = null,
-  " Sets the hostname resolver configuration to configure resolving DNS servers, cache TTL, etc...\n"
-  shared HostnameResolverOptions? hostnameResolverOptions = null,
   " Set the value of internal blocking pool size\n"
   shared Integer? internalBlockingPoolSize = null,
   " Sets the value of max event loop execute time, in ns.\n"
@@ -75,6 +75,9 @@ shared class VertxOptions(
   shared Integer? workerPoolSize = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
+    if (exists addressResolverOptions) {
+      json.put("addressResolverOptions", addressResolverOptions.toJson());
+    }
     if (exists blockedThreadCheckInterval) {
       json.put("blockedThreadCheckInterval", blockedThreadCheckInterval);
     }
@@ -111,9 +114,6 @@ shared class VertxOptions(
     if (exists haGroup) {
       json.put("haGroup", haGroup);
     }
-    if (exists hostnameResolverOptions) {
-      json.put("hostnameResolverOptions", hostnameResolverOptions.toJson());
-    }
     if (exists internalBlockingPoolSize) {
       json.put("internalBlockingPoolSize", internalBlockingPoolSize);
     }
@@ -142,6 +142,7 @@ shared class VertxOptions(
 shared object vertxOptions {
 
   shared VertxOptions fromJson(JsonObject json) {
+    AddressResolverOptions? addressResolverOptions = if (exists tmp = json.getObjectOrNull("addressResolverOptions")) then addressResolverOptions_.fromJson(tmp) else null;
     Integer? blockedThreadCheckInterval = json.getIntegerOrNull("blockedThreadCheckInterval");
     String? clusterHost = json.getStringOrNull("clusterHost");
     Integer? clusterPingInterval = json.getIntegerOrNull("clusterPingInterval");
@@ -154,7 +155,6 @@ shared object vertxOptions {
     Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
     Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
     String? haGroup = json.getStringOrNull("haGroup");
-    HostnameResolverOptions? hostnameResolverOptions = if (exists tmp = json.getObjectOrNull("hostnameResolverOptions")) then hostnameResolverOptions_.fromJson(tmp) else null;
     Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
     Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
     Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
@@ -163,6 +163,7 @@ shared object vertxOptions {
     Integer? warningExceptionTime = json.getIntegerOrNull("warningExceptionTime");
     Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
     return VertxOptions {
+      addressResolverOptions = addressResolverOptions;
       blockedThreadCheckInterval = blockedThreadCheckInterval;
       clusterHost = clusterHost;
       clusterPingInterval = clusterPingInterval;
@@ -175,7 +176,6 @@ shared object vertxOptions {
       eventLoopPoolSize = eventLoopPoolSize;
       haEnabled = haEnabled;
       haGroup = haGroup;
-      hostnameResolverOptions = hostnameResolverOptions;
       internalBlockingPoolSize = internalBlockingPoolSize;
       maxEventLoopExecuteTime = maxEventLoopExecuteTime;
       maxWorkerExecuteTime = maxWorkerExecuteTime;

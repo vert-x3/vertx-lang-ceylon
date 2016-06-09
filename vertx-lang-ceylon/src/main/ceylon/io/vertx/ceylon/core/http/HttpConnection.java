@@ -16,7 +16,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents an HTTP/2 connection.<p/>\n")
+@DocAnnotation$annotation$(description = " Represents an HTTP connection.\n <p/>\n HTTP/1.x connection provides an limited implementation, the following methods are implemented:\n <ul>\n   <li>[close](../http/HttpConnection.type.html#close)</li>\n   <li>[closeHandler](../http/HttpConnection.type.html#closeHandler)</li>\n   <li>[exceptionHandler](../http/HttpConnection.type.html#exceptionHandler)</li>\n </ul>\n")
 public class HttpConnection implements ReifiedType {
 
   @Ignore
@@ -54,6 +54,22 @@ public class HttpConnection implements ReifiedType {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " @return the current connection window size or <code>-1</code> for HTTP/1.x\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long $getWindowSize() {
+    long ret = delegate.getWindowSize();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Update the current connection wide window size to a new size.\n <p/>\n Increasing this value, gives better performance when several data streams are multiplexed\n <p/>\n This is not implemented for HTTP/1.x.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
+  public HttpConnection setWindowSize(
+    final @TypeInfo("ceylon.language::Integer") @Name("windowSize") @DocAnnotation$annotation$(description = "the new window size\n") long windowSize) {
+    int arg_0 = (int)windowSize;
+    HttpConnection ret = io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(delegate.setWindowSize(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Like [goAway](../http/HttpConnection.type.html#goAway) with a last stream id <code>2^31-1</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection goAway(
@@ -74,7 +90,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Send a go away frame to the remote endpoint of the connection.<p/>\n\n <ul>\n   <li>a  frame is sent to the to the remote endpoint with the <code>errorCode</code> and {@@code debugData}</li>\n   <li>any stream created after the stream identified by <code>lastStreamId</code> will be closed</li>\n   <li>for an  is different than  when all the remaining streams are closed this connection will be closed automatically</li>\n </ul>\n")
+  @DocAnnotation$annotation$(description = " Send a go away frame to the remote endpoint of the connection.\n <p/>\n <ul>\n   <li>a  frame is sent to the to the remote endpoint with the <code>errorCode</code> and <code>debugData</code></li>\n   <li>any stream created after the stream identified by <code>lastStreamId</code> will be closed</li>\n   <li>for an  is different than <code>0</code> when all the remaining streams are closed this connection will be closed automatically</li>\n </ul>\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection goAway(
     final @TypeInfo("ceylon.language::Integer") @Name("errorCode") @DocAnnotation$annotation$(description = "the  error code\n") long errorCode, 
@@ -87,7 +103,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set an handler called when a  frame is received.\n")
+  @DocAnnotation$annotation$(description = " Set an handler called when a  frame is received.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection goAwayHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::GoAway)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -100,7 +116,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set an handler called when a  frame has been sent or received and all connections are closed.\n")
+  @DocAnnotation$annotation$(description = " Set an handler called when a  frame has been sent or received and all connections are closed.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection shutdownHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -113,14 +129,14 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Initiate a connection shutdown, a go away frame is sent and the connection is closed when all current active streams\n are closed or after a time out of 30 seconds.\n")
+  @DocAnnotation$annotation$(description = " Initiate a connection shutdown, a go away frame is sent and the connection is closed when all current active streams\n are closed or after a time out of 30 seconds.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection shutdown() {
     HttpConnection ret = io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(delegate.shutdown());
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Initiate a connection shutdown, a go away frame is sent and the connection is closed when all current streams\n will be closed or the <code>timeout</code> is fired.\n")
+  @DocAnnotation$annotation$(description = " Initiate a connection shutdown, a go away frame is sent and the connection is closed when all current streams\n will be closed or the <code>timeout</code> is fired.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection shutdown(
     final @TypeInfo("ceylon.language::Integer") @Name("timeoutMs") @DocAnnotation$annotation$(description = "the timeout in milliseconds\n") long timeoutMs) {
@@ -142,20 +158,20 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Close the connection and all the currently active streams. A  frame will be sent before.<p/>\n")
+  @DocAnnotation$annotation$(description = " Close the connection and all the currently active streams.\n <p/>\n An HTTP/2 connection will send a  frame before.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " @return the latest server settings acknowledged by the remote endpoint\n")
+  @DocAnnotation$annotation$(description = " @return the latest server settings acknowledged by the remote endpoint - this is not implemented for HTTP/1.x\n")
   @TypeInfo("io.vertx.ceylon.core.http::Http2Settings")
   public io.vertx.ceylon.core.http.Http2Settings settings() {
     io.vertx.ceylon.core.http.Http2Settings ret = io.vertx.ceylon.core.http.http2Settings_.get_().getToCeylon().safeConvert(delegate.settings());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Send to the remote endpoint an update of the server settings.\n")
+  @DocAnnotation$annotation$(description = " Send to the remote endpoint an update of the server settings.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection updateSettings(
     final @TypeInfo("io.vertx.ceylon.core.http::Http2Settings") @Name("settings") @DocAnnotation$annotation$(description = "the new settings\n") io.vertx.ceylon.core.http.Http2Settings settings) {
@@ -164,7 +180,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Send to the remote endpoint an update of this endpoint settings.<p/>\n\n The <code>completionHandler</code> will be notified when the remote endpoint has acknowledged the settings.\n")
+  @DocAnnotation$annotation$(description = " Send to the remote endpoint an update of this endpoint settings\n <p/>\n The <code>completionHandler</code> will be notified when the remote endpoint has acknowledged the settings.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection updateSettings(
     final @TypeInfo("io.vertx.ceylon.core.http::Http2Settings") @Name("settings") @DocAnnotation$annotation$(description = "the new settings\n") io.vertx.ceylon.core.http.Http2Settings settings, 
@@ -179,14 +195,14 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the current remote endpoint settings for this connection\n")
+  @DocAnnotation$annotation$(description = " @return the current remote endpoint settings for this connection - this is not implemented for HTTP/1.x\n")
   @TypeInfo("io.vertx.ceylon.core.http::Http2Settings")
   public io.vertx.ceylon.core.http.Http2Settings remoteSettings() {
     io.vertx.ceylon.core.http.Http2Settings ret = io.vertx.ceylon.core.http.http2Settings_.get_().getToCeylon().safeConvert(delegate.remoteSettings());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Set an handler that is called when remote endpoint [Http2Settings](../http/Http2Settings.type.html) are updated.\n")
+  @DocAnnotation$annotation$(description = " Set an handler that is called when remote endpoint [Http2Settings](../http/Http2Settings.type.html) are updated.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection remoteSettingsHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::Http2Settings)") @Name("handler") @DocAnnotation$annotation$(description = "the handler for remote endpoint settings\n") Callable<?> handler) {
@@ -199,7 +215,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Send a  frame to the remote endpoint.\n")
+  @DocAnnotation$annotation$(description = " Send a  frame to the remote endpoint.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection ping(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") @DocAnnotation$annotation$(description = "the 8 bytes data of the frame\n") Buffer data, 
@@ -214,7 +230,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set an handler notified when a  frame is received from the remote endpoint.\n")
+  @DocAnnotation$annotation$(description = " Set an handler notified when a  frame is received from the remote endpoint.\n <p/>\n This is not implemented for HTTP/1.x.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection pingHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler to be called when a  is received\n") Callable<?> handler) {

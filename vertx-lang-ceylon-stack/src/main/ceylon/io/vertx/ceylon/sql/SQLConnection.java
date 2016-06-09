@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.json.JsonArray;
+import java.util.List;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
@@ -232,6 +233,85 @@ public class SQLConnection implements ReifiedType {
     final @TypeInfo("ceylon.language::Integer") @Name("timeoutInSeconds") @DocAnnotation$annotation$(description = "the max amount of seconds the query can take to execute.\n") long timeoutInSeconds) {
     int arg_0 = (int)timeoutInSeconds;
     SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.setQueryTimeout(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Batch simple SQL strings and execute the batch where the async result contains a array of Integers.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection batch(
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("sqlStatements") @DocAnnotation$annotation$(description = "sql statement\n") ceylon.language.List<ceylon.language.String> sqlStatements, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>)") @Name("handler") @DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
+    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(sqlStatements, io.vertx.lang.ceylon.ToJava.String);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Integer>>(handler) {
+      public Object toCeylon(java.util.List<java.lang.Integer> event) {
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
+      }
+    };
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.batch(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Batch a prepared statement with all entries from the args list. Each entry is a batch.\n The operation completes with the execution of the batch where the async result contains a array of Integers.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection batchWithParams(
+    final @TypeInfo("ceylon.language::String") @Name("sqlStatement") @DocAnnotation$annotation$(description = "sql statement\n") ceylon.language.String sqlStatement, 
+    final @TypeInfo("ceylon.language::List<ceylon.json::Array>") @Name("args") @DocAnnotation$annotation$(description = "the prepared statement arguments\n") ceylon.language.List<ceylon.json.Array> args, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>)") @Name("handler") @DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sqlStatement);
+    java.util.List<io.vertx.core.json.JsonArray> arg_1 = io.vertx.lang.ceylon.ToJava.convertList(args, io.vertx.lang.ceylon.ToJava.JsonArray);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Integer>>(handler) {
+      public Object toCeylon(java.util.List<java.lang.Integer> event) {
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
+      }
+    };
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.batchWithParams(arg_0, arg_1, arg_2));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Batch a callable statement with all entries from the args list. Each entry is a batch.\n The size of the lists inArgs and outArgs MUST be the equal.\n The operation completes with the execution of the batch where the async result contains a array of Integers.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection batchCallableWithParams(
+    final @TypeInfo("ceylon.language::String") @Name("sqlStatement") @DocAnnotation$annotation$(description = "sql statement\n") ceylon.language.String sqlStatement, 
+    final @TypeInfo("ceylon.language::List<ceylon.json::Array>") @Name("inArgs") @DocAnnotation$annotation$(description = "the callable statement input arguments\n") ceylon.language.List<ceylon.json.Array> inArgs, 
+    final @TypeInfo("ceylon.language::List<ceylon.json::Array>") @Name("outArgs") @DocAnnotation$annotation$(description = "the callable statement output arguments\n") ceylon.language.List<ceylon.json.Array> outArgs, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.language::Integer>)") @Name("handler") @DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sqlStatement);
+    java.util.List<io.vertx.core.json.JsonArray> arg_1 = io.vertx.lang.ceylon.ToJava.convertList(inArgs, io.vertx.lang.ceylon.ToJava.JsonArray);
+    java.util.List<io.vertx.core.json.JsonArray> arg_2 = io.vertx.lang.ceylon.ToJava.convertList(outArgs, io.vertx.lang.ceylon.ToJava.JsonArray);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<java.lang.Integer>>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<java.lang.Integer>>(handler) {
+      public Object toCeylon(java.util.List<java.lang.Integer> event) {
+        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.Integer.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.Integer);
+      }
+    };
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.batchCallableWithParams(arg_0, arg_1, arg_2, arg_3));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Attempts to change the transaction isolation level for this Connection object to the one given.\n\n The constants defined in the interface Connection are the possible transaction isolation levels.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection setTransactionIsolation(
+    final @TypeInfo("io.vertx.ceylon.sql::TransactionIsolation") @Name("isolation") @DocAnnotation$annotation$(description = "the level of isolation\n") io.vertx.ceylon.sql.TransactionIsolation isolation, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler called when this operation completes.\n") Callable<?> handler) {
+    io.vertx.ext.sql.TransactionIsolation arg_0 = io.vertx.ceylon.sql.transactionIsolation_.get_().getToJava().safeConvert(isolation);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.setTransactionIsolation(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Attempts to return the transaction isolation level for this Connection object to the one given.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection getTransactionIsolation(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::TransactionIsolation)") @Name("handler") @DocAnnotation$annotation$(description = "the handler called when this operation completes.\n") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.TransactionIsolation>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.TransactionIsolation>(handler) {
+      public Object toCeylon(io.vertx.ext.sql.TransactionIsolation event) {
+        return io.vertx.ceylon.sql.transactionIsolation_.get_().getToCeylon().safeConvert(event);
+      }
+    };
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.getTransactionIsolation(arg_0));
     return this;
   }
 

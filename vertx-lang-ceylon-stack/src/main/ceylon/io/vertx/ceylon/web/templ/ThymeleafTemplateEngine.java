@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import org.thymeleaf.templatemode.TemplateMode;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " A template engine that uses the Thymeleaf library.\n")
@@ -56,7 +57,7 @@ public class ThymeleafTemplateEngine extends io.vertx.ceylon.web.templ.TemplateE
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
   public ThymeleafTemplateEngine setMode(
     final @TypeInfo("ceylon.language::String") @Name("mode") @DocAnnotation$annotation$(description = "the mode\n") ceylon.language.String mode) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(mode);
+    org.thymeleaf.templatemode.TemplateMode arg_0 = io.vertx.lang.ceylon.ToJava.enumeration(org.thymeleaf.templatemode.TemplateMode.class).safeConvert(mode);
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMode(arg_0));
     return ret;
   }

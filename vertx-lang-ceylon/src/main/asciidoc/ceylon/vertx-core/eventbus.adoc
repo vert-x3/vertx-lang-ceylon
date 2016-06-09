@@ -357,7 +357,7 @@ value options = VertxOptions {
       path = "keystore.jks";
       password = "wibble";
     };
-    clientAuth = required;
+    clientAuth = "REQUIRED";
   };
 };
 

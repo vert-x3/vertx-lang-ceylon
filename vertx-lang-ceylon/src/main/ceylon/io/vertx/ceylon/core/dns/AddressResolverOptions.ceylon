@@ -9,7 +9,7 @@ import io.vertx.lang.ceylon {
   ToJava
 }
 import io.vertx.core.dns {
-  HostnameResolverOptions_=HostnameResolverOptions
+  AddressResolverOptions_=AddressResolverOptions
 }
 import ceylon.collection {
   HashMap
@@ -18,15 +18,17 @@ import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
 }
-/* Generated from io.vertx.core.dns.HostnameResolverOptions */
+/* Generated from io.vertx.core.dns.AddressResolverOptions */
 " Configuration options for Vert.x hostname resolver. The resolver uses the local <i>hosts</i> file and performs\n DNS <i>A</i> and <i>AAAA</i> queries.\n"
-shared class HostnameResolverOptions(
+shared class AddressResolverOptions(
   " Set the cache maximum TTL value in seconds. After successful resolution IP addresses are cached with their DNS response TTL,\n use this to set a maximum value to all responses TTL.\n"
   shared Integer? cacheMaxTimeToLive = null,
   " Set the cache minimum TTL value in seconds. After resolution successful IP addresses are cached with their DNS response TTL,\n use this to set a minimum value to all responses TTL.\n"
   shared Integer? cacheMinTimeToLive = null,
   " Set the negative cache TTL value in seconds. After a failed hostname resolution, DNS queries won't be retried\n for a period of time equals to the negative TTL. This allows to reduce the response time of negative replies\n and reduce the amount of messages to DNS servers.\n"
   shared Integer? cacheNegativeTimeToLive = null,
+  " Set the path of an alternate hosts configuration file to use instead of the one provided by the os.\n <p/>\n The default value is null, so the operating system hosts config is used.\n"
+  shared String? hostsPath = null,
   " Set the maximum number of queries when an hostname is resolved.\n"
   shared Integer? maxQueries = null,
   " Set to true to enable the automatic inclusion in DNS queries of an optional record that hints\n the remote DNS server about how much data the resolver can read per response.\n"
@@ -48,6 +50,9 @@ shared class HostnameResolverOptions(
     if (exists cacheNegativeTimeToLive) {
       json.put("cacheNegativeTimeToLive", cacheNegativeTimeToLive);
     }
+    if (exists hostsPath) {
+      json.put("hostsPath", hostsPath);
+    }
     if (exists maxQueries) {
       json.put("maxQueries", maxQueries);
     }
@@ -67,21 +72,23 @@ shared class HostnameResolverOptions(
   }
 }
 
-shared object hostnameResolverOptions {
+shared object addressResolverOptions {
 
-  shared HostnameResolverOptions fromJson(JsonObject json) {
+  shared AddressResolverOptions fromJson(JsonObject json) {
     Integer? cacheMaxTimeToLive = json.getIntegerOrNull("cacheMaxTimeToLive");
     Integer? cacheMinTimeToLive = json.getIntegerOrNull("cacheMinTimeToLive");
     Integer? cacheNegativeTimeToLive = json.getIntegerOrNull("cacheNegativeTimeToLive");
+    String? hostsPath = json.getStringOrNull("hostsPath");
     Integer? maxQueries = json.getIntegerOrNull("maxQueries");
     Boolean? optResourceEnabled = json.getBooleanOrNull("optResourceEnabled");
     Integer? queryTimeout = json.getIntegerOrNull("queryTimeout");
     Boolean? rdFlag = json.getBooleanOrNull("rdFlag");
     {String*}? servers = json.getArrayOrNull("servers")?.strings;
-    return HostnameResolverOptions {
+    return AddressResolverOptions {
       cacheMaxTimeToLive = cacheMaxTimeToLive;
       cacheMinTimeToLive = cacheMinTimeToLive;
       cacheNegativeTimeToLive = cacheNegativeTimeToLive;
+      hostsPath = hostsPath;
       maxQueries = maxQueries;
       optResourceEnabled = optResourceEnabled;
       queryTimeout = queryTimeout;
@@ -90,21 +97,21 @@ shared object hostnameResolverOptions {
     };
   }
 
-  shared object toCeylon extends Converter<HostnameResolverOptions_, HostnameResolverOptions>() {
-    shared actual HostnameResolverOptions convert(HostnameResolverOptions_ src) {
+  shared object toCeylon extends Converter<AddressResolverOptions_, AddressResolverOptions>() {
+    shared actual AddressResolverOptions convert(AddressResolverOptions_ src) {
       value json = parse(src.toJson().string);
       assert(is JsonObject json);
       return fromJson(json);
     }
   }
 
-  shared object toJava extends Converter<HostnameResolverOptions, HostnameResolverOptions_>() {
-    shared actual HostnameResolverOptions_ convert(HostnameResolverOptions src) {
+  shared object toJava extends Converter<AddressResolverOptions, AddressResolverOptions_>() {
+    shared actual AddressResolverOptions_ convert(AddressResolverOptions src) {
       // Todo : make optimized version without json
       value json = JsonObject_(src.toJson().string);
-      value ret = HostnameResolverOptions_(json);
+      value ret = AddressResolverOptions_(json);
       return ret;
     }
   }
-  shared JsonObject toJson(HostnameResolverOptions obj) => obj.toJson();
+  shared JsonObject toJson(AddressResolverOptions obj) => obj.toJson();
 }

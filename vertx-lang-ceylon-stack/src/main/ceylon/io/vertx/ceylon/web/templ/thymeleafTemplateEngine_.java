@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import org.thymeleaf.templatemode.TemplateMode;
 
 @Ceylon(major = 8)
 @Name("thymeleafTemplateEngine")

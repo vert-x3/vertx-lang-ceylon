@@ -361,7 +361,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.reset(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " @return the [HttpConnection](../http/HttpConnection.type.html) associated with this request when it is an HTTP/2 connection, null otherwise\n")
+  @DocAnnotation$annotation$(description = " @return the [HttpConnection](../http/HttpConnection.type.html) associated with this request\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection connection() {
     if (cached_connection != null) {
@@ -372,7 +372,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Set a connection handler called when an HTTP/2 connection has been established.\n")
+  @DocAnnotation$annotation$(description = " Set a connection handler called when an HTTP connection has been established.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest connectionHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpConnection)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -387,14 +387,14 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @DocAnnotation$annotation$(description = " Write an HTTP/2 frame to the request, allowing to extend the HTTP/2 protocol.<p>\n\n The frame is sent immediatly and is not subject to flow control.<p>\n\n This method must be called after the request headers have been sent and only for the protocol HTTP/2.\n The [sendHead](../http/HttpClientRequest.type.html#sendHead) should be used for this purpose.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
-  public HttpClientRequest writeFrame(
+  public HttpClientRequest writeCustomFrame(
     final @TypeInfo("ceylon.language::Integer") @Name("type") @DocAnnotation$annotation$(description = "the 8-bit frame type\n") long type, 
     final @TypeInfo("ceylon.language::Integer") @Name("flags") @DocAnnotation$annotation$(description = "the 8-bit frame flags\n") long flags, 
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("payload") @DocAnnotation$annotation$(description = "the frame payload\n") Buffer payload) {
     int arg_0 = (int)type;
     int arg_1 = (int)flags;
     io.vertx.core.buffer.Buffer arg_2 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(payload);
-    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.writeFrame(arg_0, arg_1, arg_2));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.writeCustomFrame(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -405,12 +405,12 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Like [writeFrame](../http/HttpClientRequest.type.html#writeFrame) but with an [HttpFrame](../http/HttpFrame.type.html).\n")
+  @DocAnnotation$annotation$(description = " Like [writeCustomFrame](../http/HttpClientRequest.type.html#writeCustomFrame) but with an [HttpFrame](../http/HttpFrame.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
-  public HttpClientRequest writeFrame(
+  public HttpClientRequest writeCustomFrame(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpFrame") @Name("frame") @DocAnnotation$annotation$(description = "the frame to write\n") HttpFrame frame) {
     io.vertx.core.http.HttpFrame arg_0 = io.vertx.ceylon.core.http.HttpFrame.TO_JAVA.safeConvert(frame);
-    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.writeFrame(arg_0));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.writeCustomFrame(arg_0));
     return this;
   }
 

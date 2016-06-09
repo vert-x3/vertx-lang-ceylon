@@ -87,7 +87,7 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set a connection handler for the server. The connection handler is called after an HTTP2 connection has\n been negociated.\n")
+  @DocAnnotation$annotation$(description = " Set a connection handler for the server.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
   public HttpServer connectionHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpConnection)") @Name("handler")  Callable<?> handler) {

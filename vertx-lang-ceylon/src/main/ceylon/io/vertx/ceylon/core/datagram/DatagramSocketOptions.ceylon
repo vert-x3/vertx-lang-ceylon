@@ -28,6 +28,7 @@ shared class DatagramSocketOptions(
   shared Boolean? broadcast = null,
   " Set if IP v6 should be used\n"
   shared Boolean? ipV6 = null,
+  Boolean? logActivity = null,
   " Set if loopback mode is disabled\n"
   shared Boolean? loopbackModeDisabled = null,
   " Set the multicast network interface address\n"
@@ -38,6 +39,7 @@ shared class DatagramSocketOptions(
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
   Integer? trafficClass = null) extends NetworkOptions(
+  logActivity,
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
@@ -68,6 +70,7 @@ shared object datagramSocketOptions {
   shared DatagramSocketOptions fromJson(JsonObject json) {
     Boolean? broadcast = json.getBooleanOrNull("broadcast");
     Boolean? ipV6 = json.getBooleanOrNull("ipV6");
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Boolean? loopbackModeDisabled = json.getBooleanOrNull("loopbackModeDisabled");
     String? multicastNetworkInterface = json.getStringOrNull("multicastNetworkInterface");
     Integer? multicastTimeToLive = json.getIntegerOrNull("multicastTimeToLive");
@@ -78,6 +81,7 @@ shared object datagramSocketOptions {
     return DatagramSocketOptions {
       broadcast = broadcast;
       ipV6 = ipV6;
+      logActivity = logActivity;
       loopbackModeDisabled = loopbackModeDisabled;
       multicastNetworkInterface = multicastNetworkInterface;
       multicastTimeToLive = multicastTimeToLive;

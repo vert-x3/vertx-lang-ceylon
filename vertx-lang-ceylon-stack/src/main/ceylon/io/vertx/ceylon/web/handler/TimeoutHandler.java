@@ -15,7 +15,7 @@ import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Handler that will timeout requests if the response has not been written after a certain time.\n Timeout requests will be ended with an HTTP status code `408`.\n")
+@DocAnnotation$annotation$(description = " Handler that will timeout requests if the response has not been written after a certain time.\n Timeout requests will be ended with an HTTP status code `503`.\n")
 public class TimeoutHandler implements ReifiedType {
 
   @Ignore

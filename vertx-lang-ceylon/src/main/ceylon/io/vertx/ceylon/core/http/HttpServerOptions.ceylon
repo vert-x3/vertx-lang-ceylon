@@ -1,14 +1,16 @@
 import io.vertx.ceylon.core.net {
+  JdkSSLEngineOptions,
+  jdkSSLEngineOptions_=jdkSSLEngineOptions,
   JksOptions,
   jksOptions_=jksOptions,
+  OpenSSLEngineOptions,
+  openSSLEngineOptions_=openSSLEngineOptions,
   PemKeyCertOptions,
   pemKeyCertOptions_=pemKeyCertOptions,
   PemTrustOptions,
   pemTrustOptions_=pemTrustOptions,
   PfxOptions,
   pfxOptions_=pfxOptions,
-  SSLEngine,
-  sslEngine_=sslEngine,
   NetServerOptions
 }
 import ceylon.json {
@@ -55,10 +57,14 @@ shared class HttpServerOptions(
   " Set whether 100 Continue should be handled automatically\n"
   shared Boolean? handle100ContinueAutomatically = null,
   String? host = null,
+  " Set the default HTTP/2 connection window size. It overrides the initial window\n size set by [getInitialWindowSize](../http/Http2Settings.type.html#getInitialWindowSize), so the connection window size\n is greater than for its streams, in order the data throughput.\n <p/>\n A value of <code>-1</code> reuses the initial window size setting.\n"
+  shared Integer? http2ConnectionWindowSize = null,
   Integer? idleTimeout = null,
   " Set the HTTP/2 connection settings immediatly sent by the server when a client connects.\n"
   shared Http2Settings? initialSettings = null,
+  JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
+  Boolean? logActivity = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
   " Set the maximum length of all headers for HTTP/1.x .\n"
@@ -67,6 +73,7 @@ shared class HttpServerOptions(
   shared Integer? maxInitialLineLength = null,
   " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
+  OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
   PfxOptions? pfxKeyCertOptions = null,
@@ -77,7 +84,6 @@ shared class HttpServerOptions(
   Integer? sendBufferSize = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
-  SSLEngine? sslEngine = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
@@ -94,7 +100,10 @@ shared class HttpServerOptions(
   enabledSecureTransportProtocols,
   host,
   idleTimeout,
+  jdkSslEngineOptions,
   keyStoreOptions,
+  logActivity,
+  openSslEngineOptions,
   pemKeyCertOptions,
   pemTrustOptions,
   pfxKeyCertOptions,
@@ -105,7 +114,6 @@ shared class HttpServerOptions(
   sendBufferSize,
   soLinger,
   ssl,
-  sslEngine,
   tcpKeepAlive,
   tcpNoDelay,
   trafficClass,
@@ -122,6 +130,9 @@ shared class HttpServerOptions(
     }
     if (exists handle100ContinueAutomatically) {
       json.put("handle100ContinueAutomatically", handle100ContinueAutomatically);
+    }
+    if (exists http2ConnectionWindowSize) {
+      json.put("http2ConnectionWindowSize", http2ConnectionWindowSize);
     }
     if (exists initialSettings) {
       json.put("initialSettings", initialSettings.toJson());
@@ -158,13 +169,17 @@ shared object httpServerOptions {
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Boolean? handle100ContinueAutomatically = json.getBooleanOrNull("handle100ContinueAutomatically");
     String? host = json.getStringOrNull("host");
+    Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
+    JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
     Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
     PfxOptions? pfxKeyCertOptions = if (exists tmp = json.getObjectOrNull("pfxKeyCertOptions")) then pfxOptions_.fromJson(tmp) else null;
@@ -175,7 +190,6 @@ shared object httpServerOptions {
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
-    SSLEngine? sslEngine = if (exists tmp = json.getStringOrNull("sslEngine")) then sslEngine_.fromString(tmp) else null;
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
@@ -194,13 +208,17 @@ shared object httpServerOptions {
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       handle100ContinueAutomatically = handle100ContinueAutomatically;
       host = host;
+      http2ConnectionWindowSize = http2ConnectionWindowSize;
       idleTimeout = idleTimeout;
       initialSettings = initialSettings;
+      jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      logActivity = logActivity;
       maxChunkSize = maxChunkSize;
       maxHeaderSize = maxHeaderSize;
       maxInitialLineLength = maxInitialLineLength;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
       pfxKeyCertOptions = pfxKeyCertOptions;
@@ -211,7 +229,6 @@ shared object httpServerOptions {
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
-      sslEngine = sslEngine;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
       trafficClass = trafficClass;

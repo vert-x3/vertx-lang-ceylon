@@ -97,4 +97,11 @@ public class DataObjectTCK implements ReifiedType {
     delegate.methodWithOnlyJsonObjectConstructorDataObject(arg_0);
   }
 
+  @TypeInfo("ceylon.language::Anything")
+  public void $setDataObjectWithBuffer(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithNestedBuffer") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithNestedBuffer dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithNestedBuffer arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithNestedBuffer(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithBuffer(arg_0);
+  }
+
 }

@@ -108,6 +108,15 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Gets a 32-bit integer at the specified absolute <code>index</code> in this buffer with Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getIntLE(arg_0);
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedInt(
@@ -117,12 +126,30 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Returns the unsigned <code>int</code> at position <code>pos</code> in the Buffer, as a <code>long</code> in Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getUnsignedIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getUnsignedIntLE(arg_0);
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Returns the <code>long</code> at position <code>pos</code> in the Buffer.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getLong(
     final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getLong(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets a 64-bit long integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getLongLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getLongLE(arg_0);
     return ret;
   }
 
@@ -153,12 +180,66 @@ public class Buffer implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Gets a 16-bit short integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getShortLE(arg_0);
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Returns the unsigned <code>short</code> at position <code>pos</code> in the Buffer, as an <code>int</code>.\n")
   @TypeInfo("ceylon.language::Integer")
   public long getUnsignedShort(
     final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
     int arg_0 = (int)pos;
     long ret = delegate.getUnsignedShort(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets an unsigned 16-bit short integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getUnsignedShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getUnsignedShortLE(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets a 24-bit medium integer at the specified absolute <code>index</code> in this buffer.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getMedium(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getMedium(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets a 24-bit medium integer at the specified absolute <code>index</code> in this buffer in the Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getMediumLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getMediumLE(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets an unsigned 24-bit medium integer at the specified absolute <code>index</code> in this buffer.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getUnsignedMedium(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getUnsignedMedium(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets an unsigned 24-bit medium integer at the specified absolute <code>index</code> in this buffer in Little Endian Byte Order.\n")
+  @TypeInfo("ceylon.language::Integer")
+  public long getUnsignedMediumLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos) {
+    int arg_0 = (int)pos;
+    long ret = delegate.getUnsignedMediumLE(arg_0);
     return ret;
   }
 
@@ -246,12 +327,48 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Appends the specified <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendIntLE(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedInt(
     final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
     long arg_0 = i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedInt(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendUnsignedIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    long arg_0 = i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedIntLE(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Appends the specified 24bit <code>int</code> to the end of the Buffer. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendMedium(
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendMedium(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Appends the specified 24bit <code>int</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendMediumLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendMediumLE(arg_0));
     return this;
   }
 
@@ -264,6 +381,15 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Appends the specified <code>long</code> to the end of the Buffer in the Little Endian Byte Order. The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendLongLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l) {
+    long arg_0 = l;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendLongLE(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Appends the specified <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendShort(
@@ -273,12 +399,30 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Appends the specified <code>short</code> to the end of the Buffer in the Little Endian Byte Order.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
+    short arg_0 = (short)s;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendShortLE(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>short</code> to the end of the Buffer.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer appendUnsignedShort(
     final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
     int arg_0 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedShort(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Appends the specified unsigned <code>short</code> to the end of the Buffer in the Little Endian Byte Order.The buffer will expand as necessary to accommodate any bytes written.<p>\n Returns a reference to <code>this</code> so multiple operations can be appended together.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer appendUnsignedShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
+    int arg_0 = (int)s;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.appendUnsignedShortLE(arg_0));
     return this;
   }
 
@@ -339,7 +483,7 @@ public class Buffer implements ReifiedType {
     int arg_0 = (int)pos;
     short arg_1 = (short)b;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedByte(arg_0, arg_1));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
@@ -350,6 +494,17 @@ public class Buffer implements ReifiedType {
     int arg_0 = (int)pos;
     int arg_1 = (int)i;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setInt(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Sets the <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code> in the Little Endian Byte Order.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)pos;
+    int arg_1 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setIntLE(arg_0, arg_1));
     return this;
   }
 
@@ -364,6 +519,39 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Sets the unsigned <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code> in the Little Endian Byte Order.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setUnsignedIntLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)pos;
+    long arg_1 = i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedIntLE(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Sets the 24bit <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setMedium(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)pos;
+    int arg_1 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setMedium(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Sets the 24bit <code>int</code> at position <code>pos</code> in the Buffer to the value <code>i</code>. in the Little Endian Byte Order<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setMediumLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i) {
+    int arg_0 = (int)pos;
+    int arg_1 = (int)i;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setMediumLE(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setLong(
@@ -372,6 +560,17 @@ public class Buffer implements ReifiedType {
     int arg_0 = (int)pos;
     long arg_1 = l;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setLong(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Sets the <code>long</code> at position <code>pos</code> in the Buffer to the value <code>l</code> in the Little Endian Byte Order.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setLongLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l) {
+    int arg_0 = (int)pos;
+    long arg_1 = l;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setLongLE(arg_0, arg_1));
     return this;
   }
 
@@ -408,6 +607,17 @@ public class Buffer implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Sets the <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code> in the Little Endian Byte Order.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
+    int arg_0 = (int)pos;
+    short arg_1 = (short)s;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setShortLE(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code>.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer setUnsignedShort(
@@ -416,6 +626,17 @@ public class Buffer implements ReifiedType {
     int arg_0 = (int)pos;
     int arg_1 = (int)s;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedShort(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Sets the unsigned <code>short</code> at position <code>pos</code> in the Buffer to the value <code>s</code> in the Little Endian Byte Order.<p>\n The buffer will expand as necessary to accommodate any value written.\n")
+  @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
+  public Buffer setUnsignedShortLE(
+    final @TypeInfo("ceylon.language::Integer") @Name("pos")  long pos, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s) {
+    int arg_0 = (int)pos;
+    int arg_1 = (int)s;
+    Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.setUnsignedShortLE(arg_0, arg_1));
     return this;
   }
 
