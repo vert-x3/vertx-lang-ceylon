@@ -10,4 +10,6 @@ module io.vertx.ceylon.web "3.3.0" {
   shared optional import "io.vertx.vertx-web-templ-thymeleaf" "3.3.0";
   shared optional import "io.vertx.vertx-web-templ-jade" "3.3.0";
   shared optional import "io.vertx.vertx-web-templ-mvel" "3.3.0";
+  shared optional import "io.vertx.vertx-web-templ-pebble" "3.3.0";
+  shared optional import "io.vertx.vertx-web-templ-freemarker" "3.3.0";
 }

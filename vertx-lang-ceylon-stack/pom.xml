@@ -151,6 +151,28 @@
       <classifier>sources</classifier>
       <version>${stack.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-pebble</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-pebble</artifactId>
+      <classifier>sources</classifier>
+      <version>${stack.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-freemarker</artifactId>
+      <classifier>shaded</classifier>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web-templ-freemarker</artifactId>
+      <classifier>sources</classifier>
+      <version>${stack.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>io.vertx</groupId>
@@ -159,12 +181,12 @@
     <dependency>
       <groupId>com.mchange</groupId>
       <artifactId>c3p0</artifactId>
-      <version>0.9.5.1</version>
+      <version>0.9.5.2</version>
     </dependency>
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
-      <version>2.4.1</version>
+      <version>2.4.6</version>
     </dependency>
     <dependency>
       <groupId>com.jolbox</groupId>
@@ -209,7 +231,6 @@
             <configuration>
               <out>${repo.dir}</out>
               <moduleImports>
-<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.mchange</groupId>
@@ -225,7 +246,6 @@
                   </dependency>
                   <descriptor>descriptors/com.mchange.c3p0.properties</descriptor>
                 </moduleImport>
--->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
@@ -352,6 +372,26 @@
                     <classifier>shaded</classifier>
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
+                  <force>true</force>
+                  <version>3.3.0</version>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-pebble</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-pebble.properties</descriptor>
+                  <force>true</force>
+                  <version>3.3.0</version>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-web-templ-freemarker</artifactId>
+                    <classifier>shaded</classifier>
+                  </dependency>
+                  <descriptor>descriptors/io.vertx.vertx-web-templ-freemarker.properties</descriptor>
                   <force>true</force>
                   <version>3.3.0</version>
                 </moduleImport>

@@ -177,6 +177,7 @@
             <configuration>
               <out>${repo.dir}</out>
               <moduleImports>
+<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
@@ -209,6 +210,7 @@
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-all.properties</descriptor>
                 </moduleImport>
+-->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
@@ -227,7 +229,6 @@
                   <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
                   <version>3.3.0</version>
                 </moduleImport>
-<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.hazelcast</groupId>
@@ -235,9 +236,8 @@
                   </dependency>
                   <force>true</force>
                   <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
-                  <version>3.5.2</version>
+                  <version>3.6.3</version>
                 </moduleImport>
--->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
