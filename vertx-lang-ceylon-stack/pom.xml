@@ -233,7 +233,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-sql-common.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -242,7 +242,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-jdbc-client.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -251,7 +251,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-common.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -260,7 +260,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-jdbc.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -269,7 +269,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-jwt.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
 <!--
                 <moduleImport>
@@ -295,7 +295,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-shiro.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -304,7 +304,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-auth-oauth2.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -313,7 +313,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -323,7 +323,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-handlebars.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -333,7 +333,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-mvel.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -343,7 +343,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-jade.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -353,7 +353,7 @@
                   </dependency>
                   <descriptor>descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.0.CR2</version>
+                  <version>3.3.0</version>
                 </moduleImport>
               </moduleImports>
             </configuration>

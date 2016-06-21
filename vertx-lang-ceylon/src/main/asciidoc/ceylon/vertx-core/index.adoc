@@ -386,6 +386,18 @@ compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFutu
 
 ----
 
+A list of futures can be used also:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { compositeFuture } 
+
+...
+
+compositeFuture.all(ArrayList { f1,  f2,  f3 });
+
+----
+
 The handler returned by `link:../../ceylondoc/vertx-core//Future.type.html#completer()[completer]` completes the future.
 
 `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures arguments (up to 6) and returns a future that is
@@ -406,6 +418,18 @@ compositeFuture.any(future1, future2).setHandler((CompositeFuture|Throwable ar) 
     // All failed
   };
 });
+
+----
+
+A list of futures can be used also:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { compositeFuture } 
+
+...
+
+compositeFuture.any(ArrayList { f1,  f2,  f3 });
 
 ----
 

@@ -12,7 +12,7 @@
             <outputDirectory>/vertx-auth-common/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/common/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/common/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-auth-common</outputDirectory>
         </fileSet>
         <fileSet>
@@ -20,7 +20,7 @@
             <outputDirectory>/vertx-auth-jdbc/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/jdbc/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/jdbc/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-auth-jdbc</outputDirectory>
         </fileSet>
         <fileSet>
@@ -28,7 +28,7 @@
             <outputDirectory>/vertx-auth-jwt/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/jwt/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/jwt/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-auth-jwt</outputDirectory>
         </fileSet>
         <fileSet>
@@ -36,7 +36,7 @@
             <outputDirectory>/vertx-auth-oauth2/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/oauth2/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/oauth2/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-auth-oauth2</outputDirectory>
         </fileSet>
         <fileSet>
@@ -44,7 +44,7 @@
             <outputDirectory>/vertx-auth-shiro/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/shiro/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/auth/shiro/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-auth-shiro</outputDirectory>
         </fileSet>
         <fileSet>
@@ -52,7 +52,7 @@
             <outputDirectory>/vertx-jdbc-client/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/jdbc/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/jdbc/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-jdbc</outputDirectory>
         </fileSet>
         <fileSet>
@@ -60,7 +60,7 @@
             <outputDirectory>/vertx-sql-common/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/sql/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/sql/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-sql</outputDirectory>
         </fileSet>
         <fileSet>
@@ -68,7 +68,7 @@
             <outputDirectory>/vertx-web/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/web/3.3.0.CR2/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/web/3.3.0/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-web</outputDirectory>
         </fileSet>
     </fileSets>

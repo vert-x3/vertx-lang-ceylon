@@ -809,7 +809,7 @@ The request handler are notified of stream reset events with the `link:../../cey
 
 [source,ceylon]
 ----
-Code not translatable : io.vertx.codetrans.expression.ThrowableClassModel has not implemented this method
+Code not translatable : class io.vertx.codetrans.lang.ceylon.CeylonWriter has not implemented renderInstanceOf
 ----
 
 ==== Server push
@@ -1403,7 +1403,7 @@ The request handler are notified of stream reset events with the `link:../../cey
 
 [source,ceylon]
 ----
-Code not translatable : io.vertx.codetrans.expression.ThrowableClassModel has not implemented this method
+Code not translatable : class io.vertx.codetrans.lang.ceylon.CeylonWriter has not implemented renderInstanceOf
 ----
 
 === Handling http responses
