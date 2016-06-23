@@ -92,7 +92,7 @@
     <dependency>
       <groupId>org.ceylon-lang</groupId>
       <artifactId>ceylon-complete</artifactId>
-      <version>1.2.2</version>
+      <version>1.2.3-SNAPSHOT</version>
     </dependency>
 
     <!-- Test dependencies -->
@@ -456,7 +456,6 @@
             <configuration>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
-                <userRepo>modules</userRepo>
               </userRepos>
               <module>io.vertx.tests/3.3.0</module>
             </configuration>

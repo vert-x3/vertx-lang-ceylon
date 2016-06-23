@@ -1,6 +1,6 @@
 package io.vertx.lang.ceylon;
 
-import com.redhat.ceylon.common.tools.ModuleSpec;
+import com.redhat.ceylon.common.ModuleSpec;
 import com.redhat.ceylon.compiler.java.runtime.tools.*;
 import io.vertx.core.Verticle;
 import io.vertx.core.spi.VerticleFactory;
