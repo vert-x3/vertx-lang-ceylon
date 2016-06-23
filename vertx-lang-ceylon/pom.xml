@@ -456,7 +456,6 @@
             <configuration>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
-                <userRepo>modules</userRepo>
               </userRepos>
               <module>io.vertx.tests/3.3.0</module>
             </configuration>
