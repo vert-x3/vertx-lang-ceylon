@@ -48,7 +48,7 @@
         <plugin>
           <groupId>org.ceylon-lang</groupId>
           <artifactId>ceylon-maven-plugin</artifactId>
-          <version>1.2.2</version>
+          <version>1.2.3-SNAPSHOT</version>
         </plugin>
       </plugins>
     </pluginManagement>
