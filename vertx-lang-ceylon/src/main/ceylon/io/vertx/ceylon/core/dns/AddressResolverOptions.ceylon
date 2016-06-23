@@ -31,12 +31,16 @@ shared class AddressResolverOptions(
   shared String? hostsPath = null,
   " Set the maximum number of queries when an hostname is resolved.\n"
   shared Integer? maxQueries = null,
+  " Set the ndots value used when resolving using search domains, the default value is <code>1</code>.\n"
+  shared Integer? ndots = null,
   " Set to true to enable the automatic inclusion in DNS queries of an optional record that hints\n the remote DNS server about how much data the resolver can read per response.\n"
   shared Boolean? optResourceEnabled = null,
   " Set the query timeout in milliseconds, i.e the amount of time after a query is considered to be failed.\n"
   shared Integer? queryTimeout = null,
   " Set the DNS queries <i>Recursion Desired</i> flag value.\n"
   shared Boolean? rdFlag = null,
+  " Set the lists of DNS search domains.\n <p/>\n When the search domain list is null, the effective search domain list will be populated using\n the system DNS search domains.\n"
+  shared {String*}? searchDomains = null,
   " Set the list of DNS server addresses, an address is the IP  of the dns server, followed by an optional\n colon and a port, e.g <code>8.8.8.8</code> or {code 192.168.0.1:40000}. When the list is empty, the resolver\n will use the list of the system DNS server addresses from the environment, if that list cannot be retrieved\n it will use Google's public DNS servers <code>\"8.8.8.8\"</code> and <code>\"8.8.4.4\"</code>.\n"
   shared {String*}? servers = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
@@ -56,6 +60,9 @@ shared class AddressResolverOptions(
     if (exists maxQueries) {
       json.put("maxQueries", maxQueries);
     }
+    if (exists ndots) {
+      json.put("ndots", ndots);
+    }
     if (exists optResourceEnabled) {
       json.put("optResourceEnabled", optResourceEnabled);
     }
@@ -64,6 +71,9 @@ shared class AddressResolverOptions(
     }
     if (exists rdFlag) {
       json.put("rdFlag", rdFlag);
+    }
+    if (exists searchDomains) {
+      json.put("searchDomains", JsonArray(searchDomains));
     }
     if (exists servers) {
       json.put("servers", JsonArray(servers));
@@ -80,9 +90,11 @@ shared object addressResolverOptions {
     Integer? cacheNegativeTimeToLive = json.getIntegerOrNull("cacheNegativeTimeToLive");
     String? hostsPath = json.getStringOrNull("hostsPath");
     Integer? maxQueries = json.getIntegerOrNull("maxQueries");
+    Integer? ndots = json.getIntegerOrNull("ndots");
     Boolean? optResourceEnabled = json.getBooleanOrNull("optResourceEnabled");
     Integer? queryTimeout = json.getIntegerOrNull("queryTimeout");
     Boolean? rdFlag = json.getBooleanOrNull("rdFlag");
+    {String*}? searchDomains = json.getArrayOrNull("searchDomains")?.strings;
     {String*}? servers = json.getArrayOrNull("servers")?.strings;
     return AddressResolverOptions {
       cacheMaxTimeToLive = cacheMaxTimeToLive;
@@ -90,9 +102,11 @@ shared object addressResolverOptions {
       cacheNegativeTimeToLive = cacheNegativeTimeToLive;
       hostsPath = hostsPath;
       maxQueries = maxQueries;
+      ndots = ndots;
       optResourceEnabled = optResourceEnabled;
       queryTimeout = queryTimeout;
       rdFlag = rdFlag;
+      searchDomains = searchDomains;
       servers = servers;
     };
   }

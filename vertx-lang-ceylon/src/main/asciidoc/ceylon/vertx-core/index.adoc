@@ -1438,6 +1438,29 @@ value vertx = vertx_.vertx(VertxOptions {
 
 ----
 
+By default the resolver will use the system DNS search domains from the environment. Alternatively an explicit search domain
+list can be provided:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { vertx_ = vertx } 
+
+...
+
+value vertx = vertx_.vertx(VertxOptions {
+  addressResolverOptions = AddressResolverOptions {
+    searchDomains = {"foo.com" , "bar.com" };
+  };
+});
+
+----
+
+When a search domain list is used, the threshold for the number of dots is `1`, it can be configured with
+`link:../../ceylondoc/vertx-core//dns/AddressResolverOptions.type.html#setNdots(int)[ndots]`.
+
+NOTE: sometimes it can be desirable to use the JVM built-in resolver, the JVM system property
+_-Dvertx.disableDnsResolver=true_ activates this behavior
+
 == High Availability and Fail-Over
 
 Vert.x allows you to run your verticles with high availability (HA) support. In that case, when a vert.x
