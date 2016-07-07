@@ -9,7 +9,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.jdbc "3.3.0";
+shared import io.vertx.ceylon.jdbc "3.3.1";
 ----
 
 == Creating a the client
@@ -116,6 +116,10 @@ done with it you should close it.
 Clients that share a data source with other client instances are reference counted. Once the last one that references
 the same data source is closed, the data source will be closed.
 
+=== Automatic clean-up in verticles
+
+If you're creating clients from inside verticles, the clients will be automatically closed when the verticle is undeployed.
+
 == Getting a connection
 
 Once you've created a client you use `link:../../ceylondoc/vertx-jdbc//JDBCClient.type.html#getConnection(io.vertx.core.Handler)[getConnection]` to get
@@ -151,7 +155,7 @@ client.getConnection((SQLConnection|Throwable res) {
 The connection is an instance of `link:../../ceylondoc/vertx-sql//SQLConnection.type.html[SQLConnection]` which is a common interface not only used by
 the Vert.x JDBC Client.
 
-You can learn how to use it in the http://foobar[common sql interface] documentation.
+You can learn how to use it in the http://vertx.io/docs/vertx-sql-common/ceylon/[common sql interface] documentation.
 
 == Configuration
 
@@ -208,6 +212,17 @@ value client = jdbcClient.createShared(vertx, config);
 
 ----
 
+Hikari uses a different set of properties:
+
+* `jdbcUrl` for the JDBC URL
+* `driverClassName` for the JDBC driven class name
+* `maximumPoolSize` for the pool size
+* `username` for the login (`password` for the password)
+
+Refer to the https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby[Hikari documentation]
+for further details. Also refer to the http://www.jolbox.com/configuration.html[BoneCP documentation]
+to configure BoneCP.
+
 == JDBC Drivers
 
 If you are using the default `DataSourceProvider` (relying on c3p0), you would need to copy the JDBC driver class
@@ -217,6 +232,26 @@ If your application is packaged as a _fat jar_, be sure to embed the jdbc driver
 with the `vertx` command line, copy the JDBC driver to `${VERTX_HOME}/lib`.
 
 The behavior may be different when using a different connection pool.
+
+== Data types
+
+Due to the fact that Vert.x uses JSON as its standard message format there will be many limitations to the data types
+accepted by the client. You will get out of the box the standard:
+
+* null
+* boolean
+* number
+* string
+
+There is also an optimistic cast for temporal types (TIME, DATE, TIMESTAMP) and optionally disabled for UUID. UUIDs
+are supported by many databases but not all. For example MySQL does not support it so the recommended way is to use
+a VARCHAR(36) column. For other engines UUID optimistic casting can be enabled using the client config json as:
+
+----
+{ "UUIDCast": true }
+----
+
+When this config is present UUIDs will be handled as a native type.
 
 
 == Use as OSGi bundle

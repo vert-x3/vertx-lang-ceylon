@@ -9,7 +9,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.common "3.3.0";
+shared import io.vertx.ceylon.auth.common "3.3.1";
 ----
 
 == Basic concepts

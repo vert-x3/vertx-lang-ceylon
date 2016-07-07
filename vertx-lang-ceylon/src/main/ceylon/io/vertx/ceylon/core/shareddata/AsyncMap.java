@@ -92,7 +92,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.put(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = " Like [put](../shareddata/AsyncMap.type.html#put) but specifying a timeout. If the value cannot be put within the timeout a\n failure will be passed to the handler\n")
+  @DocAnnotation$annotation$(description = " Like [put](../shareddata/AsyncMap.type.html#put) but specifying a time to live for the entry. Entry will expire and get evicted after the\n ttl.\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "the key\n") K k, 
@@ -126,7 +126,7 @@ public class AsyncMap<K,V> implements ReifiedType {
     delegate.putIfAbsent(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = " Link [putIfAbsent](../shareddata/AsyncMap.type.html#putIfAbsent) but specifying a timeout. If the value cannot be put within the timeout a\n failure will be passed to the handler\n")
+  @DocAnnotation$annotation$(description = " Link [putIfAbsent](../shareddata/AsyncMap.type.html#putIfAbsent) but specifying a time to live for the entry. Entry will expire and get evicted\n after the ttl.\n")
   @TypeInfo("ceylon.language::Anything")
   public void putIfAbsent(
     final @TypeInfo("K?") @Name("k") @DocAnnotation$annotation$(description = "the key\n") K k, 

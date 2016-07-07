@@ -50,6 +50,7 @@ Some of the key features of Vert.x-Web include:
 ** Jade,
 ** MVEL
 ** Thymeleaf
+** Apache FreeMarker
 * Response time handler
 * Static file serving, including caching logic and directory listing.
 * Request timeout support
@@ -69,7 +70,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.web "3.3.0";
+shared import io.vertx.ceylon.web "3.3.1";
 ----
 
 
@@ -899,6 +900,27 @@ moves to the next handler that re routes the request to `/some/path/B` which ter
 You can reroute based on a new path or based on a new path and method. Note however that rerouting based on method
 might introduce security issues since for example a usually safe GET request can become a DELETE.
 
+Reroute is also allowed on the failure handler, however due to the nature of re router when called the current status
+code and failure reason are reset. In order the rerouted handler should generate the correct status code if needed,
+for example:
+
+[source,ceylon]
+----
+
+router.get("/my-pretty-notfound-handler").handler((RoutingContext ctx) {
+  ctx.response().setStatusCode(404).end("NOT FOUND fancy html here!!!");
+});
+
+router.get().failureHandler((RoutingContext ctx) {
+  if (ctx.statusCode() == 404) {
+    ctx.reroute("/my-pretty-notfound-handler");
+  } else {
+    ctx.next();
+  };
+});
+
+----
+
 == Sub-routers
 
 Sometimes if you have a lot of handlers it can make sense to split them up into multiple routers. This is also useful
@@ -1652,7 +1674,7 @@ router.route("/login").handler((RoutingContext ctx) {
 ----
 
 Now that your client has a token all it is required is that for *all* consequent request the HTTP header
-`Authorization` is filled with: `Bearer &lt;token&gt;` e.g.:
+`Authorization` is filled with: `Bearer <token>` e.g.:
 
 [source,ceylon]
 ----
@@ -2042,16 +2064,44 @@ Here are some examples:
 
 ----
 [snip]
-&lt;p th:text="${context.get('foo')}"&gt;&lt;/p&gt;
-&lt;p th:text="${context.get('bar')}"&gt;&lt;/p&gt;
-&lt;p th:text="${context.normalisedPath()}"&gt;&lt;/p&gt;
-&lt;p th:text="${context.request().params().get('param1')}"&gt;&lt;/p&gt;
-&lt;p th:text="${context.request().params().get('param2')}"&gt;&lt;/p&gt;
+<p th:text="${context.get('foo')}"></p>
+<p th:text="${context.get('bar')}"></p>
+<p th:text="${context.normalisedPath()}"></p>
+<p th:text="${context.request().params().get('param1')}"></p>
+<p th:text="${context.request().params().get('param2')}"></p>
 [snip]
 ----
 
 Please consult the http://www.thymeleaf.org/[Thymeleaf documentation] for how to write
 Thymeleaf templates.
+
+=== Apache FreeMarker template engine
+
+To use Apache FreeMarker, you need to add the following _dependency_ to your project:
+`${maven.groupId}:vertx-web-templ-freemarker:${maven.version}`. Create an instance of the Apache FreeMarker template engine
+using: `io.vertx.ext.web.templ.FreeMarkerTemplateEngine#create()`.
+
+When using the Apache FreeMarker template engine, it will by default look for
+templates with the `.ftl` extension if no extension is specified in the file name.
+
+The routing context `link:../../ceylondoc/vertx-web//RoutingContext.type.html[RoutingContext]` is available
+in the Apache FreeMarker template as the `context` variable, this means you can render the template based on anything in the context
+including the request, response, session or context data.
+
+Here are some examples:
+
+----
+[snip]
+<p th:text="${context.foo}"></p>
+<p th:text="${context.bar}"></p>
+<p th:text="${context.normalisedPath()}"></p>
+<p th:text="${context.request().params().param1}"></p>
+<p th:text="${context.request().params().param2}"></p>
+[snip]
+----
+
+Please consult the http://www.freemarker.org/[Apache FreeMarker documentation] for how to write
+Apache FreeMarker templates.
 
 == Error handler
 
@@ -2083,7 +2133,7 @@ Vert.x-Web includes a timeout handler that you can use to timeout requests if th
 
 This is configured using an instance of `link:../../ceylondoc/vertx-web//handler/TimeoutHandler.type.html[TimeoutHandler]`.
 
-If a request times out before the response is written a `408` response will be returned to the client.
+If a request times out before the response is written a `503` response will be returned to the client.
 
 Here's an example of using a timeout handler which will timeout all requests to paths starting with `/foo` after 5
 seconds:
@@ -2190,8 +2240,7 @@ router.route("/myapp/*").handler(sockJSHandler);
 
 In client side JavaScript you use the SockJS client side library to make connections.
 
-You can find that http://cdn.sockjs.org/sockjs-0.3.4.js[here].
-The minified version is http://cdn.sockjs.org/sockjs-0.3.4.min.js[here].
+You can find that http://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js[here].
 
 Full details for using the SockJS JavaScript client are on the https://github.com/sockjs/sockjs-client[SockJS website],
 but in summary you use it something like this:
@@ -2238,7 +2287,7 @@ use an iframe trick. A simple page is served from the SockJS server (using its f
 invisible iframe. Code run from this iframe doesn't need to worry about cross-domain issues, as it's being run from
 domain local to the SockJS server. This iframe also does need to load SockJS javascript client library, and this option
 lets you specify its url (if you're unsure, point it to the latest minified SockJS client release, this is the default).
-The default value is `http://cdn.sockjs.org/sockjs-0.3.4.min.js`
+The default value is `http://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js`
 `disabledTransports`:: This is a list of transports that you want to disable. Possible values are
 WEBSOCKET, EVENT_SOURCE, HTML_FILE, JSON_P, XHR.
 
@@ -2289,7 +2338,7 @@ In client side JavaScript you use the 'vertx-eventbus.js` library to create conn
 and receive messages:
 
 ----
-<script src="http://cdn.sockjs.org/sockjs-0.3.4.min.js"></script>
+<script src="http://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
 <script src='vertx-eventbus.js'></script>
 
 <script>
@@ -2320,11 +2369,26 @@ the prefix `eventbus` we will connect there.
 
 You can't actually do anything with the connection until it is opened. When it is open the `onopen` handler will be called.
 
-To use this project, add the following dependency to the _dependencies_ section of your `module.ceylon`:
+You can retrieve the client library using a dependency manager:
+
+* Maven (in your `pom.xml`):
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.web "3.3.0";
+<dependency>
+  <groupId>${maven.groupId}</groupId>
+  <artifactId>${maven.artifactId}</artifactId>
+  <version>${maven.version}</version>
+  <classifier>client</classifier>
+  <type>js</type>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+compile '${maven.groupId}:${maven.artifactId}:${maven.version}:client'
 ----
 
 The library is also available on https://www.npmjs.com/package/vertx3-eventbus-client[NPM] and on
@@ -2534,8 +2598,8 @@ SOCKET_CLOSED:: This event will occur when a SockJS socket is closed.
 SEND:: This event will occur when a message is attempted to be sent from the client to the server.
 PUBLISH:: This event will occur when a message is attempted to be published from the client to the server.
 RECEIVE:: This event will occur when a message is attempted to be delivered from the server to the client.
-REGISTER. This event will occur when a client attempts to register a handler.
-UNREGISTER. This event will occur when a client attempts to unregister a handler.
+REGISTER:: This event will occur when a client attempts to register a handler.
+UNREGISTER:: This event will occur when a client attempts to unregister a handler.
 
 The event enables you to retrieve the type using `link:../../ceylondoc/vertx-web//handler/sockjs/BridgeEvent.type.html#type()[type]` and
 inspect the raw message of the event using `link:../../ceylondoc/vertx-web//handler/sockjs/BridgeEvent.type.html#getRawMessage()[getRawMessage]`.
@@ -2702,7 +2766,7 @@ router.route().handler(virtualHostHandler.create("*.vertx.io", (RoutingContext r
 == OAuth2AuthHandler Handler
 
 The `OAuth2AuthHandler` allows quick setup of secure routes using the OAuth2 protocol. This handler simplifies the
-authCode flow. An example of using it to protect some resouce and authenticate with GitHub can be implemented as:
+authCode flow. An example of using it to protect some resource and authenticate with GitHub can be implemented as:
 
 [source,ceylon]
 ----
@@ -2713,7 +2777,7 @@ import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code }
 
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to github
-value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, OAuth2ClientOptions {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://github.com/login";
@@ -2741,6 +2805,15 @@ router.get("/").handler((RoutingContext ctx) {
 
 ----
 
+The OAuth2AuthHandler will setup a proper callback OAuth2 handler so the user does not need to deal with validation
+of the authority server response. It is quite important to know that authority server responses are only valid once,
+this means that if a client issues a reload of the callback URL it will be asserted as a invalid request since the
+validation will fail.
+
+A rule of thumb is once a valid callback is executed issue a client side redirect to a protected resource. This
+redirect should also create a session cookie (or other session mechanism) so the user is not required to authenticate
+for every request.
+
 Due to the nature of OAuth2 spec there are slight changes required in order to use other OAuth2 providers, for
 example, if you are planning to use Google Auth you implement it as:
 
@@ -2753,7 +2826,7 @@ import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code }
 
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to Google
-value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, OAuth2ClientOptions {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://accounts.google.com";
@@ -2801,7 +2874,7 @@ import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code }
 
 
 // create an OAuth2 provider, clientID and clientSecret should be requested to LinkedIn
-value authProvider = oAuth2Auth.create(vertx, auth_code, JsonObject {
+value authProvider = oAuth2Auth.create(vertx, auth_code, OAuth2ClientOptions {
   clientID = "CLIENT_ID";
   clientSecret = "CLIENT_SECRET";
   site = "https://www.linkedin.com";
@@ -2842,3 +2915,45 @@ for:
 * linkedin
 * facebook
 * keycloak
+
+For keycloak we have a slighter easier setup, just export the json file from the keycloak admin console and load it
+into the handler. Keycloak has some differences from the other providers in the sense that it can also use the token
+to specify grants. You can validate against these grants like this:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.ext.web.handler { oAuth2AuthHandler } 
+import io.vertx.ceylon.ext.auth.oauth2 { oAuth2Auth, auth_code } 
+
+...
+
+// create an OAuth2 provider for keycloak
+value authProvider = oAuth2Auth.createKeycloak(vertx, auth_code, JsonObject());
+
+// create a oauth2 handler on our domain: "http://localhost:8000"
+value oauth2 = oAuth2AuthHandler.create(authProvider, "http://localhost:8000");
+
+// setup the callback handler for receiving the keycloak callback
+oauth2.setupCallback(router.get("/callback"));
+
+// protect everything under /protected
+router.route("/protected/*").handler(oauth2);
+
+// mount some handler under the protected zone
+router.route("/protected/somepage").handler((RoutingContext rc) {
+  // you can now do authZ based on keycloak grants
+  rc.user().isAuthorised("account:manage-account", (Boolean|Throwable manageAccount) {
+    if (manageAccount) {
+      rc.response().end("Welcome to the protected resource and you can manage your account!");
+    } else {
+      rc.response().end("Welcome to the protected resource but you cannot manage your account!");
+    };
+  });
+});
+
+// welcome page
+router.get("/").handler((RoutingContext ctx) {
+  ctx.response().putHeader("content-type", "text/html").end("Hello<br><a href=\"/protected/somepage\">Protected by keycloak</a>");
+});
+
+----

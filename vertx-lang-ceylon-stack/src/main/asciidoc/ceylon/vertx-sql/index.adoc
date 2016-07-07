@@ -9,7 +9,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.sql "3.3.0";
+shared import io.vertx.ceylon.sql "3.3.1";
 ----
 
 == The SQL Connection
@@ -28,7 +28,7 @@ When the operation is complete, the handler will be called:
 
 [source,java]
 ----
-connection.setAutoCommit(false, (Throwable? res) => {
+connection.setAutoCommit(false, (Throwable? res) {
   if (!exists res) {
     // OK!
   } else {
@@ -49,7 +49,7 @@ been run.
 
 [source,java]
 ----
-connection.query("SELECT ID, FNAME, LNAME, SHOE_SIZE from PEOPLE", (ResultSet|Throwable res) => {
+connection.query("SELECT ID, FNAME, LNAME, SHOE_SIZE from PEOPLE", (ResultSet|Throwable res) {
   if (is ResultSet res) {
     // Get the result set
     value resultSet = res;
@@ -123,7 +123,7 @@ values.
 value query = "SELECT ID, FNAME, LNAME, SHOE_SIZE from PEOPLE WHERE LNAME=? AND SHOE_SIZE > ?";
 value params = JsonArray {"Fox" , 9 };
 
-connection.queryWithParams(query, params, (ResultSet|Throwable res) => {
+connection.queryWithParams(query, params, (ResultSet|Throwable res) {
 
   if (is ResultSet res) {
     // Get the result set
@@ -151,18 +151,18 @@ if the update generated keys, they are available with `link:../../ceylondoc/vert
 [source,java]
 ----
 
-value columnNames = resultSet.columnNames;
+connection.update("INSERT INTO PEOPLE VALUES (null, 'john', 'smith', 9)", (UpdateResult|Throwable res) {
+  if (is UpdateResult res) {
 
-value results = resultSet.results;
+    value result = res;
+    print("Updated no. of rows: ``result.updated``");
+    print("Generated keys: ``result.keys``");
 
-for (row in results) {
+  } else {
+    // Failed!
+  };
+});
 
-  value id = row[0];
-  value fName = row[1];
-  value lName = row[2];
-  value shoeSize = row[3];
-
-};
 
 
 ----
@@ -181,7 +181,7 @@ values.
 value update = "UPDATE PEOPLE SET SHOE_SIZE = 10 WHERE LNAME=?";
 value params = JsonArray {"Fox" };
 
-connection.updateWithParams(update, params, (UpdateResult|Throwable res) => {
+connection.updateWithParams(update, params, (UpdateResult|Throwable res) {
 
   if (is UpdateResult res) {
 
@@ -209,6 +209,9 @@ parameter place holders e.g.: `{ call func_proc_name(?, ?) }`, a `JsonArray` con
 parameter values and finally a `JsonArray` containing the
 output types e.g.: `[null, 'VARCHAR']`.
 
+Note that the index of the output type is as important as the params array. If the return value is the second
+argument then the output array must contain a null value as the first element.
+
 A SQL function returns some output using the `return` keyword, and in this case one can call it like this:
 
 [source,java]
@@ -221,7 +224,7 @@ A SQL function returns some output using the `return` keyword, and in this case 
 // note that you do not need to declare the output for functions
 value func = "{ call one_hour_ago() }";
 
-connection.call(func, (ResultSet|Throwable res) => {
+connection.call(func, (ResultSet|Throwable res) {
 
   if (is ResultSet res) {
     value result = res;
@@ -245,7 +248,7 @@ not return anything the usage is as follows:
 
 value func = "{ call new_customer(?, ?) }";
 
-connection.callWithParams(func, JsonArray {"John" , "Doe" }, null, (ResultSet|Throwable res) => {
+connection.callWithParams(func, JsonArray {"John" , "Doe" }, null, (ResultSet|Throwable res) {
 
   if (is ResultSet res) {
     // Success!
@@ -260,7 +263,23 @@ However you can also return values like this:
 
 [source,java]
 ----
-Code not translatable
+// Assume that there is a SQL procedure like this:
+//
+// create procedure customer_lastname(IN firstname varchar(50), OUT lastname varchar(50))
+//   modifies sql data
+//   select lastname into lastname from customers where firstname = firstname;
+
+value func = "{ call customer_lastname(?, ?) }";
+
+connection.callWithParams(func, JsonArray {"John" }, JsonArray {null , "VARCHAR" }, (ResultSet|Throwable res) {
+
+  if (is ResultSet res) {
+    value result = res;
+  } else {
+    // Failed!
+  };
+});
+
 ----
 
 Note that the index of the arguments matches the index of the `?` and that the output parameters expect to be a
@@ -275,6 +294,52 @@ To avoid ambiguation the implementations are expected to follow the following ru
 
 The registered `OUT` parameters will be available as an array in the result set under the output property.
 
+=== Batch operations
+
+The SQL common interface also defines how to execute batch operations. There are 3 types of batch operations:
+
+* Batched statements `link:../../ceylondoc/vertx-sql//SQLConnection.type.html#batch(java.util.List,%20io.vertx.core.Handler)[batch]`
+* Batched prepared statements `link:../../ceylondoc/vertx-sql//SQLConnection.type.html#batchWithParams(java.lang.String,%20java.util.List,%20io.vertx.core.Handler)[batchWithParams]`
+* Batched callable statements `link:../../ceylondoc/vertx-sql//SQLConnection.type.html#batchCallableWithParams(java.lang.String,%20java.util.List,%20java.util.List,%20io.vertx.core.Handler)[batchCallableWithParams]`
+
+A batches statement will exeucte a list of sql statements as for example:
+
+[source,java]
+----
+// Batch values
+value batch = renderNewList;
+renderListAdd;
+renderListAdd;
+
+connection.batch(batch, (List<Integer>|Throwable res) {
+  if (is List<Integer> res) {
+    value result = res;
+  } else {
+    // Failed!
+  };
+});
+
+----
+
+While a prepared or callable statement batch will reuse the sql statement and take an list of arguments as for example:
+
+[source,java]
+----
+// Batch values
+value batch = renderNewList;
+renderListAdd;
+renderListAdd;
+
+connection.batchWithParams("INSERT INTO emp (name) VALUES (?)", batch, (List<Integer>|Throwable res) {
+  if (is List<Integer> res) {
+    value result = res;
+  } else {
+    // Failed!
+  };
+});
+
+----
+
 === Executing other operations
 
 To execute any other database operation, e.g. a `CREATE TABLE` you can use
@@ -288,7 +353,7 @@ is complete
 
 value sql = "CREATE TABLE PEOPLE (ID int generated by default as identity (start with 1 increment by 1) not null,FNAME varchar(255), LNAME varchar(255), SHOE_SIZE int);";
 
-connection.execute(sql, (Throwable? execute) => {
+connection.execute(sql, (Throwable? execute) {
   if (!exists execute) {
     print("Table created !");
   } else {
@@ -316,7 +381,7 @@ Once the commit/rollback is complete the handler will be called and the next tra
 
 // Now commit
 
-connection.commit((Throwable? res) => {
+connection.commit((Throwable? res) {
   if (!exists res) {
     // Committed OK!
   } else {

@@ -38,9 +38,9 @@ import io.vertx.core.json {
 shared class TCPSSLOptions(
   " Add a CRL path\n"
   shared {String*}? crlPaths = null,
-  " Add an enabled cipher suite\n"
+  " Add an enabled cipher suite, appended to the ordered suites.\n"
   shared {String*}? enabledCipherSuites = null,
-  " Add an enabled SSL/TLS protocols\n"
+  " Add an enabled SSL/TLS protocols, appended to the ordered protocols.\n"
   shared {String*}? enabledSecureTransportProtocols = null,
   " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
   shared Integer? idleTimeout = null,
