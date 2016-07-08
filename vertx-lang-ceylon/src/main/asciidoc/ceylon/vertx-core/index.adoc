@@ -359,7 +359,9 @@ NOTE: the configuration is set when the worker pool is created
 
 == Async coordination
 
-Coordination of multiple asynchronous results can be achieved with Vert.x `link:../../ceylondoc/vertx-core//Future.type.html[futures]`.
+Coordination of multiple asynchronous results can be achieved with Vert.x `link:../../ceylondoc/vertx-core//Future.type.html[futures]`. It
+supports concurrent composition (run several async operations in parallel and join) and sequential composition
+(chain async operations).
 
 `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#all(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.all]` takes several futures arguments (up to 6) and returns a future that is
 _succeeded_ when all the futures are and _failed_ otherwise:
@@ -378,7 +380,7 @@ netServer.listen(netServerFuture.completer());
 
 compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFuture|Throwable ar) {
   if (is CompositeFuture ar) {
-    // All server started
+    // All servers started
   } else {
     // At least one server failed
   };
@@ -386,7 +388,12 @@ compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFutu
 
 ----
 
-A list of futures can be used also:
+The operations run concurrently, and are joined. The `Handler` attached to the returned future is
+invoked upon completion of the composition. If one of the operation fails (one of the passed future is marked
+as a failure), the resulting future is marked as failed too. If all the operations succeed, the resulting future
+is completed with a success.
+
+Alternatively, you can pass a list (potentially empty) of futures:
 
 [source,ceylon]
 ----
@@ -398,10 +405,9 @@ compositeFuture.all(ArrayList { f1,  f2,  f3 });
 
 ----
 
-The handler returned by `link:../../ceylondoc/vertx-core//Future.type.html#completer()[completer]` completes the future.
-
-`link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures arguments (up to 6) and returns a future that is
-_succeeded_ if one of the futures is, and _failed_ otherwise:
+While the `all` composition _waits_ until all futures are completed (or one fails), the `any` composition
+_waits_ for the first completed future. `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures arguments
+(up to 6) and returns a future that is _succeeded_ if one of the futures is, and _failed_ otherwise:
 
 [source,ceylon]
 ----
@@ -433,7 +439,8 @@ compositeFuture.any(ArrayList { f1,  f2,  f3 });
 
 ----
 
-`link:../../ceylondoc/vertx-core//Future.type.html#compose(io.vertx.core.Handler,%20io.vertx.core.Future)[compose]` can be used for chaining futures:
+While `all` and `any` are implementing concurrent composition, `link:../../ceylondoc/vertx-core//Future.type.html#compose(io.vertx.core.Handler,%20io.vertx.core.Future)[compose]` can be used
+for chaining futures (so sequential composition).
 
 [source,ceylon]
 ----
@@ -448,20 +455,40 @@ value fs = vertx.fileSystem();
 value fut1 = future.future();
 
 fs.createFile("/foo", fut1.completer());
-fut1.compose(() {
 
+fut1.compose(() {
+  // When the file is created (fut1), execute this:
   value fut2 = future.future();
   fs.writeFile("/foo", buffer.buffer(), fut2.completer());
-
-  // Compose fut1 with fut2
   return fut2;
 }).compose(() {
-
-  // Compose fut1 with fut2 and fut3
+  // When the file is written (fut2), execute this:
   fs.move("/foo", "/bar", startFuture.completer());
 }, startFuture);
 
 ----
+
+In this example, 3 operations are chained:
+
+1. a file is created (`fut1`)
+2. something is written in the file (`fut2`)
+3. the file is moved (`fut3`)
+
+When these 3 steps are successful, the final future (`startFuture`) is completed with a success. However, if one
+of the steps fails, the final future is completed with a failure.
+
+This example uses:
+
+* `link:../../ceylondoc/vertx-core//Future.type.html#compose(java.util.function.Function)[compose]`: when the current future completes,
+run the given function, that returns a future. When this returned future completes, it completes the composition.
+* `link:../../ceylondoc/vertx-core//Future.type.html#compose(io.vertx.core.Handler,%20io.vertx.core.Future)[compose]`: when the current future
+completes, run the given handler that completes the given `future` (next).
+
+In this second case, the `Handler` should complete the `next` future to report its success or
+failure.
+
+You can use `link:../../ceylondoc/vertx-core//Future.type.html#completer()[completer]` that completes a future with the operation result or
+failure. It avoids having to write the _traditional_: `if success then complete the future else fail the future`.
 
 == Verticles
 

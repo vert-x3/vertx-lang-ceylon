@@ -142,17 +142,17 @@ public class Future<T> implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Compose this future with a provided <code>next</code> future.<p>\n\n When this future succeeds, the <code>handler</code> will be called with the completed value, this handler\n should complete the next future.<p>\n\n If the <code>handler</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the <code>next</code> future and the <code>handler</code>\n will not be called.\n")
+  @DocAnnotation$annotation$(description = " Compose this future with a provided <code>next</code> future.<p>\n\n When this (the one on which <code>compose</code> is called) future succeeds, the <code>handler</code> will be called with\n the completed value, this handler should complete the next future.<p>\n\n If the <code>handler</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the <code>next</code> future and the <code>handler</code>\n will not be called.\n")
   @TypeInfo("io.vertx.ceylon.core::Future<U>")
   public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("ceylon.language::Anything(T?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("composed") @DocAnnotation$annotation$(description = "the composed future\n") Future<U> composed) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("next") @DocAnnotation$annotation$(description = "the next future\n") Future<U> next) {
     io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
       public void handle(java.lang.Object event) {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
       }
     };
-    io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(composed);
+    io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(next);
     Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.compose(arg_0, arg_1));
     return ret;
   }
@@ -160,7 +160,7 @@ public class Future<T> implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Compose this future with a <code>mapper</code> function.<p>\n\n When this future succeeds, the <code>mapper</code> will be called with the completed value and this mapper\n returns a future. This returned future completion will trigger the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
+  @DocAnnotation$annotation$(description = " Compose this future with a <code>mapper</code> function.<p>\n\n When this future (the one on which <code>compose</code> is called) succeeds, the <code>mapper</code> will be called with\n the completed value and this mapper returns another future object. This returned future completion will complete\n the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
   @TypeInfo("io.vertx.ceylon.core::Future<U>")
   public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("io.vertx.ceylon.core::Future<U>(T?)") @Name("mapper") @DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
