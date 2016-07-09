@@ -6,7 +6,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.auth.jwt "3.3.1";
+shared import io.vertx.ceylon.auth.jwt "3.3.2";
 ----
 
 JSON Web Token is a simple way to send information in the clear (usually in a URL) whose contents can be

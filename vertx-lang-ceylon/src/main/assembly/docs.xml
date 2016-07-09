@@ -12,7 +12,7 @@
             <outputDirectory>/vertx-core/ceylon</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/core/3.3.1/module-doc/api/</directory>
+            <directory>${project.basedir}/../target/repo/io/vertx/ceylon/core/3.3.2/module-doc/api/</directory>
             <outputDirectory>/ceylondoc/vertx-core</outputDirectory>
         </fileSet>
     </fileSets>

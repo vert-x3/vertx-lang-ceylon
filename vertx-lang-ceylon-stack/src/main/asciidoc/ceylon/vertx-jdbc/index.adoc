@@ -9,7 +9,7 @@ To use this project, add the following dependency to the _dependencies_ section 
 
 [source,xml,subs="+attributes"]
 ----
-shared import io.vertx.ceylon.jdbc "3.3.1";
+shared import io.vertx.ceylon.jdbc "3.3.2";
 ----
 
 == Creating a the client
