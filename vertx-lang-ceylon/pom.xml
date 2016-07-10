@@ -130,6 +130,13 @@
 
   <build>
 
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -141,7 +148,7 @@
               <modules.path>${project.build.directory}/modules</modules.path>
             </systemPropertyVariables>
             <additionalClasspathElements>
-              <additionalClasspathElement>${project.basedir}/src/test/ceylon</additionalClasspathElement>
+              <additionalClasspathElement>${project.build.directory}/ceylon/test</additionalClasspathElement>
             </additionalClasspathElements>
           </configuration>
         </plugin>
@@ -163,6 +170,61 @@
       </plugins>
     </pluginManagement>
     <plugins>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>copy-descriptors</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/descriptors</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>descriptors</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-ceylon-main</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/ceylon/main</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/ceylon</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-ceylon-test</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/ceylon/test</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/test/ceylon</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
       <plugin>
         <groupId>org.ceylon-lang</groupId>
@@ -217,8 +279,7 @@
                     <artifactId>vertx-codegen</artifactId>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/io.vertx.vertx-codegen.properties</descriptor>
-                  <version>3.3.2</version>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-codegen.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -226,8 +287,7 @@
                     <artifactId>vertx-core</artifactId>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/io.vertx.vertx-core.properties</descriptor>
-                  <version>3.3.2</version>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-core.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -235,7 +295,7 @@
                     <artifactId>hazelcast</artifactId>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/com.hazelcast.hazelcast.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/com.hazelcast.hazelcast.properties</descriptor>
                   <version>3.6.3</version>
                 </moduleImport>
                 <moduleImport>
@@ -244,8 +304,7 @@
                     <artifactId>vertx-hazelcast</artifactId>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
-                  <version>3.3.2</version>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-hazelcast.properties</descriptor>
                 </moduleImport>
               </moduleImports>
             </configuration>
@@ -262,14 +321,14 @@
                     <groupId>org.hamcrest</groupId>
                     <artifactId>hamcrest-core</artifactId>
                   </dependency>
-                  <descriptor>descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/org.hamcrest.hamcrest-core.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
                   </dependency>
-                  <descriptor>descriptors/junit.junit.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/junit.junit.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -278,9 +337,8 @@
                     <classifier>tck</classifier>
                   </dependency>
                   <force>true</force>
-                  <descriptor>descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-codegen-tck.properties</descriptor>
                   <name>io.vertx.vertx-codegen-tck</name>
-                  <version>3.3.2</version>
                 </moduleImport>
               </moduleImports>
             </configuration>
@@ -297,7 +355,7 @@
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
-                  <directory>${basedir}/src/main/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/main</directory>
                   <includes>
                     <include>io/vertx/lang/ceylon/**</include>
                   </includes>
@@ -327,7 +385,7 @@
               <out>${repo.dir}</out>
               <sources>
                 <source>
-                  <directory>${basedir}/src/main/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/main</directory>
                   <includes>
                     <include>io/vertx/ceylon/core/**/*.ceylon</include>
                   </includes>
@@ -350,7 +408,7 @@
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
-                  <directory>${basedir}/src/main/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/main</directory>
                   <includes>
                     <include>io/vertx/ceylon/core/**/*.java</include>
                     <include>io/vertx/ceylon/core/Verticle.ceylon</include>
@@ -369,7 +427,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>${basedir}/src/main/ceylon</source>
+                <source>${project.build.directory}/ceylon/main</source>
               </sources>
               <out>${repo.dir}</out>
               <modules>
@@ -390,7 +448,7 @@
               </userRepos>
               <sources>
                 <source>
-                  <directory>${basedir}/src/test/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/test</directory>
                   <includes>
                     <include>io/vertx/ceylon/testmodel/**/*.ceylon</include>
                   </includes>
@@ -411,7 +469,7 @@
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
-                  <directory>${basedir}/src/test/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/test</directory>
                   <includes>
                     <include>io/vertx/ceylon/testmodel/**/*.java</include>
                   </includes>
@@ -431,14 +489,14 @@
               </userRepos>
               <sources>
                 <source>
-                  <directory>${basedir}/src/test/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/test</directory>
                   <includes>
                     <include>io/vertx/tests/**/*.ceylon</include>
                     <include>io/vertx/tests/**/*.java</include>
                   </includes>
                 </source>
                 <source>
-                  <directory>${basedir}/src/test/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/test</directory>
                   <includes>
                     <include>verticles/**</include>
                   </includes>
@@ -458,7 +516,7 @@
                 <userRepo>${repo.dir}</userRepo>
                 <userRepo>modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/3.3.2</module>
+              <module>io.vertx.tests/${project.version}</module>
             </configuration>
           </execution>
 

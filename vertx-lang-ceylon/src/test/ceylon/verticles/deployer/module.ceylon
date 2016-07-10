@@ -1,4 +1,4 @@
 native("jvm")
-module verticles.deployer "3.3.2" {
-  native("jvm") shared import "io.vertx.ceylon.core" "3.3.2";
+module verticles.deployer "1.0.0" {
+  native("jvm") shared import "io.vertx.ceylon.core" "${project.version}";
 }

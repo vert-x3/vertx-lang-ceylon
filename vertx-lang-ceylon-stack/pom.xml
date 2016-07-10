@@ -219,6 +219,45 @@
     <plugins>
 
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>copy-descriptors</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/descriptors</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>descriptors</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-ceylon-main</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/ceylon/main</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/ceylon</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>org.ceylon-lang</groupId>
         <artifactId>ceylon-maven-plugin</artifactId>
         <executions>
@@ -236,7 +275,7 @@
                     <groupId>com.mchange</groupId>
                     <artifactId>mchange-commons-java</artifactId>
                   </dependency>
-                  <descriptor>descriptors/com.mchange.mchange-commons-java.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/com.mchange.mchange-commons-java.properties</descriptor>
                   <force>true</force>
                 </moduleImport>
                 <moduleImport>
@@ -244,52 +283,47 @@
                     <groupId>com.mchange</groupId>
                     <artifactId>c3p0</artifactId>
                   </dependency>
-                  <descriptor>descriptors/com.mchange.c3p0.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/com.mchange.c3p0.properties</descriptor>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-sql-common</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-sql-common.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-sql-common.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-jdbc-client</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-jdbc-client.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-jdbc-client.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-common</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-auth-common.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-common.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-jdbc</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-auth-jdbc.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-jdbc.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-jwt</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-auth-jwt.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-jwt.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
 <!--
                 <moduleImport>
@@ -297,7 +331,7 @@
                     <groupId>commons-beanutils</groupId>
                     <artifactId>commons-beanutils</artifactId>
                   </dependency>
-                  <descriptor>descriptors/commons-beanutils.commons-beanutils.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/commons-beanutils.commons-beanutils.properties</descriptor>
                   <force>true</force>
                 </moduleImport>
                 <moduleImport>
@@ -305,7 +339,7 @@
                     <groupId>org.apache.shiro</groupId>
                     <artifactId>shiro-core</artifactId>
                   </dependency>
-                  <descriptor>descriptors/org.apache.shiro.shiro-core.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/org.apache.shiro.shiro-core.properties</descriptor>
                 </moduleImport>
 -->
                 <moduleImport>
@@ -313,27 +347,24 @@
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-shiro</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-auth-shiro.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-shiro.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-oauth2</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-auth-oauth2.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-oauth2.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
                     <artifactId>vertx-web</artifactId>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -341,9 +372,8 @@
                     <artifactId>vertx-web-templ-handlebars</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-handlebars.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-handlebars.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -351,9 +381,8 @@
                     <artifactId>vertx-web-templ-mvel</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-mvel.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-mvel.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -361,9 +390,8 @@
                     <artifactId>vertx-web-templ-jade</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-jade.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-jade.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -371,9 +399,8 @@
                     <artifactId>vertx-web-templ-thymeleaf</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-thymeleaf.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -381,9 +408,8 @@
                     <artifactId>vertx-web-templ-pebble</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-pebble.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-pebble.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
                 <moduleImport>
                   <dependency>
@@ -391,9 +417,8 @@
                     <artifactId>vertx-web-templ-freemarker</artifactId>
                     <classifier>shaded</classifier>
                   </dependency>
-                  <descriptor>descriptors/io.vertx.vertx-web-templ-freemarker.properties</descriptor>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-web-templ-freemarker.properties</descriptor>
                   <force>true</force>
-                  <version>3.3.2</version>
                 </moduleImport>
               </moduleImports>
             </configuration>
@@ -412,7 +437,7 @@
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
-                  <directory>${basedir}/src/main/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/main</directory>
                   <includes>
                     <include>**/*.ceylon</include>
                   </includes>
@@ -434,7 +459,7 @@
               <javacOptions>-target 8</javacOptions>
               <sources>
                 <source>
-                  <directory>${basedir}/src/main/ceylon</directory>
+                  <directory>${project.build.directory}/ceylon/main</directory>
                   <includes>
                     <include>**/*.java</include>
                   </includes>
@@ -450,7 +475,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>${basedir}/src/main/ceylon</source>
+                <source>${project.build.directory}/ceylon/main</source>
               </sources>
               <out>${repo.dir}</out>
               <modules>

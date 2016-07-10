@@ -5,7 +5,10 @@ import com.redhat.ceylon.compiler.java.runtime.tools.*;
 import io.vertx.core.Verticle;
 import io.vertx.core.spi.VerticleFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -22,6 +25,25 @@ import java.util.regex.Pattern;
  * @author <a href="mailto:julien@julienviet.com">Julien Viet</a>
  */
 public class CeylonVerticleFactory implements VerticleFactory {
+
+  private static final String VERSION;
+
+  static {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    try (InputStream in = CeylonVerticleFactory.class.getResourceAsStream("/vertx-ceylon-version.txt")) {
+      if (in != null) {
+        while (true) {
+          int i = in.read();
+          if (i == -1) {
+            break;
+          }
+          baos.write(i);
+        }
+      }
+    } catch (IOException ignore) {
+    }
+    VERSION = baos.toString().trim();
+  }
 
   public static final String CEYLON_VERBOSE_PROP = "ceylon.verbose";
   public static final String CEYLON_REP_PROP = "ceylon.rep";
@@ -105,7 +127,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
             ModuleInfo compiledModule = compiledModules.get(0);
             applySystemConfig(runnerOptions);
             runnerOptions.addExtraModule(compiledModule.name, compiledModule.version);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.3.2");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", VERSION);
             modules.put(moduleName, module = new Module(compiledModule.name, compiledModule.version, runner));
           } else {
             module.instances++;
@@ -120,7 +142,7 @@ public class CeylonVerticleFactory implements VerticleFactory {
             String moduleVersion = moduleSpec.getVersion();
             runnerOptions.addExtraModule(moduleName, moduleVersion);
             applySystemConfig(runnerOptions);
-            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", "3.3.2");
+            JavaRunner runner = (JavaRunner) CeylonToolProvider.getRunner(Backend.Java, runnerOptions, "io.vertx.ceylon.core", VERSION);
             modules.put(moduleName, module = new Module(moduleName, moduleVersion, runner));
           } else {
             module.instances++;
