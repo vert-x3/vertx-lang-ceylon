@@ -62,7 +62,7 @@ public interface WriteStream<T> extends StreamBase {
   public void end(
     final @TypeInfo("T?") @Name("t")  T t);
 
-  @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> bytes in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n")
+  @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> items in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n <p/>\n The value is defined by the implementation of the stream, e.g in bytes for a\n [NetSocket](../net/NetSocket.type.html), the number of [Message](../eventbus/Message.type.html) for a\n [MessageProducer](../eventbus/MessageProducer.type.html), etc...\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "the max size of the write stream\n") long maxSize);
@@ -71,7 +71,7 @@ public interface WriteStream<T> extends StreamBase {
   @TypeInfo("ceylon.language::Boolean")
   public boolean writeQueueFull();
 
-  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See [Pump](../streams/Pump.type.html) for an example of this being used.\n")
+  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue is ready to accept buffers again. See [Pump](../streams/Pump.type.html) for an example of this being used.\n <p/>\n The stream implementation defines when the drain handler, for example it could be when the queue size has been\n reduced to <code>maxSize / 2</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
@@ -134,7 +134,7 @@ public interface WriteStream<T> extends StreamBase {
     delegate.end(arg_0);
     }
 
-  @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> bytes in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n")
+  @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> items in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n <p/>\n The value is defined by the implementation of the stream, e.g in bytes for a\n [NetSocket](../net/NetSocket.type.html), the number of [Message](../eventbus/Message.type.html) for a\n [MessageProducer](../eventbus/MessageProducer.type.html), etc...\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") @DocAnnotation$annotation$(description = "the max size of the write stream\n") long maxSize) {
@@ -150,7 +150,7 @@ public interface WriteStream<T> extends StreamBase {
       return ret;
     }
 
-  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue has been reduced to maxSize / 2. See [Pump](../streams/Pump.type.html) for an example of this being used.\n")
+  @DocAnnotation$annotation$(description = " Set a drain handler on the stream. If the write queue is full, then the handler will be called when the write\n queue is ready to accept buffers again. See [Pump](../streams/Pump.type.html) for an example of this being used.\n <p/>\n The stream implementation defines when the drain handler, for example it could be when the queue size has been\n reduced to <code>maxSize / 2</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> drainHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {

@@ -260,7 +260,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -271,7 +271,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -320,7 +320,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isSsl() {
     boolean ret = delegate.isSsl();

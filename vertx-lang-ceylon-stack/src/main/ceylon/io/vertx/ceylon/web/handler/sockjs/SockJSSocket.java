@@ -195,14 +195,14 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the Vert.x-Web session corresponding to this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.web::Session?")
   public Session webSession() {
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.webSession());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = "  @return the Vert.x-Web user corresponding to this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.auth.common::User?")
   public User webUser() {
     User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.webUser());

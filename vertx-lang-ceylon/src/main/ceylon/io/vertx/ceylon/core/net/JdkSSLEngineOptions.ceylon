@@ -21,7 +21,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.JdkSSLEngineOptions */
 " Configures a [TCPSSLOptions](../net/TCPSSLOptions.type.html) to use the JDK ssl engine implementation.\n"
 shared class JdkSSLEngineOptions(
-  " @return if alpn support is available via the JDK SSL engine\n"
+  ""
   shared Boolean? alpnAvailable = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

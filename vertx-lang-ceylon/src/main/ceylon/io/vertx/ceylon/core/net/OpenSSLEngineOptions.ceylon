@@ -21,9 +21,9 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.net.OpenSSLEngineOptions */
 " Configures a [TCPSSLOptions](../net/TCPSSLOptions.type.html) to use OpenSsl.\n"
 shared class OpenSSLEngineOptions(
-  " @return when alpn support is available via OpenSSL engine\n"
+  ""
   shared Boolean? alpnAvailable = null,
-  " @return when OpenSSL is available\n"
+  ""
   shared Boolean? available = null,
   " Set whether session cache is enabled in open SSL session server context\n"
   shared Boolean? sessionCacheEnabled = null) satisfies BaseDataObject {

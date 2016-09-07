@@ -77,7 +77,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @throws java.lang.IllegalStateException when no response handler is set\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
@@ -151,7 +151,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return Is the request chunked?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isChunked() {
     boolean ret = delegate.isChunked();
@@ -165,7 +165,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the raw value of the method this request sends\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getRawMethod() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getRawMethod());
@@ -181,21 +181,21 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return The URI of the request.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.uri());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The path part of the uri. For example /somepath/somemorepath/someresource.foo\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String path() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the query part of the uri. For example someparam=32&amp;someotherparam=x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String query() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.query());
@@ -211,14 +211,14 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the request host. For HTTP2 it returns the  pseudo header otherwise it returns the  header\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getHost() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getHost());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The HTTP headers\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -361,7 +361,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     delegate.reset(arg_0);
   }
 
-  @DocAnnotation$annotation$(description = " @return the [HttpConnection](../http/HttpConnection.type.html) associated with this request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection connection() {
     if (cached_connection != null) {
@@ -398,7 +398,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the id of the stream of this response,  when it is not yet determined, i.e\n         the request has not been yet sent or it is not supported HTTP/1.x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long streamId() {
     long ret = delegate.streamId();

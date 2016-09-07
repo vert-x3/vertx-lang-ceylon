@@ -21,7 +21,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.http.GoAway */
 " A  frame.\n"
 shared class GoAway(
-  " @return the  error code\n"
+  ""
   shared Integer? errorCode = null,
   " Set the last stream id.\n"
   shared Integer? lastStreamId = null) satisfies BaseDataObject {

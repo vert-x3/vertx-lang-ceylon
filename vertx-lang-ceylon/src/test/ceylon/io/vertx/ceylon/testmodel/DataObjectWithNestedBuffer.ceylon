@@ -23,7 +23,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.DataObjectWithNestedBuffer */
-" @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n"
+""
 shared class DataObjectWithNestedBuffer(
   shared DataObjectWithBuffer? nested = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {

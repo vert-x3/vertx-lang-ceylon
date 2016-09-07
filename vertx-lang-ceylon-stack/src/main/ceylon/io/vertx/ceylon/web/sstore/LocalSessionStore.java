@@ -11,11 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.web.Session;
 import io.vertx.ceylon.core.Vertx;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " A session store which is only available on a single node.\n <p>\n Can be used when sticky sessions are being used.\n")
-public class LocalSessionStore extends io.vertx.ceylon.web.sstore.SessionStore implements ReifiedType {
+public class LocalSessionStore extends SessionStore implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.sstore.LocalSessionStore, LocalSessionStore> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.sstore.LocalSessionStore, LocalSessionStore>() {

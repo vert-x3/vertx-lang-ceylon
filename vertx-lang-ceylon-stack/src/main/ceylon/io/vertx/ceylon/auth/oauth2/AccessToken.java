@@ -12,12 +12,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
+import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
+import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " AccessToken extension to the User interface\n")
-public class AccessToken extends io.vertx.ceylon.auth.common.User implements ReifiedType {
+public class AccessToken extends User implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.AccessToken, AccessToken> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.AccessToken, AccessToken>() {

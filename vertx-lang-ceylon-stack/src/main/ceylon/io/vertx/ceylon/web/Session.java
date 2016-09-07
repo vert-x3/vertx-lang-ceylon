@@ -51,7 +51,7 @@ public class Session implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return The unique ID of the session. This is generated using a random secure UUID.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String id() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.id());
@@ -93,7 +93,7 @@ public class Session implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the time the session was last accessed\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long lastAccessed() {
     long ret = delegate.lastAccessed();
@@ -106,14 +106,14 @@ public class Session implements ReifiedType {
     delegate.destroy();
   }
 
-  @DocAnnotation$annotation$(description = " @return has the session been destroyed?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isDestroyed() {
     boolean ret = delegate.isDestroyed();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the amount of time in ms, after which the session will expire, if not accessed.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long timeout() {
     long ret = delegate.timeout();

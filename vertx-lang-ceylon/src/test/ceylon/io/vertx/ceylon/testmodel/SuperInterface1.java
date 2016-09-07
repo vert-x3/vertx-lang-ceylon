@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"http://tfox.org\">Tim Fox</a>\n")
+@DocAnnotation$annotation$(description = "")
 public class SuperInterface1 implements ReifiedType {
 
   @Ignore
@@ -72,6 +72,12 @@ public class SuperInterface1 implements ReifiedType {
     char arg_7 = (char)ch;
     java.lang.String arg_8 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     delegate.superMethodWithBasicParams(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6, arg_7, arg_8);
+  }
+
+  @TypeInfo("ceylon.language::Integer")
+  public long superMethodOverloadedBySubclass() {
+    long ret = delegate.superMethodOverloadedBySubclass();
+    return ret;
   }
 
 }

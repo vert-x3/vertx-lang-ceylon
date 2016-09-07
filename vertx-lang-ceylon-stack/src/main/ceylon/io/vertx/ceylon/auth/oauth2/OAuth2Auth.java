@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
@@ -25,13 +26,13 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
-import io.vertx.ext.auth.oauth2.OAuth2FlowType;
 import io.vertx.core.Handler;
+import io.vertx.ext.auth.oauth2.OAuth2FlowType;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Factory interface for creating OAuth2 based `io.vertx.ext.auth.AuthProvider` instances.\n")
-public class OAuth2Auth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
+public class OAuth2Auth extends AuthProvider implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.OAuth2Auth, OAuth2Auth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.OAuth2Auth, OAuth2Auth>() {

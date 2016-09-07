@@ -19,7 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.core.net.NetworkOptions */
-" @author <a href=\"http://tfox.org\">Tim Fox</a>\n"
+""
 shared class NetworkOptions(
   " Set to true to enabled network activity logging: Netty's pipeline is configured for logging on Netty's logger.\n"
   shared Boolean? logActivity = null,

@@ -21,8 +21,8 @@ import java.util.List;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"http://tfox.org\">Tim Fox</a>\n")
-public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 implements ReifiedType,  SuperInterface2 {
+@DocAnnotation$annotation$(description = "")
+public class TestInterface extends SuperInterface1 implements ReifiedType,  SuperInterface2 {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.TestInterface, TestInterface>() {
@@ -1931,6 +1931,14 @@ public class TestInterface extends io.vertx.ceylon.testmodel.SuperInterface1 imp
     final @TypeInfo("ceylon.language::Throwable") @Name("t")  Throwable t) {
     java.lang.Throwable arg_0 = t;
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.methodWithThrowableParam(arg_0));
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Integer")
+  public long superMethodOverloadedBySubclass(
+    final @TypeInfo("ceylon.language::String") @Name("s")  ceylon.language.String s) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(s);
+    long ret = delegate.superMethodOverloadedBySubclass(arg_0);
     return ret;
   }
 

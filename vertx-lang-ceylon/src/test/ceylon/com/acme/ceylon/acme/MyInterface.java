@@ -15,7 +15,7 @@ import com.acme.ceylon.acme.sub.SubInterface;
 import io.vertx.ceylon.testmodel.TestInterface;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
+@DocAnnotation$annotation$(description = "")
 public class MyInterface implements ReifiedType {
 
   @Ignore

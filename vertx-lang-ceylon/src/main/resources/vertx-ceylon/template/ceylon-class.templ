@@ -92,7 +92,7 @@ package @{type.translatePackageName(TRANSLATOR_COMPOSITE)};\n
 @DocAnnotation$annotation$(description = "@{genDoc(doc)}")\n
 @end{}
 public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{'genTypeParams';params=typeParams}
-@if{concreteSuperType != null} extends @{concreteSuperType.translateName(TRANSLATOR_COMPOSITE)}@end{}
+@if{concreteSuperType != null} extends @{genJavaInterropTypeDecl(concreteSuperType, '.')}@end{}
 @if{concrete} implements ReifiedType@end{}
 @if{abstractSuperTypes.size() > 0}
 	@if{concrete}@if{abstractSuperTypes.size() > 0}, @end{}@else{} extends@end{}

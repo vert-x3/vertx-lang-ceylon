@@ -31,7 +31,7 @@ shared class AddressResolverOptions(
   shared String? hostsPath = null,
   " Set the maximum number of queries when an hostname is resolved.\n"
   shared Integer? maxQueries = null,
-  " Set the ndots value used when resolving using search domains, the default value is <code>1</code>.\n"
+  " Set the ndots value used when resolving using search domains, the default value is <code>-1</code> which\n determines the value from the OS on Linux or uses the value <code>1</code>.\n"
   shared Integer? ndots = null,
   " Set to true to enable the automatic inclusion in DNS queries of an optional record that hints\n the remote DNS server about how much data the resolver can read per response.\n"
   shared Boolean? optResourceEnabled = null,

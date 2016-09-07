@@ -108,21 +108,21 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return a read stream for the body of the message stream.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> bodyStream() {
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.bodyStream());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if the current consumer is registered\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isRegistered() {
     boolean ret = delegate.isRegistered();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The address the handler was registered with.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());
@@ -138,7 +138,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the maximum number of messages that can be buffered when this stream is paused\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long $getMaxBufferedMessages() {
     long ret = delegate.getMaxBufferedMessages();

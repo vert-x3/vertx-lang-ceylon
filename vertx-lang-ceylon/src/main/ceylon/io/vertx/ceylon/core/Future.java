@@ -203,7 +203,7 @@ public class Future<T> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return an handler completing this future\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)")
   public Callable<?> completer() {
     if (cached_completer != null) {

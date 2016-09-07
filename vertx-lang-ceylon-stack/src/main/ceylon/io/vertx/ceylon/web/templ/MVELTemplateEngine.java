@@ -11,10 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.core.buffer.Buffer;
+import io.vertx.ceylon.web.RoutingContext;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " A template engine that uses the Handlebars library.\n")
-public class MVELTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
+public class MVELTemplateEngine extends TemplateEngine implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.MVELTemplateEngine, MVELTemplateEngine>() {

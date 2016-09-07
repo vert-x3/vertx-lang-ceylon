@@ -99,7 +99,7 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -110,7 +110,7 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -259,21 +259,21 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the WebSocket handshake path.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String path() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the WebSocket handshake query string.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String query() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.query());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the headers in the WebSocket handshake\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {

@@ -78,7 +78,7 @@ public class RoutingContext implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP request object\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest")
   public HttpServerRequest request() {
     if (cached_request != null) {
@@ -89,7 +89,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP response object\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
     if (cached_response != null) {
@@ -145,21 +145,33 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the Vert.x instance associated to the initiating [Router](Router.type.html) for this context\n")
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Remove some data from the context. The data is available in any handlers that receive the context.\n")
+  @TypeInfo("T?")
+  public <T> T remove(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key for the data\n") ceylon.language.String key) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
+    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.remove(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx vertx() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.vertx());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the mount point for this router. It will be null for a top level router. For a sub-router it will be the path\n at which the subrouter was mounted.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String mountPoint() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.mountPoint());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the current route this context is being routed through.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route currentRoute() {
     Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.currentRoute());
@@ -200,21 +212,21 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the number of cookies. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long cookieCount() {
     long ret = delegate.cookieCount();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return a set of all the cookies. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to be populated.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.web::Cookie>")
   public ceylon.language.Set<Cookie> cookies() {
     ceylon.language.Set<Cookie> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.web.Cookie.$TypeDescriptor$, delegate.cookies(), io.vertx.ceylon.web.Cookie.TO_CEYLON.converter());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return  the entire HTTP request body as a string, assuming UTF-8 encoding. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String $getBodyAsString() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getBodyAsString());
@@ -230,28 +242,28 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.json::Object?")
   public ceylon.json.Object $getBodyAsJson() {
     ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.getBodyAsJson());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.json::Array?")
   public ceylon.json.Array $getBodyAsJsonArray() {
     ceylon.json.Array ret = io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(delegate.getBodyAsJsonArray());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return Get the entire HTTP request body as a . The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to be populated.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer?")
   public Buffer $getBody() {
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(delegate.getBody());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return a set of fileuploads (if any) for the request. The context must have first been routed to a\n [BodyHandler](../handler/BodyHandler.type.html) for this to work.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Set<io.vertx.ceylon.web::FileUpload>")
   public ceylon.language.Set<FileUpload> fileUploads() {
     ceylon.language.Set<FileUpload> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.web.FileUpload.$TypeDescriptor$, delegate.fileUploads(), io.vertx.ceylon.web.FileUpload.TO_CEYLON.converter());
@@ -323,7 +335,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Add a handler that will be called just before the response body has been completely written.\n This gives you a hook where you can write any extra data to the response before it has ended when it will be too late.\n")
+  @DocAnnotation$annotation$(description = " Provides a handler that will be called after the last part of the body is written to the wire.\n The handler is called asynchronously of when the response has been received by the client.\n This provides a hook allowing you to do more operations once the request has been sent over the wire\n such as resource cleanup.\n")
   @TypeInfo("ceylon.language::Integer")
   public long addBodyEndHandler(
     final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -345,7 +357,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if the context is being routed to failure handlers.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean failed() {
     boolean ret = delegate.failed();

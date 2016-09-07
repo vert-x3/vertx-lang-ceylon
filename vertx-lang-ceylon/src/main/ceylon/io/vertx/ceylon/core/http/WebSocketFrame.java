@@ -54,28 +54,28 @@ public class WebSocketFrame implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if it's a text frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isText() {
     boolean ret = delegate.isText();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if it's a binary frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isBinary() {
     boolean ret = delegate.isBinary();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if it's a continuation frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isContinuation() {
     boolean ret = delegate.isContinuation();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the content of this frame as a UTF-8 string and returns the\n converted string. Only use this for text frames.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textData() {
     if (cached_textData != null) {
@@ -86,7 +86,7 @@ public class WebSocketFrame implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the data of the frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer binaryData() {
     if (cached_binaryData != null) {
@@ -97,7 +97,7 @@ public class WebSocketFrame implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if this is the final frame.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isFinal() {
     boolean ret = delegate.isFinal();

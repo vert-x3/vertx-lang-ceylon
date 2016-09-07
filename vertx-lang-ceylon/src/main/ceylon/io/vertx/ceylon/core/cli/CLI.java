@@ -72,7 +72,7 @@ public class CLI implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the CLI name.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getName());
@@ -88,7 +88,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the CLI description.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String $getDescription() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDescription());
@@ -103,7 +103,7 @@ public class CLI implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the CLI summary.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String $getSummary() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getSummary());

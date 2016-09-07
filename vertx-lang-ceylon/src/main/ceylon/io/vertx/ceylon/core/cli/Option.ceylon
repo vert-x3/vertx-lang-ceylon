@@ -39,7 +39,7 @@ shared class Option(
   shared String? longName = null,
   " Sets whether or not this option can receive several values.\n"
   shared Boolean? multiValued = null,
-  " @return the option name. It returns the long name if set, the short name otherwise. It cannot return <code>null</code> for valid option\n"
+  ""
   shared String? name = null,
   " Sets whether or not this option is mandatory.\n"
   shared Boolean? required = null,

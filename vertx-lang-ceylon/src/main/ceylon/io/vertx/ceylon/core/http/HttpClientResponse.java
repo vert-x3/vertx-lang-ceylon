@@ -109,28 +109,28 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the version of the response\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpVersion")
   public io.vertx.ceylon.core.http.HttpVersion version() {
     io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.httpVersion_.get_().getToCeylon().safeConvert(delegate.version());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the status code of the response\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long statusCode() {
     long ret = delegate.statusCode();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the status message of the response\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String statusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.statusMessage());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the headers\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -159,7 +159,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the trailers\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
     if (cached_trailers != null) {
@@ -170,7 +170,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the Set-Cookie headers (including trailers)\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> cookies() {
     if (cached_cookies != null) {

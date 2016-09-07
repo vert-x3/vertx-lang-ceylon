@@ -184,14 +184,14 @@ public class Context implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The Vertx instance that created the context\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx owner() {
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.owner());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return  the number of instances of the verticle that were deployed in the deployment (if any) related\n to this context\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long $getInstanceCount() {
     long ret = delegate.getInstanceCount();

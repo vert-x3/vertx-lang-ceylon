@@ -57,7 +57,7 @@ public class SendContext<T> implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return  The message being sent\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.eventbus::Message<T>")
   public Message<T> message() {
     Message<T> ret = io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(delegate.message());

@@ -19,7 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.DataObjectWithBuffer */
-" @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n"
+""
 shared class DataObjectWithBuffer() satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

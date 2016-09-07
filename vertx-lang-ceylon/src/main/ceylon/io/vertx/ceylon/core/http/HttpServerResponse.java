@@ -105,7 +105,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP status code of the response. The default is <code>200</code> representing <code>OK</code>.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long $getStatusCode() {
     long ret = delegate.getStatusCode();
@@ -121,7 +121,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP status message of the response. If this is not specified a default value will be used depending on what\n [setStatusCode](../http/HttpServerResponse.type.html#setStatusCode) has been set to.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getStatusMessage() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getStatusMessage());
@@ -146,14 +146,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return is the response chunked?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isChunked() {
     boolean ret = delegate.isChunked();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The HTTP headers\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -175,7 +175,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return The HTTP trailers\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap trailers() {
     if (cached_trailers != null) {
@@ -359,21 +359,21 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " @return has the response already ended?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean ended() {
     boolean ret = delegate.ended();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return has the underlying TCP connection corresponding to the request already been closed?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean closed() {
     boolean ret = delegate.closed();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return have the headers for the response already been written?\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean headWritten() {
     boolean ret = delegate.headWritten();
@@ -393,7 +393,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Provide a handler that will be called just before the last part of the body is written to the wire\n and the response is ended.<p>\n This provides a hook allowing you to do any more operations before this occurs.\n")
+  @DocAnnotation$annotation$(description = " Provides a handler that will be called after the last part of the body is written to the wire.\n The handler is called asynchronously of when the response has been received by the client.\n This provides a hook allowing you to do more operations once the request has been sent over the wire\n such as resource cleanup.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse bodyEndHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -406,14 +406,14 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the total number of bytes written for the body of the response.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long bytesWritten() {
     long ret = delegate.bytesWritten();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the id of the stream of this response,  for HTTP/1.x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long streamId() {
     long ret = delegate.streamId();

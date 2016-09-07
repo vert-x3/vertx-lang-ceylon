@@ -346,7 +346,7 @@ public class Router implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return a list of all the routes on this router\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::List<io.vertx.ceylon.web::Route>")
   public ceylon.language.List<Route> $getRoutes() {
     ceylon.language.List<Route> ret = io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.web.Route.$TypeDescriptor$, delegate.getRoutes(), io.vertx.ceylon.web.Route.TO_CEYLON.converter());

@@ -150,7 +150,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return The address to which the producer produces messages.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String address() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.address());

@@ -129,11 +129,11 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("ceylon.language::Anything")
   public void close();
 
-  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress();
 
-  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress();
 
@@ -337,7 +337,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
     delegate.close();
     }
 
-  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
       if (cached_remoteAddress != null) {
@@ -348,7 +348,7 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       return ret;
     }
 
-  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
       if (cached_localAddress != null) {

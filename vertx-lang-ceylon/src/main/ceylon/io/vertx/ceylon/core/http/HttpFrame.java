@@ -55,7 +55,7 @@ public class HttpFrame implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the 8-bit type of the frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long type() {
     if (cached_type != null) {
@@ -66,7 +66,7 @@ public class HttpFrame implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the 8-bit flags specific to the frame\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long flags() {
     if (cached_flags != null) {
@@ -77,7 +77,7 @@ public class HttpFrame implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the frame payload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer payload() {
     if (cached_payload != null) {

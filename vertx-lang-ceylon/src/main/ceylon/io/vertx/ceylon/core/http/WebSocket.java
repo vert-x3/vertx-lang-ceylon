@@ -97,7 +97,7 @@ public class WebSocket implements ReifiedType,  WebSocketBase {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " @return the remote address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -108,7 +108,7 @@ public class WebSocket implements ReifiedType,  WebSocketBase {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the local address for this socket\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {

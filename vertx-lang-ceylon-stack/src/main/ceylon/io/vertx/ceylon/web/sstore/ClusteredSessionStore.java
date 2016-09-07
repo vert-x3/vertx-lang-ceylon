@@ -11,11 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.web.Session;
 import io.vertx.ceylon.core.Vertx;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " A session store which stores sessions in a distributed map so they are available across the cluster.\n")
-public class ClusteredSessionStore extends io.vertx.ceylon.web.sstore.SessionStore implements ReifiedType {
+public class ClusteredSessionStore extends SessionStore implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.sstore.ClusteredSessionStore, ClusteredSessionStore> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.sstore.ClusteredSessionStore, ClusteredSessionStore>() {

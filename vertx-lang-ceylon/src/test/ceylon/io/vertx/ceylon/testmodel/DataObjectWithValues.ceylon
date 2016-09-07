@@ -25,7 +25,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.DataObjectWithValues */
-" @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n"
+""
 shared class DataObjectWithValues(
   shared Boolean? booleanValue = null,
   shared Boolean? boxedBooleanValue = null,

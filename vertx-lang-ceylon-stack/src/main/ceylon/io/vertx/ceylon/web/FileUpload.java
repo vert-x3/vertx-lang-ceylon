@@ -51,49 +51,49 @@ public class FileUpload implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the name of the upload as provided in the form submission\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.name());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the actual temporary file name on the server where the file was uploaded to.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uploadedFileName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.uploadedFileName());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the file name of the upload as provided in the form submission\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String fileName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.fileName());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the size of the upload, in bytes\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long size() {
     long ret = delegate.size();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the content type (MIME type) of the upload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentType());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the content transfer encoding of the upload - this describes how the upload was encoded in the form submission.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentTransferEncoding() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentTransferEncoding());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the charset of the upload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String charSet() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.charSet());

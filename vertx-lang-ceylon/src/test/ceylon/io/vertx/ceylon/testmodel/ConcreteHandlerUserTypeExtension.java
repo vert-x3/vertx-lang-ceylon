@@ -13,8 +13,8 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
-public class ConcreteHandlerUserTypeExtension extends io.vertx.ceylon.testmodel.ConcreteHandlerUserType implements ReifiedType {
+@DocAnnotation$annotation$(description = "")
+public class ConcreteHandlerUserTypeExtension extends ConcreteHandlerUserType implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension, ConcreteHandlerUserTypeExtension>() {

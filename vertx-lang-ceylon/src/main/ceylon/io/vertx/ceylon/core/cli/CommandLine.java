@@ -52,14 +52,14 @@ public class CommandLine implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the model of this command line object.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.cli::CLI")
   public CLI cli() {
     CLI ret = io.vertx.ceylon.core.cli.CLI.TO_CEYLON.converter().safeConvert(delegate.cli());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the ordered list of arguments. Arguments are command line arguments not matching an option.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> allArguments() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.allArguments(), io.vertx.lang.ceylon.ToCeylon.String);

@@ -51,21 +51,21 @@ public class FileSystemProps implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return The total space on the file system, in bytes\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long totalSpace() {
     long ret = delegate.totalSpace();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The total un-allocated space on the file system, in bytes\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long unallocatedSpace() {
     long ret = delegate.unallocatedSpace();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The total usable space on the file system, in bytes\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long usableSpace() {
     long ret = delegate.usableSpace();

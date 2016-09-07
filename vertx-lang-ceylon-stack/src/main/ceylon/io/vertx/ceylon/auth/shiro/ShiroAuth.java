@@ -11,13 +11,16 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Factory interface for creating Apache Shiro based `io.vertx.ext.auth.AuthProvider` instances.\n")
-public class ShiroAuth extends io.vertx.ceylon.auth.common.AuthProvider implements ReifiedType {
+public class ShiroAuth extends AuthProvider implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.shiro.ShiroAuth, ShiroAuth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.shiro.ShiroAuth, ShiroAuth>() {

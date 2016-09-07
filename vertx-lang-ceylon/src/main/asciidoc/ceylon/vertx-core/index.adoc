@@ -360,11 +360,13 @@ NOTE: the configuration is set when the worker pool is created
 == Async coordination
 
 Coordination of multiple asynchronous results can be achieved with Vert.x `link:../../ceylondoc/vertx-core//Future.type.html[futures]`. It
-supports concurrent composition (run several async operations in parallel and join) and sequential composition
+supports concurrent composition (run several async operations in parallel) and sequential composition
 (chain async operations).
 
+=== Concurrent composition
+
 `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#all(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.all]` takes several futures arguments (up to 6) and returns a future that is
-_succeeded_ when all the futures are and _failed_ otherwise:
+_succeeded_ when all the futures are and _failed_ when at least one of the futures is failed:
 
 [source,ceylon]
 ----
@@ -388,10 +390,10 @@ compositeFuture.all(httpServerFuture, netServerFuture).setHandler((CompositeFutu
 
 ----
 
-The operations run concurrently, and are joined. The `Handler` attached to the returned future is
-invoked upon completion of the composition. If one of the operation fails (one of the passed future is marked
-as a failure), the resulting future is marked as failed too. If all the operations succeed, the resulting future
-is completed with a success.
+The operations run concurrently, the `Handler` attached to the returned future is invoked upon
+completion of the composition. When one of the operation fails (one of the passed future is marked as a failure),
+the resulting future is marked as failed too. When all the operations succeed, the resulting future is completed
+with a success.
 
 Alternatively, you can pass a list (potentially empty) of futures:
 
@@ -401,22 +403,21 @@ import io.vertx.ceylon.core { compositeFuture }
 
 ...
 
-compositeFuture.all(ArrayList { f1,  f2,  f3 });
+compositeFuture.all(ArrayList { future1,  future2,  future3 });
 
 ----
 
-While the `all` composition _waits_ until all futures are completed (or one fails), the `any` composition
-_waits_ for the first completed future. `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures arguments
-(up to 6) and returns a future that is _succeeded_ if one of the futures is, and _failed_ otherwise:
+While the `all` composition _waits_ until all futures are successful (or one fails), the `any` composition
+_waits_ for the first succeeded future. `link:../../ceylondoc/vertx-core//CompositeFuture.object.html#any(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.any]` takes several futures
+arguments (up to 6) and returns a future that is succeeded when one of the futures is, and failed when
+all the futures are failed:
 
 [source,ceylon]
 ----
-import io.vertx.ceylon.core { future, compositeFuture } 
+import io.vertx.ceylon.core { compositeFuture } 
 
 ...
 
-value future1 = future.future();
-value future2 = future.future();
 compositeFuture.any(future1, future2).setHandler((CompositeFuture|Throwable ar) {
   if (is CompositeFuture ar) {
     // At least one is succeeded
@@ -439,6 +440,41 @@ compositeFuture.any(ArrayList { f1,  f2,  f3 });
 
 ----
 
+The `join` composition _waits_ until all futures are completed, either with a success or a failure.
+`link:../../ceylondoc/vertx-core//CompositeFuture.object.html#join(io.vertx.core.Future,%20io.vertx.core.Future)[CompositeFuture.join]` takes several futures arguments (up to 6) and returns a future that is
+succeeded when all the futures are succeeded, and failed when all the futures are completed and at least one of
+them is failed:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { compositeFuture } 
+
+...
+
+compositeFuture.join(future1, future2, future3).setHandler((CompositeFuture|Throwable ar) {
+  if (is CompositeFuture ar) {
+    // All succeeded
+  } else {
+    // All completed and at least one failed
+  };
+});
+
+----
+
+A list of futures can be used also:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { compositeFuture } 
+
+...
+
+compositeFuture.join(ArrayList { future1,  future2,  future3 });
+
+----
+
+=== Sequential composition
+
 While `all` and `any` are implementing concurrent composition, `link:../../ceylondoc/vertx-core//Future.type.html#compose(io.vertx.core.Handler,%20io.vertx.core.Future)[compose]` can be used
 for chaining futures (so sequential composition).
 
@@ -451,9 +487,9 @@ import io.vertx.ceylon.core { future }
 
 
 value fs = vertx.fileSystem();
+value startFuture = future.future();
 
 value fut1 = future.future();
-
 fs.createFile("/foo", fut1.completer());
 
 fut1.compose(() {
@@ -463,7 +499,8 @@ fut1.compose(() {
   return fut2;
 }).compose(() {
   // When the file is written (fut2), execute this:
-  fs.move("/foo", "/bar", startFuture.completer());
+  value fut3 = future.future();
+  fs.move("/foo", "/bar", fut3.completer());
 }, startFuture);
 
 ----
@@ -1482,8 +1519,8 @@ value vertx = vertx_.vertx(VertxOptions {
 
 ----
 
-When a search domain list is used, the threshold for the number of dots is `1`, it can be configured with
-`link:../../ceylondoc/vertx-core//dns/AddressResolverOptions.type.html#setNdots(int)[ndots]`.
+When a search domain list is used, the threshold for the number of dots is `1` or loaded from `/etc/resolv.conf`
+on Linux, it can be configured to a specific value with `link:../../ceylondoc/vertx-core//dns/AddressResolverOptions.type.html#setNdots(int)[ndots]`.
 
 NOTE: sometimes it can be desirable to use the JVM built-in resolver, the JVM system property
 _-Dvertx.disableDnsResolver=true_ activates this behavior
@@ -1761,3 +1798,35 @@ When you use the `Launcher` class as main class, it uses the following exit code
 `stop` command
 * `14` if the system configuration is not meeting the system requirement (shc as java not found)
 * `15` if the main verticle cannot be deployed
+
+== Configuring Vert.x cache
+
+When Vert.x needs to read a file from the classpath (embedded in a fat jar, in a jar form the classpath or a file
+that is on the classpath), it copies it to a cache directory. The reason behind this is simple: reading a file
+from a jar or from an input stream is blocking. So to avoid to pay the price every time, Vert.x copies the file to
+its cache directory and reads it from there every subsequent read. This behavior can be configured.
+
+First, by default, Vert.x uses `$CWD/.vertx` as cache directory. It creates a unique directory inside this one to
+avoid conflicts. This location can be configured by using the `vertx.cacheDirBase` system property. For instance
+if the current working directory is not writable (such as in an immutable container context), launch your
+application with:
+
+[source]
+----
+vertx run my.Verticle -Dvertx.cacheDirBase=/tmp/vertx-cache
+# or
+java -jar my-fat.jar vertx.cacheDirBase=/tmp/vertx-cache
+----
+
+IMPORTANT: the directory must be **writable**.
+
+When you are editing resources such as HTML, CSS or JavaScript, this cache mechanism can be annoying as it serves
+only the first version of the file (and so you won't see your edits if you reload your page). To avoid this
+behavior, launch your application with `-Dvertx.disableFileCaching=true`. With this setting, Vert.x still uses
+the cache, but always refresh the version stored in the cache with the original source. So if you edit a file
+served from the classpath and refresh your browser, Vert.x reads it from the classpath, copies it to the cache
+directory and serves it from there. Do not use this setting in production, it can kill your performances.
+
+Finally, you can disable completely the cache by using `-Dvertx.disableFileCPResolving=true`. This setting is not
+without consequences. Vert.x would be unable to read any files from the classpath (only from the file system). Be
+very careful when using this settings.

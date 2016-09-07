@@ -111,35 +111,35 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the filename which was used when upload the file.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String filename() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.filename());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the name of the attribute\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String name() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.name());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return  the content type for the upload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentType());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the contentTransferEncoding for the upload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String contentTransferEncoding() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.contentTransferEncoding());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the charset for the upload\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String charset() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.charset());
@@ -153,7 +153,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if the size of the upload can be retrieved via [size](../http/HttpServerFileUpload.type.html#size).\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isSizeAvailable() {
     boolean ret = delegate.isSizeAvailable();

@@ -19,7 +19,7 @@ import io.vertx.core.json {
   JsonArray_=JsonArray
 }
 /* Generated from io.vertx.codegen.testmodel.DataObjectWithOnlyJsonObjectConstructor */
-" @author <a href=\"mailto:oreilldf@gmail.com\">Dan O'Reilly</a>\n"
+""
 shared class DataObjectWithOnlyJsonObjectConstructor(
   shared String? foo = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {

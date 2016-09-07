@@ -51,14 +51,14 @@ public class Cookie implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the name of this cookie\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getName() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getName());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the value of this cookie\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String $getValue() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getValue());
@@ -83,7 +83,7 @@ public class Cookie implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return  the domain for the cookie\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String $getDomain() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getDomain());

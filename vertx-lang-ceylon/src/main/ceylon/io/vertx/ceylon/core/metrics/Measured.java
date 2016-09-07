@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:nscavell@redhat.com\">Nick Scavelli</a>\n")
+@DocAnnotation$annotation$(description = "")
 public interface Measured {
 
   @Ignore

@@ -54,7 +54,7 @@ public class HttpConnection implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " @return the current connection window size or <code>-1</code> for HTTP/1.x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long $getWindowSize() {
     long ret = delegate.getWindowSize();
@@ -164,7 +164,7 @@ public class HttpConnection implements ReifiedType {
     delegate.close();
   }
 
-  @DocAnnotation$annotation$(description = " @return the latest server settings acknowledged by the remote endpoint - this is not implemented for HTTP/1.x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::Http2Settings")
   public io.vertx.ceylon.core.http.Http2Settings settings() {
     io.vertx.ceylon.core.http.Http2Settings ret = io.vertx.ceylon.core.http.http2Settings_.get_().getToCeylon().safeConvert(delegate.settings());
@@ -195,7 +195,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the current remote endpoint settings for this connection - this is not implemented for HTTP/1.x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::Http2Settings")
   public io.vertx.ceylon.core.http.Http2Settings remoteSettings() {
     io.vertx.ceylon.core.http.Http2Settings ret = io.vertx.ceylon.core.http.http2Settings_.get_().getToCeylon().safeConvert(delegate.remoteSettings());

@@ -20,7 +20,7 @@ import java.util.Map;
 import io.vertx.core.json.JsonObject;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
+@DocAnnotation$annotation$(description = "")
 public class FunctionParamTCK implements ReifiedType {
 
   @Ignore

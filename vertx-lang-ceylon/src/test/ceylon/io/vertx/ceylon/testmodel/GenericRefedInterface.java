@@ -16,7 +16,7 @@ import ceylon.language.DocAnnotation$annotation$;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " @author <a href=\"mailto:julien@julienviet.com\">Julien Viet</a>\n")
+@DocAnnotation$annotation$(description = "")
 public class GenericRefedInterface<T> implements ReifiedType {
 
   @Ignore

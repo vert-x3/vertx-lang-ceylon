@@ -113,70 +113,70 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP version of the request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpVersion")
   public io.vertx.ceylon.core.http.HttpVersion version() {
     io.vertx.ceylon.core.http.HttpVersion ret = io.vertx.ceylon.core.http.httpVersion_.get_().getToCeylon().safeConvert(delegate.version());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP method for the request.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpMethod")
   public io.vertx.ceylon.core.http.HttpMethod method() {
     io.vertx.ceylon.core.http.HttpMethod ret = io.vertx.ceylon.core.http.httpMethod_.get_().getToCeylon().safeConvert(delegate.method());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the HTTP method as sent by the client\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String rawMethod() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.rawMethod());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return true if this [NetSocket](../net/NetSocket.type.html) is encrypted via SSL/TLS\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isSSL() {
     boolean ret = delegate.isSSL();
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the scheme of the request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String scheme() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.scheme());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the URI of the request. This is usually a relative URI\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String uri() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.uri());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return The path part of the uri. For example /somepath/somemorepath/someresource.foo\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String path() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the query part of the uri. For example someparam=32&amp;someotherparam=x\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String query() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.query());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the request host. For HTTP2 it returns the  pseudo header otherwise it returns the  header\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String host() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.host());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the response. Each instance of this class has an [HttpServerResponse](../http/HttpServerResponse.type.html) instance attached to it. This is used\n to send the response back to the client.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
     if (cached_response != null) {
@@ -187,7 +187,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the headers in the request.\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap headers() {
     if (cached_headers != null) {
@@ -207,7 +207,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the query parameters in the request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap params() {
     if (cached_params != null) {
@@ -227,7 +227,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the remote (client side) address of the request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress() {
     if (cached_remoteAddress != null) {
@@ -238,7 +238,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the local (server side) address of the server that handles the request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress() {
     if (cached_localAddress != null) {
@@ -249,7 +249,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " @return the absolute URI corresponding to the the HTTP request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String absoluteURI() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.absoluteURI());
@@ -289,7 +289,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return  true if we are expecting a multi-part body for this request. See [setExpectMultipart](../http/HttpServerRequest.type.html#setExpectMultipart).\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isExpectMultipart() {
     boolean ret = delegate.isExpectMultipart();
@@ -356,7 +356,7 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " @return the [HttpConnection](../http/HttpConnection.type.html) associated with this request\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection connection() {
     if (cached_connection != null) {

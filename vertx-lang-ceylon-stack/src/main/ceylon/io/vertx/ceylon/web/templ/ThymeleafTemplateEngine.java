@@ -11,11 +11,15 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.core.buffer.Buffer;
 import org.thymeleaf.templatemode.TemplateMode;
+import io.vertx.ceylon.web.RoutingContext;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " A template engine that uses the Thymeleaf library.\n")
-public class ThymeleafTemplateEngine extends io.vertx.ceylon.web.templ.TemplateEngine implements ReifiedType {
+public class ThymeleafTemplateEngine extends TemplateEngine implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.ThymeleafTemplateEngine, ThymeleafTemplateEngine> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.web.templ.ThymeleafTemplateEngine, ThymeleafTemplateEngine>() {
