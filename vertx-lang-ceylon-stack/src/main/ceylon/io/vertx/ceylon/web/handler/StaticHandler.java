@@ -195,4 +195,13 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set whether vary header should be sent with response.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler setSendVaryHeader(
+    final @TypeInfo("ceylon.language::Boolean") @Name("varyHeader") @DocAnnotation$annotation$(description = "true to sent vary header\n") boolean varyHeader) {
+    boolean arg_0 = varyHeader;
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setSendVaryHeader(arg_0));
+    return this;
+  }
+
 }
