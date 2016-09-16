@@ -154,19 +154,6 @@ shared test void testObjectParam() {
   obj.methodWithObjectParam("JsonArray", JsonArray { "foo", "bar", "wib" });
 }
 
-shared test void testDataObjectParam() {
-  value dataObject = TestDataObject {
-    foo="hello";
-    bar=123;
-    wibble=1.23;
-  };
-  obj.methodWithDataObjectParam(dataObject);
-}
-
-shared test void testNullDataObjectParam() {
-  obj.methodWithNullDataObjectParam(null);
-}
-
 shared test void testMethodWithHandlerDataObject() {
   variable TestDataObject? tmp = null;
   void callback(TestDataObject obj) {
@@ -401,10 +388,6 @@ shared test void testVertxGenReturn() {
   assertEquals(r.getString(), "chaffinch");
 }
 
-shared test void testVertxGenNullReturn() {
-  // Todo
-}
-
 shared test void testVertxAbstractGenReturn() {
   value r = obj.methodWithAbstractVertxGenReturn();
   assertEquals(r.getString(), "abstractchaffinch");
@@ -414,10 +397,6 @@ shared test void testDataObjectReturn() {
   value r = obj.methodWithDataObjectReturn();
   assertEquals(r.foo, "foo");
   assertEquals(r.bar, 123);
-}
-
-shared test void testDataObjectNullReturn() {
-  // Todo
 }
 
 shared test void testOverloadedMethods() {
@@ -471,10 +450,6 @@ shared test void testJsonReturns() {
   assertEquals(obj.methodWithJsonArrayReturn(), JsonArray { "socks", "shoes" });
 }
 
-shared test void testNullJsonReturns() {
-  // Todo
-}
-
 shared test void testComplexJsonReturns() {
   assertEquals(obj.methodWithComplexJsonObjectReturn(), JsonObject { "outer"->JsonObject { "socks"->"tartan" }, "list"->JsonArray { "yellow", "blue" } });
   assertEquals(obj.methodWithComplexJsonArrayReturn(), JsonArray { JsonObject { "foo"->"hello" }, JsonObject { "bar"->"bye" } });
@@ -484,20 +459,12 @@ shared test void testJsonParams() {
   obj.methodWithJsonParams(JsonObject { "cat"->"lion", "cheese"->"cheddar" }, JsonArray { "house", "spider" });
 }
 
-shared test void testNullJsonParams() {
-  // Todo
-}
-
 shared test void testJsonHandlerParams() {
   variable JsonObject? jsonObject = null;
   variable JsonArray? jsonArray = null;
   obj.methodWithHandlerJson((JsonObject arg) => jsonObject = arg, (JsonArray arg) => jsonArray = arg);
   assertEquals(jsonObject, JsonObject { "cheese"->"stilton" });
   assertEquals(jsonArray, JsonArray { "socks", "shoes" });
-}
-
-shared test void testNullJsonHandlerParams() {
-  // Todo
 }
 
 shared test void testComplexJsonHandlerParams() {
@@ -515,10 +482,6 @@ shared test void testJsonHandlerAsyncResultParams() {
   obj.methodWithHandlerAsyncResultJsonArray((JsonArray|Throwable arg) => jsonArray = arg);
   assertEquals(jsonObject, JsonObject { "cheese"->"stilton" });
   assertEquals(jsonArray, JsonArray { "socks", "shoes" });
-}
-
-shared test void testNullJsonHandlerAsyncResultParams() {
-  // Todo
 }
 
 shared test void testComplexJsonHandlerAsyncResultParams() {

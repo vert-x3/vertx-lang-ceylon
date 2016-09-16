@@ -131,20 +131,6 @@ public class CollectionTCK implements ReifiedType {
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void methodWithListOfDataObjectsParam(
-    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>") @Name("dataObjects")  ceylon.language.List<io.vertx.ceylon.testmodel.TestDataObject> dataObjects) {
-    java.util.List<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(dataObjects, io.vertx.ceylon.testmodel.testDataObject_.get_().getToJava());
-    delegate.methodWithListOfDataObjectsParam(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithSetOfDataObjectsParam(
-    final @TypeInfo("ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>") @Name("dataObjects")  ceylon.language.Set<io.vertx.ceylon.testmodel.TestDataObject> dataObjects) {
-    java.util.Set<io.vertx.codegen.testmodel.TestDataObject> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(dataObjects, io.vertx.ceylon.testmodel.testDataObject_.get_().getToJava());
-    delegate.methodWithSetOfDataObjectsParam(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerListAndSet(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::String>)") @Name("listStringHandler")  Callable<?> listStringHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.language::Integer>)") @Name("listIntHandler")  Callable<?> listIntHandler, 
@@ -394,72 +380,6 @@ public class CollectionTCK implements ReifiedType {
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerListNullJsonObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Object>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonObject>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonObject>>() {
-      public void handle(java.util.List<io.vertx.core.json.JsonObject> event) {
-        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
-      }
-    };
-    delegate.methodWithHandlerListNullJsonObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerSetNullJsonObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Object>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonObject>>() {
-      public void handle(java.util.Set<io.vertx.core.json.JsonObject> event) {
-        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject));
-      }
-    };
-    delegate.methodWithHandlerSetNullJsonObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerListNullJsonArray(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::List<ceylon.json::Array>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonArray>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.core.json.JsonArray>>() {
-      public void handle(java.util.List<io.vertx.core.json.JsonArray> event) {
-        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
-      }
-    };
-    delegate.methodWithHandlerListNullJsonArray(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerSetNullJsonArray(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<ceylon.json::Array>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.core.json.JsonArray>>() {
-      public void handle(java.util.Set<io.vertx.core.json.JsonArray> event) {
-        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray));
-      }
-    };
-    delegate.methodWithHandlerSetNullJsonArray(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerListNullDataObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = listHandler == null ? null : new io.vertx.core.Handler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>() {
-      public void handle(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        listHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon()));
-      }
-    };
-    delegate.methodWithHandlerListNullDataObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerSetNullDataObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>)") @Name("setHandler")  Callable<?> setHandler) {
-    io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>> arg_0 = setHandler == null ? null : new io.vertx.core.Handler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>() {
-      public void handle(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        setHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon()));
-      }
-    };
-    delegate.methodWithHandlerSetNullDataObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerAsyncResultListVertxGen(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::RefedInterface1>)") @Name("listHandler")  Callable<?> listHandler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.RefedInterface1>>(listHandler) {
@@ -635,72 +555,6 @@ public class CollectionTCK implements ReifiedType {
     delegate.methodWithHandlerAsyncResultSetEnum(arg_0);
   }
 
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultListNullJsonObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Object>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonObject>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonObject>>(listHandler) {
-      public Object toCeylon(java.util.List<io.vertx.core.json.JsonObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
-      }
-    };
-    delegate.methodWithHandlerAsyncResultListNullJsonObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultSetNullJsonObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Object>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonObject>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonObject>>(listHandler) {
-      public Object toCeylon(java.util.Set<io.vertx.core.json.JsonObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Object.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonObject);
-      }
-    };
-    delegate.methodWithHandlerAsyncResultSetNullJsonObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultListNullJsonArray(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<ceylon.json::Array>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.core.json.JsonArray>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.core.json.JsonArray>>(listHandler) {
-      public Object toCeylon(java.util.List<io.vertx.core.json.JsonArray> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
-      }
-    };
-    delegate.methodWithHandlerAsyncResultListNullJsonArray(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultSetNullJsonArray(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<ceylon.json::Array>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.core.json.JsonArray>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.core.json.JsonArray>>(listHandler) {
-      public Object toCeylon(java.util.Set<io.vertx.core.json.JsonArray> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.json.Array.$TypeDescriptor$, event, io.vertx.lang.ceylon.ToCeylon.JsonArray);
-      }
-    };
-    delegate.methodWithHandlerAsyncResultSetNullJsonArray(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultListNullDataObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::List<io.vertx.ceylon.testmodel::TestDataObject>)") @Name("listHandler")  Callable<?> listHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = listHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.List<io.vertx.codegen.testmodel.TestDataObject>>(listHandler) {
-      public Object toCeylon(java.util.List<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertList(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
-      }
-    };
-    delegate.methodWithHandlerAsyncResultListNullDataObject(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerAsyncResultSetNullDataObject(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Set<io.vertx.ceylon.testmodel::TestDataObject>)") @Name("setHandler")  Callable<?> setHandler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>> arg_0 = setHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.util.Set<io.vertx.codegen.testmodel.TestDataObject>>(setHandler) {
-      public Object toCeylon(java.util.Set<io.vertx.codegen.testmodel.TestDataObject> event) {
-        return io.vertx.lang.ceylon.ToCeylon.convertSet(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, event, io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon());
-      }
-    };
-    delegate.methodWithHandlerAsyncResultSetNullDataObject(arg_0);
-  }
-
   @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
   public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithMapReturn(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::String)") @Name("handler")  Callable<?> handler) {
@@ -869,12 +723,6 @@ public class CollectionTCK implements ReifiedType {
     return ret;
   }
 
-  @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>")
-  public ceylon.language.Map<ceylon.language.String,ceylon.language.String> methodWithNullMapReturn() {
-    ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, delegate.methodWithNullMapReturn(), io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String);
-    return ret;
-  }
-
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> methodWithListStringReturn() {
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.methodWithListStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
@@ -929,12 +777,6 @@ public class CollectionTCK implements ReifiedType {
     return ret;
   }
 
-  @TypeInfo("ceylon.language::List<ceylon.language::String>")
-  public ceylon.language.List<ceylon.language.String> methodWithNullListReturn() {
-    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.methodWithNullListReturn(), io.vertx.lang.ceylon.ToCeylon.String);
-    return ret;
-  }
-
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> methodWithSetStringReturn() {
     ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetStringReturn(), io.vertx.lang.ceylon.ToCeylon.String);
@@ -986,12 +828,6 @@ public class CollectionTCK implements ReifiedType {
   @TypeInfo("ceylon.language::Set<ceylon.language::String>")
   public ceylon.language.Set<ceylon.language.String> methodWithSetEnumReturn() {
     ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.methodWithSetEnumReturn(), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration());
-    return ret;
-  }
-
-  @TypeInfo("ceylon.language::Set<ceylon.language::String>")
-  public ceylon.language.Set<ceylon.language.String> methodWithNullSetReturn() {
-    ceylon.language.Set<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, delegate.methodWithNullSetReturn(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

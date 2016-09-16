@@ -407,13 +407,6 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void methodWithNullDataObjectParam(
-    final @TypeInfo("io.vertx.ceylon.testmodel::TestDataObject?") @Name("dataObject")  io.vertx.ceylon.testmodel.TestDataObject dataObject) {
-    io.vertx.codegen.testmodel.TestDataObject arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.TestDataObject(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
-    delegate.methodWithNullDataObjectParam(arg_0);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
   public void methodWithHandlerUserTypes(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("handler")  Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.RefedInterface1>() {
@@ -842,23 +835,6 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
       }
     };
     delegate.methodWithHandlerJson(arg_0, arg_1);
-  }
-
-  @TypeInfo("ceylon.language::Anything")
-  public void methodWithHandlerNullJson(
-    final @TypeInfo("ceylon.language::Anything(ceylon.json::Object)") @Name("jsonObjectHandler")  Callable<?> jsonObjectHandler, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @Name("jsonArrayHandler")  Callable<?> jsonArrayHandler) {
-    io.vertx.core.Handler<io.vertx.core.json.JsonObject> arg_0 = jsonObjectHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.json.JsonObject>() {
-      public void handle(io.vertx.core.json.JsonObject event) {
-        jsonObjectHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event));
-      }
-    };
-    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_1 = jsonArrayHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() {
-      public void handle(io.vertx.core.json.JsonArray event) {
-        jsonArrayHandler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event));
-      }
-    };
-    delegate.methodWithHandlerNullJson(arg_0, arg_1);
   }
 
   @TypeInfo("ceylon.language::Anything")

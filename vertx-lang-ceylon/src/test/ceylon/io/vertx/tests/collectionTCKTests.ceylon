@@ -329,10 +329,6 @@ shared test void testMethodWithHandlerAsyncResultListDataObject() {
   assertFloatEquals(obj2.wibble, 2.2);
 }
 
-shared test void testMethodWithHandlerAsyncResultNullListDataObject() {
-  // Null
-}
-
 shared test void testMethodWithHandlerAsyncResultSetDataObject() {
   variable Set<TestDataObject>|Throwable|Null arg = null;
   collectionTCK.methodWithHandlerAsyncResultSetDataObject((Set<TestDataObject>|Throwable arg_) => arg=arg_);
@@ -349,10 +345,6 @@ shared test void testMethodWithHandlerAsyncResultSetDataObject() {
   assertEquals(obj2.foo, "String 2");
   assertEquals(obj2.bar, 2);
   assertFloatEquals(obj2.wibble, 2.2);
-}
-
-shared test void testMethodWithHandlerAsyncResultNullSetDataObject() {
-  // Null
 }
 
 shared test void testMethodListParams() {
