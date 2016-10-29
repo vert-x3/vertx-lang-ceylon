@@ -35,7 +35,7 @@ public class Factory implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Factory.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Factory.class), io.vertx.codegen.testmodel.Factory.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.Factory delegate;
 
   public Factory(io.vertx.codegen.testmodel.Factory delegate) {

@@ -45,7 +45,7 @@ public class buffer_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new buffer given the initial size hint.\n <p>\n If you know the buffer will require a certain size, providing the hint can prevent unnecessary re-allocations\n as the buffer is written to and resized.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer buffer(
-    final @TypeInfo("ceylon.language::Integer") @Name("initialSizeHint") @DocAnnotation$annotation$(description = "the hint, in bytes\n") long initialSizeHint) {
+    final @TypeInfo("ceylon.language::Integer") @Name("initialSizeHint")@DocAnnotation$annotation$(description = "the hint, in bytes\n") long initialSizeHint) {
     int arg_0 = (int)initialSizeHint;
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(io.vertx.core.buffer.Buffer.buffer(arg_0));
     return ret;
@@ -54,7 +54,7 @@ public class buffer_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new buffer from a string. The string will be UTF-8 encoded into the buffer.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer buffer(
-    final @TypeInfo("ceylon.language::String") @Name("string") @DocAnnotation$annotation$(description = "the string\n") ceylon.language.String string) {
+    final @TypeInfo("ceylon.language::String") @Name("string")@DocAnnotation$annotation$(description = "the string\n") ceylon.language.String string) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(string);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(io.vertx.core.buffer.Buffer.buffer(arg_0));
     return ret;
@@ -63,8 +63,8 @@ public class buffer_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new buffer from a string and using the specified encoding.\n The string will be encoded into the buffer using the specified encoding.\n")
   @TypeInfo("io.vertx.ceylon.core.buffer::Buffer")
   public Buffer buffer(
-    final @TypeInfo("ceylon.language::String") @Name("string") @DocAnnotation$annotation$(description = "the string\n") ceylon.language.String string, 
-    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("string")@DocAnnotation$annotation$(description = "the string\n") ceylon.language.String string, 
+    final @TypeInfo("ceylon.language::String") @Name("enc") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(string);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     Buffer ret = io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(io.vertx.core.buffer.Buffer.buffer(arg_0, arg_1));

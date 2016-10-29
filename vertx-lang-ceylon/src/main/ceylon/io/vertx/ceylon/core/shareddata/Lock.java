@@ -34,7 +34,7 @@ public class Lock implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Lock.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Lock.class), io.vertx.core.shareddata.Lock.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.shareddata.Lock delegate;
 
   public Lock(io.vertx.core.shareddata.Lock delegate) {

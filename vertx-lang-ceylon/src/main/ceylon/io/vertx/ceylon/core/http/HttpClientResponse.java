@@ -44,7 +44,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @Ignore private MultiMap cached_trailers;
   @Ignore private ceylon.language.List<ceylon.language.String> cached_cookies;
   @Ignore private NetSocket cached_netSocket;
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpClientResponse.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpClientResponse.class), io.vertx.core.http.HttpClientResponse.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpClientResponse delegate;
 
   public HttpClientResponse(io.vertx.core.http.HttpClientResponse delegate) {
@@ -69,7 +69,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -81,7 +81,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -99,7 +99,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -144,7 +144,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = " Return the first header value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getHeader(
-    final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "the header name\n") ceylon.language.String headerName) {
+    final @TypeInfo("ceylon.language::String") @Name("headerName")@DocAnnotation$annotation$(description = "the header name\n") ceylon.language.String headerName) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(headerName);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getHeader(arg_0));
     return ret;
@@ -153,7 +153,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = " Return the first trailer value with the specified name\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String getTrailer(
-    final @TypeInfo("ceylon.language::String") @Name("trailerName") @DocAnnotation$annotation$(description = "the trailer name\n") ceylon.language.String trailerName) {
+    final @TypeInfo("ceylon.language::String") @Name("trailerName")@DocAnnotation$annotation$(description = "the trailer name\n") ceylon.language.String trailerName) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(trailerName);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getTrailer(arg_0));
     return ret;
@@ -184,7 +184,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = " Convenience method for receiving the entire request body in one piece.\n <p>\n This saves you having to manually set a dataHandler and an endHandler and append the chunks of the body until\n the whole body received. Don't use this if your request body is large - you could potentially run out of RAM.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse bodyHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("bodyHandler") @DocAnnotation$annotation$(description = "This handler will be called after all the body has been received\n") Callable<?> bodyHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("bodyHandler")@DocAnnotation$annotation$(description = "This handler will be called after all the body has been received\n") Callable<?> bodyHandler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = bodyHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         bodyHandler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -197,7 +197,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = " Set an custom frame handler. The handler will get notified when the http stream receives an custom HTTP/2\n frame. HTTP/2 permits extension of the protocol.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientResponse")
   public HttpClientResponse customFrameHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpFrame)") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpFrame)") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpFrame> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpFrame>() {
       public void handle(io.vertx.core.http.HttpFrame event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpFrame.TO_CEYLON.converter().safeConvert(event));

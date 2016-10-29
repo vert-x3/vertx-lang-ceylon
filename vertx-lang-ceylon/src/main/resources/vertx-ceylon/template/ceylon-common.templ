@@ -132,6 +132,16 @@
     } else if (kind == CLASS_API) {
       return type.raw.translateName(TRANSLATOR_COMPOSITE) + '.TO_JAVA.safeConvert(' + expr + ')';
     } else if (kind == CLASS_OBJECT) {
+      if (type.variable) {
+        if (type.classParam) {
+          return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + type.name + ').convert(' + expr + ')';
+        } else {
+          var typeLiteralParam = method.resolveTypeLiteralParam(type);
+          if (typeLiteralParam != null) {
+            return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + typeLiteralParam.type.args[0].name + ').convert(' + expr + ')';
+          }
+        }
+      }
       return 'io.vertx.lang.ceylon.ToJava.object(' + expr + ')';
     } else if (kind == CLASS_DATA_OBJECT) {
       return expr + ' == null ? null : new ' + type.name + '(io.vertx.lang.ceylon.ToJava.JsonObject.convert(' + expr + '.toJson()))';
@@ -150,7 +160,9 @@
         return 'io.vertx.lang.ceylon.ToJava.convertMap' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, ' + valConverter + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
-        return expr;
+      return expr;
+    } else if (kind == CLASS_TYPE_LITERAL) {
+      return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$' + type.args[0].name + ')';
     }
     return 'null';
   }
@@ -213,6 +225,8 @@
             }
             if (typeArg.variable) {
               ret.append('$reified$').append(typeArg.name);
+            } else if (typeArg.kind == CLASS_API) {
+              ret.append(genJavaInterropTypeDecl(typeArg)).append('.$TypeDescriptor$');
             } else {
               ret.append('null /* unsupported yet ' + typeArg + '/' + typeArg.kind + '  */ ');
             }
@@ -225,6 +239,9 @@
         return ret.toString();;
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
+        if (type.variable && type.classParam) {
+          return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + type.name + ').convert(' + expr + ')';
+        }
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
         return genReturnConverter(type) + '.safeConvert(' + expr + ')';
@@ -623,13 +640,21 @@
 @if{method.typeParams.size() > 0}
 @includeNamed{'genTypeParamsDesc';params=method.typeParams}
 @end{}
+@code{
+  var methodParams = new java.util.ArrayList();
+  for (methodParam : method.params) {
+    if (methodParam.type.kind != CLASS_TYPE_LITERAL) {
+      methodParams.add(methodParam);
+    }
+  }
+}
 @if{method.doc != null}
   @DocAnnotation$annotation$(description = "@{genDoc(method.doc)}")\n
 @end{}
   @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
   public @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
-@{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && method.params.size() > 0}, @end{}@foreach{param:method.params}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
+@{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && methodParams.size() > 0}, @end{}@foreach{param:methodParams}
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}")@if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
 
 @declare{'genTypeParamsDesc'}

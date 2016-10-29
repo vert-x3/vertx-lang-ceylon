@@ -41,7 +41,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @Ignore private MultiMap cached_headers;
   @Ignore private HttpConnection cached_connection;
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpClientRequest.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpClientRequest.class), io.vertx.core.http.HttpClientRequest.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpClientRequest delegate;
 
   public HttpClientRequest(io.vertx.core.http.HttpClientRequest delegate) {
@@ -67,7 +67,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -80,7 +80,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -88,7 +88,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") long maxSize) {
     int arg_0 = (int)maxSize;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -96,7 +96,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -108,7 +108,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
       public void handle(io.vertx.core.http.HttpClientResponse event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
@@ -132,7 +132,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -145,7 +145,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " If chunked is true then the request will be set into HTTP chunked mode\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setChunked(
-    final @TypeInfo("ceylon.language::Boolean") @Name("chunked") @DocAnnotation$annotation$(description = "true if chunked encoding\n") boolean chunked) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("chunked")@DocAnnotation$annotation$(description = "true if chunked encoding\n") boolean chunked) {
     boolean arg_0 = chunked;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setChunked(arg_0));
     return this;
@@ -175,7 +175,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Set the value the method to send when the method  is used.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setRawMethod(
-    final @TypeInfo("ceylon.language::String") @Name("method") @DocAnnotation$annotation$(description = "the raw method\n") ceylon.language.String method) {
+    final @TypeInfo("ceylon.language::String") @Name("method")@DocAnnotation$annotation$(description = "the raw method\n") ceylon.language.String method) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(method);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setRawMethod(arg_0));
     return this;
@@ -205,7 +205,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Set the request host.<p/>\n\n For HTTP/2 it sets the  pseudo header otherwise it sets the  header\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setHost(
-    final @TypeInfo("ceylon.language::String") @Name("host")  ceylon.language.String host) {
+    final @TypeInfo("ceylon.language::String") @Name("host") ceylon.language.String host) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setHost(arg_0));
     return this;
@@ -232,8 +232,8 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Put an HTTP header\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest putHeader(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The header name\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "The header value\n") ceylon.language.String value) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The header name\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::String") @Name("value")@DocAnnotation$annotation$(description = "The header value\n") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.putHeader(arg_0, arg_1));
@@ -243,7 +243,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Write a `String` to the request body, encoded as UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
-    final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk) {
+    final @TypeInfo("ceylon.language::String") @Name("chunk") ceylon.language.String chunk) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -252,8 +252,8 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Write a `String` to the request body, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest write(
-    final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk, 
-    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("chunk") ceylon.language.String chunk, 
+    final @TypeInfo("ceylon.language::String") @Name("enc") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.write(arg_0, arg_1));
@@ -263,7 +263,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " If you send an HTTP request with the header <code>Expect</code> set to the value <code>100-continue</code>\n and the server responds with an interim HTTP response with a status code of <code>100</code> and a continue handler\n has been set using this method, then the <code>handler</code> will be called.\n <p>\n You can then continue to write data to the request body and later end it. This is normally used in conjunction with\n the [sendHead](../http/HttpClientRequest.type.html#sendHead) method to force the request header to be written before the request has ended.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest continueHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -283,7 +283,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Like [sendHead](../http/HttpClientRequest.type.html#sendHead) but with an handler after headers have been sent. The handler will be called with\n the [HttpVersion](../http/HttpVersion.type.html) if it can be determined or null otherwise.<p>\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest sendHead(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpVersion)") @Name("completionHandler")  Callable<?> completionHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpVersion)") @Name("completionHandler") Callable<?> completionHandler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpVersion> arg_0 = completionHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpVersion>() {
       public void handle(io.vertx.core.http.HttpVersion event) {
         completionHandler.$call$((Object)io.vertx.ceylon.core.http.httpVersion_.get_().getToCeylon().safeConvert(event));
@@ -296,7 +296,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Same as [end](../http/HttpClientRequest.type.html#end) but writes a String in UTF-8 encoding\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk) {
+    final @TypeInfo("ceylon.language::String") @Name("chunk") ceylon.language.String chunk) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
     delegate.end(arg_0);
   }
@@ -304,8 +304,8 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Same as [end](../http/HttpClientRequest.type.html#end) but writes a String with the specified encoding\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("ceylon.language::String") @Name("chunk")  ceylon.language.String chunk, 
-    final @TypeInfo("ceylon.language::String") @Name("enc")  ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("chunk") ceylon.language.String chunk, 
+    final @TypeInfo("ceylon.language::String") @Name("enc") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(chunk);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     delegate.end(arg_0, arg_1);
@@ -314,7 +314,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Same as [end](../http/HttpClientRequest.type.html#end) but writes some data to the request body before ending. If the request is not chunked and\n no other data has been written then the <code>Content-Length</code> header will be automatically set\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("chunk")  Buffer chunk) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("chunk") Buffer chunk) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(chunk);
     delegate.end(arg_0);
   }
@@ -328,7 +328,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Set's the amount of time after which if the request does not return any data within the timeout period an\n `java.util.concurrent.TimeoutException` will be passed to the exception handler (if provided) and\n the request will be closed.\n <p>\n Calling this method more than once has the effect of canceling any existing timeout and starting\n the timeout from scratch.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setTimeout(
-    final @TypeInfo("ceylon.language::Integer") @Name("timeoutMs") @DocAnnotation$annotation$(description = "The quantity of time in milliseconds.\n") long timeoutMs) {
+    final @TypeInfo("ceylon.language::Integer") @Name("timeoutMs")@DocAnnotation$annotation$(description = "The quantity of time in milliseconds.\n") long timeoutMs) {
     long arg_0 = timeoutMs;
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setTimeout(arg_0));
     return this;
@@ -337,7 +337,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Set a push handler for this request.<p/>\n\n The handler is called when the client receives a <i>push promise</i> from the server. The handler can be called\n multiple times, for each push promise.<p/>\n\n The handler is called with a <i>read-only</i> [HttpClientRequest](../http/HttpClientRequest.type.html), the following methods can be called:<p/>\n\n <ul>\n   <li>[method](../http/HttpClientRequest.type.html#method)</li>\n   <li>[uri](../http/HttpClientRequest.type.html#uri)</li>\n   <li>[headers](../http/HttpClientRequest.type.html#headers)</li>\n   <li>[getHost](../http/HttpClientRequest.type.html#getHost)</li>\n </ul>\n\n In addition the handler should call the [handler](../http/HttpClientRequest.type.html#handler) method to set an handler to\n process the response.<p/>\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest pushHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientRequest)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientRequest)") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpClientRequest> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientRequest>() {
       public void handle(io.vertx.core.http.HttpClientRequest event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(event));
@@ -357,7 +357,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Reset this request:\n <p/>\n <ul>\n   <li>for HTTP/2, this performs send an HTTP/2 reset frame with the specified error <code>code</code></li>\n   <li>for HTTP/1.x, this closes the connection after the current in-flight requests are ended</li>\n </ul>\n <p/>\n When the request has not yet been sent, the request will be aborted and false is returned as indicator.\n <p/>\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean reset(
-    final @TypeInfo("ceylon.language::Integer") @Name("code") @DocAnnotation$annotation$(description = "the error code\n") long code) {
+    final @TypeInfo("ceylon.language::Integer") @Name("code")@DocAnnotation$annotation$(description = "the error code\n") long code) {
     long arg_0 = code;
     boolean ret = delegate.reset(arg_0);
     return ret;
@@ -377,7 +377,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Set a connection handler called when an HTTP connection has been established.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest connectionHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpConnection)?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpConnection)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpConnection> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpConnection>() {
       public void handle(io.vertx.core.http.HttpConnection event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(event));
@@ -390,9 +390,9 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Write an HTTP/2 frame to the request, allowing to extend the HTTP/2 protocol.<p>\n\n The frame is sent immediatly and is not subject to flow control.<p>\n\n This method must be called after the request headers have been sent and only for the protocol HTTP/2.\n The [sendHead](../http/HttpClientRequest.type.html#sendHead) should be used for this purpose.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest writeCustomFrame(
-    final @TypeInfo("ceylon.language::Integer") @Name("type") @DocAnnotation$annotation$(description = "the 8-bit frame type\n") long type, 
-    final @TypeInfo("ceylon.language::Integer") @Name("flags") @DocAnnotation$annotation$(description = "the 8-bit frame flags\n") long flags, 
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("payload") @DocAnnotation$annotation$(description = "the frame payload\n") Buffer payload) {
+    final @TypeInfo("ceylon.language::Integer") @Name("type")@DocAnnotation$annotation$(description = "the 8-bit frame type\n") long type, 
+    final @TypeInfo("ceylon.language::Integer") @Name("flags")@DocAnnotation$annotation$(description = "the 8-bit frame flags\n") long flags, 
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("payload")@DocAnnotation$annotation$(description = "the frame payload\n") Buffer payload) {
     int arg_0 = (int)type;
     int arg_1 = (int)flags;
     io.vertx.core.buffer.Buffer arg_2 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(payload);
@@ -410,7 +410,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   @DocAnnotation$annotation$(description = " Like [writeCustomFrame](../http/HttpClientRequest.type.html#writeCustomFrame) but with an [HttpFrame](../http/HttpFrame.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest writeCustomFrame(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpFrame") @Name("frame") @DocAnnotation$annotation$(description = "the frame to write\n") HttpFrame frame) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpFrame") @Name("frame")@DocAnnotation$annotation$(description = "the frame to write\n") HttpFrame frame) {
     io.vertx.core.http.HttpFrame arg_0 = io.vertx.ceylon.core.http.HttpFrame.TO_JAVA.safeConvert(frame);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.writeCustomFrame(arg_0));
     return this;

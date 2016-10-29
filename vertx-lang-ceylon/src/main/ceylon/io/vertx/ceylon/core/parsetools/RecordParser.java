@@ -36,7 +36,7 @@ public class RecordParser implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RecordParser.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(RecordParser.class), io.vertx.core.parsetools.RecordParser.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.parsetools.RecordParser delegate;
 
   public RecordParser(io.vertx.core.parsetools.RecordParser delegate) {
@@ -55,7 +55,7 @@ public class RecordParser implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void $setOutput(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output")  Callable<?> output) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)") @Name("output") Callable<?> output) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = output == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -67,7 +67,7 @@ public class RecordParser implements ReifiedType {
   @DocAnnotation$annotation$(description = " Flip the parser into delimited mode, and where the delimiter can be represented\n by the String <code>delim</code> encoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n This method can be called multiple times with different values of delim while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
-    final @TypeInfo("ceylon.language::String") @Name("delim") @DocAnnotation$annotation$(description = "the new delimeter\n") ceylon.language.String delim) {
+    final @TypeInfo("ceylon.language::String") @Name("delim")@DocAnnotation$annotation$(description = "the new delimeter\n") ceylon.language.String delim) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(delim);
     delegate.delimitedMode(arg_0);
   }
@@ -75,7 +75,7 @@ public class RecordParser implements ReifiedType {
   @DocAnnotation$annotation$(description = " Flip the parser into delimited mode, and where the delimiter can be represented\n by the delimiter <code>delim</code>.\n <p>\n This method can be called multiple times with different values of delim while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void delimitedMode(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim") @DocAnnotation$annotation$(description = "the new delimiter\n") Buffer delim) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim")@DocAnnotation$annotation$(description = "the new delimiter\n") Buffer delim) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(delim);
     delegate.delimitedMode(arg_0);
   }
@@ -83,7 +83,7 @@ public class RecordParser implements ReifiedType {
   @DocAnnotation$annotation$(description = " Flip the parser into fixed size mode, where the record size is specified by <code>size</code> in bytes.\n <p>\n This method can be called multiple times with different values of size while data is being parsed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fixedSizeMode(
-    final @TypeInfo("ceylon.language::Integer") @Name("size") @DocAnnotation$annotation$(description = "the new record size\n") long size) {
+    final @TypeInfo("ceylon.language::Integer") @Name("size")@DocAnnotation$annotation$(description = "the new record size\n") long size) {
     int arg_0 = (int)size;
     delegate.fixedSizeMode(arg_0);
   }
@@ -91,7 +91,7 @@ public class RecordParser implements ReifiedType {
   @DocAnnotation$annotation$(description = " This method is called to provide the parser with data.\n")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "a chunk of data\n") Buffer buffer) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer")@DocAnnotation$annotation$(description = "a chunk of data\n") Buffer buffer) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buffer);
     delegate.handle(arg_0);
   }

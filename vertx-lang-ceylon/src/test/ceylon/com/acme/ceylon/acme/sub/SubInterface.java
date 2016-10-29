@@ -34,7 +34,7 @@ public class SubInterface implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SubInterface.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SubInterface.class), com.acme.pkg.sub.SubInterface.class, TO_JAVA, TO_CEYLON);
   @Ignore private final com.acme.pkg.sub.SubInterface delegate;
 
   public SubInterface(com.acme.pkg.sub.SubInterface delegate) {
@@ -53,7 +53,7 @@ public class SubInterface implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String reverse(
-    final @TypeInfo("ceylon.language::String") @Name("s")  ceylon.language.String s) {
+    final @TypeInfo("ceylon.language::String") @Name("s") ceylon.language.String s) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(s);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.reverse(arg_0));
     return ret;

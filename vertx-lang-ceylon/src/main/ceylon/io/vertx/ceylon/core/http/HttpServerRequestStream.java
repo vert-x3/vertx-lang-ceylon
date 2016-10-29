@@ -36,7 +36,7 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerRequestStream.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpServerRequestStream.class), io.vertx.core.http.HttpServerRequestStream.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpServerRequestStream delegate;
 
   public HttpServerRequestStream(io.vertx.core.http.HttpServerRequestStream delegate) {
@@ -55,7 +55,7 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpServerRequest)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpServerRequest>() {
       public void handle(io.vertx.core.http.HttpServerRequest event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.HttpServerRequest.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class HttpServerRequestStream implements ReifiedType,  ReadStream<HttpSer
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
   public HttpServerRequestStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

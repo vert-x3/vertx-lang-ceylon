@@ -35,7 +35,7 @@ public class ConcreteHandlerUserType implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ConcreteHandlerUserType.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(ConcreteHandlerUserType.class), io.vertx.codegen.testmodel.ConcreteHandlerUserType.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate;
 
   public ConcreteHandlerUserType(io.vertx.codegen.testmodel.ConcreteHandlerUserType delegate) {
@@ -54,7 +54,7 @@ public class ConcreteHandlerUserType implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0")  RefedInterface1 arg0) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") RefedInterface1 arg0) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }

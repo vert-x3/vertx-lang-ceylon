@@ -34,7 +34,7 @@ public class SocketAddress implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SocketAddress.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SocketAddress.class), io.vertx.core.net.SocketAddress.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.net.SocketAddress delegate;
 
   public SocketAddress(io.vertx.core.net.SocketAddress delegate) {

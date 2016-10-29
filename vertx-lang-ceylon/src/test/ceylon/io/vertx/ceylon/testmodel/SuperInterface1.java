@@ -34,7 +34,7 @@ public class SuperInterface1 implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SuperInterface1.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SuperInterface1.class), io.vertx.codegen.testmodel.SuperInterface1.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.SuperInterface1 delegate;
 
   public SuperInterface1(io.vertx.codegen.testmodel.SuperInterface1 delegate) {
@@ -53,15 +53,15 @@ public class SuperInterface1 implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void superMethodWithBasicParams(
-    final @TypeInfo("ceylon.language::Byte") @Name("b")  byte b, 
-    final @TypeInfo("ceylon.language::Integer") @Name("s")  long s, 
-    final @TypeInfo("ceylon.language::Integer") @Name("i")  long i, 
-    final @TypeInfo("ceylon.language::Integer") @Name("l")  long l, 
-    final @TypeInfo("ceylon.language::Float") @Name("f")  double f, 
-    final @TypeInfo("ceylon.language::Float") @Name("d")  double d, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("bool")  boolean bool, 
-    final @TypeInfo("ceylon.language::Character") @Name("ch")  int ch, 
-    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::Byte") @Name("b") byte b, 
+    final @TypeInfo("ceylon.language::Integer") @Name("s") long s, 
+    final @TypeInfo("ceylon.language::Integer") @Name("i") long i, 
+    final @TypeInfo("ceylon.language::Integer") @Name("l") long l, 
+    final @TypeInfo("ceylon.language::Float") @Name("f") double f, 
+    final @TypeInfo("ceylon.language::Float") @Name("d") double d, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("bool") boolean bool, 
+    final @TypeInfo("ceylon.language::Character") @Name("ch") int ch, 
+    final @TypeInfo("ceylon.language::String") @Name("str") ceylon.language.String str) {
     byte arg_0 = b;
     short arg_1 = (short)s;
     int arg_2 = (int)i;

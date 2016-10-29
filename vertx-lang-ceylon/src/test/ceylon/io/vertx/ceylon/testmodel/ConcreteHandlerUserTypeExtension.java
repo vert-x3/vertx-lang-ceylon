@@ -34,7 +34,7 @@ public class ConcreteHandlerUserTypeExtension extends ConcreteHandlerUserType im
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ConcreteHandlerUserTypeExtension.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(ConcreteHandlerUserTypeExtension.class), io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate;
 
   public ConcreteHandlerUserTypeExtension(io.vertx.codegen.testmodel.ConcreteHandlerUserTypeExtension delegate) {
@@ -54,7 +54,7 @@ public class ConcreteHandlerUserTypeExtension extends ConcreteHandlerUserType im
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0")  RefedInterface1 arg0) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") RefedInterface1 arg0) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }

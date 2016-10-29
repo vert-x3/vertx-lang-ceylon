@@ -44,11 +44,11 @@ public interface RefedInterface2 {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
-    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str);
+    final @TypeInfo("ceylon.language::String") @Name("str") ceylon.language.String str);
 
   @Ignore
   public class Impl implements RefedInterface2 {
-    @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RefedInterface2.class);
+    @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(RefedInterface2.class), io.vertx.codegen.testmodel.RefedInterface2.class, TO_JAVA, TO_CEYLON);
     @Ignore private final io.vertx.codegen.testmodel.RefedInterface2 delegate;
 
     public Impl(io.vertx.codegen.testmodel.RefedInterface2 delegate) {
@@ -73,7 +73,7 @@ public interface RefedInterface2 {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface2")
   public RefedInterface2 setString(
-    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::String") @Name("str") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     RefedInterface2 ret = io.vertx.ceylon.testmodel.RefedInterface2.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
       return this;

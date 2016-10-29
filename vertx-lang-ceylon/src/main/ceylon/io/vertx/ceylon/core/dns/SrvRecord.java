@@ -34,7 +34,7 @@ public class SrvRecord implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SrvRecord.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SrvRecord.class), io.vertx.core.dns.SrvRecord.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.dns.SrvRecord delegate;
 
   public SrvRecord(io.vertx.core.dns.SrvRecord delegate) {

@@ -39,7 +39,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(AsyncFile.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(AsyncFile.class), io.vertx.core.file.AsyncFile.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.file.AsyncFile delegate;
 
   public AsyncFile(io.vertx.core.file.AsyncFile delegate) {
@@ -59,7 +59,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [end](../file/AsyncFile.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t") Buffer t) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
     delegate.end(arg_0);
   }
@@ -73,7 +73,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -97,7 +97,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -109,7 +109,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -117,7 +117,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") long maxSize) {
     int arg_0 = (int)maxSize;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -125,7 +125,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -137,7 +137,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -162,7 +162,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Close the file. The actual close happens asynchronously.\n The handler will be called when the close is complete, or an error occurs.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
@@ -174,9 +174,9 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Write a [Buffer](../buffer/Buffer.type.html) to the file at position <code>position</code> in the file, asynchronously.\n <p>\n If <code>position</code> lies outside of the current size\n of the file, the file will be enlarged to encompass it.\n <p>\n When multiple writes are invoked on the same file\n there are no guarantees as to order in which those writes actually occur\n <p>\n The handler will be called when the write is complete, or if an error occurs.\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "the buffer to write\n") Buffer buffer, 
-    final @TypeInfo("ceylon.language::Integer") @Name("position") @DocAnnotation$annotation$(description = "the position in the file to write it at\n") long position, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to call when the write is complete\n") Callable<?> handler) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer")@DocAnnotation$annotation$(description = "the buffer to write\n") Buffer buffer, 
+    final @TypeInfo("ceylon.language::Integer") @Name("position")@DocAnnotation$annotation$(description = "the position in the file to write it at\n") long position, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")@DocAnnotation$annotation$(description = "the handler to call when the write is complete\n") Callable<?> handler) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buffer);
     long arg_1 = position;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
@@ -191,11 +191,11 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Reads <code>length</code> bytes of data from the file at position <code>position</code> in the file, asynchronously.\n <p>\n The read data will be written into the specified <code>Buffer buffer</code> at position <code>offset</code>.\n <p>\n If data is read past the end of the file then zero bytes will be read.<p>\n When multiple reads are invoked on the same file there are no guarantees as to order in which those reads actually occur.\n <p>\n The handler will be called when the close is complete, or if an error occurs.\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile read(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer") @DocAnnotation$annotation$(description = "the buffer to read into\n") Buffer buffer, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "the offset into the buffer where the data will be read\n") long offset, 
-    final @TypeInfo("ceylon.language::Integer") @Name("position") @DocAnnotation$annotation$(description = "the position in the file where to start reading\n") long position, 
-    final @TypeInfo("ceylon.language::Integer") @Name("length") @DocAnnotation$annotation$(description = "the number of bytes to read\n") long length, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "the handler to call when the write is complete\n") Callable<?> handler) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("buffer")@DocAnnotation$annotation$(description = "the buffer to read into\n") Buffer buffer, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")@DocAnnotation$annotation$(description = "the offset into the buffer where the data will be read\n") long offset, 
+    final @TypeInfo("ceylon.language::Integer") @Name("position")@DocAnnotation$annotation$(description = "the position in the file where to start reading\n") long position, 
+    final @TypeInfo("ceylon.language::Integer") @Name("length")@DocAnnotation$annotation$(description = "the number of bytes to read\n") long length, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler")@DocAnnotation$annotation$(description = "the handler to call when the write is complete\n") Callable<?> handler) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(buffer);
     int arg_1 = (int)offset;
     long arg_2 = position;
@@ -219,7 +219,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [flush](../file/AsyncFile.type.html#flush) but the handler will be called when the flush is complete or if an error occurs\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile flush(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;
@@ -232,7 +232,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Sets the position from which data will be read from when using the file as a [ReadStream](../streams/ReadStream.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setReadPos(
-    final @TypeInfo("ceylon.language::Integer") @Name("readPos") @DocAnnotation$annotation$(description = "the position in the file\n") long readPos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("readPos")@DocAnnotation$annotation$(description = "the position in the file\n") long readPos) {
     long arg_0 = readPos;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.setReadPos(arg_0));
     return this;
@@ -241,7 +241,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Sets the position from which data will be written when using the file as a [WriteStream](../streams/WriteStream.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setWritePos(
-    final @TypeInfo("ceylon.language::Integer") @Name("writePos") @DocAnnotation$annotation$(description = "the position in the file\n") long writePos) {
+    final @TypeInfo("ceylon.language::Integer") @Name("writePos")@DocAnnotation$annotation$(description = "the position in the file\n") long writePos) {
     long arg_0 = writePos;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.setWritePos(arg_0));
     return this;
@@ -250,7 +250,7 @@ public class AsyncFile implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Sets the buffer size that will be used to read the data from the file. Changing this value will impact how much\n the data will be read at a time from the file system.\n")
   @TypeInfo("io.vertx.ceylon.core.file::AsyncFile")
   public AsyncFile setReadBufferSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("readBufferSize") @DocAnnotation$annotation$(description = "the buffer size\n") long readBufferSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("readBufferSize")@DocAnnotation$annotation$(description = "the buffer size\n") long readBufferSize) {
     int arg_0 = (int)readBufferSize;
     AsyncFile ret = io.vertx.ceylon.core.file.AsyncFile.TO_CEYLON.converter().safeConvert(delegate.setReadBufferSize(arg_0));
     return this;

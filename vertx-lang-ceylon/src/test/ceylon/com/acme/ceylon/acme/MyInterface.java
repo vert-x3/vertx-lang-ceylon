@@ -36,7 +36,7 @@ public class MyInterface implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MyInterface.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(MyInterface.class), com.acme.pkg.MyInterface.class, TO_JAVA, TO_CEYLON);
   @Ignore private final com.acme.pkg.MyInterface delegate;
 
   public MyInterface(com.acme.pkg.MyInterface delegate) {

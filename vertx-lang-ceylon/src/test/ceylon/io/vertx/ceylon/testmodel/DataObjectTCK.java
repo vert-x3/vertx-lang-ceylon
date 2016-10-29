@@ -34,7 +34,7 @@ public class DataObjectTCK implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(DataObjectTCK.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(DataObjectTCK.class), io.vertx.codegen.testmodel.DataObjectTCK.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.DataObjectTCK delegate;
 
   public DataObjectTCK(io.vertx.codegen.testmodel.DataObjectTCK delegate) {
@@ -59,7 +59,7 @@ public class DataObjectTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void $setDataObjectWithValues(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithValues dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithValues") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithValues dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithValues arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithValues(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithValues(arg_0);
   }
@@ -72,7 +72,7 @@ public class DataObjectTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void $setDataObjectWithLists(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithLists dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithLists") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithLists dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithLists arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithLists(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithLists(arg_0);
   }
@@ -85,21 +85,21 @@ public class DataObjectTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void $setDataObjectWithMaps(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithMaps dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMaps") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithMaps dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithMaps arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithMaps(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithMaps(arg_0);
   }
 
   @TypeInfo("ceylon.language::Anything")
   public void methodWithOnlyJsonObjectConstructorDataObject(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithOnlyJsonObjectConstructor") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithOnlyJsonObjectConstructor dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithOnlyJsonObjectConstructor") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithOnlyJsonObjectConstructor dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithOnlyJsonObjectConstructor arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithOnlyJsonObjectConstructor(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.methodWithOnlyJsonObjectConstructorDataObject(arg_0);
   }
 
   @TypeInfo("ceylon.language::Anything")
   public void $setDataObjectWithBuffer(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithNestedBuffer") @Name("dataObject")  io.vertx.ceylon.testmodel.DataObjectWithNestedBuffer dataObject) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithNestedBuffer") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithNestedBuffer dataObject) {
     io.vertx.codegen.testmodel.DataObjectWithNestedBuffer arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithNestedBuffer(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
     delegate.setDataObjectWithBuffer(arg_0);
   }

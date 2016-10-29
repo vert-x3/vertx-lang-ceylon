@@ -34,7 +34,7 @@ public class FileSystemProps implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FileSystemProps.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(FileSystemProps.class), io.vertx.core.file.FileSystemProps.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.file.FileSystemProps delegate;
 
   public FileSystemProps(io.vertx.core.file.FileSystemProps delegate) {

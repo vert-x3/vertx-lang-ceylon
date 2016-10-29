@@ -37,7 +37,7 @@ public class NetClient implements ReifiedType,  Measured {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetClient.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(NetClient.class), io.vertx.core.net.NetClient.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.net.NetClient delegate;
 
   public NetClient(io.vertx.core.net.NetClient delegate) {
@@ -64,9 +64,9 @@ public class NetClient implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>port</code> and <code>host</code>.\n <p>\n <code>host</code> can be a valid host name or IP address. The connect is done asynchronously and on success, a\n [NetSocket](../net/NetSocket.type.html) instance is supplied via the <code>connectHandler</code> instance\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetClient")
   public NetClient connect(
-    final @TypeInfo("ceylon.language::Integer") @Name("port") @DocAnnotation$annotation$(description = "the port\n") long port, 
-    final @TypeInfo("ceylon.language::String") @Name("host") @DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetSocket)") @Name("connectHandler")  Callable<?> connectHandler) {
+    final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 
+    final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetSocket)") @Name("connectHandler") Callable<?> connectHandler) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = connectHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.net.NetSocket>(connectHandler) {

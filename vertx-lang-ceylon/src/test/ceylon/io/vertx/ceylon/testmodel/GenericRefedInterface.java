@@ -59,14 +59,14 @@ public class GenericRefedInterface<T> implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void $setValue(
-    final @TypeInfo("T?") @Name("value")  T value) {
-    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
+    final @TypeInfo("T?") @Name("value") T value) {
+    java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(value);
     delegate.setValue(arg_0);
   }
 
   @TypeInfo("T?")
   public T $getValue() {
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.getValue());
+    T ret = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$T).convert(delegate.getValue());
     return ret;
   }
 

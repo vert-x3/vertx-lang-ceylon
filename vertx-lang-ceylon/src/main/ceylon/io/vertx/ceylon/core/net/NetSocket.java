@@ -41,7 +41,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @Ignore private SocketAddress cached_remoteAddress;
   @Ignore private SocketAddress cached_localAddress;
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetSocket.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(NetSocket.class), io.vertx.core.net.NetSocket.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.net.NetSocket delegate;
 
   public NetSocket(io.vertx.core.net.NetSocket delegate) {
@@ -61,7 +61,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [end](../net/NetSocket.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t") Buffer t) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
     delegate.end(arg_0);
   }
@@ -75,7 +75,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -87,7 +87,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -111,7 +111,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -123,7 +123,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -131,7 +131,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") long maxSize) {
     int arg_0 = (int)maxSize;
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -139,7 +139,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -159,7 +159,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Write a `String` to the connection, encoded in UTF-8.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::String") @Name("str")@DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -168,8 +168,8 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Write a `String` to the connection, encoded using the encoding <code>enc</code>.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket write(
-    final @TypeInfo("ceylon.language::String") @Name("str") @DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str, 
-    final @TypeInfo("ceylon.language::String") @Name("enc") @DocAnnotation$annotation$(description = "the encoding to use\n") ceylon.language.String enc) {
+    final @TypeInfo("ceylon.language::String") @Name("str")@DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String str, 
+    final @TypeInfo("ceylon.language::String") @Name("enc")@DocAnnotation$annotation$(description = "the encoding to use\n") ceylon.language.String enc) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(enc);
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0, arg_1));
@@ -179,7 +179,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0));
     return this;
@@ -188,8 +188,8 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "offset\n") long offset) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")@DocAnnotation$annotation$(description = "offset\n") long offset) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.sendFile(arg_0, arg_1));
@@ -199,9 +199,9 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Tell the operating system to stream a file as specified by <code>filename</code> directly from disk to the outgoing connection,\n bypassing userspace altogether (where supported by the underlying operating system. This is a very efficient way to stream files.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "offset\n") long offset, 
-    final @TypeInfo("ceylon.language::Integer") @Name("length") @DocAnnotation$annotation$(description = "length\n") long length) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")@DocAnnotation$annotation$(description = "offset\n") long offset, 
+    final @TypeInfo("ceylon.language::Integer") @Name("length")@DocAnnotation$annotation$(description = "length\n") long length) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     long arg_2 = length;
@@ -212,8 +212,8 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
       public Object toCeylon(java.lang.Void event) {
@@ -227,9 +227,9 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "offset\n") long offset, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")@DocAnnotation$annotation$(description = "offset\n") long offset, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(resultHandler) {
@@ -244,10 +244,10 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Same as [sendFile](../net/NetSocket.type.html#sendFile) but also takes a handler that will be called when the send has completed or\n a failure has occurred\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket sendFile(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
-    final @TypeInfo("ceylon.language::Integer") @Name("offset") @DocAnnotation$annotation$(description = "offset\n") long offset, 
-    final @TypeInfo("ceylon.language::Integer") @Name("length") @DocAnnotation$annotation$(description = "length\n") long length, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "file name of the file to send\n") ceylon.language.String filename, 
+    final @TypeInfo("ceylon.language::Integer") @Name("offset")@DocAnnotation$annotation$(description = "offset\n") long offset, 
+    final @TypeInfo("ceylon.language::Integer") @Name("length")@DocAnnotation$annotation$(description = "length\n") long length, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     long arg_1 = offset;
     long arg_2 = length;
@@ -297,7 +297,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Set a handler that will be called when the NetSocket is closed\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket closeHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
@@ -310,7 +310,7 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
   @DocAnnotation$annotation$(description = " Upgrade channel to use SSL/TLS. Be aware that for this to work SSL must be configured.\n")
   @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
   public NetSocket upgradeToSsl(
-    final @TypeInfo("ceylon.language::Anything()") @Name("handler") @DocAnnotation$annotation$(description = "the handler will be notified when it's upgraded\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler")@DocAnnotation$annotation$(description = "the handler will be notified when it's upgraded\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();

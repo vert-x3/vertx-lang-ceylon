@@ -38,7 +38,7 @@ public class Context implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Context.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Context.class), io.vertx.core.Context.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.Context delegate;
 
   public Context(io.vertx.core.Context delegate) {
@@ -58,7 +58,7 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Run the specified action asynchronously on the same context, some time after the current execution has completed.\n")
   @TypeInfo("ceylon.language::Anything")
   public void runOnContext(
-    final @TypeInfo("ceylon.language::Anything()") @Name("action") @DocAnnotation$annotation$(description = "the action to run\n") Callable<?> action) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("action")@DocAnnotation$annotation$(description = "the action to run\n") Callable<?> action) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = action == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         action.$call$();
@@ -73,9 +73,9 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the [complete](Future.type.html#complete) or [complete](Future.type.html#complete) method, or the [fail](Future.type.html#fail)\n method if it failed.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("ordered") @DocAnnotation$annotation$(description = "if true then if executeBlocking is called several times on the same context, the executions for that context will be executed serially, not in parallel. if false then they will be no ordering guarantees\n") boolean ordered, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called when the blocking code is complete\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler")@DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("ordered")@DocAnnotation$annotation$(description = "if true then if executeBlocking is called several times on the same context, the executions for that context will be executed serially, not in parallel. if false then they will be no ordering guarantees\n") boolean ordered, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler that will be called when the blocking code is complete\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
@@ -96,8 +96,8 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Invoke [executeBlocking](Context.type.html#executeBlocking) with order = true.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") @DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") @DocAnnotation$annotation$(description = "handler that will be called when the blocking code is complete\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler")@DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler that will be called when the blocking code is complete\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
         blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
@@ -159,7 +159,7 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get some data from the context.\n")
   @TypeInfo("T?")
   public <T> T get(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key) {
+    final @TypeInfo("ceylon.language::String") @Name("key")@DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.get(arg_0));
     return ret;
@@ -168,8 +168,8 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Put some data in the context.\n <p>\n This can be used to share data between different handlers that share a context\n")
   @TypeInfo("ceylon.language::Anything")
   public void put(
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key, 
-    final @TypeInfo("ceylon.language::Object?") @Name("value") @DocAnnotation$annotation$(description = "the data\n") Object value) {
+    final @TypeInfo("ceylon.language::String") @Name("key")@DocAnnotation$annotation$(description = "the key of the data\n") ceylon.language.String key, 
+    final @TypeInfo("ceylon.language::Object?") @Name("value")@DocAnnotation$annotation$(description = "the data\n") Object value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(value);
     delegate.put(arg_0, arg_1);
@@ -178,7 +178,7 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove some data from the context.\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean remove(
-    final @TypeInfo("ceylon.language::String") @Name("key") @DocAnnotation$annotation$(description = "the key to remove\n") ceylon.language.String key) {
+    final @TypeInfo("ceylon.language::String") @Name("key")@DocAnnotation$annotation$(description = "the key to remove\n") ceylon.language.String key) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(key);
     boolean ret = delegate.remove(arg_0);
     return ret;
@@ -201,7 +201,7 @@ public class Context implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set an exception handler called when the context runs an action throwing an uncaught throwable.<p/>\n\n When this handler is called, [currentContext](vertx.type.html#currentContext) will return this context.\n")
   @TypeInfo("io.vertx.ceylon.core::Context")
   public Context exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")@DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);

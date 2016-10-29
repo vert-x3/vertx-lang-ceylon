@@ -36,7 +36,7 @@ public class DatagramPacket implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(DatagramPacket.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(DatagramPacket.class), io.vertx.core.datagram.DatagramPacket.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.datagram.DatagramPacket delegate;
 
   public DatagramPacket(io.vertx.core.datagram.DatagramPacket delegate) {
