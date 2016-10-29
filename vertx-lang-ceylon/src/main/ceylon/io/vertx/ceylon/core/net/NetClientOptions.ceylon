@@ -47,6 +47,7 @@ shared class NetClientOptions(
   Integer? idleTimeout = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
+  String? localAddress = null,
   Boolean? logActivity = null,
   String? metricsName = null,
   OpenSSLEngineOptions? openSslEngineOptions = null,
@@ -78,6 +79,7 @@ shared class NetClientOptions(
   idleTimeout,
   jdkSslEngineOptions,
   keyStoreOptions,
+  localAddress,
   logActivity,
   metricsName,
   openSslEngineOptions,
@@ -124,6 +126,7 @@ shared object netClientOptions {
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     String? metricsName = json.getStringOrNull("metricsName");
     OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
@@ -155,6 +158,7 @@ shared object netClientOptions {
       idleTimeout = idleTimeout;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      localAddress = localAddress;
       logActivity = logActivity;
       metricsName = metricsName;
       openSslEngineOptions = openSslEngineOptions;

@@ -108,7 +108,7 @@ public class CeylonCodeBuilder implements CodeBuilder {
   }
 
   @Override
-  public ExpressionModel asyncResultHandler(LambdaExpressionTree.BodyKind bodyKind, ParameterizedTypeInfo resultType, String resultName, CodeModel body) {
+  public ExpressionModel asyncResultHandler(LambdaExpressionTree.BodyKind bodyKind, ParameterizedTypeInfo resultType, String resultName, CodeModel body, CodeModel succeededBody, CodeModel failedBody) {
     return new LambdaExpressionModel(this, bodyKind, Collections.singletonList(resultType), Collections.singletonList(resultName), body);
   }
 
@@ -121,6 +121,21 @@ public class CeylonCodeBuilder implements CodeBuilder {
         renderer.append(" = ");
         initializer.render(renderer);
       }
+    });
+  }
+
+  @Override
+  public StatementModel sequenceForLoop(String variableName, ExpressionModel fromValue, ExpressionModel toValue, StatementModel body) {
+    return StatementModel.render(renderer -> {
+      renderer.append("for (").append(variableName).append(" in ");
+      fromValue.render(renderer);
+      renderer.append(":");
+      toValue.render(renderer);
+      renderer.append(") {\n");
+      renderer.indent();
+      body.render(renderer);
+      renderer.unindent();
+      renderer.append("}");
     });
   }
 

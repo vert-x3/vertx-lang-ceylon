@@ -123,9 +123,9 @@ public class CeylonWriter extends CodeWriter {
   }
 
   @Override
-  public void renderMethodReference(ExpressionModel expression, String methodName) {
+  public void renderMethodReference(ExpressionModel expression, MethodSignature signature) {
     expression.render(this);
-    append(".").append(methodName);
+    append(".").append(signature.getName());
   }
 
   @Override

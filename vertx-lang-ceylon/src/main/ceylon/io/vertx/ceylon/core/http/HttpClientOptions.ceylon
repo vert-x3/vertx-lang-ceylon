@@ -69,6 +69,7 @@ shared class HttpClientOptions(
   " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
+  String? localAddress = null,
   Boolean? logActivity = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
@@ -114,6 +115,7 @@ shared class HttpClientOptions(
   idleTimeout,
   jdkSslEngineOptions,
   keyStoreOptions,
+  localAddress,
   logActivity,
   metricsName,
   openSslEngineOptions,
@@ -213,6 +215,7 @@ shared object httpClientOptions {
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
@@ -259,6 +262,7 @@ shared object httpClientOptions {
       jdkSslEngineOptions = jdkSslEngineOptions;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      localAddress = localAddress;
       logActivity = logActivity;
       maxChunkSize = maxChunkSize;
       maxPoolSize = maxPoolSize;

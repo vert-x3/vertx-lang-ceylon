@@ -66,6 +66,7 @@ shared class OAuth2ClientOptions(
   shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
+  String? localAddress = null,
   Boolean? logActivity = null,
   shared String? logoutPath = null,
   Integer? maxChunkSize = null,
@@ -119,6 +120,7 @@ shared class OAuth2ClientOptions(
   jdkSslEngineOptions,
   keepAlive,
   keyStoreOptions,
+  localAddress,
   logActivity,
   maxChunkSize,
   maxPoolSize,
@@ -221,6 +223,7 @@ shared object oAuth2ClientOptions {
     Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     String? logoutPath = json.getStringOrNull("logoutPath");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
@@ -281,6 +284,7 @@ shared object oAuth2ClientOptions {
       jwtToken = jwtToken;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
+      localAddress = localAddress;
       logActivity = logActivity;
       logoutPath = logoutPath;
       maxChunkSize = maxChunkSize;

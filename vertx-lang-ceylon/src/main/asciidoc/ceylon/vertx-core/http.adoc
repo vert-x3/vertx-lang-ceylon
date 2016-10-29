@@ -1255,10 +1255,9 @@ no need to set the `Content-Length` of the request up-front.
 request.setChunked(true);
 
 // Write some chunks
-variable value i = 0;
-while (i < 10) {
+for (i in 0:10) {
   request.write("this-is-chunk-``i``");
-  i++};
+};
 
 request.end();
 
@@ -1912,10 +1911,9 @@ import io.vertx.ceylon.core.buffer { buffer }
 ...
 
 value data = buffer.buffer();
-variable value i = 0;
-while (i < 8) {
+for (i in 0:8) {
   data.appendByte(i);
-  i++};
+};
 connection.ping(data, (Buffer|Throwable pong) {
   print("Remote side replied");
 });

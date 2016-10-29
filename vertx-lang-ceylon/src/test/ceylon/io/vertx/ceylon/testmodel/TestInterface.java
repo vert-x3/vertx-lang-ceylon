@@ -611,6 +611,17 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
     return ret;
   }
 
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<U>")
+  public <U> GenericRefedInterface<U> methodWithGenericUserTypeReturn(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("U?") @Name("value")  U value) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
+    GenericRefedInterface<U> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(delegate.methodWithGenericUserTypeReturn(arg_0));
+    return ret;
+  }
+
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String overloadedMethod(
     final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str, 

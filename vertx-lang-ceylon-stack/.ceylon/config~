@@ -1,6 +1,3 @@
-[repositories]
-lookup=../target/repo
-output=./target/modules
 
 [defaults]
 offline=false

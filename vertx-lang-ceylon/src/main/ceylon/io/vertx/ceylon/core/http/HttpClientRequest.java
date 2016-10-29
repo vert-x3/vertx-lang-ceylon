@@ -202,7 +202,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Set the request host.<p/>\n\n For HTTP2 it sets the  pseudo header otherwise it sets the  header\n")
+  @DocAnnotation$annotation$(description = " Set the request host.<p/>\n\n For HTTP/2 it sets the  pseudo header otherwise it sets the  header\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setHost(
     final @TypeInfo("ceylon.language::String") @Name("host")  ceylon.language.String host) {
@@ -348,17 +348,19 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
   }
 
   @DocAnnotation$annotation$(description = " Reset this stream with the error code <code>0</code>.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void reset() {
-    delegate.reset();
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean reset() {
+    boolean ret = delegate.reset();
+    return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Reset this stream with the error <code>code</code>.\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void reset(
+  @DocAnnotation$annotation$(description = " Reset this request:\n <p/>\n <ul>\n   <li>for HTTP/2, this performs send an HTTP/2 reset frame with the specified error <code>code</code></li>\n   <li>for HTTP/1.x, this closes the connection after the current in-flight requests are ended</li>\n </ul>\n <p/>\n When the request has not yet been sent, the request will be aborted and false is returned as indicator.\n <p/>\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean reset(
     final @TypeInfo("ceylon.language::Integer") @Name("code") @DocAnnotation$annotation$(description = "the error code\n") long code) {
     long arg_0 = code;
-    delegate.reset(arg_0);
+    boolean ret = delegate.reset(arg_0);
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "")

@@ -268,7 +268,7 @@ public class compositeFuture_ implements ReifiedType {
     @TypeParameter(value="T1",variance=Variance.NONE),
     @TypeParameter(value="T2",variance=Variance.NONE)
   })
-  @DocAnnotation$annotation$(description = " Return a composite future completed when all the futures are completed.\n <p/>\n Succeeded when all futures are succeeded, failed when any future is failed.\n")
+  @DocAnnotation$annotation$(description = " Return a composite future, succeeded when all futures are succeeded, failed when any future is failed.\n <p/>\n It always wait until all its futures are completed and will not fail as soon as one of <code>f1</code> or <code>f2</code> fails.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
     final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") @DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 

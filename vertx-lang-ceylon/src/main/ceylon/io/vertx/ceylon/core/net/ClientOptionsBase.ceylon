@@ -46,6 +46,8 @@ shared class ClientOptionsBase(
   Integer? idleTimeout = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
+  " Set the local interface to bind for network connections. When the local address is null,\n it will pick any local address, the default local address is null.\n"
+  shared String? localAddress = null,
   Boolean? logActivity = null,
   " Set the metrics name identifying the reported metrics, useful for grouping metrics\n with the same name.\n"
   shared String? metricsName = null,
@@ -97,6 +99,9 @@ shared class ClientOptionsBase(
     if (exists connectTimeout) {
       json.put("connectTimeout", connectTimeout);
     }
+    if (exists localAddress) {
+      json.put("localAddress", localAddress);
+    }
     if (exists metricsName) {
       json.put("metricsName", metricsName);
     }
@@ -120,6 +125,7 @@ shared object clientOptionsBase {
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
+    String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     String? metricsName = json.getStringOrNull("metricsName");
     OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
@@ -148,6 +154,7 @@ shared object clientOptionsBase {
       idleTimeout = idleTimeout;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
+      localAddress = localAddress;
       logActivity = logActivity;
       metricsName = metricsName;
       openSslEngineOptions = openSslEngineOptions;
