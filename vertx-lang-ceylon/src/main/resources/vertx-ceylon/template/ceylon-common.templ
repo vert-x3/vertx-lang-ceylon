@@ -419,20 +419,20 @@
   /*
    * Generate Ceylon type declaration.
    */
-  def genCeylonTypeDecl(type, allowNullable) {
+  def genCeylonTypeDecl(type) {
     var nullable = type.nullable;
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = genJavaClassName(type.raw, '::');
       if (type.parameterized) {
-        decl = genCeylonTypeDecl(type.raw, allowNullable);
+        decl = genCeylonTypeDecl(type.raw);
         var sep = '<';
         for (typeArg : type.args) {
           if (typeArg.variable && typeArg.methodParam) {
             decl += sep + typeArg.name + '?';
           } else {
-            decl += sep + genCeylonTypeDecl(typeArg, true);
+            decl += sep + genCeylonTypeDecl(typeArg);
           }
           sep = ',';
         }
@@ -455,7 +455,7 @@
     } else if (kind == CLASS_HANDLER || kind == CLASS_FUNCTION) {
       var decl = 'ceylon.language::Anything';
       if (kind == CLASS_FUNCTION) {
-        decl = genCeylonTypeDecl(type.args[1], true);
+        decl = genCeylonTypeDecl(type.args[1]);
       }
       var arg = type.args[0];
       if (arg.kind == CLASS_VOID) {
@@ -465,10 +465,10 @@
         if (result.kind == CLASS_VOID) {
           decl += '(ceylon.language::Throwable?)';
         } else {
-          decl += '(ceylon.language::Throwable|' + genCeylonTypeDecl(result, allowNullable) + ')';
+          decl += '(ceylon.language::Throwable|' + genCeylonTypeDecl(result) + ')';
         }
       } else {
-        decl += '(' + genCeylonTypeDecl(type.args[0], allowNullable) + ')';
+        decl += '(' + genCeylonTypeDecl(type.args[0]) + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
       decl = 'ceylon.language::Throwable';
@@ -478,14 +478,14 @@
       decl = 'ceylon.language::Anything';
     } else if (kind == CLASS_SET) {
       if (type.args[0].nullable) {
-        decl = 'ceylon.language::Collection<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+        decl = 'ceylon.language::Collection<' + genCeylonTypeDecl(type.args[0]) + '>';
       } else {
-        decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+        decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0]) + '>';
       }
     } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_MAP) {
-      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0], allowNullable) + ',' + genCeylonTypeDecl(type.args[1], allowNullable) + '>';
+      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0]) + ',' + genCeylonTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_JSON_ARRAY) {
@@ -495,7 +495,7 @@
         decl = 'ceylon.language::Anything';
       }
     }
-    if (allowNullable && nullable) {
+    if (nullable) {
       decl += "?";
     }
     return decl;
@@ -660,10 +660,10 @@
 @if{method.doc != null}
   @DocAnnotation$annotation$(description = "@{genDoc(method.doc)}")\n
 @end{}
-  @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
+  @TypeInfo("@{genCeylonTypeDecl(method.returnType)}")\n
   public @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
 @{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && methodParams.size() > 0}, @end{}@foreach{param:methodParams}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}")@if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type)}") @Name("@{param.name}")@if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
 
 @declare{'genTypeParamsDesc'}
