@@ -43,8 +43,8 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Return a composite future, succeeded when all futures are succeeded, failed when any future is failed.\n <p/>\n The returned future fails as soon as one of <code>f1</code> or <code>f2</code> fails.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.all(arg_0, arg_1));
@@ -59,9 +59,9 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 3 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -78,10 +78,10 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 4 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -100,11 +100,11 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 5 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -125,12 +125,12 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [all](compositeFuture.type.html#all) but with 6 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5,T6> CompositeFuture all(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, final @Ignore TypeDescriptor $reified$T6, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T6>") @Name("f6") Future<T6> f6) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T6?>") @Name("f6") Future<T6> f6) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -157,8 +157,8 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Return a composite future, succeeded when any futures is succeeded, failed when all futures are failed.\n <p/>\n The returned future succeeds as soon as one of <code>f1</code> or <code>f2</code> succeeds.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.any(arg_0, arg_1));
@@ -173,9 +173,9 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 3 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -192,10 +192,10 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 4 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -214,11 +214,11 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 5 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -239,12 +239,12 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [any](compositeFuture.type.html#any) but with 6 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5,T6> CompositeFuture any(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, final @Ignore TypeDescriptor $reified$T6, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T6>") @Name("f6") Future<T6> f6) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T6?>") @Name("f6") Future<T6> f6) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -271,8 +271,8 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Return a composite future, succeeded when all futures are succeeded, failed when any future is failed.\n <p/>\n It always wait until all its futures are completed and will not fail as soon as one of <code>f1</code> or <code>f2</code> fails.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1")@DocAnnotation$annotation$(description = "future\n") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2")@DocAnnotation$annotation$(description = "future\n") Future<T2> f2) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(io.vertx.core.CompositeFuture.join(arg_0, arg_1));
@@ -287,9 +287,9 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [join](compositeFuture.type.html#join) but with 3 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -306,10 +306,10 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [join](compositeFuture.type.html#join) but with 4 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -328,11 +328,11 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [join](compositeFuture.type.html#join) but with 5 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);
@@ -353,12 +353,12 @@ public class compositeFuture_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [join](compositeFuture.type.html#join) but with 6 futures.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public <T1,T2,T3,T4,T5,T6> CompositeFuture join(final @Ignore TypeDescriptor $reified$T1, final @Ignore TypeDescriptor $reified$T2, final @Ignore TypeDescriptor $reified$T3, final @Ignore TypeDescriptor $reified$T4, final @Ignore TypeDescriptor $reified$T5, final @Ignore TypeDescriptor $reified$T6, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T1>") @Name("f1") Future<T1> f1, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T2>") @Name("f2") Future<T2> f2, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T3>") @Name("f3") Future<T3> f3, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T4>") @Name("f4") Future<T4> f4, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T5>") @Name("f5") Future<T5> f5, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<T6>") @Name("f6") Future<T6> f6) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<T1?>") @Name("f1") Future<T1> f1, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T2?>") @Name("f2") Future<T2> f2, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T3?>") @Name("f3") Future<T3> f3, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T4?>") @Name("f4") Future<T4> f4, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T5?>") @Name("f5") Future<T5> f5, 
+    final @TypeInfo("io.vertx.ceylon.core::Future<T6?>") @Name("f6") Future<T6> f6) {
     io.vertx.core.Future<java.lang.Object> arg_0 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f1);
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f2);
     io.vertx.core.Future<java.lang.Object> arg_2 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(f3);

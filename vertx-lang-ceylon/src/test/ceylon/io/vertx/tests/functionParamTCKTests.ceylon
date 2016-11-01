@@ -161,13 +161,13 @@ shared test void testFunctionGenericParam() {
 shared test void testFunctionGenericUserTypeParam() {
   assertEquals(functionParamTCK.methodWithGenericUserTypeParam(
     123,
-    (GenericRefedInterface<Integer> arg) {
+    (GenericRefedInterface<Integer?> arg) {
       assertEquals(arg.getValue(), 123);
       return "ok";
     }), "ok");
   assertEquals(functionParamTCK.methodWithGenericUserTypeParam(
     "the-string-arg",
-    (GenericRefedInterface<String> arg) {
+    (GenericRefedInterface<String?> arg) {
       assertEquals(arg.getValue(), "the-string-arg");
       return "ok";
     }), "ok");
@@ -257,8 +257,8 @@ shared test void testFunctionGenericReturn() {
 }
 
 shared test void testFunctionGenericUserTypeReturn() {
-  assertEquals(functionParamTCK.methodWithGenericUserTypeReturn<String>((GenericRefedInterface<String> arg) => arg), "ok");
-  assertEquals(functionParamTCK.methodWithGenericUserTypeReturn<Integer>((GenericRefedInterface<Integer> arg) => arg), "ok");
+  assertEquals(functionParamTCK.methodWithGenericUserTypeReturn<String>((GenericRefedInterface<String?> arg) => arg), "ok");
+  assertEquals(functionParamTCK.methodWithGenericUserTypeReturn<Integer>((GenericRefedInterface<Integer?> arg) => arg), "ok");
 }
 
 shared test void testFunctionNullableListReturn() {

@@ -80,12 +80,12 @@ public class EventBus implements ReifiedType,  Measured {
   public <T> EventBus send(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to send it to\n") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the message, may be <code>null</code>\n") Object message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event);
       }
     };
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.converter().safeConvert(delegate.send(arg_0, arg_1, arg_2));
@@ -114,13 +114,13 @@ public class EventBus implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to send it to\n") ceylon.language.String address, 
     final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the message, may be <code>null</code>\n") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<T?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     java.lang.Object arg_1 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_2 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_3 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event);
       }
     };
     EventBus ret = io.vertx.ceylon.core.eventbus.EventBus.TO_CEYLON.converter().safeConvert(delegate.send(arg_0, arg_1, arg_2, arg_3));
@@ -155,11 +155,11 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a message consumer against the specified address.\n <p>\n The returned consumer is not yet registered\n at the address, registration will be effective when [handler](../eventbus/MessageConsumer.type.html#handler)\n is called.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T?>")
   public <T> MessageConsumer<T> consumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address that it will register it at\n") ceylon.language.String address) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.consumer(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.consumer(arg_0));
     return ret;
   }
 
@@ -167,17 +167,17 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a consumer and register it against the specified address.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T?>")
   public <T> MessageConsumer<T> consumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address that will register it at\n") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will process the received messages\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T?>)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will process the received messages\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() {
       public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
       }
     };
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.consumer(arg_0, arg_1));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.consumer(arg_0, arg_1));
     return ret;
   }
 
@@ -185,11 +185,11 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Like [consumer](../eventbus/EventBus.type.html#consumer) but the address won't be propagated across the cluster.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T?>")
   public <T> MessageConsumer<T> localConsumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to register it at\n") ceylon.language.String address) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.localConsumer(arg_0));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.localConsumer(arg_0));
     return ret;
   }
 
@@ -197,17 +197,17 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Like [consumer](../eventbus/EventBus.type.html#consumer) but the address won't be propagated across the cluster.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T?>")
   public <T> MessageConsumer<T> localConsumer(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address that will register it at\n") ceylon.language.String address, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T>)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will process the received messages\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.eventbus::Message<T?>)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will process the received messages\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.eventbus.Message<java.lang.Object>>() {
       public void handle(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$T).safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
       }
     };
-    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter($reified$T).safeConvert(delegate.localConsumer(arg_0, arg_1));
+    MessageConsumer<T> ret = io.vertx.ceylon.core.eventbus.MessageConsumer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.localConsumer(arg_0, arg_1));
     return ret;
   }
 
@@ -215,11 +215,11 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a message sender against the specified address.\n <p>\n The returned sender will invoke the [send](../eventbus/EventBus.type.html#send)\n method when the stream [write](../streams/WriteStream.type.html#write) method is called with the sender\n address and the provided data.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T?>")
   public <T> MessageProducer<T> sender(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to send it to\n") ceylon.language.String address) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
-    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.sender(arg_0));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.sender(arg_0));
     return ret;
   }
 
@@ -227,13 +227,13 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Like [sender](../eventbus/EventBus.type.html#sender) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T?>")
   public <T> MessageProducer<T> sender(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to send it to\n") ceylon.language.String address, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.sender(arg_0, arg_1));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.sender(arg_0, arg_1));
     return ret;
   }
 
@@ -241,11 +241,11 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a message publisher against the specified address.\n <p>\n The returned publisher will invoke the [publish](../eventbus/EventBus.type.html#publish)\n method when the stream [write](../streams/WriteStream.type.html#write) method is called with the publisher\n address and the provided data.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T?>")
   public <T> MessageProducer<T> publisher(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "The address to publish it to\n") ceylon.language.String address) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
-    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.publisher(arg_0));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.publisher(arg_0));
     return ret;
   }
 
@@ -253,13 +253,13 @@ public class EventBus implements ReifiedType,  Measured {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Like [publisher](../eventbus/EventBus.type.html#publisher) but specifying delivery options that will be used for configuring the delivery of\n the message.\n")
-  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
+  @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T?>")
   public <T> MessageProducer<T> publisher(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("ceylon.language::String") @Name("address")@DocAnnotation$annotation$(description = "the address to publish it to\n") ceylon.language.String address, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(address);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
-    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.publisher(arg_0, arg_1));
+    MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.publisher(arg_0, arg_1));
     return ret;
   }
 

@@ -51,7 +51,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [writeQueueFull](../streams/WriteStream.type.html#writeQueueFull) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
-    final @TypeInfo("T?") @Name("data")@DocAnnotation$annotation$(description = "the data to write\n") T data);
+    final @TypeInfo("T") @Name("data")@DocAnnotation$annotation$(description = "the data to write\n") T data);
 
   @DocAnnotation$annotation$(description = " Ends the stream.\n <p>\n Once the stream has ended, it cannot be used any more.\n")
   @TypeInfo("ceylon.language::Anything")
@@ -60,7 +60,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("T?") @Name("t") T t);
+    final @TypeInfo("T") @Name("t") T t);
 
   @DocAnnotation$annotation$(description = " Set the maximum size of the write queue to <code>maxSize</code>. You will still be able to write to the stream even\n if there is more than <code>maxSize</code> items in the write queue. This is used as an indicator by classes such as\n <code>Pump</code> to provide flow control.\n <p/>\n The value is defined by the implementation of the stream, e.g in bytes for a\n [NetSocket](../net/NetSocket.type.html), the number of [Message](../eventbus/Message.type.html) for a\n [MessageProducer](../eventbus/MessageProducer.type.html), etc...\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
@@ -114,7 +114,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Write some data to the stream. The data is put on an internal write queue, and the write actually happens\n asynchronously. To avoid running out of memory by putting too much on the write queue,\n check the [writeQueueFull](../streams/WriteStream.type.html#writeQueueFull) method before writing. This is done automatically if using a [Pump](../streams/Pump.type.html).\n")
   @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>")
   public WriteStream<T> write(
-    final @TypeInfo("T?") @Name("data")@DocAnnotation$annotation$(description = "the data to write\n") T data) {
+    final @TypeInfo("T") @Name("data")@DocAnnotation$annotation$(description = "the data to write\n") T data) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(data);
     WriteStream<T> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.write(arg_0));
       return this;
@@ -129,7 +129,7 @@ public interface WriteStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("T?") @Name("t") T t) {
+    final @TypeInfo("T") @Name("t") T t) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(t);
     delegate.end(arg_0);
     }

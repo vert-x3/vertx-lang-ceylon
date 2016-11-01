@@ -76,7 +76,7 @@ public class Message<T> implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = " The body of the message. Can be null.\n")
-  @TypeInfo("T?")
+  @TypeInfo("T")
   public T body() {
     if (cached_body != null) {
       return cached_body;
@@ -108,11 +108,11 @@ public class Message<T> implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the message to reply with.\n") Object message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$R)).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1);
@@ -136,12 +136,12 @@ public class Message<T> implements ReifiedType {
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
     final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the reply message\n") Object message, 
     final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$R)).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1, arg_2);

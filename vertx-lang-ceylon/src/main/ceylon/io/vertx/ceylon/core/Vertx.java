@@ -382,12 +382,12 @@ public class Vertx implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Safely execute some blocking code.\n <p>\n Executes the blocking code in the handler <code>blockingCodeHandler</code> using a thread from the worker pool.\n <p>\n When the code is complete the handler <code>resultHandler</code> will be called with the result on the original context\n (e.g. on the original event loop of the caller).\n <p>\n A <code>Future</code> instance is passed into <code>blockingCodeHandler</code>. When the blocking code successfully completes,\n the handler should call the [complete](Future.type.html#complete) or [complete](Future.type.html#complete) method, or the [fail](Future.type.html#fail)\n method if it failed.\n <p>\n In the <code>blockingCodeHandler</code> the current context remains the original context and therefore any task\n scheduled in the <code>blockingCodeHandler</code> will be executed on the this context and not on the worker thread.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler")@DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T?>)") @Name("blockingCodeHandler")@DocAnnotation$annotation$(description = "handler representing the blocking code to run\n") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Boolean") @Name("ordered")@DocAnnotation$annotation$(description = "if true then if executeBlocking is called several times on the same context, the executions for that context will be executed serially, not in parallel. if false then they will be no ordering guarantees\n") boolean ordered, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler that will be called when the blocking code is complete\n") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
       }
     };
     boolean arg_1 = ordered;
@@ -405,11 +405,11 @@ public class Vertx implements ReifiedType,  Measured {
   @DocAnnotation$annotation$(description = " Like [executeBlocking](Vertx.type.html#executeBlocking) called with ordered = true.\n")
   @TypeInfo("ceylon.language::Anything")
   public <T> void executeBlocking(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T>)") @Name("blockingCodeHandler") Callable<?> blockingCodeHandler, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T?>)") @Name("blockingCodeHandler") Callable<?> blockingCodeHandler, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|T?)") @Name("resultHandler") Callable<?> resultHandler) {
     io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = blockingCodeHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
       public void handle(io.vertx.core.Future<java.lang.Object> event) {
-        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(event));
+        blockingCodeHandler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
       }
     };
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(resultHandler) {

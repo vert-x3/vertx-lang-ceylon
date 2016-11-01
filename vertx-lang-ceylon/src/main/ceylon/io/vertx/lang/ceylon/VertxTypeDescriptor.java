@@ -6,6 +6,19 @@ import com.redhat.ceylon.model.typechecker.model.Type;
 
 public class VertxTypeDescriptor extends TypeDescriptor {
 
+  public static TypeDescriptor nullable(TypeDescriptor typeDescriptor) {
+    if (typeDescriptor instanceof VertxTypeDescriptor) {
+      VertxTypeDescriptor vertxTypeDescriptor = (VertxTypeDescriptor) typeDescriptor;
+      return new VertxTypeDescriptor(
+        TypeDescriptor.union(ceylon.language.Null.$TypeDescriptor$, vertxTypeDescriptor.delegate),
+        vertxTypeDescriptor.javaClass,
+        vertxTypeDescriptor.toJava,
+        vertxTypeDescriptor.toCeylon);
+    } else {
+      return TypeDescriptor.union(ceylon.language.Null.$TypeDescriptor$, typeDescriptor);
+    }
+  }
+
   public static java.lang.Class getClass(TypeDescriptor typeDescriptor) {
     java.lang.Class ret = null;
     if (typeDescriptor instanceof VertxTypeDescriptor) {
@@ -37,30 +50,19 @@ public class VertxTypeDescriptor extends TypeDescriptor {
     return ret != null ? ret : io.vertx.lang.ceylon.ToCeylon.Object;
   }
 
-  public static VertxTypeDescriptor get(TypeDescriptor typeDescriptor) {
-    if (typeDescriptor instanceof VertxTypeDescriptor) {
-      return (VertxTypeDescriptor) typeDescriptor;
-    } else {
-      return new VertxTypeDescriptor(typeDescriptor);
-    }
-  }
-
   final TypeDescriptor delegate;
   public final Converter toJava;
   public final Converter toCeylon;
   public final java.lang.Class javaClass;
 
-  public VertxTypeDescriptor(TypeDescriptor delegate) {
-    this.delegate = delegate;
-    this.toJava = io.vertx.lang.ceylon.ToJava.Object;
-    this.toCeylon = io.vertx.lang.ceylon.ToCeylon.Object;
-    this.javaClass = null;
+  public VertxTypeDescriptor(TypeDescriptor delegate, java.lang.Class javaClass, io.vertx.lang.ceylon.Converter toJava, io.vertx.lang.ceylon.ConverterFactory toCeylon) {
+    this(delegate, javaClass, toJava, toCeylon.converter());
   }
 
-  public VertxTypeDescriptor(TypeDescriptor delegate, java.lang.Class javaClass, io.vertx.lang.ceylon.Converter toJava, io.vertx.lang.ceylon.ConverterFactory toCeylon) {
+  public VertxTypeDescriptor(TypeDescriptor delegate, java.lang.Class javaClass, io.vertx.lang.ceylon.Converter toJava, io.vertx.lang.ceylon.Converter toCeylon) {
     this.delegate = delegate;
     this.toJava = toJava;
-    this.toCeylon = toCeylon.converter();
+    this.toCeylon = toCeylon;
     this.javaClass = javaClass;
   }
 

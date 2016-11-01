@@ -501,11 +501,11 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
   @TypeInfo("ceylon.language::Anything")
   public <U> void methodWithHandlerGenericUserType(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("U?") @Name("value") U value, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericRefedInterface<U>)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericRefedInterface<U?>)") @Name("handler") Callable<?> handler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
     io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() {
       public void handle(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
-        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(event));
       }
     };
     delegate.methodWithHandlerGenericUserType(arg_0, arg_1);
@@ -517,11 +517,11 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
   @TypeInfo("ceylon.language::Anything")
   public <U> void methodWithHandlerAsyncResultGenericUserType(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("U?") @Name("value") U value, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericRefedInterface<U>)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericRefedInterface<U?>)") @Name("handler") Callable<?> handler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
-        return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(event);
+        return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(event);
       }
     };
     delegate.methodWithHandlerAsyncResultGenericUserType(arg_0, arg_1);
@@ -614,11 +614,11 @@ public class TestInterface extends SuperInterface1 implements ReifiedType,  Supe
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<U>")
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<U?>")
   public <U> GenericRefedInterface<U> methodWithGenericUserTypeReturn(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("U?") @Name("value") U value) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
-    GenericRefedInterface<U> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(delegate.methodWithGenericUserTypeReturn(arg_0));
+    GenericRefedInterface<U> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.methodWithGenericUserTypeReturn(arg_0));
     return ret;
   }
 

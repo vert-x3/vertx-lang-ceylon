@@ -76,17 +76,17 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     @TypeParameter(value="U",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Compose this future with a provided <code>next</code> future.<p>\n\n When this (the one on which <code>compose</code> is called) future succeeds, the <code>handler</code> will be called with\n the completed value, this handler should complete the next future.<p>\n\n If the <code>handler</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the <code>next</code> future and the <code>handler</code>\n will not be called.\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  @TypeInfo("io.vertx.ceylon.core::Future<U?>")
   public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::CompositeFuture)") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<U>") @Name("next")@DocAnnotation$annotation$(description = "the next future\n") Future<U> next) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<U?>") @Name("next")@DocAnnotation$annotation$(description = "the next future\n") Future<U> next) {
     io.vertx.core.Handler<io.vertx.core.CompositeFuture> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.CompositeFuture>() {
       public void handle(io.vertx.core.CompositeFuture event) {
         handler.$call$((Object)io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(event));
       }
     };
     io.vertx.core.Future<java.lang.Object> arg_1 = io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(next);
-    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.compose(arg_0, arg_1));
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.compose(arg_0, arg_1));
     return ret;
   }
 
@@ -94,16 +94,16 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     @TypeParameter(value="U",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Compose this future with a <code>mapper</code> function.<p>\n\n When this future (the one on which <code>compose</code> is called) succeeds, the <code>mapper</code> will be called with\n the completed value and this mapper returns another future object. This returned future completion will complete\n the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  @TypeInfo("io.vertx.ceylon.core::Future<U?>")
   public <U> Future<U> compose(final @Ignore TypeDescriptor $reified$U, 
-    final @TypeInfo("io.vertx.ceylon.core::Future<U>(io.vertx.ceylon.core::CompositeFuture)") @Name("mapper")@DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
+    final @TypeInfo("io.vertx.ceylon.core::Future<U?>(io.vertx.ceylon.core::CompositeFuture)") @Name("mapper")@DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
     java.util.function.Function<io.vertx.core.CompositeFuture,io.vertx.core.Future<java.lang.Object>> arg_0 = mapper == null ? null : new java.util.function.Function<io.vertx.core.CompositeFuture,io.vertx.core.Future<java.lang.Object>>() {
       public io.vertx.core.Future<java.lang.Object> apply(io.vertx.core.CompositeFuture arg) {
         Future<Object> ret = (Future<Object>)mapper.$call$((Object)io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(arg));
         return io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(ret);
       }
     };
-    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.compose(arg_0));
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.compose(arg_0));
     return ret;
   }
 
@@ -111,7 +111,7 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     @TypeParameter(value="U",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Apply a <code>mapper</code> function on this future.<p>\n\n When this future succeeds, the <code>mapper</code> will be called with the completed value and this mapper\n returns a value. This value will complete the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future fails, the failure will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<U>")
+  @TypeInfo("io.vertx.ceylon.core::Future<U?>")
   public <U> Future<U> map(final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("U?(io.vertx.ceylon.core::CompositeFuture)") @Name("mapper")@DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
     java.util.function.Function<io.vertx.core.CompositeFuture,java.lang.Object> arg_0 = mapper == null ? null : new java.util.function.Function<io.vertx.core.CompositeFuture,java.lang.Object>() {
@@ -120,7 +120,7 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
         return io.vertx.lang.ceylon.ToJava.object(ret);
       }
     };
-    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$U).safeConvert(delegate.map(arg_0));
+    Future<U> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.map(arg_0));
     return ret;
   }
 

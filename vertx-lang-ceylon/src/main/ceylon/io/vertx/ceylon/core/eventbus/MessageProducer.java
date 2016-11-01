@@ -63,7 +63,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @DocAnnotation$annotation$(description = " Same as [end](../eventbus/MessageProducer.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("T?") @Name("t") T t) {
+    final @TypeInfo("T") @Name("t") T t) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(t);
     delegate.end(arg_0);
   }
@@ -78,7 +78,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @DocAnnotation$annotation$(description = " Synonym for [write](../eventbus/MessageProducer.type.html#write).\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> send(
-    final @TypeInfo("T?") @Name("message")@DocAnnotation$annotation$(description = "the message to send\n") T message) {
+    final @TypeInfo("T") @Name("message")@DocAnnotation$annotation$(description = "the message to send\n") T message) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(message);
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.send(arg_0));
     return ret;
@@ -89,12 +89,12 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   })
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <R> MessageProducer<T> send(final @Ignore TypeDescriptor $reified$R, 
-    final @TypeInfo("T?") @Name("message") T message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") Callable<?> replyHandler) {
+    final @TypeInfo("T") @Name("message") T message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler") Callable<?> replyHandler) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$R)).safeConvert(event);
       }
     };
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.send(arg_0, arg_1));
@@ -115,7 +115,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
 
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> write(
-    final @TypeInfo("T?") @Name("data") T data) {
+    final @TypeInfo("T") @Name("data") T data) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(data);
     MessageProducer<T> ret = io.vertx.ceylon.core.eventbus.MessageProducer.TO_CEYLON.converter($reified$T).safeConvert(delegate.write(arg_0));
     return this;

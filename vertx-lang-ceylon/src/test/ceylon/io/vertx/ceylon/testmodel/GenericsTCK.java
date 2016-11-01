@@ -479,10 +479,10 @@ public class GenericsTCK implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<U>")
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<U?>")
   public <U> GenericRefedInterface<U> methodWithClassTypeParameterizedReturn(final @Ignore TypeDescriptor $reified$U) {
     java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
-    GenericRefedInterface<U> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(delegate.methodWithClassTypeParameterizedReturn(arg_0));
+    GenericRefedInterface<U> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.methodWithClassTypeParameterizedReturn(arg_0));
     return ret;
   }
 
@@ -491,11 +491,11 @@ public class GenericsTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::Anything")
   public <U> void methodWithHandlerClassTypeParameterized(final @Ignore TypeDescriptor $reified$U, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericRefedInterface<U>)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericRefedInterface<U?>)") @Name("handler") Callable<?> handler) {
     java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
     io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() {
       public void handle(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
-        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(event));
+        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(event));
       }
     };
     delegate.methodWithHandlerClassTypeParameterized(arg_0, arg_1);
@@ -506,11 +506,11 @@ public class GenericsTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::Anything")
   public <U> void methodWithHandlerAsyncResultClassTypeParameterized(final @Ignore TypeDescriptor $reified$U, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericRefedInterface<U>)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericRefedInterface<U?>)") @Name("handler") Callable<?> handler) {
     java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>(handler) {
       public Object toCeylon(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
-        return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$U).safeConvert(event);
+        return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(event);
       }
     };
     delegate.methodWithHandlerAsyncResultClassTypeParameterized(arg_0, arg_1);
@@ -536,14 +536,14 @@ public class GenericsTCK implements ReifiedType {
     @TypeParameter(value="T",variance=Variance.NONE),
     @TypeParameter(value="U",variance=Variance.NONE)
   })
-  @TypeInfo("io.vertx.ceylon.testmodel::InterfaceWithVariableArg<T,U>")
+  @TypeInfo("io.vertx.ceylon.testmodel::InterfaceWithVariableArg<T?,U?>")
   public <T,U> InterfaceWithVariableArg<T,U> interfaceWithVariableArg(final @Ignore TypeDescriptor $reified$T, final @Ignore TypeDescriptor $reified$U, 
     final @TypeInfo("T?") @Name("value1") T value1, 
     final @TypeInfo("U?") @Name("value2") U value2) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value1);
     java.lang.Class<java.lang.Object> arg_1 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
     java.lang.Object arg_2 = io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$U).convert(value2);
-    InterfaceWithVariableArg<T,U> ret = io.vertx.ceylon.testmodel.InterfaceWithVariableArg.TO_CEYLON.converter($reified$T, $reified$U).safeConvert(delegate.interfaceWithVariableArg(arg_0, arg_1, arg_2));
+    InterfaceWithVariableArg<T,U> ret = io.vertx.ceylon.testmodel.InterfaceWithVariableArg.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T), io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(delegate.interfaceWithVariableArg(arg_0, arg_1, arg_2));
     return ret;
   }
 

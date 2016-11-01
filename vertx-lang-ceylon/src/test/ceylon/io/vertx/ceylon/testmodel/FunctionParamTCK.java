@@ -279,11 +279,11 @@ public class FunctionParamTCK implements ReifiedType {
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericUserTypeParam(final @Ignore TypeDescriptor $reified$T, 
     final @TypeInfo("T?") @Name("t") T t, 
-    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<T>)") @Name("func") Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("func") Callable<?> func) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(t);
     java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String> arg_1 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String>() {
       public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg) {
-        ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$T).safeConvert(arg));
+        ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(arg));
         return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
       }
     };
@@ -479,10 +479,10 @@ public class FunctionParamTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericUserTypeReturn(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T>(io.vertx.ceylon.testmodel::GenericRefedInterface<T>)") @Name("func") Callable<?> func) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>(io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("func") Callable<?> func) {
     java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_0 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() {
       public io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg) {
-        GenericRefedInterface<Object> ret = (GenericRefedInterface<Object>)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$T).safeConvert(arg));
+        GenericRefedInterface<Object> ret = (GenericRefedInterface<Object>)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(arg));
         return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_JAVA.safeConvert(ret);
       }
     };

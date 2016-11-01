@@ -61,11 +61,11 @@ public class SharedData implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public <K,V> void getClusterWideMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K,V>)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the map will be returned asynchronously in this handler\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K?,V?>)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the map will be returned asynchronously in this handler\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
       public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) {
-        return io.vertx.ceylon.core.shareddata.AsyncMap.TO_CEYLON.converter($reified$K, $reified$V).safeConvert(event);
+        return io.vertx.ceylon.core.shareddata.AsyncMap.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$K), io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$V)).safeConvert(event);
       }
     };
     delegate.getClusterWideMap(arg_0, arg_1);
@@ -120,11 +120,11 @@ public class SharedData implements ReifiedType {
     @TypeParameter(value="V",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Return a <code>LocalMap</code> with the specific <code>name</code>.\n")
-  @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<K,V>")
+  @TypeInfo("io.vertx.ceylon.core.shareddata::LocalMap<K?,V?>")
   public <K,V> LocalMap<K,V> getLocalMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    LocalMap<K,V> ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.converter($reified$K, $reified$V).safeConvert(delegate.getLocalMap(arg_0));
+    LocalMap<K,V> ret = io.vertx.ceylon.core.shareddata.LocalMap.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$K), io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$V)).safeConvert(delegate.getLocalMap(arg_0));
     return ret;
   }
 

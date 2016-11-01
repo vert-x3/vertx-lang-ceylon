@@ -63,12 +63,12 @@ public class InterfaceWithVariableArg<T,U> extends GenericRefedInterface<U> impl
 
   @TypeInfo("ceylon.language::Anything")
   public void $setValue(
-    final @TypeInfo("U?") @Name("value") U value) {
+    final @TypeInfo("U") @Name("value") U value) {
     java.lang.Object arg_0 = (U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$U).convert(value);
     delegate.setValue(arg_0);
   }
 
-  @TypeInfo("U?")
+  @TypeInfo("U")
   public U $getValue() {
     U ret = (U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$U).convert(delegate.getValue());
     return ret;
@@ -76,12 +76,12 @@ public class InterfaceWithVariableArg<T,U> extends GenericRefedInterface<U> impl
 
   @TypeInfo("ceylon.language::Anything")
   public void $setOtherValue(
-    final @TypeInfo("T?") @Name("value") T value) {
+    final @TypeInfo("T") @Name("value") T value) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(value);
     delegate.setOtherValue(arg_0);
   }
 
-  @TypeInfo("T?")
+  @TypeInfo("T")
   public T $getOtherValue() {
     T ret = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$T).convert(delegate.getOtherValue());
     return ret;

@@ -24,13 +24,11 @@ GenericsTCK genericsTCK = GenericsTCK(GenericsTCKImpl());
 shared test void testMethodWithUserTypeParameterizedReturn() {
   value ret = genericsTCK.methodWithUserTypeParameterizedReturn();
   value val = ret.getValue();
-  assert(exists val);
   assertEquals("foo", val.getString());
   value refed = RefedInterface1(RefedInterface1Impl());
   refed.setString("the_string");
   ret.setValue(refed);
   value val2 = ret.getValue();
-  assert(exists val2);
   assertEquals("the_string", val2.getString());
 }
 
@@ -50,7 +48,7 @@ shared test void testMethodWithClassTypeParameterizedReturn() {
 
 shared test void testMethodWithHandlerClassTypeParameterized() {
   variable Integer count = 0;
-  void check1(GenericRefedInterface<RefedInterface1> ret) {
+  void check1(GenericRefedInterface<RefedInterface1?> ret) {
     value val = ret.getValue();
     assert(exists val);
     assertEquals("foo", val.getString());
@@ -60,7 +58,7 @@ shared test void testMethodWithHandlerClassTypeParameterized() {
     count++;
   }
   genericsTCK.methodWithHandlerClassTypeParameterized<RefedInterface1>(check1);
-  void check2(GenericRefedInterface<JsonObject> ret) {
+  void check2(GenericRefedInterface<JsonObject?> ret) {
     value val = ret.getValue();
     assert(exists val);
     assertEquals(JsonObject { "cheese"->"stilton" }, val);
@@ -97,6 +95,5 @@ shared test void testInterfaceWithApiArg() {
   refed.setString("the_string");
   value ret = genericsTCK.interfaceWithApiArg(refed);
   value val = ret.getValue();
-  assert(exists val);
   assertEquals("the_string", val.getString());
 }

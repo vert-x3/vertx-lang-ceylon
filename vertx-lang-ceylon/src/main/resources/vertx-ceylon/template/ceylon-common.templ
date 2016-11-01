@@ -224,7 +224,11 @@
               ret.append(', ');
             }
             if (typeArg.variable) {
-              ret.append('$reified$').append(typeArg.name);
+              if (typeArg.methodParam) {
+                ret.append('io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$').append(typeArg.name).append(')');
+              } else {
+                ret.append('$reified$').append(typeArg.name);
+              }
             } else if (typeArg.kind == CLASS_API) {
               ret.append(genJavaInterropTypeDecl(typeArg)).append('.$TypeDescriptor$');
             } else {
@@ -425,7 +429,11 @@
         decl = genCeylonTypeDecl(type.raw, allowNullable);
         var sep = '<';
         for (typeArg : type.args) {
-          decl += sep + genCeylonTypeDecl(typeArg, false);
+          if (typeArg.variable && typeArg.methodParam) {
+            decl += sep + typeArg.name + '?';
+          } else {
+            decl += sep + genCeylonTypeDecl(typeArg, true);
+          }
           sep = ',';
         }
         decl += '>';
@@ -437,10 +445,11 @@
     } else if (kind == CLASS_PRIMITIVE || kind == CLASS_BOXED_PRIMITIVE) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
-      nullable = true;
       if (type.variable) {
+        nullable = type.methodParam;
         decl = type.name;
       } else {
+        nullable = true;
         decl = 'ceylon.language::Object';
       }
     } else if (kind == CLASS_HANDLER || kind == CLASS_FUNCTION) {

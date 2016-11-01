@@ -51,7 +51,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(T)?") @Name("handler") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Pause the <code>ReadSupport</code>. While it's paused, no data will be sent to the <code>dataHandler</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
@@ -104,7 +104,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(T)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
       public void handle(java.lang.Object event) {
         handler.$call$((Object)(T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$T).convert(event));
