@@ -40,7 +40,7 @@ public class locale_ implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public Locale create(
-    final @TypeInfo("ceylon.language::String") @Name("language")  ceylon.language.String language) {
+    final @TypeInfo("ceylon.language::String") @Name("language") ceylon.language.String language) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(language);
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Locale.create(arg_0));
     return ret;
@@ -48,8 +48,8 @@ public class locale_ implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public Locale create(
-    final @TypeInfo("ceylon.language::String") @Name("language")  ceylon.language.String language, 
-    final @TypeInfo("ceylon.language::String") @Name("country")  ceylon.language.String country) {
+    final @TypeInfo("ceylon.language::String") @Name("language") ceylon.language.String language, 
+    final @TypeInfo("ceylon.language::String") @Name("country") ceylon.language.String country) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(language);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(country);
     Locale ret = io.vertx.ceylon.web.Locale.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Locale.create(arg_0, arg_1));
@@ -58,9 +58,9 @@ public class locale_ implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.web::Locale")
   public Locale create(
-    final @TypeInfo("ceylon.language::String") @Name("language")  ceylon.language.String language, 
-    final @TypeInfo("ceylon.language::String") @Name("country")  ceylon.language.String country, 
-    final @TypeInfo("ceylon.language::String") @Name("variant")  ceylon.language.String variant) {
+    final @TypeInfo("ceylon.language::String") @Name("language") ceylon.language.String language, 
+    final @TypeInfo("ceylon.language::String") @Name("country") ceylon.language.String country, 
+    final @TypeInfo("ceylon.language::String") @Name("variant") ceylon.language.String variant) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(language);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(country);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(variant);

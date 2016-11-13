@@ -29,6 +29,20 @@ public class VertxTypeDescriptor extends TypeDescriptor {
       java.lang.Class clazz = classTypeDescriptor.getKlass();
       if (clazz == ceylon.json.Object.class) {
         ret = io.vertx.core.json.JsonObject.class;
+      } else if (clazz == ceylon.json.Array.class) {
+        ret = io.vertx.core.json.JsonArray.class;
+      } else if (clazz == ceylon.language.Byte.class) {
+        ret = java.lang.Byte.class;
+      } else if (clazz == ceylon.language.Integer.class) {
+        ret = java.lang.Long.class;
+      } else if (clazz == ceylon.language.Float.class) {
+        ret = java.lang.Double.class;
+      } else if (clazz == ceylon.language.Boolean.class) {
+        ret = java.lang.Boolean.class;
+      } else if (clazz == ceylon.language.Character.class) {
+        ret = java.lang.Character.class;
+      } else if (clazz == ceylon.language.String.class) {
+        ret = java.lang.String.class;
       }
     }
     return ret != null ? ret : java.lang.Object.class;

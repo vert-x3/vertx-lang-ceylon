@@ -187,6 +187,31 @@
     return null;
   }
 
+  def genTypeDescriptor(type) {
+    if (type.variable) {
+      if (type.methodParam) {
+        return 'io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$' + type.name + ')';
+      } else {
+        return '$reified$' + type.name;
+      }
+    } else if (type.kind == CLASS_API || type.kind.basic || type.kind.json) {
+      return genJavaInterropTypeDecl(typeArg) + '.$TypeDescriptor$';
+    } else if (type.kind == CLASS_DATA_OBJECT) {
+      return 'new io.vertx.lang.ceylon.VertxTypeDescriptor(' + genJavaInterropTypeDecl(typeArg) + '.$TypeDescriptor$' +
+             ', ' + typeArg.name + '.class' +
+             ', ' + genParamConverter(type) +
+             ', ' + genReturnConverter(type) + ')';
+    } else if (type.kind == CLASS_ENUM) {
+      var desc = type.gen ? (type.translatePackageName(TRANSLATOR_COMPOSITE) + '.' + type.simpleName) : 'ceylon.language.String';
+      return 'new io.vertx.lang.ceylon.VertxTypeDescriptor(' + desc + '.$TypeDescriptor$' +
+             ', ' + typeArg.name + '.class' +
+             ', ' + genParamConverter(type) +
+             ', ' + genReturnConverter(type) + ')';
+    } else {
+      return 'null /* unsupported yet ' + type.name + '/' + type.kind + '  */ ';
+    }
+  }
+
   /*
    * Returns the Ceylon expression that converts a Java object to a Ceylon object.
    * @param type the type of the Java object
@@ -203,7 +228,7 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName(TRANSLATOR_COMPOSITE) + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon().safeConvert(' + expr + ')';
+        return genReturnConverter(type) + '.safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var eltType = type.args[0];
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.convertList' : 'io.vertx.lang.ceylon.ToCeylon.convertSet';
@@ -223,17 +248,7 @@
             if (index > 0) {
               ret.append(', ');
             }
-            if (typeArg.variable) {
-              if (typeArg.methodParam) {
-                ret.append('io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$').append(typeArg.name).append(')');
-              } else {
-                ret.append('$reified$').append(typeArg.name);
-              }
-            } else if (typeArg.kind == CLASS_API) {
-              ret.append(genJavaInterropTypeDecl(typeArg)).append('.$TypeDescriptor$');
-            } else {
-              ret.append('null /* unsupported yet ' + typeArg + '/' + typeArg.kind + '  */ ');
-            }
+            ret.append(genTypeDescriptor(typeArg));
             index = index + 1;
           }
         }

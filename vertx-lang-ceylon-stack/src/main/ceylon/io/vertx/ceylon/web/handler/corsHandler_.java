@@ -49,7 +49,7 @@ public class corsHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a CORS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("allowedOriginPattern") @DocAnnotation$annotation$(description = "the allowed origin pattern\n") ceylon.language.String allowedOriginPattern) {
+    final @TypeInfo("ceylon.language::String") @Name("allowedOriginPattern")@DocAnnotation$annotation$(description = "the allowed origin pattern\n") ceylon.language.String allowedOriginPattern) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(allowedOriginPattern);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.CorsHandler.create(arg_0));
     return ret;

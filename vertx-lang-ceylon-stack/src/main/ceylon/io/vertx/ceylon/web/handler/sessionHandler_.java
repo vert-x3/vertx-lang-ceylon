@@ -38,7 +38,7 @@ public class sessionHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a session handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
   public SessionHandler create(
-    final @TypeInfo("io.vertx.ceylon.web.sstore::SessionStore") @Name("sessionStore") @DocAnnotation$annotation$(description = "the session store\n") SessionStore sessionStore) {
+    final @TypeInfo("io.vertx.ceylon.web.sstore::SessionStore") @Name("sessionStore")@DocAnnotation$annotation$(description = "the session store\n") SessionStore sessionStore) {
     io.vertx.ext.web.sstore.SessionStore arg_0 = io.vertx.ceylon.web.sstore.SessionStore.TO_JAVA.safeConvert(sessionStore);
     SessionHandler ret = io.vertx.ceylon.web.handler.SessionHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.SessionHandler.create(arg_0));
     return ret;

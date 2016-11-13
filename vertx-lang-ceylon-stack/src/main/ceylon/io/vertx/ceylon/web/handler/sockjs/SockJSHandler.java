@@ -38,7 +38,7 @@ public class SockJSHandler implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SockJSHandler.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SockJSHandler.class), io.vertx.ext.web.handler.sockjs.SockJSHandler.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.sockjs.SockJSHandler delegate;
 
   public SockJSHandler(io.vertx.ext.web.handler.sockjs.SockJSHandler delegate) {
@@ -57,7 +57,7 @@ public class SockJSHandler implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0")  RoutingContext arg0) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") RoutingContext arg0) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
@@ -65,7 +65,7 @@ public class SockJSHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set a SockJS socket handler. This handler will be called with a SockJS socket whenever a SockJS connection\n is made from a client\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler socketHandler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web.handler.sockjs::SockJSSocket)") @Name("handler") @DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web.handler.sockjs::SockJSSocket)") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.ext.web.handler.sockjs.SockJSSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.ext.web.handler.sockjs.SockJSSocket>() {
       public void handle(io.vertx.ext.web.handler.sockjs.SockJSSocket event) {
         handler.$call$((Object)io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(event));
@@ -78,7 +78,7 @@ public class SockJSHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Bridge the SockJS handler to the Vert.x event bus. This basically installs a built-in SockJS socket handler\n which takes SockJS traffic and bridges it to the event bus, thus allowing you to extend the server-side\n Vert.x event bus to browsers\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler bridge(
-    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions") @DocAnnotation$annotation$(description = "options to configure the bridge with\n") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions) {
+    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions")@DocAnnotation$annotation$(description = "options to configure the bridge with\n") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions) {
     io.vertx.ext.web.handler.sockjs.BridgeOptions arg_0 = bridgeOptions == null ? null : new io.vertx.ext.web.handler.sockjs.BridgeOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(bridgeOptions.toJson()));
     SockJSHandler ret = io.vertx.ceylon.web.handler.sockjs.SockJSHandler.TO_CEYLON.converter().safeConvert(delegate.bridge(arg_0));
     return this;
@@ -87,8 +87,8 @@ public class SockJSHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Like [bridge](../../handler/sockjs/SockJSHandler.type.html#bridge) but specifying a handler\n that will receive bridge events.\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler bridge(
-    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions") @DocAnnotation$annotation$(description = "options to configure the bridge with\n") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions, 
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web.handler.sockjs::BridgeEvent)") @Name("bridgeEventHandler") @DocAnnotation$annotation$(description = "handler to receive bridge events\n") Callable<?> bridgeEventHandler) {
+    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::BridgeOptions") @Name("bridgeOptions")@DocAnnotation$annotation$(description = "options to configure the bridge with\n") io.vertx.ceylon.web.handler.sockjs.BridgeOptions bridgeOptions, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web.handler.sockjs::BridgeEvent)") @Name("bridgeEventHandler")@DocAnnotation$annotation$(description = "handler to receive bridge events\n") Callable<?> bridgeEventHandler) {
     io.vertx.ext.web.handler.sockjs.BridgeOptions arg_0 = bridgeOptions == null ? null : new io.vertx.ext.web.handler.sockjs.BridgeOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(bridgeOptions.toJson()));
     io.vertx.core.Handler<io.vertx.ext.web.handler.sockjs.BridgeEvent> arg_1 = bridgeEventHandler == null ? null : new io.vertx.core.Handler<io.vertx.ext.web.handler.sockjs.BridgeEvent>() {
       public void handle(io.vertx.ext.web.handler.sockjs.BridgeEvent event) {

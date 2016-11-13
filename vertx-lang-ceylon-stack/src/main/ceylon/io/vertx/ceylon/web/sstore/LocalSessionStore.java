@@ -38,7 +38,7 @@ public class LocalSessionStore extends SessionStore implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(LocalSessionStore.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(LocalSessionStore.class), io.vertx.ext.web.sstore.LocalSessionStore.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.sstore.LocalSessionStore delegate;
 
   public LocalSessionStore(io.vertx.ext.web.sstore.LocalSessionStore delegate) {

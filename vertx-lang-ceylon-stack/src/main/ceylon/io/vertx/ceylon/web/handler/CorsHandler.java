@@ -48,7 +48,7 @@ public class CorsHandler implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(CorsHandler.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(CorsHandler.class), io.vertx.ext.web.handler.CorsHandler.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.CorsHandler delegate;
 
   public CorsHandler(io.vertx.ext.web.handler.CorsHandler delegate) {
@@ -67,7 +67,7 @@ public class CorsHandler implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0")  RoutingContext arg0) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") RoutingContext arg0) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
@@ -75,7 +75,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add an allowed method\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedMethod(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "the method to add\n") io.vertx.ceylon.core.http.HttpMethod method) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "the method to add\n") io.vertx.ceylon.core.http.HttpMethod method) {
     io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.allowedMethod(arg_0));
     return this;
@@ -84,7 +84,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add an allowed header\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedHeader(
-    final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "the allowed header name\n") ceylon.language.String headerName) {
+    final @TypeInfo("ceylon.language::String") @Name("headerName")@DocAnnotation$annotation$(description = "the allowed header name\n") ceylon.language.String headerName) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(headerName);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.allowedHeader(arg_0));
     return this;
@@ -93,7 +93,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a set of allowed headers\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowedHeaders(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames") @DocAnnotation$annotation$(description = "the allowed header names\n") ceylon.language.Set<ceylon.language.String> headerNames) {
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames")@DocAnnotation$annotation$(description = "the allowed header names\n") ceylon.language.Set<ceylon.language.String> headerNames) {
     java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(headerNames, io.vertx.lang.ceylon.ToJava.String);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.allowedHeaders(arg_0));
     return this;
@@ -102,7 +102,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add an exposed header\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler exposedHeader(
-    final @TypeInfo("ceylon.language::String") @Name("headerName") @DocAnnotation$annotation$(description = "the exposed header name\n") ceylon.language.String headerName) {
+    final @TypeInfo("ceylon.language::String") @Name("headerName")@DocAnnotation$annotation$(description = "the exposed header name\n") ceylon.language.String headerName) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(headerName);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.exposedHeader(arg_0));
     return this;
@@ -111,7 +111,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Add a set of exposed headers\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler exposedHeaders(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames") @DocAnnotation$annotation$(description = "the exposed header names\n") ceylon.language.Set<ceylon.language.String> headerNames) {
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("headerNames")@DocAnnotation$annotation$(description = "the exposed header names\n") ceylon.language.Set<ceylon.language.String> headerNames) {
     java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(headerNames, io.vertx.lang.ceylon.ToJava.String);
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.exposedHeaders(arg_0));
     return this;
@@ -120,7 +120,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set whether credentials are allowed\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowCredentials(
-    final @TypeInfo("ceylon.language::Boolean") @Name("allow") @DocAnnotation$annotation$(description = "true if allowed\n") boolean allow) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("allow")@DocAnnotation$annotation$(description = "true if allowed\n") boolean allow) {
     boolean arg_0 = allow;
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.allowCredentials(arg_0));
     return this;
@@ -129,7 +129,7 @@ public class CorsHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set how long the browser should cache the information\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler maxAgeSeconds(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds") @DocAnnotation$annotation$(description = "max age in seconds\n") long maxAgeSeconds) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxAgeSeconds")@DocAnnotation$annotation$(description = "max age in seconds\n") long maxAgeSeconds) {
     int arg_0 = (int)maxAgeSeconds;
     CorsHandler ret = io.vertx.ceylon.web.handler.CorsHandler.TO_CEYLON.converter().safeConvert(delegate.maxAgeSeconds(arg_0));
     return this;

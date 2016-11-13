@@ -39,7 +39,7 @@ public class ThymeleafTemplateEngine extends TemplateEngine implements ReifiedTy
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ThymeleafTemplateEngine.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(ThymeleafTemplateEngine.class), io.vertx.ext.web.templ.ThymeleafTemplateEngine.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.templ.ThymeleafTemplateEngine delegate;
 
   public ThymeleafTemplateEngine(io.vertx.ext.web.templ.ThymeleafTemplateEngine delegate) {
@@ -60,7 +60,7 @@ public class ThymeleafTemplateEngine extends TemplateEngine implements ReifiedTy
   @DocAnnotation$annotation$(description = " Set the mode for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
   public ThymeleafTemplateEngine setMode(
-    final @TypeInfo("ceylon.language::String") @Name("mode") @DocAnnotation$annotation$(description = "the mode\n") ceylon.language.String mode) {
+    final @TypeInfo("ceylon.language::String") @Name("mode")@DocAnnotation$annotation$(description = "the mode\n") ceylon.language.String mode) {
     org.thymeleaf.templatemode.TemplateMode arg_0 = io.vertx.lang.ceylon.ToJava.enumeration(org.thymeleaf.templatemode.TemplateMode.class).safeConvert(mode);
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMode(arg_0));
     return ret;

@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
+@DocAnnotation$annotation$(description = "")
 public class Locale implements ReifiedType {
 
   @Ignore
@@ -33,7 +34,7 @@ public class Locale implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Locale.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Locale.class), io.vertx.ext.web.Locale.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.Locale delegate;
 
   public Locale(io.vertx.ext.web.Locale delegate) {

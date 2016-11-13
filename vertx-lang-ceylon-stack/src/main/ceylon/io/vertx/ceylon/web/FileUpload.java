@@ -34,7 +34,7 @@ public class FileUpload implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FileUpload.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(FileUpload.class), io.vertx.ext.web.FileUpload.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.FileUpload delegate;
 
   public FileUpload(io.vertx.ext.web.FileUpload delegate) {

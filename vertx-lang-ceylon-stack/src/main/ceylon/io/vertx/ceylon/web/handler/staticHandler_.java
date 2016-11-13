@@ -44,7 +44,7 @@ public class staticHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler, specifying web-root\n")
   @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
   public StaticHandler create(
-    final @TypeInfo("ceylon.language::String") @Name("root") @DocAnnotation$annotation$(description = "the web-root\n") ceylon.language.String root) {
+    final @TypeInfo("ceylon.language::String") @Name("root")@DocAnnotation$annotation$(description = "the web-root\n") ceylon.language.String root) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(root);
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.StaticHandler.create(arg_0));
     return ret;

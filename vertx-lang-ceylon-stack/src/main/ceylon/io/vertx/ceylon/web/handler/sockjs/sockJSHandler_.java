@@ -39,7 +39,7 @@ public class sockJSHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler create(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     SockJSHandler ret = io.vertx.ceylon.web.handler.sockjs.SockJSHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.sockjs.SockJSHandler.create(arg_0));
     return ret;
@@ -48,8 +48,8 @@ public class sockJSHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a SockJS handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandler")
   public SockJSHandler create(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
-    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandlerOptions") @Name("options") @DocAnnotation$annotation$(description = "options to configure the handler\n") io.vertx.ceylon.web.handler.sockjs.SockJSHandlerOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
+    final @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSHandlerOptions") @Name("options")@DocAnnotation$annotation$(description = "options to configure the handler\n") io.vertx.ceylon.web.handler.sockjs.SockJSHandlerOptions options) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     io.vertx.ext.web.handler.sockjs.SockJSHandlerOptions arg_1 = options == null ? null : new io.vertx.ext.web.handler.sockjs.SockJSHandlerOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     SockJSHandler ret = io.vertx.ceylon.web.handler.sockjs.SockJSHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.sockjs.SockJSHandler.create(arg_0, arg_1));
@@ -59,8 +59,8 @@ public class sockJSHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Install SockJS test applications on a router - used when running the SockJS test suite\n")
   @TypeInfo("ceylon.language::Anything")
   public void installTestApplications(
-    final @TypeInfo("io.vertx.ceylon.web::Router") @Name("router") @DocAnnotation$annotation$(description = "the router to install on\n") Router router, 
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
+    final @TypeInfo("io.vertx.ceylon.web::Router") @Name("router")@DocAnnotation$annotation$(description = "the router to install on\n") Router router, 
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
     io.vertx.ext.web.Router arg_0 = io.vertx.ceylon.web.Router.TO_JAVA.safeConvert(router);
     io.vertx.core.Vertx arg_1 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     io.vertx.ext.web.handler.sockjs.SockJSHandler.installTestApplications(arg_0, arg_1);

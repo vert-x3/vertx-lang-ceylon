@@ -38,7 +38,7 @@ public class MVELTemplateEngine extends TemplateEngine implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MVELTemplateEngine.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(MVELTemplateEngine.class), io.vertx.ext.web.templ.MVELTemplateEngine.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.templ.MVELTemplateEngine delegate;
 
   public MVELTemplateEngine(io.vertx.ext.web.templ.MVELTemplateEngine delegate) {
@@ -59,7 +59,7 @@ public class MVELTemplateEngine extends TemplateEngine implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the extension for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
   public MVELTemplateEngine setExtension(
-    final @TypeInfo("ceylon.language::String") @Name("extension") @DocAnnotation$annotation$(description = "the extension\n") ceylon.language.String extension) {
+    final @TypeInfo("ceylon.language::String") @Name("extension")@DocAnnotation$annotation$(description = "the extension\n") ceylon.language.String extension) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(extension);
     MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setExtension(arg_0));
     return ret;
@@ -68,7 +68,7 @@ public class MVELTemplateEngine extends TemplateEngine implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the max cache size for the engine\n")
   @TypeInfo("io.vertx.ceylon.web.templ::MVELTemplateEngine")
   public MVELTemplateEngine setMaxCacheSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize") @DocAnnotation$annotation$(description = "the maxCacheSize\n") long maxCacheSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize")@DocAnnotation$annotation$(description = "the maxCacheSize\n") long maxCacheSize) {
     int arg_0 = (int)maxCacheSize;
     MVELTemplateEngine ret = io.vertx.ceylon.web.templ.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMaxCacheSize(arg_0));
     return ret;

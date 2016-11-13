@@ -37,7 +37,7 @@ public class RedirectAuthHandler implements ReifiedType,  AuthHandler {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RedirectAuthHandler.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(RedirectAuthHandler.class), io.vertx.ext.web.handler.RedirectAuthHandler.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.RedirectAuthHandler delegate;
 
   public RedirectAuthHandler(io.vertx.ext.web.handler.RedirectAuthHandler delegate) {
@@ -56,7 +56,7 @@ public class RedirectAuthHandler implements ReifiedType,  AuthHandler {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0")  RoutingContext arg0) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") RoutingContext arg0) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
@@ -64,7 +64,7 @@ public class RedirectAuthHandler implements ReifiedType,  AuthHandler {
   @DocAnnotation$annotation$(description = " Add a required authority for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthority(
-    final @TypeInfo("ceylon.language::String") @Name("authority") @DocAnnotation$annotation$(description = "the authority\n") ceylon.language.String authority) {
+    final @TypeInfo("ceylon.language::String") @Name("authority")@DocAnnotation$annotation$(description = "the authority\n") ceylon.language.String authority) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(authority);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(delegate.addAuthority(arg_0));
     return this;
@@ -73,7 +73,7 @@ public class RedirectAuthHandler implements ReifiedType,  AuthHandler {
   @DocAnnotation$annotation$(description = " Add a set of required authorities for this auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::AuthHandler")
   public AuthHandler addAuthorities(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("authorities") @DocAnnotation$annotation$(description = "the set of authorities\n") ceylon.language.Set<ceylon.language.String> authorities) {
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("authorities")@DocAnnotation$annotation$(description = "the set of authorities\n") ceylon.language.Set<ceylon.language.String> authorities) {
     java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(authorities, io.vertx.lang.ceylon.ToJava.String);
     AuthHandler ret = io.vertx.ceylon.web.handler.AuthHandler.TO_CEYLON.converter().safeConvert(delegate.addAuthorities(arg_0));
     return this;
