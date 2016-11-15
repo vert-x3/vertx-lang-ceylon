@@ -136,9 +136,9 @@
         if (type.classParam) {
           return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + type.name + ').convert(' + expr + ')';
         } else {
-          var typeLiteralParam = method.resolveTypeLiteralParam(type);
-          if (typeLiteralParam != null) {
-            return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + typeLiteralParam.type.args[0].name + ').convert(' + expr + ')';
+          var classTypeParam = method.resolveClassTypeParam(type);
+          if (classTypeParam != null) {
+            return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + classTypeParam.type.args[0].name + ').convert(' + expr + ')';
           }
         }
       }
@@ -161,7 +161,7 @@
       }
     } else if (kind == CLASS_THROWABLE) {
       return expr;
-    } else if (kind == CLASS_TYPE_LITERAL) {
+    } else if (kind == CLASS_CLASS_TYPE) {
       return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$' + type.args[0].name + ')';
     }
     return 'null';
@@ -667,7 +667,7 @@
 @code{
   var methodParams = new java.util.ArrayList();
   for (methodParam : method.params) {
-    if (methodParam.type.kind != CLASS_TYPE_LITERAL) {
+    if (methodParam.type.kind != CLASS_CLASS_TYPE) {
       methodParams.add(methodParam);
     }
   }
