@@ -52,11 +52,12 @@ public class InterfaceWithStringArg extends GenericRefedInterface<ceylon.languag
     return delegate;
   }
 
-  @TypeInfo("ceylon.language::Anything")
-  public void $setValue(
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::String>")
+  public GenericRefedInterface<ceylon.language.String> setValue(
     final @TypeInfo("ceylon.language::String") @Name("value") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
-    delegate.setValue(arg_0);
+    GenericRefedInterface<ceylon.language.String> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.String.$TypeDescriptor$).safeConvert(delegate.setValue(arg_0));
+    return this;
   }
 
   @TypeInfo("ceylon.language::String")

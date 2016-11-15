@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.function.Function;
 import io.vertx.core.json.JsonArray;
 import io.vertx.codegen.testmodel.TestEnum;
 import io.vertx.core.json.JsonObject;
@@ -476,6 +477,186 @@ public class GenericsTCK implements ReifiedType {
     delegate.methodWithHandlerAsyncResultUserTypeParameterized(arg_0);
   }
 
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamByteParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Byte>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Byte>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Byte>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Byte> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Byte.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamByteParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamShortParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Integer>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Short>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Short>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Short> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Integer.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamShortParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamIntegerParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Integer>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Integer>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Integer>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Integer> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Integer.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamIntegerParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamLongParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Integer>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Long>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Long>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Long> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Integer.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamLongParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamFloatParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Float>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Float>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Float>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Float> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Float.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamFloatParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamDoubleParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Float>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Double>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Double>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Double> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Float.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamDoubleParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamBooleanParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Boolean>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Boolean>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Boolean>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Boolean> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Boolean.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamBooleanParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamCharacterParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::Character>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Character>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Character>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Character> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.Character.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamCharacterParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamStringParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::String>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.String>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.String>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.String> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.language.String.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamStringParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamJsonObjectParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.json::Object>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonObject>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonObject>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonObject> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.json.Object.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamJsonObjectParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamJsonArrayParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.json::Array>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonArray>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonArray>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.core.json.JsonArray> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamJsonArrayParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamDataObjectParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<io.vertx.ceylon.testmodel::TestDataObject>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestDataObject>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestDataObject>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestDataObject> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(new io.vertx.lang.ceylon.VertxTypeDescriptor(io.vertx.ceylon.testmodel.TestDataObject.$TypeDescriptor$, io.vertx.codegen.testmodel.TestDataObject.class, io.vertx.ceylon.testmodel.testDataObject_.get_().getToJava(), io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon())).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamDataObjectParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamEnumParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<ceylon.language::String>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestEnum>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestEnum>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestEnum> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(new io.vertx.lang.ceylon.VertxTypeDescriptor(ceylon.language.String.$TypeDescriptor$, io.vertx.codegen.testmodel.TestEnum.class, io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.codegen.testmodel.TestEnum.class), io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration())).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamEnumParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamGenEnumParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<io.vertx.ceylon.testmodel::TestGenEnum>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestGenEnum>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestGenEnum>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.TestGenEnum> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(new io.vertx.lang.ceylon.VertxTypeDescriptor(io.vertx.ceylon.testmodel.TestGenEnum.$TypeDescriptor$, io.vertx.codegen.testmodel.TestGenEnum.class, io.vertx.ceylon.testmodel.testGenEnum_.get_().getToJava(), io.vertx.ceylon.testmodel.testGenEnum_.get_().getToCeylon())).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamGenEnumParameterized(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithFunctionParamUserTypeParameterized(
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<io.vertx.ceylon.testmodel::RefedInterface1>)") @Name("handler") Callable<?> handler) {
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>,java.lang.String> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<io.vertx.codegen.testmodel.RefedInterface1> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(RefedInterface1.$TypeDescriptor$).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamUserTypeParameterized(arg_0);
+  }
+
   @TypeParameters({
     @TypeParameter(value="U",variance=Variance.NONE)
   })
@@ -514,6 +695,105 @@ public class GenericsTCK implements ReifiedType {
       }
     };
     delegate.methodWithHandlerAsyncResultClassTypeParameterized(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithFunctionParamClassTypeParameterized(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<U?>)") @Name("handler") Callable<?> handler) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String> arg_1 = handler == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String>() {
+      public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg) {
+        ceylon.language.String ret = (ceylon.language.String)handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$U)).safeConvert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithFunctionParamClassTypeParameterized(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithClassTypeParam(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("U?") @Name("u") U u) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    java.lang.Object arg_1 = io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$U).convert(u);
+    delegate.methodWithClassTypeParam(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("U?")
+  public <U> U methodWithClassTypeReturn(final @Ignore TypeDescriptor $reified$U) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    U ret = (U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$U).convert(delegate.methodWithClassTypeReturn(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithClassTypeHandler(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("ceylon.language::Anything(U?)") @Name("f") Callable<?> f) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    io.vertx.core.Handler<java.lang.Object> arg_1 = f == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
+      public void handle(java.lang.Object event) {
+        f.$call$((Object)(U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$U).convert(event));
+      }
+    };
+    delegate.methodWithClassTypeHandler(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithClassTypeHandlerAsyncResult(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|U?)") @Name("f") Callable<?> f) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Object>> arg_1 = f == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Object>(f) {
+      public Object toCeylon(java.lang.Object event) {
+        return (U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$U).convert(event);
+      }
+    };
+    delegate.methodWithClassTypeHandlerAsyncResult(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithClassTypeFunctionParam(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("ceylon.language::String(U?)") @Name("f") Callable<?> f) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    java.util.function.Function<java.lang.Object,java.lang.String> arg_1 = f == null ? null : new java.util.function.Function<java.lang.Object,java.lang.String>() {
+      public java.lang.String apply(java.lang.Object arg) {
+        ceylon.language.String ret = (ceylon.language.String)f.$call$((Object)(U)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$U).convert(arg));
+        return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
+      }
+    };
+    delegate.methodWithClassTypeFunctionParam(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="U",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <U> void methodWithClassTypeFunctionReturn(final @Ignore TypeDescriptor $reified$U, 
+    final @TypeInfo("U?(ceylon.language::String)") @Name("f") Callable<?> f) {
+    java.lang.Class<java.lang.Object> arg_0 = io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$U);
+    java.util.function.Function<java.lang.String,java.lang.Object> arg_1 = f == null ? null : new java.util.function.Function<java.lang.String,java.lang.Object>() {
+      public java.lang.Object apply(java.lang.String arg) {
+        Object ret = (Object)f.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
+        return io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$U).convert(ret);
+      }
+    };
+    delegate.methodWithClassTypeFunctionReturn(arg_0, arg_1);
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::InterfaceWithApiArg")

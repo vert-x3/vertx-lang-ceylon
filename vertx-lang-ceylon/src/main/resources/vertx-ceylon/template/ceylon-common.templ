@@ -258,8 +258,18 @@
         return ret.toString();;
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
-        if (type.variable && type.classParam) {
-          return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + type.name + ').convert(' + expr + ')';
+        if (type.variable) {
+          if (type.classParam) {
+            return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + type.name + ').convert(' + expr + ')';
+          }
+          if (method != null) {
+            /* work around for failure */
+            var reflect = method.getClass().getMethod("resolveClassTypeParam", type.getClass());
+            var classTypeParam = reflect.invoke(method, type);
+            if (classTypeParam != null) {
+              return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + classTypeParam.type.args[0].name + ').convert(' + expr + ')';
+            }
+          }
         }
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {

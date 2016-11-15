@@ -52,11 +52,12 @@ public class InterfaceWithApiArg extends GenericRefedInterface<RefedInterface1> 
     return delegate;
   }
 
-  @TypeInfo("ceylon.language::Anything")
-  public void $setValue(
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<io.vertx.ceylon.testmodel::RefedInterface1>")
+  public GenericRefedInterface<RefedInterface1> setValue(
     final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("value") RefedInterface1 value) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(value);
-    delegate.setValue(arg_0);
+    GenericRefedInterface<RefedInterface1> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(RefedInterface1.$TypeDescriptor$).safeConvert(delegate.setValue(arg_0));
+    return this;
   }
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")

@@ -28,10 +28,11 @@ shared void checkParameterized<T>(GenericRefedInterface<T> refed, T expected, T 
   asserter(next, refed.getValue());
 }
 
-shared Anything(GenericRefedInterface<T>) parameterizedChecker<T>(T expected, T next, Callable<Anything, [Anything, Anything]> asserter = assertEquals) {
-  void f(GenericRefedInterface<T> refed) {
+shared String(GenericRefedInterface<T>) parameterizedChecker<T>(T expected, T next, Callable<Anything, [Anything, Anything]> asserter = assertEquals) {
+  String f(GenericRefedInterface<T> refed) {
     checkParameterized(refed, expected, next, asserter);
     callbacks++;
+    return "whatever";
   }
   return f;
 }
@@ -85,22 +86,43 @@ shared test void testMethodWithHandlerAsyncResultBasicParameterized() {
   assertEquals(9, callbacks);
 }
 
-shared test void testMethodWithJsonObjectParameterizedReturn() {
+shared test void testMethodWithFunctionParamBasicParameterized() {
+  callbacks = 0;
+  genericsTCK.methodWithFunctionParamByteParameterized(parameterizedChecker(123.byte, 124.byte));
+  genericsTCK.methodWithFunctionParamShortParameterized(parameterizedChecker(1234, 12345));
+  genericsTCK.methodWithFunctionParamIntegerParameterized(parameterizedChecker(123456, 1234567));
+  genericsTCK.methodWithFunctionParamLongParameterized(parameterizedChecker(123456789, 1234567890));
+  genericsTCK.methodWithFunctionParamFloatParameterized(parameterizedChecker(0.34, 0.35, assertFloatEquals));
+  genericsTCK.methodWithFunctionParamDoubleParameterized(parameterizedChecker(0.314, 0.315, assertFloatEquals));
+  genericsTCK.methodWithFunctionParamBooleanParameterized(parameterizedChecker(true, false));
+  genericsTCK.methodWithFunctionParamCharacterParameterized(parameterizedChecker('F', 'G'));
+  genericsTCK.methodWithFunctionParamStringParameterized(parameterizedChecker("zoumbawe", "agowae"));
+  assertEquals(9, callbacks);
+}
+
+shared test void testMethodWithJsonParameterizedReturn() {
   checkParameterized(genericsTCK.methodWithJsonObjectParameterizedReturn(), JsonObject { "cheese"->"stilton" }, JsonObject { "cheese"->"roquefort" });
   checkParameterized(genericsTCK.methodWithJsonArrayParameterizedReturn(), JsonArray { "cheese", "stilton" }, JsonArray { "cheese", "roquefort" });
 }
 
-shared test void testMethodWithHandlerJsonObjectParameterized() {
+shared test void testMethodWithHandlerJsonParameterized() {
   callbacks = 0;
   genericsTCK.methodWithHandlerJsonObjectParameterized(parameterizedChecker(JsonObject { "cheese"->"stilton" }, JsonObject { "cheese"->"roquefort" }));
   genericsTCK.methodWithHandlerJsonArrayParameterized(parameterizedChecker(JsonArray { "cheese", "stilton" }, JsonArray { "cheese", "roquefort" }));
   assertEquals(2, callbacks);
 }
 
-shared test void testMethodWithHandlerAsyncResultJsonObjectParameterized() {
+shared test void testMethodWithHandlerAsyncResultJsonParameterized() {
   callbacks = 0;
   genericsTCK.methodWithHandlerAsyncResultJsonObjectParameterized(parameterizedAsyncResultChecker(JsonObject { "cheese"->"stilton" }, JsonObject { "cheese"->"roquefort" }));
   genericsTCK.methodWithHandlerAsyncResultJsonArrayParameterized(parameterizedAsyncResultChecker(JsonArray { "cheese", "stilton" }, JsonArray { "cheese", "roquefort" }));
+  assertEquals(2, callbacks);
+}
+
+shared test void testMethodWithFunctionParamJsonParameterized() {
+  callbacks = 0;
+  genericsTCK.methodWithFunctionParamJsonObjectParameterized(parameterizedChecker(JsonObject { "cheese"->"stilton" }, JsonObject { "cheese"->"roquefort" }));
+  genericsTCK.methodWithFunctionParamJsonArrayParameterized(parameterizedChecker(JsonArray { "cheese", "stilton" }, JsonArray { "cheese", "roquefort" }));
   assertEquals(2, callbacks);
 }
 
@@ -120,6 +142,12 @@ shared test void testMethodWithHandlerAsyncResultDataObjectParameterized() {
   assertEquals(1, callbacks);
 }
 
+shared test void testMethodWithFunctionParamDataObjectParameterized() {
+  callbacks = 0;
+  genericsTCK.methodWithFunctionParamDataObjectParameterized(parameterizedChecker(TestDataObject { bar = 123456; wibble = 3.14; foo = "foo_value"; }, TestDataObject { bar = 1234567; wibble = 3.141; foo = "other_value"; }, assertTestDataObjectEquals));
+  assertEquals(1, callbacks);
+}
+
 shared test void testMethodWithEnumParameterizedReturn() {
   checkParameterized(genericsTCK.methodWithEnumParameterizedReturn(), "WESTON", "TIM");
   checkParameterized(genericsTCK.methodWithGenEnumParameterizedReturn(), leland, bob);
@@ -136,6 +164,13 @@ shared test void testMethodWithHandlerAsyncResultEnumParameterized() {
   callbacks = 0;
   genericsTCK.methodWithHandlerAsyncResultEnumParameterized(parameterizedAsyncResultChecker("WESTON", "TIM"));
   genericsTCK.methodWithHandlerAsyncResultGenEnumParameterized(parameterizedAsyncResultChecker(leland, bob));
+  assertEquals(2, callbacks);
+}
+
+shared test void testMethodWithFunctionParamEnumParameterized() {
+  callbacks = 0;
+  genericsTCK.methodWithFunctionParamEnumParameterized(parameterizedChecker("WESTON", "TIM"));
+  genericsTCK.methodWithFunctionParamGenEnumParameterized(parameterizedChecker(leland, bob));
   assertEquals(2, callbacks);
 }
 
@@ -166,6 +201,18 @@ shared test void testMethodWithHandlerAsyncResultUserTypeParameterized() {
   assertEquals(1, callbacks);
 }
 
+shared test void testMethodWithFunctionParamUserTypeParameterized() {
+  callbacks = 0;
+  genericsTCK.methodWithFunctionParamUserTypeParameterized {
+    String handler(GenericRefedInterface<RefedInterface1> ret) {
+      checkMethodWithUserTypeParameterized(ret);
+      callbacks++;
+      return "whatever";
+    }
+  };
+  assertEquals(1, callbacks);
+}
+
 void checkMethodWithUserTypeParameterized(GenericRefedInterface<RefedInterface1> ret) {
   value val = ret.getValue();
   assertEquals("foo", val.getString());
@@ -174,6 +221,126 @@ void checkMethodWithUserTypeParameterized(GenericRefedInterface<RefedInterface1>
   ret.setValue(refed);
   value val2 = ret.getValue();
   assertEquals("the_string", val2.getString());
+}
+
+shared test void testMethodWithClassTypeParam() {
+  genericsTCK.methodWithClassTypeParam(123456789);
+  genericsTCK.methodWithClassTypeParam(0.314);
+  genericsTCK.methodWithClassTypeParam(true);
+  genericsTCK.methodWithClassTypeParam("zoumbawe");
+  genericsTCK.methodWithClassTypeParam(JsonObject { "cheese"->"stilton" });
+  genericsTCK.methodWithClassTypeParam(JsonArray { "cheese", "stilton" });
+  genericsTCK.methodWithClassTypeParam(RefedInterface1(RefedInterface1Impl()).setString("foo"));
+}
+
+shared test void testMethodWithClassTypeReturn() {
+  checkMethodWithClassType(
+    genericsTCK.methodWithClassTypeReturn<Integer>(),
+    genericsTCK.methodWithClassTypeReturn<Float>(),
+    genericsTCK.methodWithClassTypeReturn<Boolean>(),
+    genericsTCK.methodWithClassTypeReturn<String>(),
+    genericsTCK.methodWithClassTypeReturn<JsonObject>(),
+    genericsTCK.methodWithClassTypeReturn<JsonArray>(),
+    genericsTCK.methodWithClassTypeReturn<RefedInterface1>()
+  );
+}
+
+shared test void testMethodWithClassTypeHandler() {
+  variable Boolean done = false;
+  genericsTCK.methodWithClassTypeHandler((Integer? arg0) {
+    genericsTCK.methodWithClassTypeHandler((Float? arg1) {
+      genericsTCK.methodWithClassTypeHandler((Boolean? arg2) {
+        genericsTCK.methodWithClassTypeHandler((String? arg3) {
+          genericsTCK.methodWithClassTypeHandler((JsonObject? arg4) {
+            genericsTCK.methodWithClassTypeHandler((JsonArray? arg5) {
+              genericsTCK.methodWithClassTypeHandler((RefedInterface1? arg6) {
+                checkMethodWithClassType(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+                done = true;
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+  assertEquals(true, done);
+}
+
+shared test void testMethodWithClassTypeHandlerAsyncResult() {
+  variable Boolean done = false;
+  genericsTCK.methodWithClassTypeHandlerAsyncResult((Integer?|Throwable arg0) {
+    assert(is Integer? arg0);
+    genericsTCK.methodWithClassTypeHandlerAsyncResult((Float?|Throwable arg1) {
+      assert(is Float? arg1);
+      genericsTCK.methodWithClassTypeHandlerAsyncResult((Boolean?|Throwable arg2) {
+        assert(is Boolean? arg2);
+        genericsTCK.methodWithClassTypeHandlerAsyncResult((String?|Throwable arg3) {
+          assert(is String? arg3);
+          genericsTCK.methodWithClassTypeHandlerAsyncResult((JsonObject?|Throwable arg4) {
+            assert(is JsonObject? arg4);
+            genericsTCK.methodWithClassTypeHandlerAsyncResult((JsonArray?|Throwable arg5) {
+              assert(is JsonArray? arg5);
+              genericsTCK.methodWithClassTypeHandlerAsyncResult((RefedInterface1?|Throwable arg6) {
+                assert(is RefedInterface1? arg6);
+                checkMethodWithClassType(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+                done = true;
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+  assertEquals(true, done);
+}
+
+shared test void testMethodWithClassTypeFunctionParam() {
+  variable Boolean done = false;
+  genericsTCK.methodWithClassTypeFunctionParam((Integer? arg0) {
+    genericsTCK.methodWithClassTypeFunctionParam((Float? arg1) {
+      genericsTCK.methodWithClassTypeFunctionParam((Boolean? arg2) {
+        genericsTCK.methodWithClassTypeFunctionParam((String? arg3) {
+          genericsTCK.methodWithClassTypeFunctionParam((JsonObject? arg4) {
+            genericsTCK.methodWithClassTypeFunctionParam((JsonArray? arg5) {
+              genericsTCK.methodWithClassTypeFunctionParam((RefedInterface1? arg6) {
+                checkMethodWithClassType(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+                done = true;
+                return "whatever";
+              });
+              return "whatever";
+            });
+            return "whatever";
+          });
+          return "whatever";
+        });
+        return "whatever";
+      });
+      return "whatever";
+    });
+    return "whatever";
+  });
+  assertEquals(true, done);
+}
+
+shared test void testMethodWithClassTypeFunctionReturn() {
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => 123456789);
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => 0.314);
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => true);
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => "zoumbawe");
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => JsonObject { "cheese"->"stilton" });
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => JsonArray { "cheese", "stilton" });
+  genericsTCK.methodWithClassTypeFunctionReturn((String arg) => RefedInterface1(RefedInterface1Impl()).setString("foo"));
+}
+
+void checkMethodWithClassType(Integer? arg0, Float? arg1, Boolean? arg2, String? arg3, JsonObject? arg4, JsonArray? arg5, RefedInterface1? arg6) {
+  assertEquals(123456789, arg0);
+  assertEquals(0.314, arg1);
+  assertEquals(true, arg2);
+  assertEquals("zoumbawe", arg3);
+  assertEquals(JsonObject { "cheese"->"stilton" }, arg4);
+  assertEquals(JsonArray { "cheese", "stilton" }, arg5);
+  assert(exists arg6);
+  assertEquals("foo", arg6.getString());
 }
 
 shared test void testMethodWithClassTypeParameterizedReturn() {
