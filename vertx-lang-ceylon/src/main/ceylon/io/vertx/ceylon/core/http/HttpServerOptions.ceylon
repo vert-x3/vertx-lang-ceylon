@@ -49,9 +49,13 @@ shared class HttpServerOptions(
   shared {HttpVersion*}? alpnVersions = null,
   ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
-  " Set whether the server supports compression\n"
+  "\n This method allows to set the compression level to be used in http1.x/2 response bodies \n when compression support is turned on (@see setCompressionSupported) and the client advertises\n to support <code>deflate/gzip</code> compression in the <code>Accept-Encoding</code> header\n \n default value is : 6 (Netty legacy)\n \n The compression level determines how much the data is compressed on a scale from 1 to 9,\n where '9' is trying to achieve the maximum compression ratio while '1' instead is giving\n priority to speed instead of compression ratio using some algorithm optimizations and skipping \n pedantic loops that usually gives just little improvements\n \n While one can think that best value is always the maximum compression ratio, \n there's a trade-off to consider: the most compressed level requires the most\n computatinal work to compress/decompress data, e.g. more dictionary lookups and loops.\n \n E.g. you have it set fairly high on a high-volume website, you may experience performance degradation \n and latency on resource serving due to CPU overload, and, however - as the comptational work is required also client side \n while decompressing - setting an higher compression level can result in an overall higher page load time\n especially nowadays when many clients are handled mobile devices with a low CPU profile.\n \n see also: http://www.gzip.org/algorithm.txt\n"
+  shared Integer? compressionLevel = null,
+  " Set whether the server should support gzip/deflate compression \n (serving compressed responses to clients advertising support for them with Accept-Encoding header)\n"
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
+  " Set whether the server supports decompression\n"
+  shared Boolean? decompressionSupported = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
   " Set whether 100 Continue should be handled automatically\n"
@@ -125,8 +129,14 @@ shared class HttpServerOptions(
     if (exists alpnVersions) {
       json.put("alpnVersions", JsonArray(alpnVersions.map(httpVersion_.toString)));
     }
+    if (exists compressionLevel) {
+      json.put("compressionLevel", compressionLevel);
+    }
     if (exists compressionSupported) {
       json.put("compressionSupported", compressionSupported);
+    }
+    if (exists decompressionSupported) {
+      json.put("decompressionSupported", decompressionSupported);
     }
     if (exists handle100ContinueAutomatically) {
       json.put("handle100ContinueAutomatically", handle100ContinueAutomatically);
@@ -163,8 +173,10 @@ shared object httpServerOptions {
     {HttpVersion*}? alpnVersions = json.getArrayOrNull("alpnVersions")?.strings?.map(httpVersion_.fromString);
     ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
     Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
+    Integer? compressionLevel = json.getIntegerOrNull("compressionLevel");
     Boolean? compressionSupported = json.getBooleanOrNull("compressionSupported");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    Boolean? decompressionSupported = json.getBooleanOrNull("decompressionSupported");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Boolean? handle100ContinueAutomatically = json.getBooleanOrNull("handle100ContinueAutomatically");
@@ -202,8 +214,10 @@ shared object httpServerOptions {
       alpnVersions = alpnVersions;
       clientAuth = clientAuth;
       clientAuthRequired = clientAuthRequired;
+      compressionLevel = compressionLevel;
       compressionSupported = compressionSupported;
       crlPaths = crlPaths;
+      decompressionSupported = decompressionSupported;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       handle100ContinueAutomatically = handle100ContinueAutomatically;

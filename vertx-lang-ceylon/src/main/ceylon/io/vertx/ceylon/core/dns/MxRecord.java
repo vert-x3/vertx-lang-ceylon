@@ -34,7 +34,7 @@ public class MxRecord implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MxRecord.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(MxRecord.class), io.vertx.core.dns.MxRecord.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.dns.MxRecord delegate;
 
   public MxRecord(io.vertx.core.dns.MxRecord delegate) {

@@ -36,7 +36,7 @@ public class NetSocketStream implements ReifiedType,  ReadStream<NetSocket> {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(NetSocketStream.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(NetSocketStream.class), io.vertx.core.net.NetSocketStream.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.net.NetSocketStream delegate;
 
   public NetSocketStream(io.vertx.core.net.NetSocketStream delegate) {
@@ -55,7 +55,7 @@ public class NetSocketStream implements ReifiedType,  ReadStream<NetSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class NetSocketStream implements ReifiedType,  ReadStream<NetSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.net::NetSocket)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.net.NetSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.net.NetSocket>() {
       public void handle(io.vertx.core.net.NetSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class NetSocketStream implements ReifiedType,  ReadStream<NetSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
   public NetSocketStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

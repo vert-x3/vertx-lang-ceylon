@@ -55,7 +55,7 @@ public class vertx_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Creates a non clustered instance using the specified options\n")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx vertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "the options to use\n") io.vertx.ceylon.core.VertxOptions options) {
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options")@DocAnnotation$annotation$(description = "the options to use\n") io.vertx.ceylon.core.VertxOptions options) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(io.vertx.core.Vertx.vertx(arg_0));
     return ret;
@@ -64,8 +64,8 @@ public class vertx_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Creates a clustered instance using the specified options.\n <p>\n The instance is created asynchronously and the resultHandler is called with the result when it is ready.\n")
   @TypeInfo("ceylon.language::Anything")
   public void clusteredVertx(
-    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options") @DocAnnotation$annotation$(description = "the options to use\n") io.vertx.ceylon.core.VertxOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler") @DocAnnotation$annotation$(description = "the result handler that will receive the result\n") Callable<?> resultHandler) {
+    final @TypeInfo("io.vertx.ceylon.core::VertxOptions") @Name("options")@DocAnnotation$annotation$(description = "the options to use\n") io.vertx.ceylon.core.VertxOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::Vertx)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the result handler that will receive the result\n") Callable<?> resultHandler) {
     io.vertx.core.VertxOptions arg_0 = options == null ? null : new io.vertx.core.VertxOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.Vertx>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.Vertx>(resultHandler) {
       public Object toCeylon(io.vertx.core.Vertx event) {

@@ -36,7 +36,7 @@ public class KeycloakHelper implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(KeycloakHelper.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(KeycloakHelper.class), io.vertx.ext.auth.oauth2.KeycloakHelper.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.oauth2.KeycloakHelper delegate;
 
   public KeycloakHelper(io.vertx.ext.auth.oauth2.KeycloakHelper delegate) {

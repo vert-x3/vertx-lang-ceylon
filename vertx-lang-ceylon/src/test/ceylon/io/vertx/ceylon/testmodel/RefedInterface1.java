@@ -34,7 +34,7 @@ public class RefedInterface1 implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(RefedInterface1.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(RefedInterface1.class), io.vertx.codegen.testmodel.RefedInterface1.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.RefedInterface1 delegate;
 
   public RefedInterface1(io.vertx.codegen.testmodel.RefedInterface1 delegate) {
@@ -59,7 +59,7 @@ public class RefedInterface1 implements ReifiedType {
 
   @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1")
   public RefedInterface1 setString(
-    final @TypeInfo("ceylon.language::String") @Name("str")  ceylon.language.String str) {
+    final @TypeInfo("ceylon.language::String") @Name("str") ceylon.language.String str) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(str);
     RefedInterface1 ret = io.vertx.ceylon.testmodel.RefedInterface1.TO_CEYLON.converter().safeConvert(delegate.setString(arg_0));
     return this;

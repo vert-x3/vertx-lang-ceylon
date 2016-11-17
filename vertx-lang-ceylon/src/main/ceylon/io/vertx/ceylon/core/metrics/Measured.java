@@ -45,7 +45,7 @@ public interface Measured {
 
   @Ignore
   public class Impl implements Measured {
-    @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(Measured.class);
+    @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Measured.class), io.vertx.core.metrics.Measured.class, TO_JAVA, TO_CEYLON);
     @Ignore private final io.vertx.core.metrics.Measured delegate;
 
     public Impl(io.vertx.core.metrics.Measured delegate) {

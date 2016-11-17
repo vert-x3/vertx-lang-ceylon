@@ -37,7 +37,7 @@ public class AuthProvider implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(AuthProvider.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(AuthProvider.class), io.vertx.ext.auth.AuthProvider.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.AuthProvider delegate;
 
   public AuthProvider(io.vertx.ext.auth.AuthProvider delegate) {
@@ -57,8 +57,8 @@ public class AuthProvider implements ReifiedType {
   @DocAnnotation$annotation$(description = " Authenticate a user.\n <p>\n The first argument is a JSON object containing information for authenticating the user. What this actually contains\n depends on the specific implementation. In the case of a simple username/password based\n authentication it is likely to contain a JSON object with the following structure:\n <pre>\n   {\n     \"username\": \"tim\",\n     \"password\": \"mypassword\"\n   }\n </pre>\n For other types of authentication it contain different information - for example a JWT token or OAuth bearer token.\n <p>\n If the user is successfully authenticated a [User](User.type.html) object is passed to the handler in an _async result_.\n The user object can then be used for authorisation.\n")
   @TypeInfo("ceylon.language::Anything")
   public void authenticate(
-    final @TypeInfo("ceylon.json::Object") @Name("authInfo") @DocAnnotation$annotation$(description = "The auth information\n") ceylon.json.Object authInfo, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.common::User)") @Name("resultHandler") @DocAnnotation$annotation$(description = "The result handler\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.json::Object") @Name("authInfo")@DocAnnotation$annotation$(description = "The auth information\n") ceylon.json.Object authInfo, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.common::User)") @Name("resultHandler")@DocAnnotation$annotation$(description = "The result handler\n") Callable<?> resultHandler) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(authInfo);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.User>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.User>(resultHandler) {
       public Object toCeylon(io.vertx.ext.auth.User event) {

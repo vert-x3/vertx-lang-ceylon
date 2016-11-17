@@ -39,9 +39,9 @@ public class future_ implements ReifiedType {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a future that hasn't completed yet\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> future(final @Ignore TypeDescriptor $reified$T) {
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.future());
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.future());
     return ret;
   }
 
@@ -49,9 +49,9 @@ public class future_ implements ReifiedType {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a succeeded future with a null result\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> succeededFuture(final @Ignore TypeDescriptor $reified$T) {
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.succeededFuture());
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.succeededFuture());
     return ret;
   }
 
@@ -59,11 +59,11 @@ public class future_ implements ReifiedType {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Created a succeeded future with the specified result.\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> succeededFuture(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("T?") @Name("result") @DocAnnotation$annotation$(description = "the result\n") T result) {
+    final @TypeInfo("T?") @Name("result")@DocAnnotation$annotation$(description = "the result\n") T result) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(result);
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.succeededFuture(arg_0));
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.succeededFuture(arg_0));
     return ret;
   }
 
@@ -71,11 +71,11 @@ public class future_ implements ReifiedType {
     @TypeParameter(value="T",variance=Variance.NONE)
   })
   @DocAnnotation$annotation$(description = " Create a failed future with the specified failure message.\n")
-  @TypeInfo("io.vertx.ceylon.core::Future<T>")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> failedFuture(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("ceylon.language::String") @Name("failureMessage") @DocAnnotation$annotation$(description = "the failure message\n") ceylon.language.String failureMessage) {
+    final @TypeInfo("ceylon.language::String") @Name("failureMessage")@DocAnnotation$annotation$(description = "the failure message\n") ceylon.language.String failureMessage) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(failureMessage);
-    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter($reified$T).safeConvert(io.vertx.core.Future.failedFuture(arg_0));
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.failedFuture(arg_0));
     return ret;
   }
 

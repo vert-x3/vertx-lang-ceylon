@@ -132,6 +132,16 @@
     } else if (kind == CLASS_API) {
       return type.raw.translateName(TRANSLATOR_COMPOSITE) + '.TO_JAVA.safeConvert(' + expr + ')';
     } else if (kind == CLASS_OBJECT) {
+      if (type.variable) {
+        if (type.classParam) {
+          return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + type.name + ').convert(' + expr + ')';
+        } else {
+          var classTypeParam = method.resolveClassTypeParam(type);
+          if (classTypeParam != null) {
+            return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$' + classTypeParam.type.args[0].name + ').convert(' + expr + ')';
+          }
+        }
+      }
       return 'io.vertx.lang.ceylon.ToJava.object(' + expr + ')';
     } else if (kind == CLASS_DATA_OBJECT) {
       return expr + ' == null ? null : new ' + type.name + '(io.vertx.lang.ceylon.ToJava.JsonObject.convert(' + expr + '.toJson()))';
@@ -150,7 +160,9 @@
         return 'io.vertx.lang.ceylon.ToJava.convertMap' + '(' + expr + ', io.vertx.lang.ceylon.ToJava.String, ' + valConverter + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
-        return expr;
+      return expr;
+    } else if (kind == CLASS_CLASS_TYPE) {
+      return 'io.vertx.lang.ceylon.VertxTypeDescriptor.getClass($reified$' + type.args[0].name + ')';
     }
     return 'null';
   }
@@ -175,6 +187,31 @@
     return null;
   }
 
+  def genTypeDescriptor(type) {
+    if (type.variable) {
+      if (type.methodParam) {
+        return 'io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$' + type.name + ')';
+      } else {
+        return '$reified$' + type.name;
+      }
+    } else if (type.kind == CLASS_API || type.kind.basic || type.kind.json) {
+      return genJavaInterropTypeDecl(typeArg) + '.$TypeDescriptor$';
+    } else if (type.kind == CLASS_DATA_OBJECT) {
+      return 'new io.vertx.lang.ceylon.VertxTypeDescriptor(' + genJavaInterropTypeDecl(typeArg) + '.$TypeDescriptor$' +
+             ', ' + typeArg.name + '.class' +
+             ', ' + genParamConverter(type) +
+             ', ' + genReturnConverter(type) + ')';
+    } else if (type.kind == CLASS_ENUM) {
+      var desc = type.gen ? (type.translatePackageName(TRANSLATOR_COMPOSITE) + '.' + type.simpleName) : 'ceylon.language.String';
+      return 'new io.vertx.lang.ceylon.VertxTypeDescriptor(' + desc + '.$TypeDescriptor$' +
+             ', ' + typeArg.name + '.class' +
+             ', ' + genParamConverter(type) +
+             ', ' + genReturnConverter(type) + ')';
+    } else {
+      return 'null /* unsupported yet ' + type.name + '/' + type.kind + '  */ ';
+    }
+  }
+
   /*
    * Returns the Ceylon expression that converts a Java object to a Ceylon object.
    * @param type the type of the Java object
@@ -191,7 +228,7 @@
         }
         return expr;
       } else if (kind == CLASS_DATA_OBJECT) {
-        return type.translatePackageName(TRANSLATOR_COMPOSITE) + '.' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.get_().getToCeylon().safeConvert(' + expr + ')';
+        return genReturnConverter(type) + '.safeConvert(' + expr + ')';
       } else if (kind == CLASS_LIST || kind == CLASS_SET) {
         var eltType = type.args[0];
         var collection = kind == CLASS_LIST ? 'io.vertx.lang.ceylon.ToCeylon.convertList' : 'io.vertx.lang.ceylon.ToCeylon.convertSet';
@@ -211,11 +248,7 @@
             if (index > 0) {
               ret.append(', ');
             }
-            if (typeArg.variable) {
-              ret.append('$reified$').append(typeArg.name);
-            } else {
-              ret.append('null /* unsupported yet ' + typeArg + '/' + typeArg.kind + '  */ ');
-            }
+            ret.append(genTypeDescriptor(typeArg));
             index = index + 1;
           }
         }
@@ -225,6 +258,19 @@
         return ret.toString();;
       } else if (kind.json) {
       } else if (kind == CLASS_OBJECT) {
+        if (type.variable) {
+          if (type.classParam) {
+            return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + type.name + ').convert(' + expr + ')';
+          }
+          if (method != null) {
+            /* work around for failure */
+            var reflect = method.getClass().getMethod("resolveClassTypeParam", type.getClass());
+            var classTypeParam = reflect.invoke(method, type);
+            if (classTypeParam != null) {
+              return '(' + type.name + ')io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$' + classTypeParam.type.args[0].name + ').convert(' + expr + ')';
+            }
+          }
+        }
         return 'io.vertx.lang.ceylon.ToCeylon.object(' + expr + ')';
       } else if (kind == CLASS_ENUM) {
         return genReturnConverter(type) + '.safeConvert(' + expr + ')';
@@ -398,17 +444,21 @@
   /*
    * Generate Ceylon type declaration.
    */
-  def genCeylonTypeDecl(type, allowNullable) {
+  def genCeylonTypeDecl(type) {
     var nullable = type.nullable;
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
       decl = genJavaClassName(type.raw, '::');
       if (type.parameterized) {
-        decl = genCeylonTypeDecl(type.raw, allowNullable);
+        decl = genCeylonTypeDecl(type.raw);
         var sep = '<';
         for (typeArg : type.args) {
-          decl += sep + genCeylonTypeDecl(typeArg, false);
+          if (typeArg.variable && typeArg.methodParam) {
+            decl += sep + typeArg.name + '?';
+          } else {
+            decl += sep + genCeylonTypeDecl(typeArg);
+          }
           sep = ',';
         }
         decl += '>';
@@ -420,16 +470,17 @@
     } else if (kind == CLASS_PRIMITIVE || kind == CLASS_BOXED_PRIMITIVE) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_OBJECT) {
-      nullable = true;
       if (type.variable) {
+        nullable = type.methodParam;
         decl = type.name;
       } else {
+        nullable = true;
         decl = 'ceylon.language::Object';
       }
     } else if (kind == CLASS_HANDLER || kind == CLASS_FUNCTION) {
       var decl = 'ceylon.language::Anything';
       if (kind == CLASS_FUNCTION) {
-        decl = genCeylonTypeDecl(type.args[1], true);
+        decl = genCeylonTypeDecl(type.args[1]);
       }
       var arg = type.args[0];
       if (arg.kind == CLASS_VOID) {
@@ -439,10 +490,10 @@
         if (result.kind == CLASS_VOID) {
           decl += '(ceylon.language::Throwable?)';
         } else {
-          decl += '(ceylon.language::Throwable|' + genCeylonTypeDecl(result, allowNullable) + ')';
+          decl += '(ceylon.language::Throwable|' + genCeylonTypeDecl(result) + ')';
         }
       } else {
-        decl += '(' + genCeylonTypeDecl(type.args[0], allowNullable) + ')';
+        decl += '(' + genCeylonTypeDecl(type.args[0]) + ')';
       }
     } else if (kind == CLASS_THROWABLE) {
       decl = 'ceylon.language::Throwable';
@@ -452,14 +503,14 @@
       decl = 'ceylon.language::Anything';
     } else if (kind == CLASS_SET) {
       if (type.args[0].nullable) {
-        decl = 'ceylon.language::Collection<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+        decl = 'ceylon.language::Collection<' + genCeylonTypeDecl(type.args[0]) + '>';
       } else {
-        decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+        decl = 'ceylon.language::Set<' + genCeylonTypeDecl(type.args[0]) + '>';
       }
     } else if (kind == CLASS_LIST) {
-      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0], allowNullable) + '>';
+      decl = 'ceylon.language::List<' + genCeylonTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_MAP) {
-      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0], allowNullable) + ',' + genCeylonTypeDecl(type.args[1], allowNullable) + '>';
+      decl = 'ceylon.language::Map<' + genCeylonTypeDecl(type.args[0]) + ',' + genCeylonTypeDecl(type.args[1]) + '>';
     } else if (kind == CLASS_JSON_OBJECT) {
       decl = genJavaClassName(type, '::');
     } else if (kind == CLASS_JSON_ARRAY) {
@@ -469,7 +520,7 @@
         decl = 'ceylon.language::Anything';
       }
     }
-    if (allowNullable && nullable) {
+    if (nullable) {
       decl += "?";
     }
     return decl;
@@ -623,13 +674,21 @@
 @if{method.typeParams.size() > 0}
 @includeNamed{'genTypeParamsDesc';params=method.typeParams}
 @end{}
+@code{
+  var methodParams = new java.util.ArrayList();
+  for (methodParam : method.params) {
+    if (methodParam.type.kind != CLASS_CLASS_TYPE) {
+      methodParams.add(methodParam);
+    }
+  }
+}
 @if{method.doc != null}
   @DocAnnotation$annotation$(description = "@{genDoc(method.doc)}")\n
 @end{}
-  @TypeInfo("@{genCeylonTypeDecl(method.returnType, true)}")\n
+  @TypeInfo("@{genCeylonTypeDecl(method.returnType)}")\n
   public @if{method.typeParams.size() > 0}@includeNamed{'genTypeParams';params=method.typeParams} @end{}
-@{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && method.params.size() > 0}, @end{}@foreach{param:method.params}
-\n    final @TypeInfo("@{genCeylonTypeDecl(param.type, true)}") @Name("@{param.name}") @if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
+@{genJavaInterropTypeDecl(method.returnType)} @{genMethodName(method)}(@foreach{typeParam:method.typeParams}final @Ignore TypeDescriptor @{'$reified$' + typeParam.name}@end{', '}@if{method.typeParams.size() > 0 && methodParams.size() > 0}, @end{}@foreach{param:methodParams}
+\n    final @TypeInfo("@{genCeylonTypeDecl(param.type)}") @Name("@{param.name}")@if{param.description != null}@DocAnnotation$annotation$(description = "@{genDoc(param.description)}")@end{} @{genJavaInterropTypeDecl(param.type)} @{param.name}@end{', '})
 @end{}
 
 @declare{'genTypeParamsDesc'}

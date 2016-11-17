@@ -128,6 +128,12 @@ public class ToCeylon {
     return convertMap(keyTypeDesc, nullable(valTypeDesc), from, keyConverter, valConverter);
   }
 
+  public static final Converter<java.lang.Object, java.lang.Object> Object = new Converter<java.lang.Object, java.lang.Object>() {
+    public java.lang.Object convert(java.lang.Object src) {
+      return object(src);
+    }
+  };
+
   public static final Converter<java.lang.Boolean, ceylon.language.Boolean> Boolean = new Converter<java.lang.Boolean, ceylon.language.Boolean>() {
     public ceylon.language.Boolean convert(java.lang.Boolean src) {
       return ceylon.language.Boolean.instance(src);

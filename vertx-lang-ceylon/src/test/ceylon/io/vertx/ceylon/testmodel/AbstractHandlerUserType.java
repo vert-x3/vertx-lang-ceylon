@@ -42,11 +42,11 @@ public interface AbstractHandlerUserType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0")  RefedInterface1 arg0);
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") RefedInterface1 arg0);
 
   @Ignore
   public class Impl implements AbstractHandlerUserType {
-    @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(AbstractHandlerUserType.class);
+    @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(AbstractHandlerUserType.class), io.vertx.codegen.testmodel.AbstractHandlerUserType.class, TO_JAVA, TO_CEYLON);
     @Ignore private final io.vertx.codegen.testmodel.AbstractHandlerUserType delegate;
 
     public Impl(io.vertx.codegen.testmodel.AbstractHandlerUserType delegate) {
@@ -65,7 +65,7 @@ public interface AbstractHandlerUserType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0")  RefedInterface1 arg0) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg0") RefedInterface1 arg0) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
     }

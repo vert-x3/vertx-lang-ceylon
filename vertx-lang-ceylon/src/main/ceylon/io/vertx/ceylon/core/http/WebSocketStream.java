@@ -36,7 +36,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocketStream.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(WebSocketStream.class), io.vertx.core.http.WebSocketStream.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.WebSocketStream delegate;
 
   public WebSocketStream(io.vertx.core.http.WebSocketStream delegate) {
@@ -55,7 +55,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -67,7 +67,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
       public void handle(io.vertx.core.http.WebSocket event) {
         handler.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
@@ -91,7 +91,7 @@ public class WebSocketStream implements ReifiedType,  ReadStream<WebSocket> {
 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
   public WebSocketStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

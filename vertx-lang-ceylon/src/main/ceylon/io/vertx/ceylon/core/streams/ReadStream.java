@@ -46,12 +46,12 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set an exception handler on the read stream.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")@DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler")  Callable<?> handler);
+    final @TypeInfo("ceylon.language::Anything(T)?") @Name("handler") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Pause the <code>ReadSupport</code>. While it's paused, no data will be sent to the <code>dataHandler</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
@@ -64,7 +64,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set an end handler. Once the stream has ended, and there is no more data to be read, this handler will be called.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler);
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler);
 
   @Ignore
   public class Impl<T> implements ReadStream<T> {
@@ -91,7 +91,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set an exception handler on the read stream.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") @DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")@DocAnnotation$annotation$(description = "the exception handler\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -104,10 +104,10 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set a data handler. As data is read, the handler will be called with the data.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> handler(
-    final @TypeInfo("ceylon.language::Anything(T?)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(T)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Object> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Object>() {
       public void handle(java.lang.Object event) {
-        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.object(event));
+        handler.$call$((Object)(T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$T).convert(event));
       }
     };
     ReadStream<T> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter($reified$T).safeConvert(delegate.handler(arg_0));
@@ -131,7 +131,7 @@ public interface ReadStream<T> extends StreamBase {
   @DocAnnotation$annotation$(description = " Set an end handler. Once the stream has ended, and there is no more data to be read, this handler will be called.\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>")
   public ReadStream<T> endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

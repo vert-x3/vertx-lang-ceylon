@@ -37,7 +37,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpServerFileUpload.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpServerFileUpload.class), io.vertx.core.http.HttpServerFileUpload.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpServerFileUpload delegate;
 
   public HttpServerFileUpload(io.vertx.core.http.HttpServerFileUpload delegate) {
@@ -56,7 +56,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -68,7 +68,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload handler(
-    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
       public void handle(io.vertx.core.buffer.Buffer event) {
         handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
@@ -80,7 +80,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload endHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler")  Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();
@@ -105,7 +105,7 @@ public class HttpServerFileUpload implements ReifiedType,  ReadStream<Buffer> {
   @DocAnnotation$annotation$(description = " Stream the content of this upload to the given file on storage.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerFileUpload")
   public HttpServerFileUpload streamToFileSystem(
-    final @TypeInfo("ceylon.language::String") @Name("filename") @DocAnnotation$annotation$(description = "the name of the file\n") ceylon.language.String filename) {
+    final @TypeInfo("ceylon.language::String") @Name("filename")@DocAnnotation$annotation$(description = "the name of the file\n") ceylon.language.String filename) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(filename);
     HttpServerFileUpload ret = io.vertx.ceylon.core.http.HttpServerFileUpload.TO_CEYLON.converter().safeConvert(delegate.streamToFileSystem(arg_0));
     return this;

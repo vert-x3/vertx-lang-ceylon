@@ -41,7 +41,7 @@ public class FunctionParamTCK implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FunctionParamTCK.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(FunctionParamTCK.class), io.vertx.codegen.testmodel.FunctionParamTCK.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.codegen.testmodel.FunctionParamTCK delegate;
 
   public FunctionParamTCK(io.vertx.codegen.testmodel.FunctionParamTCK delegate) {
@@ -60,15 +60,15 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> methodWithBasicParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::Byte)") @Name("byteFunc")  Callable<?> byteFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("shortFunc")  Callable<?> shortFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("integerFunc")  Callable<?> integerFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("longFunc")  Callable<?> longFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Float)") @Name("floatFunc")  Callable<?> floatFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Float)") @Name("doubleFunc")  Callable<?> doubleFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Boolean)") @Name("booleanFunc")  Callable<?> booleanFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Character)") @Name("charFunc")  Callable<?> charFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("stringFunc")  Callable<?> stringFunc) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::Byte)") @Name("byteFunc") Callable<?> byteFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("shortFunc") Callable<?> shortFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("integerFunc") Callable<?> integerFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Integer)") @Name("longFunc") Callable<?> longFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Float)") @Name("floatFunc") Callable<?> floatFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Float)") @Name("doubleFunc") Callable<?> doubleFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Boolean)") @Name("booleanFunc") Callable<?> booleanFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Character)") @Name("charFunc") Callable<?> charFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("stringFunc") Callable<?> stringFunc) {
     java.util.function.Function<java.lang.Byte,java.lang.String> arg_0 = byteFunc == null ? null : new java.util.function.Function<java.lang.Byte,java.lang.String>() {
       public java.lang.String apply(java.lang.Byte arg) {
         ceylon.language.String ret = (ceylon.language.String)byteFunc.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Byte.safeConvert(arg));
@@ -129,8 +129,8 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> methodWithJsonParam(
-    final @TypeInfo("ceylon.language::String(ceylon.json::Object)") @Name("objectFunc")  Callable<?> objectFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.json::Array)") @Name("arrayFunc")  Callable<?> arrayFunc) {
+    final @TypeInfo("ceylon.language::String(ceylon.json::Object)") @Name("objectFunc") Callable<?> objectFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.json::Array)") @Name("arrayFunc") Callable<?> arrayFunc) {
     java.util.function.Function<io.vertx.core.json.JsonObject,java.lang.String> arg_0 = objectFunc == null ? null : new java.util.function.Function<io.vertx.core.json.JsonObject,java.lang.String>() {
       public java.lang.String apply(io.vertx.core.json.JsonObject arg) {
         ceylon.language.String ret = (ceylon.language.String)objectFunc.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(arg));
@@ -149,7 +149,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithVoidParam(
-    final @TypeInfo("ceylon.language::String()") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String()") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.Void,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<java.lang.Void,java.lang.String>() {
       public java.lang.String apply(java.lang.Void arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$();
@@ -162,8 +162,8 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithUserTypeParam(
-    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg")  RefedInterface1 arg, 
-    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::RefedInterface1") @Name("arg") RefedInterface1 arg, 
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::RefedInterface1)") @Name("func") Callable<?> func) {
     io.vertx.codegen.testmodel.RefedInterface1 arg_0 = io.vertx.ceylon.testmodel.RefedInterface1.TO_JAVA.safeConvert(arg);
     java.util.function.Function<io.vertx.codegen.testmodel.RefedInterface1,java.lang.String> arg_1 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.RefedInterface1,java.lang.String>() {
       public java.lang.String apply(io.vertx.codegen.testmodel.RefedInterface1 arg) {
@@ -177,8 +177,8 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithObjectParam(
-    final @TypeInfo("ceylon.language::Object?") @Name("arg")  Object arg, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::Object?)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::Object?") @Name("arg") Object arg, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::Object?)") @Name("func") Callable<?> func) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(arg);
     java.util.function.Function<java.lang.Object,java.lang.String> arg_1 = func == null ? null : new java.util.function.Function<java.lang.Object,java.lang.String>() {
       public java.lang.String apply(java.lang.Object arg) {
@@ -192,7 +192,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithDataObjectParam(
-    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::TestDataObject)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::TestDataObject)") @Name("func") Callable<?> func) {
     java.util.function.Function<io.vertx.codegen.testmodel.TestDataObject,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.TestDataObject,java.lang.String>() {
       public java.lang.String apply(io.vertx.codegen.testmodel.TestDataObject arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.ceylon.testmodel.testDataObject_.get_().getToCeylon().safeConvert(arg));
@@ -205,7 +205,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithEnumParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<io.vertx.codegen.testmodel.TestEnum,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.TestEnum,java.lang.String>() {
       public java.lang.String apply(io.vertx.codegen.testmodel.TestEnum arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.<io.vertx.codegen.testmodel.TestEnum>enumeration().safeConvert(arg));
@@ -218,7 +218,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithListParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::List<ceylon.language::String>)") @Name("stringFunc")  Callable<?> stringFunc) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::List<ceylon.language::String>)") @Name("stringFunc") Callable<?> stringFunc) {
     java.util.function.Function<java.util.List<java.lang.String>,java.lang.String> arg_0 = stringFunc == null ? null : new java.util.function.Function<java.util.List<java.lang.String>,java.lang.String>() {
       public java.lang.String apply(java.util.List<java.lang.String> arg) {
         ceylon.language.String ret = (ceylon.language.String)stringFunc.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, arg, io.vertx.lang.ceylon.ToCeylon.String));
@@ -231,7 +231,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithSetParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::Set<ceylon.language::String>)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::Set<ceylon.language::String>)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.util.Set<java.lang.String>,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<java.util.Set<java.lang.String>,java.lang.String>() {
       public java.lang.String apply(java.util.Set<java.lang.String> arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertSet(ceylon.language.String.$TypeDescriptor$, arg, io.vertx.lang.ceylon.ToCeylon.String));
@@ -244,7 +244,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithMapParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::Map<ceylon.language::String,ceylon.language::String>)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::Map<ceylon.language::String,ceylon.language::String>)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.util.Map<java.lang.String,java.lang.String>,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<java.util.Map<java.lang.String,java.lang.String>,java.lang.String>() {
       public java.lang.String apply(java.util.Map<java.lang.String,java.lang.String> arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertMap(ceylon.language.String.$TypeDescriptor$, ceylon.language.String.$TypeDescriptor$, arg, io.vertx.lang.ceylon.ToCeylon.String, io.vertx.lang.ceylon.ToCeylon.String));
@@ -260,8 +260,8 @@ public class FunctionParamTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericParam(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("T?") @Name("t")  T t, 
-    final @TypeInfo("ceylon.language::String(T?)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("T?") @Name("t") T t, 
+    final @TypeInfo("ceylon.language::String(T?)") @Name("func") Callable<?> func) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(t);
     java.util.function.Function<java.lang.Object,java.lang.String> arg_1 = func == null ? null : new java.util.function.Function<java.lang.Object,java.lang.String>() {
       public java.lang.String apply(java.lang.Object arg) {
@@ -278,12 +278,12 @@ public class FunctionParamTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericUserTypeParam(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("T?") @Name("t")  T t, 
-    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<T>)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("T?") @Name("t") T t, 
+    final @TypeInfo("ceylon.language::String(io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("func") Callable<?> func) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(t);
     java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String> arg_1 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,java.lang.String>() {
       public java.lang.String apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg) {
-        ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$T).safeConvert(arg));
+        ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(arg));
         return io.vertx.lang.ceylon.ToJava.String.safeConvert(ret);
       }
     };
@@ -293,15 +293,15 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithBasicReturn(
-    final @TypeInfo("ceylon.language::Byte(ceylon.language::String)") @Name("byteFunc")  Callable<?> byteFunc, 
-    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("shortFunc")  Callable<?> shortFunc, 
-    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("integerFunc")  Callable<?> integerFunc, 
-    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("longFunc")  Callable<?> longFunc, 
-    final @TypeInfo("ceylon.language::Float(ceylon.language::String)") @Name("floatFunc")  Callable<?> floatFunc, 
-    final @TypeInfo("ceylon.language::Float(ceylon.language::String)") @Name("doubleFunc")  Callable<?> doubleFunc, 
-    final @TypeInfo("ceylon.language::Boolean(ceylon.language::String)") @Name("booleanFunc")  Callable<?> booleanFunc, 
-    final @TypeInfo("ceylon.language::Character(ceylon.language::String)") @Name("charFunc")  Callable<?> charFunc, 
-    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("stringFunc")  Callable<?> stringFunc) {
+    final @TypeInfo("ceylon.language::Byte(ceylon.language::String)") @Name("byteFunc") Callable<?> byteFunc, 
+    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("shortFunc") Callable<?> shortFunc, 
+    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("integerFunc") Callable<?> integerFunc, 
+    final @TypeInfo("ceylon.language::Integer(ceylon.language::String)") @Name("longFunc") Callable<?> longFunc, 
+    final @TypeInfo("ceylon.language::Float(ceylon.language::String)") @Name("floatFunc") Callable<?> floatFunc, 
+    final @TypeInfo("ceylon.language::Float(ceylon.language::String)") @Name("doubleFunc") Callable<?> doubleFunc, 
+    final @TypeInfo("ceylon.language::Boolean(ceylon.language::String)") @Name("booleanFunc") Callable<?> booleanFunc, 
+    final @TypeInfo("ceylon.language::Character(ceylon.language::String)") @Name("charFunc") Callable<?> charFunc, 
+    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("stringFunc") Callable<?> stringFunc) {
     java.util.function.Function<java.lang.String,java.lang.Byte> arg_0 = byteFunc == null ? null : new java.util.function.Function<java.lang.String,java.lang.Byte>() {
       public java.lang.Byte apply(java.lang.String arg) {
         ceylon.language.Byte ret = (ceylon.language.Byte)byteFunc.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -362,8 +362,8 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithJsonReturn(
-    final @TypeInfo("ceylon.json::Object(ceylon.language::String)") @Name("objectFunc")  Callable<?> objectFunc, 
-    final @TypeInfo("ceylon.json::Array(ceylon.language::String)") @Name("arrayFunc")  Callable<?> arrayFunc) {
+    final @TypeInfo("ceylon.json::Object(ceylon.language::String)") @Name("objectFunc") Callable<?> objectFunc, 
+    final @TypeInfo("ceylon.json::Array(ceylon.language::String)") @Name("arrayFunc") Callable<?> arrayFunc) {
     java.util.function.Function<java.lang.String,io.vertx.core.json.JsonObject> arg_0 = objectFunc == null ? null : new java.util.function.Function<java.lang.String,io.vertx.core.json.JsonObject>() {
       public io.vertx.core.json.JsonObject apply(java.lang.String arg) {
         ceylon.json.Object ret = (ceylon.json.Object)objectFunc.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -382,7 +382,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithObjectReturn(
-    final @TypeInfo("ceylon.language::Object?(ceylon.language::Integer)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::Object?(ceylon.language::Integer)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.Integer,java.lang.Object> arg_0 = func == null ? null : new java.util.function.Function<java.lang.Integer,java.lang.Object>() {
       public java.lang.Object apply(java.lang.Integer arg) {
         Object ret = (Object)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Integer.safeConvert(arg));
@@ -395,7 +395,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithDataObjectReturn(
-    final @TypeInfo("io.vertx.ceylon.testmodel::TestDataObject(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::TestDataObject(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,io.vertx.codegen.testmodel.TestDataObject> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,io.vertx.codegen.testmodel.TestDataObject>() {
       public io.vertx.codegen.testmodel.TestDataObject apply(java.lang.String arg) {
         io.vertx.ceylon.testmodel.TestDataObject ret = (io.vertx.ceylon.testmodel.TestDataObject)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -408,7 +408,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithEnumReturn(
-    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,io.vertx.codegen.testmodel.TestEnum> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,io.vertx.codegen.testmodel.TestEnum>() {
       public io.vertx.codegen.testmodel.TestEnum apply(java.lang.String arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -421,7 +421,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithListReturn(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,java.util.List<java.lang.String>> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,java.util.List<java.lang.String>>() {
       public java.util.List<java.lang.String> apply(java.lang.String arg) {
         ceylon.language.List<ceylon.language.String> ret = (ceylon.language.List<ceylon.language.String>)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -434,7 +434,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithSetReturn(
-    final @TypeInfo("ceylon.language::Set<ceylon.language::String>(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,java.util.Set<java.lang.String>> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,java.util.Set<java.lang.String>>() {
       public java.util.Set<java.lang.String> apply(java.lang.String arg) {
         ceylon.language.Set<ceylon.language.String> ret = (ceylon.language.Set<ceylon.language.String>)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -447,7 +447,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithMapReturn(
-    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::Map<ceylon.language::String,ceylon.language::String>(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,java.util.Map<java.lang.String,java.lang.String>> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,java.util.Map<java.lang.String,java.lang.String>>() {
       public java.util.Map<java.lang.String,java.lang.String> apply(java.lang.String arg) {
         ceylon.language.Map<ceylon.language.String,ceylon.language.String> ret = (ceylon.language.Map<ceylon.language.String,ceylon.language.String>)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));
@@ -463,7 +463,7 @@ public class FunctionParamTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericReturn(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("T?(ceylon.language::Integer)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("T?(ceylon.language::Integer)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.Integer,java.lang.Object> arg_0 = func == null ? null : new java.util.function.Function<java.lang.Integer,java.lang.Object>() {
       public java.lang.Object apply(java.lang.Integer arg) {
         Object ret = (Object)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.Integer.safeConvert(arg));
@@ -479,10 +479,10 @@ public class FunctionParamTCK implements ReifiedType {
   })
   @TypeInfo("ceylon.language::String")
   public <T> ceylon.language.String methodWithGenericUserTypeReturn(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T>(io.vertx.ceylon.testmodel::GenericRefedInterface<T>)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>(io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("func") Callable<?> func) {
     java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_0 = func == null ? null : new java.util.function.Function<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>,io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() {
       public io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> apply(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg) {
-        GenericRefedInterface<Object> ret = (GenericRefedInterface<Object>)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter($reified$T).safeConvert(arg));
+        GenericRefedInterface<Object> ret = (GenericRefedInterface<Object>)func.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(arg));
         return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_JAVA.safeConvert(ret);
       }
     };
@@ -492,7 +492,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithNullableListParam(
-    final @TypeInfo("ceylon.language::String(ceylon.language::List<ceylon.language::String>?)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::String(ceylon.language::List<ceylon.language::String>?)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.util.List<java.lang.String>,java.lang.String> arg_0 = func == null ? null : new java.util.function.Function<java.util.List<java.lang.String>,java.lang.String>() {
       public java.lang.String apply(java.util.List<java.lang.String> arg) {
         ceylon.language.String ret = (ceylon.language.String)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, arg, io.vertx.lang.ceylon.ToCeylon.String));
@@ -505,7 +505,7 @@ public class FunctionParamTCK implements ReifiedType {
 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String methodWithNullableListReturn(
-    final @TypeInfo("ceylon.language::List<ceylon.language::String>?(ceylon.language::String)") @Name("func")  Callable<?> func) {
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>?(ceylon.language::String)") @Name("func") Callable<?> func) {
     java.util.function.Function<java.lang.String,java.util.List<java.lang.String>> arg_0 = func == null ? null : new java.util.function.Function<java.lang.String,java.util.List<java.lang.String>>() {
       public java.util.List<java.lang.String> apply(java.lang.String arg) {
         ceylon.language.List<ceylon.language.String> ret = (ceylon.language.List<ceylon.language.String>)func.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(arg));

@@ -39,8 +39,8 @@ public class oAuth2AuthHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a OAuth2 auth handler\n")
   @TypeInfo("io.vertx.ceylon.web.handler::OAuth2AuthHandler")
   public OAuth2AuthHandler create(
-    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth") @Name("authProvider") @DocAnnotation$annotation$(description = "the auth provider to use\n") OAuth2Auth authProvider, 
-    final @TypeInfo("ceylon.language::String") @Name("uri")  ceylon.language.String uri) {
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth") @Name("authProvider")@DocAnnotation$annotation$(description = "the auth provider to use\n") OAuth2Auth authProvider, 
+    final @TypeInfo("ceylon.language::String") @Name("uri") ceylon.language.String uri) {
     io.vertx.ext.auth.oauth2.OAuth2Auth arg_0 = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_JAVA.safeConvert(authProvider);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(uri);
     OAuth2AuthHandler ret = io.vertx.ceylon.web.handler.OAuth2AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.OAuth2AuthHandler.create(arg_0, arg_1));

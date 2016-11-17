@@ -4,3 +4,5 @@ output=./target/modules
 
 [defaults]
 offline=false
+flatclasspath=false
+autoexportmavendependencies=false

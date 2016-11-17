@@ -36,7 +36,7 @@ public class BodyHandler implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(BodyHandler.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(BodyHandler.class), io.vertx.ext.web.handler.BodyHandler.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.BodyHandler delegate;
 
   public BodyHandler(io.vertx.ext.web.handler.BodyHandler delegate) {
@@ -55,7 +55,7 @@ public class BodyHandler implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0")  RoutingContext arg0) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") RoutingContext arg0) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
@@ -63,7 +63,7 @@ public class BodyHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the maximum body size -1 means unlimited\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setBodyLimit(
-    final @TypeInfo("ceylon.language::Integer") @Name("bodyLimit") @DocAnnotation$annotation$(description = "the max size\n") long bodyLimit) {
+    final @TypeInfo("ceylon.language::Integer") @Name("bodyLimit")@DocAnnotation$annotation$(description = "the max size\n") long bodyLimit) {
     long arg_0 = bodyLimit;
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setBodyLimit(arg_0));
     return this;
@@ -72,7 +72,7 @@ public class BodyHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the uploads directory to use\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setUploadsDirectory(
-    final @TypeInfo("ceylon.language::String") @Name("uploadsDirectory") @DocAnnotation$annotation$(description = "the uploads directory\n") ceylon.language.String uploadsDirectory) {
+    final @TypeInfo("ceylon.language::String") @Name("uploadsDirectory")@DocAnnotation$annotation$(description = "the uploads directory\n") ceylon.language.String uploadsDirectory) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(uploadsDirectory);
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setUploadsDirectory(arg_0));
     return this;
@@ -81,7 +81,7 @@ public class BodyHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set whether form attributes will be added to the request parameters\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setMergeFormAttributes(
-    final @TypeInfo("ceylon.language::Boolean") @Name("mergeFormAttributes") @DocAnnotation$annotation$(description = "true if they should be merged\n") boolean mergeFormAttributes) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("mergeFormAttributes")@DocAnnotation$annotation$(description = "true if they should be merged\n") boolean mergeFormAttributes) {
     boolean arg_0 = mergeFormAttributes;
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setMergeFormAttributes(arg_0));
     return this;
@@ -90,7 +90,7 @@ public class BodyHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set whether uploaded files should be removed after handling the request\n")
   @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
   public BodyHandler setDeleteUploadedFilesOnEnd(
-    final @TypeInfo("ceylon.language::Boolean") @Name("deleteUploadedFilesOnEnd") @DocAnnotation$annotation$(description = "true if uploaded files should be removed after handling the request\n") boolean deleteUploadedFilesOnEnd) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("deleteUploadedFilesOnEnd")@DocAnnotation$annotation$(description = "true if uploaded files should be removed after handling the request\n") boolean deleteUploadedFilesOnEnd) {
     boolean arg_0 = deleteUploadedFilesOnEnd;
     BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setDeleteUploadedFilesOnEnd(arg_0));
     return this;

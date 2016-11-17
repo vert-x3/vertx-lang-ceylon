@@ -38,8 +38,8 @@ public class pump_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "the read stream\n") ReadStream<T> rs, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "the write stream\n") WriteStream<T> ws) {
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T?>") @Name("rs")@DocAnnotation$annotation$(description = "the read stream\n") ReadStream<T> rs, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T?>") @Name("ws")@DocAnnotation$annotation$(description = "the write stream\n") WriteStream<T> ws) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     Pump ret = io.vertx.ceylon.core.streams.Pump.TO_CEYLON.converter().safeConvert(io.vertx.core.streams.Pump.pump(arg_0, arg_1));
@@ -52,9 +52,9 @@ public class pump_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new <code>Pump</code> with the given <code>ReadStream</code> and <code>WriteStream</code> and\n <code>writeQueueMaxSize</code>\n")
   @TypeInfo("io.vertx.ceylon.core.streams::Pump")
   public <T> Pump pump(final @Ignore TypeDescriptor $reified$T, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T>") @Name("rs") @DocAnnotation$annotation$(description = "the read stream\n") ReadStream<T> rs, 
-    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T>") @Name("ws") @DocAnnotation$annotation$(description = "the write stream\n") WriteStream<T> ws, 
-    final @TypeInfo("ceylon.language::Integer") @Name("writeQueueMaxSize") @DocAnnotation$annotation$(description = "the max size of the write queue\n") long writeQueueMaxSize) {
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<T?>") @Name("rs")@DocAnnotation$annotation$(description = "the read stream\n") ReadStream<T> rs, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<T?>") @Name("ws")@DocAnnotation$annotation$(description = "the write stream\n") WriteStream<T> ws, 
+    final @TypeInfo("ceylon.language::Integer") @Name("writeQueueMaxSize")@DocAnnotation$annotation$(description = "the max size of the write queue\n") long writeQueueMaxSize) {
     io.vertx.core.streams.ReadStream<java.lang.Object> arg_0 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(rs);
     io.vertx.core.streams.WriteStream<java.lang.Object> arg_1 = io.vertx.ceylon.core.streams.WriteStream.TO_JAVA.safeConvert(ws);
     int arg_2 = (int)writeQueueMaxSize;

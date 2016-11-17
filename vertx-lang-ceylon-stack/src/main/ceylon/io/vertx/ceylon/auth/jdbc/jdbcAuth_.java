@@ -41,7 +41,7 @@ public class jdbcAuth_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a JDBC auth provider implementation\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth create(
-    final @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient") @Name("client") @DocAnnotation$annotation$(description = "the JDBC client instance\n") JDBCClient client) {
+    final @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient") @Name("client")@DocAnnotation$annotation$(description = "the JDBC client instance\n") JDBCClient client) {
     io.vertx.ext.jdbc.JDBCClient arg_0 = io.vertx.ceylon.jdbc.JDBCClient.TO_JAVA.safeConvert(client);
     JDBCAuth ret = io.vertx.ceylon.auth.jdbc.JDBCAuth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.jdbc.JDBCAuth.create(arg_0));
     return ret;

@@ -37,7 +37,7 @@ public class FormLoginHandler implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(FormLoginHandler.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(FormLoginHandler.class), io.vertx.ext.web.handler.FormLoginHandler.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.FormLoginHandler delegate;
 
   public FormLoginHandler(io.vertx.ext.web.handler.FormLoginHandler delegate) {
@@ -56,7 +56,7 @@ public class FormLoginHandler implements ReifiedType {
 
   @TypeInfo("ceylon.language::Anything")
   public void handle(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0")  RoutingContext arg0) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("arg0") RoutingContext arg0) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(arg0);
     delegate.handle(arg_0);
   }
@@ -64,7 +64,7 @@ public class FormLoginHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the name of the form param used to submit the username\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setUsernameParam(
-    final @TypeInfo("ceylon.language::String") @Name("usernameParam") @DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String usernameParam) {
+    final @TypeInfo("ceylon.language::String") @Name("usernameParam")@DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String usernameParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(usernameParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setUsernameParam(arg_0));
     return this;
@@ -73,7 +73,7 @@ public class FormLoginHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the name of the form param used to submit the password\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setPasswordParam(
-    final @TypeInfo("ceylon.language::String") @Name("passwordParam") @DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String passwordParam) {
+    final @TypeInfo("ceylon.language::String") @Name("passwordParam")@DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String passwordParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(passwordParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setPasswordParam(arg_0));
     return this;
@@ -82,7 +82,7 @@ public class FormLoginHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the name of the session attrioute used to specify the return url\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setReturnURLParam(
-    final @TypeInfo("ceylon.language::String") @Name("returnURLParam") @DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String returnURLParam) {
+    final @TypeInfo("ceylon.language::String") @Name("returnURLParam")@DocAnnotation$annotation$(description = "the name of the param\n") ceylon.language.String returnURLParam) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(returnURLParam);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setReturnURLParam(arg_0));
     return this;
@@ -91,7 +91,7 @@ public class FormLoginHandler implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the url to redirect to if the user logs in directly at the url of the form login handler\n without being redirected here first\n")
   @TypeInfo("io.vertx.ceylon.web.handler::FormLoginHandler")
   public FormLoginHandler setDirectLoggedInOKURL(
-    final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL") @DocAnnotation$annotation$(description = "the URL to redirect to\n") ceylon.language.String directLoggedInOKURL) {
+    final @TypeInfo("ceylon.language::String") @Name("directLoggedInOKURL")@DocAnnotation$annotation$(description = "the URL to redirect to\n") ceylon.language.String directLoggedInOKURL) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(directLoggedInOKURL);
     FormLoginHandler ret = io.vertx.ceylon.web.handler.FormLoginHandler.TO_CEYLON.converter().safeConvert(delegate.setDirectLoggedInOKURL(arg_0));
     return this;

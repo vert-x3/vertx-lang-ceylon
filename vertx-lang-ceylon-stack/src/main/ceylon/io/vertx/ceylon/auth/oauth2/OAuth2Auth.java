@@ -52,7 +52,7 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(OAuth2Auth.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(OAuth2Auth.class), io.vertx.ext.auth.oauth2.OAuth2Auth.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.oauth2.OAuth2Auth delegate;
 
   public OAuth2Auth(io.vertx.ext.auth.oauth2.OAuth2Auth delegate) {
@@ -73,7 +73,7 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   @DocAnnotation$annotation$(description = " Generate a redirect URL to the authN/Z backend. It only applies to auth_code flow.\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String authorizeURL(
-    final @TypeInfo("ceylon.json::Object") @Name("params")  ceylon.json.Object params) {
+    final @TypeInfo("ceylon.json::Object") @Name("params") ceylon.json.Object params) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.authorizeURL(arg_0));
     return ret;
@@ -82,8 +82,8 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the Access Token object.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getToken(
-    final @TypeInfo("ceylon.json::Object") @Name("params") @DocAnnotation$annotation$(description = "- JSON with the options, each flow requires different options.\n") ceylon.json.Object params, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler") @DocAnnotation$annotation$(description = "- The handler returning the results.\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.json::Object") @Name("params")@DocAnnotation$annotation$(description = "- JSON with the options, each flow requires different options.\n") ceylon.json.Object params, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler")@DocAnnotation$annotation$(description = "- The handler returning the results.\n") Callable<?> handler) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
       public Object toCeylon(io.vertx.ext.auth.oauth2.AccessToken event) {
@@ -96,10 +96,10 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   @DocAnnotation$annotation$(description = " Call OAuth2 APIs.\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth api(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method") @DocAnnotation$annotation$(description = "HttpMethod\n") io.vertx.ceylon.core.http.HttpMethod method, 
-    final @TypeInfo("ceylon.language::String") @Name("path") @DocAnnotation$annotation$(description = "target path\n") ceylon.language.String path, 
-    final @TypeInfo("ceylon.json::Object") @Name("params") @DocAnnotation$annotation$(description = "parameters\n") ceylon.json.Object params, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("handler") @DocAnnotation$annotation$(description = "handler\n") Callable<?> handler) {
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "HttpMethod\n") io.vertx.ceylon.core.http.HttpMethod method, 
+    final @TypeInfo("ceylon.language::String") @Name("path")@DocAnnotation$annotation$(description = "target path\n") ceylon.language.String path, 
+    final @TypeInfo("ceylon.json::Object") @Name("params")@DocAnnotation$annotation$(description = "parameters\n") ceylon.json.Object params, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("handler")@DocAnnotation$annotation$(description = "handler\n") Callable<?> handler) {
     io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
     io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);

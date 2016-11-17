@@ -76,12 +76,12 @@ public class Message<T> implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = " The body of the message. Can be null.\n")
-  @TypeInfo("T?")
+  @TypeInfo("T")
   public T body() {
     if (cached_body != null) {
       return cached_body;
     }
-    T ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.body());
+    T ret = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$T).convert(delegate.body());
     cached_body = ret;
     return ret;
   }
@@ -96,7 +96,7 @@ public class Message<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Reply to this message.\n <p>\n If the message was sent specifying a reply handler, that handler will be\n called when it has received a reply. If the message wasn't sent specifying a receipt handler\n this method does nothing.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(
-    final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "the message to reply with.\n") Object message) {
+    final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the message to reply with.\n") Object message) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     delegate.reply(arg_0);
   }
@@ -107,12 +107,12 @@ public class Message<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " The same as <code>reply(R message)</code> but you can specify handler for the reply - i.e.\n to receive the reply to the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
-    final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "the message to reply with.\n") Object message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the message to reply with.\n") Object message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$R)).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1);
@@ -121,8 +121,8 @@ public class Message<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Link [reply](../eventbus/Message.type.html#reply) but allows you to specify delivery options for the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(
-    final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "the reply message\n") Object message, 
-    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
+    final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the reply message\n") Object message, 
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     delegate.reply(arg_0, arg_1);
@@ -134,14 +134,14 @@ public class Message<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " The same as <code>reply(R message, DeliveryOptions)</code> but you can specify handler for the reply - i.e.\n to receive the reply to the reply.\n")
   @TypeInfo("ceylon.language::Anything")
   public <R> void reply(final @Ignore TypeDescriptor $reified$R, 
-    final @TypeInfo("ceylon.language::Object?") @Name("message") @DocAnnotation$annotation$(description = "the reply message\n") Object message, 
-    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options") @DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R>)") @Name("replyHandler") @DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
+    final @TypeInfo("ceylon.language::Object?") @Name("message")@DocAnnotation$annotation$(description = "the reply message\n") Object message, 
+    final @TypeInfo("io.vertx.ceylon.core.eventbus::DeliveryOptions") @Name("options")@DocAnnotation$annotation$(description = "the delivery options\n") io.vertx.ceylon.core.eventbus.DeliveryOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "the reply handler for the reply.\n") Callable<?> replyHandler) {
     java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(message);
     io.vertx.core.eventbus.DeliveryOptions arg_1 = options == null ? null : new io.vertx.core.eventbus.DeliveryOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_2 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {
-        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter($reified$R).safeConvert(event);
+        return io.vertx.ceylon.core.eventbus.Message.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$R)).safeConvert(event);
       }
     };
     delegate.reply(arg_0, arg_1, arg_2);
@@ -150,8 +150,8 @@ public class Message<T> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Signal to the sender that processing of this message failed.\n <p>\n If the message was sent specifying a result handler\n the handler will be called with a failure corresponding to the failure code and message specified here.\n")
   @TypeInfo("ceylon.language::Anything")
   public void fail(
-    final @TypeInfo("ceylon.language::Integer") @Name("failureCode") @DocAnnotation$annotation$(description = "A failure code to pass back to the sender\n") long failureCode, 
-    final @TypeInfo("ceylon.language::String") @Name("message") @DocAnnotation$annotation$(description = "A message to pass back to the sender\n") ceylon.language.String message) {
+    final @TypeInfo("ceylon.language::Integer") @Name("failureCode")@DocAnnotation$annotation$(description = "A failure code to pass back to the sender\n") long failureCode, 
+    final @TypeInfo("ceylon.language::String") @Name("message")@DocAnnotation$annotation$(description = "A message to pass back to the sender\n") ceylon.language.String message) {
     int arg_0 = (int)failureCode;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(message);
     delegate.fail(arg_0, arg_1);

@@ -38,7 +38,7 @@ public class ClusteredSessionStore extends SessionStore implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ClusteredSessionStore.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(ClusteredSessionStore.class), io.vertx.ext.web.sstore.ClusteredSessionStore.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.sstore.ClusteredSessionStore delegate;
 
   public ClusteredSessionStore(io.vertx.ext.web.sstore.ClusteredSessionStore delegate) {

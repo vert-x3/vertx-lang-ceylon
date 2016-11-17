@@ -38,7 +38,7 @@ public class TemplateEngine implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(TemplateEngine.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(TemplateEngine.class), io.vertx.ext.web.templ.TemplateEngine.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.templ.TemplateEngine delegate;
 
   public TemplateEngine(io.vertx.ext.web.templ.TemplateEngine delegate) {
@@ -58,9 +58,9 @@ public class TemplateEngine implements ReifiedType {
   @DocAnnotation$annotation$(description = " Render\n")
   @TypeInfo("ceylon.language::Anything")
   public void render(
-    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context") @DocAnnotation$annotation$(description = "the routing context\n") RoutingContext context, 
-    final @TypeInfo("ceylon.language::String") @Name("templateFileName") @DocAnnotation$annotation$(description = "the template file name to use\n") ceylon.language.String templateFileName, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler") @DocAnnotation$annotation$(description = "the handler that will be called with a result containing the buffer or a failure.\n") Callable<?> handler) {
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context")@DocAnnotation$annotation$(description = "the routing context\n") RoutingContext context, 
+    final @TypeInfo("ceylon.language::String") @Name("templateFileName")@DocAnnotation$annotation$(description = "the template file name to use\n") ceylon.language.String templateFileName, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will be called with a result containing the buffer or a failure.\n") Callable<?> handler) {
     io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(context);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(templateFileName);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.buffer.Buffer>(handler) {

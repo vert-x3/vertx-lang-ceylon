@@ -35,8 +35,8 @@ public class cookie_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a new cookie\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie")
   public Cookie cookie(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "the cookie value\n") ceylon.language.String value) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::String") @Name("value")@DocAnnotation$annotation$(description = "the cookie value\n") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.Cookie.cookie(arg_0, arg_1));

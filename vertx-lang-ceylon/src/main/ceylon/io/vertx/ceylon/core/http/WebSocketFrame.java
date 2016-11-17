@@ -37,7 +37,7 @@ public class WebSocketFrame implements ReifiedType {
 
   @Ignore private ceylon.language.String cached_textData;
   @Ignore private Buffer cached_binaryData;
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(WebSocketFrame.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(WebSocketFrame.class), io.vertx.core.http.WebSocketFrame.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.WebSocketFrame delegate;
 
   public WebSocketFrame(io.vertx.core.http.WebSocketFrame delegate) {

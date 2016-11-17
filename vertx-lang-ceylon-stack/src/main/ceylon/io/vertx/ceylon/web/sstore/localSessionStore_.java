@@ -39,7 +39,7 @@ public class localSessionStore_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public LocalSessionStore create(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     LocalSessionStore ret = io.vertx.ceylon.web.sstore.LocalSessionStore.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.sstore.LocalSessionStore.create(arg_0));
     return ret;
@@ -48,8 +48,8 @@ public class localSessionStore_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public LocalSessionStore create(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("sessionMapName") @DocAnnotation$annotation$(description = "name for map used to store sessions\n") ceylon.language.String sessionMapName) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
+    final @TypeInfo("ceylon.language::String") @Name("sessionMapName")@DocAnnotation$annotation$(description = "name for map used to store sessions\n") ceylon.language.String sessionMapName) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sessionMapName);
     LocalSessionStore ret = io.vertx.ceylon.web.sstore.LocalSessionStore.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.sstore.LocalSessionStore.create(arg_0, arg_1));
@@ -59,9 +59,9 @@ public class localSessionStore_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a session store\n")
   @TypeInfo("io.vertx.ceylon.web.sstore::LocalSessionStore")
   public LocalSessionStore create(
-    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") @DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("sessionMapName") @DocAnnotation$annotation$(description = "name for map used to store sessions\n") ceylon.language.String sessionMapName, 
-    final @TypeInfo("ceylon.language::Integer") @Name("reaperInterval") @DocAnnotation$annotation$(description = "how often, in ms, to check for expired sessions\n") long reaperInterval) {
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vert.x instance\n") Vertx vertx, 
+    final @TypeInfo("ceylon.language::String") @Name("sessionMapName")@DocAnnotation$annotation$(description = "name for map used to store sessions\n") ceylon.language.String sessionMapName, 
+    final @TypeInfo("ceylon.language::Integer") @Name("reaperInterval")@DocAnnotation$annotation$(description = "how often, in ms, to check for expired sessions\n") long reaperInterval) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sessionMapName);
     long arg_2 = reaperInterval;

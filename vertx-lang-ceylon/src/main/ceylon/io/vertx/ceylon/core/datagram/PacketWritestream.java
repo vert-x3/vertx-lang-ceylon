@@ -37,7 +37,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(PacketWritestream.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(PacketWritestream.class), io.vertx.core.datagram.PacketWritestream.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.datagram.PacketWritestream delegate;
 
   public PacketWritestream(io.vertx.core.datagram.PacketWritestream delegate) {
@@ -63,7 +63,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
   @DocAnnotation$annotation$(description = " Same as [end](../streams/WriteStream.type.html#end) but writes some data to the stream before ending.\n")
   @TypeInfo("ceylon.language::Anything")
   public void end(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t")  Buffer t) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("t") Buffer t) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(t);
     delegate.end(arg_0);
   }
@@ -77,7 +77,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -89,7 +89,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream write(
-    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")  Buffer data) {
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data") Buffer data) {
     io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
     PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
     return this;
@@ -97,7 +97,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream setWriteQueueMaxSize(
-    final @TypeInfo("ceylon.language::Integer") @Name("maxSize")  long maxSize) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxSize") long maxSize) {
     int arg_0 = (int)maxSize;
     PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.setWriteQueueMaxSize(arg_0));
     return this;
@@ -105,7 +105,7 @@ public class PacketWritestream implements ReifiedType,  WriteStream<Buffer> {
 
   @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
   public PacketWritestream drainHandler(
-    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")  Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();

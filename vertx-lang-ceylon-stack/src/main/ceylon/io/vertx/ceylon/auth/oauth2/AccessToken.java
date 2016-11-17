@@ -39,7 +39,7 @@ public class AccessToken extends User implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(AccessToken.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(AccessToken.class), io.vertx.ext.auth.oauth2.AccessToken.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.oauth2.AccessToken delegate;
 
   public AccessToken(io.vertx.ext.auth.oauth2.AccessToken delegate) {
@@ -67,7 +67,7 @@ public class AccessToken extends User implements ReifiedType {
   @DocAnnotation$annotation$(description = " Refresh the access token\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken refresh(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
       public Object toCeylon(java.lang.Void event) {
         return null;
@@ -80,8 +80,8 @@ public class AccessToken extends User implements ReifiedType {
   @DocAnnotation$annotation$(description = " Revoke access or refresh token\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken revoke(
-    final @TypeInfo("ceylon.language::String") @Name("token_type") @DocAnnotation$annotation$(description = "- A String containing the type of token to revoke. Should be either \"access_token\" or \"refresh_token\".\n") ceylon.language.String token_type, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    final @TypeInfo("ceylon.language::String") @Name("token_type")@DocAnnotation$annotation$(description = "- A String containing the type of token to revoke. Should be either \"access_token\" or \"refresh_token\".\n") ceylon.language.String token_type, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token_type);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
       public Object toCeylon(java.lang.Void event) {
@@ -95,7 +95,7 @@ public class AccessToken extends User implements ReifiedType {
   @DocAnnotation$annotation$(description = " Revoke refresh token and calls the logout endpoint. This is a openid-connect extension and might not be\n available on all providers.\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken logout(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback") @DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
       public Object toCeylon(java.lang.Void event) {
         return null;

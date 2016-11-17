@@ -38,7 +38,7 @@ public class HttpFrame implements ReifiedType {
   @Ignore private java.lang.Long cached_type;
   @Ignore private java.lang.Long cached_flags;
   @Ignore private Buffer cached_payload;
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(HttpFrame.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpFrame.class), io.vertx.core.http.HttpFrame.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpFrame delegate;
 
   public HttpFrame(io.vertx.core.http.HttpFrame delegate) {

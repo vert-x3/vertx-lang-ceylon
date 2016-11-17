@@ -44,7 +44,7 @@ public class loggerHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler with he specified format\n")
   @TypeInfo("io.vertx.ceylon.web.handler::LoggerHandler")
   public LoggerHandler create(
-    final @TypeInfo("io.vertx.ceylon.web.handler::LoggerFormat") @Name("format") @DocAnnotation$annotation$(description = "the format\n") io.vertx.ceylon.web.handler.LoggerFormat format) {
+    final @TypeInfo("io.vertx.ceylon.web.handler::LoggerFormat") @Name("format")@DocAnnotation$annotation$(description = "the format\n") io.vertx.ceylon.web.handler.LoggerFormat format) {
     io.vertx.ext.web.handler.LoggerFormat arg_0 = io.vertx.ceylon.web.handler.loggerFormat_.get_().getToJava().safeConvert(format);
     LoggerHandler ret = io.vertx.ceylon.web.handler.LoggerHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.LoggerHandler.create(arg_0));
     return ret;
@@ -53,8 +53,8 @@ public class loggerHandler_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a handler with he specified format\n")
   @TypeInfo("io.vertx.ceylon.web.handler::LoggerHandler")
   public LoggerHandler create(
-    final @TypeInfo("ceylon.language::Boolean") @Name("immediate") @DocAnnotation$annotation$(description = "true if logging should occur as soon as request arrives\n") boolean immediate, 
-    final @TypeInfo("io.vertx.ceylon.web.handler::LoggerFormat") @Name("format") @DocAnnotation$annotation$(description = "the format\n") io.vertx.ceylon.web.handler.LoggerFormat format) {
+    final @TypeInfo("ceylon.language::Boolean") @Name("immediate")@DocAnnotation$annotation$(description = "true if logging should occur as soon as request arrives\n") boolean immediate, 
+    final @TypeInfo("io.vertx.ceylon.web.handler::LoggerFormat") @Name("format")@DocAnnotation$annotation$(description = "the format\n") io.vertx.ceylon.web.handler.LoggerFormat format) {
     boolean arg_0 = immediate;
     io.vertx.ext.web.handler.LoggerFormat arg_1 = io.vertx.ceylon.web.handler.loggerFormat_.get_().getToJava().safeConvert(format);
     LoggerHandler ret = io.vertx.ceylon.web.handler.LoggerHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.LoggerHandler.create(arg_0, arg_1));

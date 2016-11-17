@@ -40,7 +40,7 @@ public class ShiroAuth extends AuthProvider implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(ShiroAuth.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(ShiroAuth.class), io.vertx.ext.auth.shiro.ShiroAuth.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.shiro.ShiroAuth delegate;
 
   public ShiroAuth(io.vertx.ext.auth.shiro.ShiroAuth delegate) {
@@ -61,7 +61,7 @@ public class ShiroAuth extends AuthProvider implements ReifiedType {
   @DocAnnotation$annotation$(description = " Set the role prefix to distinguish from permissions when checking for isPermitted requests.\n")
   @TypeInfo("io.vertx.ceylon.auth.shiro::ShiroAuth")
   public ShiroAuth setRolePrefix(
-    final @TypeInfo("ceylon.language::String") @Name("rolePrefix") @DocAnnotation$annotation$(description = "a Prefix e.g.: \"role:\"\n") ceylon.language.String rolePrefix) {
+    final @TypeInfo("ceylon.language::String") @Name("rolePrefix")@DocAnnotation$annotation$(description = "a Prefix e.g.: \"role:\"\n") ceylon.language.String rolePrefix) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(rolePrefix);
     ShiroAuth ret = io.vertx.ceylon.auth.shiro.ShiroAuth.TO_CEYLON.converter().safeConvert(delegate.setRolePrefix(arg_0));
     return ret;

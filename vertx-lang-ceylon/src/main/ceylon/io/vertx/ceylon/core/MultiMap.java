@@ -37,7 +37,7 @@ public class MultiMap implements ReifiedType {
     }
   };
 
-  @Ignore public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(MultiMap.class);
+  @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(MultiMap.class), io.vertx.core.MultiMap.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.MultiMap delegate;
 
   public MultiMap(io.vertx.core.MultiMap delegate) {
@@ -57,7 +57,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the value of with the specified name.  If there are\n more than one values for the specified name, the first value is returned.\n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String get(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name of the header to search\n") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name of the header to search\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.get(arg_0));
     return ret;
@@ -66,7 +66,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Returns the values with the specified name\n")
   @TypeInfo("ceylon.language::List<ceylon.language::String>")
   public ceylon.language.List<ceylon.language.String> getAll(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name to search\n") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name to search\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.getAll(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
@@ -75,7 +75,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Checks to see if there is a value with the specified name\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean contains(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name to search for\n") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name to search for\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     boolean ret = delegate.contains(arg_0);
     return ret;
@@ -98,8 +98,8 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds a new value with the specified name and value.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap add(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "The value being added\n") ceylon.language.String value) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::String") @Name("value")@DocAnnotation$annotation$(description = "The value being added\n") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.add(arg_0, arg_1));
@@ -109,7 +109,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Adds all the entries from another MultiMap to this one\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap addAll(
-    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map")  MultiMap map) {
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.addAll(arg_0));
     return this;
@@ -118,8 +118,8 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Sets a value under the specified name.\n <p>\n If there is an existing header with the same name, it is removed.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap set(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::String") @Name("value") @DocAnnotation$annotation$(description = "The value\n") ceylon.language.String value) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::String") @Name("value")@DocAnnotation$annotation$(description = "The value\n") ceylon.language.String value) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.set(arg_0, arg_1));
@@ -129,7 +129,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Cleans this instance.\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap setAll(
-    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map")  MultiMap map) {
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("map") MultiMap map) {
     io.vertx.core.MultiMap arg_0 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(map);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.setAll(arg_0));
     return this;
@@ -138,7 +138,7 @@ public class MultiMap implements ReifiedType {
   @DocAnnotation$annotation$(description = " Removes the value with the given name\n")
   @TypeInfo("io.vertx.ceylon.core::MultiMap")
   public MultiMap remove(
-    final @TypeInfo("ceylon.language::String") @Name("name") @DocAnnotation$annotation$(description = "The name of the value to remove\n") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "The name of the value to remove\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.remove(arg_0));
     return this;
