@@ -4,5 +4,5 @@ module io.vertx.ceylon.auth.jdbc "${project.version}" {
   shared import ceylon.json "1.3.0";
   shared import io.vertx.ceylon.auth.common "${project.version}";
   shared import io.vertx.ceylon.jdbc "${project.version}";
-  shared import "io.vertx.vertx-auth-jdbc" "${project.version}";
+  shared import maven:"io.vertx:vertx-auth-jdbc" "${project.version}";
 }
