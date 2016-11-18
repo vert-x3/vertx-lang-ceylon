@@ -542,6 +542,7 @@
               <optionMap>
                 <outputDirectory>${project.basedir}/src/main</outputDirectory>
                 <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
+                <codeGenerators>ceylon</codeGenerators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources</sourceDirectory>
             </configuration>

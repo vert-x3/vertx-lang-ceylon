@@ -588,6 +588,7 @@
               <optionMap>
                 <outputDirectory>${project.basedir}/src/main</outputDirectory>
                 <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
+                <codeGenerators>ceylon</codeGenerators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/vertx-core</sourceDirectory>
             </configuration>
@@ -605,6 +606,7 @@
               </processors>
               <optionMap>
                 <outputDirectory>${project.basedir}/src/test</outputDirectory>
+                <codeGenerators>ceylon</codeGenerators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/codegen</sourceDirectory>
               <additionalSourceDirectories>
