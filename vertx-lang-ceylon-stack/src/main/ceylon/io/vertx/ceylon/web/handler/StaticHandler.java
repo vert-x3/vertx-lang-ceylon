@@ -204,4 +204,13 @@ public class StaticHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set the default content encoding for text related files. This allows overriding the system settings default value.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler setDefaultContentEncoding(
+    final @TypeInfo("ceylon.language::String") @Name("contentEncoding")@DocAnnotation$annotation$(description = "the desired content encoding e.g.: \"UTF-8\"\n") ceylon.language.String contentEncoding) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(contentEncoding);
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setDefaultContentEncoding(arg_0));
+    return this;
+  }
+
 }

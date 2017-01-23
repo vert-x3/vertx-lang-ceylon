@@ -104,4 +104,17 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithBuffer(arg_0);
   }
 
+  @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithSelf")
+  public io.vertx.ceylon.testmodel.DataObjectWithSelf $getDataObjectWithSelf() {
+    io.vertx.ceylon.testmodel.DataObjectWithSelf ret = io.vertx.ceylon.testmodel.dataObjectWithSelf_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithSelf());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void $setDataObjectWithSelf(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithSelf") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithSelf dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithSelf arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithSelf(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithSelf(arg_0);
+  }
+
 }

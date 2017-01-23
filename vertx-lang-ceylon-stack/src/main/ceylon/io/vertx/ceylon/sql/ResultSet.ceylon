@@ -8,6 +8,10 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
+import io.vertx.ceylon.sql {
+  ResultSet,
+  resultSet_=resultSet
+}
 import io.vertx.ext.sql {
   ResultSet_=ResultSet
 }
@@ -23,6 +27,8 @@ import io.vertx.core.json {
 shared class ResultSet(
   " Get the column names\n"
   shared {String*}? columnNames = null,
+  " Get the next result set\n"
+  shared ResultSet? next = null,
   " Return the number of columns in the result set\n"
   shared Integer? numColumns = null,
   " Return the number of rows in the result set\n"
@@ -37,6 +43,9 @@ shared class ResultSet(
     value json = JsonObject();
     if (exists columnNames) {
       json.put("columnNames", JsonArray(columnNames));
+    }
+    if (exists next) {
+      json.put("next", next.toJson());
     }
     if (exists numColumns) {
       json.put("numColumns", numColumns);
@@ -61,6 +70,7 @@ shared object resultSet {
 
   shared ResultSet fromJson(JsonObject json) {
     {String*}? columnNames = json.getArrayOrNull("columnNames")?.strings;
+    ResultSet? next = if (exists tmp = json.getObjectOrNull("next")) then this.fromJson(tmp) else null;
     Integer? numColumns = json.getIntegerOrNull("numColumns");
     Integer? numRows = json.getIntegerOrNull("numRows");
     JsonArray? output = json.getArrayOrNull("output");
@@ -68,6 +78,7 @@ shared object resultSet {
     {JsonObject*}? rows = json.getArrayOrNull("rows")?.objects;
     return ResultSet {
       columnNames = columnNames;
+      next = next;
       numColumns = numColumns;
       numRows = numRows;
       output = output;

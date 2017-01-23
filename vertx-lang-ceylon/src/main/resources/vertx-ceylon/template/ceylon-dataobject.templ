@@ -1,3 +1,4 @@
+@code{tototo=type}
 @includeNamed{'ceylon-common.templ'}
 @includeNamed{'ceylon-imports.templ'}
 
@@ -42,6 +43,16 @@
     }
   }
 
+  def genConverter(convType) {
+    var expr = CASE_CAMEL.to(CASE_LOWER_CAMEL, convType.simpleName);
+    if (convType.name != tototo.name) {
+      expr = expr + '_';
+    } else {
+      expr = 'this';
+    }
+    return expr;
+  }
+
   def genPropToCeylonExpr(prop, expr) {
     var type = prop.type;
     if (prop.kind.value) {
@@ -58,10 +69,10 @@
       } else if (type.kind == CLASS_JSON_ARRAY) {
         return expr + '.getArrayOrNull("' + prop.name + '")';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson(tmp) else null';
+        return 'if (exists tmp = ' + expr +  '.getObjectOrNull("' + prop.name + '")) then ' + genConverter(type) + '.fromJson(tmp) else null';
       } else if (type.kind == CLASS_ENUM) {
         if (type.gen) {
-          return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then ' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString(tmp) else null';
+          return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then ' + genConverter(type) + '.fromString(tmp) else null';
         } else {
           return expr + '.getStringOrNull("' + prop.name + '")';
         }
@@ -80,10 +91,10 @@
       } else if (type.kind == CLASS_JSON_ARRAY) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.arrays';
       } else if (type.kind == CLASS_DATA_OBJECT) {
-        return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson)';
+        return expr + '.getArrayOrNull("' + prop.name + '")?.objects?.map(' + genConverter(type) + '.fromJson)';
       } else if (type.kind == CLASS_ENUM) {
         if (type.gen) {
-          return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map(' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString)';
+          return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map(' + genConverter(type) + '.fromString)';
         } else {
           return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
         }

@@ -37,8 +37,6 @@ public class User implements ReifiedType {
     }
   };
 
-  @Ignore private User cached_isAuthorised;
-  @Ignore private User cached_clearCache;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(User.class), io.vertx.ext.auth.User.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.auth.User delegate;
 
@@ -61,9 +59,6 @@ public class User implements ReifiedType {
   public User isAuthorised(
     final @TypeInfo("ceylon.language::String") @Name("authority")@DocAnnotation$annotation$(description = "the authority - what this really means is determined by the specific implementation. It might represent a permission to access a resource e.g. `printers:printer34` or it might represent authority to a role in a roles based model, e.g. `role:admin`.\n") ceylon.language.String authority, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler that will be called with an _async result_ containing the value `true` if the they has the authority or `false` otherwise.\n") Callable<?> resultHandler) {
-    if (cached_isAuthorised != null) {
-      return cached_isAuthorised;
-    }
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(authority);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {
@@ -77,9 +72,6 @@ public class User implements ReifiedType {
   @DocAnnotation$annotation$(description = " The User object will cache any authorities that it knows it has to avoid hitting the\n underlying auth provider each time.  Use this method if you want to clear this cache.\n")
   @TypeInfo("io.vertx.ceylon.auth.common::User")
   public User clearCache() {
-    if (cached_clearCache != null) {
-      return cached_clearCache;
-    }
     User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.clearCache());
     return this;
   }

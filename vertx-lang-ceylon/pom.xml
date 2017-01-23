@@ -586,9 +586,9 @@
                 <processor>io.vertx.docgen.DocGenProcessor</processor>
               </processors>
               <optionMap>
-                <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <codegen.output>${project.basedir}/src/main</codegen.output>
+                <codegen.generators>ceylon</codegen.generators>
                 <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
-                <codeGenerators>ceylon</codeGenerators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/vertx-core</sourceDirectory>
             </configuration>
@@ -605,8 +605,8 @@
                 <processor>io.vertx.codegen.CodeGenProcessor</processor>
               </processors>
               <optionMap>
-                <outputDirectory>${project.basedir}/src/test</outputDirectory>
-                <codeGenerators>ceylon</codeGenerators>
+                <codegen.output>${project.basedir}/src/test</codegen.output>
+                <codegen.generators>ceylon</codegen.generators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources/codegen</sourceDirectory>
               <additionalSourceDirectories>
@@ -625,7 +625,7 @@
                 <processor>io.vertx.docgen.DocGenProcessor</processor>
               </processors>
               <optionMap>
-                <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <codegen.output>${project.basedir}/src/main</codegen.output>
                 <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
                 <maven.groupId>${project.groupId}</maven.groupId>
                 <maven.artifactId>${project.artifactId}</maven.artifactId>

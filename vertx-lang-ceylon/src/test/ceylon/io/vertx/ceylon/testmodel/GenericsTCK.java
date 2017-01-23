@@ -827,4 +827,81 @@ public class GenericsTCK implements ReifiedType {
     return ret;
   }
 
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithHandlerGenericNullableApi(
+    final @TypeInfo("ceylon.language::Boolean") @Name("notNull") boolean notNull, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericNullableRefedInterface<io.vertx.ceylon.testmodel::RefedInterface1>)") @Name("handler") Callable<?> handler) {
+    boolean arg_0 = notNull;
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>>() {
+      public void handle(io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1> event) {
+        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericNullableRefedInterface.TO_CEYLON.converter(RefedInterface1.$TypeDescriptor$).safeConvert(event));
+      }
+    };
+    delegate.methodWithHandlerGenericNullableApi(arg_0, arg_1);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void methodWithHandlerAsyncResultGenericNullableApi(
+    final @TypeInfo("ceylon.language::Boolean") @Name("notNull") boolean notNull, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericNullableRefedInterface<io.vertx.ceylon.testmodel::RefedInterface1>)") @Name("handler") Callable<?> handler) {
+    boolean arg_0 = notNull;
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1>>(handler) {
+      public Object toCeylon(io.vertx.codegen.testmodel.GenericNullableRefedInterface<io.vertx.codegen.testmodel.RefedInterface1> event) {
+        return io.vertx.ceylon.testmodel.GenericNullableRefedInterface.TO_CEYLON.converter(RefedInterface1.$TypeDescriptor$).safeConvert(event);
+      }
+    };
+    delegate.methodWithHandlerAsyncResultGenericNullableApi(arg_0, arg_1);
+  }
+
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericNullableRefedInterface<io.vertx.ceylon.testmodel::RefedInterface1>")
+  public GenericNullableRefedInterface<RefedInterface1> methodWithGenericNullableApiReturn(
+    final @TypeInfo("ceylon.language::Boolean") @Name("notNull") boolean notNull) {
+    boolean arg_0 = notNull;
+    GenericNullableRefedInterface<RefedInterface1> ret = io.vertx.ceylon.testmodel.GenericNullableRefedInterface.TO_CEYLON.converter(RefedInterface1.$TypeDescriptor$).safeConvert(delegate.methodWithGenericNullableApiReturn(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>")
+  public <T> GenericRefedInterface<T> methodWithParamInferedReturn(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>") @Name("param") GenericRefedInterface<T> param) {
+    io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg_0 = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_JAVA.safeConvert(param);
+    GenericRefedInterface<T> ret = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(delegate.methodWithParamInferedReturn(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <T> void methodWithHandlerParamInfered(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>") @Name("param") GenericRefedInterface<T> param, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("handler") Callable<?> handler) {
+    io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg_0 = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_JAVA.safeConvert(param);
+    io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>> arg_1 = handler == null ? null : new io.vertx.core.Handler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>() {
+      public void handle(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
+        handler.$call$((Object)io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
+      }
+    };
+    delegate.methodWithHandlerParamInfered(arg_0, arg_1);
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
+  @TypeInfo("ceylon.language::Anything")
+  public <T> void methodWithHandlerAsyncResultParamInfered(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("io.vertx.ceylon.testmodel::GenericRefedInterface<T?>") @Name("param") GenericRefedInterface<T> param, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.testmodel::GenericRefedInterface<T?>)") @Name("handler") Callable<?> handler) {
+    io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> arg_0 = io.vertx.ceylon.testmodel.GenericRefedInterface.TO_JAVA.safeConvert(param);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object>>(handler) {
+      public Object toCeylon(io.vertx.codegen.testmodel.GenericRefedInterface<java.lang.Object> event) {
+        return io.vertx.ceylon.testmodel.GenericRefedInterface.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event);
+      }
+    };
+    delegate.methodWithHandlerAsyncResultParamInfered(arg_0, arg_1);
+  }
+
 }

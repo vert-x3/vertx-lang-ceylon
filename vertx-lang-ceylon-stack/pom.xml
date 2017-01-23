@@ -59,6 +59,16 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-htdigest</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-htdigest</artifactId>
+      <classifier>sources</classifier>
+      <version>${stack.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-jdbc</artifactId>
     </dependency>
     <dependency>
@@ -312,6 +322,14 @@
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
+                    <artifactId>vertx-auth-htdigest</artifactId>
+                  </dependency>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-htdigest.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
                     <artifactId>vertx-auth-jdbc</artifactId>
                   </dependency>
                   <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-jdbc.properties</descriptor>
@@ -482,6 +500,7 @@
                 <module>io.vertx.ceylon.auth.common</module>
                 <module>io.vertx.ceylon.auth.jdbc</module>
                 <module>io.vertx.ceylon.auth.jwt</module>
+                <module>io.vertx.ceylon.auth.htdigest</module>
                 <module>io.vertx.ceylon.auth.shiro</module>
                 <module>io.vertx.ceylon.auth.oauth2</module>
                 <module>io.vertx.ceylon.sql</module>
@@ -506,7 +525,7 @@
             </goals>
             <configuration>
               <includeGroupIds>io.vertx</includeGroupIds>
-              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
+              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-htdigest,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>
@@ -540,9 +559,9 @@
                 <!--<processor>io.vertx.docgen.DocGenProcessor</processor>-->
               </processors>
               <optionMap>
-                <outputDirectory>${project.basedir}/src/main</outputDirectory>
+                <codegen.output>${project.basedir}/src/main</codegen.output>
+                <codegen.generators>ceylon</codegen.generators>
                 <docgen.output>${asciidoc.dir}/ceylon</docgen.output>
-                <codeGenerators>ceylon</codeGenerators>
               </optionMap>
               <sourceDirectory>${project.build.directory}/sources</sourceDirectory>
             </configuration>

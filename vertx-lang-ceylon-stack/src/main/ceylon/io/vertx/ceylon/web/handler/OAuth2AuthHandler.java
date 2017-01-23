@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.Route;
 import java.util.Set;
+import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
 
@@ -80,15 +81,13 @@ public class OAuth2AuthHandler implements ReifiedType,  AuthHandler {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Build the authorization URL.\n")
-  @TypeInfo("ceylon.language::String")
-  public ceylon.language.String authURI(
-    final @TypeInfo("ceylon.language::String") @Name("redirectURL")@DocAnnotation$annotation$(description = "where is the callback mounted.\n") ceylon.language.String redirectURL, 
-    final @TypeInfo("ceylon.language::String") @Name("state")@DocAnnotation$annotation$(description = "state opaque token to avoid forged requests\n") ceylon.language.String state) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(redirectURL);
-    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(state);
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.authURI(arg_0, arg_1));
-    return ret;
+  @DocAnnotation$annotation$(description = " Extra parameters needed to be passed while requesting a token.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::OAuth2AuthHandler")
+  public OAuth2AuthHandler extraParams(
+    final @TypeInfo("ceylon.json::Object") @Name("extraParams")@DocAnnotation$annotation$(description = "extra optional parameters.\n") ceylon.json.Object extraParams) {
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(extraParams);
+    OAuth2AuthHandler ret = io.vertx.ceylon.web.handler.OAuth2AuthHandler.TO_CEYLON.converter().safeConvert(delegate.extraParams(arg_0));
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " add the callback handler to a given route.\n")

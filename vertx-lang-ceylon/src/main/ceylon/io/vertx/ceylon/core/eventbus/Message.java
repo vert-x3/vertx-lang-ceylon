@@ -93,6 +93,13 @@ public class Message<T> implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Signals if this message represents a send or publish event.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSend() {
+    boolean ret = delegate.isSend();
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Reply to this message.\n <p>\n If the message was sent specifying a reply handler, that handler will be\n called when it has received a reply. If the message wasn't sent specifying a receipt handler\n this method does nothing.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reply(

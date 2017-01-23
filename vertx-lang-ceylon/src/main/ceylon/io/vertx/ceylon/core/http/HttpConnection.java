@@ -14,6 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
+import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Represents an HTTP connection.\n <p/>\n HTTP/1.x connection provides an limited implementation, the following methods are implemented:\n <ul>\n   <li>[close](../http/HttpConnection.type.html#close)</li>\n   <li>[closeHandler](../http/HttpConnection.type.html#closeHandler)</li>\n   <li>[exceptionHandler](../http/HttpConnection.type.html#exceptionHandler)</li>\n </ul>\n")
@@ -37,6 +38,8 @@ public class HttpConnection implements ReifiedType {
     }
   };
 
+  @Ignore private SocketAddress cached_remoteAddress;
+  @Ignore private SocketAddress cached_localAddress;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpConnection.class), io.vertx.core.http.HttpConnection.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpConnection delegate;
 
@@ -254,6 +257,28 @@ public class HttpConnection implements ReifiedType {
     };
     HttpConnection ret = io.vertx.ceylon.core.http.HttpConnection.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
+  public SocketAddress remoteAddress() {
+    if (cached_remoteAddress != null) {
+      return cached_remoteAddress;
+    }
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.remoteAddress());
+    cached_remoteAddress = ret;
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
+  public SocketAddress localAddress() {
+    if (cached_localAddress != null) {
+      return cached_localAddress;
+    }
+    SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
+    cached_localAddress = ret;
+    return ret;
   }
 
 }

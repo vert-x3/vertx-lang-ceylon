@@ -61,12 +61,23 @@ public class SessionStore implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a new session\n")
+  @DocAnnotation$annotation$(description = " Create a new session using the default min length.\n")
   @TypeInfo("io.vertx.ceylon.web::Session")
   public Session createSession(
     final @TypeInfo("ceylon.language::Integer") @Name("timeout")@DocAnnotation$annotation$(description = "- the session timeout, in ms\n") long timeout) {
     long arg_0 = timeout;
     Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.createSession(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a new session\n")
+  @TypeInfo("io.vertx.ceylon.web::Session")
+  public Session createSession(
+    final @TypeInfo("ceylon.language::Integer") @Name("timeout")@DocAnnotation$annotation$(description = "- the session timeout, in ms\n") long timeout, 
+    final @TypeInfo("ceylon.language::Integer") @Name("length")@DocAnnotation$annotation$(description = "- the required length for the session id\n") long length) {
+    long arg_0 = timeout;
+    int arg_1 = (int)length;
+    Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.createSession(arg_0, arg_1));
     return ret;
   }
 

@@ -50,7 +50,7 @@ public class oAuth2Auth_ implements ReifiedType {
   }
 
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2 auth provider\n")
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth createKeycloak(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 

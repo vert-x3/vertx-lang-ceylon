@@ -11,10 +11,10 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.ceylon.core.MultiMap;
 import java.util.List;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.streams.ReadStream;
-import io.vertx.ceylon.core.MultiMap;
 import io.vertx.core.Handler;
 import io.vertx.ceylon.core.net.NetSocket;
 
@@ -44,6 +44,7 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
   @Ignore private MultiMap cached_trailers;
   @Ignore private ceylon.language.List<ceylon.language.String> cached_cookies;
   @Ignore private NetSocket cached_netSocket;
+  @Ignore private HttpClientRequest cached_request;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpClientResponse.class), io.vertx.core.http.HttpClientResponse.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpClientResponse delegate;
 
@@ -215,6 +216,17 @@ public class HttpClientResponse implements ReifiedType,  ReadStream<Buffer> {
     }
     NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.netSocket());
     cached_netSocket = ret;
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest request() {
+    if (cached_request != null) {
+      return cached_request;
+    }
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request());
+    cached_request = ret;
     return ret;
   }
 

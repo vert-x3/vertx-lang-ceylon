@@ -24,7 +24,9 @@
       if (importedKind == CLASS_API || importedKind == CLASS_DATA_OBJECT) {
         var translated = importedType.module.translateQualifiedName(importedType.packageName, 'ceylon');
         addClassImport(translated, importedType.simpleName, importedType.simpleName);
-        addClassImport(importedType.packageName, importedType.simpleName, importedType.simpleName + '_');
+        if (importedType != type) {
+          addClassImport(importedType.packageName, importedType.simpleName, importedType.simpleName + '_');
+        }
       } else if (importedKind == CLASS_ENUM) {
         addClassImport(importedType.packageName, importedType.simpleName, importedType.simpleName + '_');
       } else if (importedKind == CLASS_JSON_OBJECT) {

@@ -70,6 +70,18 @@ public class future_ implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Create a failed future with the specified failure cause.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
+  public <T> Future<T> failedFuture(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("ceylon.language::Throwable") @Name("t")@DocAnnotation$annotation$(description = "the failure cause as a Throwable\n") Throwable t) {
+    java.lang.Throwable arg_0 = t;
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.failedFuture(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
   @DocAnnotation$annotation$(description = " Create a failed future with the specified failure message.\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> failedFuture(final @Ignore TypeDescriptor $reified$T, 

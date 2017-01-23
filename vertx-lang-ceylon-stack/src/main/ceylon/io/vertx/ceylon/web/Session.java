@@ -52,6 +52,13 @@ public class Session implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "")
+  @TypeInfo("io.vertx.ceylon.web::Session")
+  public Session regenerateId() {
+    Session ret = io.vertx.ceylon.web.Session.TO_CEYLON.converter().safeConvert(delegate.regenerateId());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String id() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.id());
@@ -110,6 +117,20 @@ public class Session implements ReifiedType {
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isDestroyed() {
     boolean ret = delegate.isDestroyed();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isRegenerated() {
+    boolean ret = delegate.isRegenerated();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String oldId() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.oldId());
     return ret;
   }
 

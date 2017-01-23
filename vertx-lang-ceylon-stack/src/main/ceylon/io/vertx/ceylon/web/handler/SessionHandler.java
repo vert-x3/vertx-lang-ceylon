@@ -106,4 +106,13 @@ public class SessionHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set expected session id minimum length.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::SessionHandler")
+  public SessionHandler setMinLength(
+    final @TypeInfo("ceylon.language::Integer") @Name("minLength")@DocAnnotation$annotation$(description = "the session id minimal length\n") long minLength) {
+    int arg_0 = (int)minLength;
+    SessionHandler ret = io.vertx.ceylon.web.handler.SessionHandler.TO_CEYLON.converter().safeConvert(delegate.setMinLength(arg_0));
+    return this;
+  }
+
 }

@@ -103,19 +103,44 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Will convert the column name to the json array index\n")
+  @DocAnnotation$annotation$(description = " Will convert the column name to the json array index.\n")
   @TypeInfo("ceylon.language::Integer")
   public long column(
-    final @TypeInfo("ceylon.language::String") @Name("name") ceylon.language.String name) {
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the column name\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     long ret = delegate.column(arg_0);
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Closes the stream/underlying cursor(s)\n")
+  @DocAnnotation$annotation$(description = " Event handler when a resultset is closed. This is useful to request for more results.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream resultSetClosedHandler(
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
+      public void handle(java.lang.Void event) {
+        handler.$call$();
+      }
+    };
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.resultSetClosedHandler(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Request for more results if available\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void moreResults() {
+    delegate.moreResults();
+  }
+
+  @DocAnnotation$annotation$(description = " Closes the stream/underlying cursor(s). The actual close happens asynchronously.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void close() {
+    delegate.close();
+  }
+
+  @DocAnnotation$annotation$(description = " Closes the stream/underlying cursor(s). The actual close happens asynchronously.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")@DocAnnotation$annotation$(description = "called when the stream/underlying cursor(s) is(are) closed\n") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
       public Object toCeylon(java.lang.Void event) {
         return null;

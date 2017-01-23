@@ -119,4 +119,58 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Decode a token to a [AccessToken](AccessToken.type.html) object. This is useful to handle bearer JWT tokens.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth decodeToken(
+    final @TypeInfo("ceylon.language::String") @Name("token")@DocAnnotation$annotation$(description = "the access token (base64 string)\n") ceylon.language.String token, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler")@DocAnnotation$annotation$(description = "A handler to receive the event\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
+      public Object toCeylon(io.vertx.ext.auth.oauth2.AccessToken event) {
+        return io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.decodeToken(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Query an OAuth 2.0 authorization server to determine the active state of an OAuth 2.0 token and to determine\n meta-information about this token.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth introspectToken(
+    final @TypeInfo("ceylon.language::String") @Name("token")@DocAnnotation$annotation$(description = "the access token (base64 string)\n") ceylon.language.String token, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler")@DocAnnotation$annotation$(description = "A handler to receive the event\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
+      public Object toCeylon(io.vertx.ext.auth.oauth2.AccessToken event) {
+        return io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.introspectToken(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Query an OAuth 2.0 authorization server to determine the active state of an OAuth 2.0 token and to determine\n meta-information about this token.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth introspectToken(
+    final @TypeInfo("ceylon.language::String") @Name("token")@DocAnnotation$annotation$(description = "the access token (base64 string)\n") ceylon.language.String token, 
+    final @TypeInfo("ceylon.language::String") @Name("tokenType")@DocAnnotation$annotation$(description = "hint to the token type e.g.: `access_token`\n") ceylon.language.String tokenType, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("handler")@DocAnnotation$annotation$(description = "A handler to receive the event\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(tokenType);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(handler) {
+      public Object toCeylon(io.vertx.core.json.JsonObject event) {
+        return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
+      }
+    };
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.introspectToken(arg_0, arg_1, arg_2));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns the scope separator.\n\n The RFC 6749 states that a scope is expressed as a set of case-sensitive and space-delimited strings, however\n vendors tend not to agree on this and we see the following cases being used: space, plus sign, comma.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String $getScopeSeparator() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getScopeSeparator());
+    return ret;
+  }
+
 }

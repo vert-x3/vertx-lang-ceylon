@@ -55,6 +55,7 @@ shared class OAuth2ClientOptions(
   Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
+  shared JsonObject? extraParameters = null,
   shared JsonObject? headers = null,
   Boolean? http2ClearTextUpgrade = null,
   Integer? http2ConnectionWindowSize = null,
@@ -62,6 +63,7 @@ shared class OAuth2ClientOptions(
   Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
   Http2Settings? initialSettings = null,
+  shared String? introspectionPath = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
@@ -70,6 +72,8 @@ shared class OAuth2ClientOptions(
   Boolean? logActivity = null,
   shared String? logoutPath = null,
   Integer? maxChunkSize = null,
+  Integer? maxHeaderSize = null,
+  Integer? maxInitialLineLength = null,
   Integer? maxPoolSize = null,
   Integer? maxWaitQueueSize = null,
   Integer? maxWebsocketFrameSize = null,
@@ -81,12 +85,14 @@ shared class OAuth2ClientOptions(
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
   Integer? pipeliningLimit = null,
+  shared String? privateKey = null,
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
   shared String? publicKey = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   shared String? revocationPath = null,
+  shared String? scopeSeparator = null,
   Integer? sendBufferSize = null,
   shared String? site = null,
   Integer? soLinger = null,
@@ -123,6 +129,8 @@ shared class OAuth2ClientOptions(
   localAddress,
   logActivity,
   maxChunkSize,
+  maxHeaderSize,
+  maxInitialLineLength,
   maxPoolSize,
   maxWaitQueueSize,
   maxWebsocketFrameSize,
@@ -164,8 +172,14 @@ shared class OAuth2ClientOptions(
     if (exists clientSecretParameterName) {
       json.put("clientSecretParameterName", clientSecretParameterName);
     }
+    if (exists extraParameters) {
+      json.put("extraParameters", extraParameters);
+    }
     if (exists headers) {
       json.put("headers", headers);
+    }
+    if (exists introspectionPath) {
+      json.put("introspectionPath", introspectionPath);
     }
     if (exists jwtToken) {
       json.put("jwtToken", jwtToken);
@@ -173,11 +187,17 @@ shared class OAuth2ClientOptions(
     if (exists logoutPath) {
       json.put("logoutPath", logoutPath);
     }
+    if (exists privateKey) {
+      json.put("privateKey", privateKey);
+    }
     if (exists publicKey) {
       json.put("publicKey", publicKey);
     }
     if (exists revocationPath) {
       json.put("revocationPath", revocationPath);
+    }
+    if (exists scopeSeparator) {
+      json.put("scopeSeparator", scopeSeparator);
     }
     if (exists site) {
       json.put("site", site);
@@ -212,6 +232,7 @@ shared object oAuth2ClientOptions {
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
+    JsonObject? extraParameters = json.getObjectOrNull("extraParameters");
     JsonObject? headers = json.getObjectOrNull("headers");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
@@ -219,6 +240,7 @@ shared object oAuth2ClientOptions {
     Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
+    String? introspectionPath = json.getStringOrNull("introspectionPath");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
@@ -227,6 +249,8 @@ shared object oAuth2ClientOptions {
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     String? logoutPath = json.getStringOrNull("logoutPath");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
+    Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
+    Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
@@ -238,12 +262,14 @@ shared object oAuth2ClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
+    String? privateKey = json.getStringOrNull("privateKey");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     String? publicKey = json.getStringOrNull("publicKey");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     String? revocationPath = json.getStringOrNull("revocationPath");
+    String? scopeSeparator = json.getStringOrNull("scopeSeparator");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     String? site = json.getStringOrNull("site");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
@@ -273,6 +299,7 @@ shared object oAuth2ClientOptions {
       defaultPort = defaultPort;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
+      extraParameters = extraParameters;
       headers = headers;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
@@ -280,6 +307,7 @@ shared object oAuth2ClientOptions {
       http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
       initialSettings = initialSettings;
+      introspectionPath = introspectionPath;
       jdkSslEngineOptions = jdkSslEngineOptions;
       jwtToken = jwtToken;
       keepAlive = keepAlive;
@@ -288,6 +316,8 @@ shared object oAuth2ClientOptions {
       logActivity = logActivity;
       logoutPath = logoutPath;
       maxChunkSize = maxChunkSize;
+      maxHeaderSize = maxHeaderSize;
+      maxInitialLineLength = maxInitialLineLength;
       maxPoolSize = maxPoolSize;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
@@ -299,12 +329,14 @@ shared object oAuth2ClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       pipeliningLimit = pipeliningLimit;
+      privateKey = privateKey;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
       publicKey = publicKey;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       revocationPath = revocationPath;
+      scopeSeparator = scopeSeparator;
       sendBufferSize = sendBufferSize;
       site = site;
       soLinger = soLinger;

@@ -105,4 +105,17 @@ public class AccessToken extends User implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Introspect access token. This is an OAuth2 extension that allow to verify if an access token is still valid.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken introspect(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.introspect(arg_0));
+    return this;
+  }
+
 }

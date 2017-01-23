@@ -73,6 +73,10 @@ shared class HttpClientOptions(
   Boolean? logActivity = null,
   " Set the maximum HTTP chunk size\n"
   shared Integer? maxChunkSize = null,
+  " Set the maximum length of all headers for HTTP/1.x .\n"
+  shared Integer? maxHeaderSize = null,
+  " Set the maximum length of the initial line for HTTP/1.x (e.g. <code>\"HTTP/1.1 200 OK\"</code>)\n"
+  shared Integer? maxInitialLineLength = null,
   " Set the maximum pool size for connections\n"
   shared Integer? maxPoolSize = null,
   " Set the maximum requests allowed in the wait queue, any requests beyond the max size will result in\n a ConnectionPoolTooBusyException.  If the value is set to a negative number then the queue will be unbounded.\n"
@@ -168,6 +172,12 @@ shared class HttpClientOptions(
     if (exists maxChunkSize) {
       json.put("maxChunkSize", maxChunkSize);
     }
+    if (exists maxHeaderSize) {
+      json.put("maxHeaderSize", maxHeaderSize);
+    }
+    if (exists maxInitialLineLength) {
+      json.put("maxInitialLineLength", maxInitialLineLength);
+    }
     if (exists maxPoolSize) {
       json.put("maxPoolSize", maxPoolSize);
     }
@@ -218,6 +228,8 @@ shared object httpClientOptions {
     String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? maxChunkSize = json.getIntegerOrNull("maxChunkSize");
+    Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
+    Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
@@ -265,6 +277,8 @@ shared object httpClientOptions {
       localAddress = localAddress;
       logActivity = logActivity;
       maxChunkSize = maxChunkSize;
+      maxHeaderSize = maxHeaderSize;
+      maxInitialLineLength = maxInitialLineLength;
       maxPoolSize = maxPoolSize;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
