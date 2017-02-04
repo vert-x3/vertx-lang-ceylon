@@ -11,6 +11,7 @@ import io.vertx.codegen.type.TypeInfo;
 import io.vertx.codetrans.CodeModel;
 import io.vertx.codetrans.CodeWriter;
 import io.vertx.codetrans.MethodSignature;
+import io.vertx.codetrans.TypeArg;
 import io.vertx.codetrans.expression.ApiTypeModel;
 import io.vertx.codetrans.expression.DataObjectLiteralModel;
 import io.vertx.codetrans.expression.ExpressionModel;
@@ -286,7 +287,7 @@ public class CeylonWriter extends CodeWriter {
   }
 
   @Override
-  public void renderJsonObjectMemberSelect(ExpressionModel expression, String name) {
+  public void renderJsonObjectMemberSelect(ExpressionModel expression, Class<?> type, String name) {
     expression.render(this);
     append("get(\"").append(name).append("\"");
   }
@@ -430,7 +431,7 @@ public class CeylonWriter extends CodeWriter {
   }
 
   @Override
-  public void renderMethodInvocation(ExpressionModel expression, TypeInfo receiverType, MethodSignature method, TypeInfo returnType, List<ExpressionModel> argumentModels, List<TypeInfo> argumentTypes) {
+  public void renderMethodInvocation(ExpressionModel expression, TypeInfo receiverType, MethodSignature method, TypeInfo returnType, List<TypeArg> typeArguments, List<ExpressionModel> argumentModels, List<TypeInfo> argumentTypes) {
     if (expression instanceof ApiTypeModel) {
       ApiTypeModel apiTypeModel = (ApiTypeModel) expression;
       expression = new ApiTypeModel(builder, apiTypeModel.getType()) {
@@ -445,7 +446,7 @@ public class CeylonWriter extends CodeWriter {
         }
       };
     }
-    super.renderMethodInvocation(expression, receiverType, method, returnType, argumentModels, argumentTypes);
+    super.renderMethodInvocation(expression, receiverType, method, returnType, typeArguments, argumentModels, argumentTypes);
   }
 
   @Override

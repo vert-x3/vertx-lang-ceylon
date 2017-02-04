@@ -48,6 +48,14 @@ shared object pemKeyCertOptions {
     };
   }
 
+  shared object toCeylon extends Converter<PemKeyCertOptions_, PemKeyCertOptions>() {
+    shared actual PemKeyCertOptions convert(PemKeyCertOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<PemKeyCertOptions, PemKeyCertOptions_>() {
     shared actual PemKeyCertOptions_ convert(PemKeyCertOptions src) {
       // Todo : make optimized version without json

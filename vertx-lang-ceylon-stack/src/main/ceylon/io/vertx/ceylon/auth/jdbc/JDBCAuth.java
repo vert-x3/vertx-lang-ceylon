@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.jdbc.JDBCClient;
+import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -91,6 +92,24 @@ public class JDBCAuth extends AuthProvider implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("rolePrefix")@DocAnnotation$annotation$(description = "a Prefix e.g.: \"role:\"\n") ceylon.language.String rolePrefix) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(rolePrefix);
     JDBCAuth ret = io.vertx.ceylon.auth.jdbc.JDBCAuth.TO_CEYLON.converter().safeConvert(delegate.setRolePrefix(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Compute the hashed password given the unhashed password and the salt\n\n The implementation relays to the JDBCHashStrategy provided.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String computeHash(
+    final @TypeInfo("ceylon.language::String") @Name("password")@DocAnnotation$annotation$(description = "the unhashed password\n") ceylon.language.String password, 
+    final @TypeInfo("ceylon.language::String") @Name("salt")@DocAnnotation$annotation$(description = "the salt\n") ceylon.language.String salt) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(password);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(salt);
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.computeHash(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Compute a salt string.\n\n The implementation relays to the JDBCHashStrategy provided.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String generateSalt() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.generateSalt());
     return ret;
   }
 

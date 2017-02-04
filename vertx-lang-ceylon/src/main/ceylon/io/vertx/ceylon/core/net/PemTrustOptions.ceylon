@@ -41,6 +41,14 @@ shared object pemTrustOptions {
     };
   }
 
+  shared object toCeylon extends Converter<PemTrustOptions_, PemTrustOptions>() {
+    shared actual PemTrustOptions convert(PemTrustOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<PemTrustOptions, PemTrustOptions_>() {
     shared actual PemTrustOptions_ convert(PemTrustOptions src) {
       // Todo : make optimized version without json

@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.jdbc.JDBCClient;
+import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -41,9 +42,11 @@ public class jdbcAuth_ implements ReifiedType {
   @DocAnnotation$annotation$(description = " Create a JDBC auth provider implementation\n")
   @TypeInfo("io.vertx.ceylon.auth.jdbc::JDBCAuth")
   public JDBCAuth create(
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
     final @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient") @Name("client")@DocAnnotation$annotation$(description = "the JDBC client instance\n") JDBCClient client) {
-    io.vertx.ext.jdbc.JDBCClient arg_0 = io.vertx.ceylon.jdbc.JDBCClient.TO_JAVA.safeConvert(client);
-    JDBCAuth ret = io.vertx.ceylon.auth.jdbc.JDBCAuth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.jdbc.JDBCAuth.create(arg_0));
+    io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
+    io.vertx.ext.jdbc.JDBCClient arg_1 = io.vertx.ceylon.jdbc.JDBCClient.TO_JAVA.safeConvert(client);
+    JDBCAuth ret = io.vertx.ceylon.auth.jdbc.JDBCAuth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.jdbc.JDBCAuth.create(arg_0, arg_1));
     return ret;
   }
 

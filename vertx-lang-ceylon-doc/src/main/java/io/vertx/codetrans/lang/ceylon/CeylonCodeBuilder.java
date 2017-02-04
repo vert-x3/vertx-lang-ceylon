@@ -9,7 +9,9 @@ import io.vertx.codegen.type.TypeInfo;
 import io.vertx.codetrans.CodeBuilder;
 import io.vertx.codetrans.CodeModel;
 import io.vertx.codetrans.MethodSignature;
+import io.vertx.codetrans.RenderMode;
 import io.vertx.codetrans.RunnableCompilationUnit;
+import io.vertx.codetrans.TypeArg;
 import io.vertx.codetrans.expression.ApiTypeModel;
 import io.vertx.codetrans.expression.EnumExpressionModel;
 import io.vertx.codetrans.expression.ExpressionModel;
@@ -44,7 +46,7 @@ public class CeylonCodeBuilder implements CodeBuilder {
   }
 
   @Override
-  public String render(RunnableCompilationUnit unit) {
+  public String render(RunnableCompilationUnit unit, RenderMode renderMode) {
     CeylonWriter writer = newWriter();
 
     class CeylonImports {
@@ -185,8 +187,8 @@ public class CeylonCodeBuilder implements CodeBuilder {
     functionTypes.add(type);
     return new ApiTypeModel(this, type) {
       @Override
-      public ExpressionModel onMethodInvocation(TypeInfo receiverType, MethodSignature method, TypeInfo returnType, List<ExpressionModel> argumentModels, List<TypeInfo> argumenTypes) {
-        return super.onMethodInvocation(receiverType, method, returnType, argumentModels, argumenTypes);
+      public ExpressionModel onMethodInvocation(TypeInfo receiverType, MethodSignature method, TypeInfo returnType, List<TypeArg> typeArguments, List<ExpressionModel> argumentModels, List<TypeInfo> argumentTypes) {
+        return super.onMethodInvocation(receiverType, method, returnType, typeArguments, argumentModels, argumentTypes);
       }
     };
   }

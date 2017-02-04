@@ -94,6 +94,7 @@ shared class OAuth2ClientOptions(
   shared String? revocationPath = null,
   shared String? scopeSeparator = null,
   Integer? sendBufferSize = null,
+  Boolean? sendUnmaskedFrames = null,
   shared String? site = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
@@ -147,6 +148,7 @@ shared class OAuth2ClientOptions(
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
+  sendUnmaskedFrames,
   soLinger,
   ssl,
   tcpKeepAlive,
@@ -271,6 +273,7 @@ shared object oAuth2ClientOptions {
     String? revocationPath = json.getStringOrNull("revocationPath");
     String? scopeSeparator = json.getStringOrNull("scopeSeparator");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Boolean? sendUnmaskedFrames = json.getBooleanOrNull("sendUnmaskedFrames");
     String? site = json.getStringOrNull("site");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
@@ -338,6 +341,7 @@ shared object oAuth2ClientOptions {
       revocationPath = revocationPath;
       scopeSeparator = scopeSeparator;
       sendBufferSize = sendBufferSize;
+      sendUnmaskedFrames = sendUnmaskedFrames;
       site = site;
       soLinger = soLinger;
       ssl = ssl;

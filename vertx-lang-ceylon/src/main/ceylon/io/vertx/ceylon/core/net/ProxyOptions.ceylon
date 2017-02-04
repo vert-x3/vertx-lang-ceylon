@@ -73,6 +73,14 @@ shared object proxyOptions {
     };
   }
 
+  shared object toCeylon extends Converter<ProxyOptions_, ProxyOptions>() {
+    shared actual ProxyOptions convert(ProxyOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<ProxyOptions, ProxyOptions_>() {
     shared actual ProxyOptions_ convert(ProxyOptions src) {
       // Todo : make optimized version without json

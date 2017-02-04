@@ -58,6 +58,7 @@ public class RoutingContext implements ReifiedType {
 
   @Ignore private HttpServerRequest cached_request;
   @Ignore private HttpServerResponse cached_response;
+  @Ignore private Vertx cached_vertx;
   @Ignore private Throwable cached_failure;
   @Ignore private java.lang.Long cached_statusCode;
   @Ignore private ParsedHeaderValues cached_parsedHeaders;
@@ -164,7 +165,11 @@ public class RoutingContext implements ReifiedType {
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core::Vertx")
   public Vertx vertx() {
+    if (cached_vertx != null) {
+      return cached_vertx;
+    }
     Vertx ret = io.vertx.ceylon.core.Vertx.TO_CEYLON.converter().safeConvert(delegate.vertx());
+    cached_vertx = ret;
     return ret;
   }
 

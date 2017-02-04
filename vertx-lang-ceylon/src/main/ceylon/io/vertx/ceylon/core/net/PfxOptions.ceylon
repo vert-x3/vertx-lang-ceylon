@@ -48,6 +48,14 @@ shared object pfxOptions {
     };
   }
 
+  shared object toCeylon extends Converter<PfxOptions_, PfxOptions>() {
+    shared actual PfxOptions convert(PfxOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<PfxOptions, PfxOptions_>() {
     shared actual PfxOptions_ convert(PfxOptions src) {
       // Todo : make optimized version without json

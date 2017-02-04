@@ -99,6 +99,8 @@ shared class HttpClientOptions(
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
+  " Set true when the client wants to skip frame masking.\n You may want to set it true on server by server websocket communication: In this case you are by passing RFC6455 protocol.\n It's false as default.\n"
+  shared Boolean? sendUnmaskedFrames = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
   Boolean? tcpKeepAlive = null,
@@ -196,6 +198,9 @@ shared class HttpClientOptions(
     if (exists protocolVersion) {
       json.put("protocolVersion", httpVersion_.toString(protocolVersion));
     }
+    if (exists sendUnmaskedFrames) {
+      json.put("sendUnmaskedFrames", sendUnmaskedFrames);
+    }
     if (exists tryUseCompression) {
       json.put("tryUseCompression", tryUseCompression);
     }
@@ -246,6 +251,7 @@ shared object httpClientOptions {
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Boolean? sendUnmaskedFrames = json.getBooleanOrNull("sendUnmaskedFrames");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
@@ -295,6 +301,7 @@ shared object httpClientOptions {
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;
+      sendUnmaskedFrames = sendUnmaskedFrames;
       soLinger = soLinger;
       ssl = ssl;
       tcpKeepAlive = tcpKeepAlive;

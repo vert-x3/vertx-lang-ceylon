@@ -104,17 +104,25 @@ public class DataObjectTCK implements ReifiedType {
     delegate.setDataObjectWithBuffer(arg_0);
   }
 
-  @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithSelf")
-  public io.vertx.ceylon.testmodel.DataObjectWithSelf $getDataObjectWithSelf() {
-    io.vertx.ceylon.testmodel.DataObjectWithSelf ret = io.vertx.ceylon.testmodel.dataObjectWithSelf_.get_().getToCeylon().safeConvert(delegate.getDataObjectWithSelf());
-    return ret;
+  @TypeInfo("ceylon.language::Anything")
+  public void $setDataObjectWithListAdders(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithListAdders") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithListAdders dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithListAdders arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithListAdders(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithListAdders(arg_0);
   }
 
   @TypeInfo("ceylon.language::Anything")
-  public void $setDataObjectWithSelf(
-    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithSelf") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithSelf dataObject) {
-    io.vertx.codegen.testmodel.DataObjectWithSelf arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithSelf(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
-    delegate.setDataObjectWithSelf(arg_0);
+  public void $setDataObjectWithMapAdders(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithMapAdders") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithMapAdders dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithMapAdders arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithMapAdders(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithMapAdders(arg_0);
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void $setDataObjectWithRecursion(
+    final @TypeInfo("io.vertx.ceylon.testmodel::DataObjectWithRecursion") @Name("dataObject") io.vertx.ceylon.testmodel.DataObjectWithRecursion dataObject) {
+    io.vertx.codegen.testmodel.DataObjectWithRecursion arg_0 = dataObject == null ? null : new io.vertx.codegen.testmodel.DataObjectWithRecursion(io.vertx.lang.ceylon.ToJava.JsonObject.convert(dataObject.toJson()));
+    delegate.setDataObjectWithRecursion(arg_0);
   }
 
 }

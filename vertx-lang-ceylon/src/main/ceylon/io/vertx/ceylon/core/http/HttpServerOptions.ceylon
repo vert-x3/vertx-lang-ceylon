@@ -45,6 +45,8 @@ import io.vertx.core.json {
 " Represents options used by an [HttpServer](../http/HttpServer.type.html) instance\n"
 shared class HttpServerOptions(
   Integer? acceptBacklog = null,
+  " Set true when the server accepts unmasked frame.\n As default Server doesn't accept unmasked frame, you can bypass this behaviour (RFC 6455) setting true\n It's set to false as default.\n"
+  shared Boolean? acceptUnmaskedFrames = null,
   " Set the list of protocol versions to provide to the server during the Application-Layer Protocol Negotiatiation.\n"
   shared {HttpVersion*}? alpnVersions = null,
   ClientAuth? clientAuth = null,
@@ -126,6 +128,9 @@ shared class HttpServerOptions(
   usePooledBuffers) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = super.toJson();
+    if (exists acceptUnmaskedFrames) {
+      json.put("acceptUnmaskedFrames", acceptUnmaskedFrames);
+    }
     if (exists alpnVersions) {
       json.put("alpnVersions", JsonArray(alpnVersions.map(httpVersion_.toString)));
     }
@@ -170,6 +175,7 @@ shared object httpServerOptions {
 
   shared HttpServerOptions fromJson(JsonObject json) {
     Integer? acceptBacklog = json.getIntegerOrNull("acceptBacklog");
+    Boolean? acceptUnmaskedFrames = json.getBooleanOrNull("acceptUnmaskedFrames");
     {HttpVersion*}? alpnVersions = json.getArrayOrNull("alpnVersions")?.strings?.map(httpVersion_.fromString);
     ClientAuth? clientAuth = if (exists tmp = json.getStringOrNull("clientAuth")) then clientAuth_.fromString(tmp) else null;
     Boolean? clientAuthRequired = json.getBooleanOrNull("clientAuthRequired");
@@ -211,6 +217,7 @@ shared object httpServerOptions {
     String? websocketSubProtocols = json.getStringOrNull("websocketSubProtocols");
     return HttpServerOptions {
       acceptBacklog = acceptBacklog;
+      acceptUnmaskedFrames = acceptUnmaskedFrames;
       alpnVersions = alpnVersions;
       clientAuth = clientAuth;
       clientAuthRequired = clientAuthRequired;

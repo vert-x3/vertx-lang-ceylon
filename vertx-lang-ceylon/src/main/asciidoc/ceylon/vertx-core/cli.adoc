@@ -43,7 +43,7 @@ value cli = cli_.create("copy").setSummary("A command line interface to copy fil
   description = "The source";
   argName = "source";
 }).addArgument(Argument {
-  index = 0;
+  index = 1;
   description = "The destination";
   argName = "target";
 });

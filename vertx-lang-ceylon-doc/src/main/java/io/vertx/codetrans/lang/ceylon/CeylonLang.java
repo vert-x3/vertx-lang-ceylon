@@ -10,7 +10,12 @@ import io.vertx.codetrans.Script;
 public class CeylonLang implements Lang {
 
   @Override
-  public Script loadScript(ClassLoader classLoader, String s) throws Exception {
+  public String id() {
+    return "ceylon";
+  }
+
+  @Override
+  public Script loadScript(ClassLoader loader, String path, String method) throws Exception {
     throw new UnsupportedOperationException("not yet implemented");
   }
 
