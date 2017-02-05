@@ -14,8 +14,10 @@ import io.vertx.codetrans.RunnableCompilationUnit;
 import io.vertx.codetrans.TypeArg;
 import io.vertx.codetrans.expression.ApiTypeModel;
 import io.vertx.codetrans.expression.EnumExpressionModel;
+import io.vertx.codetrans.expression.EnumFieldExpressionModel;
 import io.vertx.codetrans.expression.ExpressionModel;
 import io.vertx.codetrans.expression.LambdaExpressionModel;
+import io.vertx.codetrans.expression.StringLiteralModel;
 import io.vertx.codetrans.expression.VariableScope;
 import io.vertx.codetrans.statement.StatementModel;
 
@@ -107,6 +109,10 @@ public class CeylonCodeBuilder implements CodeBuilder {
 
     unit.getMain().render(writer);
     return writer.getBuffer().toString();
+  }
+
+  public ExpressionModel toDataObjectValue(EnumFieldExpressionModel enumField) {
+    return new StringLiteralModel(this, enumField.identifier);
   }
 
   @Override
