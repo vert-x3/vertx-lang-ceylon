@@ -142,6 +142,14 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return this;
   }
 
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest setFollowRedirects(
+    final @TypeInfo("ceylon.language::Boolean") @Name("followRedirects") boolean followRedirects) {
+    boolean arg_0 = followRedirects;
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setFollowRedirects(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " If chunked is true then the request will be set into HTTP chunked mode\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest setChunked(
@@ -179,6 +187,13 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(method);
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.setRawMethod(arg_0));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String absoluteURI() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.absoluteURI());
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = "")

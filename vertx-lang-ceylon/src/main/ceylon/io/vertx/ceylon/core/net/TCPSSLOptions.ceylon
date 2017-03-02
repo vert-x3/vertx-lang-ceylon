@@ -69,7 +69,7 @@ shared class TCPSSLOptions(
   " Set whether TCP no delay is enabled\n"
   shared Boolean? tcpNoDelay = null,
   Integer? trafficClass = null,
-  " Set the trust options in jks format, aka Java trustore\n"
+  " Set the trust options in jks format, aka Java truststore\n"
   shared JksOptions? trustStoreOptions = null,
   " Set the ALPN usage.\n"
   shared Boolean? useAlpn = null,
@@ -191,5 +191,13 @@ shared object tcpsslOptions {
       useAlpn = useAlpn;
       usePooledBuffers = usePooledBuffers;
     };
+  }
+
+  shared object toCeylon extends Converter<TCPSSLOptions_, TCPSSLOptions>() {
+    shared actual TCPSSLOptions convert(TCPSSLOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
   }
 }

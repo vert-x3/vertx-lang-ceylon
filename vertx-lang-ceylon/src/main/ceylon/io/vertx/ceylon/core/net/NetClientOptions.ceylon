@@ -184,6 +184,14 @@ shared object netClientOptions {
     };
   }
 
+  shared object toCeylon extends Converter<NetClientOptions_, NetClientOptions>() {
+    shared actual NetClientOptions convert(NetClientOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<NetClientOptions, NetClientOptions_>() {
     shared actual NetClientOptions_ convert(NetClientOptions src) {
       // Todo : make optimized version without json

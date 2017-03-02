@@ -68,4 +68,12 @@ shared object networkOptions {
       trafficClass = trafficClass;
     };
   }
+
+  shared object toCeylon extends Converter<NetworkOptions_, NetworkOptions>() {
+    shared actual NetworkOptions convert(NetworkOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
 }

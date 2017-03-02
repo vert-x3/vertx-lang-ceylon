@@ -41,6 +41,14 @@ shared object jdkSSLEngineOptions {
     };
   }
 
+  shared object toCeylon extends Converter<JdkSSLEngineOptions_, JdkSSLEngineOptions>() {
+    shared actual JdkSSLEngineOptions convert(JdkSSLEngineOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<JdkSSLEngineOptions, JdkSSLEngineOptions_>() {
     shared actual JdkSSLEngineOptions_ convert(JdkSSLEngineOptions src) {
       // Todo : make optimized version without json

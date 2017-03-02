@@ -38,6 +38,22 @@ public class future_ implements ReifiedType {
   @TypeParameters({
     @TypeParameter(value="T",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Create a future that hasn't completed yet and that is passed to the <code>handler</code> before it is returned.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<T?>")
+  public <T> Future<T> future(final @Ignore TypeDescriptor $reified$T, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core::Future<T?>)") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.Future<java.lang.Object>>() {
+      public void handle(io.vertx.core.Future<java.lang.Object> event) {
+        handler.$call$((Object)io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(event));
+      }
+    };
+    Future<T> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$T)).safeConvert(io.vertx.core.Future.future(arg_0));
+    return ret;
+  }
+
+  @TypeParameters({
+    @TypeParameter(value="T",variance=Variance.NONE)
+  })
   @DocAnnotation$annotation$(description = " Create a future that hasn't completed yet\n")
   @TypeInfo("io.vertx.ceylon.core::Future<T?>")
   public <T> Future<T> future(final @Ignore TypeDescriptor $reified$T) {

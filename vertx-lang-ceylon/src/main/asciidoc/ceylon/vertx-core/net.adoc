@@ -946,6 +946,78 @@ value client = vertx.createNetClient(options);
 
 Keep in mind that pem configuration, the private key is not crypted.
 
+==== Self-signed certificates for testing and development purposes
+
+CAUTION: Do not use this in production settings, and note that the generated keys are very insecure.
+
+It is very often the case that self-signed certificates are required, be it for unit / integration tests or for
+running a development version of an application.
+
+`link:../../ceylondoc/vertx-core//net/SelfSignedCertificate.type.html[SelfSignedCertificate]` can be used to provide self-signed PEM certificate helpers and
+give `KeyCertOptions` and `TrustOptions` configurations:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core.net { selfSignedCertificate } 
+
+...
+
+value certificate = selfSignedCertificate.create();
+
+value serverOptions = NetServerOptions {
+  ssl = true;
+  keyCertOptions = certificate.keyCertOptions();
+  trustOptions = certificate.trustOptions();
+};
+
+value server = vertx.createNetServer(serverOptions).connectHandler((NetSocket socket) => socket.write("Hello!").end()).listen(1234, "localhost");
+
+value clientOptions = NetClientOptions {
+  ssl = true;
+  keyCertOptions = certificate.keyCertOptions();
+  trustOptions = certificate.trustOptions();
+};
+
+value client = vertx.createNetClient(clientOptions);
+client.connect(1234, "localhost", (NetSocket|Throwable ar) {
+  if (is NetSocket ar) {
+    ar.handler((Buffer buffer) => print(buffer));
+  } else {
+    print("Woops: ``ar.getMessage()``");
+  };
+});
+
+----
+
+The client can also be configured to trust all certificates:
+
+[source,ceylon]
+----
+value clientOptions = NetClientOptions {
+  ssl = true;
+  trustAll = true;
+};
+
+----
+
+Note that self-signed certificates also work for other TCP protocols like HTTPS:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core.net { selfSignedCertificate } 
+
+...
+
+value certificate = selfSignedCertificate.create();
+
+vertx.createHttpServer(HttpServerOptions {
+  ssl = true;
+  keyCertOptions = certificate.keyCertOptions();
+  trustOptions = certificate.trustOptions();
+}).requestHandler((HttpServerRequest req) => req.response().end("Hello!")).listen(8080);
+
+----
+
 ==== Revoking certificate authorities
 
 Trust can be configured to use a certificate revocation list (CRL) for revoked certificates that should no

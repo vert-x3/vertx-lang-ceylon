@@ -79,6 +79,8 @@ shared class HttpServerOptions(
   shared Integer? maxInitialLineLength = null,
   " Set the maximum websocket frames size\n"
   shared Integer? maxWebsocketFrameSize = null,
+  " Set the maximum websocket message size\n"
+  shared Integer? maxWebsocketMessageSize = null,
   OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
   PemTrustOptions? pemTrustOptions = null,
@@ -164,6 +166,9 @@ shared class HttpServerOptions(
     if (exists maxWebsocketFrameSize) {
       json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
     }
+    if (exists maxWebsocketMessageSize) {
+      json.put("maxWebsocketMessageSize", maxWebsocketMessageSize);
+    }
     if (exists websocketSubProtocols) {
       json.put("websocketSubProtocols", websocketSubProtocols);
     }
@@ -197,6 +202,7 @@ shared object httpServerOptions {
     Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
     Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    Integer? maxWebsocketMessageSize = json.getIntegerOrNull("maxWebsocketMessageSize");
     OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
     PemTrustOptions? pemTrustOptions = if (exists tmp = json.getObjectOrNull("pemTrustOptions")) then pemTrustOptions_.fromJson(tmp) else null;
@@ -239,6 +245,7 @@ shared object httpServerOptions {
       maxHeaderSize = maxHeaderSize;
       maxInitialLineLength = maxInitialLineLength;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      maxWebsocketMessageSize = maxWebsocketMessageSize;
       openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
       pemTrustOptions = pemTrustOptions;
@@ -258,6 +265,14 @@ shared object httpServerOptions {
       usePooledBuffers = usePooledBuffers;
       websocketSubProtocols = websocketSubProtocols;
     };
+  }
+
+  shared object toCeylon extends Converter<HttpServerOptions_, HttpServerOptions>() {
+    shared actual HttpServerOptions convert(HttpServerOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
   }
 
   shared object toJava extends Converter<HttpServerOptions, HttpServerOptions_>() {

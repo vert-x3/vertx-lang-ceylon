@@ -197,7 +197,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set a close handler for the response. This will be called if the underlying connection closes before the response\n is complete.\n")
+  @DocAnnotation$annotation$(description = " Set a close handler for the response. This will be called when the response is ended or if the underlying connection\n closes before the response ends.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse closeHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {

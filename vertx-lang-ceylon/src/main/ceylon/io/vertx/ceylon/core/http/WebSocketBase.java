@@ -111,6 +111,11 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   public WebSocketBase writeBinaryMessage(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the data to write\n") Buffer data);
 
+  @DocAnnotation$annotation$(description = " Writes a (potentially large) piece of text data to the connection. This data might be written as multiple frames\n if it exceeds the maximum WebSocket frame size.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeTextMessage(
+    final @TypeInfo("ceylon.language::String") @Name("text")@DocAnnotation$annotation$(description = "the data to write\n") ceylon.language.String text);
+
   @DocAnnotation$annotation$(description = " Set a close handler. This will be called when the WebSocket is closed.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase closeHandler(
@@ -120,6 +125,16 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase frameHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocketFrame)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
+
+  @DocAnnotation$annotation$(description = " Set a text message handler on the connection. This handler will be called similar to the\n , but the buffer will be converted to a String first\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase textMessageHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::String)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
+
+  @DocAnnotation$annotation$(description = " Set a binary message handler on the connection. This handler serves a similar purpose to [handler](../http/WebSocketBase.type.html#handler)\n except that if a message comes into the socket in multiple frames, the data from the frames will be aggregated\n into a single buffer before calling the handler (using [isFinal](../http/WebSocketFrame.type.html#isFinal) to find the boundaries).\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase binaryMessageHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Calls [close](../http/WebSocketBase.type.html#close)\n")
   @TypeInfo("ceylon.language::Anything")
@@ -299,6 +314,15 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       return this;
     }
 
+  @DocAnnotation$annotation$(description = " Writes a (potentially large) piece of text data to the connection. This data might be written as multiple frames\n if it exceeds the maximum WebSocket frame size.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writeTextMessage(
+    final @TypeInfo("ceylon.language::String") @Name("text")@DocAnnotation$annotation$(description = "the data to write\n") ceylon.language.String text) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(text);
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.writeTextMessage(arg_0));
+      return this;
+    }
+
   @DocAnnotation$annotation$(description = " Set a close handler. This will be called when the WebSocket is closed.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase closeHandler(
@@ -322,6 +346,32 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       }
     };
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.frameHandler(arg_0));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Set a text message handler on the connection. This handler will be called similar to the\n , but the buffer will be converted to a String first\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase textMessageHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::String)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.String> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.String>() {
+      public void handle(java.lang.String event) {
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.String.safeConvert(event));
+      }
+    };
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.textMessageHandler(arg_0));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Set a binary message handler on the connection. This handler serves a similar purpose to [handler](../http/WebSocketBase.type.html#handler)\n except that if a message comes into the socket in multiple frames, the data from the frames will be aggregated\n into a single buffer before calling the handler (using [isFinal](../http/WebSocketFrame.type.html#isFinal) to find the boundaries).\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase binaryMessageHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
+      public void handle(io.vertx.core.buffer.Buffer event) {
+        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.binaryMessageHandler(arg_0));
       return this;
     }
 

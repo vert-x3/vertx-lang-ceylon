@@ -180,6 +180,14 @@ shared object netServerOptions {
     };
   }
 
+  shared object toCeylon extends Converter<NetServerOptions_, NetServerOptions>() {
+    shared actual NetServerOptions convert(NetServerOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<NetServerOptions, NetServerOptions_>() {
     shared actual NetServerOptions_ convert(NetServerOptions src) {
       // Todo : make optimized version without json

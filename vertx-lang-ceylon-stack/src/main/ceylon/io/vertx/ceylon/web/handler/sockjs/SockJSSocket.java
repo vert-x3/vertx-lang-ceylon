@@ -128,6 +128,15 @@ public class SockJSSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStr
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Write a `String` to the socket, encoded in UTF-8.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
+  public SockJSSocket write(
+    final @TypeInfo("ceylon.language::String") @Name("data")@DocAnnotation$annotation$(description = "the string to write\n") ceylon.language.String data) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(data);
+    SockJSSocket ret = io.vertx.ceylon.web.handler.sockjs.SockJSSocket.TO_CEYLON.converter().safeConvert(delegate.write(arg_0));
+    return this;
+  }
+
   @TypeInfo("io.vertx.ceylon.web.handler.sockjs::SockJSSocket")
   public SockJSSocket setWriteQueueMaxSize(
     final @TypeInfo("ceylon.language::Integer") @Name("maxSize") long maxSize) {

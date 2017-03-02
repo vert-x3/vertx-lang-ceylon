@@ -79,10 +79,14 @@ shared class HttpClientOptions(
   shared Integer? maxInitialLineLength = null,
   " Set the maximum pool size for connections\n"
   shared Integer? maxPoolSize = null,
+  " Set to <code>maxRedirects</code> the maximum number of redirection a request can follow.\n"
+  shared Integer? maxRedirects = null,
   " Set the maximum requests allowed in the wait queue, any requests beyond the max size will result in\n a ConnectionPoolTooBusyException.  If the value is set to a negative number then the queue will be unbounded.\n"
   shared Integer? maxWaitQueueSize = null,
   " Set the max websocket frame size\n"
   shared Integer? maxWebsocketFrameSize = null,
+  " Set the max websocket message size\n"
+  shared Integer? maxWebsocketMessageSize = null,
   String? metricsName = null,
   OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -183,11 +187,17 @@ shared class HttpClientOptions(
     if (exists maxPoolSize) {
       json.put("maxPoolSize", maxPoolSize);
     }
+    if (exists maxRedirects) {
+      json.put("maxRedirects", maxRedirects);
+    }
     if (exists maxWaitQueueSize) {
       json.put("maxWaitQueueSize", maxWaitQueueSize);
     }
     if (exists maxWebsocketFrameSize) {
       json.put("maxWebsocketFrameSize", maxWebsocketFrameSize);
+    }
+    if (exists maxWebsocketMessageSize) {
+      json.put("maxWebsocketMessageSize", maxWebsocketMessageSize);
     }
     if (exists pipelining) {
       json.put("pipelining", pipelining);
@@ -236,8 +246,10 @@ shared object httpClientOptions {
     Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
     Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
+    Integer? maxRedirects = json.getIntegerOrNull("maxRedirects");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    Integer? maxWebsocketMessageSize = json.getIntegerOrNull("maxWebsocketMessageSize");
     String? metricsName = json.getStringOrNull("metricsName");
     OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -286,8 +298,10 @@ shared object httpClientOptions {
       maxHeaderSize = maxHeaderSize;
       maxInitialLineLength = maxInitialLineLength;
       maxPoolSize = maxPoolSize;
+      maxRedirects = maxRedirects;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      maxWebsocketMessageSize = maxWebsocketMessageSize;
       metricsName = metricsName;
       openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
@@ -314,6 +328,14 @@ shared object httpClientOptions {
       usePooledBuffers = usePooledBuffers;
       verifyHost = verifyHost;
     };
+  }
+
+  shared object toCeylon extends Converter<HttpClientOptions_, HttpClientOptions>() {
+    shared actual HttpClientOptions convert(HttpClientOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
   }
 
   shared object toJava extends Converter<HttpClientOptions, HttpClientOptions_>() {

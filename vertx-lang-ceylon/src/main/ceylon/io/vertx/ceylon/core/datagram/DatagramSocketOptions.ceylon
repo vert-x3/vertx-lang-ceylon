@@ -92,6 +92,14 @@ shared object datagramSocketOptions {
     };
   }
 
+  shared object toCeylon extends Converter<DatagramSocketOptions_, DatagramSocketOptions>() {
+    shared actual DatagramSocketOptions convert(DatagramSocketOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<DatagramSocketOptions, DatagramSocketOptions_>() {
     shared actual DatagramSocketOptions_ convert(DatagramSocketOptions src) {
       // Todo : make optimized version without json

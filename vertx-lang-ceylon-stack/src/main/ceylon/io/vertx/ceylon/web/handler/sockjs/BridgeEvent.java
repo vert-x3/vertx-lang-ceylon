@@ -81,6 +81,14 @@ public class BridgeEvent extends Future<ceylon.language.Boolean> implements Reif
   }
 
   @TypeInfo("ceylon.language::Boolean")
+  public boolean tryComplete(
+    final @TypeInfo("ceylon.language::Boolean") @Name("arg0") ceylon.language.Boolean arg0) {
+    java.lang.Boolean arg_0 = io.vertx.lang.ceylon.ToJava.Boolean.safeConvert(arg0);
+    boolean ret = delegate.tryComplete(arg_0);
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::Boolean")
   public ceylon.language.Boolean result() {
     ceylon.language.Boolean ret = io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(delegate.result());
     return ret;
@@ -142,6 +150,46 @@ public class BridgeEvent extends Future<ceylon.language.Boolean> implements Reif
     }
     Callable<?> ret = new io.vertx.lang.ceylon.AsyncResultHandlerCallable(io.vertx.lang.ceylon.ToJava.Boolean, delegate.completer());
     cached_completer = ret;
+    return ret;
+  }
+
+  @TypeInfo("io.vertx.ceylon.core::Future<ceylon.language::Boolean>")
+  public Future<ceylon.language.Boolean> recover(
+    final @TypeInfo("io.vertx.ceylon.core::Future<ceylon.language::Boolean>(ceylon.language::Throwable)") @Name("mapper") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Throwable,io.vertx.core.Future<java.lang.Boolean>> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Throwable,io.vertx.core.Future<java.lang.Boolean>>() {
+      public io.vertx.core.Future<java.lang.Boolean> apply(java.lang.Throwable arg) {
+        Future<ceylon.language.Boolean> ret = (Future<ceylon.language.Boolean>)mapper.$call$((Object)arg);
+        return io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(ret);
+      }
+    };
+    Future<ceylon.language.Boolean> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(ceylon.language.Boolean.$TypeDescriptor$).safeConvert(delegate.recover(arg_0));
+    return ret;
+  }
+
+  @TypeInfo("io.vertx.ceylon.core::Future<ceylon.language::Boolean>")
+  public Future<ceylon.language.Boolean> otherwise(
+    final @TypeInfo("ceylon.language::Boolean(ceylon.language::Throwable)") @Name("mapper") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Throwable,java.lang.Boolean> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Throwable,java.lang.Boolean>() {
+      public java.lang.Boolean apply(java.lang.Throwable arg) {
+        ceylon.language.Boolean ret = (ceylon.language.Boolean)mapper.$call$((Object)arg);
+        return io.vertx.lang.ceylon.ToJava.Boolean.safeConvert(ret);
+      }
+    };
+    Future<ceylon.language.Boolean> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(ceylon.language.Boolean.$TypeDescriptor$).safeConvert(delegate.otherwise(arg_0));
+    return ret;
+  }
+
+  @TypeInfo("io.vertx.ceylon.core::Future<ceylon.language::Boolean>")
+  public Future<ceylon.language.Boolean> otherwise(
+    final @TypeInfo("ceylon.language::Boolean") @Name("value") ceylon.language.Boolean value) {
+    java.lang.Boolean arg_0 = io.vertx.lang.ceylon.ToJava.Boolean.safeConvert(value);
+    Future<ceylon.language.Boolean> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(ceylon.language.Boolean.$TypeDescriptor$).safeConvert(delegate.otherwise(arg_0));
+    return ret;
+  }
+
+  @TypeInfo("io.vertx.ceylon.core::Future<ceylon.language::Boolean>")
+  public Future<ceylon.language.Boolean> otherwiseEmpty() {
+    Future<ceylon.language.Boolean> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(ceylon.language.Boolean.$TypeDescriptor$).safeConvert(delegate.otherwiseEmpty());
     return ret;
   }
 

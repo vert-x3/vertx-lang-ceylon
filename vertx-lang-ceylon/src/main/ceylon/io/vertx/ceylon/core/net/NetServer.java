@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.metrics.Measured;
+import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
@@ -62,9 +63,9 @@ public class NetServer implements ReifiedType,  Measured {
   }
 
   @DocAnnotation$annotation$(description = " Return the connect stream for this server. The server can only have at most one handler at any one time.\n As the server accepts TCP or SSL connections it creates an instance of [NetSocket](../net/NetSocket.type.html) and passes it to the\n connect stream .\n")
-  @TypeInfo("io.vertx.ceylon.core.net::NetSocketStream")
-  public NetSocketStream connectStream() {
-    NetSocketStream ret = io.vertx.ceylon.core.net.NetSocketStream.TO_CEYLON.converter().safeConvert(delegate.connectStream());
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.net::NetSocket>")
+  public ReadStream<NetSocket> connectStream() {
+    ReadStream<NetSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(NetSocket.$TypeDescriptor$).safeConvert(delegate.connectStream());
     return ret;
   }
 

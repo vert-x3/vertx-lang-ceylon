@@ -1043,7 +1043,7 @@ Often, you'll want to make HTTP requests with no request body. This is usually t
 HEAD requests.
 
 The simplest way to do this with the Vert.x http client is using the methods prefixed with `Now`. For example
-`link:../../ceylondoc/vertx-core//http/HttpClient.type.html#getNow(int,%20java.lang.String,%20java.lang.String,%20io.vertx.core.Handler)[getNow]`.
+`link:../../ceylondoc/vertx-core//http/HttpClient.type.html#getNow(io.vertx.core.http.RequestOptions,%20io.vertx.core.Handler)[getNow]`.
 
 These methods create the http request and send it in a single method call and allow you to provide a handler that will be
 called with the http response when it comes back.
@@ -1068,7 +1068,7 @@ client.headNow("/other-uri", (HttpClientResponse response) {
 ==== Writing general requests
 
 At other times you don't know the request method you want to send until run-time. For that use case we provide
-general purpose request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#request(io.vertx.core.http.HttpMethod,%20int,%20java.lang.String,%20java.lang.String)[request]` which allow you to specify
+general purpose request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#request(io.vertx.core.http.HttpMethod,%20io.vertx.core.http.RequestOptions)[request]` which allow you to specify
 the HTTP method at run-time:
 
 [source,ceylon]
@@ -1094,8 +1094,8 @@ client.request(post, "foo-uri", (HttpClientResponse response) {
 Sometimes you'll want to write requests which have a body, or perhaps you want to write headers to a request
 before sending it.
 
-To do this you can call one of the specific request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#post(int,%20java.lang.String,%20java.lang.String)[post]` or
-one of the general purpose request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#request(io.vertx.core.http.HttpMethod,%20int,%20java.lang.String,%20java.lang.String)[request]`.
+To do this you can call one of the specific request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#post(io.vertx.core.http.RequestOptions)[post]` or
+one of the general purpose request methods such as `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#request(io.vertx.core.http.HttpMethod,%20io.vertx.core.http.RequestOptions)[request]`.
 
 These methods don't send the request immediately, but instead return an instance of `link:../../ceylondoc/vertx-core//http/HttpClientRequest.type.html[HttpClientRequest]`
 which can be used to write to the request body or write headers.
@@ -1557,6 +1557,90 @@ You can retrieve the list of cookies from a response using `link:../../ceylondoc
 
 Alternatively you can just parse the `Set-Cookie` headers yourself in the response.
 
+==== 30x redirection handling
+
+The client can be configured to follow HTTP redirections: when the client receives an
+`301`, `302`, `303` or `307` status code, it follows the redirection provided by the `Location` response header
+and the response handler is passed the redirected response instead of the original response.
+
+Here’s an example:
+
+[source,ceylon]
+----
+
+client.get("some-uri", (HttpClientResponse response) {
+  print("Received response with status code ``response.statusCode()``");
+}).setFollowRedirects(true).end();
+
+----
+
+The redirection policy is as follow
+
+* on a `301`, `302` or `303` status code, follow the redirection with a `GET` method
+* on a `307` status code, follow the redirection with the same HTTP method and the cached body
+
+WARNING: following redirections caches the request body
+
+The maximum redirects is `16` by default and can be changed with `link:../../ceylondoc/vertx-core//http/HttpClientOptions.type.html#setMaxRedirects(int)[maxRedirects]`.
+
+[source,ceylon]
+----
+
+value client = vertx.createHttpClient(HttpClientOptions {
+  maxRedirects = 32;
+});
+
+client.get("some-uri", (HttpClientResponse response) {
+  print("Received response with status code ``response.statusCode()``");
+}).setFollowRedirects(true).end();
+
+----
+
+One size does not fit all and the default redirection policy may not be adapted to your needs.
+
+The default redirection policy can changed with a custom implementation:
+
+[source,ceylon]
+----
+import io.vertx.ceylon.core { future } 
+
+...
+
+
+client.redirectHandler((HttpClientResponse response) {
+
+  // Only follow 301 code
+  if (response.statusCode() == 301 && response.getHeader("Location") != null) {
+
+    // Compute the redirect URI
+    value absoluteURI = this.resolveURI(response.request().absoluteURI(), response.getHeader("Location"));
+
+    // Create a new ready to use request that the client will use
+    return future.succeededFuture(client.getAbs(absoluteURI));
+  };
+
+  // We don't redirect
+  return null;
+});
+
+----
+
+The policy handles the original `link:../../ceylondoc/vertx-core//http/HttpClientResponse.type.html[HttpClientResponse]` received and returns either `null`
+or a `Future<HttpClientRequest>`.
+
+- when `null` is returned, the original response is processed
+- when a future is returned, the request will be sent on its successful completion
+- when a future is returned, the exception handler set on the request is called on its failure
+
+The returned request must be unsent so the original request handlers can be sent and the client can send it after.
+
+Most of the original request settings will be propagated to the new request:
+
+* request headers, unless if you have set some headers (including `link:../../ceylondoc/vertx-core//http/HttpClientRequest.type.html#setHost(java.lang.String)[setHost]`)
+* request body unless the returned request uses a `GET` method
+* response handler
+* request exception handler
+* request timeout
 
 ==== 100-Continue handling
 
@@ -2104,6 +2188,34 @@ Vert.x http servers and clients can be configured to use HTTPS in exactly the sa
 
 Please see <<ssl, configuring net servers to use SSL>> for more information.
 
+SSL can also be enabled/disabled per request with `link:../../ceylondoc/vertx-core//http/RequestOptions.type.html[RequestOptions]` or when
+specifying a scheme with `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#requestAbs(io.vertx.core.http.HttpMethod,%20java.lang.String)[requestAbs]`
+method.
+
+[source,ceylon]
+----
+client.getNow(RequestOptions {
+  host = "localhost";
+  port = 8080;
+  uRI = "/";
+  ssl = true;
+}, (HttpClientResponse response) {
+  print("Received response with status code ``response.statusCode()``");
+});
+
+----
+
+The `link:../../ceylondoc/vertx-core//http/HttpClientOptions.type.html#setSsl(boolean)[ssl]` setting acts as the default client setting.
+
+The `link:../../ceylondoc/vertx-core//http/RequestOptions.type.html#setSsl(boolean)[ssl]` overrides the default client setting
+
+* setting the value to `false` will disable SSL/TLS even if the client is configured to use SSL/TLS
+* setting the value to `true` will enable SSL/TLS  even if the client is configured to not use SSL/TLS, the actual
+client SSL/TLS (such as trust, key/certificate, ciphers, ALPN, ...) will be reused
+
+Likewise `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#requestAbs(io.vertx.core.http.HttpMethod,%20java.lang.String)[requestAbs]` scheme
+also overrides the default client setting.
+
 === WebSockets
 
 http://en.wikipedia.org/wiki/WebSocket[WebSockets] are a web technology that allows a full duplex socket-like
@@ -2179,7 +2291,7 @@ The `link:../../ceylondoc/vertx-core//http/ServerWebSocket.type.html[ServerWebSo
 
 The Vert.x `link:../../ceylondoc/vertx-core//http/HttpClient.type.html[HttpClient]` supports WebSockets.
 
-You can connect a WebSocket to a server using one of the `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#websocket(int,%20java.lang.String,%20java.lang.String,%20io.vertx.core.Handler)[websocket]` operations and
+You can connect a WebSocket to a server using one of the `link:../../ceylondoc/vertx-core//http/HttpClient.type.html#websocket(io.vertx.core.http.RequestOptions,%20io.vertx.core.Handler)[websocket]` operations and
 providing a handler.
 
 The handler will be called with an instance of `link:../../ceylondoc/vertx-core//http/WebSocket.type.html[WebSocket]` when the connection has been made:
@@ -2194,8 +2306,9 @@ client.websocket("/some-uri", (WebSocket websocket) {
 
 ==== Writing messages to WebSockets
 
-If you wish to write a single binary WebSocket message to the WebSocket you can do this with
-`link:../../ceylondoc/vertx-core//http/WebSocket.type.html#writeBinaryMessage(io.vertx.core.buffer.Buffer)[writeBinaryMessage]`:
+If you wish to write a single WebSocket message to the WebSocket you can do this with
+`link:../../ceylondoc/vertx-core//http/WebSocket.type.html#writeBinaryMessage(io.vertx.core.buffer.Buffer)[writeBinaryMessage]` or
+`link:../../ceylondoc/vertx-core//http/WebSocket.type.html#writeTextMessage(java.lang.String)[writeTextMessage]` :
 
 [source,ceylon]
 ----
@@ -2203,10 +2316,13 @@ import io.vertx.ceylon.core.buffer { buffer_ = buffer }
 
 ...
 
-// Write a simple message
+// Write a simple binary message
 value buffer = buffer_.buffer().appendInt(123).appendFloat(1.23);
-
 websocket.writeBinaryMessage(buffer);
+
+// Write a simple text message
+value message = "hello";
+websocket.writeTextMessage(message);
 
 ----
 

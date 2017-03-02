@@ -75,8 +75,10 @@ shared class OAuth2ClientOptions(
   Integer? maxHeaderSize = null,
   Integer? maxInitialLineLength = null,
   Integer? maxPoolSize = null,
+  Integer? maxRedirects = null,
   Integer? maxWaitQueueSize = null,
   Integer? maxWebsocketFrameSize = null,
+  Integer? maxWebsocketMessageSize = null,
   String? metricsName = null,
   OpenSSLEngineOptions? openSslEngineOptions = null,
   PemKeyCertOptions? pemKeyCertOptions = null,
@@ -133,8 +135,10 @@ shared class OAuth2ClientOptions(
   maxHeaderSize,
   maxInitialLineLength,
   maxPoolSize,
+  maxRedirects,
   maxWaitQueueSize,
   maxWebsocketFrameSize,
+  maxWebsocketMessageSize,
   metricsName,
   openSslEngineOptions,
   pemKeyCertOptions,
@@ -254,8 +258,10 @@ shared object oAuth2ClientOptions {
     Integer? maxHeaderSize = json.getIntegerOrNull("maxHeaderSize");
     Integer? maxInitialLineLength = json.getIntegerOrNull("maxInitialLineLength");
     Integer? maxPoolSize = json.getIntegerOrNull("maxPoolSize");
+    Integer? maxRedirects = json.getIntegerOrNull("maxRedirects");
     Integer? maxWaitQueueSize = json.getIntegerOrNull("maxWaitQueueSize");
     Integer? maxWebsocketFrameSize = json.getIntegerOrNull("maxWebsocketFrameSize");
+    Integer? maxWebsocketMessageSize = json.getIntegerOrNull("maxWebsocketMessageSize");
     String? metricsName = json.getStringOrNull("metricsName");
     OpenSSLEngineOptions? openSslEngineOptions = if (exists tmp = json.getObjectOrNull("openSslEngineOptions")) then openSSLEngineOptions_.fromJson(tmp) else null;
     PemKeyCertOptions? pemKeyCertOptions = if (exists tmp = json.getObjectOrNull("pemKeyCertOptions")) then pemKeyCertOptions_.fromJson(tmp) else null;
@@ -322,8 +328,10 @@ shared object oAuth2ClientOptions {
       maxHeaderSize = maxHeaderSize;
       maxInitialLineLength = maxInitialLineLength;
       maxPoolSize = maxPoolSize;
+      maxRedirects = maxRedirects;
       maxWaitQueueSize = maxWaitQueueSize;
       maxWebsocketFrameSize = maxWebsocketFrameSize;
+      maxWebsocketMessageSize = maxWebsocketMessageSize;
       metricsName = metricsName;
       openSslEngineOptions = openSslEngineOptions;
       pemKeyCertOptions = pemKeyCertOptions;
@@ -359,6 +367,14 @@ shared object oAuth2ClientOptions {
       userInfoPath = userInfoPath;
       verifyHost = verifyHost;
     };
+  }
+
+  shared object toCeylon extends Converter<OAuth2ClientOptions_, OAuth2ClientOptions>() {
+    shared actual OAuth2ClientOptions convert(OAuth2ClientOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
   }
 
   shared object toJava extends Converter<OAuth2ClientOptions, OAuth2ClientOptions_>() {

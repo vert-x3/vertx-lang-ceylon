@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.metrics.Measured;
+import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
@@ -37,8 +38,8 @@ public class HttpServer implements ReifiedType,  Measured {
     }
   };
 
-  @Ignore private HttpServerRequestStream cached_requestStream;
-  @Ignore private ServerWebSocketStream cached_websocketStream;
+  @Ignore private ReadStream<HttpServerRequest> cached_requestStream;
+  @Ignore private ReadStream<ServerWebSocket> cached_websocketStream;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(HttpServer.class), io.vertx.core.http.HttpServer.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.http.HttpServer delegate;
 
@@ -64,12 +65,12 @@ public class HttpServer implements ReifiedType,  Measured {
   }
 
   @DocAnnotation$annotation$(description = " Return the request stream for the server. As HTTP requests are received by the server,\n instances of [HttpServerRequest](../http/HttpServerRequest.type.html) will be created and passed to the stream .\n")
-  @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequestStream")
-  public HttpServerRequestStream requestStream() {
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::HttpServerRequest>")
+  public ReadStream<HttpServerRequest> requestStream() {
     if (cached_requestStream != null) {
       return cached_requestStream;
     }
-    HttpServerRequestStream ret = io.vertx.ceylon.core.http.HttpServerRequestStream.TO_CEYLON.converter().safeConvert(delegate.requestStream());
+    ReadStream<HttpServerRequest> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(HttpServerRequest.$TypeDescriptor$).safeConvert(delegate.requestStream());
     cached_requestStream = ret;
     return ret;
   }
@@ -101,12 +102,12 @@ public class HttpServer implements ReifiedType,  Measured {
   }
 
   @DocAnnotation$annotation$(description = " Return the websocket stream for the server. If a websocket connect handshake is successful a\n new [ServerWebSocket](../http/ServerWebSocket.type.html) instance will be created and passed to the stream .\n")
-  @TypeInfo("io.vertx.ceylon.core.http::ServerWebSocketStream")
-  public ServerWebSocketStream websocketStream() {
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::ServerWebSocket>")
+  public ReadStream<ServerWebSocket> websocketStream() {
     if (cached_websocketStream != null) {
       return cached_websocketStream;
     }
-    ServerWebSocketStream ret = io.vertx.ceylon.core.http.ServerWebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream());
+    ReadStream<ServerWebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ServerWebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream());
     cached_websocketStream = ret;
     return ret;
   }

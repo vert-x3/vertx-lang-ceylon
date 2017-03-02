@@ -11,8 +11,11 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
-import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.ceylon.core.MultiMap;
+import java.util.function.Function;
+import io.vertx.ceylon.core.Future;
+import io.vertx.ceylon.core.metrics.Measured;
+import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
@@ -61,6 +64,17 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest request(
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "the HTTP method\n") io.vertx.ceylon.core.http.HttpMethod method, 
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
+    io.vertx.core.http.RequestOptions arg_1 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request(arg_0, arg_1));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest request(
@@ -85,6 +99,23 @@ public class HttpClient implements ReifiedType,  Measured {
     io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request(arg_0, arg_1, arg_2));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP request to send to the server with the specified options, specifying a response handler to receive\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest request(
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "the HTTP method\n") io.vertx.ceylon.core.http.HttpMethod method, 
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler") Callable<?> responseHandler) {
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
+    io.vertx.core.http.RequestOptions arg_1 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_2 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.request(arg_0, arg_1, arg_2));
     return ret;
   }
@@ -185,6 +216,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest get(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.get(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest get(
@@ -205,6 +245,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.get(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP GET request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest get(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.get(arg_0, arg_1));
     return ret;
   }
@@ -293,6 +348,21 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Sends an HTTP GET request to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient getNow(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.getNow(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sends an HTTP GET request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient getNow(
@@ -344,6 +414,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest post(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.post(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest post(
@@ -364,6 +443,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.post(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP POST request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest post(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.post(arg_0, arg_1));
     return ret;
   }
@@ -452,6 +546,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest head(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.head(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest head(
@@ -472,6 +575,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.head(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP HEAD request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest head(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.head(arg_0, arg_1));
     return ret;
   }
@@ -560,6 +678,21 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Sends an HTTP HEAD request to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient headNow(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.headNow(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sends an HTTP HEAD request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient headNow(
@@ -611,6 +744,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest options(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.options(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest options(
@@ -631,6 +773,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.options(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP OPTIONS request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest options(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.options(arg_0, arg_1));
     return ret;
   }
@@ -719,6 +876,21 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Sends an HTTP OPTIONS request to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient optionsNow(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.optionsNow(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sends an HTTP OPTIONS request to the server at the specified host and port, specifying a response handler to receive\n the response\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient optionsNow(
@@ -770,6 +942,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest put(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.put(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest put(
@@ -790,6 +971,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.put(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP PUT request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest put(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.put(arg_0, arg_1));
     return ret;
   }
@@ -878,6 +1074,15 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server with the specified options.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest delete(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.delete(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server at the specified host and port.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
   public HttpClientRequest delete(
@@ -898,6 +1103,21 @@ public class HttpClient implements ReifiedType,  Measured {
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
+    HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.delete(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create an HTTP DELETE request to send to the server with the specified options, specifying a response handler to receive\n the response\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClientRequest")
+  public HttpClientRequest delete(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("responseHandler")@DocAnnotation$annotation$(description = "the response handler\n") Callable<?> responseHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse> arg_1 = responseHandler == null ? null : new io.vertx.core.Handler<io.vertx.core.http.HttpClientResponse>() {
+      public void handle(io.vertx.core.http.HttpClientResponse event) {
+        responseHandler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
     HttpClientRequest ret = io.vertx.ceylon.core.http.HttpClientRequest.TO_CEYLON.converter().safeConvert(delegate.delete(arg_0, arg_1));
     return ret;
   }
@@ -986,6 +1206,21 @@ public class HttpClient implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
@@ -1002,6 +1237,27 @@ public class HttpClient implements ReifiedType,  Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler")@DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_1 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<java.lang.Throwable> arg_2 = failureHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        failureHandler.$call$((Object)event);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2));
     return this;
   }
 
@@ -1070,6 +1326,23 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, and with the specified headers\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, and with the specified headers\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
@@ -1088,6 +1361,29 @@ public class HttpClient implements ReifiedType,  Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, and with the specified headers\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler")@DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_2 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<java.lang.Throwable> arg_3 = failureHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        failureHandler.$call$((Object)event);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 
@@ -1162,6 +1458,25 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified optionsI, with the specified headers and using\n the specified version of WebSockets\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers and using\n the specified version of WebSockets\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
@@ -1182,6 +1497,31 @@ public class HttpClient implements ReifiedType,  Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, with the specified headers and using\n the specified version of WebSockets\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler")@DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_3 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<java.lang.Throwable> arg_4 = failureHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        failureHandler.$call$((Object)event);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
     return this;
   }
 
@@ -1262,6 +1602,27 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @Name("subProtocols")@DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Connect a WebSocket to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
@@ -1284,6 +1645,33 @@ public class HttpClient implements ReifiedType,  Measured {
       }
     };
     HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5, arg_6));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocket(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @Name("subProtocols")@DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler")@DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<java.lang.Throwable> arg_5 = failureHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        failureHandler.$call$((Object)event);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocket(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
     return this;
   }
 
@@ -1538,33 +1926,53 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream with the specified options\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream with the specified options, and with the specified headers\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, and with the specified headers\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
@@ -1573,26 +1981,39 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port and with the specified headers\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream with the specified options, with the specified headers and using\n the specified version of WebSockets\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, with the specified headers and using\n the specified version of WebSockets\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
@@ -1603,13 +2024,13 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port and with the specified headers and using\n the specified version of WebSockets\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream with the specified options and with the specified headers and using\n the specified version of WebSockets\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
@@ -1618,13 +2039,28 @@ public class HttpClient implements ReifiedType,  Measured {
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
+    final @TypeInfo("io.vertx.ceylon.core.http::RequestOptions") @Name("options")@DocAnnotation$annotation$(description = "the request options\n") io.vertx.ceylon.core.http.RequestOptions options, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @Name("subProtocols")@DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols) {
+    io.vertx.core.http.RequestOptions arg_0 = options == null ? null : new io.vertx.core.http.RequestOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified port, host and relative request URI, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
@@ -1637,13 +2073,13 @@ public class HttpClient implements ReifiedType,  Measured {
     io.vertx.core.MultiMap arg_3 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_4 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_5 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream to the specified host, relative request URI and default port, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host\n") ceylon.language.String host, 
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
@@ -1654,46 +2090,46 @@ public class HttpClient implements ReifiedType,  Measured {
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_4 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3, arg_4));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port and the specified headers\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port and the specified headers\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port, the specified headers and the\n specified version of WebSockets\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(requestURI);
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2));
     return ret;
   }
 
   @DocAnnotation$annotation$(description = " Create a WebSocket stream at the relative request URI using the default host and port, the specified headers, the\n specified version of WebSockets and the specified sub protocols\n")
-  @TypeInfo("io.vertx.ceylon.core.http::WebSocketStream")
-  public WebSocketStream websocketStream(
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStream(
     final @TypeInfo("ceylon.language::String") @Name("requestURI")@DocAnnotation$annotation$(description = "the relative URI\n") ceylon.language.String requestURI, 
     final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
     final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
@@ -1702,8 +2138,22 @@ public class HttpClient implements ReifiedType,  Measured {
     io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
-    WebSocketStream ret = io.vertx.ceylon.core.http.WebSocketStream.TO_CEYLON.converter().safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Set a redirect handler for the http client.\n <p>\n The redirect handler is called when a <code>3xx</code> response is received and the request is configured to\n follow redirects with [setFollowRedirects](../http/HttpClientRequest.type.html#setFollowRedirects).\n <p>\n The redirect handler is passed the [HttpClientResponse](../http/HttpClientResponse.type.html), it can return an [HttpClientRequest](../http/HttpClientRequest.type.html) or <code>null</code>.\n <ul>\n   <li>when null is returned, the original response is processed by the original request response handler</li>\n   <li>when a new <code>Future<HttpClientRequest></code> is returned, the client will send this new request</li>\n </ul>\n The handler must return a <code>Future<HttpClientRequest></code> unsent so the client can further configure it and send it.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient redirectHandler(
+    final @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core.http::HttpClientRequest>(io.vertx.ceylon.core.http::HttpClientResponse)") @Name("handler")@DocAnnotation$annotation$(description = "the new redirect handler\n") Callable<?> handler) {
+    java.util.function.Function<io.vertx.core.http.HttpClientResponse,io.vertx.core.Future<io.vertx.core.http.HttpClientRequest>> arg_0 = handler == null ? null : new java.util.function.Function<io.vertx.core.http.HttpClientResponse,io.vertx.core.Future<io.vertx.core.http.HttpClientRequest>>() {
+      public io.vertx.core.Future<io.vertx.core.http.HttpClientRequest> apply(io.vertx.core.http.HttpClientResponse arg) {
+        Future<HttpClientRequest> ret = (Future<HttpClientRequest>)handler.$call$((Object)io.vertx.ceylon.core.http.HttpClientResponse.TO_CEYLON.converter().safeConvert(arg));
+        return io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(ret);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.redirectHandler(arg_0));
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Close the client. Closing will close down any pooled connections.\n Clients should always be closed after use.\n")

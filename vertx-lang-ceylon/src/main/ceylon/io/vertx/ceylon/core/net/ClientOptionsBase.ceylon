@@ -177,4 +177,12 @@ shared object clientOptionsBase {
       usePooledBuffers = usePooledBuffers;
     };
   }
+
+  shared object toCeylon extends Converter<ClientOptionsBase_, ClientOptionsBase>() {
+    shared actual ClientOptionsBase convert(ClientOptionsBase_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
 }

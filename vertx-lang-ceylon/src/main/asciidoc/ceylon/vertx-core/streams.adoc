@@ -141,9 +141,8 @@ Let's now look at the methods on `ReadStream` and `WriteStream` in more detail:
 
 `ReadStream` is implemented by `link:../../ceylondoc/vertx-core//http/HttpClientResponse.type.html[HttpClientResponse]`, `link:../../ceylondoc/vertx-core//datagram/DatagramSocket.type.html[DatagramSocket]`,
 `link:../../ceylondoc/vertx-core//http/HttpClientRequest.type.html[HttpClientRequest]`, `link:../../ceylondoc/vertx-core//http/HttpServerFileUpload.type.html[HttpServerFileUpload]`,
-`link:../../ceylondoc/vertx-core//http/HttpServerRequest.type.html[HttpServerRequest]`, `link:../../ceylondoc/vertx-core//http/HttpServerRequestStream.type.html[HttpServerRequestStream]`,
-`link:../../ceylondoc/vertx-core//eventbus/MessageConsumer.type.html[MessageConsumer]`, `link:../../ceylondoc/vertx-core//net/NetSocket.type.html[NetSocket]`, `link:../../ceylondoc/vertx-core//net/NetSocketStream.type.html[NetSocketStream]`,
-`link:../../ceylondoc/vertx-core//http/WebSocket.type.html[WebSocket]`, `link:../../ceylondoc/vertx-core//http/WebSocketStream.type.html[WebSocketStream]`, `link:../../ceylondoc/vertx-core//TimeoutStream.type.html[TimeoutStream]`,
+`link:../../ceylondoc/vertx-core//http/HttpServerRequest.type.html[HttpServerRequest]`, `link:../../ceylondoc/vertx-core//eventbus/MessageConsumer.type.html[MessageConsumer]`,
+`link:../../ceylondoc/vertx-core//net/NetSocket.type.html[NetSocket]`, `link:../../ceylondoc/vertx-core//http/WebSocket.type.html[WebSocket]`, `link:../../ceylondoc/vertx-core//TimeoutStream.type.html[TimeoutStream]`,
 `link:../../ceylondoc/vertx-core//file/AsyncFile.type.html[AsyncFile]`.
 
 Functions:
@@ -164,7 +163,7 @@ or when end of request is reached if it's an HTTP request, or when the connectio
 
 `WriteStream` is implemented by `link:../../ceylondoc/vertx-core//http/HttpClientRequest.type.html[HttpClientRequest]`, `link:../../ceylondoc/vertx-core//http/HttpServerResponse.type.html[HttpServerResponse]`
 `link:../../ceylondoc/vertx-core//http/WebSocket.type.html[WebSocket]`, `link:../../ceylondoc/vertx-core//net/NetSocket.type.html[NetSocket]`, `link:../../ceylondoc/vertx-core//file/AsyncFile.type.html[AsyncFile]`,
-`link:../../ceylondoc/vertx-core//datagram/PacketWritestream.type.html[PacketWritestream]` and `link:../../ceylondoc/vertx-core//eventbus/MessageProducer.type.html[MessageProducer]`
+and `link:../../ceylondoc/vertx-core//eventbus/MessageProducer.type.html[MessageProducer]`
 
 Functions:
 

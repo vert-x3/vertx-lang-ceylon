@@ -65,6 +65,15 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     delegate.complete(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " Set the failure. Any handler will be called, if there is one, and the future will be marked as completed.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean tryComplete(
+    final @TypeInfo("io.vertx.ceylon.core::CompositeFuture") @Name("result")@DocAnnotation$annotation$(description = "the result\n") CompositeFuture result) {
+    io.vertx.core.CompositeFuture arg_0 = io.vertx.ceylon.core.CompositeFuture.TO_JAVA.safeConvert(result);
+    boolean ret = delegate.tryComplete(arg_0);
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " The result of the operation. This will be null if the operation failed.\n")
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public CompositeFuture result() {
@@ -135,6 +144,50 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Handles a failure of this Future by returning the result of another Future.\n If the mapper fails, then the returned future will be failed with this failure.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core::CompositeFuture>")
+  public Future<CompositeFuture> recover(
+    final @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core::CompositeFuture>(ceylon.language::Throwable)") @Name("mapper")@DocAnnotation$annotation$(description = "A function which takes the exception of a failure and returns a new future.\n") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Throwable,io.vertx.core.Future<io.vertx.core.CompositeFuture>> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Throwable,io.vertx.core.Future<io.vertx.core.CompositeFuture>>() {
+      public io.vertx.core.Future<io.vertx.core.CompositeFuture> apply(java.lang.Throwable arg) {
+        Future<CompositeFuture> ret = (Future<CompositeFuture>)mapper.$call$((Object)arg);
+        return io.vertx.ceylon.core.Future.TO_JAVA.safeConvert(ret);
+      }
+    };
+    Future<CompositeFuture> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(CompositeFuture.$TypeDescriptor$).safeConvert(delegate.recover(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Apply a <code>mapper</code> function on this future.<p>\n\n When this future fails, the <code>mapper</code> will be called with the completed value and this mapper\n returns a value. This value will complete the future returned by this method call.<p>\n\n If the <code>mapper</code> throws an exception, the returned future will be failed with this exception.<p>\n\n When this future succeeds, the result will be propagated to the returned future and the <code>mapper</code>\n will not be called.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core::CompositeFuture>")
+  public Future<CompositeFuture> otherwise(
+    final @TypeInfo("io.vertx.ceylon.core::CompositeFuture(ceylon.language::Throwable)") @Name("mapper")@DocAnnotation$annotation$(description = "the mapper function\n") Callable<?> mapper) {
+    java.util.function.Function<java.lang.Throwable,io.vertx.core.CompositeFuture> arg_0 = mapper == null ? null : new java.util.function.Function<java.lang.Throwable,io.vertx.core.CompositeFuture>() {
+      public io.vertx.core.CompositeFuture apply(java.lang.Throwable arg) {
+        CompositeFuture ret = (CompositeFuture)mapper.$call$((Object)arg);
+        return io.vertx.ceylon.core.CompositeFuture.TO_JAVA.safeConvert(ret);
+      }
+    };
+    Future<CompositeFuture> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(CompositeFuture.$TypeDescriptor$).safeConvert(delegate.otherwise(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Map the failure of a future to a specific <code>value</code>.<p>\n\n When this future fails, this <code>value</code> will complete the future returned by this method call.<p>\n\n When this future succeeds, the result will be propagated to the returned future.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core::CompositeFuture>")
+  public Future<CompositeFuture> otherwise(
+    final @TypeInfo("io.vertx.ceylon.core::CompositeFuture") @Name("value")@DocAnnotation$annotation$(description = "the value that eventually completes the mapped future\n") CompositeFuture value) {
+    io.vertx.core.CompositeFuture arg_0 = io.vertx.ceylon.core.CompositeFuture.TO_JAVA.safeConvert(value);
+    Future<CompositeFuture> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(CompositeFuture.$TypeDescriptor$).safeConvert(delegate.otherwise(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Map the failure of a future to <code>null</code>.<p>\n\n This is a convenience for <code>future.otherwise((T) null)</code>.<p>\n\n When this future fails, the <code>null</code> value will complete the future returned by this method call.<p>\n\n When this future succeeds, the result will be propagated to the returned future.\n")
+  @TypeInfo("io.vertx.ceylon.core::Future<io.vertx.ceylon.core::CompositeFuture>")
+  public Future<CompositeFuture> otherwiseEmpty() {
+    Future<CompositeFuture> ret = io.vertx.ceylon.core.Future.TO_CEYLON.converter(CompositeFuture.$TypeDescriptor$).safeConvert(delegate.otherwiseEmpty());
+    return ret;
+  }
+
   @TypeInfo("io.vertx.ceylon.core::CompositeFuture")
   public CompositeFuture setHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core::CompositeFuture)") @Name("handler") Callable<?> handler) {
@@ -145,6 +198,19 @@ public class CompositeFuture extends Future<CompositeFuture> implements ReifiedT
     };
     CompositeFuture ret = io.vertx.ceylon.core.CompositeFuture.TO_CEYLON.converter().safeConvert(delegate.setHandler(arg_0));
     return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Set this instance as result. Any handler will be called, if there is one, and the future will be marked as completed.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void complete() {
+    delegate.complete();
+  }
+
+  @DocAnnotation$annotation$(description = " Try to set this instance as result. When it happens, any handler will be called, if there is one, and the future will be marked as completed.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean tryComplete() {
+    boolean ret = delegate.tryComplete();
+    return ret;
   }
 
   @DocAnnotation$annotation$(description = " Returns a cause of a wrapped future\n")

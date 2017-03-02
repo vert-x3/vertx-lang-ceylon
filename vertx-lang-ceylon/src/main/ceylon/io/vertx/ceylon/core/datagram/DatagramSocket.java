@@ -13,6 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.ceylon.core.metrics.Measured;
+import io.vertx.ceylon.core.streams.WriteStream;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -84,14 +85,14 @@ public class DatagramSocket implements ReifiedType,  ReadStream<DatagramPacket>,
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Returns a [PacketWritestream](../datagram/PacketWritestream.type.html) able to send  to the\n [SocketAddress](../net/SocketAddress.type.html).\n")
-  @TypeInfo("io.vertx.ceylon.core.datagram::PacketWritestream")
-  public PacketWritestream sender(
+  @DocAnnotation$annotation$(description = " Returns a <code>WriteStream<Buffer></code> able to send  to the\n [SocketAddress](../net/SocketAddress.type.html).\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::WriteStream<io.vertx.ceylon.core.buffer::Buffer>")
+  public WriteStream<Buffer> sender(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port of the remote peer\n") long port, 
     final @TypeInfo("ceylon.language::String") @Name("host")@DocAnnotation$annotation$(description = "the host address of the remote peer\n") ceylon.language.String host) {
     int arg_0 = (int)port;
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(host);
-    PacketWritestream ret = io.vertx.ceylon.core.datagram.PacketWritestream.TO_CEYLON.converter().safeConvert(delegate.sender(arg_0, arg_1));
+    WriteStream<Buffer> ret = io.vertx.ceylon.core.streams.WriteStream.TO_CEYLON.converter(Buffer.$TypeDescriptor$).safeConvert(delegate.sender(arg_0, arg_1));
     return ret;
   }
 

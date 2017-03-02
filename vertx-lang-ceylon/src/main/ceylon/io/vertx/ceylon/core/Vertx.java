@@ -445,7 +445,7 @@ public class Vertx implements ReifiedType,  Measured {
   public WorkerExecutor createSharedWorkerExecutor(
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the worker executor\n") ceylon.language.String name, 
     final @TypeInfo("ceylon.language::Integer") @Name("poolSize")@DocAnnotation$annotation$(description = "the size of the pool\n") long poolSize, 
-    final @TypeInfo("ceylon.language::Integer") @Name("maxExecuteTime")@DocAnnotation$annotation$(description = "the value of max worker execute time, in ms\n") long maxExecuteTime) {
+    final @TypeInfo("ceylon.language::Integer") @Name("maxExecuteTime")@DocAnnotation$annotation$(description = "the value of max worker execute time, in ns\n") long maxExecuteTime) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     int arg_1 = (int)poolSize;
     long arg_2 = maxExecuteTime;
