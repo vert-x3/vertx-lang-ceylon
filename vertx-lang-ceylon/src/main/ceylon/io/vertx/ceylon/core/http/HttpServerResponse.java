@@ -197,7 +197,7 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set a close handler for the response. This will be called when the response is ended or if the underlying connection\n closes before the response ends.\n")
+  @DocAnnotation$annotation$(description = " Set a close handler for the response, this is called when the underlying connection is closed and the response\n was still using the connection.\n <p>\n For HTTP/1.x it is called when the connection is closed before <code>end()</code> is called, therefore it is not\n guaranteed to be called.\n <p>\n For HTTP/2 it is called when the related stream is closed, and therefore it will be always be called.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse closeHandler(
     final @TypeInfo("ceylon.language::Anything()?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
@@ -207,6 +207,19 @@ public class HttpServerResponse implements ReifiedType,  WriteStream<Buffer> {
       }
     };
     HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.closeHandler(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Set an end handler for the response. This will be called when the response is disposed to allow consistent cleanup\n of the response.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
+  public HttpServerResponse endHandler(
+    final @TypeInfo("ceylon.language::Anything()?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
+      public void handle(java.lang.Void event) {
+        handler.$call$();
+      }
+    };
+    HttpServerResponse ret = io.vertx.ceylon.core.http.HttpServerResponse.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
