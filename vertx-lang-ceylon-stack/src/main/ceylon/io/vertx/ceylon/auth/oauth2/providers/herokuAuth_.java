@@ -47,7 +47,7 @@ public class herokuAuth_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for live.com\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Heroku\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 

@@ -48,12 +48,16 @@ shared class HttpClientOptions(
   shared {HttpVersion*}? alpnVersions = null,
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
+  " set to <code>initialBufferSizeHttpDecoder</code> the initial buffer of the HttpDecoder.\n"
+  shared Integer? decoderInitialBufferSize = null,
   " Set the default host name to be used by this client in requests if none is provided when making the request.\n"
   shared String? defaultHost = null,
   " Set the default port to be used by this client in requests if none is provided when making the request.\n"
   shared Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
+  " By default, the server name is only sent for Fully Qualified Domain Name (FQDN), setting\n this property to <code>true</code> forces the server name to be always sent.\n"
+  shared Boolean? forceSni = null,
   " Set to <code>true</code> when an <i>h2c</i> connection is established using an HTTP/1.1 upgrade request, and <code>false</code>\n when an <i>h2c</i> connection is established directly (with prior knowledge).\n"
   shared Boolean? http2ClearTextUpgrade = null,
   " Set the default HTTP/2 connection window size. It overrides the initial window\n size set by [getInitialWindowSize](../http/Http2Settings.type.html#getInitialWindowSize), so the connection window size\n is greater than for its streams, in order the data throughput.\n <p/>\n A value of <code>-1</code> reuses the initial window size setting.\n"
@@ -151,11 +155,17 @@ shared class HttpClientOptions(
     if (exists alpnVersions) {
       json.put("alpnVersions", JsonArray(alpnVersions.map(httpVersion_.toString)));
     }
+    if (exists decoderInitialBufferSize) {
+      json.put("decoderInitialBufferSize", decoderInitialBufferSize);
+    }
     if (exists defaultHost) {
       json.put("defaultHost", defaultHost);
     }
     if (exists defaultPort) {
       json.put("defaultPort", defaultPort);
+    }
+    if (exists forceSni) {
+      json.put("forceSni", forceSni);
     }
     if (exists http2ClearTextUpgrade) {
       json.put("http2ClearTextUpgrade", http2ClearTextUpgrade);
@@ -227,10 +237,12 @@ shared object httpClientOptions {
     {HttpVersion*}? alpnVersions = json.getArrayOrNull("alpnVersions")?.strings?.map(httpVersion_.fromString);
     Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    Integer? decoderInitialBufferSize = json.getIntegerOrNull("decoderInitialBufferSize");
     String? defaultHost = json.getStringOrNull("defaultHost");
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
+    Boolean? forceSni = json.getBooleanOrNull("forceSni");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
     Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
@@ -279,10 +291,12 @@ shared object httpClientOptions {
       alpnVersions = alpnVersions;
       connectTimeout = connectTimeout;
       crlPaths = crlPaths;
+      decoderInitialBufferSize = decoderInitialBufferSize;
       defaultHost = defaultHost;
       defaultPort = defaultPort;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
+      forceSni = forceSni;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
       http2MaxPoolSize = http2MaxPoolSize;

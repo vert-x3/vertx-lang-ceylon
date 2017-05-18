@@ -34,12 +34,12 @@ public class foursquareAuth_ implements ReifiedType {
   }
 
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Dropbox\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Foursquare\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("clientId")@DocAnnotation$annotation$(description = "the client id given to you by Dropbox\n") ceylon.language.String clientId, 
-    final @TypeInfo("ceylon.language::String") @Name("clientSecret")@DocAnnotation$annotation$(description = "the client secret given to you by Dropbox\n") ceylon.language.String clientSecret) {
+    final @TypeInfo("ceylon.language::String") @Name("clientId")@DocAnnotation$annotation$(description = "the client id given to you by Foursquare\n") ceylon.language.String clientId, 
+    final @TypeInfo("ceylon.language::String") @Name("clientSecret")@DocAnnotation$annotation$(description = "the client secret given to you by Foursquare\n") ceylon.language.String clientSecret) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(clientId);
     java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(clientSecret);
@@ -47,12 +47,12 @@ public class foursquareAuth_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Dropbox\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Foursquare\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("clientId")@DocAnnotation$annotation$(description = "the client id given to you by Dropbox\n") ceylon.language.String clientId, 
-    final @TypeInfo("ceylon.language::String") @Name("clientSecret")@DocAnnotation$annotation$(description = "the client secret given to you by Dropbox\n") ceylon.language.String clientSecret, 
+    final @TypeInfo("ceylon.language::String") @Name("clientId")@DocAnnotation$annotation$(description = "the client id given to you by Foursquare\n") ceylon.language.String clientId, 
+    final @TypeInfo("ceylon.language::String") @Name("clientSecret")@DocAnnotation$annotation$(description = "the client secret given to you by Foursquare\n") ceylon.language.String clientSecret, 
     final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @Name("httpClientOptions")@DocAnnotation$annotation$(description = "custom http client options\n") io.vertx.ceylon.core.http.HttpClientOptions httpClientOptions) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(clientId);

@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.json.JsonArray;
+import java.util.List;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -109,6 +110,13 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the column name\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     long ret = delegate.column(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns all column names available in the underlying resultset. One needs to carefully use this method since in\n contrast to the singular version it does not perform case insensitive lookups or takes alias in consideration on\n the column names.\n")
+  @TypeInfo("ceylon.language::List<ceylon.language::String>")
+  public ceylon.language.List<ceylon.language.String> columns() {
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.columns(), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

@@ -320,10 +320,32 @@ public class NetSocket implements ReifiedType,  ReadStream<Buffer>,  WriteStream
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Upgrade channel to use SSL/TLS. Be aware that for this to work SSL must be configured.\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetSocket")
+  public NetSocket upgradeToSsl(
+    final @TypeInfo("ceylon.language::String") @Name("serverName")@DocAnnotation$annotation$(description = "the server name\n") ceylon.language.String serverName, 
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler")@DocAnnotation$annotation$(description = "the handler will be notified when it's upgraded\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(serverName);
+    io.vertx.core.Handler<java.lang.Void> arg_1 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
+      public void handle(java.lang.Void event) {
+        handler.$call$();
+      }
+    };
+    NetSocket ret = io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(delegate.upgradeToSsl(arg_0, arg_1));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isSsl() {
     boolean ret = delegate.isSsl();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns the SNI server name presented during the SSL handshake by the client.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String indicatedServerName() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.indicatedServerName());
     return ret;
   }
 

@@ -11,15 +11,16 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
-import io.vertx.ceylon.core.Vertx;
 import io.vertx.ceylon.sql.SQLConnection;
+import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
+import io.vertx.ceylon.sql.SQLClient;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An asynchronous client interface for interacting with a JDBC compliant database\n")
-public class JDBCClient implements ReifiedType {
+public class JDBCClient extends SQLClient implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.jdbc.JDBCClient, JDBCClient> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.jdbc.JDBCClient, JDBCClient>() {
@@ -43,6 +44,7 @@ public class JDBCClient implements ReifiedType {
   @Ignore private final io.vertx.ext.jdbc.JDBCClient delegate;
 
   public JDBCClient(io.vertx.ext.jdbc.JDBCClient delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 
@@ -54,25 +56,6 @@ public class JDBCClient implements ReifiedType {
   @Ignore
   public Object getDelegate() {
     return delegate;
-  }
-
-  @DocAnnotation$annotation$(description = " Returns a connection that can be used to perform SQL operations on. It's important to remember\n to close the connection when you are done, so it is returned to the pool.\n")
-  @TypeInfo("io.vertx.ceylon.jdbc::JDBCClient")
-  public JDBCClient getConnection(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLConnection)") @Name("handler")@DocAnnotation$annotation$(description = "the handler which is called when the <code>JdbcConnection</code> object is ready for use.\n") Callable<?> handler) {
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLConnection>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.SQLConnection>(handler) {
-      public Object toCeylon(io.vertx.ext.sql.SQLConnection event) {
-        return io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(event);
-      }
-    };
-    JDBCClient ret = io.vertx.ceylon.jdbc.JDBCClient.TO_CEYLON.converter().safeConvert(delegate.getConnection(arg_0));
-    return this;
-  }
-
-  @DocAnnotation$annotation$(description = " Close the client\n")
-  @TypeInfo("ceylon.language::Anything")
-  public void close() {
-    delegate.close();
   }
 
 }

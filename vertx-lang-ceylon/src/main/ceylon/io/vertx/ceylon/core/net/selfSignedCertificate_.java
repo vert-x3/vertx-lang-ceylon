@@ -39,4 +39,13 @@ public class selfSignedCertificate_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a new <code>SelfSignedCertificate</code> instance with a fully-qualified domain name,\n")
+  @TypeInfo("io.vertx.ceylon.core.net::SelfSignedCertificate")
+  public SelfSignedCertificate create(
+    final @TypeInfo("ceylon.language::String") @Name("fqdn")@DocAnnotation$annotation$(description = "a fully qualified domain name.\n") ceylon.language.String fqdn) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(fqdn);
+    SelfSignedCertificate ret = io.vertx.ceylon.core.net.SelfSignedCertificate.TO_CEYLON.converter().safeConvert(io.vertx.core.net.SelfSignedCertificate.create(arg_0));
+    return ret;
+  }
+
 }

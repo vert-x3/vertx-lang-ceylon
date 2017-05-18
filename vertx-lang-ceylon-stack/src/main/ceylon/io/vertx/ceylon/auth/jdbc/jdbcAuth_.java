@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import io.vertx.core.json.JsonArray;
 import io.vertx.ceylon.auth.common.User;
 import io.vertx.ceylon.jdbc.JDBCClient;
 import io.vertx.ceylon.core.Vertx;

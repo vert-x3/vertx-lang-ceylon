@@ -173,4 +173,11 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Returns the configured flow type for the Oauth2 provider.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String $getFlowType() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.<io.vertx.ext.auth.oauth2.OAuth2FlowType>enumeration().safeConvert(delegate.getFlowType());
+    return ret;
+  }
+
 }

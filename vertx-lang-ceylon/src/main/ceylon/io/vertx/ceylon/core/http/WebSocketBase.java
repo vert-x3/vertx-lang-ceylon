@@ -152,6 +152,10 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress localAddress();
 
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSsl();
+
   @Ignore
   public class Impl implements WebSocketBase {
     @Ignore private SocketAddress cached_remoteAddress;
@@ -406,6 +410,13 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       }
     SocketAddress ret = io.vertx.ceylon.core.net.SocketAddress.TO_CEYLON.converter().safeConvert(delegate.localAddress());
       cached_localAddress = ret;
+      return ret;
+    }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSsl() {
+    boolean ret = delegate.isSsl();
       return ret;
     }
   }

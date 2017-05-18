@@ -61,4 +61,13 @@ public class TemplateHandler implements ReifiedType {
     delegate.handle(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " Set the index template\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::TemplateHandler")
+  public TemplateHandler setIndexTemplate(
+    final @TypeInfo("ceylon.language::String") @Name("indexTemplate")@DocAnnotation$annotation$(description = "the index template\n") ceylon.language.String indexTemplate) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(indexTemplate);
+    TemplateHandler ret = io.vertx.ceylon.web.handler.TemplateHandler.TO_CEYLON.converter().safeConvert(delegate.setIndexTemplate(arg_0));
+    return this;
+  }
+
 }

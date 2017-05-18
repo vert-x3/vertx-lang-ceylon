@@ -65,6 +65,8 @@ shared class NetServerOptions(
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
+  " Set whether the server supports Server Name Indiciation\n"
+  shared Boolean? sni = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
   Boolean? tcpKeepAlive = null,
@@ -113,6 +115,9 @@ shared class NetServerOptions(
     if (exists port) {
       json.put("port", port);
     }
+    if (exists sni) {
+      json.put("sni", sni);
+    }
     return json;
   }
 }
@@ -140,6 +145,7 @@ shared object netServerOptions {
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Boolean? sni = json.getBooleanOrNull("sni");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
@@ -169,6 +175,7 @@ shared object netServerOptions {
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;
+      sni = sni;
       soLinger = soLinger;
       ssl = ssl;
       tcpKeepAlive = tcpKeepAlive;

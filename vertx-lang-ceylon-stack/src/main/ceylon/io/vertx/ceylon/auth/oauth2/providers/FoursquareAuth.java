@@ -15,7 +15,7 @@ import io.vertx.ceylon.core.Vertx;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Simplified factory to create an  for Dropbox.\n")
+@DocAnnotation$annotation$(description = " Simplified factory to create an  for Foursquare.\n")
 public class FoursquareAuth implements ReifiedType {
 
   @Ignore

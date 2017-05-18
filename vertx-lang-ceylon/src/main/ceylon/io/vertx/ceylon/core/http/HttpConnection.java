@@ -281,4 +281,18 @@ public class HttpConnection implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSsl() {
+    boolean ret = delegate.isSsl();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns the SNI server name presented during the SSL handshake by the client.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String indicatedServerName() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.indicatedServerName());
+    return ret;
+  }
+
 }

@@ -117,7 +117,7 @@ public class CorsHandler implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Set whether credentials are allowed\n")
+  @DocAnnotation$annotation$(description = " Set whether credentials are allowed. Note that user agents will block\n requests that use a wildcard as origin and include credentials.\n\n From the MDN documentation you can read:\n\n <blockquote>\n Important note: when responding to a credentialed request,\n server must specify a domain, and cannot use wild carding.\n </blockquote>\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CorsHandler")
   public CorsHandler allowCredentials(
     final @TypeInfo("ceylon.language::Boolean") @Name("allow")@DocAnnotation$annotation$(description = "true if allowed\n") boolean allow) {

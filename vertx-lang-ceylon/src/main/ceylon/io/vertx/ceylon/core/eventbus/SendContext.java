@@ -77,4 +77,11 @@ public class SendContext<T> implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Object?")
+  public Object sentBody() {
+    Object ret = io.vertx.lang.ceylon.ToCeylon.object(delegate.sentBody());
+    return ret;
+  }
+
 }

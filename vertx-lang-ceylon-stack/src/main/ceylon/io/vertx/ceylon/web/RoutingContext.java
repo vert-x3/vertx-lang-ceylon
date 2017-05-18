@@ -355,7 +355,7 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Provides a handler that will be called after the last part of the body is written to the wire.\n The handler is called asynchronously of when the response has been received by the client.\n This provides a hook allowing you to do more operations once the request has been sent over the wire\n such as resource cleanup.\n")
+  @DocAnnotation$annotation$(description = " Provides a handler that will be called after the last part of the body is written to the wire.\n The handler is called asynchronously of when the response has been received by the client.\n This provides a hook allowing you to do more operations once the request has been sent over the wire.\n Do not use this for resource cleanup as this handler might never get called (e.g. if the connection is reset).\n")
   @TypeInfo("ceylon.language::Integer")
   public long addBodyEndHandler(
     final @TypeInfo("ceylon.language::Anything()") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {

@@ -41,7 +41,6 @@ public class BridgeEvent extends Future<ceylon.language.Boolean> implements Reif
 
   @Ignore private Callable<?> cached_completer;
   @Ignore private io.vertx.ceylon.web.handler.sockjs.BridgeEventType cached_type;
-  @Ignore private ceylon.json.Object cached_rawMessage;
   @Ignore private SockJSSocket cached_socket;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(BridgeEvent.class), io.vertx.ext.web.handler.sockjs.BridgeEvent.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.ext.web.handler.sockjs.BridgeEvent delegate;
@@ -201,17 +200,6 @@ public class BridgeEvent extends Future<ceylon.language.Boolean> implements Reif
     }
     io.vertx.ceylon.web.handler.sockjs.BridgeEventType ret = io.vertx.ceylon.web.handler.sockjs.bridgeEventType_.get_().getToCeylon().safeConvert(delegate.type());
     cached_type = ret;
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = " Use [getRawMessage](../../handler/sockjs/BridgeEvent.type.html#getRawMessage) instead, will be removed in 3.3\n")
-  @TypeInfo("ceylon.json::Object")
-  public ceylon.json.Object rawMessage() {
-    if (cached_rawMessage != null) {
-      return cached_rawMessage;
-    }
-    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.rawMessage());
-    cached_rawMessage = ret;
     return ret;
   }
 

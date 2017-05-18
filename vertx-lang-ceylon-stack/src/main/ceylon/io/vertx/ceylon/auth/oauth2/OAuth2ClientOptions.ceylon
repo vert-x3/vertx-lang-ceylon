@@ -51,11 +51,13 @@ shared class OAuth2ClientOptions(
   shared String? clientSecretParameterName = null,
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
+  Integer? decoderInitialBufferSize = null,
   String? defaultHost = null,
   Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
   shared JsonObject? extraParameters = null,
+  Boolean? forceSni = null,
   shared JsonObject? headers = null,
   Boolean? http2ClearTextUpgrade = null,
   Integer? http2ConnectionWindowSize = null,
@@ -116,10 +118,12 @@ shared class OAuth2ClientOptions(
   alpnVersions,
   connectTimeout,
   crlPaths,
+  decoderInitialBufferSize,
   defaultHost,
   defaultPort,
   enabledCipherSuites,
   enabledSecureTransportProtocols,
+  forceSni,
   http2ClearTextUpgrade,
   http2ConnectionWindowSize,
   http2MaxPoolSize,
@@ -234,11 +238,13 @@ shared object oAuth2ClientOptions {
     String? clientSecretParameterName = json.getStringOrNull("clientSecretParameterName");
     Integer? connectTimeout = json.getIntegerOrNull("connectTimeout");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    Integer? decoderInitialBufferSize = json.getIntegerOrNull("decoderInitialBufferSize");
     String? defaultHost = json.getStringOrNull("defaultHost");
     Integer? defaultPort = json.getIntegerOrNull("defaultPort");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     JsonObject? extraParameters = json.getObjectOrNull("extraParameters");
+    Boolean? forceSni = json.getBooleanOrNull("forceSni");
     JsonObject? headers = json.getObjectOrNull("headers");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
@@ -304,11 +310,13 @@ shared object oAuth2ClientOptions {
       clientSecretParameterName = clientSecretParameterName;
       connectTimeout = connectTimeout;
       crlPaths = crlPaths;
+      decoderInitialBufferSize = decoderInitialBufferSize;
       defaultHost = defaultHost;
       defaultPort = defaultPort;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       extraParameters = extraParameters;
+      forceSni = forceSni;
       headers = headers;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;

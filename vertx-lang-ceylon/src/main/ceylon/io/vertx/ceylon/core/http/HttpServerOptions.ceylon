@@ -51,11 +51,13 @@ shared class HttpServerOptions(
   shared {HttpVersion*}? alpnVersions = null,
   ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
-  "\n This method allows to set the compression level to be used in http1.x/2 response bodies \n when compression support is turned on (@see setCompressionSupported) and the client advertises\n to support <code>deflate/gzip</code> compression in the <code>Accept-Encoding</code> header\n \n default value is : 6 (Netty legacy)\n \n The compression level determines how much the data is compressed on a scale from 1 to 9,\n where '9' is trying to achieve the maximum compression ratio while '1' instead is giving\n priority to speed instead of compression ratio using some algorithm optimizations and skipping \n pedantic loops that usually gives just little improvements\n \n While one can think that best value is always the maximum compression ratio, \n there's a trade-off to consider: the most compressed level requires the most\n computatinal work to compress/decompress data, e.g. more dictionary lookups and loops.\n \n E.g. you have it set fairly high on a high-volume website, you may experience performance degradation \n and latency on resource serving due to CPU overload, and, however - as the comptational work is required also client side \n while decompressing - setting an higher compression level can result in an overall higher page load time\n especially nowadays when many clients are handled mobile devices with a low CPU profile.\n \n see also: http://www.gzip.org/algorithm.txt\n"
+  "\n This method allows to set the compression level to be used in http1.x/2 response bodies \n when compression support is turned on (@see setCompressionSupported) and the client advertises\n to support <code>deflate/gzip</code> compression in the <code>Accept-Encoding</code> header\n \n default value is : 6 (Netty legacy)\n \n The compression level determines how much the data is compressed on a scale from 1 to 9,\n where '9' is trying to achieve the maximum compression ratio while '1' instead is giving\n priority to speed instead of compression ratio using some algorithm optimizations and skipping \n pedantic loops that usually gives just little improvements\n \n While one can think that best value is always the maximum compression ratio, \n there's a trade-off to consider: the most compressed level requires the most\n computational work to compress/decompress data, e.g. more dictionary lookups and loops.\n \n E.g. you have it set fairly high on a high-volume website, you may experience performance degradation \n and latency on resource serving due to CPU overload, and, however - as the computational work is required also client side\n while decompressing - setting an higher compression level can result in an overall higher page load time\n especially nowadays when many clients are handled mobile devices with a low CPU profile.\n \n see also: http://www.gzip.org/algorithm.txt\n"
   shared Integer? compressionLevel = null,
   " Set whether the server should support gzip/deflate compression \n (serving compressed responses to clients advertising support for them with Accept-Encoding header)\n"
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
+  " Set the initial buffer size for the HTTP decoder\n"
+  shared Integer? decoderInitialBufferSize = null,
   " Set whether the server supports decompression\n"
   shared Boolean? decompressionSupported = null,
   {String*}? enabledCipherSuites = null,
@@ -90,6 +92,7 @@ shared class HttpServerOptions(
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Integer? sendBufferSize = null,
+  Boolean? sni = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
   Boolean? tcpKeepAlive = null,
@@ -120,6 +123,7 @@ shared class HttpServerOptions(
   receiveBufferSize,
   reuseAddress,
   sendBufferSize,
+  sni,
   soLinger,
   ssl,
   tcpKeepAlive,
@@ -141,6 +145,9 @@ shared class HttpServerOptions(
     }
     if (exists compressionSupported) {
       json.put("compressionSupported", compressionSupported);
+    }
+    if (exists decoderInitialBufferSize) {
+      json.put("decoderInitialBufferSize", decoderInitialBufferSize);
     }
     if (exists decompressionSupported) {
       json.put("decompressionSupported", decompressionSupported);
@@ -187,6 +194,7 @@ shared object httpServerOptions {
     Integer? compressionLevel = json.getIntegerOrNull("compressionLevel");
     Boolean? compressionSupported = json.getBooleanOrNull("compressionSupported");
     {String*}? crlPaths = json.getArrayOrNull("crlPaths")?.strings;
+    Integer? decoderInitialBufferSize = json.getIntegerOrNull("decoderInitialBufferSize");
     Boolean? decompressionSupported = json.getBooleanOrNull("decompressionSupported");
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
@@ -212,6 +220,7 @@ shared object httpServerOptions {
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
+    Boolean? sni = json.getBooleanOrNull("sni");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
@@ -230,6 +239,7 @@ shared object httpServerOptions {
       compressionLevel = compressionLevel;
       compressionSupported = compressionSupported;
       crlPaths = crlPaths;
+      decoderInitialBufferSize = decoderInitialBufferSize;
       decompressionSupported = decompressionSupported;
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
@@ -255,6 +265,7 @@ shared object httpServerOptions {
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       sendBufferSize = sendBufferSize;
+      sni = sni;
       soLinger = soLinger;
       ssl = ssl;
       tcpKeepAlive = tcpKeepAlive;

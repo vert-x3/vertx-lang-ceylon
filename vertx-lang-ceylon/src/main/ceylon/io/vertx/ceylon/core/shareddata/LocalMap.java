@@ -11,13 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.Map;
 
 @TypeParameters({
   @TypeParameter(value="K",variance=Variance.NONE),
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as [Buffer](../buffer/Buffer.type.html)\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n")
+@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as [Buffer](../buffer/Buffer.type.html)\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n\n Since the version 3.4, this class extends the  interface. However some methods are only accessible in Java.\n")
 public class LocalMap<K,V> implements ReifiedType {
 
   @Ignore
@@ -63,8 +64,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Get a value from the map\n")
   @TypeInfo("V")
   public V get(
-    final @TypeInfo("K") @Name("key")@DocAnnotation$annotation$(description = "the key\n") K key) {
-    java.lang.Object arg_0 = (K)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$K).convert(key);
+    final @TypeInfo("ceylon.language::Object?") @Name("key")@DocAnnotation$annotation$(description = "the key\n") Object key) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = (V)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$V).convert(delegate.get(arg_0));
     return ret;
   }
@@ -83,8 +84,8 @@ public class LocalMap<K,V> implements ReifiedType {
   @DocAnnotation$annotation$(description = " Remove an entry from the map\n")
   @TypeInfo("V")
   public V remove(
-    final @TypeInfo("K") @Name("key")@DocAnnotation$annotation$(description = "the key\n") K key) {
-    java.lang.Object arg_0 = (K)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$K).convert(key);
+    final @TypeInfo("ceylon.language::Object?") @Name("key")@DocAnnotation$annotation$(description = "the key\n") Object key) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
     V ret = (V)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$V).convert(delegate.remove(arg_0));
     return ret;
   }
@@ -120,7 +121,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Remove the entry only if there is an entry with the specified key and value\n")
+  @DocAnnotation$annotation$(description = " Remove the entry only if there is an entry with the specified key and value.\n <p>\n This method is the poyglot version of [remove](../shareddata/LocalMap.type.html#remove).\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean removeIfPresent(
     final @TypeInfo("K") @Name("key")@DocAnnotation$annotation$(description = "the key\n") K key, 
@@ -131,7 +132,7 @@ public class LocalMap<K,V> implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the specified key and value\n")
+  @DocAnnotation$annotation$(description = " Replace the entry only if there is an existing entry with the specified key and value.\n <p>\n This method is the polyglot version of [replace](../shareddata/LocalMap.type.html#replace).\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean replaceIfPresent(
     final @TypeInfo("K") @Name("key")@DocAnnotation$annotation$(description = "the key\n") K key, 
@@ -159,6 +160,35 @@ public class LocalMap<K,V> implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
+  }
+
+  @DocAnnotation$annotation$(description = " Returns <code>true</code> if this map contains a mapping for the specified\n key.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean containsKey(
+    final @TypeInfo("ceylon.language::Object?") @Name("key")@DocAnnotation$annotation$(description = "key whose presence in this map is to be tested\n") Object key) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
+    boolean ret = delegate.containsKey(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns @{code true} if this map maps one or more keys to the\n specified value.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean containsValue(
+    final @TypeInfo("ceylon.language::Object?") @Name("value")@DocAnnotation$annotation$(description = "value whose presence in this map is to be tested\n") Object value) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(value);
+    boolean ret = delegate.containsValue(arg_0);
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns the value to which the specified key is mapped, or\n <code>defaultValue</code> if this map contains no mapping for the key.\n")
+  @TypeInfo("V")
+  public V getOrDefault(
+    final @TypeInfo("ceylon.language::Object?") @Name("key")@DocAnnotation$annotation$(description = "the key whose associated value is to be returned\n") Object key, 
+    final @TypeInfo("V") @Name("defaultValue")@DocAnnotation$annotation$(description = "the default mapping of the key\n") V defaultValue) {
+    java.lang.Object arg_0 = io.vertx.lang.ceylon.ToJava.object(key);
+    java.lang.Object arg_1 = (V)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$V).convert(defaultValue);
+    V ret = (V)io.vertx.lang.ceylon.VertxTypeDescriptor.getToCeylon($reified$V).convert(delegate.getOrDefault(arg_0, arg_1));
+    return ret;
   }
 
 }

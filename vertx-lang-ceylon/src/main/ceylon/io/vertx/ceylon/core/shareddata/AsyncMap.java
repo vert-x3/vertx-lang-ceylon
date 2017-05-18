@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "\n An asynchronous map.\n")
+@DocAnnotation$annotation$(description = "\n An asynchronous map.\n <p>\n")
 public class AsyncMap<K,V> implements ReifiedType {
 
   @Ignore

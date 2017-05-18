@@ -34,7 +34,7 @@ public class soundcloudAuth_ implements ReifiedType {
   }
 
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Dropbox\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for SoundCloud\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
@@ -47,7 +47,7 @@ public class soundcloudAuth_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for Dropbox\n")
+  @DocAnnotation$annotation$(description = " Create a OAuth2Auth provider for SoundCloud\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 

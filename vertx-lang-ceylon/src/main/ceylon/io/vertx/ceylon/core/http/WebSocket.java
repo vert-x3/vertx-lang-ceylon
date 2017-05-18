@@ -145,6 +145,13 @@ public class WebSocket implements ReifiedType,  WebSocketBase {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isSsl() {
+    boolean ret = delegate.isSsl();
+    return ret;
+  }
+
   @TypeInfo("io.vertx.ceylon.core.http::WebSocket")
   public WebSocket exceptionHandler(
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {

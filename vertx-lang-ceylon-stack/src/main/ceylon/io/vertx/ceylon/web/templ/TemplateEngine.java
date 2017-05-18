@@ -55,7 +55,7 @@ public class TemplateEngine implements ReifiedType {
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " Render\n")
+  @DocAnnotation$annotation$(description = " Render the template\n")
   @TypeInfo("ceylon.language::Anything")
   public void render(
     final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context")@DocAnnotation$annotation$(description = "the routing context\n") RoutingContext context, 
@@ -69,6 +69,31 @@ public class TemplateEngine implements ReifiedType {
       }
     };
     delegate.render(arg_0, arg_1, arg_2);
+  }
+
+  @DocAnnotation$annotation$(description = " Render the template\n <p>\n <b>NOTE</b> if you call method directly (i.e. not using [TemplateHandler](../handler/TemplateHandler.type.html)) make sure\n that <i>templateFileName</i> is sanitized via `io.vertx.ext.web.impl.Utils`\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void render(
+    final @TypeInfo("io.vertx.ceylon.web::RoutingContext") @Name("context")@DocAnnotation$annotation$(description = "the routing context\n") RoutingContext context, 
+    final @TypeInfo("ceylon.language::String") @Name("templateDirectory")@DocAnnotation$annotation$(description = "the template directory to use\n") ceylon.language.String templateDirectory, 
+    final @TypeInfo("ceylon.language::String") @Name("templateFileName")@DocAnnotation$annotation$(description = "the relative template file name to use\n") ceylon.language.String templateFileName, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.buffer::Buffer)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will be called with a result containing the buffer or a failure.\n") Callable<?> handler) {
+    io.vertx.ext.web.RoutingContext arg_0 = io.vertx.ceylon.web.RoutingContext.TO_JAVA.safeConvert(context);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(templateDirectory);
+    java.lang.String arg_2 = io.vertx.lang.ceylon.ToJava.String.safeConvert(templateFileName);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.buffer.Buffer>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.buffer.Buffer>(handler) {
+      public Object toCeylon(io.vertx.core.buffer.Buffer event) {
+        return io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    delegate.render(arg_0, arg_1, arg_2, arg_3);
+  }
+
+  @DocAnnotation$annotation$(description = " Returns true if the template engine caches template files. If false, then template files are freshly loaded each\n time they are used.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isCachingEnabled() {
+    boolean ret = delegate.isCachingEnabled();
+    return ret;
   }
 
 }
