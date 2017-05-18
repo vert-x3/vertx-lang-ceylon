@@ -255,6 +255,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <outputDirectory>${project.build.directory}/ceylon/main</outputDirectory>
               <resources>
                 <resource>
@@ -448,6 +449,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <userRepos>
                 <user>${repo.dir}</user>
               </userRepos>
@@ -470,6 +472,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <userRepos>
                 <user>${repo.dir}</user>
               </userRepos>

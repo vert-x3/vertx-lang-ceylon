@@ -92,7 +92,7 @@
     <dependency>
       <groupId>org.ceylon-lang</groupId>
       <artifactId>ceylon-complete</artifactId>
-      <version>1.3.0</version>
+      <version>1.3.2</version>
     </dependency>
 
     <!-- Test dependencies -->
@@ -353,6 +353,7 @@
             <configuration>
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
+              <disablePomChecks>true</disablePomChecks>
               <sources>
                 <source>
                   <directory>${project.build.directory}/ceylon/main</directory>
@@ -383,6 +384,7 @@
             </goals>
             <configuration>
               <out>${repo.dir}</out>
+              <disablePomChecks>true</disablePomChecks>
               <sources>
                 <source>
                   <directory>${project.build.directory}/ceylon/main</directory>
@@ -406,6 +408,7 @@
             <configuration>
               <out>${repo.dir}</out>
               <javacOptions>-target 8</javacOptions>
+              <disablePomChecks>true</disablePomChecks>
               <sources>
                 <source>
                   <directory>${project.build.directory}/ceylon/main</directory>
@@ -443,6 +446,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
@@ -463,6 +467,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
@@ -484,6 +489,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <disablePomChecks>true</disablePomChecks>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
               </userRepos>
