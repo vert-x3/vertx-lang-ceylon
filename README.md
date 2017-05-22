@@ -35,3 +35,9 @@ Examples for [Vert.x / Ceylon](https://github.com/vietj/ceylon-vertx-examples)
 - don't share the underlying vertx module
 - consider using ceylon.promise for Handler<AsyncResult<T>> ending methods
 
+## Deploy on Herd
+
+    mvn -Dceylon.username=FroMage -Dceylon.password=XXX \
+     -Dceylon.out=https://modules.ceylon-lang.org/uploads/YYY/repo/ \
+     -pl vertx-lang-ceylon,vertx-lang-ceylon-stack \
+     org.ceylon-lang:ceylon-maven-plugin:copy@publish-herd
