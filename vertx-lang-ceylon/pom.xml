@@ -232,6 +232,23 @@
         <executions>
 
           <execution>
+            <id>publish-herd</id>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <all>true</all>
+              <userRepos>
+                <userRepo>${repo.dir}</userRepo>
+              </userRepos>
+              <modules>
+                <module>io.vertx.ceylon.core/${stack.version}</module>
+                <module>io.vertx.lang.ceylon/${stack.version}</module>
+              </modules>
+            </configuration>
+          </execution>
+
+          <execution>
             <id>import-dependencies</id>
             <goals>
               <goal>import-dependency</goal>

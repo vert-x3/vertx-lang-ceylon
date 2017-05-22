@@ -274,6 +274,54 @@
         <executions>
 
           <execution>
+            <id>publish-herd</id>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <all>true</all>
+              <userRepos>
+                <userRepo>${repo.dir}</userRepo>
+              </userRepos>
+              <modules>
+              
+                <module>io.vertx.ceylon.auth.jwt/${stack.version}</module>
+                <module>io.vertx.ceylon.auth.oauth2/${stack.version}</module>
+                <module>io.vertx.ceylon.auth.htdigest/${stack.version}</module>
+                <module>io.vertx.ceylon.auth.common/${stack.version}</module>
+                <module>io.vertx.ceylon.auth.jdbc/${stack.version}</module>
+                <module>io.vertx.ceylon.auth.shiro/${stack.version}</module>
+                <module>io.vertx.ceylon.jdbc/${stack.version}</module>
+                <module>io.vertx.ceylon.web/${stack.version}</module>
+                <module>io.vertx.ceylon.sql/${stack.version}</module>
+                
+                <module>io.vertx.vertx-jdbc-client/${stack.version}</module>
+                <module>io.vertx.vertx-auth-oauth2/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-pebble/${stack.version}</module>
+                <module>io.vertx.vertx-auth-jwt/${stack.version}</module>
+                <module>io.vertx.vertx-sql-common/${stack.version}</module>
+                <module>io.vertx.vertx-auth-htdigest/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-thymeleaf/${stack.version}</module>
+                <module>io.vertx.vertx-core/${stack.version}</module>
+                <module>io.vertx.vertx-auth-common/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-jade/${stack.version}</module>
+                <module>io.vertx.vertx-auth-shiro/${stack.version}</module>
+                <module>io.vertx.vertx-auth-jdbc/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-mvel/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-freemarker/${stack.version}</module>
+                <module>io.vertx.vertx-web/${stack.version}</module>
+                <module>io.vertx.vertx-hazelcast/${stack.version}</module>
+                <module>io.vertx.vertx-web-templ-handlebars/${stack.version}</module>
+                <module>io.vertx.vertx-codegen/${stack.version}</module>
+                
+                <module>com.hazelcast.hazelcast/3.6.3</module>
+                <module>com.mchange.mchange-commons-java/0.2.11</module>
+                <module>com.mchange.c3p0/0.9.5.2</module>
+              </modules>
+            </configuration>
+          </execution>
+
+          <execution>
             <id>import-dependencies</id>
             <goals>
               <goal>import-dependency</goal>
