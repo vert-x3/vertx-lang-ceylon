@@ -532,14 +532,16 @@
             <id>run.tests.java</id>
             <phase>test</phase>
             <goals>
-              <goal>run</goal>
+              <goal>test</goal>
             </goals>
             <configuration>
               <userRepos>
                 <userRepo>${repo.dir}</userRepo>
-                <userRepo>modules</userRepo>
+                <userRepo>${project.build.directory}/modules</userRepo>
               </userRepos>
-              <module>io.vertx.tests/${project.version}</module>
+              <modules>
+               <module>io.vertx.tests/${project.version}</module>
+              </modules>
             </configuration>
           </execution>
 
