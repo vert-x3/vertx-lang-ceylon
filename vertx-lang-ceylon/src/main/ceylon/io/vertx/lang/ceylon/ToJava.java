@@ -16,8 +16,6 @@ public class ToJava {
       converter = Character;
     } else if (o instanceof ceylon.language.Integer) {
       converter = Long;
-    } else if (o instanceof ceylon.language.Byte) {
-      converter = Byte;
     } else if (o instanceof ceylon.language.Float) {
       converter = Double;
     } else if (o instanceof ceylon.json.Object) {
