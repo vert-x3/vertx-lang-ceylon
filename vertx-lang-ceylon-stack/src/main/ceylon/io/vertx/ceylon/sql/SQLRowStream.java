@@ -56,51 +56,51 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
     return delegate;
   }
 
-  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<ceylon.json::Array>")
-  public ReadStream<ceylon.json.Array> exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("arg0") Callable<?> arg0) {
-    io.vertx.core.Handler<java.lang.Throwable> arg_0 = arg0 == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
-        arg0.$call$((Object)event);
+        handler.$call$((Object)event);
       }
     };
-    ReadStream<ceylon.json.Array> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(delegate.exceptionHandler(arg_0));
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
     return this;
   }
 
-  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<ceylon.json::Array>")
-  public ReadStream<ceylon.json.Array> handler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @Name("arg0") Callable<?> arg0) {
-    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_0 = arg0 == null ? null : new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() {
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream handler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @Name("handler") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() {
       public void handle(io.vertx.core.json.JsonArray event) {
-        arg0.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event));
+        handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event));
       }
     };
-    ReadStream<ceylon.json.Array> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(delegate.handler(arg_0));
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.handler(arg_0));
     return this;
   }
 
-  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<ceylon.json::Array>")
-  public ReadStream<ceylon.json.Array> pause() {
-    ReadStream<ceylon.json.Array> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(delegate.pause());
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream pause() {
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.pause());
     return this;
   }
 
-  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<ceylon.json::Array>")
-  public ReadStream<ceylon.json.Array> resume() {
-    ReadStream<ceylon.json.Array> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(delegate.resume());
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream resume() {
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.resume());
     return this;
   }
 
-  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<ceylon.json::Array>")
-  public ReadStream<ceylon.json.Array> endHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("arg0") Callable<?> arg0) {
-    io.vertx.core.Handler<java.lang.Void> arg_0 = arg0 == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
+  @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
+  public SQLRowStream endHandler(
+    final @TypeInfo("ceylon.language::Anything()") @Name("endHandler") Callable<?> endHandler) {
+    io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
-        arg0.$call$();
+        endHandler.$call$();
       }
     };
-    ReadStream<ceylon.json.Array> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(ceylon.json.Array.$TypeDescriptor$).safeConvert(delegate.endHandler(arg_0));
+    SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.endHandler(arg_0));
     return this;
   }
 
@@ -123,14 +123,14 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
   @DocAnnotation$annotation$(description = " Event handler when a resultset is closed. This is useful to request for more results.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
   public SQLRowStream resultSetClosedHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything()") @Name("handler")@DocAnnotation$annotation$(description = "called when the current result set is closed\n") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         handler.$call$();
       }
     };
     SQLRowStream ret = io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(delegate.resultSetClosedHandler(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Request for more results if available\n")

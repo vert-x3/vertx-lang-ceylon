@@ -55,6 +55,8 @@ shared class VertxOptions(
   shared EventBusOptions? eventBusOptions = null,
   " Set the number of event loop threads to be used by the Vert.x instance.\n"
   shared Integer? eventLoopPoolSize = null,
+  " Set wether the Vert.x file resolver uses caching for classpath resources.\n"
+  shared Boolean? fileResolverCachingEnabled = null,
   " Set whether HA will be enabled on the Vert.x instance.\n"
   shared Boolean? haEnabled = null,
   " Set the HA group to be used when HA is enabled.\n"
@@ -108,6 +110,9 @@ shared class VertxOptions(
     if (exists eventLoopPoolSize) {
       json.put("eventLoopPoolSize", eventLoopPoolSize);
     }
+    if (exists fileResolverCachingEnabled) {
+      json.put("fileResolverCachingEnabled", fileResolverCachingEnabled);
+    }
     if (exists haEnabled) {
       json.put("haEnabled", haEnabled);
     }
@@ -153,6 +158,7 @@ shared object vertxOptions {
     Boolean? clustered = json.getBooleanOrNull("clustered");
     EventBusOptions? eventBusOptions = if (exists tmp = json.getObjectOrNull("eventBusOptions")) then eventBusOptions_.fromJson(tmp) else null;
     Integer? eventLoopPoolSize = json.getIntegerOrNull("eventLoopPoolSize");
+    Boolean? fileResolverCachingEnabled = json.getBooleanOrNull("fileResolverCachingEnabled");
     Boolean? haEnabled = json.getBooleanOrNull("haEnabled");
     String? haGroup = json.getStringOrNull("haGroup");
     Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
@@ -174,6 +180,7 @@ shared object vertxOptions {
       clustered = clustered;
       eventBusOptions = eventBusOptions;
       eventLoopPoolSize = eventLoopPoolSize;
+      fileResolverCachingEnabled = fileResolverCachingEnabled;
       haEnabled = haEnabled;
       haGroup = haGroup;
       internalBlockingPoolSize = internalBlockingPoolSize;

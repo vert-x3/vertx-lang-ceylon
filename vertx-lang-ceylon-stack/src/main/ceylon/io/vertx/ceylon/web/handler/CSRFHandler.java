@@ -69,6 +69,15 @@ public class CSRFHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set the cookie path. By default / is used.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::CSRFHandler")
+  public CSRFHandler setCookiePath(
+    final @TypeInfo("ceylon.language::String") @Name("path")@DocAnnotation$annotation$(description = "a new path for the cookie.\n") ceylon.language.String path) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
+    CSRFHandler ret = io.vertx.ceylon.web.handler.CSRFHandler.TO_CEYLON.converter().safeConvert(delegate.setCookiePath(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Set the header name. By default X-XSRF-TOKEN is used as it is the expected name by AngularJS however other\n frameworks might use other names.\n")
   @TypeInfo("io.vertx.ceylon.web.handler::CSRFHandler")
   public CSRFHandler setHeaderName(

@@ -17,7 +17,7 @@ import io.vertx.core.Handler;
 import java.util.function.Function;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " The composite future wraps a list of [futures](Future.type.html), it is useful when several futures\n needs to be coordinated.\n")
+@DocAnnotation$annotation$(description = " The composite future wraps a list of [futures](Future.type.html), it is useful when several futures\n needs to be coordinated.\n The handlers set for the coordinated futures are overridden by the handler of the composite future.\n")
 public class CompositeFuture extends Future<CompositeFuture> implements ReifiedType {
 
   @Ignore
