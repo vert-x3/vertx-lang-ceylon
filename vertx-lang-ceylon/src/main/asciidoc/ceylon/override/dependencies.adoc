@@ -4,11 +4,11 @@ If you are embedding Vert.x in Ceylon you should import Vert.x modules of your C
 ----
 native("jvm")
 module my.module "1.0.0" {
-  shared import io.vertx.ceylon.core "3.4.2";
+  shared import io.vertx.ceylon.core "3.5.0-SNAPSHOT";
 }
 ----
 
-The following stack of modules is supported in 3.4.2:
+The following stack of modules is supported in 3.5.0-SNAPSHOT:
 
 - `io.vertx.ceylon.core`
 - `io.vertx.ceylon.jdbc`

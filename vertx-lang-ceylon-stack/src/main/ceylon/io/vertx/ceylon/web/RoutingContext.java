@@ -12,6 +12,9 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.http.HttpServerRequest;
+import io.vertx.ceylon.core.MultiMap;
+import java.util.Map;
+import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.core.Vertx;
 import java.util.Set;
 import io.vertx.core.json.JsonArray;
@@ -30,8 +33,6 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
-import java.util.Map;
-import io.vertx.core.json.JsonObject;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
@@ -497,6 +498,22 @@ public class RoutingContext implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of parameter as defined in path declaration\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.pathParam(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Returns a map of all query parameters inside the <a href=\"https://en.wikipedia.org/wiki/Query_string\">query string</a>\n")
+  @TypeInfo("io.vertx.ceylon.core::MultiMap")
+  public MultiMap queryParams() {
+    MultiMap ret = io.vertx.ceylon.core.MultiMap.TO_CEYLON.converter().safeConvert(delegate.queryParams());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Gets the value of a single query parameter\n")
+  @TypeInfo("ceylon.language::List<ceylon.language::String>?")
+  public ceylon.language.List<ceylon.language.String> queryParam(
+    final @TypeInfo("ceylon.language::String") @Name("query")@DocAnnotation$annotation$(description = "The name of query parameter\n") ceylon.language.String query) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(query);
+    ceylon.language.List<ceylon.language.String> ret = io.vertx.lang.ceylon.ToCeylon.convertList(ceylon.language.String.$TypeDescriptor$, delegate.queryParam(arg_0), io.vertx.lang.ceylon.ToCeylon.String);
     return ret;
   }
 

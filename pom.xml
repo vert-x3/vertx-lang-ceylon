@@ -38,6 +38,7 @@
     <module>vertx-lang-ceylon-doc</module>
     <module>vertx-lang-ceylon</module>
     <module>vertx-lang-ceylon-stack</module>
+    <module>reproducer</module>
   </modules>
 
   <build>
