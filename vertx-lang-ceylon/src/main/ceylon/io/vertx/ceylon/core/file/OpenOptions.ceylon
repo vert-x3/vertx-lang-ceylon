@@ -21,6 +21,8 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.file.OpenOptions */
 " Describes how an [AsyncFile](../file/AsyncFile.type.html) should be opened.\n"
 shared class OpenOptions(
+  " Whether the file should be opened in append mode. Defaults to <code>false</code>.\n"
+  shared Boolean? append = null,
   " Set whether the file should be created if it does not already exist.\n"
   shared Boolean? create = null,
   " Set whether the file should be created and fail if it does exist already.\n"
@@ -43,6 +45,9 @@ shared class OpenOptions(
   shared Boolean? write = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
+    if (exists append) {
+      json.put("append", append);
+    }
     if (exists create) {
       json.put("create", create);
     }
@@ -80,6 +85,7 @@ shared class OpenOptions(
 shared object openOptions {
 
   shared OpenOptions fromJson(JsonObject json) {
+    Boolean? append = json.getBooleanOrNull("append");
     Boolean? create = json.getBooleanOrNull("create");
     Boolean? createNew = json.getBooleanOrNull("createNew");
     Boolean? deleteOnClose = json.getBooleanOrNull("deleteOnClose");
@@ -91,6 +97,7 @@ shared object openOptions {
     Boolean? truncateExisting = json.getBooleanOrNull("truncateExisting");
     Boolean? write = json.getBooleanOrNull("write");
     return OpenOptions {
+      append = append;
       create = create;
       createNew = createNew;
       deleteOnClose = deleteOnClose;

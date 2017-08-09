@@ -55,6 +55,14 @@ shared object deliveryOptions {
     };
   }
 
+  shared object toCeylon extends Converter<DeliveryOptions_, DeliveryOptions>() {
+    shared actual DeliveryOptions convert(DeliveryOptions_ src) {
+      value json = parse(src.toJson().string);
+      assert(is JsonObject json);
+      return fromJson(json);
+    }
+  }
+
   shared object toJava extends Converter<DeliveryOptions, DeliveryOptions_>() {
     shared actual DeliveryOptions_ convert(DeliveryOptions src) {
       // Todo : make optimized version without json

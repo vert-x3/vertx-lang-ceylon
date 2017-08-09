@@ -34,6 +34,10 @@ import io.vertx.ceylon.core.http {
   http2Settings_=http2Settings,
   HttpClientOptions
 }
+import io.vertx.ceylon.auth.common {
+  PubSecKeyOptions,
+  pubSecKeyOptions_=pubSecKeyOptions
+}
 import ceylon.collection {
   HashMap
 }
@@ -89,10 +93,10 @@ shared class OAuth2ClientOptions(
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
   Integer? pipeliningLimit = null,
-  shared String? privateKey = null,
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
-  shared String? publicKey = null,
+  shared PubSecKeyOptions? pubSecKey = null,
+  shared PubSecKeyOptions? pubSecKeyOptions = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   shared String? revocationPath = null,
@@ -197,11 +201,11 @@ shared class OAuth2ClientOptions(
     if (exists logoutPath) {
       json.put("logoutPath", logoutPath);
     }
-    if (exists privateKey) {
-      json.put("privateKey", privateKey);
+    if (exists pubSecKey) {
+      json.put("pubSecKey", pubSecKey.toJson());
     }
-    if (exists publicKey) {
-      json.put("publicKey", publicKey);
+    if (exists pubSecKeyOptions) {
+      json.put("pubSecKeyOptions", pubSecKeyOptions.toJson());
     }
     if (exists revocationPath) {
       json.put("revocationPath", revocationPath);
@@ -276,10 +280,10 @@ shared object oAuth2ClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
-    String? privateKey = json.getStringOrNull("privateKey");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
-    String? publicKey = json.getStringOrNull("publicKey");
+    PubSecKeyOptions? pubSecKey = if (exists tmp = json.getObjectOrNull("pubSecKey")) then pubSecKeyOptions_.fromJson(tmp) else null;
+    PubSecKeyOptions? pubSecKeyOptions = if (exists tmp = json.getObjectOrNull("pubSecKeyOptions")) then pubSecKeyOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     String? revocationPath = json.getStringOrNull("revocationPath");
@@ -348,10 +352,10 @@ shared object oAuth2ClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       pipeliningLimit = pipeliningLimit;
-      privateKey = privateKey;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
-      publicKey = publicKey;
+      pubSecKey = pubSecKey;
+      pubSecKeyOptions = pubSecKeyOptions;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       revocationPath = revocationPath;

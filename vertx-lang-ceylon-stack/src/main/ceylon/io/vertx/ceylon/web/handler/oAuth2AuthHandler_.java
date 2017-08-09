@@ -12,10 +12,13 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.web.Route;
+import io.vertx.ceylon.auth.common.User;
 import java.util.Set;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.web.RoutingContext;
+import io.vertx.core.AsyncResult;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @Name("oAuth2AuthHandler")

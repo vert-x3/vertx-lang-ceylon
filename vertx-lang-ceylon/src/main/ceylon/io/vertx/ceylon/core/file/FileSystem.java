@@ -72,6 +72,25 @@ public class FileSystem implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Copy a file from the path <code>from</code> to path <code>to</code>, asynchronously.\n")
+  @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
+  public FileSystem copy(
+    final @TypeInfo("ceylon.language::String") @Name("from")@DocAnnotation$annotation$(description = "the path to copy from\n") ceylon.language.String from, 
+    final @TypeInfo("ceylon.language::String") @Name("to")@DocAnnotation$annotation$(description = "the path to copy to\n") ceylon.language.String to, 
+    final @TypeInfo("io.vertx.ceylon.core.file::CopyOptions") @Name("options")@DocAnnotation$annotation$(description = "options describing how the file should be copied\n") io.vertx.ceylon.core.file.CopyOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
+    io.vertx.core.file.CopyOptions arg_2 = options == null ? null : new io.vertx.core.file.CopyOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.copy(arg_0, arg_1, arg_2, arg_3));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Blocking version of [copy](../file/FileSystem.type.html#copy)\n")
   @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
   public FileSystem copyBlocking(
@@ -129,6 +148,25 @@ public class FileSystem implements ReifiedType {
       }
     };
     FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.move(arg_0, arg_1, arg_2));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Move a file from the path <code>from</code> to path <code>to</code>, asynchronously.\n")
+  @TypeInfo("io.vertx.ceylon.core.file::FileSystem")
+  public FileSystem move(
+    final @TypeInfo("ceylon.language::String") @Name("from")@DocAnnotation$annotation$(description = "the path to copy from\n") ceylon.language.String from, 
+    final @TypeInfo("ceylon.language::String") @Name("to")@DocAnnotation$annotation$(description = "the path to copy to\n") ceylon.language.String to, 
+    final @TypeInfo("io.vertx.ceylon.core.file::CopyOptions") @Name("options")@DocAnnotation$annotation$(description = "options describing how the file should be copied\n") io.vertx.ceylon.core.file.CopyOptions options, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler")@DocAnnotation$annotation$(description = "the handler that will be called on completion\n") Callable<?> handler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(from);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(to);
+    io.vertx.core.file.CopyOptions arg_2 = options == null ? null : new io.vertx.core.file.CopyOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    FileSystem ret = io.vertx.ceylon.core.file.FileSystem.TO_CEYLON.converter().safeConvert(delegate.move(arg_0, arg_1, arg_2, arg_3));
     return this;
   }
 

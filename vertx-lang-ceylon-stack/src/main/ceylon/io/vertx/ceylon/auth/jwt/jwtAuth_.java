@@ -42,9 +42,9 @@ public class jwtAuth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.jwt::JWTAuth")
   public JWTAuth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.json::Object") @Name("config")@DocAnnotation$annotation$(description = "the config\n") ceylon.json.Object config) {
+    final @TypeInfo("io.vertx.ceylon.auth.jwt::JWTAuthOptions") @Name("config")@DocAnnotation$annotation$(description = "the config\n") io.vertx.ceylon.auth.jwt.JWTAuthOptions config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.core.json.JsonObject arg_1 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(config);
+    io.vertx.ext.auth.jwt.JWTAuthOptions arg_1 = config == null ? null : new io.vertx.ext.auth.jwt.JWTAuthOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(config.toJson()));
     JWTAuth ret = io.vertx.ceylon.auth.jwt.JWTAuth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.jwt.JWTAuth.create(arg_0, arg_1));
     return ret;
   }

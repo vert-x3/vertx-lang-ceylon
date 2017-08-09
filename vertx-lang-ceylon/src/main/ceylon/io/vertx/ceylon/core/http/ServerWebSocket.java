@@ -326,10 +326,18 @@ public class ServerWebSocket implements ReifiedType,  WebSocketBase {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Reject the WebSocket.\n <p>\n Calling this method from the websocket handler when it is first passed to you gives you the opportunity to reject\n the websocket, which will cause the websocket handshake to fail by returning\n a 404 response code.\n <p>\n You might use this method, if for example you only want to accept WebSockets with a particular path.\n")
+  @DocAnnotation$annotation$(description = " Reject the WebSocket.\n <p>\n Calling this method from the websocket handler when it is first passed to you gives you the opportunity to reject\n the websocket, which will cause the websocket handshake to fail by returning\n a  response code.\n <p>\n You might use this method, if for example you only want to accept WebSockets with a particular path.\n")
   @TypeInfo("ceylon.language::Anything")
   public void reject() {
     delegate.reject();
+  }
+
+  @DocAnnotation$annotation$(description = " Like [reject](../http/ServerWebSocket.type.html#reject) but with a <code>status</code>.\n")
+  @TypeInfo("ceylon.language::Anything")
+  public void reject(
+    final @TypeInfo("ceylon.language::Integer") @Name("status") long status) {
+    int arg_0 = (int)status;
+    delegate.reject(arg_0);
   }
 
 }
