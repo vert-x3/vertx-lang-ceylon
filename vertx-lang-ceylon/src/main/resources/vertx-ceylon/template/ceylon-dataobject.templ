@@ -3,12 +3,37 @@
 @includeNamed{'ceylon-imports.templ'}
 
 @code{
+  var typeAliases = new java.util.HashMap();
+  var simpleTypeNames = new java.util.HashSet();
+  def makeTypeAlias(type){
+    if(typeAliases.containsKey(type.name)){
+      return typeAliases.get(type.name);
+    }
+    if(simpleTypeNames.contains(type.simpleName)){
+      var alias = type.packageName.replace('.','_')+"_"+type.simpleName;
+      if(Character.isUpperCase(type.simpleName.charAt(0))){
+        alias = Character.toUpperCase(alias.charAt(0))+alias.substring(1);
+      }
+      typeAliases.put(type.name, alias);
+      return alias;
+    }
+    simpleTypeNames.add(type.simpleName);
+    typeAliases.put(type.name, type.simpleName);
+    return type.simpleName;
+  }
+  def getTypeAlias(type){
+    if(typeAliases.containsKey(type.name)){
+      return typeAliases.get(type.name);
+    }
+    return type.simpleName;
+  }
+
   def genPropTypeDecl(prop) {
     var type = prop.type;
     var decl = "not_handled: " + type + " " + type.class + " " + type.kind;
     var kind = type.kind;
     if (kind == CLASS_API) {
-      decl = type.simpleName;
+      decl = getTypeAlias(type);
     } else if (kind == CLASS_STRING) {
       decl = 'String';
     } else if (isInteger(type)) {
@@ -127,6 +152,8 @@
 }
 
 @code{
+  makeTypeAlias(type);
+
   addClassImport("io.vertx.core.json", "JsonObject", "JsonObject_");
   addClassImport("io.vertx.core.json", "JsonArray", "JsonArray_");
   addClassImport("ceylon.json", "Object", "JsonObject");
@@ -145,13 +172,13 @@
       props.add(prop);
     }
     if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
-      addClassImport(propType.translatePackageName(TRANSLATOR_COMPOSITE), propType.simpleName, propType.simpleName);
+      addClassImport(propType.translatePackageName(TRANSLATOR_COMPOSITE), propType.simpleName, makeTypeAlias(propType));
       var objectName = CASE_CAMEL.to(CASE_LOWER_CAMEL, propType.simpleName);
       addClassImport(propType.translatePackageName(TRANSLATOR_COMPOSITE), objectName, objectName + '_');
     }
   }
   for (superType : superTypes) {
-    addClassImport(superType.translatePackageName(TRANSLATOR_COMPOSITE), superType.simpleName, superType.simpleName);
+    addClassImport(superType.translatePackageName(TRANSLATOR_COMPOSITE), superType.simpleName, makeTypeAlias(superType));
   }
   addClassImport(type.packageName, type.simpleName, type.simpleName + "_");
 }
@@ -170,7 +197,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
   "@{genDoc(prop.doc)}"
 	@end{}
 \n  @if{prop.declared}shared @end{}@{genPropTypeDecl(prop)}? @{toCeylonIdentifier(prop.name)} = null
-	@end{','})@if{superType != null} extends @{superType.simpleName}(
+	@end{','})@if{superType != null} extends @{getTypeAlias(superType)}(
 	@code{var prev = '\n'}
 	@foreach{prop:props}
 	@if{!prop.declared}
@@ -179,7 +206,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 	@end{}
 	@end{})@end{}@end{}@if{abstractSuperTypes.size() > 0} satisfies\n
 	@foreach{abstractSuperType : abstractSuperTypes}
-  @{abstractSuperType.simpleName}
+  @{getTypeAlias(abstractSuperType)}
 	@end{' &\n'}
 @end{} @if{abstractSuperTypes.empty}satisfies@else{}&@end{} BaseDataObject {\n
   shared actual default JsonObject toJson() {\n
