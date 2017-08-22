@@ -1,6 +1,3 @@
-import io.vertx.ceylon.bridge.common {
-  Io_vertx_ext_bridge_PermittedOptions=PermittedOptions
-}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -11,7 +8,7 @@ import io.vertx.lang.ceylon {
   Converter,
   ToJava
 }
-import io.vertx.ext.web.handler.sockjs {
+import io.vertx.ext.bridge {
   PermittedOptions_=PermittedOptions
 }
 import ceylon.collection {
@@ -21,19 +18,31 @@ import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
 }
-/* Generated from io.vertx.ext.web.handler.sockjs.PermittedOptions */
-" Specify a match to allow for inbound and outbound traffic using the\n [BridgeOptions](../../handler/sockjs/BridgeOptions.type.html).\n"
+/* Generated from io.vertx.ext.bridge.PermittedOptions */
+" Represents a match to allow for inbound and outbound traffic.\n"
 shared class PermittedOptions(
-  String? address = null,
-  String? addressRegex = null,
-  JsonObject? match = null,
-  String? requiredAuthority = null) extends Io_vertx_ext_bridge_PermittedOptions(
-  address,
-  addressRegex,
-  match,
-  requiredAuthority) satisfies BaseDataObject {
+  " The exact address the message is being sent to. If you want to allow messages based on\n an exact address you use this field.\n"
+  shared String? address = null,
+  " A regular expression that will be matched against the address. If you want to allow messages\n based on a regular expression you use this field. If the [setAddress](PermittedOptions.type.html#setAddress) value is specified\n this will be ignored.\n"
+  shared String? addressRegex = null,
+  " This allows you to allow messages based on their structure. Any fields in the match must exist in the\n message with the same values for them to be allowed. This currently only works with JSON messages.\n"
+  shared JsonObject? match = null,
+  " Declare a specific authority that user must have in order to allow messages\n"
+  shared String? requiredAuthority = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = super.toJson();
+    value json = JsonObject();
+    if (exists address) {
+      json.put("address", address);
+    }
+    if (exists addressRegex) {
+      json.put("addressRegex", addressRegex);
+    }
+    if (exists match) {
+      json.put("match", match);
+    }
+    if (exists requiredAuthority) {
+      json.put("requiredAuthority", requiredAuthority);
+    }
     return json;
   }
 }

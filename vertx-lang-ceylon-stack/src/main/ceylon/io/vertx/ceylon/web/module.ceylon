@@ -4,6 +4,7 @@ module io.vertx.ceylon.web "${project.version}" {
   shared import ceylon.json "1.3.2";
   shared import io.vertx.ceylon.core "${project.version}";
   shared import "io.vertx.vertx-web" "${project.version}";
+  shared import io.vertx.ceylon.bridge.common "${project.version}";
   shared import io.vertx.ceylon.auth.common "${project.version}";
   shared optional import io.vertx.ceylon.auth.jwt "${project.version}";
   shared optional import io.vertx.ceylon.auth.oauth2 "${project.version}";

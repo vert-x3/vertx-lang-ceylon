@@ -1,5 +1,5 @@
 import io.vertx.lang.ceylon { Converter }
-import io.vertx.ext.web.handler.sockjs { BridgeEventType_=BridgeEventType }
+import io.vertx.ext.bridge { BridgeEventType_=BridgeEventType }
 
 " Bridge Event Types.\n"
 shared abstract class BridgeEventType(shared String name) of socket_created | socket_closed | socket_idle | socket_ping | send | publish | receive | register | unregister {

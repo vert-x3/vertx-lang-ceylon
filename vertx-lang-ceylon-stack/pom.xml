@@ -109,6 +109,16 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
+      <artifactId>vertx-bridge-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-bridge-common</artifactId>
+      <classifier>sources</classifier>
+      <version>${stack.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
     </dependency>
     <dependency>
@@ -291,10 +301,12 @@
                 <module>io.vertx.ceylon.auth.common/${stack.version}</module>
                 <module>io.vertx.ceylon.auth.jdbc/${stack.version}</module>
                 <module>io.vertx.ceylon.auth.shiro/${stack.version}</module>
+                <module>io.vertx.ceylon.bridge.common/${stack.version}</module>
                 <module>io.vertx.ceylon.jdbc/${stack.version}</module>
                 <module>io.vertx.ceylon.web/${stack.version}</module>
                 <module>io.vertx.ceylon.sql/${stack.version}</module>
 
+                <module>io.vertx.vertx-bridge-common/${stack.version}</module>
                 <module>io.vertx.vertx-jdbc-client/${stack.version}</module>
                 <module>io.vertx.vertx-auth-oauth2/${stack.version}</module>
                 <module>io.vertx.vertx-web-templ-pebble/${stack.version}</module>
@@ -409,6 +421,14 @@
                   <descriptor>${project.build.directory}/descriptors/org.apache.shiro.shiro-core.properties</descriptor>
                 </moduleImport>
 -->
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-bridge-common</artifactId>
+                  </dependency>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-bridge-common.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
@@ -554,6 +574,7 @@
                 <module>io.vertx.ceylon.auth.htdigest</module>
                 <module>io.vertx.ceylon.auth.shiro</module>
                 <module>io.vertx.ceylon.auth.oauth2</module>
+                <module>io.vertx.ceylon.bridge.common</module>
                 <module>io.vertx.ceylon.sql</module>
                 <module>io.vertx.ceylon.jdbc</module>
                 <module>io.vertx.ceylon.web</module>
@@ -576,7 +597,7 @@
             </goals>
             <configuration>
               <includeGroupIds>io.vertx</includeGroupIds>
-              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-htdigest,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel</includeArtifactIds>
+              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-htdigest,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel,vertx-bridge-common</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>

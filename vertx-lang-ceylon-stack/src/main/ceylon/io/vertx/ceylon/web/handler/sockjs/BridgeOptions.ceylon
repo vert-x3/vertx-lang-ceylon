@@ -1,3 +1,7 @@
+import io.vertx.ceylon.bridge.common {
+  PermittedOptions,
+  permittedOptions_=permittedOptions
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -7,10 +11,6 @@ import io.vertx.lang.ceylon {
   BaseDataObject,
   Converter,
   ToJava
-}
-import io.vertx.ceylon.web.handler.sockjs {
-  PermittedOptions,
-  permittedOptions_=permittedOptions
 }
 import io.vertx.ext.web.handler.sockjs {
   BridgeOptions_=BridgeOptions
