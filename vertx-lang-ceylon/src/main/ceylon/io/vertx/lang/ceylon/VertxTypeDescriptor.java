@@ -100,6 +100,14 @@ public class VertxTypeDescriptor extends TypeDescriptor {
     return delegate.hashCode();
   }
 
+  public boolean isObject() {
+    return delegate.isObject();
+  }
+
+  public boolean isNull() {
+    return delegate.isNull();
+  }
+
   protected void stringTo(StringBuilder sb) {
     // delegate.stringTo(sb);
     // Todo
