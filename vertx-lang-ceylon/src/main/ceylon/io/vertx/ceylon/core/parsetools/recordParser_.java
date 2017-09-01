@@ -34,7 +34,7 @@ public class recordParser_ implements ReifiedType {
   }
 
 
-  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
+  @DocAnnotation$annotation$(description = " Like [newDelimited](../parsetools/recordParser.type.html#newDelimited) but set the <code>output</code> that will receive whole records\n which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public RecordParser newDelimited(
     final @TypeInfo("ceylon.language::String") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter string\n") ceylon.language.String delim, 
@@ -49,7 +49,25 @@ public class recordParser_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newDelimited(
+    final @TypeInfo("ceylon.language::String") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter string\n") ceylon.language.String delim) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(delim);
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the <code>Buffer</code> delim.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newDelimited(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter buffer\n") Buffer delim) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(delim);
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [newDelimited](../parsetools/recordParser.type.html#newDelimited) but set the <code>output</code> that will receive whole records\n which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public RecordParser newDelimited(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter buffer\n") Buffer delim, 
@@ -65,6 +83,15 @@ public class recordParser_ implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in fixed size mode, and where the record size is specified\n by the <code>size</code> parameter.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newFixed(
+    final @TypeInfo("ceylon.language::Integer") @Name("size")@DocAnnotation$annotation$(description = "the initial record size\n") long size) {
+    int arg_0 = (int)size;
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newFixed(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [newFixed](../parsetools/recordParser.type.html#newFixed) but set the <code>output</code> that will receive whole records\n which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public RecordParser newFixed(
     final @TypeInfo("ceylon.language::Integer") @Name("size")@DocAnnotation$annotation$(description = "the initial record size\n") long size, 

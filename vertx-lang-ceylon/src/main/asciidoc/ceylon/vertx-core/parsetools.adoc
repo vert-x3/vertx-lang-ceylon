@@ -59,3 +59,107 @@ recordParser.newFixed(4, (Buffer h) {
 ----
 
 For more details, check out the `link:../../ceylondoc/vertx-core//parsetools/RecordParser.type.html[RecordParser]` class.
+
+== Json Parser
+
+You can easily parse JSON structures but that requires to provide the JSON content at once, but it
+may not be convenient when you need to parse very large structures.
+
+The non-blocking JSON parser is an event driven parser able to deal with very large structures.
+It transforms a sequence of input buffer to a sequence of JSON parse events.
+
+[source, ceylon]
+----
+Code not translatable : Unsupported kind ENUM_CONSTANT
+----
+
+The parser is non-blocking and emitted events are driven by the input buffers.
+
+[source, ceylon]
+----
+import io.vertx.ceylon.core.buffer { buffer } 
+import io.vertx.ceylon.core.parsetools { jsonParser } 
+
+...
+
+
+value parser = jsonParser.newParser();
+
+// start array event
+// start object event
+// "firstName":"Bob" event
+parser.handle(buffer.buffer("[{\"firstName\":\"Bob\","));
+
+// "lastName":"Morane" event
+// end object event
+parser.handle(buffer.buffer("\"lastName\":\"Morane\"},"));
+
+// start object event
+// "firstName":"Luke" event
+// "lastName":"Lucky" event
+// end object event
+parser.handle(buffer.buffer("{\"firstName\":\"Luke\",\"lastName\":\"Lucky\"}"));
+
+// end array event
+parser.handle(buffer.buffer("]"));
+
+// Always call end
+parser.end();
+
+----
+
+Event driven parsing provides more control but comes at the price of dealing with fine grained events, which can be
+inconvenient sometimes. The JSON parser allows you to handle JSON structures as values when it is desired:
+
+[source, ceylon]
+----
+Code not translatable : Unsupported kind ENUM_CONSTANT
+----
+
+The value mode can be set and unset during the parsing allowing you to switch between fine grained
+events or JSON object value events.
+
+[source, ceylon]
+----
+Code not translatable : Unsupported kind ENUM_CONSTANT
+----
+
+You can do the same with arrays as well
+
+[source, ceylon]
+----
+Code not translatable : Unsupported kind ENUM_CONSTANT
+----
+
+You can also decode POJOs
+
+[source, ceylon]
+----
+parser.handler((JsonEvent event) {
+  // Handle each object
+  // Get the field in which this object was parsed
+  value id = event.fieldName();
+  value user = event.mapTo(User.class);
+  print("User with id ``id`` : ``user.firstName`` ``user.lastName``");
+});
+
+----
+
+Whenever the parser fails to process a buffer, an exception will be thrown unless you set an exception handler:
+
+[source, ceylon]
+----
+import io.vertx.ceylon.core.parsetools { jsonParser } 
+
+...
+
+
+value parser = jsonParser.newParser();
+
+parser.exceptionHandler((Throwable err) {
+  // Catch any parsing or decoding error
+});
+
+----
+
+For more details, check out the `link:../../ceylondoc/vertx-core//parsetools/JsonParser.type.html[JsonParser]` class.

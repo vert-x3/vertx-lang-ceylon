@@ -55,6 +55,15 @@ public class SQLConnection implements ReifiedType {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = " Sets the desired options to be applied to the current connection when statements are executed.\n\n The options are not applied globally but applicable to the current connection. For example changing the transaction\n isolation level will only affect statements run on this connection and not future or current connections acquired\n from the connection pool.\n\n This method is not async in nature since the apply will only happen at the moment a query is run.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
+  public SQLConnection setOptions(
+    final @TypeInfo("io.vertx.ceylon.sql::SQLOptions") @Name("options")@DocAnnotation$annotation$(description = "the options to modify the unwrapped connection.\n") io.vertx.ceylon.sql.SQLOptions options) {
+    io.vertx.ext.sql.SQLOptions arg_0 = options == null ? null : new io.vertx.ext.sql.SQLOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    SQLConnection ret = io.vertx.ceylon.sql.SQLConnection.TO_CEYLON.converter().safeConvert(delegate.setOptions(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Sets the auto commit flag for this connection. True by default.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLConnection")
   public SQLConnection setAutoCommit(
