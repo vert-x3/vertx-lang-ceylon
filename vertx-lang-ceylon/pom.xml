@@ -256,7 +256,6 @@
             <configuration>
               <out>${repo.dir}</out>
               <moduleImports>
-<!--
                 <moduleImport>
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
@@ -281,6 +280,7 @@
                   <name>com.fasterxml.jackson.databind</name>
                   <descriptor>descriptors/com.fasterxml.jackson.databind.properties</descriptor>
                 </moduleImport>
+<!--
                 <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
