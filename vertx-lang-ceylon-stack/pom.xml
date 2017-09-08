@@ -214,6 +214,11 @@
       <version>0.8.0.RELEASE</version>
     </dependency>
     <dependency>
+      <groupId>io.agroal</groupId>
+      <artifactId>agroal-pool</artifactId>
+      <version>0.2</version>
+    </dependency>
+    <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-codegen</artifactId>
     </dependency>

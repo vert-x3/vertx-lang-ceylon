@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
+import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
@@ -49,6 +50,17 @@ public class recordParser_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Like [newDelimited](../parsetools/recordParser.type.html#newDelimited) but wraps the <code>stream</code>. The <code>stream</code> handlers will be set/unset\n when the [handler](../parsetools/RecordParser.type.html#handler) is set.\n <p/>\n The <code>pause()</code>/<code>resume()</code> operations are propagated to the <code>stream</code>.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newDelimited(
+    final @TypeInfo("ceylon.language::String") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter string\n") ceylon.language.String delim, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.buffer::Buffer>") @Name("stream")@DocAnnotation$annotation$(description = "the wrapped stream\n") ReadStream<Buffer> stream) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(delim);
+    io.vertx.core.streams.ReadStream<io.vertx.core.buffer.Buffer> arg_1 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(stream);
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the String <code></code> delim endcoded in latin-1 . Don't use this if your String contains other than latin-1 characters.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public RecordParser newDelimited(
@@ -58,7 +70,7 @@ public class recordParser_ implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the <code>Buffer</code> delim.\n <p>\n <code>output</code> Will receive whole records which have been parsed.\n")
+  @DocAnnotation$annotation$(description = " Create a new <code>RecordParser</code> instance, initially in delimited mode, and where the delimiter can be represented\n by the <code>Buffer</code> delim.\n <p>\n")
   @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
   public RecordParser newDelimited(
     final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter buffer\n") Buffer delim) {
@@ -78,6 +90,17 @@ public class recordParser_ implements ReifiedType {
         output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
       }
     };
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [newDelimited](../parsetools/recordParser.type.html#newDelimited) but wraps the <code>stream</code>. The <code>stream</code> handlers will be set/unset\n when the [handler](../parsetools/RecordParser.type.html#handler) is set.\n <p/>\n The <code>pause()</code>/<code>resume()</code> operations are propagated to the <code>stream</code>.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newDelimited(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("delim")@DocAnnotation$annotation$(description = "the initial delimiter buffer\n") Buffer delim, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.buffer::Buffer>") @Name("stream")@DocAnnotation$annotation$(description = "the wrapped stream\n") ReadStream<Buffer> stream) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(delim);
+    io.vertx.core.streams.ReadStream<io.vertx.core.buffer.Buffer> arg_1 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(stream);
     RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newDelimited(arg_0, arg_1));
     return ret;
   }
@@ -102,6 +125,17 @@ public class recordParser_ implements ReifiedType {
         output.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
       }
     };
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newFixed(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [newFixed](../parsetools/recordParser.type.html#newFixed) but wraps the <code>stream</code>. The <code>stream</code> handlers will be set/unset\n when the [handler](../parsetools/RecordParser.type.html#handler) is set.\n <p/>\n The <code>pause()</code>/<code>resume()</code> operations are propagated to the <code>stream</code>.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser newFixed(
+    final @TypeInfo("ceylon.language::Integer") @Name("size")@DocAnnotation$annotation$(description = "the initial record size\n") long size, 
+    final @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.buffer::Buffer>") @Name("stream")@DocAnnotation$annotation$(description = "the wrapped stream\n") ReadStream<Buffer> stream) {
+    int arg_0 = (int)size;
+    io.vertx.core.streams.ReadStream<io.vertx.core.buffer.Buffer> arg_1 = io.vertx.ceylon.core.streams.ReadStream.TO_JAVA.safeConvert(stream);
     RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(io.vertx.core.parsetools.RecordParser.newFixed(arg_0, arg_1));
     return ret;
   }
