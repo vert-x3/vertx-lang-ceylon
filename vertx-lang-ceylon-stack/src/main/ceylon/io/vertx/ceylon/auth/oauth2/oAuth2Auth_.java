@@ -12,23 +12,12 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
+import io.vertx.ext.auth.impl.AuthProviderInternal;
 import io.vertx.core.Handler;
 import io.vertx.ext.auth.oauth2.OAuth2FlowType;
-import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
 @Name("oAuth2Auth")

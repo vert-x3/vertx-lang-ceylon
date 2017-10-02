@@ -27,6 +27,8 @@ shared class NetworkOptions(
   shared Integer? receiveBufferSize = null,
   " Set the value of reuse address\n"
   shared Boolean? reuseAddress = null,
+  " Set the value of reuse port.\n <p/>\n This is only supported by native transports.\n"
+  shared Boolean? reusePort = null,
   " Set the TCP send buffer size\n"
   shared Integer? sendBufferSize = null,
   " Set the value of traffic class\n"
@@ -41,6 +43,9 @@ shared class NetworkOptions(
     }
     if (exists reuseAddress) {
       json.put("reuseAddress", reuseAddress);
+    }
+    if (exists reusePort) {
+      json.put("reusePort", reusePort);
     }
     if (exists sendBufferSize) {
       json.put("sendBufferSize", sendBufferSize);
@@ -58,12 +63,14 @@ shared object networkOptions {
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     return NetworkOptions {
       logActivity = logActivity;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       sendBufferSize = sendBufferSize;
       trafficClass = trafficClass;
     };

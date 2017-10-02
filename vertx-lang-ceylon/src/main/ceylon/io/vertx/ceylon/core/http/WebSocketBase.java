@@ -91,6 +91,10 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textHandlerID();
 
+  @DocAnnotation$annotation$(description = " Returns the websocket sub protocol selected by the websocket handshake.\n <p/>\n On the server, the value will be <code>null</code> when the handler receives the websocket callback as the\n handshake will not be completed yet.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String subProtocol();
+
   @DocAnnotation$annotation$(description = " Write a WebSocket frame to the connection\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase writeFrame(
@@ -116,6 +120,16 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   public WebSocketBase writeTextMessage(
     final @TypeInfo("ceylon.language::String") @Name("text")@DocAnnotation$annotation$(description = "the data to write\n") ceylon.language.String text);
 
+  @DocAnnotation$annotation$(description = " Writes a ping to the connection. This will be written in a single frame. Ping frames may be at most 125 bytes (octets).\n <p>\n This method should not be used to write application data and should only be used for implementing a keep alive or\n to ensure the client is still responsive, see RFC 6455 Section 5.5.2.\n <p>\n There is no pingHandler because RFC 6455 section 5.5.2 clearly states that the only response to a ping is a pong\n with identical contents.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writePing(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the data to write, may be at most 125 bytes\n") Buffer data);
+
+  @DocAnnotation$annotation$(description = " Writes a pong to the connection. This will be written in a single frame. Pong frames may be at most 125 bytes (octets).\n <p>\n This method should not be used to write application data and should only be used for implementing a keep alive or\n to ensure the client is still responsive, see RFC 6455 Section 5.5.2.\n <p>\n There is no need to manually write a Pong, as the server and client both handle responding to a ping with a pong\n automatically and this is exposed to users.RFC 6455 Section 5.5.3 states that pongs may be sent unsolicited in order\n to implement a one way heartbeat.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writePong(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the data to write, may be at most 125 bytes\n") Buffer data);
+
   @DocAnnotation$annotation$(description = " Set a close handler. This will be called when the WebSocket is closed.\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase closeHandler(
@@ -134,6 +148,11 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @DocAnnotation$annotation$(description = " Set a binary message handler on the connection. This handler serves a similar purpose to [handler](../http/WebSocketBase.type.html#handler)\n except that if a message comes into the socket in multiple frames, the data from the frames will be aggregated\n into a single buffer before calling the handler (using [isFinal](../http/WebSocketFrame.type.html#isFinal) to find the boundaries).\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase binaryMessageHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
+
+  @DocAnnotation$annotation$(description = " Set a pong message handler on the connection.  This handler will be invoked every time a pong message is received\n on the server, and can be used by both clients and servers since the RFC 6455 Sections 5.5.2 and 5.5.3 do not\n specify whether the client or server sends a ping.\n <p>\n Pong frames may be at most 125 bytes (octets).\n <p>\n There is no ping handler since pings should immediately be responded to with a pong with identical content\n <p>\n Pong frames may be received unsolicited.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase pongHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Calls [close](../http/WebSocketBase.type.html#close)\n")
@@ -282,6 +301,13 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       return ret;
     }
 
+  @DocAnnotation$annotation$(description = " Returns the websocket sub protocol selected by the websocket handshake.\n <p/>\n On the server, the value will be <code>null</code> when the handler receives the websocket callback as the\n handshake will not be completed yet.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String subProtocol() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.subProtocol());
+      return ret;
+    }
+
   @DocAnnotation$annotation$(description = " Write a WebSocket frame to the connection\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
   public WebSocketBase writeFrame(
@@ -324,6 +350,24 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
     final @TypeInfo("ceylon.language::String") @Name("text")@DocAnnotation$annotation$(description = "the data to write\n") ceylon.language.String text) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(text);
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.writeTextMessage(arg_0));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Writes a ping to the connection. This will be written in a single frame. Ping frames may be at most 125 bytes (octets).\n <p>\n This method should not be used to write application data and should only be used for implementing a keep alive or\n to ensure the client is still responsive, see RFC 6455 Section 5.5.2.\n <p>\n There is no pingHandler because RFC 6455 section 5.5.2 clearly states that the only response to a ping is a pong\n with identical contents.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writePing(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the data to write, may be at most 125 bytes\n") Buffer data) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.writePing(arg_0));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Writes a pong to the connection. This will be written in a single frame. Pong frames may be at most 125 bytes (octets).\n <p>\n This method should not be used to write application data and should only be used for implementing a keep alive or\n to ensure the client is still responsive, see RFC 6455 Section 5.5.2.\n <p>\n There is no need to manually write a Pong, as the server and client both handle responding to a ping with a pong\n automatically and this is exposed to users.RFC 6455 Section 5.5.3 states that pongs may be sent unsolicited in order\n to implement a one way heartbeat.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase writePong(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the data to write, may be at most 125 bytes\n") Buffer data) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.writePong(arg_0));
       return this;
     }
 
@@ -376,6 +420,19 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
       }
     };
     WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.binaryMessageHandler(arg_0));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Set a pong message handler on the connection.  This handler will be invoked every time a pong message is received\n on the server, and can be used by both clients and servers since the RFC 6455 Sections 5.5.2 and 5.5.3 do not\n specify whether the client or server sends a ping.\n <p>\n Pong frames may be at most 125 bytes (octets).\n <p>\n There is no ping handler since pings should immediately be responded to with a pong with identical content\n <p>\n Pong frames may be received unsolicited.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketBase")
+  public WebSocketBase pongHandler(
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.buffer::Buffer)?") @Name("handler")@DocAnnotation$annotation$(description = "the handler\n") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.buffer.Buffer> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.buffer.Buffer>() {
+      public void handle(io.vertx.core.buffer.Buffer event) {
+        handler.$call$((Object)io.vertx.ceylon.core.buffer.Buffer.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    WebSocketBase ret = io.vertx.ceylon.core.http.WebSocketBase.TO_CEYLON.converter().safeConvert(delegate.pongHandler(arg_0));
       return this;
     }
 

@@ -55,6 +55,24 @@ public class webSocketFrame_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a ping WebSocket frame.  Will be a final frame. There is no option for non final ping frames.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
+  public WebSocketFrame pingFrame(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the bytes for the frame, may be at most 125 bytes\n") Buffer data) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.converter().safeConvert(io.vertx.core.http.WebSocketFrame.pingFrame(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a pong WebSocket frame.  Will be a final frame. There is no option for non final pong frames.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
+  public WebSocketFrame pongFrame(
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("data")@DocAnnotation$annotation$(description = "the bytes for the frame, may be at most 125 bytes\n") Buffer data) {
+    io.vertx.core.buffer.Buffer arg_0 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(data);
+    WebSocketFrame ret = io.vertx.ceylon.core.http.WebSocketFrame.TO_CEYLON.converter().safeConvert(io.vertx.core.http.WebSocketFrame.pongFrame(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a continuation frame\n")
   @TypeInfo("io.vertx.ceylon.core.http::WebSocketFrame")
   public WebSocketFrame continuationFrame(

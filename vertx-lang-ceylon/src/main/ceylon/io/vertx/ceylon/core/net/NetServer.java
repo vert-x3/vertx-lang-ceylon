@@ -154,6 +154,43 @@ public class NetServer implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Start listening on the specified local address, ignoring port and host configured in the [NetServerOptions](../net/NetServerOptions.type.html) used when\n creating the server.\n <p>\n The server may not be listening until some time after the call to listen has returned.\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetServer")
+  public NetServer listen(
+    final @TypeInfo("io.vertx.ceylon.core.net::SocketAddress") @Name("localAddress")@DocAnnotation$annotation$(description = "the local address to listen on\n") SocketAddress localAddress) {
+    io.vertx.core.net.SocketAddress arg_0 = io.vertx.ceylon.core.net.SocketAddress.TO_JAVA.safeConvert(localAddress);
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Like [listen](../net/NetServer.type.html#listen) but providing a handler that will be notified when the server is listening, or fails.\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetServer")
+  public NetServer listen(
+    final @TypeInfo("io.vertx.ceylon.core.net::SocketAddress") @Name("localAddress")@DocAnnotation$annotation$(description = "the local address to listen on\n") SocketAddress localAddress, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetServer)") @Name("listenHandler")@DocAnnotation$annotation$(description = "handler that will be notified when listening or failed\n") Callable<?> listenHandler) {
+    io.vertx.core.net.SocketAddress arg_0 = io.vertx.ceylon.core.net.SocketAddress.TO_JAVA.safeConvert(localAddress);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.net.NetServer>(listenHandler) {
+      public Object toCeylon(io.vertx.core.net.NetServer event) {
+        return io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Set an exception handler called for socket errors happening before the connection\n is passed to the [connectHandler](../net/NetServer.type.html#connectHandler), e.g during the TLS handshake.\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetServer")
+  public NetServer exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler")@DocAnnotation$annotation$(description = "the handler to set\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        handler.$call$((Object)event);
+      }
+    };
+    NetServer ret = io.vertx.ceylon.core.net.NetServer.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Close the server. This will close any currently open connections. The close may not complete until after this\n method has returned.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {

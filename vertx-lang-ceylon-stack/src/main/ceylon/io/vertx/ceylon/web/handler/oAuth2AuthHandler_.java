@@ -51,4 +51,13 @@ public class oAuth2AuthHandler_ implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a OAuth2 auth handler without host pinning.\n Most providers will not look to the redirect url but always redirect to\n the preconfigured callback. So this factory does not provide a callback url.\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::OAuth2AuthHandler")
+  public OAuth2AuthHandler create(
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth") @Name("authProvider")@DocAnnotation$annotation$(description = "the auth provider to use\n") OAuth2Auth authProvider) {
+    io.vertx.ext.auth.oauth2.OAuth2Auth arg_0 = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_JAVA.safeConvert(authProvider);
+    OAuth2AuthHandler ret = io.vertx.ceylon.web.handler.OAuth2AuthHandler.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.handler.OAuth2AuthHandler.create(arg_0));
+    return ret;
+  }
+
 }

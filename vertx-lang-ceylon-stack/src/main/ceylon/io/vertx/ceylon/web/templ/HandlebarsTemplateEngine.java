@@ -62,7 +62,7 @@ public class HandlebarsTemplateEngine extends TemplateEngine implements ReifiedT
     final @TypeInfo("ceylon.language::String") @Name("extension")@DocAnnotation$annotation$(description = "the extension\n") ceylon.language.String extension) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(extension);
     HandlebarsTemplateEngine ret = io.vertx.ceylon.web.templ.HandlebarsTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setExtension(arg_0));
-    return ret;
+    return this;
   }
 
   @DocAnnotation$annotation$(description = " Set the max cache size for the engine\n")
@@ -71,7 +71,7 @@ public class HandlebarsTemplateEngine extends TemplateEngine implements ReifiedT
     final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize")@DocAnnotation$annotation$(description = "the maxCacheSize\n") long maxCacheSize) {
     int arg_0 = (int)maxCacheSize;
     HandlebarsTemplateEngine ret = io.vertx.ceylon.web.templ.HandlebarsTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMaxCacheSize(arg_0));
-    return ret;
+    return this;
   }
 
 }

@@ -1648,6 +1648,33 @@ public class HttpClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified absolute url, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
+  public HttpClient websocketAbs(
+    final @TypeInfo("ceylon.language::String") @Name("url")@DocAnnotation$annotation$(description = "the absolute url\n") ceylon.language.String url, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @Name("subProtocols")@DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols, 
+    final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.core.http::WebSocket)") @Name("wsConnect")@DocAnnotation$annotation$(description = "handler that will be called with the websocket when connected\n") Callable<?> wsConnect, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("failureHandler")@DocAnnotation$annotation$(description = "handler that will be called if websocket connection fails\n") Callable<?> failureHandler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(url);
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
+    io.vertx.core.Handler<io.vertx.core.http.WebSocket> arg_4 = wsConnect == null ? null : new io.vertx.core.Handler<io.vertx.core.http.WebSocket>() {
+      public void handle(io.vertx.core.http.WebSocket event) {
+        wsConnect.$call$((Object)io.vertx.ceylon.core.http.WebSocket.TO_CEYLON.converter().safeConvert(event));
+      }
+    };
+    io.vertx.core.Handler<java.lang.Throwable> arg_5 = failureHandler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        failureHandler.$call$((Object)event);
+      }
+    };
+    HttpClient ret = io.vertx.ceylon.core.http.HttpClient.TO_CEYLON.converter().safeConvert(delegate.websocketAbs(arg_0, arg_1, arg_2, arg_3, arg_4, arg_5));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Connect a WebSocket with the specified options, with the specified headers, using\n the specified version of WebSockets, and the specified websocket sub protocols\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpClient")
   public HttpClient websocket(
@@ -2040,6 +2067,21 @@ public class HttpClient implements ReifiedType,  Measured {
     io.vertx.core.MultiMap arg_2 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
     io.vertx.core.http.WebsocketVersion arg_3 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
     ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStream(arg_0, arg_1, arg_2, arg_3));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a WebSocket stream with the specified absolute url, the specified headers, using the specified version of WebSockets,\n and the specified websocket sub protocols.\n")
+  @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::WebSocket>")
+  public ReadStream<WebSocket> websocketStreamAbs(
+    final @TypeInfo("ceylon.language::String") @Name("url")@DocAnnotation$annotation$(description = "the absolute url\n") ceylon.language.String url, 
+    final @TypeInfo("io.vertx.ceylon.core::MultiMap") @Name("headers")@DocAnnotation$annotation$(description = "the headers\n") MultiMap headers, 
+    final @TypeInfo("io.vertx.ceylon.core.http::WebsocketVersion") @Name("version")@DocAnnotation$annotation$(description = "the websocket version\n") io.vertx.ceylon.core.http.WebsocketVersion version, 
+    final @TypeInfo("ceylon.language::String") @Name("subProtocols")@DocAnnotation$annotation$(description = "the subprotocols to use\n") ceylon.language.String subProtocols) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(url);
+    io.vertx.core.MultiMap arg_1 = io.vertx.ceylon.core.MultiMap.TO_JAVA.safeConvert(headers);
+    io.vertx.core.http.WebsocketVersion arg_2 = io.vertx.ceylon.core.http.websocketVersion_.get_().getToJava().safeConvert(version);
+    java.lang.String arg_3 = io.vertx.lang.ceylon.ToJava.String.safeConvert(subProtocols);
+    ReadStream<WebSocket> ret = io.vertx.ceylon.core.streams.ReadStream.TO_CEYLON.converter(WebSocket.$TypeDescriptor$).safeConvert(delegate.websocketStreamAbs(arg_0, arg_1, arg_2, arg_3));
     return ret;
   }
 

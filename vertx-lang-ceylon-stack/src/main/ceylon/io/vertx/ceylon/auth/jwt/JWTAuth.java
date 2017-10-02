@@ -69,4 +69,13 @@ public class JWTAuth extends AuthProvider implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Generate a new JWT token.\n")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String generateToken(
+    final @TypeInfo("ceylon.json::Object") @Name("claims")@DocAnnotation$annotation$(description = "Json with user defined claims for a list of official claims\n") ceylon.json.Object claims) {
+    io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(claims);
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.generateToken(arg_0));
+    return ret;
+  }
+
 }

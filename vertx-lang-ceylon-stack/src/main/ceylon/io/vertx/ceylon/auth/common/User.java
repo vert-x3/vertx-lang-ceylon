@@ -56,9 +56,24 @@ public class User implements ReifiedType {
 
   @DocAnnotation$annotation$(description = " Is the user authorised to\n")
   @TypeInfo("io.vertx.ceylon.auth.common::User")
-  public User isAuthorised(
+  public User isAuthorized(
     final @TypeInfo("ceylon.language::String") @Name("authority")@DocAnnotation$annotation$(description = "the authority - what this really means is determined by the specific implementation. It might represent a permission to access a resource e.g. `printers:printer34` or it might represent authority to a role in a roles based model, e.g. `role:admin`.\n") ceylon.language.String authority, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler")@DocAnnotation$annotation$(description = "handler that will be called with an _async result_ containing the value `true` if the they has the authority or `false` otherwise.\n") Callable<?> resultHandler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(authority);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
+      public Object toCeylon(java.lang.Boolean event) {
+        return io.vertx.lang.ceylon.ToCeylon.Boolean.safeConvert(event);
+      }
+    };
+    User ret = io.vertx.ceylon.auth.common.User.TO_CEYLON.converter().safeConvert(delegate.isAuthorized(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("io.vertx.ceylon.auth.common::User")
+  public User isAuthorised(
+    final @TypeInfo("ceylon.language::String") @Name("authority") ceylon.language.String authority, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.language::Boolean)") @Name("resultHandler") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(authority);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Boolean>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Boolean>(resultHandler) {
       public Object toCeylon(java.lang.Boolean event) {

@@ -37,7 +37,7 @@ shared class ResultSet(
   shared JsonArray? output = null,
   " Get the results\n"
   shared {JsonArray*}? results = null,
-  " Get the rows - each row represented as a JsonObject where the keys are the column names and the values are\n the column values.\n <p>\n Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will\n overwrite the other if using this method. If that's the case use [getResults](ResultSet.type.html#getResults) instead.\n"
+  " Get the rows - each row represented as a JsonObject where the keys are the column names and the values are\n the column values.\n\n Beware that it's legal for a query result in SQL to contain duplicate column names, in which case one will\n overwrite the other if using this method. If that's the case use [getResults](ResultSet.type.html#getResults) instead.\n\n Be aware that column names are defined as returned by the database, this means that even if your SQL statement\n is for example: <pre>SELECT a, b FROM table</pre> the column names are not required to be: <pre>a</pre> and\n <pre>b</pre> and could be in fact <pre>A</pre> and <pre>B</pre>.\n\n For cases when there is the need for case insentivitity you should see [getRows](ResultSet.type.html#getRows)\n"
   shared {JsonObject*}? rows = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();

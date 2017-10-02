@@ -59,15 +59,22 @@ shared class TCPSSLOptions(
   shared PfxOptions? pfxTrustOptions = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  Boolean? reusePort = null,
   Integer? sendBufferSize = null,
   " Set whether SO_linger keep alive is enabled\n"
   shared Integer? soLinger = null,
   " Set whether SSL/TLS is enabled\n"
   shared Boolean? ssl = null,
+  " Enable the <code>TCP_CORK</code> option - only with linux native transport.\n"
+  shared Boolean? tcpCork = null,
+  " Enable the <code>TCP_FASTOPEN</code> option - only with linux native transport.\n"
+  shared Boolean? tcpFastOpen = null,
   " Set whether TCP keep alive is enabled\n"
   shared Boolean? tcpKeepAlive = null,
   " Set whether TCP no delay is enabled\n"
   shared Boolean? tcpNoDelay = null,
+  " Enable the <code>TCP_QUICKACK</code> option - only with linux native transport.\n"
+  shared Boolean? tcpQuickAck = null,
   Integer? trafficClass = null,
   " Set the trust options in jks format, aka Java truststore\n"
   shared JksOptions? trustStoreOptions = null,
@@ -78,6 +85,7 @@ shared class TCPSSLOptions(
   logActivity,
   receiveBufferSize,
   reuseAddress,
+  reusePort,
   sendBufferSize,
   trafficClass) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
@@ -121,11 +129,20 @@ shared class TCPSSLOptions(
     if (exists ssl) {
       json.put("ssl", ssl);
     }
+    if (exists tcpCork) {
+      json.put("tcpCork", tcpCork);
+    }
+    if (exists tcpFastOpen) {
+      json.put("tcpFastOpen", tcpFastOpen);
+    }
     if (exists tcpKeepAlive) {
       json.put("tcpKeepAlive", tcpKeepAlive);
     }
     if (exists tcpNoDelay) {
       json.put("tcpNoDelay", tcpNoDelay);
+    }
+    if (exists tcpQuickAck) {
+      json.put("tcpQuickAck", tcpQuickAck);
     }
     if (exists trustStoreOptions) {
       json.put("trustStoreOptions", trustStoreOptions.toJson());
@@ -157,11 +174,15 @@ shared object tcpsslOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpCork = json.getBooleanOrNull("tcpCork");
+    Boolean? tcpFastOpen = json.getBooleanOrNull("tcpFastOpen");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Boolean? tcpQuickAck = json.getBooleanOrNull("tcpQuickAck");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
@@ -181,11 +202,15 @@ shared object tcpsslOptions {
       pfxTrustOptions = pfxTrustOptions;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       sendBufferSize = sendBufferSize;
       soLinger = soLinger;
       ssl = ssl;
+      tcpCork = tcpCork;
+      tcpFastOpen = tcpFastOpen;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
+      tcpQuickAck = tcpQuickAck;
       trafficClass = trafficClass;
       trustStoreOptions = trustStoreOptions;
       useAlpn = useAlpn;

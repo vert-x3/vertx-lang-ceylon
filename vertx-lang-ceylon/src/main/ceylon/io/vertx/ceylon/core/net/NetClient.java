@@ -97,6 +97,38 @@ public class NetClient implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>remoteAddress</code>.\n <p>\n The connect is done asynchronously and on success, a [NetSocket](../net/NetSocket.type.html) instance is supplied via the <code>connectHandler</code> instance\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetClient")
+  public NetClient connect(
+    final @TypeInfo("io.vertx.ceylon.core.net::SocketAddress") @Name("remoteAddress")@DocAnnotation$annotation$(description = "the remote address\n") SocketAddress remoteAddress, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetSocket)") @Name("connectHandler") Callable<?> connectHandler) {
+    io.vertx.core.net.SocketAddress arg_0 = io.vertx.ceylon.core.net.SocketAddress.TO_JAVA.safeConvert(remoteAddress);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_1 = connectHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.net.NetSocket>(connectHandler) {
+      public Object toCeylon(io.vertx.core.net.NetSocket event) {
+        return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.converter().safeConvert(delegate.connect(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Open a connection to a server at the specific <code>remoteAddress</code>.\n <p>\n The connect is done asynchronously and on success, a [NetSocket](../net/NetSocket.type.html) instance is supplied via the <code>connectHandler</code> instance\n")
+  @TypeInfo("io.vertx.ceylon.core.net::NetClient")
+  public NetClient connect(
+    final @TypeInfo("io.vertx.ceylon.core.net::SocketAddress") @Name("remoteAddress")@DocAnnotation$annotation$(description = "the remote address\n") SocketAddress remoteAddress, 
+    final @TypeInfo("ceylon.language::String") @Name("serverName")@DocAnnotation$annotation$(description = "the SNI server name\n") ceylon.language.String serverName, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.net::NetSocket)") @Name("connectHandler") Callable<?> connectHandler) {
+    io.vertx.core.net.SocketAddress arg_0 = io.vertx.ceylon.core.net.SocketAddress.TO_JAVA.safeConvert(remoteAddress);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(serverName);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.net.NetSocket>> arg_2 = connectHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.net.NetSocket>(connectHandler) {
+      public Object toCeylon(io.vertx.core.net.NetSocket event) {
+        return io.vertx.ceylon.core.net.NetSocket.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    NetClient ret = io.vertx.ceylon.core.net.NetClient.TO_CEYLON.converter().safeConvert(delegate.connect(arg_0, arg_1, arg_2));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Close the client.\n <p>\n Any sockets which have not been closed manually will be closed here. The close is asynchronous and may not\n complete until some time after the method has returned.\n")
   @TypeInfo("ceylon.language::Anything")
   public void close() {

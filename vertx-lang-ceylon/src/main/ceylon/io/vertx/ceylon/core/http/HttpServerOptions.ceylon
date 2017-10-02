@@ -51,9 +51,9 @@ shared class HttpServerOptions(
   shared {HttpVersion*}? alpnVersions = null,
   ClientAuth? clientAuth = null,
   Boolean? clientAuthRequired = null,
-  "\n This method allows to set the compression level to be used in http1.x/2 response bodies \n when compression support is turned on (@see setCompressionSupported) and the client advertises\n to support <code>deflate/gzip</code> compression in the <code>Accept-Encoding</code> header\n \n default value is : 6 (Netty legacy)\n \n The compression level determines how much the data is compressed on a scale from 1 to 9,\n where '9' is trying to achieve the maximum compression ratio while '1' instead is giving\n priority to speed instead of compression ratio using some algorithm optimizations and skipping \n pedantic loops that usually gives just little improvements\n \n While one can think that best value is always the maximum compression ratio, \n there's a trade-off to consider: the most compressed level requires the most\n computational work to compress/decompress data, e.g. more dictionary lookups and loops.\n \n E.g. you have it set fairly high on a high-volume website, you may experience performance degradation \n and latency on resource serving due to CPU overload, and, however - as the computational work is required also client side\n while decompressing - setting an higher compression level can result in an overall higher page load time\n especially nowadays when many clients are handled mobile devices with a low CPU profile.\n \n see also: http://www.gzip.org/algorithm.txt\n"
+  " This method allows to set the compression level to be used in http1.x/2 response bodies\n when compression support is turned on (@see setCompressionSupported) and the client advertises\n to support <code>deflate/gzip</code> compression in the <code>Accept-Encoding</code> header\n\n default value is : 6 (Netty legacy)\n\n The compression level determines how much the data is compressed on a scale from 1 to 9,\n where '9' is trying to achieve the maximum compression ratio while '1' instead is giving\n priority to speed instead of compression ratio using some algorithm optimizations and skipping\n pedantic loops that usually gives just little improvements\n\n While one can think that best value is always the maximum compression ratio,\n there's a trade-off to consider: the most compressed level requires the most\n computational work to compress/decompress data, e.g. more dictionary lookups and loops.\n\n E.g. you have it set fairly high on a high-volume website, you may experience performance degradation\n and latency on resource serving due to CPU overload, and, however - as the computational work is required also client side\n while decompressing - setting an higher compression level can result in an overall higher page load time\n especially nowadays when many clients are handled mobile devices with a low CPU profile.\n\n see also: http://www.gzip.org/algorithm.txt\n"
   shared Integer? compressionLevel = null,
-  " Set whether the server should support gzip/deflate compression \n (serving compressed responses to clients advertising support for them with Accept-Encoding header)\n"
+  " Set whether the server should support gzip/deflate compression\n (serving compressed responses to clients advertising support for them with Accept-Encoding header)\n"
   shared Boolean? compressionSupported = null,
   {String*}? crlPaths = null,
   " Set the initial buffer size for the HTTP decoder\n"
@@ -91,12 +91,16 @@ shared class HttpServerOptions(
   Integer? port = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  Boolean? reusePort = null,
   Integer? sendBufferSize = null,
   Boolean? sni = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
+  Boolean? tcpCork = null,
+  Boolean? tcpFastOpen = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
+  Boolean? tcpQuickAck = null,
   Integer? trafficClass = null,
   JksOptions? trustStoreOptions = null,
   Boolean? useAlpn = null,
@@ -122,12 +126,16 @@ shared class HttpServerOptions(
   port,
   receiveBufferSize,
   reuseAddress,
+  reusePort,
   sendBufferSize,
   sni,
   soLinger,
   ssl,
+  tcpCork,
+  tcpFastOpen,
   tcpKeepAlive,
   tcpNoDelay,
+  tcpQuickAck,
   trafficClass,
   trustStoreOptions,
   useAlpn,
@@ -219,12 +227,16 @@ shared object httpServerOptions {
     Integer? port = json.getIntegerOrNull("port");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Boolean? sni = json.getBooleanOrNull("sni");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpCork = json.getBooleanOrNull("tcpCork");
+    Boolean? tcpFastOpen = json.getBooleanOrNull("tcpFastOpen");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Boolean? tcpQuickAck = json.getBooleanOrNull("tcpQuickAck");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
@@ -264,12 +276,16 @@ shared object httpServerOptions {
       port = port;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       sendBufferSize = sendBufferSize;
       sni = sni;
       soLinger = soLinger;
       ssl = ssl;
+      tcpCork = tcpCork;
+      tcpFastOpen = tcpFastOpen;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
+      tcpQuickAck = tcpQuickAck;
       trafficClass = trafficClass;
       trustStoreOptions = trustStoreOptions;
       useAlpn = useAlpn;

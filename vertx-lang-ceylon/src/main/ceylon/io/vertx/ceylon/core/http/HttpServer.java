@@ -101,6 +101,19 @@ public class HttpServer implements ReifiedType,  Measured {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Set an exception handler called for socket errors happening before the HTTP connection\n is established, e.g during the TLS handshake.\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
+  public HttpServer exceptionHandler(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler")@DocAnnotation$annotation$(description = "the handler to set\n") Callable<?> handler) {
+    io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
+      public void handle(java.lang.Throwable event) {
+        handler.$call$((Object)event);
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.exceptionHandler(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Return the websocket stream for the server. If a websocket connect handshake is successful a\n new [ServerWebSocket](../http/ServerWebSocket.type.html) instance will be created and passed to the stream .\n")
   @TypeInfo("io.vertx.ceylon.core.streams::ReadStream<io.vertx.ceylon.core.http::ServerWebSocket>")
   public ReadStream<ServerWebSocket> websocketStream() {

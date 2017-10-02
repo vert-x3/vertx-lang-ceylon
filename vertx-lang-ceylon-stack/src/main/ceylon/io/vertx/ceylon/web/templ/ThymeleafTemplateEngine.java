@@ -63,7 +63,7 @@ public class ThymeleafTemplateEngine extends TemplateEngine implements ReifiedTy
     final @TypeInfo("ceylon.language::String") @Name("mode")@DocAnnotation$annotation$(description = "the mode\n") ceylon.language.String mode) {
     org.thymeleaf.templatemode.TemplateMode arg_0 = io.vertx.lang.ceylon.ToJava.enumeration(org.thymeleaf.templatemode.TemplateMode.class).safeConvert(mode);
     ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(delegate.setMode(arg_0));
-    return ret;
+    return this;
   }
 
 }

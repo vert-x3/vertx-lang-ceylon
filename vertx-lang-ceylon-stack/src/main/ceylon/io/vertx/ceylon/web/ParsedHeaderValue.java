@@ -39,7 +39,7 @@ public interface ParsedHeaderValue {
   @Ignore
   Object getDelegate();
 
-  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent \n")
+  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String rawValue();
 
@@ -47,7 +47,7 @@ public interface ParsedHeaderValue {
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String value();
 
-  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to \n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
+  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to\n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
   @TypeInfo("ceylon.language::Float")
   public double weight();
 
@@ -64,7 +64,7 @@ public interface ParsedHeaderValue {
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isPermitted();
 
-  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header \n")
+  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMatchedBy(
     final @TypeInfo("io.vertx.ceylon.web::ParsedHeaderValue") @Name("matchTry")@DocAnnotation$annotation$(description = "The header to be matched from\n") ParsedHeaderValue matchTry);
@@ -92,7 +92,7 @@ public interface ParsedHeaderValue {
       return delegate;
     }
 
-  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent \n")
+  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String rawValue() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.rawValue());
@@ -106,7 +106,7 @@ public interface ParsedHeaderValue {
       return ret;
     }
 
-  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to \n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
+  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to\n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
   @TypeInfo("ceylon.language::Float")
   public double weight() {
     double ret = delegate.weight();
@@ -136,7 +136,7 @@ public interface ParsedHeaderValue {
       return ret;
     }
 
-  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header \n")
+  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMatchedBy(
     final @TypeInfo("io.vertx.ceylon.web::ParsedHeaderValue") @Name("matchTry")@DocAnnotation$annotation$(description = "The header to be matched from\n") ParsedHeaderValue matchTry) {

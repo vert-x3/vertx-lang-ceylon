@@ -13,7 +13,7 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " The address of a socket\n")
+@DocAnnotation$annotation$(description = " The address of a socket, an inet socket address or a domain socket address.\n <p/>\n Use [inetSocketAddress](../net/socketAddress.type.html#inetSocketAddress) to create an inet socket address and [domainSocketAddress](../net/socketAddress.type.html#domainSocketAddress)\n to create a domain socket address\n")
 public class SocketAddress implements ReifiedType {
 
   @Ignore
@@ -51,15 +51,24 @@ public class SocketAddress implements ReifiedType {
     return delegate;
   }
 
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String host() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.host());
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long port() {
     long ret = delegate.port();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String path() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.path());
     return ret;
   }
 

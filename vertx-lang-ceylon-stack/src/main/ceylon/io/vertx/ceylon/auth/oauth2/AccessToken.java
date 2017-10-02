@@ -12,6 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
+import io.vertx.ceylon.core.buffer.Buffer;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
+import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -115,6 +127,70 @@ public class AccessToken extends User implements ReifiedType {
       }
     };
     AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.introspect(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Introspect access token. This is an OAuth2 extension that allow to verify if an access token is still valid.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken introspect(
+    final @TypeInfo("ceylon.language::String") @Name("tokenType")@DocAnnotation$annotation$(description = "- A String containing the type of token to revoke. Should be either \"access_token\" or \"refresh_token\".\n") ceylon.language.String tokenType, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(tokenType);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_1 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(callback) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.introspect(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Load the user info as per OIDC spec.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken userInfo(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_0 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(callback) {
+      public Object toCeylon(io.vertx.core.json.JsonObject event) {
+        return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.userInfo(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Fetches a JSON resource using this Access Token.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken fetch(
+    final @TypeInfo("ceylon.language::String") @Name("resource")@DocAnnotation$annotation$(description = "- the resource to fetch.\n") ceylon.language.String resource, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::OAuth2Response)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(resource);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.OAuth2Response>> arg_1 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.OAuth2Response>(callback) {
+      public Object toCeylon(io.vertx.ext.auth.oauth2.OAuth2Response event) {
+        return io.vertx.ceylon.auth.oauth2.OAuth2Response.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.fetch(arg_0, arg_1));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Fetches a JSON resource using this Access Token.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken fetch(
+    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "- the HTTP method to user.\n") io.vertx.ceylon.core.http.HttpMethod method, 
+    final @TypeInfo("ceylon.language::String") @Name("resource")@DocAnnotation$annotation$(description = "- the resource to fetch.\n") ceylon.language.String resource, 
+    final @TypeInfo("ceylon.json::Object") @Name("headers")@DocAnnotation$annotation$(description = "- extra headers to pass to the request.\n") ceylon.json.Object headers, 
+    final @TypeInfo("io.vertx.ceylon.core.buffer::Buffer") @Name("payload")@DocAnnotation$annotation$(description = "- payload to send to the server.\n") Buffer payload, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::OAuth2Response)") @Name("callback")@DocAnnotation$annotation$(description = "- The callback function returning the results.\n") Callable<?> callback) {
+    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(resource);
+    io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(headers);
+    io.vertx.core.buffer.Buffer arg_3 = io.vertx.ceylon.core.buffer.Buffer.TO_JAVA.safeConvert(payload);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.OAuth2Response>> arg_4 = callback == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.OAuth2Response>(callback) {
+      public Object toCeylon(io.vertx.ext.auth.oauth2.OAuth2Response event) {
+        return io.vertx.ceylon.auth.oauth2.OAuth2Response.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.fetch(arg_0, arg_1, arg_2, arg_3, arg_4));
     return this;
   }
 

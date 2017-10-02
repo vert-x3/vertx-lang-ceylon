@@ -50,6 +50,7 @@ public class Vertx implements ReifiedType,  Measured {
   @Ignore private FileSystem cached_fileSystem;
   @Ignore private EventBus cached_eventBus;
   @Ignore private SharedData cached_sharedData;
+  @Ignore private java.lang.Boolean cached_isNativeTransportEnabled;
   @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(Vertx.class), io.vertx.core.Vertx.class, TO_JAVA, TO_CEYLON);
   @Ignore private final io.vertx.core.Vertx delegate;
 
@@ -450,6 +451,17 @@ public class Vertx implements ReifiedType,  Measured {
     int arg_1 = (int)poolSize;
     long arg_2 = maxExecuteTime;
     WorkerExecutor ret = io.vertx.ceylon.core.WorkerExecutor.TO_CEYLON.converter().safeConvert(delegate.createSharedWorkerExecutor(arg_0, arg_1, arg_2));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isNativeTransportEnabled() {
+    if (cached_isNativeTransportEnabled != null) {
+      return cached_isNativeTransportEnabled;
+    }
+    boolean ret = delegate.isNativeTransportEnabled();
+    cached_isNativeTransportEnabled = ret;
     return ret;
   }
 

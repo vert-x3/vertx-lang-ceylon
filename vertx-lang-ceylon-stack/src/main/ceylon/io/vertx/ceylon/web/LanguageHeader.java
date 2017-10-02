@@ -53,7 +53,7 @@ public class LanguageHeader extends Locale implements ReifiedType,  ParsedHeader
     return delegate;
   }
 
-  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent \n")
+  @DocAnnotation$annotation$(description = " Contains the raw value that was received from the user agent\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String rawValue() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.rawValue());
@@ -67,7 +67,7 @@ public class LanguageHeader extends Locale implements ReifiedType,  ParsedHeader
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to \n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
+  @DocAnnotation$annotation$(description = " Holds the weight specified in the \"q\" parameter of the header.<br>\n If the parameter is not specified, 1.0 is assumed according to\n <a href=\"https://tools.ietf.org/html/rfc7231#section-5.3.1\">rfc7231</a>\n")
   @TypeInfo("ceylon.language::Float")
   public double weight() {
     double ret = delegate.weight();
@@ -97,7 +97,7 @@ public class LanguageHeader extends Locale implements ReifiedType,  ParsedHeader
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header \n")
+  @DocAnnotation$annotation$(description = " Test if this header is matched by matchTry header\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean isMatchedBy(
     final @TypeInfo("io.vertx.ceylon.web::ParsedHeaderValue") @Name("matchTry")@DocAnnotation$annotation$(description = "The header to be matched from\n") ParsedHeaderValue matchTry) {
@@ -113,14 +113,14 @@ public class LanguageHeader extends Locale implements ReifiedType,  ParsedHeader
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " The tag of the language as specified by \n <a href=\"https://tools.ietf.org/html/rfc7231#section-3.1.3.1\">rfc7231#section-3.1.3.1</a>.<br>\n Equivalent to \n")
+  @DocAnnotation$annotation$(description = " The tag of the language as specified by\n <a href=\"https://tools.ietf.org/html/rfc7231#section-3.1.3.1\">rfc7231#section-3.1.3.1</a>.<br>\n Equivalent to \n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String tag() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.tag());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " The subtag of the language as specified by \n <a href=\"https://tools.ietf.org/html/rfc7231#section-3.1.3.1\">rfc7231#section-3.1.3.1</a>.<br>\n Equivalent to \n")
+  @DocAnnotation$annotation$(description = " The subtag of the language as specified by\n <a href=\"https://tools.ietf.org/html/rfc7231#section-3.1.3.1\">rfc7231#section-3.1.3.1</a>.<br>\n Equivalent to \n")
   @TypeInfo("ceylon.language::String?")
   public ceylon.language.String subtag() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.subtag());

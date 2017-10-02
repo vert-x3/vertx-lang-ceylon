@@ -49,9 +49,13 @@ import io.vertx.core.json {
 " Options describing how an OAuth2  will make connections.\n"
 shared class OAuth2ClientOptions(
   {HttpVersion*}? alpnVersions = null,
+  " Get the Oauth2 authorization resource path. e.g.: /oauth/authorize\n"
   shared String? authorizationPath = null,
+  " Set the provider client id\n"
   shared String? clientID = null,
+  " Set the provider client secret\n"
   shared String? clientSecret = null,
+  " Override the HTTP form field name for client secret\n"
   shared String? clientSecretParameterName = null,
   Integer? connectTimeout = null,
   {String*}? crlPaths = null,
@@ -60,8 +64,10 @@ shared class OAuth2ClientOptions(
   Integer? defaultPort = null,
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
+  " Set extra parameters to be sent to the provider on each request\n"
   shared JsonObject? extraParameters = null,
   Boolean? forceSni = null,
+  " Set custom headers to be sent with every request to the provider\n"
   shared JsonObject? headers = null,
   Boolean? http2ClearTextUpgrade = null,
   Integer? http2ConnectionWindowSize = null,
@@ -69,13 +75,16 @@ shared class OAuth2ClientOptions(
   Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
   Http2Settings? initialSettings = null,
+  " Set the provider token introspection resource path\n"
   shared String? introspectionPath = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
+  " Signal that this provider tokens are in JWT format\n"
   shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
   Boolean? logActivity = null,
+  " Set the provider logout path\n"
   shared String? logoutPath = null,
   Integer? maxChunkSize = null,
   Integer? maxHeaderSize = null,
@@ -95,28 +104,42 @@ shared class OAuth2ClientOptions(
   Integer? pipeliningLimit = null,
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
+  " The provider PubSec key options\n"
   shared PubSecKeyOptions? pubSecKey = null,
   shared PubSecKeyOptions? pubSecKeyOptions = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  Boolean? reusePort = null,
+  " Set the Oauth2 revocation resource path. e.g.: /oauth/revoke\n"
   shared String? revocationPath = null,
+  " Set the provider scope separator\n"
   shared String? scopeSeparator = null,
   Integer? sendBufferSize = null,
   Boolean? sendUnmaskedFrames = null,
+  " Root URL for the provider\n"
   shared String? site = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
+  Boolean? tcpCork = null,
+  Boolean? tcpFastOpen = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
+  Boolean? tcpQuickAck = null,
+  " Get the Oauth2 token resource path. e.g.: /oauth/token\n"
   shared String? tokenPath = null,
   Integer? trafficClass = null,
   Boolean? trustAll = null,
   JksOptions? trustStoreOptions = null,
   Boolean? tryUseCompression = null,
   Boolean? useAlpn = null,
+  " Flag to use HTTP basic auth header with client id, client secret.\n"
   shared Boolean? useBasicAuthorizationHeader = null,
   Boolean? usePooledBuffers = null,
+  " Set a custom user agent to use when communicating to a provider\n"
   shared String? userAgent = null,
+  " Set custom parameters to be sent during the userInfo resource request\n"
+  shared JsonObject? userInfoParameters = null,
+  " Set the provider userInfo resource path\n"
   shared String? userInfoPath = null,
   Boolean? verifyHost = null) extends HttpClientOptions(
   alpnVersions,
@@ -159,12 +182,16 @@ shared class OAuth2ClientOptions(
   proxyOptions,
   receiveBufferSize,
   reuseAddress,
+  reusePort,
   sendBufferSize,
   sendUnmaskedFrames,
   soLinger,
   ssl,
+  tcpCork,
+  tcpFastOpen,
   tcpKeepAlive,
   tcpNoDelay,
+  tcpQuickAck,
   trafficClass,
   trustAll,
   trustStoreOptions,
@@ -224,6 +251,9 @@ shared class OAuth2ClientOptions(
     }
     if (exists userAgent) {
       json.put("userAgent", userAgent);
+    }
+    if (exists userInfoParameters) {
+      json.put("userInfoParameters", userInfoParameters);
     }
     if (exists userInfoPath) {
       json.put("userInfoPath", userInfoPath);
@@ -286,6 +316,7 @@ shared object oAuth2ClientOptions {
     PubSecKeyOptions? pubSecKeyOptions = if (exists tmp = json.getObjectOrNull("pubSecKeyOptions")) then pubSecKeyOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     String? revocationPath = json.getStringOrNull("revocationPath");
     String? scopeSeparator = json.getStringOrNull("scopeSeparator");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
@@ -293,8 +324,11 @@ shared object oAuth2ClientOptions {
     String? site = json.getStringOrNull("site");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpCork = json.getBooleanOrNull("tcpCork");
+    Boolean? tcpFastOpen = json.getBooleanOrNull("tcpFastOpen");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Boolean? tcpQuickAck = json.getBooleanOrNull("tcpQuickAck");
     String? tokenPath = json.getStringOrNull("tokenPath");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     Boolean? trustAll = json.getBooleanOrNull("trustAll");
@@ -304,6 +338,7 @@ shared object oAuth2ClientOptions {
     Boolean? useBasicAuthorizationHeader = json.getBooleanOrNull("useBasicAuthorizationHeader");
     Boolean? usePooledBuffers = json.getBooleanOrNull("usePooledBuffers");
     String? userAgent = json.getStringOrNull("userAgent");
+    JsonObject? userInfoParameters = json.getObjectOrNull("userInfoParameters");
     String? userInfoPath = json.getStringOrNull("userInfoPath");
     Boolean? verifyHost = json.getBooleanOrNull("verifyHost");
     return OAuth2ClientOptions {
@@ -358,6 +393,7 @@ shared object oAuth2ClientOptions {
       pubSecKeyOptions = pubSecKeyOptions;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       revocationPath = revocationPath;
       scopeSeparator = scopeSeparator;
       sendBufferSize = sendBufferSize;
@@ -365,8 +401,11 @@ shared object oAuth2ClientOptions {
       site = site;
       soLinger = soLinger;
       ssl = ssl;
+      tcpCork = tcpCork;
+      tcpFastOpen = tcpFastOpen;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
+      tcpQuickAck = tcpQuickAck;
       tokenPath = tokenPath;
       trafficClass = trafficClass;
       trustAll = trustAll;
@@ -376,6 +415,7 @@ shared object oAuth2ClientOptions {
       useBasicAuthorizationHeader = useBasicAuthorizationHeader;
       usePooledBuffers = usePooledBuffers;
       userAgent = userAgent;
+      userInfoParameters = userInfoParameters;
       userInfoPath = userInfoPath;
       verifyHost = verifyHost;
     };

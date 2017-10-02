@@ -38,6 +38,8 @@ shared class JWTAuthOptions(
   " Set the issuer\n"
   shared String? issuer = null,
   shared KeyStoreOptions? keyStore = null,
+  " Set the leeway in seconds\n"
+  shared Integer? leeway = null,
   shared String? permissionsClaimKey = null,
   shared {PubSecKeyOptions*}? pubSecKeys = null,
   shared {SecretOptions*}? secrets = null) satisfies BaseDataObject {
@@ -57,6 +59,9 @@ shared class JWTAuthOptions(
     }
     if (exists keyStore) {
       json.put("keyStore", keyStore.toJson());
+    }
+    if (exists leeway) {
+      json.put("leeway", leeway);
     }
     if (exists permissionsClaimKey) {
       json.put("permissionsClaimKey", permissionsClaimKey);
@@ -79,6 +84,7 @@ shared object jwtAuthOptions {
     Boolean? ignoreExpiration = json.getBooleanOrNull("ignoreExpiration");
     String? issuer = json.getStringOrNull("issuer");
     KeyStoreOptions? keyStore = if (exists tmp = json.getObjectOrNull("keyStore")) then keyStoreOptions_.fromJson(tmp) else null;
+    Integer? leeway = json.getIntegerOrNull("leeway");
     String? permissionsClaimKey = json.getStringOrNull("permissionsClaimKey");
     {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
     {SecretOptions*}? secrets = json.getArrayOrNull("secrets")?.objects?.map(secretOptions_.fromJson);
@@ -88,6 +94,7 @@ shared object jwtAuthOptions {
       ignoreExpiration = ignoreExpiration;
       issuer = issuer;
       keyStore = keyStore;
+      leeway = leeway;
       permissionsClaimKey = permissionsClaimKey;
       pubSecKeys = pubSecKeys;
       secrets = secrets;

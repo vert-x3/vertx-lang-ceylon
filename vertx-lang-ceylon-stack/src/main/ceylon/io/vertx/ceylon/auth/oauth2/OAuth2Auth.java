@@ -12,27 +12,16 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.auth.common.User;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
-import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
+import io.vertx.ext.auth.impl.AuthProviderInternal;
 import io.vertx.core.Handler;
 import io.vertx.ext.auth.oauth2.OAuth2FlowType;
-import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Factory interface for creating OAuth2 based `io.vertx.ext.auth.AuthProvider` instances.\n")
-public class OAuth2Auth extends AuthProvider implements ReifiedType {
+public class OAuth2Auth implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.OAuth2Auth, OAuth2Auth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.OAuth2Auth, OAuth2Auth>() {
@@ -56,7 +45,6 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   @Ignore private final io.vertx.ext.auth.oauth2.OAuth2Auth delegate;
 
   public OAuth2Auth(io.vertx.ext.auth.oauth2.OAuth2Auth delegate) {
-    super(delegate);
     this.delegate = delegate;
   }
 
@@ -68,6 +56,11 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   @Ignore
   public Object getDelegate() {
     return delegate;
+  }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void verifyIsUsingPassword() {
+    delegate.verifyIsUsingPassword();
   }
 
   @DocAnnotation$annotation$(description = " Generate a redirect URL to the authN/Z backend. It only applies to auth_code flow.\n")
@@ -91,25 +84,6 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
       }
     };
     delegate.getToken(arg_0, arg_1);
-  }
-
-  @DocAnnotation$annotation$(description = " Call OAuth2 APIs.\n")
-  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
-  public OAuth2Auth api(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpMethod") @Name("method")@DocAnnotation$annotation$(description = "HttpMethod\n") io.vertx.ceylon.core.http.HttpMethod method, 
-    final @TypeInfo("ceylon.language::String") @Name("path")@DocAnnotation$annotation$(description = "target path\n") ceylon.language.String path, 
-    final @TypeInfo("ceylon.json::Object") @Name("params")@DocAnnotation$annotation$(description = "parameters\n") ceylon.json.Object params, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("handler")@DocAnnotation$annotation$(description = "handler\n") Callable<?> handler) {
-    io.vertx.core.http.HttpMethod arg_0 = io.vertx.ceylon.core.http.httpMethod_.get_().getToJava().safeConvert(method);
-    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(path);
-    io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_3 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(handler) {
-      public Object toCeylon(io.vertx.core.json.JsonObject event) {
-        return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
-      }
-    };
-    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.api(arg_0, arg_1, arg_2, arg_3));
-    return this;
   }
 
   @DocAnnotation$annotation$(description = " Returns true if this provider supports JWT tokens as the access_token. This is typically true if the provider\n implements the `openid-connect` protocol. This is a plain return from the config option jwtToken, which is false\n by default.\n\n This information is important to validate grants. Since pure OAuth2 should be used for authorization and when a\n token is requested all grants should be declared, in case of openid-connect this is not true. OpenId will issue\n a token and all grants will be encoded on the token itself so the requester does not need to list the required\n grants.\n")
@@ -154,12 +128,12 @@ public class OAuth2Auth extends AuthProvider implements ReifiedType {
   public OAuth2Auth introspectToken(
     final @TypeInfo("ceylon.language::String") @Name("token")@DocAnnotation$annotation$(description = "the access token (base64 string)\n") ceylon.language.String token, 
     final @TypeInfo("ceylon.language::String") @Name("tokenType")@DocAnnotation$annotation$(description = "hint to the token type e.g.: `access_token`\n") ceylon.language.String tokenType, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Object)") @Name("handler")@DocAnnotation$annotation$(description = "A handler to receive the event\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.auth.oauth2::AccessToken)") @Name("handler")@DocAnnotation$annotation$(description = "A handler to receive the event\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(token);
     java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(tokenType);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonObject>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonObject>(handler) {
-      public Object toCeylon(io.vertx.core.json.JsonObject event) {
-        return io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(event);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.auth.oauth2.AccessToken>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.auth.oauth2.AccessToken>(handler) {
+      public Object toCeylon(io.vertx.ext.auth.oauth2.AccessToken event) {
+        return io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(event);
       }
     };
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.introspectToken(arg_0, arg_1, arg_2));

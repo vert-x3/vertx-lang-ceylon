@@ -69,6 +69,8 @@ shared class VertxOptions(
   shared Integer? maxWorkerExecuteTime = null,
   " Set the metrics options\n"
   shared MetricsOptions? metricsOptions = null,
+  " Set wether to prefer the native transport to the JDK transport.\n"
+  shared Boolean? preferNativeTransport = null,
   " Set the quorum size to be used when HA is enabled.\n"
   shared Integer? quorumSize = null,
   " Set the threshold value above this, the blocked warning contains a stack trace.\n"
@@ -131,6 +133,9 @@ shared class VertxOptions(
     if (exists metricsOptions) {
       json.put("metricsOptions", metricsOptions.toJson());
     }
+    if (exists preferNativeTransport) {
+      json.put("preferNativeTransport", preferNativeTransport);
+    }
     if (exists quorumSize) {
       json.put("quorumSize", quorumSize);
     }
@@ -165,6 +170,7 @@ shared object vertxOptions {
     Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
     Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
     MetricsOptions? metricsOptions = if (exists tmp = json.getObjectOrNull("metricsOptions")) then metricsOptions_.fromJson(tmp) else null;
+    Boolean? preferNativeTransport = json.getBooleanOrNull("preferNativeTransport");
     Integer? quorumSize = json.getIntegerOrNull("quorumSize");
     Integer? warningExceptionTime = json.getIntegerOrNull("warningExceptionTime");
     Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
@@ -187,6 +193,7 @@ shared object vertxOptions {
       maxEventLoopExecuteTime = maxEventLoopExecuteTime;
       maxWorkerExecuteTime = maxWorkerExecuteTime;
       metricsOptions = metricsOptions;
+      preferNativeTransport = preferNativeTransport;
       quorumSize = quorumSize;
       warningExceptionTime = warningExceptionTime;
       workerPoolSize = workerPoolSize;

@@ -64,13 +64,17 @@ shared class NetServerOptions(
   shared Integer? port = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  Boolean? reusePort = null,
   Integer? sendBufferSize = null,
   " Set whether the server supports Server Name Indiciation\n"
   shared Boolean? sni = null,
   Integer? soLinger = null,
   Boolean? ssl = null,
+  Boolean? tcpCork = null,
+  Boolean? tcpFastOpen = null,
   Boolean? tcpKeepAlive = null,
   Boolean? tcpNoDelay = null,
+  Boolean? tcpQuickAck = null,
   Integer? trafficClass = null,
   JksOptions? trustStoreOptions = null,
   Boolean? useAlpn = null,
@@ -89,11 +93,15 @@ shared class NetServerOptions(
   pfxTrustOptions,
   receiveBufferSize,
   reuseAddress,
+  reusePort,
   sendBufferSize,
   soLinger,
   ssl,
+  tcpCork,
+  tcpFastOpen,
   tcpKeepAlive,
   tcpNoDelay,
+  tcpQuickAck,
   trafficClass,
   trustStoreOptions,
   useAlpn,
@@ -144,12 +152,16 @@ shared object netServerOptions {
     Integer? port = json.getIntegerOrNull("port");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Boolean? sni = json.getBooleanOrNull("sni");
     Integer? soLinger = json.getIntegerOrNull("soLinger");
     Boolean? ssl = json.getBooleanOrNull("ssl");
+    Boolean? tcpCork = json.getBooleanOrNull("tcpCork");
+    Boolean? tcpFastOpen = json.getBooleanOrNull("tcpFastOpen");
     Boolean? tcpKeepAlive = json.getBooleanOrNull("tcpKeepAlive");
     Boolean? tcpNoDelay = json.getBooleanOrNull("tcpNoDelay");
+    Boolean? tcpQuickAck = json.getBooleanOrNull("tcpQuickAck");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     JksOptions? trustStoreOptions = if (exists tmp = json.getObjectOrNull("trustStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? useAlpn = json.getBooleanOrNull("useAlpn");
@@ -174,12 +186,16 @@ shared object netServerOptions {
       port = port;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       sendBufferSize = sendBufferSize;
       sni = sni;
       soLinger = soLinger;
       ssl = ssl;
+      tcpCork = tcpCork;
+      tcpFastOpen = tcpFastOpen;
       tcpKeepAlive = tcpKeepAlive;
       tcpNoDelay = tcpNoDelay;
+      tcpQuickAck = tcpQuickAck;
       trafficClass = trafficClass;
       trustStoreOptions = trustStoreOptions;
       useAlpn = useAlpn;

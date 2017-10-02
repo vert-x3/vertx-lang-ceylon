@@ -37,11 +37,13 @@ shared class DatagramSocketOptions(
   shared Integer? multicastTimeToLive = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
+  Boolean? reusePort = null,
   Integer? sendBufferSize = null,
   Integer? trafficClass = null) extends NetworkOptions(
   logActivity,
   receiveBufferSize,
   reuseAddress,
+  reusePort,
   sendBufferSize,
   trafficClass) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
@@ -76,6 +78,7 @@ shared object datagramSocketOptions {
     Integer? multicastTimeToLive = json.getIntegerOrNull("multicastTimeToLive");
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
+    Boolean? reusePort = json.getBooleanOrNull("reusePort");
     Integer? sendBufferSize = json.getIntegerOrNull("sendBufferSize");
     Integer? trafficClass = json.getIntegerOrNull("trafficClass");
     return DatagramSocketOptions {
@@ -87,6 +90,7 @@ shared object datagramSocketOptions {
       multicastTimeToLive = multicastTimeToLive;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
+      reusePort = reusePort;
       sendBufferSize = sendBufferSize;
       trafficClass = trafficClass;
     };
