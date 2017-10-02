@@ -31,7 +31,7 @@
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-all</artifactId>
-      <version>4.1.8.Final</version>
+      <version>4.1.15.Final</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -280,7 +280,6 @@
                   <name>com.fasterxml.jackson.databind</name>
                   <descriptor>descriptors/com.fasterxml.jackson.databind.properties</descriptor>
                 </moduleImport>
-<!--
                 <moduleImport>
                   <dependency>
                     <groupId>io.netty</groupId>
@@ -289,7 +288,6 @@
                   <force>true</force>
                   <descriptor>descriptors/io.netty.netty-all.properties</descriptor>
                 </moduleImport>
--->
                 <moduleImport>
                   <dependency>
                     <groupId>io.vertx</groupId>
