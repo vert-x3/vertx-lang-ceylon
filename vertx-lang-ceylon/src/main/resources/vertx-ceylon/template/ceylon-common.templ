@@ -632,6 +632,7 @@
 
   def genDoc(doc) {
     var gen = renderTokensToHtml('', doc.tokens, renderLinkToHtml, new java.lang.StringBuilder().append('\\').append('n').toString());
+    gen = gen.replace('\\/', '\\\\/');
     gen = gen.replace('"', '\\"');
     return gen;
   }

@@ -155,4 +155,11 @@ public class Cookie implements ReifiedType {
     delegate.setChanged(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " Has this Cookie been sent from the User Agent (the browser)? or was created during the executing on the request.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isFromUserAgent() {
+    boolean ret = delegate.isFromUserAgent();
+    return ret;
+  }
+
 }

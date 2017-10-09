@@ -11,14 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
-import io.vertx.core.json.JsonArray;
-import io.vertx.ceylon.sql.SQLQuery;
-import io.vertx.ceylon.sql.SQLConnection;
 import io.vertx.ceylon.core.Vertx;
+import io.vertx.core.json.JsonArray;
+import io.vertx.ceylon.sql.SQLConnection;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.ceylon.sql.SQLClient;
 import io.vertx.core.Handler;
+import io.vertx.ceylon.sql.SQLOperations;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An asynchronous client interface for interacting with a JDBC compliant database\n")
@@ -61,8 +61,8 @@ public class JDBCClient extends SQLClient implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement that returns a single SQL row. This method will reduce the boilerplate code by\n getting a connection from the pool (this object) and return it back after the execution. Only the first result\n from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingle(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingle(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
@@ -71,13 +71,13 @@ public class JDBCClient extends SQLClient implements ReifiedType {
         return io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.querySingle(arg_0, arg_1));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.querySingle(arg_0, arg_1));
     return this;
   }
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement with arguments that returns a single SQL row. This method will reduce the\n boilerplate code by getting a connection from the pool (this object) and return it back after the execution.\n Only the first result from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingleWithParams(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingleWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("arguments")@DocAnnotation$annotation$(description = "the arguments\n") ceylon.json.Array arguments, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
@@ -88,7 +88,7 @@ public class JDBCClient extends SQLClient implements ReifiedType {
         return io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.querySingleWithParams(arg_0, arg_1, arg_2));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.querySingleWithParams(arg_0, arg_1, arg_2));
     return this;
   }
 

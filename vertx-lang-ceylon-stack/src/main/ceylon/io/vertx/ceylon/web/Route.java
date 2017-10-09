@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.List;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.ceylon.core.http.HttpMethod;
@@ -213,6 +214,15 @@ public class Route implements ReifiedType {
   public ceylon.language.String $getPath() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.getPath());
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " When you add a new route with a regular expression, you can add named capture groups for parameters. <br/>\n However, if you need more complex parameters names (like \"param_name\"), you can add parameters names with\n this function. You have to name capture groups in regex with names: \"p0\", \"p1\", \"p2\", ... <br/>\n <br/>\n For example: If you declare route with regex \\/(?<p0>[a-z]*)\\/(?<p1>[a-z]*) and group names [\"param_a\", \"param-b\"]\n for uri /hello/world you receive inside pathParams() the parameter param_a = \"hello\"\n")
+  @TypeInfo("io.vertx.ceylon.web::Route")
+  public Route setRegexGroupsNames(
+    final @TypeInfo("ceylon.language::List<ceylon.language::String>") @Name("groups")@DocAnnotation$annotation$(description = "group names\n") ceylon.language.List<ceylon.language.String> groups) {
+    java.util.List<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(groups, io.vertx.lang.ceylon.ToJava.String);
+    Route ret = io.vertx.ceylon.web.Route.TO_CEYLON.converter().safeConvert(delegate.setRegexGroupsNames(arg_0));
+    return this;
   }
 
 }

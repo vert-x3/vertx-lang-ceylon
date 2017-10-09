@@ -17,63 +17,76 @@ import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Represents a SQL query interface to a database\n")
-public interface SQLQuery {
+public interface SQLOperations {
 
   @Ignore
-  io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.sql.SQLQuery, SQLQuery> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.sql.SQLQuery, SQLQuery>() {
-    public io.vertx.lang.ceylon.Converter<io.vertx.ext.sql.SQLQuery, SQLQuery> converter(final TypeDescriptor... descriptors) {
-      return new io.vertx.lang.ceylon.Converter<io.vertx.ext.sql.SQLQuery, SQLQuery>() {
-        public SQLQuery convert(io.vertx.ext.sql.SQLQuery src) {
-          return new SQLQuery.Impl(src);
+  io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.sql.SQLOperations, SQLOperations> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.sql.SQLOperations, SQLOperations>() {
+    public io.vertx.lang.ceylon.Converter<io.vertx.ext.sql.SQLOperations, SQLOperations> converter(final TypeDescriptor... descriptors) {
+      return new io.vertx.lang.ceylon.Converter<io.vertx.ext.sql.SQLOperations, SQLOperations>() {
+        public SQLOperations convert(io.vertx.ext.sql.SQLOperations src) {
+          return new SQLOperations.Impl(src);
         }
       };
     }
   };
 
   @Ignore
-  io.vertx.lang.ceylon.Converter<SQLQuery, io.vertx.ext.sql.SQLQuery> TO_JAVA = new io.vertx.lang.ceylon.Converter<SQLQuery, io.vertx.ext.sql.SQLQuery>() {
-    public io.vertx.ext.sql.SQLQuery convert(SQLQuery src) {
-      return (io.vertx.ext.sql.SQLQuery)src.getDelegate();
+  io.vertx.lang.ceylon.Converter<SQLOperations, io.vertx.ext.sql.SQLOperations> TO_JAVA = new io.vertx.lang.ceylon.Converter<SQLOperations, io.vertx.ext.sql.SQLOperations>() {
+    public io.vertx.ext.sql.SQLOperations convert(SQLOperations src) {
+      return (io.vertx.ext.sql.SQLOperations)src.getDelegate();
     }
   };
 
   @Ignore
-  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SQLQuery.class);
+  TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(SQLOperations.class);
   @Ignore
   Object getDelegate();
 
   @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery query(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations query(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler);
 
   @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> prepared statement which returns the results of the query.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery queryWithParams(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations queryWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler);
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement that returns a single SQL row. This method will reduce the boilerplate code by\n getting a connection from the pool (this object) and return it back after the execution. Only the first result\n from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingle(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingle(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler);
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement with arguments that returns a single SQL row. This method will reduce the\n boilerplate code by getting a connection from the pool (this object) and return it back after the execution.\n Only the first result from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingleWithParams(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingleWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("arguments")@DocAnnotation$annotation$(description = "the arguments\n") ceylon.json.Array arguments, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler);
 
-  @Ignore
-  public class Impl implements SQLQuery {
-    @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SQLQuery.class), io.vertx.ext.sql.SQLQuery.class, TO_JAVA, TO_CEYLON);
-    @Ignore private final io.vertx.ext.sql.SQLQuery delegate;
+  @DocAnnotation$annotation$(description = " Executes the given SQL statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations update(
+    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>INSERT INTO table ...</code>\n") ceylon.language.String sql, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler);
 
-    public Impl(io.vertx.ext.sql.SQLQuery delegate) {
+  @DocAnnotation$annotation$(description = " Executes the given prepared statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement with the given parameters\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations updateWithParams(
+    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>INSERT INTO table ...</code>\n") ceylon.language.String sql, 
+    final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler);
+
+  @Ignore
+  public class Impl implements SQLOperations {
+    @Ignore public static final TypeDescriptor $TypeDescriptor$ = new io.vertx.lang.ceylon.VertxTypeDescriptor(TypeDescriptor.klass(SQLOperations.class), io.vertx.ext.sql.SQLOperations.class, TO_JAVA, TO_CEYLON);
+    @Ignore private final io.vertx.ext.sql.SQLOperations delegate;
+
+    public Impl(io.vertx.ext.sql.SQLOperations delegate) {
       this.delegate = delegate;
     }
 
@@ -88,8 +101,8 @@ public interface SQLQuery {
     }
 
   @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery query(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations query(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
@@ -98,13 +111,13 @@ public interface SQLQuery {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.query(arg_0, arg_1));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.query(arg_0, arg_1));
       return this;
     }
 
   @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> prepared statement which returns the results of the query.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery queryWithParams(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations queryWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler) {
@@ -115,13 +128,13 @@ public interface SQLQuery {
         return io.vertx.ceylon.sql.resultSet_.get_().getToCeylon().safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.queryWithParams(arg_0, arg_1, arg_2));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.queryWithParams(arg_0, arg_1, arg_2));
       return this;
     }
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement that returns a single SQL row. This method will reduce the boilerplate code by\n getting a connection from the pool (this object) and return it back after the execution. Only the first result\n from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingle(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingle(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
@@ -130,13 +143,13 @@ public interface SQLQuery {
         return io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.querySingle(arg_0, arg_1));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.querySingle(arg_0, arg_1));
       return this;
     }
 
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement with arguments that returns a single SQL row. This method will reduce the\n boilerplate code by getting a connection from the pool (this object) and return it back after the execution.\n Only the first result from the result set is returned.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLQuery")
-  public SQLQuery querySingleWithParams(
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations querySingleWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("arguments")@DocAnnotation$annotation$(description = "the arguments\n") ceylon.json.Array arguments, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
@@ -147,7 +160,39 @@ public interface SQLQuery {
         return io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event);
       }
     };
-    SQLQuery ret = io.vertx.ceylon.sql.SQLQuery.TO_CEYLON.converter().safeConvert(delegate.querySingleWithParams(arg_0, arg_1, arg_2));
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.querySingleWithParams(arg_0, arg_1, arg_2));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Executes the given SQL statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement.\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations update(
+    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>INSERT INTO table ...</code>\n") ceylon.language.String sql, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.UpdateResult>(resultHandler) {
+      public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
+        return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
+      }
+    };
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.update(arg_0, arg_1));
+      return this;
+    }
+
+  @DocAnnotation$annotation$(description = " Executes the given prepared statement which may be an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>\n statement with the given parameters\n")
+  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
+  public SQLOperations updateWithParams(
+    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>INSERT INTO table ...</code>\n") ceylon.language.String sql, 
+    final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::UpdateResult)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes.\n") Callable<?> resultHandler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
+    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>> arg_2 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.UpdateResult>(resultHandler) {
+      public Object toCeylon(io.vertx.ext.sql.UpdateResult event) {
+        return io.vertx.ceylon.sql.updateResult_.get_().getToCeylon().safeConvert(event);
+      }
+    };
+    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.updateWithParams(arg_0, arg_1, arg_2));
       return this;
     }
   }

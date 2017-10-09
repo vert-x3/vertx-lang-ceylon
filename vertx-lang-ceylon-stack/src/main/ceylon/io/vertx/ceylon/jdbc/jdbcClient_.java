@@ -11,14 +11,14 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
-import io.vertx.core.json.JsonArray;
-import io.vertx.ceylon.sql.SQLQuery;
-import io.vertx.ceylon.sql.SQLConnection;
 import io.vertx.ceylon.core.Vertx;
+import io.vertx.core.json.JsonArray;
+import io.vertx.ceylon.sql.SQLConnection;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.ceylon.sql.SQLClient;
 import io.vertx.core.Handler;
+import io.vertx.ceylon.sql.SQLOperations;
 
 @Ceylon(major = 8)
 @Name("jdbcClient")

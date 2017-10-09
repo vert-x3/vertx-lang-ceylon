@@ -195,6 +195,15 @@ public class Vertx implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a DNS client to connect to a DNS server\n")
+  @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
+  public DnsClient createDnsClient(
+    final @TypeInfo("io.vertx.ceylon.core.dns::DnsClientOptions") @Name("options")@DocAnnotation$annotation$(description = "the client options\n") io.vertx.ceylon.core.dns.DnsClientOptions options) {
+    io.vertx.core.dns.DnsClientOptions arg_0 = options == null ? null : new io.vertx.core.dns.DnsClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.converter().safeConvert(delegate.createDnsClient(arg_0));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Get the shared data object. There is a single instance of SharedData per Vertx instance.\n")
   @TypeInfo("io.vertx.ceylon.core.shareddata::SharedData")
   public SharedData sharedData() {

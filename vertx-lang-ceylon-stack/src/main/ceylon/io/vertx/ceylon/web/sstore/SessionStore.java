@@ -85,7 +85,7 @@ public class SessionStore implements ReifiedType {
   @TypeInfo("ceylon.language::Anything")
   public void get(
     final @TypeInfo("ceylon.language::String") @Name("id")@DocAnnotation$annotation$(description = "the unique ID of the session\n") ceylon.language.String id, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.web::Session)") @Name("resultHandler")@DocAnnotation$annotation$(description = "will be called with a result holding the session, or a failure\n") Callable<?> resultHandler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.web::Session?)") @Name("resultHandler")@DocAnnotation$annotation$(description = "will be called with a result holding the session, or a failure\n") Callable<?> resultHandler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(id);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.web.Session>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.web.Session>(resultHandler) {
       public Object toCeylon(io.vertx.ext.web.Session event) {

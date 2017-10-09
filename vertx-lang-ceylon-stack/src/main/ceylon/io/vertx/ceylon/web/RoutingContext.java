@@ -213,7 +213,7 @@ public class RoutingContext implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Remove a cookie. The context must have first been routed to a [CookieHandler](../handler/CookieHandler.type.html)\n for this to work.\n")
+  @DocAnnotation$annotation$(description = " Expire a cookie, notifying a User Agent to remove it from its cookie jar. The context must have first been routed\n to a [CookieHandler](../handler/CookieHandler.type.html) for this to work.\n")
   @TypeInfo("io.vertx.ceylon.web::Cookie?")
   public Cookie removeCookie(
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name) {
