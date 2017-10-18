@@ -23,7 +23,8 @@ import io.vertx.core.json {
 shared class PubSecKeyOptions(
   shared String? publicKey = null,
   shared String? secretKey = null,
-  shared String? type = null) satisfies BaseDataObject {
+  shared String? type = null,
+  shared {String*}? x509Certificates = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
     if (exists publicKey) {
@@ -35,6 +36,9 @@ shared class PubSecKeyOptions(
     if (exists type) {
       json.put("type", type);
     }
+    if (exists x509Certificates) {
+      json.put("x509Certificates", JsonArray(x509Certificates));
+    }
     return json;
   }
 }
@@ -45,10 +49,12 @@ shared object pubSecKeyOptions {
     String? publicKey = json.getStringOrNull("publicKey");
     String? secretKey = json.getStringOrNull("secretKey");
     String? type = json.getStringOrNull("type");
+    {String*}? x509Certificates = json.getArrayOrNull("x509Certificates")?.strings;
     return PubSecKeyOptions {
       publicKey = publicKey;
       secretKey = secretKey;
       type = type;
+      x509Certificates = x509Certificates;
     };
   }
 

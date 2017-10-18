@@ -76,6 +76,13 @@ public class AccessToken extends User implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " The Access Token if present parsed as a JsonObject\n")
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object accessToken() {
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.accessToken());
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Refresh the access token\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken refresh(
