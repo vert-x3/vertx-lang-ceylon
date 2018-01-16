@@ -22,6 +22,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.9.3</version>
+    </dependency>
+    <dependency>
       <!-- specify the SLF4J version to match the one used by vert.x -->
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -268,6 +273,7 @@
                   <dependency>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>jackson-annotations</artifactId>
+                    <version>2.9.3</version>
                   </dependency>
                   <name>com.fasterxml.jackson.annotations</name>
                   <descriptor>descriptors/com.fasterxml.jackson.annotations.properties</descriptor>
