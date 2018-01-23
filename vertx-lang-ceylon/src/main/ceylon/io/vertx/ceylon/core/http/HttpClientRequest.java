@@ -369,7 +369,7 @@ public class HttpClientRequest implements ReifiedType,  WriteStream<Buffer>,  Re
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Reset this request:\n <p/>\n <ul>\n   <li>for HTTP/2, this performs send an HTTP/2 reset frame with the specified error <code>code</code></li>\n   <li>for HTTP/1.x, this closes the connection after the current in-flight requests are ended</li>\n </ul>\n <p/>\n When the request has not yet been sent, the request will be aborted and false is returned as indicator.\n <p/>\n")
+  @DocAnnotation$annotation$(description = " Reset this request:\n <p/>\n <ul>\n   <li>for HTTP/2, this performs send an HTTP/2 reset frame with the specified error <code>code</code></li>\n   <li>for HTTP/1.x, this closes the connection when the current request is inflight</li>\n </ul>\n <p/>\n When the request has not yet been sent, the request will be aborted and false is returned as indicator.\n <p/>\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean reset(
     final @TypeInfo("ceylon.language::Integer") @Name("code")@DocAnnotation$annotation$(description = "the error code\n") long code) {

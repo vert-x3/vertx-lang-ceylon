@@ -129,7 +129,7 @@ public class MessageConsumer<T> implements ReifiedType,  ReadStream<Message<T>> 
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Set the number of messages this registration will buffer when this stream is paused. The default\n value is <code>0</code>. When a new value is set, buffered messages may be discarded to reach\n the new value.\n")
+  @DocAnnotation$annotation$(description = " Set the number of messages this registration will buffer when this stream is paused. The default\n value is <code>1000</code>. When a new value is set, buffered messages may be discarded to reach\n the new value.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageConsumer<T>")
   public MessageConsumer<T> setMaxBufferedMessages(
     final @TypeInfo("ceylon.language::Integer") @Name("maxBufferedMessages")@DocAnnotation$annotation$(description = "the maximum number of messages that can be buffered\n") long maxBufferedMessages) {

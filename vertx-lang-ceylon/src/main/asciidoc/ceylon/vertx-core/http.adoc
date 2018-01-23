@@ -1447,7 +1447,7 @@ The request handler are notified of stream reset events with the `link:../../cey
 Code not translatable : class io.vertx.codetrans.lang.ceylon.CeylonWriter has not implemented renderInstanceOf
 ----
 
-=== Handling http responses
+=== Handling HTTP responses
 
 You receive an instance of `link:../../ceylondoc/vertx-core//http/HttpClientResponse.type.html[HttpClientResponse]` into the handler that you specify in of
 the request methods or by setting a handler directly on the `link:../../ceylondoc/vertx-core//http/HttpClientRequest.type.html[HttpClientRequest]` object.

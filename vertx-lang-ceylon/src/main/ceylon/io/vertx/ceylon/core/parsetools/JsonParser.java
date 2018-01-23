@@ -16,7 +16,7 @@ import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " A parser class which allows to incrementally parse json elements and emit json parse events instead of parsing a json\n element fully. This parser is convenient for parsing large json structures.\n <p/>\n The parser can also parse entire object or array when it is convenient, for instance a very large array\n of small objects can be parsed efficiently by handling array <i>start</i>/<i>end</i> and <i>object</i>\n events.\n <p/>\n Whenever the parser fails to parse or process the stream, the [exceptionHandler](../parsetools/JsonParser.type.html#exceptionHandler) is called with\n the cause of the failure and the current handling stops. After such event, the parser should not handle data\n anymore.\n")
+@DocAnnotation$annotation$(description = " A parser class which allows to incrementally parse json elements and emit json parse events instead of parsing a json\n element fully. This parser is convenient for parsing large json structures.\n <p/>\n The parser also parses concatenated json streams or line delimited json streams.\n <p/>\n The parser can also parse entire object or array when it is convenient, for instance a very large array\n of small objects can be parsed efficiently by handling array <i>start</i>/<i>end</i> and <i>object</i>\n events.\n <p/>\n Whenever the parser fails to parse or process the stream, the [exceptionHandler](../parsetools/JsonParser.type.html#exceptionHandler) is called with\n the cause of the failure and the current handling stops. After such event, the parser should not handle data\n anymore.\n")
 public class JsonParser implements ReifiedType,  ReadStream<JsonEvent> {
 
   @Ignore

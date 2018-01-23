@@ -15,7 +15,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Shared data allows you to share data safely between different parts of your application in a safe way.\n <p>\n Shared data provides:\n <ul>\n   <li>Cluster wide maps which can be accessed from any node of the cluster</li>\n   <li>Cluster wide locks which can be used to give exclusive access to resources across the cluster</li>\n   <li>Cluster wide counters used to maintain counts consistently across the cluster</li>\n   <li>Local maps for sharing data safely in the same Vert.x instance</li>\n </ul>\n <p>\n Please see the documentation for more information.\n")
+@DocAnnotation$annotation$(description = " Shared data allows you to share data safely between different parts of your application in a safe way.\n <p>\n Shared data provides:\n <ul>\n   <li>synchronous shared maps (local)</li>\n   <li>asynchronous maps (local or cluster-wide)</li>\n   <li>asynchronous locks (local or cluster-wide)</li>\n   <li>asynchronous counters (local or cluster-wide)</li>\n </ul>\n <p>\n <p>\n   <strong>WARNING</strong>: In clustered mode, asynchronous maps/locks/counters rely on distributed data structures provided by the cluster manager.\n   Beware that the latency relative to asynchronous maps/locks/counters operations can be much higher in clustered than in local mode.\n </p>\n Please see the documentation for more information.\n")
 public class SharedData implements ReifiedType {
 
   @Ignore
@@ -71,7 +71,25 @@ public class SharedData implements ReifiedType {
     delegate.getClusterWideMap(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Get a cluster wide lock with the specified name. The lock will be passed to the handler when it is available.\n")
+  @TypeParameters({
+    @TypeParameter(value="K",variance=Variance.NONE),
+    @TypeParameter(value="V",variance=Variance.NONE)
+  })
+  @DocAnnotation$annotation$(description = " Get the [AsyncMap](../shareddata/AsyncMap.type.html) with the specified name. When clustered, the map is accessible to all nodes in the cluster\n and data put into the map from any node is visible to to any other node.\n <p>\n   <strong>WARNING</strong>: In clustered mode, asynchronous shared maps rely on distributed data structures provided by the cluster manager.\n   Beware that the latency relative to asynchronous shared maps operations can be much higher in clustered than in local mode.\n </p>\n")
+  @TypeInfo("ceylon.language::Anything")
+  public <K,V> void getAsyncMap(final @Ignore TypeDescriptor $reified$K, final @Ignore TypeDescriptor $reified$V, 
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the map\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.shareddata::AsyncMap<K?,V?>)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the map will be returned asynchronously in this handler\n") Callable<?> resultHandler) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>> arg_1 = resultHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object>>(resultHandler) {
+      public Object toCeylon(io.vertx.core.shareddata.AsyncMap<java.lang.Object,java.lang.Object> event) {
+        return io.vertx.ceylon.core.shareddata.AsyncMap.TO_CEYLON.converter(io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$K), io.vertx.lang.ceylon.VertxTypeDescriptor.nullable($reified$V)).safeConvert(event);
+      }
+    };
+    delegate.getAsyncMap(arg_0, arg_1);
+  }
+
+  @DocAnnotation$annotation$(description = " Get an asynchronous lock with the specified name. The lock will be passed to the handler when it is available.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getLock(
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the lock\n") ceylon.language.String name, 
@@ -101,7 +119,7 @@ public class SharedData implements ReifiedType {
     delegate.getLockWithTimeout(arg_0, arg_1, arg_2);
   }
 
-  @DocAnnotation$annotation$(description = " Get a cluster wide counter. The counter will be passed to the handler.\n")
+  @DocAnnotation$annotation$(description = " Get an asynchronous counter. The counter will be passed to the handler.\n")
   @TypeInfo("ceylon.language::Anything")
   public void getCounter(
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the counter.\n") ceylon.language.String name, 

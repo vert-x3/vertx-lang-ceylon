@@ -17,6 +17,10 @@ import io.vertx.ceylon.core.net {
   ProxyOptions,
   proxyOptions_=proxyOptions
 }
+import io.vertx.ceylon.jwt {
+  JWTOptions,
+  jwtOptions_=jwtOptions
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -78,8 +82,7 @@ shared class OAuth2ClientOptions(
   " Set the provider token introspection resource path\n"
   shared String? introspectionPath = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
-  " Signal that this provider tokens are in JWT format\n"
-  shared Boolean? jwtToken = null,
+  shared JWTOptions? jwtOptions = null,
   Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
@@ -222,8 +225,8 @@ shared class OAuth2ClientOptions(
     if (exists introspectionPath) {
       json.put("introspectionPath", introspectionPath);
     }
-    if (exists jwtToken) {
-      json.put("jwtToken", jwtToken);
+    if (exists jwtOptions) {
+      json.put("jwtOptions", jwtOptions.toJson());
     }
     if (exists logoutPath) {
       json.put("logoutPath", logoutPath);
@@ -288,7 +291,7 @@ shared object oAuth2ClientOptions {
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     String? introspectionPath = json.getStringOrNull("introspectionPath");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
-    Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
+    JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
@@ -365,7 +368,7 @@ shared object oAuth2ClientOptions {
       initialSettings = initialSettings;
       introspectionPath = introspectionPath;
       jdkSslEngineOptions = jdkSslEngineOptions;
-      jwtToken = jwtToken;
+      jwtOptions = jwtOptions;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;

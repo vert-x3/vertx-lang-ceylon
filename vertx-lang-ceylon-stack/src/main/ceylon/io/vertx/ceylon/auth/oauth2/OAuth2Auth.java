@@ -86,13 +86,6 @@ public class OAuth2Auth implements ReifiedType {
     delegate.getToken(arg_0, arg_1);
   }
 
-  @DocAnnotation$annotation$(description = " Returns true if this provider supports JWT tokens as the access_token. This is typically true if the provider\n implements the `openid-connect` protocol. This is a plain return from the config option jwtToken, which is false\n by default.\n\n This information is important to validate grants. Since pure OAuth2 should be used for authorization and when a\n token is requested all grants should be declared, in case of openid-connect this is not true. OpenId will issue\n a token and all grants will be encoded on the token itself so the requester does not need to list the required\n grants.\n")
-  @TypeInfo("ceylon.language::Boolean")
-  public boolean hasJWTToken() {
-    boolean ret = delegate.hasJWTToken();
-    return ret;
-  }
-
   @DocAnnotation$annotation$(description = " Decode a token to a [AccessToken](AccessToken.type.html) object. This is useful to handle bearer JWT tokens.\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth decodeToken(

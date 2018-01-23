@@ -24,7 +24,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.core.datagram.DatagramSocketOptions */
 " Options used to configure a datagram socket.\n"
 shared class DatagramSocketOptions(
-  " Set if the socket can receive broadcast packets\n"
+  " Set if the socket can send or receive broadcast packets\n"
   shared Boolean? broadcast = null,
   " Set if IP v6 should be used\n"
   shared Boolean? ipV6 = null,

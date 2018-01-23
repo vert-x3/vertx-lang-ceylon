@@ -1,3 +1,6 @@
+import io.vertx.ceylon.jwt {
+  Io_vertx_ext_jwt_JWTOptions=JWTOptions
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -21,61 +24,32 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.jwt.JWTOptions */
 " Options related to creation of new tokens.\n\n If any expiresInMinutes, audience, subject, issuer are not provided, there is no default.\n The jwt generated won't include those properties in the payload.\n\n Generated JWTs will include an iat claim by default unless noTimestamp is specified.\n"
 shared class JWTOptions(
-  " The algorithm to use, it should be one of the alias [HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512]\n"
-  shared String? algorithm = null,
-  " The target audience of this token\n"
-  shared {String*}? audience = null,
-  " The target audience of this token\n"
-  shared {String*}? audiences = null,
-  " The expiration time for the token in minutes\n"
-  shared Integer? expiresInMinutes = null,
-  " The expiration time for the token in seconds\n"
-  shared Integer? expiresInSeconds = null,
-  shared JsonObject? header = null,
-  shared Map<String, String>? headers = null,
-  " The issuer of this token\n"
-  shared String? issuer = null,
-  " Disable the generation of issued at claim\n"
-  shared Boolean? noTimestamp = null,
-  " The permissions of this token.\n"
-  shared {String*}? permissions = null,
-  " The subject of this token\n"
-  shared String? subject = null) satisfies BaseDataObject {
+  String? algorithm = null,
+  {String*}? audience = null,
+  {String*}? audiences = null,
+  Integer? expiresInMinutes = null,
+  Integer? expiresInSeconds = null,
+  JsonObject? header = null,
+  Boolean? ignoreExpiration = null,
+  String? issuer = null,
+  Integer? leeway = null,
+  Boolean? noTimestamp = null,
+  {String*}? permissions = null,
+  String? subject = null) extends Io_vertx_ext_jwt_JWTOptions(
+  algorithm,
+  audience,
+  audiences,
+  expiresInMinutes,
+  expiresInSeconds,
+  header,
+  ignoreExpiration,
+  issuer,
+  leeway,
+  noTimestamp,
+  permissions,
+  subject) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
-    value json = JsonObject();
-    if (exists algorithm) {
-      json.put("algorithm", algorithm);
-    }
-    if (exists audience) {
-      json.put("audience", JsonArray(audience));
-    }
-    if (exists audiences) {
-      json.put("audiences", JsonArray(audiences));
-    }
-    if (exists expiresInMinutes) {
-      json.put("expiresInMinutes", expiresInMinutes);
-    }
-    if (exists expiresInSeconds) {
-      json.put("expiresInSeconds", expiresInSeconds);
-    }
-    if (exists header) {
-      json.put("header", header);
-    }
-    if (exists headers) {
-      json.put("headers", JsonObject(headers));
-    }
-    if (exists issuer) {
-      json.put("issuer", issuer);
-    }
-    if (exists noTimestamp) {
-      json.put("noTimestamp", noTimestamp);
-    }
-    if (exists permissions) {
-      json.put("permissions", JsonArray(permissions));
-    }
-    if (exists subject) {
-      json.put("subject", subject);
-    }
+    value json = super.toJson();
     return json;
   }
 }
@@ -89,8 +63,9 @@ shared object jwtOptions {
     Integer? expiresInMinutes = json.getIntegerOrNull("expiresInMinutes");
     Integer? expiresInSeconds = json.getIntegerOrNull("expiresInSeconds");
     JsonObject? header = json.getObjectOrNull("header");
-    Map<String, String>? headers = if (exists tmp = json.getObjectOrNull("headers")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null;
+    Boolean? ignoreExpiration = json.getBooleanOrNull("ignoreExpiration");
     String? issuer = json.getStringOrNull("issuer");
+    Integer? leeway = json.getIntegerOrNull("leeway");
     Boolean? noTimestamp = json.getBooleanOrNull("noTimestamp");
     {String*}? permissions = json.getArrayOrNull("permissions")?.strings;
     String? subject = json.getStringOrNull("subject");
@@ -101,20 +76,13 @@ shared object jwtOptions {
       expiresInMinutes = expiresInMinutes;
       expiresInSeconds = expiresInSeconds;
       header = header;
-      headers = headers;
+      ignoreExpiration = ignoreExpiration;
       issuer = issuer;
+      leeway = leeway;
       noTimestamp = noTimestamp;
       permissions = permissions;
       subject = subject;
     };
-  }
-
-  shared object toCeylon extends Converter<JWTOptions_, JWTOptions>() {
-    shared actual JWTOptions convert(JWTOptions_ src) {
-      value json = parse(src.toJson().string);
-      assert(is JsonObject json);
-      return fromJson(json);
-    }
   }
 
   shared object toJava extends Converter<JWTOptions, JWTOptions_>() {

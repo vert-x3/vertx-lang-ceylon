@@ -73,7 +73,7 @@ public class HttpConnection implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Like [goAway](../http/HttpConnection.type.html#goAway) with a last stream id <code>2^31-1</code>.\n")
+  @DocAnnotation$annotation$(description = " Like [goAway](../http/HttpConnection.type.html#goAway) with a last stream id <code>-1</code> which means to disallow any new stream creation.\n")
   @TypeInfo("io.vertx.ceylon.core.http::HttpConnection")
   public HttpConnection goAway(
     final @TypeInfo("ceylon.language::Integer") @Name("errorCode") long errorCode) {

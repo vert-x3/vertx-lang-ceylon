@@ -20,14 +20,9 @@ import io.vertx.core.json {
 }
 /* Generated from io.vertx.core.net.JdkSSLEngineOptions */
 " Configures a [TCPSSLOptions](../net/TCPSSLOptions.type.html) to use the JDK ssl engine implementation.\n"
-shared class JdkSSLEngineOptions(
-  ""
-  shared Boolean? alpnAvailable = null) satisfies BaseDataObject {
+shared class JdkSSLEngineOptions() satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
-    if (exists alpnAvailable) {
-      json.put("alpnAvailable", alpnAvailable);
-    }
     return json;
   }
 }
@@ -35,9 +30,7 @@ shared class JdkSSLEngineOptions(
 shared object jdkSSLEngineOptions {
 
   shared JdkSSLEngineOptions fromJson(JsonObject json) {
-    Boolean? alpnAvailable = json.getBooleanOrNull("alpnAvailable");
     return JdkSSLEngineOptions {
-      alpnAvailable = alpnAvailable;
     };
   }
 

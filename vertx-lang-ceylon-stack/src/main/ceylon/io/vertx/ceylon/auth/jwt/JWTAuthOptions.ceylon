@@ -1,3 +1,7 @@
+import io.vertx.ceylon.jwt {
+  JWTOptions,
+  jwtOptions_=jwtOptions
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -29,39 +33,18 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.jwt.JWTAuthOptions */
 " Options describing how an JWT Auth should behave.\n"
 shared class JWTAuthOptions(
-  " Set the audience list\n"
-  shared {String*}? audience = null,
-  " Set the audience list\n"
-  shared {String*}? audiences = null,
-  " Set whether expiration is ignored\n"
-  shared Boolean? ignoreExpiration = null,
-  " Set the issuer\n"
-  shared String? issuer = null,
+  shared JWTOptions? jwtOptions = null,
   shared KeyStoreOptions? keyStore = null,
-  " Set the leeway in seconds\n"
-  shared Integer? leeway = null,
   shared String? permissionsClaimKey = null,
   shared {PubSecKeyOptions*}? pubSecKeys = null,
   shared {SecretOptions*}? secrets = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
-    if (exists audience) {
-      json.put("audience", JsonArray(audience));
-    }
-    if (exists audiences) {
-      json.put("audiences", JsonArray(audiences));
-    }
-    if (exists ignoreExpiration) {
-      json.put("ignoreExpiration", ignoreExpiration);
-    }
-    if (exists issuer) {
-      json.put("issuer", issuer);
+    if (exists jwtOptions) {
+      json.put("jwtOptions", jwtOptions.toJson());
     }
     if (exists keyStore) {
       json.put("keyStore", keyStore.toJson());
-    }
-    if (exists leeway) {
-      json.put("leeway", leeway);
     }
     if (exists permissionsClaimKey) {
       json.put("permissionsClaimKey", permissionsClaimKey);
@@ -79,22 +62,14 @@ shared class JWTAuthOptions(
 shared object jwtAuthOptions {
 
   shared JWTAuthOptions fromJson(JsonObject json) {
-    {String*}? audience = json.getArrayOrNull("audience")?.strings;
-    {String*}? audiences = json.getArrayOrNull("audiences")?.strings;
-    Boolean? ignoreExpiration = json.getBooleanOrNull("ignoreExpiration");
-    String? issuer = json.getStringOrNull("issuer");
+    JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
     KeyStoreOptions? keyStore = if (exists tmp = json.getObjectOrNull("keyStore")) then keyStoreOptions_.fromJson(tmp) else null;
-    Integer? leeway = json.getIntegerOrNull("leeway");
     String? permissionsClaimKey = json.getStringOrNull("permissionsClaimKey");
     {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
     {SecretOptions*}? secrets = json.getArrayOrNull("secrets")?.objects?.map(secretOptions_.fromJson);
     return JWTAuthOptions {
-      audience = audience;
-      audiences = audiences;
-      ignoreExpiration = ignoreExpiration;
-      issuer = issuer;
+      jwtOptions = jwtOptions;
       keyStore = keyStore;
-      leeway = leeway;
       permissionsClaimKey = permissionsClaimKey;
       pubSecKeys = pubSecKeys;
       secrets = secrets;

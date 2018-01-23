@@ -195,6 +195,13 @@ public class Vertx implements ReifiedType,  Measured {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Create a DNS client to connect to the DNS server configured by [getAddressResolverOptions](VertxOptions.type.html#getAddressResolverOptions)\n <p>\n DNS client takes the first configured resolver address provided by }\n")
+  @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
+  public DnsClient createDnsClient() {
+    DnsClient ret = io.vertx.ceylon.core.dns.DnsClient.TO_CEYLON.converter().safeConvert(delegate.createDnsClient());
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Create a DNS client to connect to a DNS server\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient createDnsClient(

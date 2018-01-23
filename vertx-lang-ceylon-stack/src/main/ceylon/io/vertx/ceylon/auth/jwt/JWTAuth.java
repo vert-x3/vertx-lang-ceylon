@@ -62,9 +62,9 @@ public class JWTAuth extends AuthProvider implements ReifiedType {
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String generateToken(
     final @TypeInfo("ceylon.json::Object") @Name("claims")@DocAnnotation$annotation$(description = "Json with user defined claims for a list of official claims\n") ceylon.json.Object claims, 
-    final @TypeInfo("io.vertx.ceylon.auth.jwt::JWTOptions") @Name("options")@DocAnnotation$annotation$(description = "extra options for the generation\n") io.vertx.ceylon.auth.jwt.JWTOptions options) {
+    final @TypeInfo("io.vertx.ceylon.jwt::JWTOptions") @Name("options")@DocAnnotation$annotation$(description = "extra options for the generation\n") io.vertx.ceylon.jwt.JWTOptions options) {
     io.vertx.core.json.JsonObject arg_0 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(claims);
-    io.vertx.ext.auth.jwt.JWTOptions arg_1 = options == null ? null : new io.vertx.ext.auth.jwt.JWTOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
+    io.vertx.ext.jwt.JWTOptions arg_1 = options == null ? null : new io.vertx.ext.jwt.JWTOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(options.toJson()));
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.generateToken(arg_0, arg_1));
     return ret;
   }

@@ -83,6 +83,52 @@ public class AccessToken extends User implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " The Refresh Token if present parsed as a JsonObject\n")
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object refreshToken() {
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.refreshToken());
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " The Id Token if present parsed as a JsonObject\n")
+  @TypeInfo("ceylon.json::Object")
+  public ceylon.json.Object idToken() {
+    ceylon.json.Object ret = io.vertx.lang.ceylon.ToCeylon.JsonObject.safeConvert(delegate.idToken());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String opaqueAccessToken() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.opaqueAccessToken());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String opaqueRefreshToken() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.opaqueRefreshToken());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String opaqueIdToken() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.opaqueIdToken());
+    return ret;
+  }
+
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String tokenType() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.tokenType());
+    return ret;
+  }
+
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
+  public AccessToken setTrustJWT(
+    final @TypeInfo("ceylon.language::Boolean") @Name("trust") boolean trust) {
+    boolean arg_0 = trust;
+    AccessToken ret = io.vertx.ceylon.auth.oauth2.AccessToken.TO_CEYLON.converter().safeConvert(delegate.setTrustJWT(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " Refresh the access token\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::AccessToken")
   public AccessToken refresh(
