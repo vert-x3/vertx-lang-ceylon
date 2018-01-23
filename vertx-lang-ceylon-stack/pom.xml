@@ -59,6 +59,16 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
+      <artifactId>vertx-jwt</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-jwt</artifactId>
+      <classifier>sources</classifier>
+      <version>${stack.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-htdigest</artifactId>
     </dependency>
     <dependency>
@@ -310,6 +320,7 @@
                 <module>io.vertx.ceylon.jdbc/${stack.version}</module>
                 <module>io.vertx.ceylon.web/${stack.version}</module>
                 <module>io.vertx.ceylon.sql/${stack.version}</module>
+                <module>io.vertx.ceylon.jwt/${stack.version}</module>
 
                 <module>io.vertx.vertx-bridge-common/${stack.version}</module>
                 <module>io.vertx.vertx-jdbc-client/${stack.version}</module>
@@ -330,6 +341,7 @@
                 <module>io.vertx.vertx-hazelcast/${stack.version}</module>
                 <module>io.vertx.vertx-web-templ-handlebars/${stack.version}</module>
                 <module>io.vertx.vertx-codegen/${stack.version}</module>
+                <module>io.vertx.vertx-jwt/${stack.version}</module>
 
                 <module>com.hazelcast.hazelcast/3.6.3</module>
                 <module>com.mchange.mchange-commons-java/0.2.11</module>
@@ -383,6 +395,14 @@
                     <artifactId>vertx-auth-common</artifactId>
                   </dependency>
                   <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-auth-common.properties</descriptor>
+                  <force>true</force>
+                </moduleImport>
+                <moduleImport>
+                  <dependency>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-jwt</artifactId>
+                  </dependency>
+                  <descriptor>${project.build.directory}/descriptors/io.vertx.vertx-jwt.properties</descriptor>
                   <force>true</force>
                 </moduleImport>
                 <moduleImport>
@@ -583,6 +603,7 @@
                 <module>io.vertx.ceylon.sql</module>
                 <module>io.vertx.ceylon.jdbc</module>
                 <module>io.vertx.ceylon.web</module>
+                <module>io.vertx.ceylon.jwt</module>
               </modules>
             </configuration>
           </execution>
@@ -602,7 +623,7 @@
             </goals>
             <configuration>
               <includeGroupIds>io.vertx</includeGroupIds>
-              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-htdigest,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel,vertx-bridge-common</includeArtifactIds>
+              <includeArtifactIds>vertx-sql-common,vertx-jdbc-client,vertx-auth-common,vertx-auth-jdbc,vertx-auth-jwt,vertx-auth-htdigest,vertx-auth-shiro,vertx-auth-oauth2,vertx-web,vertx-web-templ-handlebars,vertx-web-templ-thymeleaf,vertx-web-templ-jade,vertx-web-templ-mvel,vertx-bridge-common,vertx-jwt</includeArtifactIds>
               <includeTypes>jar</includeTypes>
               <includeClassifiers>sources</includeClassifiers>
               <outputDirectory>${project.build.directory}/sources</outputDirectory>
