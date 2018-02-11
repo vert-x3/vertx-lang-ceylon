@@ -11,6 +11,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.TypeDescriptor;
 import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
+import java.util.List;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
@@ -147,6 +148,15 @@ public class StaticHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::Integer") @Name("maxCacheSize")@DocAnnotation$annotation$(description = "the max cache size\n") long maxCacheSize) {
     int arg_0 = (int)maxCacheSize;
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setMaxCacheSize(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Set the file mapping for http2push and link preload\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler setHttp2PushMapping(
+    final @TypeInfo("ceylon.language::List<io.vertx.ceylon.web::Http2PushMapping>") @Name("http2PushMappings")@DocAnnotation$annotation$(description = "the mapping for http2 push\n") ceylon.language.List<io.vertx.ceylon.web.Http2PushMapping> http2PushMappings) {
+    java.util.List<io.vertx.ext.web.Http2PushMapping> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(http2PushMappings, io.vertx.ceylon.web.http2PushMapping_.get_().getToJava());
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setHttp2PushMapping(arg_0));
     return this;
   }
 

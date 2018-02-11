@@ -82,7 +82,9 @@ shared class OAuth2ClientOptions(
   " Set the provider token introspection resource path\n"
   shared String? introspectionPath = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
+  shared String? jwkPath = null,
   shared JWTOptions? jwtOptions = null,
+  shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
@@ -108,8 +110,7 @@ shared class OAuth2ClientOptions(
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
   " The provider PubSec key options\n"
-  shared PubSecKeyOptions? pubSecKey = null,
-  shared PubSecKeyOptions? pubSecKeyOptions = null,
+  shared {PubSecKeyOptions*}? pubSecKeys = null,
   Integer? receiveBufferSize = null,
   Boolean? reuseAddress = null,
   Boolean? reusePort = null,
@@ -225,17 +226,20 @@ shared class OAuth2ClientOptions(
     if (exists introspectionPath) {
       json.put("introspectionPath", introspectionPath);
     }
+    if (exists jwkPath) {
+      json.put("jwkPath", jwkPath);
+    }
     if (exists jwtOptions) {
       json.put("jwtOptions", jwtOptions.toJson());
+    }
+    if (exists jwtToken) {
+      json.put("jwtToken", jwtToken);
     }
     if (exists logoutPath) {
       json.put("logoutPath", logoutPath);
     }
-    if (exists pubSecKey) {
-      json.put("pubSecKey", pubSecKey.toJson());
-    }
-    if (exists pubSecKeyOptions) {
-      json.put("pubSecKeyOptions", pubSecKeyOptions.toJson());
+    if (exists pubSecKeys) {
+      json.put("pubSecKeys", JsonArray(pubSecKeys.map(pubSecKeyOptions_.toJson)));
     }
     if (exists revocationPath) {
       json.put("revocationPath", revocationPath);
@@ -291,7 +295,9 @@ shared object oAuth2ClientOptions {
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     String? introspectionPath = json.getStringOrNull("introspectionPath");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
+    String? jwkPath = json.getStringOrNull("jwkPath");
     JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
+    Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
@@ -315,8 +321,7 @@ shared object oAuth2ClientOptions {
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
-    PubSecKeyOptions? pubSecKey = if (exists tmp = json.getObjectOrNull("pubSecKey")) then pubSecKeyOptions_.fromJson(tmp) else null;
-    PubSecKeyOptions? pubSecKeyOptions = if (exists tmp = json.getObjectOrNull("pubSecKeyOptions")) then pubSecKeyOptions_.fromJson(tmp) else null;
+    {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
     Boolean? reuseAddress = json.getBooleanOrNull("reuseAddress");
     Boolean? reusePort = json.getBooleanOrNull("reusePort");
@@ -368,7 +373,9 @@ shared object oAuth2ClientOptions {
       initialSettings = initialSettings;
       introspectionPath = introspectionPath;
       jdkSslEngineOptions = jdkSslEngineOptions;
+      jwkPath = jwkPath;
       jwtOptions = jwtOptions;
+      jwtToken = jwtToken;
       keepAlive = keepAlive;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;
@@ -392,8 +399,7 @@ shared object oAuth2ClientOptions {
       pipeliningLimit = pipeliningLimit;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
-      pubSecKey = pubSecKey;
-      pubSecKeyOptions = pubSecKeyOptions;
+      pubSecKeys = pubSecKeys;
       receiveBufferSize = receiveBufferSize;
       reuseAddress = reuseAddress;
       reusePort = reusePort;

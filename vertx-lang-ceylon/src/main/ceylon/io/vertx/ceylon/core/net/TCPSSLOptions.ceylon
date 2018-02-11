@@ -40,7 +40,7 @@ shared class TCPSSLOptions(
   shared {String*}? crlPaths = null,
   " Add an enabled cipher suite, appended to the ordered suites.\n"
   shared {String*}? enabledCipherSuites = null,
-  " Add an enabled SSL/TLS protocols, appended to the ordered protocols.\n"
+  " Sets the list of enabled SSL/TLS protocols.\n"
   shared {String*}? enabledSecureTransportProtocols = null,
   " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
   shared Integer? idleTimeout = null,

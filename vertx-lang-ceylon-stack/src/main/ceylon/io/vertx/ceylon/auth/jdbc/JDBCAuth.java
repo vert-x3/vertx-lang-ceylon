@@ -21,7 +21,7 @@ import io.vertx.core.Handler;
 import io.vertx.ceylon.auth.common.AuthProvider;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Factory interface for creating `io.vertx.ext.auth.AuthProvider` instances that use the Vert.x JDBC client\n")
+@DocAnnotation$annotation$(description = " Factory interface for creating `io.vertx.ext.auth.AuthProvider` instances that use the Vert.x JDBC client.\n\n By default the hashing strategy is SHA-512. If you're already running in production this is backwards\n compatible, however for new deployments or security upgrades it is recommended to use the PBKDF2 strategy\n as it is the current OWASP recommendation for password storage.\n")
 public class JDBCAuth extends AuthProvider implements ReifiedType {
 
   @Ignore

@@ -163,6 +163,15 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("ceylon.language::Anything")
   public void close();
 
+  @TypeInfo("ceylon.language::Anything")
+  public void close(
+    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") long statusCode);
+
+  @TypeInfo("ceylon.language::Anything")
+  public void close(
+    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") long statusCode, 
+    final @TypeInfo("ceylon.language::String?") @Name("reason") ceylon.language.String reason);
+
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.net::SocketAddress")
   public SocketAddress remoteAddress();
@@ -446,6 +455,22 @@ public interface WebSocketBase extends ReadStream<Buffer>,  WriteStream<Buffer> 
   @TypeInfo("ceylon.language::Anything")
   public void close() {
     delegate.close();
+    }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void close(
+    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") long statusCode) {
+    short arg_0 = (short)statusCode;
+    delegate.close(arg_0);
+    }
+
+  @TypeInfo("ceylon.language::Anything")
+  public void close(
+    final @TypeInfo("ceylon.language::Integer") @Name("statusCode") long statusCode, 
+    final @TypeInfo("ceylon.language::String?") @Name("reason") ceylon.language.String reason) {
+    short arg_0 = (short)statusCode;
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(reason);
+    delegate.close(arg_0, arg_1);
     }
 
   @DocAnnotation$annotation$(description = "")

@@ -58,7 +58,7 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
 
   @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
   public SQLRowStream exceptionHandler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<java.lang.Throwable> arg_0 = handler == null ? null : new io.vertx.core.Handler<java.lang.Throwable>() {
       public void handle(java.lang.Throwable event) {
         handler.$call$((Object)event);
@@ -70,7 +70,7 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
 
   @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
   public SQLRowStream handler(
-    final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)") @Name("handler") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.json::Array)?") @Name("handler") Callable<?> handler) {
     io.vertx.core.Handler<io.vertx.core.json.JsonArray> arg_0 = handler == null ? null : new io.vertx.core.Handler<io.vertx.core.json.JsonArray>() {
       public void handle(io.vertx.core.json.JsonArray event) {
         handler.$call$((Object)io.vertx.lang.ceylon.ToCeylon.JsonArray.safeConvert(event));
@@ -94,7 +94,7 @@ public class SQLRowStream implements ReifiedType,  ReadStream<ceylon.json.Array>
 
   @TypeInfo("io.vertx.ceylon.sql::SQLRowStream")
   public SQLRowStream endHandler(
-    final @TypeInfo("ceylon.language::Anything()") @Name("endHandler") Callable<?> endHandler) {
+    final @TypeInfo("ceylon.language::Anything()?") @Name("endHandler") Callable<?> endHandler) {
     io.vertx.core.Handler<java.lang.Void> arg_0 = endHandler == null ? null : new io.vertx.core.Handler<java.lang.Void>() {
       public void handle(java.lang.Void event) {
         endHandler.$call$();

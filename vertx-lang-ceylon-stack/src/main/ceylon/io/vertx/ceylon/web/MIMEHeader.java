@@ -111,14 +111,14 @@ public class MIMEHeader implements ReifiedType,  ParsedHeaderValue {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets the parsed component part of the MIME. This is the string between the beginning and the first @{code '/'}\n of the MIME\n")
+  @DocAnnotation$annotation$(description = " Gets the parsed component part of the MIME. This is the string between the beginning and the first <code>'/'</code>\n of the MIME\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String component() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.component());
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Gets the parsed subcomponent part of the MIME. This is the string between the first @{code '/'} and the\n")
+  @DocAnnotation$annotation$(description = " Gets the parsed subcomponent part of the MIME. This is the string between the first <code>'/'</code> and the\n <code>';'</code> or the end of the MIME\n")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String subComponent() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.subComponent());

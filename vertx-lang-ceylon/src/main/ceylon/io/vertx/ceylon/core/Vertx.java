@@ -184,7 +184,7 @@ public class Vertx implements ReifiedType,  Measured {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Create a DNS client to connect to a DNS server at the specified host and port\n")
+  @DocAnnotation$annotation$(description = " Create a DNS client to connect to a DNS server at the specified host and port, with the default query timeout (5 seconds)\n <p/>\n")
   @TypeInfo("io.vertx.ceylon.core.dns::DnsClient")
   public DnsClient createDnsClient(
     final @TypeInfo("ceylon.language::Integer") @Name("port")@DocAnnotation$annotation$(description = "the port\n") long port, 

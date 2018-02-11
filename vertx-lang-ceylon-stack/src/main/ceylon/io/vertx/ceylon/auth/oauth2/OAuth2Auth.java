@@ -86,6 +86,13 @@ public class OAuth2Auth implements ReifiedType {
     delegate.getToken(arg_0, arg_1);
   }
 
+  @DocAnnotation$annotation$(description = " Returns true if this provider supports JWT tokens as the access_token. This is typically true if the provider\n implements the `openid-connect` protocol. This is a plain return from the config option jwtToken, which is false\n by default.\n\n This information is important to validate grants. Since pure OAuth2 should be used for authorization and when a\n token is requested all grants should be declared, in case of openid-connect this is not true. OpenId will issue\n a token and all grants will be encoded on the token itself so the requester does not need to list the required\n grants.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean hasJWTToken() {
+    boolean ret = delegate.hasJWTToken();
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Decode a token to a [AccessToken](AccessToken.type.html) object. This is useful to handle bearer JWT tokens.\n")
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth decodeToken(
@@ -145,6 +152,19 @@ public class OAuth2Auth implements ReifiedType {
   public ceylon.language.String $getFlowType() {
     ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.<io.vertx.ext.auth.oauth2.OAuth2FlowType>enumeration().safeConvert(delegate.getFlowType());
     return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Loads a JWK Set from the remote provider.\n\n When calling this method several times, the loaded JWKs are updated in the underlying JWT object.\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth loadJWK(
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable?)") @Name("handler") Callable<?> handler) {
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<java.lang.Void>> arg_0 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<java.lang.Void>(handler) {
+      public Object toCeylon(java.lang.Void event) {
+        return null;
+      }
+    };
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(delegate.loadJWK(arg_0));
+    return this;
   }
 
 }

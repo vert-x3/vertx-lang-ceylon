@@ -21,23 +21,27 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.PubSecKeyOptions */
 " Options describing how a Cryptographic Key.\n"
 shared class PubSecKeyOptions(
+  shared String? algorithm = null,
+  shared Boolean? certificate = null,
   shared String? publicKey = null,
   shared String? secretKey = null,
-  shared String? type = null,
-  shared {String*}? x509Certificates = null) satisfies BaseDataObject {
+  shared Boolean? symmetric = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
+    if (exists algorithm) {
+      json.put("algorithm", algorithm);
+    }
+    if (exists certificate) {
+      json.put("certificate", certificate);
+    }
     if (exists publicKey) {
       json.put("publicKey", publicKey);
     }
     if (exists secretKey) {
       json.put("secretKey", secretKey);
     }
-    if (exists type) {
-      json.put("type", type);
-    }
-    if (exists x509Certificates) {
-      json.put("x509Certificates", JsonArray(x509Certificates));
+    if (exists symmetric) {
+      json.put("symmetric", symmetric);
     }
     return json;
   }
@@ -46,15 +50,17 @@ shared class PubSecKeyOptions(
 shared object pubSecKeyOptions {
 
   shared PubSecKeyOptions fromJson(JsonObject json) {
+    String? algorithm = json.getStringOrNull("algorithm");
+    Boolean? certificate = json.getBooleanOrNull("certificate");
     String? publicKey = json.getStringOrNull("publicKey");
     String? secretKey = json.getStringOrNull("secretKey");
-    String? type = json.getStringOrNull("type");
-    {String*}? x509Certificates = json.getArrayOrNull("x509Certificates")?.strings;
+    Boolean? symmetric = json.getBooleanOrNull("symmetric");
     return PubSecKeyOptions {
+      algorithm = algorithm;
+      certificate = certificate;
       publicKey = publicKey;
       secretKey = secretKey;
-      type = type;
-      x509Certificates = x509Certificates;
+      symmetric = symmetric;
     };
   }
 

@@ -81,6 +81,19 @@ public class MultiMap implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Check if there is a header with the specified <code>name</code> and <code>value</code>.\n\n If <code>caseInsensitive</code> is <code>true</code>, <code>value</code> is compared in a case-insensitive way.\n")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean contains(
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name to search for\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::String") @Name("value")@DocAnnotation$annotation$(description = "the value to search for\n") ceylon.language.String value, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("caseInsensitive") boolean caseInsensitive) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    java.lang.String arg_1 = io.vertx.lang.ceylon.ToJava.String.safeConvert(value);
+    boolean arg_2 = caseInsensitive;
+    boolean ret = delegate.contains(arg_0, arg_1, arg_2);
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = " Return true if empty\n")
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isEmpty() {

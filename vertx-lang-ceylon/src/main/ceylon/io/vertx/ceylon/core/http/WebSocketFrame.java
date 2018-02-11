@@ -76,6 +76,13 @@ public class WebSocketFrame implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Boolean")
+  public boolean $isClose() {
+    boolean ret = delegate.isClose();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::String")
   public ceylon.language.String textData() {
     if (cached_textData != null) {
@@ -101,6 +108,20 @@ public class WebSocketFrame implements ReifiedType {
   @TypeInfo("ceylon.language::Boolean")
   public boolean $isFinal() {
     boolean ret = delegate.isFinal();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::Integer")
+  public long closeStatusCode() {
+    long ret = delegate.closeStatusCode();
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = "")
+  @TypeInfo("ceylon.language::String")
+  public ceylon.language.String closeReason() {
+    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.String.safeConvert(delegate.closeReason());
     return ret;
   }
 
