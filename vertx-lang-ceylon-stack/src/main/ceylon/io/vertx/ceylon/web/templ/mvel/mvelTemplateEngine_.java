@@ -1,4 +1,4 @@
-package io.vertx.ceylon.web.templ;
+package io.vertx.ceylon.web.templ.mvel;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -12,17 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
+import io.vertx.ceylon.web.templ.TemplateEngine;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@Name("jadeTemplateEngine")
+@Name("mvelTemplateEngine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class jadeTemplateEngine_ implements ReifiedType {
+public class mvelTemplateEngine_ implements ReifiedType {
 
-  private static final jadeTemplateEngine_ instance = new jadeTemplateEngine_();
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(jadeTemplateEngine_.class);
+  private static final mvelTemplateEngine_ instance = new mvelTemplateEngine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(mvelTemplateEngine_.class);
 
   @Ignore
   public TypeDescriptor $getType$() {
@@ -30,16 +31,16 @@ public class jadeTemplateEngine_ implements ReifiedType {
   }
 
   @Ignore
-  @TypeInfo("io.vertx.ceylon.web.templ::jadeTemplateEngine")
-  public static jadeTemplateEngine_ get_() {
+  @TypeInfo("io.vertx.ceylon.web.templ.mvel::mvelTemplateEngine")
+  public static mvelTemplateEngine_ get_() {
     return instance;
   }
 
 
   @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
-  @TypeInfo("io.vertx.ceylon.web.templ::JadeTemplateEngine")
-  public JadeTemplateEngine create() {
-    JadeTemplateEngine ret = io.vertx.ceylon.web.templ.JadeTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.JadeTemplateEngine.create());
+  @TypeInfo("io.vertx.ceylon.web.templ.mvel::MVELTemplateEngine")
+  public MVELTemplateEngine create() {
+    MVELTemplateEngine ret = io.vertx.ceylon.web.templ.mvel.MVELTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.mvel.MVELTemplateEngine.create());
     return ret;
   }
 

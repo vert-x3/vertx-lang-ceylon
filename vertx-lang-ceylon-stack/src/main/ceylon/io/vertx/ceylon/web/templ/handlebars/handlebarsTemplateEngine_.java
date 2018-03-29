@@ -1,4 +1,4 @@
-package io.vertx.ceylon.web.templ;
+package io.vertx.ceylon.web.templ.handlebars;
 
 import com.redhat.ceylon.compiler.java.metadata.Ceylon;
 import com.redhat.ceylon.compiler.java.metadata.TypeInfo;
@@ -12,18 +12,18 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.buffer.Buffer;
-import org.thymeleaf.templatemode.TemplateMode;
+import io.vertx.ceylon.web.templ.TemplateEngine;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@Name("thymeleafTemplateEngine")
+@Name("handlebarsTemplateEngine")
 @com.redhat.ceylon.compiler.java.metadata.Object
-public class thymeleafTemplateEngine_ implements ReifiedType {
+public class handlebarsTemplateEngine_ implements ReifiedType {
 
-  private static final thymeleafTemplateEngine_ instance = new thymeleafTemplateEngine_();
-  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(thymeleafTemplateEngine_.class);
+  private static final handlebarsTemplateEngine_ instance = new handlebarsTemplateEngine_();
+  public static final TypeDescriptor $TypeDescriptor$ = TypeDescriptor.klass(handlebarsTemplateEngine_.class);
 
   @Ignore
   public TypeDescriptor $getType$() {
@@ -31,16 +31,16 @@ public class thymeleafTemplateEngine_ implements ReifiedType {
   }
 
   @Ignore
-  @TypeInfo("io.vertx.ceylon.web.templ::thymeleafTemplateEngine")
-  public static thymeleafTemplateEngine_ get_() {
+  @TypeInfo("io.vertx.ceylon.web.templ.handlebars::handlebarsTemplateEngine")
+  public static handlebarsTemplateEngine_ get_() {
     return instance;
   }
 
 
   @DocAnnotation$annotation$(description = " Create a template engine using defaults\n")
-  @TypeInfo("io.vertx.ceylon.web.templ::ThymeleafTemplateEngine")
-  public ThymeleafTemplateEngine create() {
-    ThymeleafTemplateEngine ret = io.vertx.ceylon.web.templ.ThymeleafTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.ThymeleafTemplateEngine.create());
+  @TypeInfo("io.vertx.ceylon.web.templ.handlebars::HandlebarsTemplateEngine")
+  public HandlebarsTemplateEngine create() {
+    HandlebarsTemplateEngine ret = io.vertx.ceylon.web.templ.handlebars.HandlebarsTemplateEngine.TO_CEYLON.converter().safeConvert(io.vertx.ext.web.templ.handlebars.HandlebarsTemplateEngine.create());
     return ret;
   }
 
