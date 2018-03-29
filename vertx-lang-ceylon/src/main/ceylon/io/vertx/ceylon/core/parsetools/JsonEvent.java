@@ -12,7 +12,6 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.json.JsonArray;
-import io.vertx.core.parsetools.JsonEventType;
 import io.vertx.ceylon.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
 
@@ -56,9 +55,9 @@ public class JsonEvent implements ReifiedType {
   }
 
   @DocAnnotation$annotation$(description = "")
-  @TypeInfo("ceylon.language::String")
-  public ceylon.language.String type() {
-    ceylon.language.String ret = io.vertx.lang.ceylon.ToCeylon.<io.vertx.core.parsetools.JsonEventType>enumeration().safeConvert(delegate.type());
+  @TypeInfo("io.vertx.ceylon.core.parsetools::JsonEventType")
+  public io.vertx.ceylon.core.parsetools.JsonEventType type() {
+    io.vertx.ceylon.core.parsetools.JsonEventType ret = io.vertx.ceylon.core.parsetools.jsonEventType_.get_().getToCeylon().safeConvert(delegate.type());
     return ret;
   }
 
