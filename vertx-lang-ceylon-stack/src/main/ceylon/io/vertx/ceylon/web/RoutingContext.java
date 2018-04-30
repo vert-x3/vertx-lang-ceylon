@@ -36,7 +36,7 @@ import io.vertx.ceylon.core.http.HttpMethod;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n  of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the [Session](Session.type.html), cookies and body for the request, given the correct handlers\n in the application.\n")
+@DocAnnotation$annotation$(description = " Represents the context for the handling of a request in Vert.x-Web.\n <p>\n A new instance is created for each HTTP request that is received in the\n [accept](Router.type.html#accept) of the router.\n <p>\n The same instance is passed to any matching request or failure handlers during the routing of the request or\n failure.\n <p>\n The context provides access to the  and \n and allows you to maintain arbitrary data that lives for the lifetime of the context. Contexts are discarded once they\n have been routed to the handler for the request.\n <p>\n The context also provides access to the [Session](Session.type.html), cookies and body for the request, given the correct handlers\n in the application.\n")
 public class RoutingContext implements ReifiedType {
 
   @Ignore
@@ -219,17 +219,6 @@ public class RoutingContext implements ReifiedType {
     final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
     Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.removeCookie(arg_0));
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = " Remove a cookie from the cookie set. If invalidate is true then it will expire a cookie, notifying a User Agent to\n remove it from its cookie jar. The context must have first been routed to a\n [CookieHandler](../handler/CookieHandler.type.html) for this to work.\n")
-  @TypeInfo("io.vertx.ceylon.web::Cookie?")
-  public Cookie removeCookie(
-    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name, 
-    final @TypeInfo("ceylon.language::Boolean") @Name("invalidate") boolean invalidate) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
-    boolean arg_1 = invalidate;
-    Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.removeCookie(arg_0, arg_1));
     return ret;
   }
 

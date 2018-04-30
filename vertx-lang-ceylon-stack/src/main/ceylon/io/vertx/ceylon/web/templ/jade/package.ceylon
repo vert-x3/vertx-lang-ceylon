@@ -1,1 +1,0 @@
-shared package io.vertx.ceylon.web.templ.jade;

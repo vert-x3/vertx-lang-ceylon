@@ -66,14 +66,7 @@ public class Router implements ReifiedType {
     return delegate;
   }
 
-  @TypeInfo("ceylon.language::Anything")
-  public void handle(
-    final @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest") @Name("arg0") HttpServerRequest arg0) {
-    io.vertx.core.http.HttpServerRequest arg_0 = io.vertx.ceylon.core.http.HttpServerRequest.TO_JAVA.safeConvert(arg0);
-    delegate.handle(arg_0);
-  }
-
-  @DocAnnotation$annotation$(description = " This method is used to provide a request to the router. Usually you take request from the\n `requestHandler` and pass it to this method. The\n router then routes it to matching routes.\n\n This method is now deprecated you can use this object directly as a request handler, which\n means there is no need for a method reference anymore.\n")
+  @DocAnnotation$annotation$(description = " This method is used to provide a request to the router. Usually you take request from the\n `requestHandler` and pass it to this method. The\n router then routes it to matching routes.\n")
   @TypeInfo("ceylon.language::Anything")
   public void accept(
     final @TypeInfo("io.vertx.ceylon.core.http::HttpServerRequest") @Name("request")@DocAnnotation$annotation$(description = "the request\n") HttpServerRequest request) {

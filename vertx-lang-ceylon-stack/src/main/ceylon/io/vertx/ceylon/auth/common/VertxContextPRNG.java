@@ -68,13 +68,4 @@ public class VertxContextPRNG implements ReifiedType {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Returns a secure random int, between 0 (inclusive) and the specified bound (exclusive).\n")
-  @TypeInfo("ceylon.language::Integer")
-  public long nextInt(
-    final @TypeInfo("ceylon.language::Integer") @Name("bound")@DocAnnotation$annotation$(description = "the upper bound (exclusive), which must be positive.\n") long bound) {
-    int arg_0 = (int)bound;
-    long ret = delegate.nextInt(arg_0);
-    return ret;
-  }
-
 }

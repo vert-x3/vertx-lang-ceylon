@@ -177,13 +177,6 @@ public class HttpServerRequest implements ReifiedType,  ReadStream<Buffer> {
   }
 
   @DocAnnotation$annotation$(description = "")
-  @TypeInfo("ceylon.language::Integer")
-  public long bytesRead() {
-    long ret = delegate.bytesRead();
-    return ret;
-  }
-
-  @DocAnnotation$annotation$(description = "")
   @TypeInfo("io.vertx.ceylon.core.http::HttpServerResponse")
   public HttpServerResponse response() {
     if (cached_response != null) {

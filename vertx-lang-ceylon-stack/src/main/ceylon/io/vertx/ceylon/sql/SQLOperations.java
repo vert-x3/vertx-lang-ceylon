@@ -55,19 +55,6 @@ public interface SQLOperations {
     final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
     final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::ResultSet)") @Name("resultHandler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>ResultSet</code>.\n") Callable<?> resultHandler);
 
-  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query as a read stream.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
-  public SQLOperations queryStream(
-    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLRowStream)") @Name("handler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>SQLRowStream</code>.\n") Callable<?> handler);
-
-  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query as a read stream.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
-  public SQLOperations queryStreamWithParams(
-    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
-    final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLRowStream)") @Name("handler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>SQLRowStream</code>.\n") Callable<?> handler);
-
   @DocAnnotation$annotation$(description = " Execute a one shot SQL statement that returns a single SQL row. This method will reduce the boilerplate code by\n getting a connection from the pool (this object) and return it back after the execution. Only the first result\n from the result set is returned.\n")
   @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
   public SQLOperations querySingle(
@@ -156,38 +143,6 @@ public interface SQLOperations {
       }
     };
     SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.queryWithParams(arg_0, arg_1, arg_2));
-      return this;
-    }
-
-  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query as a read stream.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
-  public SQLOperations queryStream(
-    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLRowStream)") @Name("handler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>SQLRowStream</code>.\n") Callable<?> handler) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLRowStream>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.SQLRowStream>(handler) {
-      public Object toCeylon(io.vertx.ext.sql.SQLRowStream event) {
-        return io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(event);
-      }
-    };
-    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.queryStream(arg_0, arg_1));
-      return this;
-    }
-
-  @DocAnnotation$annotation$(description = " Executes the given SQL <code>SELECT</code> statement which returns the results of the query as a read stream.\n")
-  @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
-  public SQLOperations queryStreamWithParams(
-    final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the SQL to execute. For example <code>SELECT * FROM table ...</code>.\n") ceylon.language.String sql, 
-    final @TypeInfo("ceylon.json::Array") @Name("params")@DocAnnotation$annotation$(description = "these are the parameters to fill the statement.\n") ceylon.json.Array params, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.sql::SQLRowStream)") @Name("handler")@DocAnnotation$annotation$(description = "the handler which is called once the operation completes. It will return a <code>SQLRowStream</code>.\n") Callable<?> handler) {
-    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
-    io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(params);
-    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLRowStream>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.ext.sql.SQLRowStream>(handler) {
-      public Object toCeylon(io.vertx.ext.sql.SQLRowStream event) {
-        return io.vertx.ceylon.sql.SQLRowStream.TO_CEYLON.converter().safeConvert(event);
-      }
-    };
-    SQLOperations ret = io.vertx.ceylon.sql.SQLOperations.TO_CEYLON.converter().safeConvert(delegate.queryStreamWithParams(arg_0, arg_1, arg_2));
       return this;
     }
 

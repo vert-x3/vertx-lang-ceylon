@@ -75,6 +75,7 @@ shared class OAuth2ClientOptions(
   shared JsonObject? headers = null,
   Boolean? http2ClearTextUpgrade = null,
   Integer? http2ConnectionWindowSize = null,
+  Integer? http2KeepAliveTimeout = null,
   Integer? http2MaxPoolSize = null,
   Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
@@ -86,6 +87,7 @@ shared class OAuth2ClientOptions(
   shared JWTOptions? jwtOptions = null,
   shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
+  Integer? keepAliveTimeout = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
   Boolean? logActivity = null,
@@ -107,6 +109,7 @@ shared class OAuth2ClientOptions(
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
   Integer? pipeliningLimit = null,
+  Integer? poolCleanerPeriod = null,
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
   " The provider PubSec key options\n"
@@ -157,12 +160,14 @@ shared class OAuth2ClientOptions(
   forceSni,
   http2ClearTextUpgrade,
   http2ConnectionWindowSize,
+  http2KeepAliveTimeout,
   http2MaxPoolSize,
   http2MultiplexingLimit,
   idleTimeout,
   initialSettings,
   jdkSslEngineOptions,
   keepAlive,
+  keepAliveTimeout,
   keyStoreOptions,
   localAddress,
   logActivity,
@@ -182,6 +187,7 @@ shared class OAuth2ClientOptions(
   pfxTrustOptions,
   pipelining,
   pipeliningLimit,
+  poolCleanerPeriod,
   protocolVersion,
   proxyOptions,
   receiveBufferSize,
@@ -289,6 +295,7 @@ shared object oAuth2ClientOptions {
     JsonObject? headers = json.getObjectOrNull("headers");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
+    Integer? http2KeepAliveTimeout = json.getIntegerOrNull("http2KeepAliveTimeout");
     Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
     Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
@@ -299,6 +306,7 @@ shared object oAuth2ClientOptions {
     JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
     Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
+    Integer? keepAliveTimeout = json.getIntegerOrNull("keepAliveTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
@@ -319,6 +327,7 @@ shared object oAuth2ClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
+    Integer? poolCleanerPeriod = json.getIntegerOrNull("poolCleanerPeriod");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
@@ -367,6 +376,7 @@ shared object oAuth2ClientOptions {
       headers = headers;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
+      http2KeepAliveTimeout = http2KeepAliveTimeout;
       http2MaxPoolSize = http2MaxPoolSize;
       http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
@@ -377,6 +387,7 @@ shared object oAuth2ClientOptions {
       jwtOptions = jwtOptions;
       jwtToken = jwtToken;
       keepAlive = keepAlive;
+      keepAliveTimeout = keepAliveTimeout;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;
       logActivity = logActivity;
@@ -397,6 +408,7 @@ shared object oAuth2ClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       pipeliningLimit = pipeliningLimit;
+      poolCleanerPeriod = poolCleanerPeriod;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
       pubSecKeys = pubSecKeys;
