@@ -222,6 +222,17 @@ public class RoutingContext implements ReifiedType {
     return ret;
   }
 
+  @DocAnnotation$annotation$(description = " Remove a cookie from the cookie set. If invalidate is true then it will expire a cookie, notifying a User Agent to\n remove it from its cookie jar. The context must have first been routed to a\n [CookieHandler](../handler/CookieHandler.type.html) for this to work.\n")
+  @TypeInfo("io.vertx.ceylon.web::Cookie?")
+  public Cookie removeCookie(
+    final @TypeInfo("ceylon.language::String") @Name("name")@DocAnnotation$annotation$(description = "the name of the cookie\n") ceylon.language.String name, 
+    final @TypeInfo("ceylon.language::Boolean") @Name("invalidate") boolean invalidate) {
+    java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(name);
+    boolean arg_1 = invalidate;
+    Cookie ret = io.vertx.ceylon.web.Cookie.TO_CEYLON.converter().safeConvert(delegate.removeCookie(arg_0, arg_1));
+    return ret;
+  }
+
   @DocAnnotation$annotation$(description = "")
   @TypeInfo("ceylon.language::Integer")
   public long cookieCount() {
