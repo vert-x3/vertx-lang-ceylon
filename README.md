@@ -19,7 +19,7 @@ vertx-lang-ceylon
 
 ## Examples
 
-Examples for [Vert.x / Ceylon](https://github.com/vietj/ceylon-vertx-examples)
+Examples for [Vert.x / Ceylon](https://github.com/vert-x3/vertx-examples/blob/master/ceylon/README.adoc)
 
 ## Open issues
 
