@@ -39,6 +39,7 @@ shared class DataObjectWithValues(
   shared String? enumValue = null,
   shared Float? floatValue = null,
   shared TestGenEnum? genEnumValue = null,
+  shared String? instantValue = null,
   shared Integer? intValue = null,
   shared JsonArray? jsonArrayValue = null,
   shared JsonObject? jsonObjectValue = null,
@@ -83,6 +84,9 @@ shared class DataObjectWithValues(
     if (exists genEnumValue) {
       json.put("genEnumValue", testGenEnum_.toString(genEnumValue));
     }
+    if (exists instantValue) {
+      json.put("instantValue", instantValue);
+    }
     if (exists intValue) {
       json.put("intValue", intValue);
     }
@@ -120,6 +124,7 @@ shared object dataObjectWithValues {
     String? enumValue = json.getStringOrNull("enumValue");
     Float? floatValue = json.getFloatOrNull("floatValue");
     TestGenEnum? genEnumValue = if (exists tmp = json.getStringOrNull("genEnumValue")) then testGenEnum_.fromString(tmp) else null;
+    String? instantValue = json.getStringOrNull("instantValue");
     Integer? intValue = json.getIntegerOrNull("intValue");
     JsonArray? jsonArrayValue = json.getArrayOrNull("jsonArrayValue");
     JsonObject? jsonObjectValue = json.getObjectOrNull("jsonObjectValue");
@@ -139,6 +144,7 @@ shared object dataObjectWithValues {
       enumValue = enumValue;
       floatValue = floatValue;
       genEnumValue = genEnumValue;
+      instantValue = instantValue;
       intValue = intValue;
       jsonArrayValue = jsonArrayValue;
       jsonObjectValue = jsonObjectValue;

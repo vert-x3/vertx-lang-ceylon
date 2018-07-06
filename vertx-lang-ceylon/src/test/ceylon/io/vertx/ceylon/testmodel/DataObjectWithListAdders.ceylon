@@ -33,6 +33,7 @@ shared class DataObjectWithListAdders(
   shared {String*}? enumValues = null,
   shared {Float*}? floatValues = null,
   shared {TestGenEnum*}? genEnumValues = null,
+  shared {String*}? instantValues = null,
   shared {Integer*}? integerValues = null,
   shared {JsonArray*}? jsonArrayValues = null,
   shared {JsonObject*}? jsonObjectValues = null,
@@ -58,6 +59,9 @@ shared class DataObjectWithListAdders(
     }
     if (exists genEnumValues) {
       json.put("genEnumValues", JsonArray(genEnumValues.map(testGenEnum_.toString)));
+    }
+    if (exists instantValues) {
+      json.put("instantValues", JsonArray(instantValues));
     }
     if (exists integerValues) {
       json.put("integerValues", JsonArray(integerValues));
@@ -90,6 +94,7 @@ shared object dataObjectWithListAdders {
     {String*}? enumValues = json.getArrayOrNull("enumValues")?.strings;
     {Float*}? floatValues = json.getArrayOrNull("floatValues")?.floats;
     {TestGenEnum*}? genEnumValues = json.getArrayOrNull("genEnumValues")?.strings?.map(testGenEnum_.fromString);
+    {String*}? instantValues = json.getArrayOrNull("instantValues")?.strings;
     {Integer*}? integerValues = json.getArrayOrNull("integerValues")?.integers;
     {JsonArray*}? jsonArrayValues = json.getArrayOrNull("jsonArrayValues")?.arrays;
     {JsonObject*}? jsonObjectValues = json.getArrayOrNull("jsonObjectValues")?.objects;
@@ -103,6 +108,7 @@ shared object dataObjectWithListAdders {
       enumValues = enumValues;
       floatValues = floatValues;
       genEnumValues = genEnumValues;
+      instantValues = instantValues;
       integerValues = integerValues;
       jsonArrayValues = jsonArrayValues;
       jsonObjectValues = jsonObjectValues;
