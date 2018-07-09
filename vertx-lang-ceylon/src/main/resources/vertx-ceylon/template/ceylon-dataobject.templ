@@ -36,8 +36,6 @@
       decl = getTypeAlias(type);
     } else if (kind == CLASS_STRING) {
       decl = 'String';
-    } else if (kind == CLASS_INSTANT) {
-      decl = 'String';
     } else if (isInteger(type)) {
       decl = 'Integer';
     } else if (isFloat(type)) {
@@ -65,6 +63,8 @@
       return '{' + decl + '*}';
     } else if (prop.kind.map) {
       return 'Map<String, ' + decl + '>';
+    } else if (kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
+      reutrn 'String';
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
@@ -85,8 +85,6 @@
     if (prop.kind.value) {
       if (type.kind == CLASS_STRING) {
         return expr + '.getStringOrNull("' + prop.name + '")';
-      } else if (type.kind == CLASS_INSTANT) {
-        return expr + '.getStringOrNull("' + prop.name + '")';
       } else if (isInteger(type)) {
         return expr + '.getIntegerOrNull("' + prop.name + '")';
       } else if (isBoolean(type)) {
@@ -105,11 +103,11 @@
         } else {
           return expr + '.getStringOrNull("' + prop.name + '")';
         }
+      } else if (type.kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
+        return expr + '.getStringOrNull("' + prop.name + '")';
       }
     } else if (prop.kind.list) {
       if (type.kind == CLASS_STRING) {
-        return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
-      } else if (type.kind == CLASS_INSTANT) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
       } else if (isInteger(type)) {
         return expr + '.getArrayOrNull("' + prop.name + '")?.integers';
@@ -129,11 +127,11 @@
         } else {
           return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
         }
+      } else if (type.kind == CLASS_OTHER) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
       }
     } else if (prop.kind.map) {
       if (type.kind == CLASS_STRING) {
-        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
-      } else if (type.kind == CLASS_INSTANT) {
         return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
       } else if (isInteger(type)) {
         return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is Integer val) key->val } else null';
@@ -147,12 +145,14 @@
         return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is JsonArray val) key->val } else null';
       } else if (type.kind == CLASS_DATA_OBJECT) {
         return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is JsonObject val) key->' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromJson(val) } else null';
-      } if (type.kind == CLASS_ENUM) {
+      } else if (type.kind == CLASS_ENUM) {
         if (type.gen) {
           return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->' + CASE_CAMEL.to(CASE_LOWER_CAMEL, type.simpleName) + '_.fromString(val) } else null';
         } else {
           return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
         }
+      } else if (type.kind == CLASS_OTHER) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
       }
     }
     return 'null /* ' + type + ' not handled */';
