@@ -55,7 +55,7 @@
         decl = 'String';
       }
     } else if (kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
-      decl = 'String';
+      decl = 'Instant';
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
@@ -105,7 +105,7 @@
           return expr + '.getStringOrNull("' + prop.name + '")';
         }
       } else if (type.kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
-        return expr + '.getStringOrNull("' + prop.name + '")';
+        return 'if (exists tmp = ' + expr + '.getStringOrNull("' + prop.name + '")) then parseZoneDateTime(tmp)?.instant else null';
       }
     } else if (prop.kind.list) {
       if (type.kind == CLASS_STRING) {
@@ -128,8 +128,8 @@
         } else {
           return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
         }
-      } else if (type.kind == CLASS_OTHER) {
-        return expr + '.getArrayOrNull("' + prop.name + '")?.strings';
+      } else if (type.kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
+        return expr + '.getArrayOrNull("' + prop.name + '")?.strings?.map((v) => parseZoneDateTime(v)?.instant)?.coalesced';
       }
     } else if (prop.kind.map) {
       if (type.kind == CLASS_STRING) {
@@ -152,8 +152,8 @@
         } else {
           return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
         }
-      } else if (type.kind == CLASS_OTHER) {
-        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null';
+      } else if (type.kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
+        return 'if (exists tmp = ' + expr + '.getObjectOrNull("' + prop.name + '")) then HashMap { for(key->val in tmp) if (is String val, exists dval = parseZoneDateTime(val)) key->dval.instant } else null';
       }
     }
     return 'null /* ' + type + ' not handled */';
@@ -169,6 +169,8 @@
   addClassImport("ceylon.json", "Array", "JsonArray");
   addClassImport("ceylon.json", "parse", "parse");
   addClassImport("ceylon.collection", "HashMap", "HashMap");
+  addClassImport("ceylon.time", "Instant", "Instant");
+  addClassImport("ceylon.time.iso8601", "parseZoneDateTime", "parseZoneDateTime");
   addClassImport("io.vertx.lang.ceylon", "BaseDataObject", "BaseDataObject");
   addClassImport("io.vertx.lang.ceylon", "Converter", "Converter");
   addClassImport("io.vertx.lang.ceylon", "ToJava", "ToJava");
@@ -230,8 +232,10 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 		@code{propType=prop.type}
     if (exists @{propName}) {\n
 		@if{prop.kind.value}
-			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
+			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", @{propName});\n
+			@else{propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant')}
+      json.put("@{prop.name}", @{propName}.string);\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", @{propName}.toJson());\n
 			@else{propType.kind == CLASS_ENUM}
@@ -242,8 +246,10 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 				@end{}
 			@end{}
 		@else{prop.kind.list}
-			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
+			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
+			@else{propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant')}
+      json.put("@{prop.name}", JsonArray(@{propName}*.string));\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson)));\n
 			@else{propType.kind == CLASS_ENUM}
@@ -256,8 +262,10 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
       throw Exception("not yet implemented");\n
 			@end{}
 		@else{prop.kind.map}
-			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
+			@if{propType.kind.basic || propType.kind.json}
       json.put("@{prop.name}", JsonObject(@{propName}));\n
+			@else{propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant')}
+      json.put("@{prop.name}", JsonObject{for(k->v in @{propName}) k->v.string});\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", JsonObject{for(k->v in @{propName}) k->@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson(v)});\n
 			@else{propType.kind == CLASS_ENUM}
