@@ -2,6 +2,9 @@ import io.vertx.ceylon.core.eventbus {
   EventBusOptions,
   eventBusOptions_=eventBusOptions
 }
+import ceylon.time.iso8601 {
+  parseZoneDateTime
+}
 import io.vertx.core {
   VertxOptions_=VertxOptions
 }
@@ -21,6 +24,9 @@ import io.vertx.ceylon.core.metrics {
 }
 import ceylon.collection {
   HashMap
+}
+import ceylon.time {
+  Instant
 }
 import io.vertx.ceylon.core.dns {
   AddressResolverOptions,

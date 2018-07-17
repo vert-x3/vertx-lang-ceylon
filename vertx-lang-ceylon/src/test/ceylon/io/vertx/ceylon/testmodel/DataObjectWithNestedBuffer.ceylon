@@ -5,6 +5,9 @@ import io.vertx.ceylon.testmodel {
 import io.vertx.codegen.testmodel {
   DataObjectWithNestedBuffer_=DataObjectWithNestedBuffer
 }
+import ceylon.time.iso8601 {
+  parseZoneDateTime
+}
 import ceylon.json {
   JsonObject=Object,
   JsonArray=Array,
@@ -17,6 +20,9 @@ import io.vertx.lang.ceylon {
 }
 import ceylon.collection {
   HashMap
+}
+import ceylon.time {
+  Instant
 }
 import io.vertx.core.json {
   JsonObject_=JsonObject,
