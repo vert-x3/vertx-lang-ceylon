@@ -54,17 +54,18 @@
       } else {
         decl = 'String';
       }
+    } else if (kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
+      decl = 'String';
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
+    
     if (prop.kind.value) {
       return decl;
     } else if (prop.kind.list || prop.kind.set) {
       return '{' + decl + '*}';
     } else if (prop.kind.map) {
       return 'Map<String, ' + decl + '>';
-    } else if (kind == CLASS_OTHER && type.name.equals('java.time.Instant')) {
-      reutrn 'String';
     } else {
       return 'Nothing /* ' + prop +  ' */';
     }
@@ -176,7 +177,11 @@
   for (prop : properties) {
     var propType = prop.type;
     var propKind = propType.kind;
-    if (propKind.basic || propKind.json || propKind == CLASS_DATA_OBJECT || propKind == CLASS_ENUM) {
+    if (propKind.basic 
+        || propKind.json 
+        || propKind == CLASS_DATA_OBJECT 
+        || propKind == CLASS_ENUM
+        || (propKind == CLASS_OTHER && propType.name.equals('java.time.Instant'))) {
       props.add(prop);
     }
     if (propKind == CLASS_DATA_OBJECT || (propKind == CLASS_ENUM && prop.type.gen)) {
@@ -225,7 +230,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 		@code{propType=prop.type}
     if (exists @{propName}) {\n
 		@if{prop.kind.value}
-			@if{propType.kind.basic || propType.kind.json}
+			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
       json.put("@{prop.name}", @{propName});\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", @{propName}.toJson());\n
@@ -237,7 +242,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
 				@end{}
 			@end{}
 		@else{prop.kind.list}
-			@if{propType.kind.basic || propType.kind.json}
+			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
       json.put("@{prop.name}", JsonArray(@{propName}));\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", JsonArray(@{propName}.map(@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson)));\n
@@ -251,7 +256,7 @@ shared @if{isClass}class@else{}interface@end{} @{type.simpleName}@if{isClass}(
       throw Exception("not yet implemented");\n
 			@end{}
 		@else{prop.kind.map}
-			@if{propType.kind.basic || propType.kind.json}
+			@if{propType.kind.basic || propType.kind.json || (propType.kind == CLASS_OTHER && propType.name.equals('java.time.Instant'))}
       json.put("@{prop.name}", JsonObject(@{propName}));\n
 			@else{propType.kind == CLASS_DATA_OBJECT}
       json.put("@{prop.name}", JsonObject{for(k->v in @{propName}) k->@{CASE_CAMEL.to(CASE_LOWER_CAMEL, prop.type.simpleName)}_.toJson(v)});\n
