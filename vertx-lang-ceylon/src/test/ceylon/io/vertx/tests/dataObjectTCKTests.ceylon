@@ -38,7 +38,7 @@ shared test void testReadDataObjectWithValues() {
   assertEquals(2.2, dataObject.boxedFloatValue);
   assertEquals(2.22, dataObject.boxedDoubleValue);
   assertEquals("wibble", dataObject.stringValue);
-  assertEquals("1984-05-27T00:05:00Z", dataObject.instantValue);
+  assertEquals("1984-05-27T00:05:00.000Z", dataObject.instantValue?.string);
   assertEquals(JsonObject{"foo"->"eek","bar"->"wibble"}, dataObject.jsonObjectValue);
   assertEquals(JsonArray{"eek","wibble"}, dataObject.jsonArrayValue);
   assertEquals("TIM", dataObject.enumValue);
@@ -63,7 +63,7 @@ shared test void testWriteDataObjectWithValues() {
     boxedFloatValue = 2.2;
     boxedDoubleValue = 2.22;
     stringValue = "wibble";
-    instantValue = "1984-05-27T00:05:00Z";
+    instantValue = parseZoneDateTime("1984-05-27T00:05:00Z")?.instant;
     jsonObjectValue = JsonObject{"foo"->"eek","bar"->"wibble"};
     jsonArrayValue = JsonArray{"eek","wibble"};
     enumValue = "TIM";
@@ -90,7 +90,7 @@ shared test void testReadDataObjectWithLists() {
   assert(exists stringValues = dataObject.stringValues);
   assertEquals(ArrayList{"stringValues1","stringValues2","stringValues3"}, ArrayList{*stringValues});
   assert(exists instantValues = dataObject.instantValues);
-  assertEquals(ArrayList{"1984-05-27T00:05:00Z", "2018-07-05T08:23:21Z"}, ArrayList{*instantValues});
+  assertEquals(ArrayList{parseZoneDateTime("1984-05-27T00:05:00Z")?.instant, parseZoneDateTime("2018-07-05T08:23:21Z")?.instant}, ArrayList{*instantValues});
   assert(exists jsonObjectValues = dataObject.jsonObjectValues);
   assertEquals(ArrayList{JsonObject{"foo"->"eek"},JsonObject{"foo"->"wibble"}}, ArrayList{*jsonObjectValues});
   assert(exists jsonArrayValues = dataObject.jsonArrayValues);
@@ -116,7 +116,7 @@ shared test void testWriteDataObjectWithLists() {
     jsonObjectValues = {JsonObject{"foo"->"eek"},JsonObject{"foo"->"wibble"}};
     jsonArrayValues = {JsonArray{"foo"},JsonArray{"bar"}};
     stringValues = { "stringValues1", "stringValues2", "stringValues3" };
-    instantValues = { "1984-05-27T00:05:00Z", "2018-07-05T08:23:21Z" };
+    instantValues = { parseZoneDateTime("1984-05-27T00:05:00Z")?.instant, parseZoneDateTime("2018-07-05T08:23:21Z")?.instant }.coalesced;
     dataObjectValues = { TestDataObject { foo="1"; bar=1; wibble=1.1; }, TestDataObject { foo="2"; bar=2; wibble=2.2; } };
     enumValues = { "TIM", "JULIEN" };
     genEnumValues = { bob, laura };
@@ -131,7 +131,7 @@ shared test void testReadDataObjectWithMaps() {
   assertEquals(HashMap{"1"->123456,"2"->654321}, dataObject.integerValues);
   assertEquals(HashMap{"1"->123456789,"2"->987654321}, dataObject.longValues);
   assertEquals(HashMap{"1"->"stringValues1","2"->"stringValues2"}, dataObject.stringValues);
-  assertEquals(HashMap{"1"->"1984-05-27T00:05:00Z","2"->"2018-07-05T08:23:21Z"}, dataObject.instantValues);
+  assertEquals(HashMap{"1"->parseZoneDateTime("1984-05-27T00:05:00Z")?.instant,"2"->parseZoneDateTime("2018-07-05T08:23:21Z")?.instant}, dataObject.instantValues);
   assertEquals(HashMap{"1"->JsonObject{"foo"->"eek"},"2"->JsonObject{"foo"->"wibble"}}, dataObject.jsonObjectValues);
   assertEquals(HashMap{"1"->JsonArray{"foo"},"2"->JsonArray{"bar"}}, dataObject.jsonArrayValues);
   assertEquals("1", dataObject.dataObjectValues?.get("1")?.foo);
@@ -153,7 +153,7 @@ shared test void testWriteDataObjectWithMaps() {
     floatValues = HashMap { "1"->1.1, "2"->2.2 };
     doubleValues = HashMap { "1"->1.11, "2"->2.22 };
     stringValues = HashMap { "1"->"stringValues1", "2"->"stringValues2" };
-    instantValues = HashMap { "1"->"1984-05-27T00:05:00Z", "2"->"2018-07-05T08:23:21Z" };
+    instantValues = HashMap { "1"->parseZoneDateTime("1984-05-27T00:05:00Z")?.instant, "2"->parseZoneDateTime("2018-07-05T08:23:21Z")?.instant }.coalescedMap;
     jsonObjectValues = HashMap { "1"->JsonObject{"foo"->"eek"}, "2"->JsonObject{"foo"->"wibble"} };
     jsonArrayValues = HashMap { "1"->JsonArray{"foo"}, "2"->JsonArray{"bar"} };
     dataObjectValues = HashMap { "1"-> TestDataObject { foo="1"; bar=1; wibble=1.1; },"2" -> TestDataObject { foo="2"; bar=2; wibble=2.2; } };

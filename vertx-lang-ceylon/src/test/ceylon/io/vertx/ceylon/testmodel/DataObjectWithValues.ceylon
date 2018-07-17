@@ -45,7 +45,7 @@ shared class DataObjectWithValues(
   shared String? enumValue = null,
   shared Float? floatValue = null,
   shared TestGenEnum? genEnumValue = null,
-  shared String? instantValue = null,
+  shared Instant? instantValue = null,
   shared Integer? intValue = null,
   shared JsonArray? jsonArrayValue = null,
   shared JsonObject? jsonObjectValue = null,
@@ -91,7 +91,7 @@ shared class DataObjectWithValues(
       json.put("genEnumValue", testGenEnum_.toString(genEnumValue));
     }
     if (exists instantValue) {
-      json.put("instantValue", instantValue);
+      json.put("instantValue", instantValue.string);
     }
     if (exists intValue) {
       json.put("intValue", intValue);
@@ -130,7 +130,7 @@ shared object dataObjectWithValues {
     String? enumValue = json.getStringOrNull("enumValue");
     Float? floatValue = json.getFloatOrNull("floatValue");
     TestGenEnum? genEnumValue = if (exists tmp = json.getStringOrNull("genEnumValue")) then testGenEnum_.fromString(tmp) else null;
-    String? instantValue = json.getStringOrNull("instantValue");
+    Instant? instantValue = if (exists tmp = json.getStringOrNull("instantValue")) then parseZoneDateTime(tmp)?.instant else null;
     Integer? intValue = json.getIntegerOrNull("intValue");
     JsonArray? jsonArrayValue = json.getArrayOrNull("jsonArrayValue");
     JsonObject? jsonObjectValue = json.getObjectOrNull("jsonObjectValue");
