@@ -33,6 +33,7 @@ shared class DataObjectWithMapAdders(
   shared Map<String, String>? enumValues = null,
   shared Map<String, Float>? floatValues = null,
   shared Map<String, TestGenEnum>? genEnumValues = null,
+  shared Map<String, String>? instantValues = null,
   shared Map<String, Integer>? integerValues = null,
   shared Map<String, JsonArray>? jsonArrayValues = null,
   shared Map<String, JsonObject>? jsonObjectValues = null,
@@ -58,6 +59,9 @@ shared class DataObjectWithMapAdders(
     }
     if (exists genEnumValues) {
       json.put("genEnumValues", JsonObject{for(k->v in genEnumValues) k->testGenEnum_.toString(v)});
+    }
+    if (exists instantValues) {
+      json.put("instantValues", JsonObject(instantValues));
     }
     if (exists integerValues) {
       json.put("integerValues", JsonObject(integerValues));
@@ -90,6 +94,7 @@ shared object dataObjectWithMapAdders {
     Map<String, String>? enumValues = if (exists tmp = json.getObjectOrNull("enumValues")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null;
     Map<String, Float>? floatValues = if (exists tmp = json.getObjectOrNull("floatValues")) then HashMap { for(key->val in tmp) if (is Float val) key->val } else null;
     Map<String, TestGenEnum>? genEnumValues = if (exists tmp = json.getObjectOrNull("genEnumValues")) then HashMap { for(key->val in tmp) if (is String val) key->testGenEnum_.fromString(val) } else null;
+    Map<String, String>? instantValues = if (exists tmp = json.getObjectOrNull("instantValues")) then HashMap { for(key->val in tmp) if (is String val) key->val } else null;
     Map<String, Integer>? integerValues = if (exists tmp = json.getObjectOrNull("integerValues")) then HashMap { for(key->val in tmp) if (is Integer val) key->val } else null;
     Map<String, JsonArray>? jsonArrayValues = if (exists tmp = json.getObjectOrNull("jsonArrayValues")) then HashMap { for(key->val in tmp) if (is JsonArray val) key->val } else null;
     Map<String, JsonObject>? jsonObjectValues = if (exists tmp = json.getObjectOrNull("jsonObjectValues")) then HashMap { for(key->val in tmp) if (is JsonObject val) key->val } else null;
@@ -103,6 +108,7 @@ shared object dataObjectWithMapAdders {
       enumValues = enumValues;
       floatValues = floatValues;
       genEnumValues = genEnumValues;
+      instantValues = instantValues;
       integerValues = integerValues;
       jsonArrayValues = jsonArrayValues;
       jsonObjectValues = jsonObjectValues;
