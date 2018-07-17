@@ -125,7 +125,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Specify a request handler for the route. The router routes requests to handlers depending on whether the various\n criteria such as method, path, etc match. There can be only one request handler for a route. If you set this more\n than once it will overwrite the previous handler.\n")
+  @DocAnnotation$annotation$(description = " Append a request handler to the route handlers list. The router routes requests to handlers depending on whether the various\n criteria such as method, path, etc match. When method, path, etc are the same for different routes, You should add multiple\n handlers to the same route object rather than creating two different routes objects with one handler for route\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route handler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("requestHandler")@DocAnnotation$annotation$(description = "the request handler\n") Callable<?> requestHandler) {
@@ -166,7 +166,7 @@ public class Route implements ReifiedType {
     return this;
   }
 
-  @DocAnnotation$annotation$(description = " Specify a failure handler for the route. The router routes failures to failurehandlers depending on whether the various\n criteria such as method, path, etc match. There can be only one failure handler for a route. If you set this more\n than once it will overwrite the previous handler.\n")
+  @DocAnnotation$annotation$(description = " Append a failure handler to the route failure handlers list. The router routes failures to failurehandlers depending on whether the various\n criteria such as method, path, etc match. When method, path, etc are the same for different routes, You should add multiple\n failure handlers to the same route object rather than creating two different routes objects with one failure handler for route\n")
   @TypeInfo("io.vertx.ceylon.web::Route")
   public Route failureHandler(
     final @TypeInfo("ceylon.language::Anything(io.vertx.ceylon.web::RoutingContext)") @Name("failureHandler")@DocAnnotation$annotation$(description = "the request handler\n") Callable<?> failureHandler) {

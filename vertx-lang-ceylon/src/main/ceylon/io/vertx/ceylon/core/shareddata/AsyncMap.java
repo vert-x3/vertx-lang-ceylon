@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = "\n An asynchronous map.\n <p>\n")
+@DocAnnotation$annotation$(description = " An asynchronous map.\n <p>\n [AsyncMap](../shareddata/AsyncMap.type.html) does <em>not</em> allow <code>null</code> to be used as a key or value.\n")
 public class AsyncMap<K,V> implements ReifiedType {
 
   @Ignore

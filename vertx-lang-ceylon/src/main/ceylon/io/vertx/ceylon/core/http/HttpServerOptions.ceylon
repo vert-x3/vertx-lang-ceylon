@@ -68,12 +68,13 @@ shared class HttpServerOptions(
   " Set the default HTTP/2 connection window size. It overrides the initial window\n size set by [getInitialWindowSize](../http/Http2Settings.type.html#getInitialWindowSize), so the connection window size\n is greater than for its streams, in order the data throughput.\n <p/>\n A value of <code>-1</code> reuses the initial window size setting.\n"
   shared Integer? http2ConnectionWindowSize = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   " Set the HTTP/2 connection settings immediatly sent by the server when a client connects.\n"
   shared Http2Settings? initialSettings = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
   Boolean? logActivity = null,
-  " Set the maximum HTTP chunk size\n"
+  " Set the maximum HTTP chunk size that [handler](../http/HttpServerRequest.type.html#handler) will receive\n"
   shared Integer? maxChunkSize = null,
   " Set the maximum length of all headers for HTTP/1.x .\n"
   shared Integer? maxHeaderSize = null,
@@ -115,6 +116,7 @@ shared class HttpServerOptions(
   enabledSecureTransportProtocols,
   host,
   idleTimeout,
+  idleTimeoutUnit,
   jdkSslEngineOptions,
   keyStoreOptions,
   logActivity,
@@ -210,6 +212,7 @@ shared object httpServerOptions {
     String? host = json.getStringOrNull("host");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
@@ -259,6 +262,7 @@ shared object httpServerOptions {
       host = host;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       initialSettings = initialSettings;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;

@@ -6,3 +6,4 @@ output=./target/modules
 offline=false
 flatclasspath=false
 autoexportmavendependencies=false
+encoding=UTF-8

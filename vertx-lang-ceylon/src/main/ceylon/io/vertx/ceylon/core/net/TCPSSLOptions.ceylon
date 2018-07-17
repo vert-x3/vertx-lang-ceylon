@@ -42,8 +42,10 @@ shared class TCPSSLOptions(
   shared {String*}? enabledCipherSuites = null,
   " Sets the list of enabled SSL/TLS protocols.\n"
   shared {String*}? enabledSecureTransportProtocols = null,
-  " Set the idle timeout, in seconds. zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n"
+  " Set the idle timeout, default time unit is seconds. Zero means don't timeout.\n This determines if a connection will timeout and be closed if no data is received within the timeout.\n\n If you want change default time unit, use [setIdleTimeoutUnit](../net/TCPSSLOptions.type.html#setIdleTimeoutUnit)\n"
   shared Integer? idleTimeout = null,
+  " Set the idle timeout unit. If not specified, default is seconds.\n"
+  shared String? idleTimeoutUnit = null,
   shared JdkSSLEngineOptions? jdkSslEngineOptions = null,
   " Set the key/cert options in jks format, aka Java keystore.\n"
   shared JksOptions? keyStoreOptions = null,
@@ -101,6 +103,9 @@ shared class TCPSSLOptions(
     }
     if (exists idleTimeout) {
       json.put("idleTimeout", idleTimeout);
+    }
+    if (exists idleTimeoutUnit) {
+      json.put("idleTimeoutUnit", idleTimeoutUnit);
     }
     if (exists jdkSslEngineOptions) {
       json.put("jdkSslEngineOptions", jdkSslEngineOptions.toJson());
@@ -164,6 +169,7 @@ shared object tcpsslOptions {
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
@@ -192,6 +198,7 @@ shared object tcpsslOptions {
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
       logActivity = logActivity;

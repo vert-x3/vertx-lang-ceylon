@@ -45,6 +45,7 @@ shared class NetClientOptions(
   " Set the hostname verification algorithm interval\n To disable hostname verification, set hostnameVerificationAlgorithm to an empty String\n"
   shared String? hostnameVerificationAlgorithm = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
@@ -81,6 +82,7 @@ shared class NetClientOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  idleTimeoutUnit,
   jdkSslEngineOptions,
   keyStoreOptions,
   localAddress,
@@ -132,6 +134,7 @@ shared object netClientOptions {
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     String? hostnameVerificationAlgorithm = json.getStringOrNull("hostnameVerificationAlgorithm");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
@@ -168,6 +171,7 @@ shared object netClientOptions {
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       hostnameVerificationAlgorithm = hostnameVerificationAlgorithm;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;

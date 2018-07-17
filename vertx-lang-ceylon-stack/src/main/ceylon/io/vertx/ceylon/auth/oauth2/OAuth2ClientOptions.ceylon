@@ -45,6 +45,10 @@ import io.vertx.ceylon.auth.common {
 import ceylon.collection {
   HashMap
 }
+import io.vertx.ceylon.auth.oauth2 {
+  OAuth2FlowType,
+  oAuth2FlowType_=oAuth2FlowType
+}
 import io.vertx.core.json {
   JsonObject_=JsonObject,
   JsonArray_=JsonArray
@@ -70,22 +74,25 @@ shared class OAuth2ClientOptions(
   {String*}? enabledSecureTransportProtocols = null,
   " Set extra parameters to be sent to the provider on each request\n"
   shared JsonObject? extraParameters = null,
+  shared OAuth2FlowType? flow = null,
   Boolean? forceSni = null,
   " Set custom headers to be sent with every request to the provider\n"
   shared JsonObject? headers = null,
   Boolean? http2ClearTextUpgrade = null,
   Integer? http2ConnectionWindowSize = null,
+  Integer? http2KeepAliveTimeout = null,
   Integer? http2MaxPoolSize = null,
   Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   Http2Settings? initialSettings = null,
   " Set the provider token introspection resource path\n"
   shared String? introspectionPath = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   shared String? jwkPath = null,
   shared JWTOptions? jwtOptions = null,
-  shared Boolean? jwtToken = null,
   Boolean? keepAlive = null,
+  Integer? keepAliveTimeout = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
   Boolean? logActivity = null,
@@ -107,6 +114,7 @@ shared class OAuth2ClientOptions(
   PfxOptions? pfxTrustOptions = null,
   Boolean? pipelining = null,
   Integer? pipeliningLimit = null,
+  Integer? poolCleanerPeriod = null,
   HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
   " The provider PubSec key options\n"
@@ -145,6 +153,7 @@ shared class OAuth2ClientOptions(
   shared JsonObject? userInfoParameters = null,
   " Set the provider userInfo resource path\n"
   shared String? userInfoPath = null,
+  shared Boolean? validateIssuer = null,
   Boolean? verifyHost = null) extends HttpClientOptions(
   alpnVersions,
   connectTimeout,
@@ -157,12 +166,15 @@ shared class OAuth2ClientOptions(
   forceSni,
   http2ClearTextUpgrade,
   http2ConnectionWindowSize,
+  http2KeepAliveTimeout,
   http2MaxPoolSize,
   http2MultiplexingLimit,
   idleTimeout,
+  idleTimeoutUnit,
   initialSettings,
   jdkSslEngineOptions,
   keepAlive,
+  keepAliveTimeout,
   keyStoreOptions,
   localAddress,
   logActivity,
@@ -182,6 +194,7 @@ shared class OAuth2ClientOptions(
   pfxTrustOptions,
   pipelining,
   pipeliningLimit,
+  poolCleanerPeriod,
   protocolVersion,
   proxyOptions,
   receiveBufferSize,
@@ -220,6 +233,9 @@ shared class OAuth2ClientOptions(
     if (exists extraParameters) {
       json.put("extraParameters", extraParameters);
     }
+    if (exists flow) {
+      json.put("flow", oAuth2FlowType_.toString(flow));
+    }
     if (exists headers) {
       json.put("headers", headers);
     }
@@ -231,9 +247,6 @@ shared class OAuth2ClientOptions(
     }
     if (exists jwtOptions) {
       json.put("jwtOptions", jwtOptions.toJson());
-    }
-    if (exists jwtToken) {
-      json.put("jwtToken", jwtToken);
     }
     if (exists logoutPath) {
       json.put("logoutPath", logoutPath);
@@ -265,6 +278,9 @@ shared class OAuth2ClientOptions(
     if (exists userInfoPath) {
       json.put("userInfoPath", userInfoPath);
     }
+    if (exists validateIssuer) {
+      json.put("validateIssuer", validateIssuer);
+    }
     return json;
   }
 }
@@ -285,20 +301,23 @@ shared object oAuth2ClientOptions {
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     JsonObject? extraParameters = json.getObjectOrNull("extraParameters");
+    OAuth2FlowType? flow = if (exists tmp = json.getStringOrNull("flow")) then oAuth2FlowType_.fromString(tmp) else null;
     Boolean? forceSni = json.getBooleanOrNull("forceSni");
     JsonObject? headers = json.getObjectOrNull("headers");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
+    Integer? http2KeepAliveTimeout = json.getIntegerOrNull("http2KeepAliveTimeout");
     Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
     Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     String? introspectionPath = json.getStringOrNull("introspectionPath");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     String? jwkPath = json.getStringOrNull("jwkPath");
     JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
-    Boolean? jwtToken = json.getBooleanOrNull("jwtToken");
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
+    Integer? keepAliveTimeout = json.getIntegerOrNull("keepAliveTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
@@ -319,6 +338,7 @@ shared object oAuth2ClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
+    Integer? poolCleanerPeriod = json.getIntegerOrNull("poolCleanerPeriod");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
@@ -348,6 +368,7 @@ shared object oAuth2ClientOptions {
     String? userAgent = json.getStringOrNull("userAgent");
     JsonObject? userInfoParameters = json.getObjectOrNull("userInfoParameters");
     String? userInfoPath = json.getStringOrNull("userInfoPath");
+    Boolean? validateIssuer = json.getBooleanOrNull("validateIssuer");
     Boolean? verifyHost = json.getBooleanOrNull("verifyHost");
     return OAuth2ClientOptions {
       alpnVersions = alpnVersions;
@@ -363,20 +384,23 @@ shared object oAuth2ClientOptions {
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       extraParameters = extraParameters;
+      flow = flow;
       forceSni = forceSni;
       headers = headers;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
+      http2KeepAliveTimeout = http2KeepAliveTimeout;
       http2MaxPoolSize = http2MaxPoolSize;
       http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       initialSettings = initialSettings;
       introspectionPath = introspectionPath;
       jdkSslEngineOptions = jdkSslEngineOptions;
       jwkPath = jwkPath;
       jwtOptions = jwtOptions;
-      jwtToken = jwtToken;
       keepAlive = keepAlive;
+      keepAliveTimeout = keepAliveTimeout;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;
       logActivity = logActivity;
@@ -397,6 +421,7 @@ shared object oAuth2ClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       pipeliningLimit = pipeliningLimit;
+      poolCleanerPeriod = poolCleanerPeriod;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
       pubSecKeys = pubSecKeys;
@@ -426,6 +451,7 @@ shared object oAuth2ClientOptions {
       userAgent = userAgent;
       userInfoParameters = userInfoParameters;
       userInfoPath = userInfoPath;
+      validateIssuer = validateIssuer;
       verifyHost = verifyHost;
     };
   }

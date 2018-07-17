@@ -96,4 +96,13 @@ public class BodyHandler implements ReifiedType {
     return this;
   }
 
+  @DocAnnotation$annotation$(description = " Pre-allocate the body buffer according to the value parsed from content-length header.\n The buffer is capped at 64KB\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::BodyHandler")
+  public BodyHandler setPreallocateBodyBuffer(
+    final @TypeInfo("ceylon.language::Boolean") @Name("isPreallocateBodyBuffer")@DocAnnotation$annotation$(description = "<code>true</code> if body buffer is pre-allocated according to the size read from content-length Header. {code false} if body buffer is pre-allocated to 1KB, and is resized dynamically\n") boolean isPreallocateBodyBuffer) {
+    boolean arg_0 = isPreallocateBodyBuffer;
+    BodyHandler ret = io.vertx.ceylon.web.handler.BodyHandler.TO_CEYLON.converter().safeConvert(delegate.setPreallocateBodyBuffer(arg_0));
+    return this;
+  }
+
 }

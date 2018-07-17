@@ -19,7 +19,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Base interface for auth handlers.\n <p>\n An auth handler allows your application to provide authentication/authorisation support.\n <p>\n Auth handler requires a [SessionHandler](../handler/SessionHandler.type.html) to be on the routing chain before it.\n")
+@DocAnnotation$annotation$(description = " Base interface for auth handlers.\n <p>\n An auth handler allows your application to provide authentication/authorization support.\n <p>\n Auth handler requires a [SessionHandler](../handler/SessionHandler.type.html) to be on the routing chain before it.\n")
 public interface AuthHandler {
 
   @Ignore

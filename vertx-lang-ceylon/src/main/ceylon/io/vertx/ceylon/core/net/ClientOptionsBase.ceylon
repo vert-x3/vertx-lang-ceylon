@@ -44,6 +44,7 @@ shared class ClientOptionsBase(
   {String*}? enabledCipherSuites = null,
   {String*}? enabledSecureTransportProtocols = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
   " Set the local interface to bind for network connections. When the local address is null,\n it will pick any local address, the default local address is null.\n"
@@ -79,6 +80,7 @@ shared class ClientOptionsBase(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  idleTimeoutUnit,
   jdkSslEngineOptions,
   keyStoreOptions,
   logActivity,
@@ -131,6 +133,7 @@ shared object clientOptionsBase {
     {String*}? enabledCipherSuites = null /* java.lang.String not handled */;
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
@@ -164,6 +167,7 @@ shared object clientOptionsBase {
       enabledCipherSuites = enabledCipherSuites;
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;

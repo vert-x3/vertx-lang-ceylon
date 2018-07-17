@@ -18,7 +18,7 @@ import java.util.Map;
   @TypeParameter(value="V",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n The map only allows immutable keys and values in the map, OR certain mutable objects such as [Buffer](../buffer/Buffer.type.html)\n instances which will be copied when they are added to the map.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n <p>\n Your own objects can be marked as immutable by implementing the `io.vertx.core.shareddata.Shareable` interface.\n\n Since the version 3.4, this class extends the  interface. However some methods are only accessible in Java.\n")
+@DocAnnotation$annotation$(description = " Local maps can be used to share data safely in a single Vert.x instance.\n <p>\n By default the map allows immutable keys and values.\n Custom keys and values should implement `io.vertx.core.shareddata.Shareable` interface. The map returns their copies.\n <p>\n This ensures there is no shared access to mutable state from different threads (e.g. different event loops) in the\n Vert.x instance, and means you don't have to protect access to that state using synchronization or locks.\n <p>\n\n Since the version 3.4, this class extends the  interface. However some methods are only accessible in Java.\n")
 public class LocalMap<K,V> implements ReifiedType {
 
   @Ignore

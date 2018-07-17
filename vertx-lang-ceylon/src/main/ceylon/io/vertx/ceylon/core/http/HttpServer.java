@@ -15,6 +15,7 @@ import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.ceylon.core.streams.ReadStream;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
+import io.vertx.ceylon.core.net.SocketAddress;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " An HTTP and WebSockets server.\n <p>\n You receive HTTP requests by providing a [requestHandler](../http/HttpServer.type.html#requestHandler). As requests arrive on the server the handler\n will be called with the requests.\n <p>\n You receive WebSockets by providing a [websocketHandler](../http/HttpServer.type.html#websocketHandler). As WebSocket connections arrive on the server, the\n WebSocket is passed to the handler.\n")
@@ -170,6 +171,21 @@ public class HttpServer implements ReifiedType,  Measured {
       }
     };
     HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1, arg_2));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Tell the server to start listening on the given address supplying\n a handler that will be called when the server is actually\n listening (or has failed).\n")
+  @TypeInfo("io.vertx.ceylon.core.http::HttpServer")
+  public HttpServer listen(
+    final @TypeInfo("io.vertx.ceylon.core.net::SocketAddress") @Name("address")@DocAnnotation$annotation$(description = "the address to listen on\n") SocketAddress address, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.http::HttpServer)") @Name("listenHandler")@DocAnnotation$annotation$(description = "the listen handler\n") Callable<?> listenHandler) {
+    io.vertx.core.net.SocketAddress arg_0 = io.vertx.ceylon.core.net.SocketAddress.TO_JAVA.safeConvert(address);
+    io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.http.HttpServer>> arg_1 = listenHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.http.HttpServer>(listenHandler) {
+      public Object toCeylon(io.vertx.core.http.HttpServer event) {
+        return io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(event);
+      }
+    };
+    HttpServer ret = io.vertx.ceylon.core.http.HttpServer.TO_CEYLON.converter().safeConvert(delegate.listen(arg_0, arg_1));
     return this;
   }
 

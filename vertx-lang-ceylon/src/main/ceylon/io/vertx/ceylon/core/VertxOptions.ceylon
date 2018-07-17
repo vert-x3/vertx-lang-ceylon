@@ -35,8 +35,10 @@ import io.vertx.core.json {
 shared class VertxOptions(
   " Sets the address resolver configuration to configure resolving DNS servers, cache TTL, etc...\n"
   shared AddressResolverOptions? addressResolverOptions = null,
-  " Sets the value of blocked thread check period, in ms.\n"
+  " Sets the value of blocked thread check period, in [#setBlockedThreadCheckIntervalUnit blockedThreadCheckIntervalUnit](VertxOptions.type.html).\n <p>\n The default value of [#setBlockedThreadCheckIntervalUnit blockedThreadCheckIntervalUnit](VertxOptions.type.html) is \n"
   shared Integer? blockedThreadCheckInterval = null,
+  " Set the time unit of <code>blockedThreadCheckInterval</code>.\n"
+  shared String? blockedThreadCheckIntervalUnit = null,
   " Set the hostname to be used for clustering.\n"
   shared String? clusterHost = null,
   " Set the value of cluster ping interval, in ms.\n"
@@ -63,18 +65,24 @@ shared class VertxOptions(
   shared String? haGroup = null,
   " Set the value of internal blocking pool size\n"
   shared Integer? internalBlockingPoolSize = null,
-  " Sets the value of max event loop execute time, in ns.\n"
+  " Sets the value of max event loop execute time, in [#setMaxEventLoopExecuteTimeUnit maxEventLoopExecuteTimeUnit](VertxOptions.type.html).\n <p>\n The default value of [#setMaxEventLoopExecuteTimeUnit maxEventLoopExecuteTimeUnit](VertxOptions.type.html)is \n"
   shared Integer? maxEventLoopExecuteTime = null,
-  " Sets the value of max worker execute time, in ns.\n"
+  " Set the time unit of <code>maxEventLoopExecuteTime</code>.\n"
+  shared String? maxEventLoopExecuteTimeUnit = null,
+  " Sets the value of max worker execute time, in [#setMaxWorkerExecuteTimeUnit maxWorkerExecuteTimeUnit](VertxOptions.type.html).\n <p>\n The default value of [#setMaxWorkerExecuteTimeUnit maxWorkerExecuteTimeUnit](VertxOptions.type.html) is \n"
   shared Integer? maxWorkerExecuteTime = null,
+  " Set the time unit of <code>maxWorkerExecuteTime</code>.\n"
+  shared String? maxWorkerExecuteTimeUnit = null,
   " Set the metrics options\n"
   shared MetricsOptions? metricsOptions = null,
   " Set wether to prefer the native transport to the JDK transport.\n"
   shared Boolean? preferNativeTransport = null,
   " Set the quorum size to be used when HA is enabled.\n"
   shared Integer? quorumSize = null,
-  " Set the threshold value above this, the blocked warning contains a stack trace.\n"
+  " Set the threshold value above this, the blocked warning contains a stack trace. in [#setWarningExceptionTimeUnit warningExceptionTimeUnit](VertxOptions.type.html).\n The default value of [#setWarningExceptionTimeUnit warningExceptionTimeUnit](VertxOptions.type.html) is \n"
   shared Integer? warningExceptionTime = null,
+  " Set the time unit of <code>warningExceptionTime</code>.\n"
+  shared String? warningExceptionTimeUnit = null,
   " Set the maximum number of worker threads to be used by the Vert.x instance.\n"
   shared Integer? workerPoolSize = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
@@ -84,6 +92,9 @@ shared class VertxOptions(
     }
     if (exists blockedThreadCheckInterval) {
       json.put("blockedThreadCheckInterval", blockedThreadCheckInterval);
+    }
+    if (exists blockedThreadCheckIntervalUnit) {
+      json.put("blockedThreadCheckIntervalUnit", blockedThreadCheckIntervalUnit);
     }
     if (exists clusterHost) {
       json.put("clusterHost", clusterHost);
@@ -127,8 +138,14 @@ shared class VertxOptions(
     if (exists maxEventLoopExecuteTime) {
       json.put("maxEventLoopExecuteTime", maxEventLoopExecuteTime);
     }
+    if (exists maxEventLoopExecuteTimeUnit) {
+      json.put("maxEventLoopExecuteTimeUnit", maxEventLoopExecuteTimeUnit);
+    }
     if (exists maxWorkerExecuteTime) {
       json.put("maxWorkerExecuteTime", maxWorkerExecuteTime);
+    }
+    if (exists maxWorkerExecuteTimeUnit) {
+      json.put("maxWorkerExecuteTimeUnit", maxWorkerExecuteTimeUnit);
     }
     if (exists metricsOptions) {
       json.put("metricsOptions", metricsOptions.toJson());
@@ -142,6 +159,9 @@ shared class VertxOptions(
     if (exists warningExceptionTime) {
       json.put("warningExceptionTime", warningExceptionTime);
     }
+    if (exists warningExceptionTimeUnit) {
+      json.put("warningExceptionTimeUnit", warningExceptionTimeUnit);
+    }
     if (exists workerPoolSize) {
       json.put("workerPoolSize", workerPoolSize);
     }
@@ -154,6 +174,7 @@ shared object vertxOptions {
   shared VertxOptions fromJson(JsonObject json) {
     AddressResolverOptions? addressResolverOptions = if (exists tmp = json.getObjectOrNull("addressResolverOptions")) then addressResolverOptions_.fromJson(tmp) else null;
     Integer? blockedThreadCheckInterval = json.getIntegerOrNull("blockedThreadCheckInterval");
+    String? blockedThreadCheckIntervalUnit = json.getStringOrNull("blockedThreadCheckIntervalUnit");
     String? clusterHost = json.getStringOrNull("clusterHost");
     Integer? clusterPingInterval = json.getIntegerOrNull("clusterPingInterval");
     Integer? clusterPingReplyInterval = json.getIntegerOrNull("clusterPingReplyInterval");
@@ -168,15 +189,19 @@ shared object vertxOptions {
     String? haGroup = json.getStringOrNull("haGroup");
     Integer? internalBlockingPoolSize = json.getIntegerOrNull("internalBlockingPoolSize");
     Integer? maxEventLoopExecuteTime = json.getIntegerOrNull("maxEventLoopExecuteTime");
+    String? maxEventLoopExecuteTimeUnit = json.getStringOrNull("maxEventLoopExecuteTimeUnit");
     Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
+    String? maxWorkerExecuteTimeUnit = json.getStringOrNull("maxWorkerExecuteTimeUnit");
     MetricsOptions? metricsOptions = if (exists tmp = json.getObjectOrNull("metricsOptions")) then metricsOptions_.fromJson(tmp) else null;
     Boolean? preferNativeTransport = json.getBooleanOrNull("preferNativeTransport");
     Integer? quorumSize = json.getIntegerOrNull("quorumSize");
     Integer? warningExceptionTime = json.getIntegerOrNull("warningExceptionTime");
+    String? warningExceptionTimeUnit = json.getStringOrNull("warningExceptionTimeUnit");
     Integer? workerPoolSize = json.getIntegerOrNull("workerPoolSize");
     return VertxOptions {
       addressResolverOptions = addressResolverOptions;
       blockedThreadCheckInterval = blockedThreadCheckInterval;
+      blockedThreadCheckIntervalUnit = blockedThreadCheckIntervalUnit;
       clusterHost = clusterHost;
       clusterPingInterval = clusterPingInterval;
       clusterPingReplyInterval = clusterPingReplyInterval;
@@ -191,11 +216,14 @@ shared object vertxOptions {
       haGroup = haGroup;
       internalBlockingPoolSize = internalBlockingPoolSize;
       maxEventLoopExecuteTime = maxEventLoopExecuteTime;
+      maxEventLoopExecuteTimeUnit = maxEventLoopExecuteTimeUnit;
       maxWorkerExecuteTime = maxWorkerExecuteTime;
+      maxWorkerExecuteTimeUnit = maxWorkerExecuteTimeUnit;
       metricsOptions = metricsOptions;
       preferNativeTransport = preferNativeTransport;
       quorumSize = quorumSize;
       warningExceptionTime = warningExceptionTime;
+      warningExceptionTimeUnit = warningExceptionTimeUnit;
       workerPoolSize = workerPoolSize;
     };
   }

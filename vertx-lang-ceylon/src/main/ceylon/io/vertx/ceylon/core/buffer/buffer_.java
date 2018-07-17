@@ -14,6 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.shareddata.impl.ClusterSerializable;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.shareddata.Shareable;
 
 @Ceylon(major = 8)
 @Name("buffer")

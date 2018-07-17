@@ -14,11 +14,15 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
-import io.vertx.ext.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Simplified factory to create an  for Keycloak.\n")
-public class KeycloakAuth implements ReifiedType {
+public class KeycloakAuth extends OpenIDConnectAuth implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.KeycloakAuth, KeycloakAuth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.KeycloakAuth, KeycloakAuth>() {
@@ -42,6 +46,7 @@ public class KeycloakAuth implements ReifiedType {
   @Ignore private final io.vertx.ext.auth.oauth2.providers.KeycloakAuth delegate;
 
   public KeycloakAuth(io.vertx.ext.auth.oauth2.providers.KeycloakAuth delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 

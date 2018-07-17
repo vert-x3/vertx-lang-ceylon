@@ -14,7 +14,11 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
-import io.vertx.ext.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
+import io.vertx.ceylon.auth.oauth2.OAuth2FlowType;
 
 @Ceylon(major = 8)
 @Name("keycloakAuth")
@@ -51,10 +55,10 @@ public class keycloakAuth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("flow")@DocAnnotation$annotation$(description = "the oauth2 flow to use\n") ceylon.language.String flow, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2FlowType") @Name("flow")@DocAnnotation$annotation$(description = "the oauth2 flow to use\n") io.vertx.ceylon.auth.oauth2.OAuth2FlowType flow, 
     final @TypeInfo("ceylon.json::Object") @Name("config")@DocAnnotation$annotation$(description = "the json config file exported from Keycloak admin console\n") ceylon.json.Object config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.ext.auth.oauth2.OAuth2FlowType.class).safeConvert(flow);
+    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.ceylon.auth.oauth2.oAuth2FlowType_.get_().getToJava().safeConvert(flow);
     io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(config);
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.providers.KeycloakAuth.create(arg_0, arg_1, arg_2));
     return ret;
@@ -77,11 +81,11 @@ public class keycloakAuth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("flow")@DocAnnotation$annotation$(description = "the oauth2 flow to use\n") ceylon.language.String flow, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2FlowType") @Name("flow")@DocAnnotation$annotation$(description = "the oauth2 flow to use\n") io.vertx.ceylon.auth.oauth2.OAuth2FlowType flow, 
     final @TypeInfo("ceylon.json::Object") @Name("config")@DocAnnotation$annotation$(description = "the json config file exported from Keycloak admin console\n") ceylon.json.Object config, 
     final @TypeInfo("io.vertx.ceylon.core.http::HttpClientOptions") @Name("httpClientOptions")@DocAnnotation$annotation$(description = "custom http client options\n") io.vertx.ceylon.core.http.HttpClientOptions httpClientOptions) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.ext.auth.oauth2.OAuth2FlowType.class).safeConvert(flow);
+    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.ceylon.auth.oauth2.oAuth2FlowType_.get_().getToJava().safeConvert(flow);
     io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(config);
     io.vertx.core.http.HttpClientOptions arg_3 = httpClientOptions == null ? null : new io.vertx.core.http.HttpClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(httpClientOptions.toJson()));
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.providers.KeycloakAuth.create(arg_0, arg_1, arg_2, arg_3));

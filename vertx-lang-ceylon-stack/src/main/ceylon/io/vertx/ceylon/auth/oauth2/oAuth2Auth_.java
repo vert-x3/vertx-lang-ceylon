@@ -17,7 +17,6 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.AsyncResult;
 import io.vertx.ext.auth.impl.AuthProviderInternal;
 import io.vertx.core.Handler;
-import io.vertx.ext.auth.oauth2.OAuth2FlowType;
 
 @Ceylon(major = 8)
 @Name("oAuth2Auth")
@@ -43,10 +42,10 @@ public class oAuth2Auth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth createKeycloak(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("flow") ceylon.language.String flow, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2FlowType") @Name("flow") io.vertx.ceylon.auth.oauth2.OAuth2FlowType flow, 
     final @TypeInfo("ceylon.json::Object") @Name("config")@DocAnnotation$annotation$(description = "the config as exported from the admin console\n") ceylon.json.Object config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.ext.auth.oauth2.OAuth2FlowType.class).safeConvert(flow);
+    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.ceylon.auth.oauth2.oAuth2FlowType_.get_().getToJava().safeConvert(flow);
     io.vertx.core.json.JsonObject arg_2 = io.vertx.lang.ceylon.ToJava.JsonObject.safeConvert(config);
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.OAuth2Auth.createKeycloak(arg_0, arg_1, arg_2));
     return ret;
@@ -56,10 +55,10 @@ public class oAuth2Auth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("flow") ceylon.language.String flow, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2FlowType") @Name("flow") io.vertx.ceylon.auth.oauth2.OAuth2FlowType flow, 
     final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2ClientOptions") @Name("config")@DocAnnotation$annotation$(description = "the config\n") io.vertx.ceylon.auth.oauth2.OAuth2ClientOptions config) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.ext.auth.oauth2.OAuth2FlowType.class).safeConvert(flow);
+    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.ceylon.auth.oauth2.oAuth2FlowType_.get_().getToJava().safeConvert(flow);
     io.vertx.ext.auth.oauth2.OAuth2ClientOptions arg_2 = config == null ? null : new io.vertx.ext.auth.oauth2.OAuth2ClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(config.toJson()));
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.OAuth2Auth.create(arg_0, arg_1, arg_2));
     return ret;
@@ -69,9 +68,29 @@ public class oAuth2Auth_ implements ReifiedType {
   @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
   public OAuth2Auth create(
     final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 
-    final @TypeInfo("ceylon.language::String") @Name("flow") ceylon.language.String flow) {
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2FlowType") @Name("flow") io.vertx.ceylon.auth.oauth2.OAuth2FlowType flow) {
     io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
-    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.lang.ceylon.ToJava.enumeration(io.vertx.ext.auth.oauth2.OAuth2FlowType.class).safeConvert(flow);
+    io.vertx.ext.auth.oauth2.OAuth2FlowType arg_1 = io.vertx.ceylon.auth.oauth2.oAuth2FlowType_.get_().getToJava().safeConvert(flow);
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.OAuth2Auth.create(arg_0, arg_1));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a OAuth2 auth provider\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth create(
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx) {
+    io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
+    OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.OAuth2Auth.create(arg_0));
+    return ret;
+  }
+
+  @DocAnnotation$annotation$(description = " Create a OAuth2 auth provider\n")
+  @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2Auth")
+  public OAuth2Auth create(
+    final @TypeInfo("io.vertx.ceylon.core::Vertx") @Name("vertx")@DocAnnotation$annotation$(description = "the Vertx instance\n") Vertx vertx, 
+    final @TypeInfo("io.vertx.ceylon.auth.oauth2::OAuth2ClientOptions") @Name("config")@DocAnnotation$annotation$(description = "the config\n") io.vertx.ceylon.auth.oauth2.OAuth2ClientOptions config) {
+    io.vertx.core.Vertx arg_0 = io.vertx.ceylon.core.Vertx.TO_JAVA.safeConvert(vertx);
+    io.vertx.ext.auth.oauth2.OAuth2ClientOptions arg_1 = config == null ? null : new io.vertx.ext.auth.oauth2.OAuth2ClientOptions(io.vertx.lang.ceylon.ToJava.JsonObject.convert(config.toJson()));
     OAuth2Auth ret = io.vertx.ceylon.auth.oauth2.OAuth2Auth.TO_CEYLON.converter().safeConvert(io.vertx.ext.auth.oauth2.OAuth2Auth.create(arg_0, arg_1));
     return ret;
   }

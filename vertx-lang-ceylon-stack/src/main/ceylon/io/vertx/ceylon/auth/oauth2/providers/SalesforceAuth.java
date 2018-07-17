@@ -13,10 +13,12 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Simplified factory to create an  for Salesforce.\n")
-public class SalesforceAuth implements ReifiedType {
+public class SalesforceAuth extends OpenIDConnectAuth implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.SalesforceAuth, SalesforceAuth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.SalesforceAuth, SalesforceAuth>() {
@@ -40,6 +42,7 @@ public class SalesforceAuth implements ReifiedType {
   @Ignore private final io.vertx.ext.auth.oauth2.providers.SalesforceAuth delegate;
 
   public SalesforceAuth(io.vertx.ext.auth.oauth2.providers.SalesforceAuth delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 

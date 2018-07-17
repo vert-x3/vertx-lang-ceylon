@@ -33,6 +33,7 @@ import io.vertx.core.json {
 /* Generated from io.vertx.ext.auth.jwt.JWTAuthOptions */
 " Options describing how an JWT Auth should behave.\n"
 shared class JWTAuthOptions(
+  shared {JsonObject*}? jwks = null,
   shared JWTOptions? jwtOptions = null,
   shared KeyStoreOptions? keyStore = null,
   shared String? permissionsClaimKey = null,
@@ -40,6 +41,9 @@ shared class JWTAuthOptions(
   shared {SecretOptions*}? secrets = null) satisfies BaseDataObject {
   shared actual default JsonObject toJson() {
     value json = JsonObject();
+    if (exists jwks) {
+      json.put("jwks", JsonArray(jwks));
+    }
     if (exists jwtOptions) {
       json.put("jwtOptions", jwtOptions.toJson());
     }
@@ -62,12 +66,14 @@ shared class JWTAuthOptions(
 shared object jwtAuthOptions {
 
   shared JWTAuthOptions fromJson(JsonObject json) {
+    {JsonObject*}? jwks = json.getArrayOrNull("jwks")?.objects;
     JWTOptions? jwtOptions = if (exists tmp = json.getObjectOrNull("jwtOptions")) then jwtOptions_.fromJson(tmp) else null;
     KeyStoreOptions? keyStore = if (exists tmp = json.getObjectOrNull("keyStore")) then keyStoreOptions_.fromJson(tmp) else null;
     String? permissionsClaimKey = json.getStringOrNull("permissionsClaimKey");
     {PubSecKeyOptions*}? pubSecKeys = json.getArrayOrNull("pubSecKeys")?.objects?.map(pubSecKeyOptions_.fromJson);
     {SecretOptions*}? secrets = json.getArrayOrNull("secrets")?.objects?.map(secretOptions_.fromJson);
     return JWTAuthOptions {
+      jwks = jwks;
       jwtOptions = jwtOptions;
       keyStore = keyStore;
       permissionsClaimKey = permissionsClaimKey;

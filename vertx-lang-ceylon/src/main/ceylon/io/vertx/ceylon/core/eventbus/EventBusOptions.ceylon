@@ -62,6 +62,7 @@ shared class EventBusOptions(
   " Sets the host.\n"
   shared String? host = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   JksOptions? keyStoreOptions = null,
   Boolean? logActivity = null,
@@ -97,6 +98,7 @@ shared class EventBusOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  idleTimeoutUnit,
   jdkSslEngineOptions,
   keyStoreOptions,
   logActivity,
@@ -181,6 +183,7 @@ shared object eventBusOptions {
     {String*}? enabledSecureTransportProtocols = null /* java.lang.String not handled */;
     String? host = json.getStringOrNull("host");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
@@ -222,6 +225,7 @@ shared object eventBusOptions {
       enabledSecureTransportProtocols = enabledSecureTransportProtocols;
       host = host;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keyStoreOptions = keyStoreOptions;
       logActivity = logActivity;

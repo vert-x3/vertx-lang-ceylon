@@ -14,6 +14,7 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.shareddata.impl.ClusterSerializable;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.shareddata.Shareable;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Most data is shuffled around inside Vert.x using buffers.\n <p>\n A buffer is a sequence of zero or more bytes that can read from or written to and which expands automatically as\n necessary to accommodate any bytes written to it. You can perhaps think of a buffer as smart byte array.\n <p>\n Please consult the documentation for more information on buffers.\n")

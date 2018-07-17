@@ -33,8 +33,10 @@ shared class DeploymentOptions(
   shared {String*}? isolatedClasses = null,
   " Set the isolation group that will be used when deploying the verticle(s)\n"
   shared String? isolationGroup = null,
-  " Sets the value of max worker execute time, in ns.\n"
+  " Sets the value of max worker execute time, in [#setMaxWorkerExecuteTimeUnit maxWorkerExecuteTimeUnit](DeploymentOptions.type.html).\n <p>\n The default value of [#setMaxWorkerExecuteTimeUnit maxWorkerExecuteTimeUnit](DeploymentOptions.type.html) is \n"
   shared Integer? maxWorkerExecuteTime = null,
+  " Set the time unit of <code>maxWorkerExecuteTime</code>\n"
+  shared String? maxWorkerExecuteTimeUnit = null,
   " Set whether the verticle(s) should be deployed as a multi-threaded worker verticle\n"
   shared Boolean? multiThreaded = null,
   " Set whether the verticle(s) should be deployed as a worker verticle\n"
@@ -66,6 +68,9 @@ shared class DeploymentOptions(
     if (exists maxWorkerExecuteTime) {
       json.put("maxWorkerExecuteTime", maxWorkerExecuteTime);
     }
+    if (exists maxWorkerExecuteTimeUnit) {
+      json.put("maxWorkerExecuteTimeUnit", maxWorkerExecuteTimeUnit);
+    }
     if (exists multiThreaded) {
       json.put("multiThreaded", multiThreaded);
     }
@@ -92,6 +97,7 @@ shared object deploymentOptions {
     {String*}? isolatedClasses = json.getArrayOrNull("isolatedClasses")?.strings;
     String? isolationGroup = json.getStringOrNull("isolationGroup");
     Integer? maxWorkerExecuteTime = json.getIntegerOrNull("maxWorkerExecuteTime");
+    String? maxWorkerExecuteTimeUnit = json.getStringOrNull("maxWorkerExecuteTimeUnit");
     Boolean? multiThreaded = json.getBooleanOrNull("multiThreaded");
     Boolean? worker = json.getBooleanOrNull("worker");
     String? workerPoolName = json.getStringOrNull("workerPoolName");
@@ -104,6 +110,7 @@ shared object deploymentOptions {
       isolatedClasses = isolatedClasses;
       isolationGroup = isolationGroup;
       maxWorkerExecuteTime = maxWorkerExecuteTime;
+      maxWorkerExecuteTimeUnit = maxWorkerExecuteTimeUnit;
       multiThreaded = multiThreaded;
       worker = worker;
       workerPoolName = workerPoolName;

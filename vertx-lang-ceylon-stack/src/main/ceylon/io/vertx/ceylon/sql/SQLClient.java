@@ -58,7 +58,7 @@ public class SQLClient implements ReifiedType,  SQLOperations {
   @TypeInfo("io.vertx.ceylon.sql::SQLOperations")
   public SQLOperations querySingle(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array?)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_1 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonArray>(handler) {
       public Object toCeylon(io.vertx.core.json.JsonArray event) {
@@ -74,7 +74,7 @@ public class SQLClient implements ReifiedType,  SQLOperations {
   public SQLOperations querySingleWithParams(
     final @TypeInfo("ceylon.language::String") @Name("sql")@DocAnnotation$annotation$(description = "the statement to execute\n") ceylon.language.String sql, 
     final @TypeInfo("ceylon.json::Array") @Name("arguments")@DocAnnotation$annotation$(description = "the arguments\n") ceylon.json.Array arguments, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|ceylon.json::Array?)") @Name("handler")@DocAnnotation$annotation$(description = "the result handler\n") Callable<?> handler) {
     java.lang.String arg_0 = io.vertx.lang.ceylon.ToJava.String.safeConvert(sql);
     io.vertx.core.json.JsonArray arg_1 = io.vertx.lang.ceylon.ToJava.JsonArray.safeConvert(arguments);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>> arg_2 = handler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.json.JsonArray>(handler) {

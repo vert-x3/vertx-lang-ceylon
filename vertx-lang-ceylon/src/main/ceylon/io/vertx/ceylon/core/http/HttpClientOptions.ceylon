@@ -62,16 +62,21 @@ shared class HttpClientOptions(
   shared Boolean? http2ClearTextUpgrade = null,
   " Set the default HTTP/2 connection window size. It overrides the initial window\n size set by [getInitialWindowSize](../http/Http2Settings.type.html#getInitialWindowSize), so the connection window size\n is greater than for its streams, in order the data throughput.\n <p/>\n A value of <code>-1</code> reuses the initial window size setting.\n"
   shared Integer? http2ConnectionWindowSize = null,
+  " Set the keep alive timeout for HTTP/2 connections, in seconds.\n <p/>\n This value determines how long a connection remains unused in the pool before being evicted and closed.\n"
+  shared Integer? http2KeepAliveTimeout = null,
   " Set the maximum pool size for HTTP/2 connections\n"
   shared Integer? http2MaxPoolSize = null,
   " Set a client limit of the number concurrent streams for each HTTP/2 connection, this limits the number\n of streams the client can create for a connection. The effective number of streams for a\n connection is the min of this value and the server's initial settings.\n <p/>\n Setting the value to <code>-1</code> means to use the value sent by the server's initial settings.\n <code>-1</code> is the default value.\n"
   shared Integer? http2MultiplexingLimit = null,
   Integer? idleTimeout = null,
+  String? idleTimeoutUnit = null,
   " Set the HTTP/2 connection settings immediately sent by to the server when the client connects.\n"
   shared Http2Settings? initialSettings = null,
   JdkSSLEngineOptions? jdkSslEngineOptions = null,
   " Set whether keep alive is enabled on the client\n"
   shared Boolean? keepAlive = null,
+  " Set the keep alive timeout for HTTP/1.x, in seconds.\n <p/>\n This value determines how long a connection remains unused in the pool before being evicted and closed.\n"
+  shared Integer? keepAliveTimeout = null,
   JksOptions? keyStoreOptions = null,
   String? localAddress = null,
   Boolean? logActivity = null,
@@ -101,6 +106,8 @@ shared class HttpClientOptions(
   shared Boolean? pipelining = null,
   " Set the limit of pending requests a pipe-lined HTTP/1 connection can send.\n"
   shared Integer? pipeliningLimit = null,
+  " Set the connection pool cleaner period in milli seconds, a non positive value disables expiration checks and connections\n will remain in the pool until they are closed.\n"
+  shared Integer? poolCleanerPeriod = null,
   " Set the protocol version.\n"
   shared HttpVersion? protocolVersion = null,
   ProxyOptions? proxyOptions = null,
@@ -131,6 +138,7 @@ shared class HttpClientOptions(
   enabledCipherSuites,
   enabledSecureTransportProtocols,
   idleTimeout,
+  idleTimeoutUnit,
   jdkSslEngineOptions,
   keyStoreOptions,
   localAddress,
@@ -181,6 +189,9 @@ shared class HttpClientOptions(
     if (exists http2ConnectionWindowSize) {
       json.put("http2ConnectionWindowSize", http2ConnectionWindowSize);
     }
+    if (exists http2KeepAliveTimeout) {
+      json.put("http2KeepAliveTimeout", http2KeepAliveTimeout);
+    }
     if (exists http2MaxPoolSize) {
       json.put("http2MaxPoolSize", http2MaxPoolSize);
     }
@@ -192,6 +203,9 @@ shared class HttpClientOptions(
     }
     if (exists keepAlive) {
       json.put("keepAlive", keepAlive);
+    }
+    if (exists keepAliveTimeout) {
+      json.put("keepAliveTimeout", keepAliveTimeout);
     }
     if (exists maxChunkSize) {
       json.put("maxChunkSize", maxChunkSize);
@@ -223,6 +237,9 @@ shared class HttpClientOptions(
     if (exists pipeliningLimit) {
       json.put("pipeliningLimit", pipeliningLimit);
     }
+    if (exists poolCleanerPeriod) {
+      json.put("poolCleanerPeriod", poolCleanerPeriod);
+    }
     if (exists protocolVersion) {
       json.put("protocolVersion", httpVersion_.toString(protocolVersion));
     }
@@ -253,12 +270,15 @@ shared object httpClientOptions {
     Boolean? forceSni = json.getBooleanOrNull("forceSni");
     Boolean? http2ClearTextUpgrade = json.getBooleanOrNull("http2ClearTextUpgrade");
     Integer? http2ConnectionWindowSize = json.getIntegerOrNull("http2ConnectionWindowSize");
+    Integer? http2KeepAliveTimeout = json.getIntegerOrNull("http2KeepAliveTimeout");
     Integer? http2MaxPoolSize = json.getIntegerOrNull("http2MaxPoolSize");
     Integer? http2MultiplexingLimit = json.getIntegerOrNull("http2MultiplexingLimit");
     Integer? idleTimeout = json.getIntegerOrNull("idleTimeout");
+    String? idleTimeoutUnit = json.getStringOrNull("idleTimeoutUnit");
     Http2Settings? initialSettings = if (exists tmp = json.getObjectOrNull("initialSettings")) then http2Settings_.fromJson(tmp) else null;
     JdkSSLEngineOptions? jdkSslEngineOptions = if (exists tmp = json.getObjectOrNull("jdkSslEngineOptions")) then jdkSSLEngineOptions_.fromJson(tmp) else null;
     Boolean? keepAlive = json.getBooleanOrNull("keepAlive");
+    Integer? keepAliveTimeout = json.getIntegerOrNull("keepAliveTimeout");
     JksOptions? keyStoreOptions = if (exists tmp = json.getObjectOrNull("keyStoreOptions")) then jksOptions_.fromJson(tmp) else null;
     String? localAddress = json.getStringOrNull("localAddress");
     Boolean? logActivity = json.getBooleanOrNull("logActivity");
@@ -278,6 +298,7 @@ shared object httpClientOptions {
     PfxOptions? pfxTrustOptions = if (exists tmp = json.getObjectOrNull("pfxTrustOptions")) then pfxOptions_.fromJson(tmp) else null;
     Boolean? pipelining = json.getBooleanOrNull("pipelining");
     Integer? pipeliningLimit = json.getIntegerOrNull("pipeliningLimit");
+    Integer? poolCleanerPeriod = json.getIntegerOrNull("poolCleanerPeriod");
     HttpVersion? protocolVersion = if (exists tmp = json.getStringOrNull("protocolVersion")) then httpVersion_.fromString(tmp) else null;
     ProxyOptions? proxyOptions = if (exists tmp = json.getObjectOrNull("proxyOptions")) then proxyOptions_.fromJson(tmp) else null;
     Integer? receiveBufferSize = json.getIntegerOrNull("receiveBufferSize");
@@ -311,12 +332,15 @@ shared object httpClientOptions {
       forceSni = forceSni;
       http2ClearTextUpgrade = http2ClearTextUpgrade;
       http2ConnectionWindowSize = http2ConnectionWindowSize;
+      http2KeepAliveTimeout = http2KeepAliveTimeout;
       http2MaxPoolSize = http2MaxPoolSize;
       http2MultiplexingLimit = http2MultiplexingLimit;
       idleTimeout = idleTimeout;
+      idleTimeoutUnit = idleTimeoutUnit;
       initialSettings = initialSettings;
       jdkSslEngineOptions = jdkSslEngineOptions;
       keepAlive = keepAlive;
+      keepAliveTimeout = keepAliveTimeout;
       keyStoreOptions = keyStoreOptions;
       localAddress = localAddress;
       logActivity = logActivity;
@@ -336,6 +360,7 @@ shared object httpClientOptions {
       pfxTrustOptions = pfxTrustOptions;
       pipelining = pipelining;
       pipeliningLimit = pipeliningLimit;
+      poolCleanerPeriod = poolCleanerPeriod;
       protocolVersion = protocolVersion;
       proxyOptions = proxyOptions;
       receiveBufferSize = receiveBufferSize;

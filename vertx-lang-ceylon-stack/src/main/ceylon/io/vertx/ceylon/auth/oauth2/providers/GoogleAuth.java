@@ -14,10 +14,12 @@ import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Simplified factory to create an [OAuth2Auth](OAuth2Auth.type.html) for Google.\n")
-public class GoogleAuth implements ReifiedType {
+public class GoogleAuth extends OpenIDConnectAuth implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.GoogleAuth, GoogleAuth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.GoogleAuth, GoogleAuth>() {
@@ -41,6 +43,7 @@ public class GoogleAuth implements ReifiedType {
   @Ignore private final io.vertx.ext.auth.oauth2.providers.GoogleAuth delegate;
 
   public GoogleAuth(io.vertx.ext.auth.oauth2.providers.GoogleAuth delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 

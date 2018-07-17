@@ -19,6 +19,7 @@ import io.vertx.core.AsyncResult;
 import io.vertx.ceylon.core.net.NetClient;
 import java.util.Set;
 import io.vertx.ceylon.core.dns.DnsClient;
+import java.util.concurrent.TimeUnit;
 import io.vertx.ceylon.core.metrics.Measured;
 import io.vertx.ceylon.core.net.NetServer;
 import io.vertx.ceylon.core.file.FileSystem;

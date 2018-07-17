@@ -13,10 +13,12 @@ import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import io.vertx.ceylon.core.Vertx;
 import io.vertx.ceylon.auth.oauth2.OAuth2Auth;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 
 @Ceylon(major = 8)
 @DocAnnotation$annotation$(description = " Simplified factory to create an  for Azure AD.\n")
-public class AzureADAuth implements ReifiedType {
+public class AzureADAuth extends OpenIDConnectAuth implements ReifiedType {
 
   @Ignore
   public static final io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.AzureADAuth, AzureADAuth> TO_CEYLON = new io.vertx.lang.ceylon.ConverterFactory<io.vertx.ext.auth.oauth2.providers.AzureADAuth, AzureADAuth>() {
@@ -40,6 +42,7 @@ public class AzureADAuth implements ReifiedType {
   @Ignore private final io.vertx.ext.auth.oauth2.providers.AzureADAuth delegate;
 
   public AzureADAuth(io.vertx.ext.auth.oauth2.providers.AzureADAuth delegate) {
+    super(delegate);
     this.delegate = delegate;
   }
 

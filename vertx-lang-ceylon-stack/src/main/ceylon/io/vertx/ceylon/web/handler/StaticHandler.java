@@ -12,6 +12,7 @@ import com.redhat.ceylon.compiler.java.runtime.model.ReifiedType;
 import ceylon.language.Callable;
 import ceylon.language.DocAnnotation$annotation$;
 import java.util.List;
+import java.util.Set;
 import io.vertx.ceylon.web.RoutingContext;
 import io.vertx.core.Handler;
 
@@ -157,6 +158,24 @@ public class StaticHandler implements ReifiedType {
     final @TypeInfo("ceylon.language::List<io.vertx.ceylon.web::Http2PushMapping>") @Name("http2PushMappings")@DocAnnotation$annotation$(description = "the mapping for http2 push\n") ceylon.language.List<io.vertx.ceylon.web.Http2PushMapping> http2PushMappings) {
     java.util.List<io.vertx.ext.web.Http2PushMapping> arg_0 = io.vertx.lang.ceylon.ToJava.convertList(http2PushMappings, io.vertx.ceylon.web.http2PushMapping_.get_().getToJava());
     StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.setHttp2PushMapping(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Skip compression if the media type of the file to send is in the provided <code>mediaTypes</code> set.\n <code>Content-Encoding</code> header set to <code>identity</code> for the types present in the <code>mediaTypes</code> set\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler skipCompressionForMediaTypes(
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("mediaTypes")@DocAnnotation$annotation$(description = "the set of mime types that are already compressed\n") ceylon.language.Set<ceylon.language.String> mediaTypes) {
+    java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(mediaTypes, io.vertx.lang.ceylon.ToJava.String);
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.skipCompressionForMediaTypes(arg_0));
+    return this;
+  }
+
+  @DocAnnotation$annotation$(description = " Skip compression if the suffix of the file to send is in the provided <code>fileSuffixes</code> set.\n <code>Content-Encoding</code> header set to <code>identity</code> for the suffixes present in the <code>fileSuffixes</code> set\n")
+  @TypeInfo("io.vertx.ceylon.web.handler::StaticHandler")
+  public StaticHandler skipCompressionForSuffixes(
+    final @TypeInfo("ceylon.language::Set<ceylon.language::String>") @Name("fileSuffixes")@DocAnnotation$annotation$(description = "the set of file suffixes that are already compressed\n") ceylon.language.Set<ceylon.language.String> fileSuffixes) {
+    java.util.Set<java.lang.String> arg_0 = io.vertx.lang.ceylon.ToJava.convertSet(fileSuffixes, io.vertx.lang.ceylon.ToJava.String);
+    StaticHandler ret = io.vertx.ceylon.web.handler.StaticHandler.TO_CEYLON.converter().safeConvert(delegate.skipCompressionForSuffixes(arg_0));
     return this;
   }
 
