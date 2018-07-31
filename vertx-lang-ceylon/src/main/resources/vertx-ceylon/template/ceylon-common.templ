@@ -370,7 +370,11 @@
     } else if (kind == CLASS_DATA_OBJECT) {
       decl = type.translatePackageName(TRANSLATOR_COMPOSITE) + "." + type.simpleName;
     } else if (kind == CLASS_VOID) {
-      decl = 'Anything';
+      if (type.void) {
+        decl = 'void';
+      } else {
+        decl = 'Anything';
+      }
     } else if (kind == CLASS_LIST) {
       decl = 'ceylon.language.List<' + genJavaInterropTypeDecl(type.args[0]) + '>';
     } else if (kind == CLASS_SET) {
@@ -385,10 +389,6 @@
       decl = 'ceylon.json.Object';
     } else if (kind == CLASS_JSON_ARRAY) {
       decl = 'ceylon.json.Array';
-    } else if (kind == CLASS_OTHER) {
-      if (type.void) {
-        decl = 'void';
-      }
     }
     return decl;
   }
