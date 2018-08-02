@@ -3,6 +3,7 @@
 @declare{'genClassMembers'}
 
 	@foreach{method:instanceMethods}
+	@if{!method.isContainingAnyJavaType}
 		@if{method.cacheReturn}
 			@code{cachedType=genJavaInterropTypeDecl(method.returnType)}
 			@if{method.returnType.kind == CLASS_PRIMITIVE}
@@ -20,6 +21,7 @@
 			@end{}
 @{indent}@Ignore private @{cachedType} cached_@{method.name};\n
 		@end{}
+	@end{}
 	@end{}
 
 	@if{type.params.size() > 0}
@@ -64,14 +66,16 @@ null /* Not implememented */
 @{indent}}\n
 
 @foreach{method:instanceMethods}\n
-	@if{method.name == 'toString' && method.params.empty}
+	@if{!method.isContainingAnyJavaType}
+		@if{method.name == 'toString' && method.params.empty}
   public java.lang.String toString() {\n
     return delegate.toString();\n
   }\n
-	@else{}
-		@includeNamed{'genMethodDecl'} {\n
-		@includeNamed{'genMethodBody'}
-		@{indent}}\n
+		@else{}
+			@includeNamed{'genMethodDecl'} {\n
+			@includeNamed{'genMethodBody'}
+			@{indent}}\n
+		@end{}
 	@end{}
 @end{}
 
@@ -140,8 +144,10 @@ public @if{concrete}class@else{}interface@end{} @{type.simpleName}@includeNamed{
 	  Object getDelegate();\n
 
 	@foreach{method:instanceMethods}
-		\n
-		@includeNamed{'genMethodDecl'};\n
+		@if{!method.isContainingAnyJavaType}
+			\n
+			@includeNamed{'genMethodDecl'};\n
+		@end{}
 	@end{}
 
 	\n  @Ignore\n

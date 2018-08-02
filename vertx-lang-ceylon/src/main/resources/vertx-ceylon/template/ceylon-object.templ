@@ -30,9 +30,11 @@ public class @{objectName}_ implements ReifiedType {\n
   }\n
 \n
 @foreach{method:staticMethods}\n
-@includeNamed{'genMethodDecl'} {\n
-@includeNamed{'genMethodBody'}
-@{indent}}\n
+	@if{!method.isContainingAnyJavaType}
+		@includeNamed{'genMethodDecl'} {\n
+		@includeNamed{'genMethodBody'}
+		@{indent}}\n
+	@end{}
 @end{}
 \n
 }\n
