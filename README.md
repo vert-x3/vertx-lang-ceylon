@@ -3,7 +3,7 @@ vertx-lang-ceylon
 
 ## CI
 
-  [![Build Status](https://vertx.ci.cloudbees.com/buildStatus/icon?job=vert.x3-lang-ceylon)](https://vertx.ci.cloudbees.com/view/vert.x-3/job/vert.x3-lang-ceylon/)
+[![Build Status](https://travis-ci.org/vert-x3/vertx-lang-ceylon.svg?branch=master)](https://travis-ci.org/vert-x3/vertx-lang-ceylon)
 
 ## Documentation
 
