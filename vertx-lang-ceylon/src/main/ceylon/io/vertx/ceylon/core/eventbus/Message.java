@@ -19,7 +19,7 @@ import io.vertx.core.Handler;
   @TypeParameter(value="T",variance=Variance.NONE)
 })
 @Ceylon(major = 8)
-@DocAnnotation$annotation$(description = " Represents a message that is received from the event bus in a handler.\n <p>\n Messages have a [body](../eventbus/Message.type.html#body), which can be null, and also [headers](../eventbus/Message.type.html#headers), which can be empty.\n <p>\n If the message was sent specifying a reply handler it will also have a [replyAddress](../eventbus/Message.type.html#replyAddress). In that case the message\n can be replied to using that reply address, or, more simply by just using [reply](../eventbus/Message.type.html#reply).\n <p>\n If you want to notify the sender that processing failed, then [fail](../eventbus/Message.type.html#fail) can be called.\n")
+@DocAnnotation$annotation$(description = " Represents a message that is received from the event bus in a handler.\n <p>\n Messages have a [body](../eventbus/Message.type.html#body), which can be null, and also [headers](../eventbus/Message.type.html#headers), which can be empty.\n <p>\n If the message was sent specifying a reply handler, it can be replied to using [reply](../eventbus/Message.type.html#reply).\n <p>\n If you want to notify the sender that processing failed, then [fail](../eventbus/Message.type.html#fail) can be called.\n")
 public class Message<T> implements ReifiedType {
 
   @Ignore

@@ -75,7 +75,7 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
     return ret;
   }
 
-  @DocAnnotation$annotation$(description = " Synonym for [write](../eventbus/MessageProducer.type.html#write).\n")
+  @DocAnnotation$annotation$(description = " This method actually sends a message using the send semantic regardless this producer\n is a sender or a publisher.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public MessageProducer<T> send(
     final @TypeInfo("T") @Name("message")@DocAnnotation$annotation$(description = "the message to send\n") T message) {
@@ -87,10 +87,11 @@ public class MessageProducer<T> implements ReifiedType,  WriteStream<T> {
   @TypeParameters({
     @TypeParameter(value="R",variance=Variance.NONE)
   })
+  @DocAnnotation$annotation$(description = " Like [send](../eventbus/MessageProducer.type.html#send) but specifying a <code>replyHandler</code> that will be called if the recipient\n subsequently replies to the message.\n")
   @TypeInfo("io.vertx.ceylon.core.eventbus::MessageProducer<T>")
   public <R> MessageProducer<T> send(final @Ignore TypeDescriptor $reified$R, 
-    final @TypeInfo("T") @Name("message") T message, 
-    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler") Callable<?> replyHandler) {
+    final @TypeInfo("T") @Name("message")@DocAnnotation$annotation$(description = "the message to send\n") T message, 
+    final @TypeInfo("ceylon.language::Anything(ceylon.language::Throwable|io.vertx.ceylon.core.eventbus::Message<R?>)") @Name("replyHandler")@DocAnnotation$annotation$(description = "reply handler will be called when any reply from the recipient is received, may be <code>null</code>\n") Callable<?> replyHandler) {
     java.lang.Object arg_0 = (T)io.vertx.lang.ceylon.VertxTypeDescriptor.getToJava($reified$T).convert(message);
     io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.eventbus.Message<java.lang.Object>>> arg_1 = replyHandler == null ? null : new io.vertx.lang.ceylon.CallableAsyncResultHandler<io.vertx.core.eventbus.Message<java.lang.Object>>(replyHandler) {
       public Object toCeylon(io.vertx.core.eventbus.Message<java.lang.Object> event) {

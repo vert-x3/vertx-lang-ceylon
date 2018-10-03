@@ -89,6 +89,15 @@ public class RecordParser implements ReifiedType,  ReadStream<Buffer> {
     delegate.fixedSizeMode(arg_0);
   }
 
+  @DocAnnotation$annotation$(description = " Set the maximum allowed size for a record when using the delimited mode.\n The delimiter itself does not count for the record size.\n <p>\n If a record is longer than specified, an `java.lang.IllegalStateException` will be thrown.\n")
+  @TypeInfo("io.vertx.ceylon.core.parsetools::RecordParser")
+  public RecordParser maxRecordSize(
+    final @TypeInfo("ceylon.language::Integer") @Name("size")@DocAnnotation$annotation$(description = "the maximum record size\n") long size) {
+    int arg_0 = (int)size;
+    RecordParser ret = io.vertx.ceylon.core.parsetools.RecordParser.TO_CEYLON.converter().safeConvert(delegate.maxRecordSize(arg_0));
+    return this;
+  }
+
   @DocAnnotation$annotation$(description = " This method is called to provide the parser with data.\n")
   @TypeInfo("ceylon.language::Anything")
   public void handle(
